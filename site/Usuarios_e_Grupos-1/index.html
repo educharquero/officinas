@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte. - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 Gerenciamento de Usu\u00e1rios e Grupos no Linux - Primeira parte.";
+        var mkdocs_page_input_path = "Usuarios_e_Grupos-1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#este-tutorial-abrange-os-comandos-essenciais-para-a-criacao-modificacao-e-exclusao-de-usuarios-e-grupos-alem-de-como-gerenciar-suas-permissoes-no-sistema-linux">Este tutorial abrange os comandos essenciais para a criação, modificação e exclusão de usuários e grupos, além de como gerenciar suas permissões no sistema Linux.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#no-linux-usuarios-sao-as-entidades-que-interagem-com-o-sistema-enquanto-grupos-sao-colecoes-de-usuarios-eles-sao-usados-para-organizar-usuarios-e-aplicar-permissoes-de-forma-eficiente">No Linux, usuários são as entidades que interagem com o sistema, enquanto grupos são coleções de usuários. Eles são usados para organizar usuários e aplicar permissões de forma eficiente.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criando-um-novo-usuario-use-o-comando-useradd">Criando um Novo Usuário, use o comando useradd.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opcoes-comuns">Opções Comuns:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#isso-cria-o-usuario-joaosilva-com-um-diretorio-home-bash-como-shell-padrao-e-o-adiciona-aos-grupos-www-data-e-sudo">Isso cria o usuário joaosilva com um diretório home, bash como shell padrão, e o adiciona aos grupos www-data e sudo.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#apos-criar-um-usuario-ele-esta-logando-sem-senha-voce-precisa-definir-uma-senha-para-ele-usando-o-comando-passwd">Após criar um usuário, ele está logando sem senha, você precisa definir uma senha para ele usando o comando passwd.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-sistema-ira-pedir-para-voce-digitar-a-nova-senha-duas-vezes">O sistema irá pedir para você digitar a nova senha duas vezes.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_1">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-comando-usermod-e-usado-para-modificar-as-propriedades-de-um-usuario">O comando usermod é usado para modificar as propriedades de um usuário.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opcoes-comuns_1">Opções Comuns:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplos">Exemplos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#para-adicionar-joaosilva-ao-grupo-docker-sem-remover-outros-grupos">Para adicionar joaosilva ao grupo docker sem remover outros grupos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#para-mudar-o-nome-de-usuario-de-joaosilva-para-jsilva">Para mudar o nome de usuário de joaosilva para jsilva:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#importante-apos-renomear-um-usuario-com-l-o-diretorio-home-e-o-grupo-primario-ainda-terao-o-nome-antigo-voce-precisara-renomea-los-manualmente">Importante: Após renomear um usuário com -l, o diretório home e o grupo primário ainda terão o nome antigo. Você precisará renomeá-los manualmente:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adiconar-um-usuario-a-um-grupo-especifico-com-o-comando-adduser">Adiconar um usuário á um grupo específico com o comando adduser:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adiconar-um-usuario-a-um-grupo-especifico-com-o-comando-gpasswd">Adiconar um usuário á um grupo específico com o comando gpasswd:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-o-comando-userdel-para-remover-um-usuario">Use o comando userdel para remover um usuário.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opcoes-comuns_2">Opções Comuns:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_2">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#31-criando-um-novo-grupo">3.1. Criando um Novo Grupo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-o-comando-groupadd-para-criar-um-novo-grupo">Use o comando groupadd para criar um novo grupo.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_3">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-comando-groupmod-e-usado-para-modificar-as-propriedades-de-um-grupo">O comando groupmod é usado para modificar as propriedades de um grupo.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#opcoes-comuns_3">Opções Comuns:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_4">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#para-mudar-o-nome-do-grupo-desenvolvedores-para-devs">Para mudar o nome do grupo desenvolvedores para devs:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-o-comando-groupdel-para-remover-um-grupo">Use o comando groupdel para remover um grupo.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_5">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adicionando-usuarios-a-um-grupo">Adicionando Usuários a um Grupo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#para-adicionar-um-usuario-a-um-grupo-existente-a-maneira-mais-comum-e-usar-usermod-ag">Para adicionar um usuário a um grupo existente, a maneira mais comum é usar usermod -aG.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_6">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#para-remover-um-usuario-de-um-grupo-voce-pode-usar-gpasswd-ou-deluser-dependendo-da-distribuicao">Para remover um usuário de um grupo, você pode usar gpasswd ou deluser (dependendo da distribuição).</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usando-gpasswd-mais-comum-e-recomendado">Usando gpasswd (mais comum e recomendado):</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_7">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usando-deluser-disponivel-em-algumas-distribuicoes-como-debianubuntu">Usando deluser (disponível em algumas distribuições como Debian/Ubuntu):</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_8">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#listar-usuarios">Listar Usuários</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#as-informacoes-dos-usuarios-sao-armazenadas-em-etcpasswd-voce-pode-visualiza-lo-com-cat-ou-less">As informações dos usuários são armazenadas em /etc/passwd. Você pode visualizá-lo com cat ou less.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#listar-grupos">Listar Grupos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#as-informacoes-dos-grupos-sao-armazenadas-em-etcgroup">As informações dos grupos são armazenadas em /etc/group.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visualizar-informacoes-de-um-usuario-especifico">Visualizar Informações de um Usuário Específico</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-o-comando-id-para-ver-o-id-do-usuario-grupo-primario-e-grupos-suplementares-de-um-usuario">Use o comando id para ver o ID do usuário, grupo primário e grupos suplementares de um usuário.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_9">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#54-visualizar-membros-de-um-grupo">5.4. Visualizar Membros de um Grupo</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_10">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ou-em-algumas-distribuicoes-voce-pode-usar-members-se-instalado">Ou, em algumas distribuições, você pode usar members (se instalado).</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#as-permissoes-no-linux-sao-baseadas-em-usuario-grupo-e-outros">As permissões no Linux são baseadas em usuário, grupo e outros.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-combinacao-dessas-permissoes-e-um-numero-octal">A combinação dessas permissões é um número octal.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_11">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#61-alterando-permissoes-chmod">6.1. Alterando Permissões (chmod)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-chmod-para-alterar-as-permissoes-de-um-arquivo-ou-diretorio">Use chmod para alterar as permissões de um arquivo ou diretório.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_12">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dar-ao-proprietario-grupo-e-outros-permissao-total-leitura-escrita-execucao-para-um-script">Dar ao proprietário, grupo e outros permissão total (leitura, escrita, execução) para um script:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dar-ao-proprietario-leituraescrita-ao-grupo-leitura-e-a-outros-nenhuma-permissao-para-um-arquivo">Dar ao proprietário leitura/escrita, ao grupo leitura e a outros nenhuma permissão para um arquivo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#alterando-o-proprietario-chown">Alterando o Proprietário (chown)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-chown-para-alterar-o-proprietario-de-um-arquivo-ou-diretorio">Use chown para alterar o proprietário de um arquivo ou diretório.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_13">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#63-alterando-o-grupo-proprietario-chgrp">6.3. Alterando o Grupo Proprietário (chgrp)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#use-chgrp-para-alterar-o-grupo-proprietario-de-um-arquivo-ou-diretorio">Use chgrp para alterar o grupo proprietário de um arquivo ou diretório.</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_14">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#voce-tambem-pode-usar-chown-para-alterar-o-proprietario-e-o-grupo-simultaneamente">Você também pode usar chown para alterar o proprietário e o grupo simultaneamente:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplo_15">Exemplo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consideracoes-finais">Considerações Finais</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gerenciamento-de-usuarios-e-grupos-no-linux-primeira-parte">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</h1>
+<h4 id="este-tutorial-abrange-os-comandos-essenciais-para-a-criacao-modificacao-e-exclusao-de-usuarios-e-grupos-alem-de-como-gerenciar-suas-permissoes-no-sistema-linux">Este tutorial abrange os comandos essenciais para a criação, modificação e exclusão de usuários e grupos, além de como gerenciar suas permissões no sistema Linux.</h4>
+<p>1 - Entendendo Usuários e Grupos</p>
+<h4 id="no-linux-usuarios-sao-as-entidades-que-interagem-com-o-sistema-enquanto-grupos-sao-colecoes-de-usuarios-eles-sao-usados-para-organizar-usuarios-e-aplicar-permissoes-de-forma-eficiente">No Linux, usuários são as entidades que interagem com o sistema, enquanto grupos são coleções de usuários. Eles são usados para organizar usuários e aplicar permissões de forma eficiente.</h4>
+<ul>
+<li>
+<p>Usuário Root: O superusuário com controle total sobre o sistema. Use-o com extrema cautela.</p>
+</li>
+<li>
+<p>Usuários Regulares: Usuários com privilégios limitados.</p>
+</li>
+<li>
+<p>Usuários do Sistema: Usuários com privilégios específicos de serviços/aplicativos.</p>
+</li>
+<li>
+<p>Grupos Primários: O grupo padrão ao qual um usuário pertence no momento da criação.</p>
+</li>
+<li>
+<p>Grupos Suplementares: Grupos adicionais aos quais um usuário pode pertencer.</p>
+</li>
+</ul>
+<p>2 - Gerenciando Usuários</p>
+<h4 id="criando-um-novo-usuario-use-o-comando-useradd">Criando um Novo Usuário, use o comando useradd.</h4>
+<pre><code class="language-Bash">sudo useradd [opções] &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="opcoes-comuns">Opções Comuns:</h4>
+<ul>
+<li>
+<p>-m Cria o diretório home do usuário se ele não existir. (Altamente recomendado)</p>
+</li>
+<li>
+<p>-s <shell>: Especifica o shell de login do usuário (ex: /bin/bash, /bin/zsh).</p>
+</li>
+<li>
+<p>-g <grupo_primario>: Define o grupo primário do usuário.</p>
+</li>
+<li>
+<p>-G <grupo1,grupo2,...>: Adiciona o usuário a grupos suplementares.</p>
+</li>
+<li>
+<p>-c "<comentario>": Adiciona um comentário sobre o usuário (ex: nome completo).</p>
+</li>
+</ul>
+<h4 id="exemplo">Exemplo:</h4>
+<pre><code class="language-Bash">sudo useradd -m -s /usr/bin/fish -aG www-data,sudo -c &quot;João Silva&quot; joaosilva
+</code></pre>
+<p>Atenção
+Se a opção -a for omitida no comando usermod acima, o usuário é removido de todos os outros grupos não listados em grupos_adicionais (i.e. o usuário será membro apenas daqueles grupos em grupos_adicionais).</p>
+<h4 id="isso-cria-o-usuario-joaosilva-com-um-diretorio-home-bash-como-shell-padrao-e-o-adiciona-aos-grupos-www-data-e-sudo">Isso cria o usuário joaosilva com um diretório home, bash como shell padrão, e o adiciona aos grupos www-data e sudo.</h4>
+<p>3 - Definindo a Senha de um Usuário</p>
+<h4 id="apos-criar-um-usuario-ele-esta-logando-sem-senha-voce-precisa-definir-uma-senha-para-ele-usando-o-comando-passwd">Após criar um usuário, ele está logando sem senha, você precisa definir uma senha para ele usando o comando passwd.</h4>
+<pre><code class="language-Bash">sudo passwd &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="o-sistema-ira-pedir-para-voce-digitar-a-nova-senha-duas-vezes">O sistema irá pedir para você digitar a nova senha duas vezes.</h4>
+<h4 id="exemplo_1">Exemplo:</h4>
+<pre><code class="language-Bash">sudo passwd joaosilva
+</code></pre>
+<p>4 - Modificando um Usuário Existente</p>
+<h4 id="o-comando-usermod-e-usado-para-modificar-as-propriedades-de-um-usuario">O comando usermod é usado para modificar as propriedades de um usuário.</h4>
+<pre><code class="language-Bash">sudo usermod [opções] &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="opcoes-comuns_1">Opções Comuns:</h4>
+<ul>
+<li>
+<p>-l <novo_nome>: Altera o nome de usuário (o diretório home e o grupo primário não são alterados automaticamente).</p>
+</li>
+<li>
+<p>-d <novo_diretorio_home>: Altera o diretório home do usuário.</p>
+</li>
+<li>
+<p>-m: Move o conteúdo do diretório home antigo para o novo (usado com -d).</p>
+</li>
+<li>
+<p>-s <novo_shell>: Altera o shell de login.</p>
+</li>
+<li>
+<p>-g <novo_grupo_primario>: Altera o grupo primário.</p>
+</li>
+<li>
+<p>-G <grupo1,grupo2,...>: Adiciona o usuário a grupos suplementares (sobrescreve os grupos existentes se não usar -a).</p>
+</li>
+<li>
+<p>-aG <grupo1,grupo2,...>: Adiciona o usuário a grupos suplementares sem remover os existentes. (Altamente recomendado)</p>
+</li>
+<li>
+<p>-L: Bloqueia a conta do usuário.</p>
+</li>
+<li>
+<p>-U: Desbloqueia a conta do usuário.</p>
+</li>
+</ul>
+<h4 id="exemplos">Exemplos:</h4>
+<h4 id="para-adicionar-joaosilva-ao-grupo-docker-sem-remover-outros-grupos">Para adicionar joaosilva ao grupo docker sem remover outros grupos:</h4>
+<pre><code class="language-Bash">sudo usermod -aG docker joaosilva
+</code></pre>
+<h4 id="para-mudar-o-nome-de-usuario-de-joaosilva-para-jsilva">Para mudar o nome de usuário de joaosilva para jsilva:</h4>
+<pre><code class="language-Bash">sudo usermod -l jsilva joaosilva
+</code></pre>
+<h4 id="importante-apos-renomear-um-usuario-com-l-o-diretorio-home-e-o-grupo-primario-ainda-terao-o-nome-antigo-voce-precisara-renomea-los-manualmente">Importante: Após renomear um usuário com -l, o diretório home e o grupo primário ainda terão o nome antigo. Você precisará renomeá-los manualmente:</h4>
+<pre><code class="language-Bash">sudo mv /home/joaosilva /home/jsilva
+sudo groupmod -n jsilva joaosilva
+sudo usermod -d /home/jsilva -m jsilva
+</code></pre>
+<h4 id="adiconar-um-usuario-a-um-grupo-especifico-com-o-comando-adduser">Adiconar um usuário á um grupo específico com o comando adduser:</h4>
+<pre><code class="language-bash">sudo adduser jsilva tape
+</code></pre>
+<h4 id="adiconar-um-usuario-a-um-grupo-especifico-com-o-comando-gpasswd">Adiconar um usuário á um grupo específico com o comando gpasswd:</h4>
+<pre><code class="language-bash">sudo gpasswd -a jsilva tape
+</code></pre>
+<p>5 - Excluindo um Usuário</p>
+<h4 id="use-o-comando-userdel-para-remover-um-usuario">Use o comando userdel para remover um usuário.</h4>
+<pre><code class="language-Bash">sudo userdel [opções] &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="opcoes-comuns_2">Opções Comuns:</h4>
+<ul>
+<li>-r: Remove o diretório home do usuário e o mail spool. (Altamente recomendado)</li>
+</ul>
+<h4 id="exemplo_2">Exemplo:</h4>
+<pre><code class="language-Bash">sudo userdel -r joaosilva
+</code></pre>
+<p>6 - Gerenciando Grupos</p>
+<h4 id="31-criando-um-novo-grupo">3.1. Criando um Novo Grupo</h4>
+<h4 id="use-o-comando-groupadd-para-criar-um-novo-grupo">Use o comando groupadd para criar um novo grupo.</h4>
+<pre><code class="language-Bash">sudo groupadd [opções] &lt;nome_do_grupo&gt;
+</code></pre>
+<h4 id="exemplo_3">Exemplo:</h4>
+<pre><code class="language-Bash">sudo groupadd desenvolvedores
+</code></pre>
+<p>7 - Modificando um Grupo Existente</p>
+<h4 id="o-comando-groupmod-e-usado-para-modificar-as-propriedades-de-um-grupo">O comando groupmod é usado para modificar as propriedades de um grupo.</h4>
+<pre><code class="language-Bash">sudo groupmod [opções] &lt;nome_do_grupo&gt;
+</code></pre>
+<h4 id="opcoes-comuns_3">Opções Comuns:</h4>
+<ul>
+<li>-n <novo_nome>: Altera o nome do grupo.</li>
+</ul>
+<h4 id="exemplo_4">Exemplo:</h4>
+<h4 id="para-mudar-o-nome-do-grupo-desenvolvedores-para-devs">Para mudar o nome do grupo desenvolvedores para devs:</h4>
+<pre><code class="language-Bash">   sudo groupmod -n devs desenvolvedores
+</code></pre>
+<p>8 - Excluindo um Grupo</p>
+<h4 id="use-o-comando-groupdel-para-remover-um-grupo">Use o comando groupdel para remover um grupo.</h4>
+<pre><code class="language-Bash">sudo groupdel &lt;nome_do_grupo&gt;
+</code></pre>
+<h4 id="exemplo_5">Exemplo:</h4>
+<pre><code class="language-Bash">sudo groupdel devs
+</code></pre>
+<p>9 - Gerenciando Membros do Grupo</p>
+<h4 id="adicionando-usuarios-a-um-grupo">Adicionando Usuários a um Grupo</h4>
+<h4 id="para-adicionar-um-usuario-a-um-grupo-existente-a-maneira-mais-comum-e-usar-usermod-ag">Para adicionar um usuário a um grupo existente, a maneira mais comum é usar usermod -aG.</h4>
+<pre><code class="language-Bash">sudo usermod -aG &lt;nome_do_grupo&gt; &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="exemplo_6">Exemplo:</h4>
+<pre><code class="language-Bash">sudo usermod -aG www-data joaosilva
+</code></pre>
+<p>10 - Removendo Usuários de um Grupo</p>
+<h4 id="para-remover-um-usuario-de-um-grupo-voce-pode-usar-gpasswd-ou-deluser-dependendo-da-distribuicao">Para remover um usuário de um grupo, você pode usar gpasswd ou deluser (dependendo da distribuição).</h4>
+<h4 id="usando-gpasswd-mais-comum-e-recomendado">Usando gpasswd (mais comum e recomendado):</h4>
+<pre><code class="language-Bash">sudo gpasswd -d &lt;nome_do_usuario&gt; &lt;nome_do_grupo&gt;
+</code></pre>
+<h4 id="exemplo_7">Exemplo:</h4>
+<pre><code class="language-Bash">sudo gpasswd -d joaosilva www-data
+</code></pre>
+<h4 id="usando-deluser-disponivel-em-algumas-distribuicoes-como-debianubuntu">Usando deluser (disponível em algumas distribuições como Debian/Ubuntu):</h4>
+<pre><code class="language-Bash">sudo deluser &lt;nome_do_usuario&gt; &lt;nome_do_grupo&gt;
+</code></pre>
+<h4 id="exemplo_8">Exemplo:</h4>
+<pre><code class="language-Bash">sudo deluser joaosilva www-data
+</code></pre>
+<p>11 - Visualizando Informações de Usuários e Grupos</p>
+<h4 id="listar-usuarios">Listar Usuários</h4>
+<h4 id="as-informacoes-dos-usuarios-sao-armazenadas-em-etcpasswd-voce-pode-visualiza-lo-com-cat-ou-less">As informações dos usuários são armazenadas em /etc/passwd. Você pode visualizá-lo com cat ou less.</h4>
+<pre><code class="language-Bash">cat /etc/passwd
+</code></pre>
+<h4 id="listar-grupos">Listar Grupos</h4>
+<h4 id="as-informacoes-dos-grupos-sao-armazenadas-em-etcgroup">As informações dos grupos são armazenadas em /etc/group.</h4>
+<pre><code class="language-Bash">cat /etc/group
+</code></pre>
+<h4 id="visualizar-informacoes-de-um-usuario-especifico">Visualizar Informações de um Usuário Específico</h4>
+<h4 id="use-o-comando-id-para-ver-o-id-do-usuario-grupo-primario-e-grupos-suplementares-de-um-usuario">Use o comando id para ver o ID do usuário, grupo primário e grupos suplementares de um usuário.</h4>
+<pre><code class="language-Bash">id &lt;nome_do_usuario&gt;
+</code></pre>
+<h4 id="exemplo_9">Exemplo:</h4>
+<pre><code class="language-Bash">id joaosilva
+</code></pre>
+<h4 id="54-visualizar-membros-de-um-grupo">5.4. Visualizar Membros de um Grupo</h4>
+<pre><code class="language-Bash">grep &lt;nome_do_grupo&gt; /etc/group
+</code></pre>
+<h4 id="exemplo_10">Exemplo:</h4>
+<pre><code class="language-Bash">grep sudo /etc/group
+</code></pre>
+<h4 id="ou-em-algumas-distribuicoes-voce-pode-usar-members-se-instalado">Ou, em algumas distribuições, você pode usar members (se instalado).</h4>
+<pre><code class="language-Bash">members &lt;nome_do_grupo&gt;
+</code></pre>
+<p>12 - Permissões de Arquivos e Diretórios</p>
+<h4 id="as-permissoes-no-linux-sao-baseadas-em-usuario-grupo-e-outros">As permissões no Linux são baseadas em usuário, grupo e outros.</h4>
+<ul>
+<li>
+<p>r (leitura): 4</p>
+</li>
+<li>
+<p>w (escrita): 2</p>
+</li>
+<li>
+<p>x (execução): 1</p>
+</li>
+</ul>
+<h4 id="a-combinacao-dessas-permissoes-e-um-numero-octal">A combinação dessas permissões é um número octal.</h4>
+<h4 id="exemplo_11">Exemplo:</h4>
+<ul>
+<li>rwx (4+2+1 = 7), rw- (4+2+0 = 6), r-x (4+0+1 = 5).</li>
+</ul>
+<h4 id="61-alterando-permissoes-chmod">6.1. Alterando Permissões (chmod)</h4>
+<h4 id="use-chmod-para-alterar-as-permissoes-de-um-arquivo-ou-diretorio">Use chmod para alterar as permissões de um arquivo ou diretório.</h4>
+<pre><code class="language-Bash">chmod &lt;permissões_octais&gt; &lt;arquivo/diretório&gt;
+</code></pre>
+<h4 id="exemplo_12">Exemplo:</h4>
+<h4 id="dar-ao-proprietario-grupo-e-outros-permissao-total-leitura-escrita-execucao-para-um-script">Dar ao proprietário, grupo e outros permissão total (leitura, escrita, execução) para um script:</h4>
+<pre><code class="language-Bash">chmod 777 meu_script.sh
+</code></pre>
+<h4 id="dar-ao-proprietario-leituraescrita-ao-grupo-leitura-e-a-outros-nenhuma-permissao-para-um-arquivo">Dar ao proprietário leitura/escrita, ao grupo leitura e a outros nenhuma permissão para um arquivo:</h4>
+<pre><code class="language-Bash">    chmod 640 meu_arquivo.txt
+</code></pre>
+<h4 id="alterando-o-proprietario-chown">Alterando o Proprietário (chown)</h4>
+<h4 id="use-chown-para-alterar-o-proprietario-de-um-arquivo-ou-diretorio">Use chown para alterar o proprietário de um arquivo ou diretório.</h4>
+<pre><code class="language-Bash">sudo chown &lt;novo_proprietario&gt; &lt;arquivo/diretório&gt;
+</code></pre>
+<h4 id="exemplo_13">Exemplo:</h4>
+<pre><code class="language-Bash">sudo chown joaosilva meu_arquivo.txt
+</code></pre>
+<h4 id="63-alterando-o-grupo-proprietario-chgrp">6.3. Alterando o Grupo Proprietário (chgrp)</h4>
+<h4 id="use-chgrp-para-alterar-o-grupo-proprietario-de-um-arquivo-ou-diretorio">Use chgrp para alterar o grupo proprietário de um arquivo ou diretório.</h4>
+<pre><code class="language-Bash">sudo chgrp &lt;novo_grupo&gt; &lt;arquivo/diretório&gt;
+</code></pre>
+<h4 id="exemplo_14">Exemplo:</h4>
+<pre><code class="language-Bash">sudo chgrp devs meu_arquivo.txt
+</code></pre>
+<h4 id="voce-tambem-pode-usar-chown-para-alterar-o-proprietario-e-o-grupo-simultaneamente">Você também pode usar chown para alterar o proprietário e o grupo simultaneamente:</h4>
+<pre><code class="language-Bash">sudo chown &lt;proprietario&gt;:&lt;grupo&gt; &lt;arquivo/diretório&gt;
+</code></pre>
+<h4 id="exemplo_15">Exemplo:</h4>
+<pre><code class="language-Bash">sudo chown joaosilva:devs meu_arquivo.txt
+</code></pre>
+<h2 id="consideracoes-finais">Considerações Finais</h2>
+<ul>
+<li>
+<p>Sempre use sudo: A maioria dos comandos de gerenciamento de usuários e grupos requer privilégios de superusuário.</p>
+</li>
+<li>
+<p>Segurança: Evite dar permissões excessivas. Siga o princípio do menor privilégio.</p>
+</li>
+<li>
+<p>Documentação: Consulte as páginas man para obter informações detalhadas sobre cada comando (ex: man useradd).</p>
+</li>
+<li>
+<p>Backup: Sempre faça backup de arquivos de configuração importantes (como /etc/passwd, /etc/group, /etc/shadow) antes de fazer grandes alterações.</p>
+</li>
+</ul>
+<p>That's all folks</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Universo_NIX/" class="btn btn-neutral float-left" title="📁 O Universo *nix - Conceitos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Usuarios_e_Grupos-2/" class="btn btn-neutral float-right" title="📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Universo_NIX/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Usuarios_e_Grupos-2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte. - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 Gerenciamento de Usu\u00e1rios e Grupos no Linux - Segunda parte.";
+        var mkdocs_page_input_path = "Usuarios_e_Grupos-2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#como-devemos-proceder-para-adicionar-um-usuario-a-um-grupo-no-sistema-operacional-linux">Como devemos proceder para adicionar um usuário a um grupo no sistema operacional Linux?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grupos-primarios-e-grupos-secundarios">Grupos primários e grupos secundários:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplos-de-comandos-para-adicionar-um-usuario-a-um-grupo">Exemplos de comandos para adicionar um usuário a um grupo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verificando">Verificando</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#removendo-usuarios-de-um-grupo-no-linux">Removendo usuários de um grupo no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remover-o-usuario-monica-do-grupo-planilhas">Remover o usuário monica do grupo planilhas:</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="gerenciamento-de-usuarios-e-grupos-no-linux-segunda-parte">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</h1>
+<h2 id="como-devemos-proceder-para-adicionar-um-usuario-a-um-grupo-no-sistema-operacional-linux">Como devemos proceder para adicionar um usuário a um grupo no sistema operacional Linux?</h2>
+<p>Tornar um usuário membro de um grupo é uma tarefa simples, que pode ser realizada com o uso dos comandos useradd, adduser, gpasswd ou usermod no terminal.</p>
+<p>Os comandos useradd e adduser (que é um script na verdade) permitem criar um novo usuário no sistema, e além disso também permitem adicionar um usuário já existente a um grupo determinado. Já o comando usermod permite modificar a conta de um usuário, e isso inclui torná-lo membro de grupos existentes no sistema. Também vamos mostrar o comando gpasswd, que entre outras coisas permite gerenciar os grupos do sistema.</p>
+<h2 id="grupos-primarios-e-grupos-secundarios">Grupos primários e grupos secundários:</h2>
+<ul>
+<li>
+<p>Grupo Primário – É o grupo criado juntamente com o usuário. Normalmente é igual ao seu nome de login.</p>
+</li>
+<li>
+<p>Grupos Secundários – Os usuários também podem ser membros de outros grupos no sistema Linux. São muito úteis para realizar compartilhamento de arquivos, diretórios, dar permissões e outros elementos.</p>
+</li>
+</ul>
+<p>As informações sobre os grupos do sistema e usuários membros ficam armazenadas no arquivo /etc/group, o qual possui um lista dos grupos e seus respectivos membros.</p>
+<h2 id="exemplos-de-comandos-para-adicionar-um-usuario-a-um-grupo">Exemplos de comandos para adicionar um usuário a um grupo:</h2>
+<ol>
+<li>Vamos adicionar o usuário monica ao grupo marketing:</li>
+</ol>
+<pre><code class="language-bash">adduser monica marketing
+</code></pre>
+<ol>
+<li>Também podemos adicionar um usuário a um grupo usando o comando gpasswd:</li>
+</ol>
+<pre><code class="language-bash">gpasswd -a usuário grupo
+</code></pre>
+<p>Por exemplo, adicionando monica ao grupo rh:</p>
+<pre><code class="language-bash">gpasswd -a monica rh
+</code></pre>
+<ol>
+<li>Podemos definir um novo grupo primário para o usuário com o comando usermod seguido da opção -g. Por exemplo, vamos trocar o grupo primário da monica (que é “monica”) para grupo engenheiros:</li>
+</ol>
+<pre><code class="language-bash">usermod -g engenheiros monica
+</code></pre>
+<ol>
+<li>Ainda com o comando usermod, podemos tornar o usuário membro de vários grupos secundários (suplementares) especificados ao mesmo tempo. Vamos alterar a lista de grupos secundários e tornar a usuária monica membro dos grupos planilhas e memorandos:</li>
+</ol>
+<pre><code class="language-bash">usermod -G planilhas,memorandos monica
+</code></pre>
+<ol>
+<li>Note que no exemplo anterior o nosso usuário foi adicionado aos grupos planilhas e memorandos, porém foi retirado dos outros grupos secundários dos quais era membro,como o grupo rh.</li>
+</ol>
+<p>Para que o usuário continue sendo membro dos grupos e seja acrescentado a novos grupos, sem deixar de ser membro dos anteriores, acrescente a opção -a ao comando anterior:</p>
+<pre><code class="language-bash">usermod -aG planilhas,memorandos monica
+</code></pre>
+<h2 id="verificando">Verificando</h2>
+<p>Verifique se o usuário foi adicionado a um grupo usando o comando groups seguido do nome do usuário:</p>
+<pre><code class="language-bash">groups monica
+</code></pre>
+<p>Os grupos dos quais o usuário é membro aparecem listados em sequência, sendo que o primeiro grupo é o grupo primário do usuário e os demais são os grupos secundários.</p>
+<h2 id="removendo-usuarios-de-um-grupo-no-linux">Removendo usuários de um grupo no Linux</h2>
+<p>E se quisermos remover um usuário de um grupo? Podemos para isso usar o comando deluser, com a sintaxe a seguir:</p>
+<pre><code class="language-bash">deluser usuário grupo
+</code></pre>
+<p>Por exemplo, vamos excluir a monica do grupo de memorandos:</p>
+<pre><code class="language-bash">deluser monica memorandos
+</code></pre>
+<p>Tome cuidado para não esquecer de incluir o nome do grupo ao executar esse comando,pois você pode acabar excluindo a conta do usuário do sistema em vez de apenas retirá-lo de um grupo!</p>
+<p>Uma forma mais segura de excluir um usuário de um grupo é por meio do comando gpasswd, como segue a sintaxe:</p>
+<pre><code class="language-bash">gpasswd -d usuário grupo
+</code></pre>
+<h2 id="remover-o-usuario-monica-do-grupo-planilhas">Remover o usuário monica do grupo planilhas:</h2>
+<pre><code class="language-bash">gpasswd -d monica planilhas
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Usuarios_e_Grupos-1/" class="btn btn-neutral float-left" title="📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte."><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Visao_Geral/" class="btn btn-neutral float-right" title="📘 Guia de Estudos - Certificação LPIC-1">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Usuarios_e_Grupos-1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Visao_Geral/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

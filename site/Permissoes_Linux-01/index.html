@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 Tutorial de Permiss\u00f5es de Arquivos e Diret\u00f3rios no Linux";
+        var mkdocs_page_input_path = "Permissoes_Linux-01.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">🔍 Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#entendendo-as-permissoes">📑 Entendendo as Permissões</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modificando-permissoes-chmod">🔧 Modificando Permissões: chmod</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#modo-numerico">🧮 Modo Numérico</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modo-simbolico">🔤 Modo Simbólico</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mudando-dono-e-grupo-chown-e-chgrp">👤 Mudando Dono e Grupo: chown e chgrp</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chown-altera-o-dono-eou-grupo">chown – Altera o dono e/ou grupo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chgrp-altera-apenas-o-grupo">chgrp – Altera apenas o grupo</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissoes-em-diretorios">📁 Permissões em Diretórios</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissoes-recursivas">🔄 Permissões Recursivas</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissoes-especiais">📌 Permissões Especiais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#setuid-s">🔒 setuid (S)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setgid-s">🔒 setgid (S)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sticky-bit-t">🔒 Sticky bit (t)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplos-praticos">🧪 Exemplos Práticos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-tornar-um-script-executavel-apenas-para-o-dono">1. Tornar um script executável apenas para o dono:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-permitir-que-todos-leiam-um-arquivo-mas-apenas-o-dono-possa-editar">2. Permitir que todos leiam um arquivo, mas apenas o dono possa editar:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-definir-uma-pasta-compartilhada-por-um-grupo">3. Definir uma pasta compartilhada por um grupo:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verificando-permissoes">✅ Verificando Permissões</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#atencao">🛑 Atenção</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#referencias">📚 Referências</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial-de-permissoes-de-arquivos-e-diretorios-no-linux">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</h1>
+<blockquote>
+<p>Aprenda a visualizar, modificar e entender o sistema de permissões no Linux utilizando comandos como <code>chmod</code>, <code>chown</code> e <code>chgrp</code>.</p>
+</blockquote>
+<hr />
+<h2 id="introducao">🔍 Introdução</h2>
+<p>O sistema de permissões do Linux é fundamental para garantir a segurança e organização do sistema. Cada arquivo ou diretório possui regras que definem quem pode <strong>ler (r)</strong>, <strong>escrever (w)</strong> e <strong>executar (x)</strong>.</p>
+<hr />
+<h2 id="entendendo-as-permissoes">📑 Entendendo as Permissões</h2>
+<p>Execute:</p>
+<pre><code class="language-bash">ls -l
+</code></pre>
+<p>Exemplo de saída:</p>
+<pre><code>-rwxr-xr-- 1 user grupo 1234 jul 28 10:00 script.sh
+</code></pre>
+<p>Explicando os campos:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-</code></td>
+<td>Tipo de arquivo (<code>-</code> arquivo, <code>d</code> diretório)</td>
+</tr>
+<tr>
+<td><code>rwx</code></td>
+<td>Permissões do <strong>dono</strong></td>
+</tr>
+<tr>
+<td><code>r-x</code></td>
+<td>Permissões do <strong>grupo</strong></td>
+</tr>
+<tr>
+<td><code>r--</code></td>
+<td>Permissões de <strong>outros (público)</strong></td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Número de links</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>Dono do arquivo</td>
+</tr>
+<tr>
+<td><code>grupo</code></td>
+<td>Grupo do arquivo</td>
+</tr>
+<tr>
+<td><code>1234</code></td>
+<td>Tamanho em bytes</td>
+</tr>
+<tr>
+<td><code>jul 28 10:00</code></td>
+<td>Data de modificação</td>
+</tr>
+<tr>
+<td><code>script.sh</code></td>
+<td>Nome do arquivo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="modificando-permissoes-chmod">🔧 Modificando Permissões: <code>chmod</code></h2>
+<h3 id="modo-numerico">🧮 Modo Numérico</h3>
+<p>As permissões são representadas por números:</p>
+<table>
+<thead>
+<tr>
+<th>Permissão</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code> (read)</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>w</code> (write)</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>x</code> (execute)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="language-bash">chmod 754 script.sh
+</code></pre>
+<p>Isso define:</p>
+<ul>
+<li>Dono: <code>7</code> = <code>rwx</code></li>
+<li>Grupo: <code>5</code> = <code>r-x</code></li>
+<li>Outros: <code>4</code> = <code>r--</code></li>
+</ul>
+<h3 id="modo-simbolico">🔤 Modo Simbólico</h3>
+<pre><code class="language-bash">chmod u+x script.sh
+</code></pre>
+<p>Adiciona permissão de execução para o <strong>usuário (u)</strong>.</p>
+<p>Outros símbolos:</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>u</code></td>
+<td>Usuário (owner)</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>Grupo</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>Outros</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Todos</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Adiciona permissão</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Remove permissão</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>Define exatamente essas permissões</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplos</strong>:</p>
+<pre><code class="language-bash">chmod g-w arquivo.txt     # Remove escrita do grupo
+chmod o=r arquivo.txt     # Outros só podem ler
+chmod a+x script.sh       # Todos ganham permissão de execução
+</code></pre>
+<hr />
+<h2 id="mudando-dono-e-grupo-chown-e-chgrp">👤 Mudando Dono e Grupo: <code>chown</code> e <code>chgrp</code></h2>
+<h3 id="chown-altera-o-dono-eou-grupo"><code>chown</code> – Altera o dono e/ou grupo</h3>
+<pre><code class="language-bash">chown novo_dono arquivo.txt
+chown novo_dono:novo_grupo arquivo.txt
+</code></pre>
+<h3 id="chgrp-altera-apenas-o-grupo"><code>chgrp</code> – Altera apenas o grupo</h3>
+<pre><code class="language-bash">chgrp novo_grupo arquivo.txt
+</code></pre>
+<p><strong>Exemplo</strong>:</p>
+<pre><code class="language-bash">chown joao:desenvolvedores projeto/
+</code></pre>
+<hr />
+<h2 id="permissoes-em-diretorios">📁 Permissões em Diretórios</h2>
+<p>As permissões têm efeitos diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Permissão</th>
+<th>Significado no diretório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>Listar arquivos (<code>ls</code>)</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Criar/apagar arquivos</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>Acessar arquivos no diretório</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="permissoes-recursivas">🔄 Permissões Recursivas</h2>
+<pre><code class="language-bash">chmod -R 755 pasta/
+chown -R user:grupo pasta/
+</code></pre>
+<hr />
+<h2 id="permissoes-especiais">📌 Permissões Especiais</h2>
+<h3 id="setuid-s">🔒 <code>setuid</code> (S)</h3>
+<p>Permite que o programa execute com permissões do dono.</p>
+<pre><code class="language-bash">chmod u+s arquivo
+</code></pre>
+<h3 id="setgid-s">🔒 <code>setgid</code> (S)</h3>
+<p>Arquivos criados no diretório herdam o grupo.</p>
+<pre><code class="language-bash">chmod g+s pasta
+</code></pre>
+<h3 id="sticky-bit-t">🔒 Sticky bit (t)</h3>
+<p>Em diretórios públicos, evita que usuários deletem arquivos de outros.</p>
+<pre><code class="language-bash">chmod +t /tmp
+</code></pre>
+<hr />
+<h2 id="exemplos-praticos">🧪 Exemplos Práticos</h2>
+<h3 id="1-tornar-um-script-executavel-apenas-para-o-dono">1. Tornar um script executável apenas para o dono:</h3>
+<pre><code class="language-bash">chmod 700 script.sh
+</code></pre>
+<h3 id="2-permitir-que-todos-leiam-um-arquivo-mas-apenas-o-dono-possa-editar">2. Permitir que todos leiam um arquivo, mas apenas o dono possa editar:</h3>
+<pre><code class="language-bash">chmod 644 documento.txt
+</code></pre>
+<h3 id="3-definir-uma-pasta-compartilhada-por-um-grupo">3. Definir uma pasta compartilhada por um grupo:</h3>
+<pre><code class="language-bash">chgrp grupo pasta/
+chmod 2770 pasta/
+</code></pre>
+<hr />
+<h2 id="verificando-permissoes">✅ Verificando Permissões</h2>
+<pre><code class="language-bash">stat arquivo.txt
+</code></pre>
+<hr />
+<h2 id="atencao">🛑 Atenção</h2>
+<ul>
+<li>Cuidado com <code>chmod 777</code> — permite tudo para todos, o que representa risco de segurança.</li>
+<li>Modifique permissões com consciência, especialmente em ambientes multiusuário ou servidores.</li>
+</ul>
+<hr />
+<h2 id="referencias">📚 Referências</h2>
+<ul>
+<li><code>man chmod</code></li>
+<li><code>man chown</code></li>
+<li><code>man chgrp</code></li>
+<li><a href="https://tldp.org">The Linux Documentation Project</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../OpenSUSE/" class="btn btn-neutral float-left" title="OpenSUSE TW Pós instalação:"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Permissoes_Linux-02/" class="btn btn-neutral float-right" title="📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../OpenSUSE/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Permissoes_Linux-02/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

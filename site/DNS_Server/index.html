@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 DNS Server - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 DNS Server";
+        var mkdocs_page_input_path = "DNS_Server.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 DNS Server</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 DNS Server</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dns-server">📁 DNS Server</h1>
+<h1 id="criando-um-servidor-de-dns">Criando um Servidor de DNS</h1>
+<p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
+<h2 id="instalar-os-pacotes-necessarios">Instalar os pacotes necessários:</h2>
+<pre><code class="language-bash">apt-get install bind9 openssh-server dnsutils
+</code></pre>
+<h2 id="editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo">Editar o arquivo /etc/default/named e deixa-lo como no exemplo:</h2>
+<pre><code class="language-bash"># run resolvconf?
+RESOLVCONF=no
+
+# startup options for the server
+OPTIONS=&quot;-u bind -4&quot;
+</code></pre>
+<h2 id="o-arquivo-etcbindnamedconf-fica-sem-alteracao">O arquivo /etc/bind/named.conf fica sem alteração:</h2>
+<pre><code class="language-bash">// This is the primary configuration file for the BIND DNS server named.
+//
+// Please read /usr/share/doc/bind9/README.Debian.gz for information on the 
+// structure of BIND configuration files in Debian, *BEFORE* you customize 
+// this configuration file.
+//
+// If you are just adding zones, please do that in /etc/bind/named.conf.local
+
+include &quot;/etc/bind/named.conf.options&quot;;
+include &quot;/etc/bind/named.conf.local&quot;;
+include &quot;/etc/bind/named.conf.default-zones&quot;;
+</code></pre>
+<h2 id="o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao">O arquivo /etc/bind/named.conf.local tbém fica sem alteração:</h2>
+<pre><code class="language-bash">//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include &quot;/etc/bind/zones.rfc1918&quot;;
+</code></pre>
+<h2 id="entrar-em-etcbind">Entrar em /etc/bind:</h2>
+<pre><code class="language-bash">cd /etc/bind
+</code></pre>
+<h2 id="fazer-um-backup-do-arquivo-original">Fazer um backup do arquivo original:</h2>
+<pre><code class="language-bash">cp named.conf.default-zones{,.orig}
+</code></pre>
+<h2 id="editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo">Editar named.conf.default-zones e deixa-lo como no exemplo:</h2>
+<pre><code class="language-bash">vim named.conf.default-zones
+</code></pre>
+<pre><code class="language-bash">// prime the server with knowledge of the root servers
+zone &quot;.&quot; {
+    type hint;
+    file &quot;/usr/share/dns/root.hints&quot;;
+};
+
+// be authoritative for the localhost forward and reverse zones, and for
+// broadcast zones as per RFC 1912
+
+zone &quot;localhost&quot; {
+    type master;
+    file &quot;/etc/bind/db.local&quot;;
+};
+
+zone &quot;127.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/db.127&quot;;
+};
+
+zone &quot;0.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/db.0&quot;;
+};
+
+zone &quot;255.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/db.255&quot;;
+};
+
+zone &quot;officinas.edu&quot; {
+      type master;
+      file &quot;/etc/bind/zones/db.officinas.edu&quot;;
+};
+
+zone &quot;70.168.192.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/zones/db.70.168.192&quot;;
+};
+</code></pre>
+<h2 id="criar-editar-o-arquivo-namedconfoptions">Criar/ editar o Arquivo named.conf.options:</h2>
+<pre><code class="language-bash">vim named.conf.options
+</code></pre>
+<pre><code class="language-bash">// CRIANDO REGRAS DE LIBERAÇÃO:
+acl interna {
+127.0.0.0/8;
+192.168.70.0/24;
+};
+
+options {
+    directory &quot;/var/cache/bind&quot;;
+
+    // CRIANDO RECURSIVIDADE DA MINHA ACL NA ÁRVORE HIERÁRQUICA:
+    recursion yes;
+    allow-query { interna; };
+    allow-recursion { interna; };
+    listen-on port 53 { interna; };
+    allow-transfer { none; };
+    listen-on-v6 { none; };
+    version none;
+
+    // CRIANDO OS FORWARDERS:
+    forwarders {
+    // Cloudflare Public DNS IPV4
+    1.1.1.1;
+    1.0.0.1;
+    // Google Public DNS IPV4
+    8.8.8.8;
+    8.8.4.4;
+    };  
+
+    dnssec-validation auto;
+
+};
+</code></pre>
+<h2 id="criar-a-pasta-zones-em-etcbind">Criar a pasta zones em /etc/bind:</h2>
+<pre><code class="language-bash">mkdir -p /etc/bind/zones
+</code></pre>
+<h2 id="entrar-na-pasta-zones">Entrar na pasta zones:</h2>
+<pre><code class="language-bash">cd /etc/bind/zones
+</code></pre>
+<h2 id="criar-editar-o-arquivo-de-zona-dbofficinasedu">Criar/ editar o Arquivo de zona "db.officinas.edu":</h2>
+<pre><code class="language-bash">vim db.officinas.edu
+</code></pre>
+<pre><code class="language-bash">;
+; BIND zone file for officinas.edu
+;
+$TTL 86400
+@ IN SOA                          firewall.officinas.edu.  root.officinas.edu. (
+29032023                                                 ; Serial
+10800                                                    ; Refresh ( 3 hr )
+1800                                                     ; Retry ( 30 min )
+3600000                                                  ; Expire ( 41 dias )
+86400 )                                                  ; Negative Cache TTL (1 dia)
+;
+@                                 IN              NS      firewall.officinas.edu.
+firewall.officinas.edu.           IN              A       192.168.70.254
+dcmaster.officinas.edu.           IN              A       192.168.70.200
+webserver.officinas.edu.          IN              A       192.168.70.100
+arquivos                          IN              CNAME   dcmaster.officinas.edu.
+www                               IN              CNAME   webserver.officinas.edu.
+</code></pre>
+<h2 id="atencao-explicacao-dos-campos-zona-e-zona-reversa">ATENÇÃO - Explicação dos Campos zona e zona reversa:</h2>
+<ul>
+<li>IN = Internet</li>
+<li>SOA = Start of Autority</li>
+<li>@ = Origem do Dominio e/ou Inicio da Configuracao</li>
+<li>TTL = Tempo de vida</li>
+<li>NS = Name Server</li>
+<li>MX = Mail Exchanger (10/20 numero de prioridade quanto maior o numero menor e a prioridade)</li>
+<li>hostmaster = email do administrador note que e separado por "." e NAO "@"</li>
+<li>A = Apontamento para IPv4 (Address Mapping)</li>
+<li>AAAA = Apontamento para IPv6 (Address Mapping)</li>
+<li>CNAME = Apontamento para Nome Canonico/alias</li>
+<li>PTR = PoinTeR (aponta dominio reverso a partir de um endereço IP)</li>
+<li>TXT = TeXT, permite incluir um texto curto em um hostname. Tecnica usada para implementar o SPF.</li>
+<li>SPF = SenderPolicyFramework.Permite ao administrador de um dominio definir os enderecos das maquinas autorizadas a enviar mensagens neste dominio.</li>
+<li>SRV = SeRVice, permite definir localizacao de servicos disponiveis em um dominio, inclusive seus protocolos e portas.</li>
+</ul>
+<h2 id="fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192">Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:</h2>
+<pre><code class="language-bash">cp /etc/bind/db.127 /etc/bind/zones/db.70.168.192
+</code></pre>
+<h2 id="criar-editar-o-arquivo-de-zona-reversa">Criar/ editar o Arquivo de zona reversa:</h2>
+<pre><code class="language-bash">vim /etc/bind/zones/db.200.168.192
+</code></pre>
+<pre><code class="language-bash">;
+; BIND reverse data file for 70.168.192
+;
+$TTL    86400
+@       IN      SOA     firewall.officinas.edu. root.officinas.edu. (
+29032023                ; Serial
+10800                   ; Refresh ( 3 hr )
+1800                    ; Retry ( 30 min )
+3600000                 ; Expire ( 41 dias )
+86400 )                 ; Negative Cache TTL (1 dia)
+;
+@            IN      NS      firewall.officinas.edu.
+firewall     IN      A       192.168.70.254
+254          IN      PTR     firewall.officinas.edu.
+200          IN      PTR     dcmaster.officinas.edu.
+100          IN      PTR     webserver.officinas.edu.
+</code></pre>
+<h2 id="restart-reload-no-bind9-analisando-os-logs">Restart/ reload no bind9 analisando os logs:</h2>
+<pre><code class="language-bash">/etc/init.d/bind9 restart ; tail -f /var/log/syslog
+</code></pre>
+<h2 id="agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf">Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:</h2>
+<pre><code class="language-bash">vim /etc/resolv.conf
+</code></pre>
+<pre><code class="language-bash">127.0.0.1
+</code></pre>
+<h2 id="checar-se-as-confs-foram-aplicadas">Checar se as confs foram aplicadas:</h2>
+<pre><code class="language-bash">named-checkzone  officinas.edu /etc/bind/zones/db.officinas.edu
+named-checkzone  70.168.192 /etc/bind/zones/db.70.168.192
+</code></pre>
+<h2 id="testar-o-dns-utilizando-o-comando-nslookup">Testar o DNS utilizando o comando nslookup:</h2>
+<pre><code class="language-bash">nslookup www.terra.com.br
+nslookup www.proot.com.br
+</code></pre>
+<h2 id="testar-o-dns-utilizando-o-dig">Testar o DNS utilizando o dig:</h2>
+<pre><code class="language-bash">dig -t any www.terra.com.br
+dig -t any www.proot.com.br
+</code></pre>
+<h2 id="bloqueia-a-edicao-do-arquivo-etcresolvconf">Bloqueia a edição do arquivo /etc/resolv.conf:</h2>
+<pre><code class="language-bash">chattr +i /etc/resolv.conf
+</code></pre>
+<p>that's all folks!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../DHCP_Server/" class="btn btn-neutral float-left" title="📁 DHCP Server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../FHS/" class="btn btn-neutral float-right" title="📁 FHS Filesystem Hierarchy Standard">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../DHCP_Server/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../FHS/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

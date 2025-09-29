@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>🐧 Módulo 103.1 AULA 01 - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udc27 M\u00f3dulo 103.1 AULA 01";
+        var mkdocs_page_input_path = "Modulo_103.1-aula01.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">🐧 Módulo 103.1 AULA 01</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">🐧 Módulo 103.1 AULA 01</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modulo-1031-aula-01">🐧 Módulo 103.1 AULA 01</h1>
+<h1 id="o-shell">O SHELL</h1>
+<h3 id="sh-dash-bash-csh-zsh">sh, dash, bash, csh, zsh ...</h3>
+<p>O shell é uma interface ou ambiente de interação entre o usuário e o <em>kernel</em> (ou núcleo), que por sua vez, interage com o hardware, que o usuário não consegue fazer.</p>
+<pre><code>HARDWARE &lt;---&gt; KERNEL &lt;---&gt; SHELL &lt;---&gt; USUÁRIO
+</code></pre>
+<p>Vamos analizar um comando importante nessa aula, o comando <code>echo</code>:</p>
+<p>O comando <code>echo</code> imprime na tela o que for digitado na tela.</p>
+<p>Exemplo:</p>
+<pre><code>echo linux
+</code></pre>
+<pre><code>echo &quot;Debian Linux&quot;
+</code></pre>
+<p>Podemos consultar informações sobre esse comando com o <em>manual</em> ou com o <em>help</em>, do comando:</p>
+<pre><code>help echo
+</code></pre>
+<pre><code>man echo
+</code></pre>
+<h3 id="variaveis">VARIÁVEIS</h3>
+<p>Variáveis são elementos que recebem e guardam um valor atribuído a elas.</p>
+<p><code>VARIÁVEIS != CONSTANTES</code></p>
+<p>Exemplo:</p>
+<pre><code>senha=123
+
+echo senha
+
+echo $senha
+</code></pre>
+<pre><code>senhas=&quot;123 321&quot;
+
+echo $senhas
+</code></pre>
+<pre><code>fruta=banana
+
+echo $fruta
+</code></pre>
+<pre><code>nota=10
+
+echo $nota
+</code></pre>
+<pre><code>nomes=&quot;joao jose maria&quot;
+
+echo $nomes
+</code></pre>
+<p>Note que o <code>Shell</code> tem suas próprias variáveis de trabalho, que podem ser consultadas através do comando <code>env</code> e pelo comando <code>set</code>:</p>
+<pre><code>env
+</code></pre>
+<pre><code>set
+</code></pre>
+<p>Uma variável pode receber a saída de um comando do sistema, desde que esteja entre <code>$()</code>:</p>
+<p>Exemplo, lembra do comando <code>whoami</code>? Vamos testar:</p>
+<pre><code>QuemSouEu=$(whoami)
+
+echo $QuemSouEu
+</code></pre>
+<pre><code>Conteudo_Local=$(ls --color)
+
+echo $Conteudo_Local
+</code></pre>
+<p>Expandindo o comando na execução:</p>
+<pre><code>fruta='echo abacaxi'
+
+echo $fruta
+</code></pre>
+<p><code>!=</code> de</p>
+<pre><code>fruta=$(echo abacaxi)
+
+echo $fruta
+</code></pre>
+<p>Podemos criar variáveis com:</p>
+<p><code>LETRAS MAIÚSCULAS</code> e/ou <code>MINÚSCULAS</code> e/ou <code>NÚMEROS</code></p>
+<p>O <strong>único</strong> caracter permitido na composição de uma variável é o underline <code>_</code></p>
+<p>NÃO podem conter acentos e NÃO podem iniciar com números nem com qualquer outro caractere.</p>
+<pre><code>cria_pasta=$(mkdir PASTA-DE-FOTOS)
+
+ls
+</code></pre>
+<p>NOTE QUE SE EU ENTRAR EM OUTRA SESSÃO DE SHELL ESSAS VARIÁVEIS NÃO CONSTAM:</p>
+<p>Exemplo de chamada para outra <em>sessão</em> de terminal:</p>
+<pre><code>bash
+</code></pre>
+<pre><code>echo $senhas
+
+echo $fruta
+
+echo $nota
+
+echo $QuemSouEu
+</code></pre>
+<p>Fechando essa <em>sessão</em>:</p>
+<pre><code>exit
+</code></pre>
+<p>Agora as variáveis que criamos constam novamente:</p>
+<pre><code>echo $senhas
+
+echo $fruta
+
+echo $nota
+
+echo $QuemSouEu
+</code></pre>
+<p>A não ser que vc use o comando <code>export</code>, que faz com que a variável que você criou, seja enviada para as variáveis do Sistema:</p>
+<pre><code>export fruta=kiwi
+</code></pre>
+<pre><code>env | grep fruta
+</code></pre>
+<p>Vai estar visível para essa sessão de bash e seus processos filhos, apenas!</p>
+<p>Caso queira "DES-exportar"</p>
+<pre><code>unset fruta
+</code></pre>
+<h3 id="comando-read-ou-leia">COMANDO <code>read</code> OU LEIA</h3>
+<p>O comando <code>read</code> espera e armazena como variável o valor que você digitar:</p>
+<pre><code>read &quot;x&quot;
+
+caderno
+
+echo $x
+</code></pre>
+<p>A variável é <code>x</code></p>
+<pre><code>read &quot;variavel14&quot;
+
+vassoura
+
+echo $variavel14
+</code></pre>
+<p>A variável é <code>variavel14</code></p>
+<pre><code>read nota
+
+echo $nota
+</code></pre>
+<p>A variável é <code>nota</code></p>
+<p>Adicionando a opção <code>-p</code> de <em>prompt</em>, ele fica interativo (porém vai precisar de uma variável de armazenamento):</p>
+<pre><code>read -p &quot;fruta&quot;
+
+echo $fruta
+</code></pre>
+<p>Interage mas não armazenou nada, pois não criamos uma variável!</p>
+<p>Agora vamos ler e armazenar uma variável:</p>
+<pre><code>read -p &quot;fruta&quot; var
+
+echo $var
+</code></pre>
+<p>CUIDADO para não dar um <code>echo</code> em <code>fruta</code>, e sim em <code>$var</code>!</p>
+<p>Vamos tentar de novo...</p>
+<pre><code>read -p &quot;fruta: &quot; x
+
+echo $fruta ou echo $x ??
+</code></pre>
+<p>NOTE que deixamos um espaço entre os <code>:</code> e <code>"</code></p>
+<pre><code>unset fruta
+
+read -p &quot;Diga uma fruta: &quot; fruta
+
+echo $fruta
+</code></pre>
+<p>Lendo uma variável que armazena um nome:</p>
+<pre><code>read -p &quot;Digite seu nome: &quot; x
+
+echo $x
+</code></pre>
+<pre><code>read -p &quot;Digite seu nome: &quot; y
+
+echo $y
+</code></pre>
+<pre><code>read -p &quot;Digite seu nome: &quot; nome
+
+echo $nome
+</code></pre>
+<p>Lendo uma variável que armazena uma nota:</p>
+<pre><code>read -p &quot;Digite a nota do aluno: &quot; nota
+
+echo $nota
+</code></pre>
+<h3 id="os-comandos-builtin-comandos-internos-do-shell">OS <em>COMANDOS</em> <em>BUILTIN</em> (<em>Comandos</em> <em>Internos</em>) DO <code>shell</code></h3>
+<p>Podemos ver quais são os <em>comandos</em> <em>internos</em> ou <em>builtins</em> do shell com o <code>help</code>:</p>
+<pre><code>help
+
+help &lt;2xtab&gt;
+
+help echo
+
+help pwd
+
+help cd
+</code></pre>
+<p>NOTE que um <code>help ls</code> não retorna nada, pois o <code>ls</code> não é um <em>comando builtin</em>.</p>
+<p>Também podemos comparar os <em>comandos</em> <em>builtin</em> e os <em>comandos</em> <em>utilitários</em> do sistema com o<code>type</code>:</p>
+<pre><code>type cd
+
+type echo
+
+type ls
+
+type apt
+
+type mv
+</code></pre>
+<p>Os <em>comandos</em> que NÃO FOREM <em><code>builtin</code></em>, sempre terão sua localização <code>PATH</code> apontada. Os <em>comandos</em> <em>builtin</em> não tem esse apontamento.</p>
+<h3 id="as-variaveis-de-ambiente-em-uso-pelo-sistema-operacional">AS VARIÁVEIS DE AMBIENTE EM USO PELO SISTEMA OPERACIONAl</h3>
+<p>As variáveis de ambiente são definidas sempre em <em>caixa alta</em>. Sendo mostradas pelos comandos <code>set</code> ou <code>env</code>:</p>
+<p>O <em>comando</em> <em>utilitário</em> <code>env</code> MOSTRA APENAS AS VARÁVEIS GLOBAIS E AS EXPORTADAS NA SESSÃO.</p>
+<p>O <em>builtin</em> <code>set</code> mostra todas as <em>variáveis</em> <em>internas</em> e <em>globais</em>, mesmo sem exportar.</p>
+<pre><code>type env
+
+type set
+
+env | less
+
+set | less
+</code></pre>
+<pre><code>SHELL=/bin/bash
+LANGUAGE=pt_BR
+XCURSOR_SIZE=24
+LOGNAME=mevorak
+HOME=/home/mevorak
+USER=mevorak
+HOSTNAME=mevorak
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+...
+</code></pre>
+<p>Podemos realizar buscas por variáveis específicas:</p>
+<pre><code>echo $USER 
+
+echo $SHELL
+
+echo $LANGUAGE
+</code></pre>
+<h3 id="o-conceito-de-path-ou-caminho">O CONCEITO DE <code>PATH</code> OU <em>CAMINHO</em></h3>
+<p>Nos comandos dados ao <code>bash</code>, ele valida PRIMEIRO se é um <em>comando</em> <em>builtin</em>, DEPOIS ele valida se é um <em>comando</em> <em>utilitário</em> do sistema, da variável <code>PATH</code>, DEPOIS ele imprime um erro de <code>COMMAND NOT FOUND</code>. bem lógico!</p>
+<p>Exemplo::</p>
+<pre><code>meu_programa
+
+bash: meu_programa: comando não encontrado
+</code></pre>
+<p>MAS eu posso criar um arquivo com esse nome e fazer virar um <code>Shell script</code></p>
+<pre><code>echo &quot;ls&quot; &gt; meu_programa
+
+chmod +x meu_programa
+
+./meuprograma
+</code></pre>
+<p>Outros exemplos práticos:</p>
+<pre><code>echo &quot;echo Olá mundo&quot; &gt; meu_programa
+
+echo mkdir PASTA_D &gt; meu_programa
+</code></pre>
+<p>Ou então posso jogar o meu programa no <code>PATH</code>do Sistema:</p>
+<pre><code>sudo mv meu_programa /usr/bin/
+</code></pre>
+<p>Agora ele consta nos <em>comandos</em> <em>internos</em> do Sistema e autocompleta com a tecla <code>TAB</code>:</p>
+<pre><code>meu_prog 2x&lt;TAB&gt;
+</code></pre>
+<h3 id="a-linguagem-do-shell-script-modo-nao-interativo">A LINGUAGEM DO <code>SHELL SCRIPT</code> (Modo não interativo)</h3>
+<p>Qual a vantagem de usar <em>Shell script</em>? Bom, podemos usar comandos em lote, ao invés de um de cada vez!</p>
+<p>Exemplo:</p>
+<pre><code>whoami
+
+hostname
+
+uptime -p
+
+uname -rms
+</code></pre>
+<p>Imagine se tivesse que validar essas informações a cada troca de turno, por exemplo. </p>
+<p>Sendo <strong>MUITO</strong> mais prático, criar um Shell script com todos estes comandos para rodar de uma vez só.</p>
+<p>Criando o arquivo:</p>
+<pre><code>$ &gt; informacoes.sh
+</code></pre>
+<p>Inserindo os comandos nele:</p>
+<pre><code>#! /usr/bin/env bash
+
+ whoami
+
+ hostname
+
+ uptime -p
+
+ uname -rms
+</code></pre>
+<p>Setando permissão de execução:</p>
+<pre><code>chmod +x informacoes.sh
+</code></pre>
+<p>Chamando o programa para rodar:</p>
+<pre><code>./informacoes.sh
+</code></pre>
+<p>A linha <code>#! /usr/bin/env bash</code> informa ao <code>Shell</code> qual interpretador vai rodar o script, no caso, apontamos para o <code>bash</code>. Chamamos essa linha <em>obrigatória</em> inicial de <code>Hashbang</code>ou de <code>Shebang</code>, tanto faz.</p>
+<p>Na maioria dos casos o programador vai usar o <em>caminho</em> <em>absoluto</em> <code>#!/bin/bash</code>, para criar a <code>hashbang</code> ao invés de optar pelo <em>environment</em> (ambiente) <code>env</code>.</p>
+<p>Vamos criar um arquivo de <em>Shell script</em> que leia, guarde e imprima um nome:</p>
+<p>Criamos o arquivo:</p>
+<pre><code>&gt; seunome.sh
+</code></pre>
+<p>Inserimos o conteúdo:</p>
+<pre><code>#!/usr/bin/env bash
+
+read -p &quot;Digite seu nome: &quot; nome
+
+echo &quot;Olá, $nome!&quot;
+</code></pre>
+<p>Setamos a permissão de execução:</p>
+<pre><code>chmod +x seunome.sh
+</code></pre>
+<p>Chamamos á execução:</p>
+<pre><code>./seunome
+</code></pre>
+<p>Criemos outro <em>Shell script</em> que mostre a data e hora, hospedando no <code>/opt</code>e usando o editor <code>vim</code>:</p>
+<pre><code>mkdir -p /opt/Meus_Programas/
+</code></pre>
+<pre><code>vim /opt/Meus_Programa/Data_Hora
+</code></pre>
+<pre><code>#!/bin/bash
+
+echo &quot;Este é um Script de Teste&quot;
+
+echo &quot; &quot;
+
+date
+
+echo &quot; &quot;
+
+echo &quot;Fim do Script&quot;
+</code></pre>
+<p>Este script só roda se eu der permissão e rodar o comando á partir do próprio diretório:</p>
+<pre><code>chmod +x /opt/Meus_Programas/Data_Hora
+</code></pre>
+<pre><code>cd /opt/Meus_Programas/
+</code></pre>
+<pre><code>./Data_Hora #./ aponta diretório atual
+</code></pre>
+<pre><code>sh Data_Hora
+</code></pre>
+<p>Ou</p>
+<pre><code>bash Data_Hora
+</code></pre>
+<p>Opcionalmente posso apontar o <code>PATH</code> completo no comando:</p>
+<pre><code>bash /opt/Meuprograma/Data_Hora
+</code></pre>
+<p>Tentar executá-lo á partir de outro diretório será impossível!</p>
+<h3 id="caminho-absoluto-x-caminho-relativo">CAMINHO ABSOLUTO X CAMINHO RELATIVO:</h3>
+<p><em>CAMINHO</em> <em>ABSOLUTO</em></p>
+<pre><code>/opt/Meuprograma/Data_Hora
+</code></pre>
+<p><em>CAMINHO</em> <em>RELATIVO</em></p>
+<pre><code>cd /opt/
+</code></pre>
+<pre><code>cd Meus_Programas/
+</code></pre>
+<pre><code>cd Data_Hora
+</code></pre>
+<h3 id="a-variavel-path-ou-caminho">A VARIÁVEL <code>PATH</code> ( OU CAMINHO)</h3>
+<p>Todo <em>programa</em> que roda no Terminal, está armazenado em algum lugar específico.</p>
+<p>Geralmente os scripts do Sistema operacional, ficam em <code>/usr/bin/</code>, <code>/usr/sbin</code>, <code>/bin</code>, etc.</p>
+<p>Contudo, pra que eu não tenha que ficar digitando o caminho completo, toda vez em que for preciso rodar um programa, como por exemplo o navegador web <em>Firefox</em>, foi criada a variável <code>PATH</code>, contendo os caminhos de busca, para uso do Sistema operacional.</p>
+<p>Temos dois modos de adicionar o caminho do diretório onde salvei meu script, á variável <code>PATH</code>, que é onde o Terminal busca os programas, possibilitando com que ele conste, á partir de qualquer diretório onde eu estiver.</p>
+<p>1) MODO TRANSITÓRIO</p>
+<p>Leio o <code>PATH</code>padrão:</p>
+<pre><code>echo $PATH
+</code></pre>
+<p>Adiciono meu próprio caminho á ela:</p>
+<pre><code>PATH=$PATH:/opt/Meus_Programas
+</code></pre>
+<p>Leio novamente e ele está constando nela:</p>
+<pre><code>echo $PATH
+</code></pre>
+<p>2) MODO DEFINITIVO</p>
+<p>Leio o <code>PATH</code> padrão:</p>
+<pre><code>echo $PATH
+</code></pre>
+<p>Edito o próprio <em>arquivo</em> <em>global</em> do Sistema operacional, adicionando o caminho do meu programa:</p>
+<pre><code>sudo vim /etc/profile
+</code></pre>
+<pre><code>PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/Meus_Programas&quot;
+</code></pre>
+<p>Forço a reconfiguração para efetivar a alteração:</p>
+<pre><code>sudo source /etc/profile
+</code></pre>
+<p>Releio o <code>PATH</code> padrão e já consta o <code>/opt/Meus_Programas</code>:</p>
+<pre><code>echo $PATH
+</code></pre>
+<p>Inclusive os comandos <code>which</code> ou <code>whereis</code> tbém já encontram o meu <em>programa</em>:</p>
+<pre><code>whereis Data_Hora
+
+which Data_Hora
+</code></pre>
+<p>Respondendo á tecla <code>TAB</code> para autocompletar o nome do <em>programa</em>: </p>
+<pre><code>Data_H 2x&lt;TAB&gt;
+
+Data_Hora
+</code></pre>
+<p>Alguns usuários preferem criar seus próprios diretórios pessoais, ignorando a <em>variável</em> <em>Global</em> <code>/etc/profile</code>, optando por usar a <em>variável</em> <em>local</em> <code>.bashrc</code>, para armazenar seus próprios caminhos.</p>
+<p>Exemplo:</p>
+<p>Criamos o diretorio <code>/home/usuario/Programas</code>:</p>
+<pre><code>mkdir ~/Programas
+</code></pre>
+<p>Editamos a <em>variável</em> <em>local</em> <code>.bashrc</code>:</p>
+<pre><code>sudo vim ~/.bashrc
+</code></pre>
+<p>Adicionamos um teste de execução:</p>
+<pre><code>if [ -d ~/Programas ]
+then
+   PATH=$PATH:~/Programas
+fi
+</code></pre>
+<p>Copia um script, como o <code>seunome.sh</code> para dentro desse diretório:</p>
+<pre><code>cp seunome.sh /home/usuario/Programas/
+</code></pre>
+<p>Forçamos a releitura da configuração da <em>variável</em> <em>de</em> <em>sistema</em>:</p>
+<pre><code>source .bashrc
+</code></pre>
+<p>Procuramos o novo caminho na variável <code>PATH</code>:</p>
+<pre><code>env | grep PATH
+</code></pre>
+<h3 id="criando-um-script-e-setando-no-path-do-sistema">CRIANDO UM SCRIPT E SETANDO NO <code>PATH</code> DO SISTEMA</h3>
+<p>Faça os seguintes testes:</p>
+<pre><code>echo &quot;máquina; hostname
+</code></pre>
+<pre><code>echo -n máquina; hostname
+</code></pre>
+<pre><code>echo -n máquina:; hostname
+</code></pre>
+<p>ENTÃO</p>
+<p>Criamos o script:</p>
+<pre><code>vim ~/Programas/Informacoes
+</code></pre>
+<p>Inserimos os comandos:</p>
+<pre><code>#! /usr/bin/env bash
+
+# Informações.sh
+# Versão 1.0
+# Script para capturar informações do Sistema
+# 02/25
+# Eduardo Charquero
+
+clear
+
+echo &quot;&quot;
+
+echo &quot;VALIDANDO NFORMAÇÕES LOCAIS:&quot;
+
+echo &quot;----------------------------------&quot;
+
+echo -n &quot;Usuário logado : &quot;
+whoami
+
+echo -n &quot;Máquina da rede: &quot;
+hostname
+
+echo -n &quot;Kernel em uso  : &quot;
+uname -rms
+
+echo -n &quot;Tempo ligada   : &quot;
+uptime -p
+
+echo &quot;----------------------------------&quot;
+echo &quot;&quot;
+</code></pre>
+<p>Setamos permissão de execução:</p>
+<pre><code>chmod +x ~/Programas/Informacoes
+</code></pre>
+<p>Mandamos o <code>TAB</code>autocompletar e o <code>ENTER</code> para rodar:</p>
+<pre><code>Infor 2x&lt;TAB&gt; ENTER
+</code></pre>
+<h3 id="dicas">DICAS</h3>
+<p>Locais interessantes de usar para repositório de seus scripts pessoais:</p>
+<pre><code>~/.Programas
+
+/opt
+
+/usr/local/bin
+</code></pre>
+<h3 id="atencao">ATENÇÃO!!</h3>
+<p>NÃO RODE COMANDOS OU SCRIPTS DE TERCEIROS ENCONTRADOS NA WEB, SEM SABER O QUE ELE DE FATO ESTÁ FAZENDO!</p>
+<p>CUIDADO COM O USO DE USUÁRIO ROOT OU SUDO!</p>
+<p>Você foi avisado!!</p>
+<p>THAT’S ALL FOLKS!!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Modulo_103.1-aula00/" class="btn btn-neutral float-left" title="🐧 Módulo 103.1 AULA 00"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Modulo_103.1-aula02/" class="btn btn-neutral float-right" title="🐧 Módulo ﻿103.1 AULA 02">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Modulo_103.1-aula00/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Modulo_103.1-aula02/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

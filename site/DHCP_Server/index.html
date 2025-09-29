@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 DHCP Server - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 DHCP Server";
+        var mkdocs_page_input_path = "DHCP_Server.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 DHCP Server</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 DHCP Server</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="dhcp-server">📁 DHCP Server</h1>
+<h1 id="criando-um-servidor-de-dhcp">Criando um Servidor de DHCP</h1>
+<p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
+<h2 id="vamos-a-instalacao-do-pacote-do-dhcp-server">Vamos a instalação do pacote do DHCP Server:</h2>
+<pre><code class="language-bash">apt-get install isc-dhcp-server
+</code></pre>
+<h2 id="agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0">Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):</h2>
+<pre><code class="language-bash">vim /etc/default/isc-dhcp-server
+</code></pre>
+<pre><code class="language-bash">INTERFACESv4=”enp7s0″
+</code></pre>
+<h2 id="backup-do-arquivo-original">Backup do arquivo original:</h2>
+<pre><code class="language-bash">mv /etc/dhcp/dhcpd.conf{,.orig}
+</code></pre>
+<pre><code class="language-bash">vim /etc/dhcp/dhcpd.conf
+</code></pre>
+<pre><code class="language-bash"># NOME DE DOMÍNIO:
+option domain-name &quot;officinas.edu.&quot;;
+
+# IP DO SERVIDOR DE DNS DA REDE (Separar por vírgula SEM espaço):
+option domain-name-servers 192.168.70.254,1.1.1.1;
+
+# GATEWAY PADRÃO:
+option routers 192.168.70.254;
+
+# DEFINIÇÃO DE HORÁRIO DA REDE (18000=BR):
+option time-offset -18000;
+
+# TEMPO DE RENOVAÇÃO DOS ENDEREÇOS IPS POR INATIVIDADE (600=10MIN):
+default-lease-time 600;
+
+# TEMPO MÁXIMO DE USO DE UM IP EM UMA MÁQUINA DA REDE:
+max-lease-time 7200;
+
+# DEFINE SE O DHCPD INSERE DINÂMICAMENTE UM NOVO REGISTRO DE MÁQUINA NO DNS SERVER AO FORNECER UM IP:
+ddns-update-style none;
+
+# INDICA QUE O SERVIDOR DE DHCP SERÁ AUTORITATIVO SEMPRE:
+authoritative;
+
+# GERENCIAMENTO DE LOGS:
+log-facility local7;
+
+# RANGE DE GERENCIAMENTO DE IPS:
+subnet 192.168.70.0 netmask 255.255.255.0 {
+    range 192.168.70.10 192.168.70.20;
+    option routers 192.168.70.254;
+}
+
+# IPS FIXOS POR MAC ADDRESS:
+host vmwin10 {
+    hardware ethernet 52:54:00:C7:85:A9;
+    fixed-address 192.168.70.171;
+}
+
+host PC_Gerente {
+    hardware ethernet 52:54:00:bf:17:be;
+    fixed-address 192.168.70.111;
+}
+</code></pre>
+<h2 id="agora-vamos-reiniciar-o-servico">Agora vamos reiniciar o serviço:</h2>
+<pre><code class="language-bash">systemctl restart isc-dhcp-server
+</code></pre>
+<h2 id="extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server">EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:</h2>
+<pre><code class="language-bash">shared-network rede-almoxarifado {
+
+        subnet 172.16.254.0 netmask 255.255.255.0 {
+         range 172.16.254.20 172.16.254.100;
+         option routers 172.16.254.1;
+         option domain-name-servers 8.8.8.8, 8.8.4.4;
+         option broadcast-address 172.16.254.255;
+        }
+
+        # Sub-Rede adicional qual entrego apenas ips para os mac x e y:
+        subnet 10.0.0.240 netmask 255.255.255.240 {
+         option routers 10.0.0.241;
+         option domain-name-servers 8.8.8.8, 8.8.4.4;
+         option broadcast-address 10.0.0.255;
+
+         host pc1 {
+           hardware ethernet 70:71:BC:F1:9F:9E;
+           fixed-address 10.0.0.242;
+         }
+         host pc2 {
+           hardware ethernet 70:71:BC:F1:9F:1D;
+           fixed-address 10.0.0.243;
+         }
+
+         host cel1 {
+           hardware ethernet 08:00:27:18:DC:AA;
+           fixed-address 10.0.0.244;
+         }
+        }
+}
+</code></pre>
+<h2 id="instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac">Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:</h2>
+<pre><code class="language-bash">apt install ieee-data
+</code></pre>
+<h2 id="crie-os-aliases-dos-arquivos-para-os-diretorios-especifios">Crie os aliases dos arquivos para os diretórios específios:</h2>
+<pre><code class="language-bash">ln -s /usr/share/ieee-data/oui.txt /usr/share/misc/oui.txt
+ln -s /usr/share/ieee-data/oui.txt /usr/local/etc/oui.txt
+</code></pre>
+<h2 id="imprime-as-concessoes-dhcp-ativas">Imprime as concessões DHCP ativas:</h2>
+<pre><code class="language-bash">dhcp-lease-list
+</code></pre>
+<pre><code class="language-bash">MAC                IP              hostname       valid until         manufacturer
+
+00:06:14:74:2a:5d  10.0.0.100     -NA-           2020-09-16 13:44:02       Furukawa
+</code></pre>
+<h2 id="para-uma-saida-legivel-por-maquina-com-datas-completas">Para uma saída legível por máquina com datas completas:</h2>
+<pre><code class="language-bash">dhcp-lease-list --parsable
+</code></pre>
+<h2 id="imprime-o-ultimo-mac">imprime o último MAC:</h2>
+<pre><code class="language-bash">dhcp-lease-list --last
+</code></pre>
+<h2 id="imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac">imprime todas as entradas, ou seja, mais de um por MAC:</h2>
+<pre><code class="language-bash">dhcp-lease-list --all
+</code></pre>
+<h2 id="validar-as-locacoes-dhcpd">Validar as locações dhcpd:</h2>
+<pre><code class="language-bash">cat /var/lib/dhcp/dhcpd.leases
+</code></pre>
+<pre><code class="language-bash">lease 10.0.0.100 {
+  starts 3 2020/09/16 14:06:33;
+  ends 3 2020/09/16 14:11:33;
+  cltt 3 2020/09/16 14:06:33;
+  binding state active;
+  next binding state free;
+  rewind binding state free;
+  hardware ethernet 00:06:14:74:2a:5d;
+}
+</code></pre>
+<p>that's all folks!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../DC_eSharknet/" class="btn btn-neutral float-left" title="DC eSharknet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../DNS_Server/" class="btn btn-neutral float-right" title="📁 DNS Server">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../DC_eSharknet/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../DNS_Server/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

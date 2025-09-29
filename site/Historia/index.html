@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>O Universo Linux - Conceitos - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "O Universo Linux - Conceitos";
+        var mkdocs_page_input_path = "Historia.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">O Universo Linux - Conceitos</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#o-unix">O Unix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-gnu">O GNU</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-movimento-de-software-livre-e-a-licenca-gpl">O movimento de Software Livre e a Licença GPL</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#introducao-ao-sistema-operacional-linux">Introdução ao Sistema Operacional Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-kernel-linux">O Kernel Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#por-que-usar-linux-em-servidores">Por que usar Linux em Servidores</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-mercado-de-trabalho-para-profissionais-linux">O Mercado de Trabalho para Profissionais Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#principais-diferencas-entre-linux-e-windows">Principais Diferenças entre Linux e Windows</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#principais-diferencas-entre-linux-e-unix">Principais Diferenças entre Linux e Unix</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guia-para-instalacao-do-debian-linux">Guia para Instalação do Debian Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#estrutura-de-diretorios-no-linux">Estrutura de Diretórios no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arquitetura-do-sistema-operacional-linux">Arquitetura do Sistema Operacional Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#diversos-sistemas-de-arquivos-no-linux">Diversos Sistemas de Arquivos no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#particoes-linux">Partições Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#diversas-distribuicoes-linux">Diversas Distribuições Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#diversas-interfaces-graficas-do-linux">Diversas Interfaces Gráficas do Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gerenciamento-de-boot-no-linux">Gerenciamento de Boot no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uso-do-terminal-no-linux">Uso do Terminal no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tipos-de-arquivos-no-linux">Tipos de Arquivos no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#permissoes-no-linux">Permissões no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#montagem-de-diretorios-no-linux">Montagem de Diretórios no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#compactacao-de-arquivos-no-linux">Compactação de Arquivos no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contas-de-usuarios-e-grupos-no-linux">Contas de Usuários e Grupos no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gerenciamento-de-rede-em-servidores-linux">Gerenciamento de rede em Servidores Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acesso-remoto-e-transferencia-de-arquivos-por-ssh">Acesso Remoto e transferência de arquivos por SSH</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#analise-de-processos-e-logs-no-linux">Análise de Processos e logs no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gerenciamento-de-servicos-com-systemd">Gerenciamento de Serviços com systemd</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#automatizacao-de-tarefas-com-linux">Automatização de Tarefas com Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#raid-com-linux">RAID com Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lvm-com-linux">LVM com Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dhcp-server">DHCP Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#web-server">Web Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proxy-server">Proxy Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nfs-server">NFS Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ftp-server">FTP Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#file-server">File Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#backups-de-dados-com-scripts">Backups de dados com scripts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controlador-de-dominio-primario">Controlador de Domínio Primário</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controlador-de-dominio-primario-secundario">Controlador de Domínio Primário Secundário</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dns-server">DNS Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ntp-server">NTP Server</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#firewall">Firewall</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#virtualizacao">Virtualização</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#os-50-principais-comandos-do-linux">Os 50 Principais Comandos do Linux</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">O Universo Linux - Conceitos</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="o-universo-linux-conceitos">O Universo Linux - Conceitos</h1>
+<h2 id="o-unix">O Unix</h2>
+<ul>
+<li><strong>Conceituando o Unix</strong></li>
+<li><strong>Início do Unics com Ken Thompson e Denis Ritchie em 1969</strong></li>
+<li><strong>Reescrito em 1973 na linguagem C e renomeado para Unix</strong></li>
+<li><strong>O Unix na atualidade</strong></li>
+<li><strong>A filosofia KISS (Keep It Simple Stupid)</strong></li>
+</ul>
+<h2 id="o-gnu">O GNU</h2>
+<ul>
+<li><strong>Richard Stalmann</strong></li>
+<li><strong>Conceituando o GNU (GNU is Not Unix)</strong></li>
+<li><strong>Princípios e filosofia por trás do GNU</strong></li>
+<li><strong>Como o GNU auxilia no mundo do SL</strong></li>
+</ul>
+<h2 id="o-movimento-de-software-livre-e-a-licenca-gpl">O movimento de Software Livre e a Licença GPL</h2>
+<ul>
+<li><strong>Conceituando a Freee Software Fundation</strong></li>
+<li><strong>Princípios e filosofia por trás da GPL</strong> </li>
+<li><strong>As 4 liberdades do SL</strong></li>
+<li><strong>Como a GPL afeta o desenvolvimento de software no Linux</strong></li>
+</ul>
+<h2 id="introducao-ao-sistema-operacional-linux">Introdução ao Sistema Operacional Linux</h2>
+<ul>
+<li><strong>O que é o Linux?</strong></li>
+<li><strong>História e evolução do Linux</strong></li>
+<li><strong>As diversas distribuições Linux e suas derivações</strong></li>
+<li><strong>Distros Linux mais populares na atualidade</strong></li>
+</ul>
+<h2 id="o-kernel-linux">O Kernel Linux</h2>
+<ul>
+<li><strong>Conceituando o Kernel</strong></li>
+<li><strong>Interligação entre Harware e Software</strong></li>
+<li><strong>Como o Kernel trabalha</strong></li>
+</ul>
+<h2 id="por-que-usar-linux-em-servidores">Por que usar Linux em Servidores</h2>
+<ul>
+<li><strong>Vantagens do Linux como sistema operacional de servidor</strong></li>
+<li><strong>Casos de uso comuns para servidores Linux</strong></li>
+<li><strong>Firewall, Controlador de Domínio, Servidor de Arquivos, DNS, Proxy, e-Mail, FTP, DHCP</strong></li>
+<li><strong>Exemplos de empresas que usam Linux em servidores</strong></li>
+</ul>
+<h2 id="o-mercado-de-trabalho-para-profissionais-linux">O Mercado de Trabalho para Profissionais Linux</h2>
+<ul>
+<li><strong>Demandas do mercado para profissionais de Linux</strong></li>
+<li><strong>Carreiras relacionadas ao Linux</strong></li>
+<li><strong>Certificações Linux e sua importância</strong></li>
+</ul>
+<h2 id="principais-diferencas-entre-linux-e-windows">Principais Diferenças entre Linux e Windows</h2>
+<ul>
+<li><strong>Arquitetura de sistemas</strong></li>
+<li><strong>Modelo de licenciamento</strong></li>
+<li><strong>Interfaces de linha de comando vs. interfaces gráficas</strong></li>
+</ul>
+<h2 id="principais-diferencas-entre-linux-e-unix">Principais Diferenças entre Linux e Unix</h2>
+<ul>
+<li><strong>História e relação entre Linux e Unix</strong></li>
+<li><strong>Diferenças na arquitetura e recursos</strong></li>
+<li><strong>FreeBSD, NetBSD, OpenBSD, Solaris, AIX, MacOS</strong></li>
+</ul>
+<h2 id="guia-para-instalacao-do-debian-linux">Guia para Instalação do Debian Linux</h2>
+<ul>
+<li><strong>Baixando uma imagem ISO do Debian Linux</strong></li>
+<li><strong>Passos para a instalação do Debian Linux</strong></li>
+<li><strong>Configuração inicial após a instalação</strong></li>
+</ul>
+<h2 id="estrutura-de-diretorios-no-linux">Estrutura de Diretórios no Linux</h2>
+<ul>
+<li><strong>Visão geral da hierarquia de diretórios</strong></li>
+<li><strong>Significado e conteúdo de diretórios comuns</strong></li>
+<li><strong>Importância do FHS para a padronização dos diretórios</strong></li>
+</ul>
+<h2 id="arquitetura-do-sistema-operacional-linux">Arquitetura do Sistema Operacional Linux</h2>
+<ul>
+<li><strong>Componentes principais do sistema operacional Linux e a interação com Harware</strong></li>
+<li><strong>Kernel, Bibliotecas do sistema, Shell, Aplicações, espaço de usuário, drivers e módulos, gerência de pacotes</strong></li>
+</ul>
+<h2 id="diversos-sistemas-de-arquivos-no-linux">Diversos Sistemas de Arquivos no Linux</h2>
+<ul>
+<li><strong>Conceituando Sistema de Arquivos</strong></li>
+<li><strong>Inodes/Metadados, tempo, permissão, tipo, tamanho, endereço</strong></li>
+<li><strong>Ext4, FAT32, XFS, Btrfs e outros sistemas de arquivos</strong></li>
+<li><strong>Escolhendo o sistema de arquivos certo para diferentes casos de uso</strong></li>
+</ul>
+<h2 id="particoes-linux">Partições Linux</h2>
+<ul>
+<li><strong>Conceituando particionamento</strong></li>
+<li><strong>Partição primária, partição secundária, partição extendida, partição lógica, Comandos e utilitários de particionamento</strong></li>
+<li><strong>Partição MBR e EFI</strong></li>
+</ul>
+<h2 id="diversas-distribuicoes-linux">Diversas Distribuições Linux</h2>
+<ul>
+<li><strong>Explorando diferentes distribuições (Slackware, Debian, RedHat, OpenSUSE, etc)</strong></li>
+<li><strong>As distros derivadas. Ubuntu, Fedora, Mint, Kali, Raspian, Android</strong></li>
+<li><strong>Escolhendo a distribuição certa para suas necessidades</strong></li>
+</ul>
+<h2 id="diversas-interfaces-graficas-do-linux">Diversas Interfaces Gráficas do Linux</h2>
+<ul>
+<li><strong>GNOME, KDE, XFCE, Mate, Cinnamon e outras interfaces gráficas</strong></li>
+<li><strong>Personalização e usabilidade</strong></li>
+</ul>
+<h2 id="gerenciamento-de-boot-no-linux">Gerenciamento de Boot no Linux</h2>
+<ul>
+<li><strong>Conceituando o boot do sistema</strong></li>
+<li><strong>O Lilo</strong></li>
+<li><strong>O GRUB (Grand Unified Bootloader)</strong></li>
+<li><strong>Configuração do GRUB</strong></li>
+<li><strong>Solução de problemas de inicialização</strong></li>
+</ul>
+<h2 id="uso-do-terminal-no-linux">Uso do Terminal no Linux</h2>
+<ul>
+<li><strong>Conceituando o Terminal (ts,tty)</strong></li>
+<li><strong>Navegação e manipulação de diretórios</strong></li>
+<li><strong>Comandos básicos do Linux</strong></li>
+<li><strong>Redirecionamento e pipes</strong></li>
+</ul>
+<h2 id="tipos-de-arquivos-no-linux">Tipos de Arquivos no Linux</h2>
+<ul>
+<li><strong>Arquivos regulares, diretórios, links simbólicos, dispositivos, etc</strong></li>
+<li><strong>Permissões e propriedades de arquivos</strong></li>
+</ul>
+<h2 id="permissoes-no-linux">Permissões no Linux</h2>
+<ul>
+<li><strong>Entendendo as permissões de usuário, arquivo e diretório</strong></li>
+<li><strong>Modificando permissões e atributos, chmod, chown, chattr</strong></li>
+</ul>
+<h2 id="montagem-de-diretorios-no-linux">Montagem de Diretórios no Linux</h2>
+<ul>
+<li><strong>Montando dispositivos de armazenamento</strong></li>
+<li><strong>Montagem automática vs. manual</strong></li>
+</ul>
+<h2 id="compactacao-de-arquivos-no-linux">Compactação de Arquivos no Linux</h2>
+<ul>
+<li><strong>Compressão e descompressão de arquivos</strong></li>
+<li><strong>Formatos de compactação (tar, gzip, zip)</strong></li>
+</ul>
+<h2 id="contas-de-usuarios-e-grupos-no-linux">Contas de Usuários e Grupos no Linux</h2>
+<ul>
+<li><strong>Gerenciando usuários e grupos</strong></li>
+<li><strong>Controle de acesso e segurança</strong></li>
+</ul>
+<h2 id="gerenciamento-de-rede-em-servidores-linux">Gerenciamento de rede em Servidores Linux</h2>
+<ul>
+<li><strong>Conceituando endereço ip</strong></li>
+<li><strong>Configurando ip dinâmico e ip fixo</strong></li>
+<li><strong>Conceituando DNS</strong></li>
+<li><strong>Conceituando Hostname</strong></li>
+</ul>
+<h2 id="acesso-remoto-e-transferencia-de-arquivos-por-ssh">Acesso Remoto e transferência de arquivos por SSH</h2>
+<ul>
+<li><strong>Conceituando o SSH (Secure Shell)</strong></li>
+<li><strong>Configurando acesso SSH</strong></li>
+<li><strong>Segurança em conexões SSH</strong></li>
+<li><strong>scp, ssh-keygen, sshcopy-id</strong></li>
+</ul>
+<h2 id="analise-de-processos-e-logs-no-linux">Análise de Processos e logs no Linux</h2>
+<ul>
+<li><strong>Monitoramento e gerenciamento de processos</strong></li>
+<li><strong>Comandos ps, top, htop, logs com systemd, etc</strong></li>
+</ul>
+<h2 id="gerenciamento-de-servicos-com-systemd">Gerenciamento de Serviços com systemd</h2>
+<ul>
+<li><strong>O que é systemd?</strong></li>
+<li><strong>Gerenciando serviços, unidades e inicialização</strong></li>
+<li><strong>Outros gerenciadores de inicialização</strong> </li>
+</ul>
+<h2 id="automatizacao-de-tarefas-com-linux">Automatização de Tarefas com Linux</h2>
+<ul>
+<li><strong>Agendamento de tarefas com cron</strong></li>
+<li><strong>Scripting e automação de tarefas repetitivas</strong></li>
+</ul>
+<h2 id="raid-com-linux">RAID com Linux</h2>
+<ul>
+<li><strong>Introdução a RAID (Redundant Array of Independent Disks)</strong></li>
+<li><strong>Configurando RAID no Linux</strong></li>
+</ul>
+<h2 id="lvm-com-linux">LVM com Linux</h2>
+<ul>
+<li><strong>O que é LVM (Logical Volume Manager)</strong></li>
+<li><strong>Gerenciamento de volumes lógicos</strong></li>
+</ul>
+<h2 id="dhcp-server">DHCP Server</h2>
+<ul>
+<li><strong>Conceito de Servidor de DHCP</strong></li>
+<li><strong>Instalação de pacotes e edição de arquivos do dhcp server</strong></li>
+</ul>
+<h2 id="web-server">Web Server</h2>
+<ul>
+<li><strong>Conceituando o Servidor de Páginas Web</strong></li>
+<li><strong>Instalação dos pacotes do Apache Server</strong></li>
+<li><strong>Configuração do Apache Server</strong></li>
+<li><strong>Primeira página Web</strong></li>
+<li><strong>O Nginx Server</strong></li>
+</ul>
+<h2 id="proxy-server">Proxy Server</h2>
+<ul>
+<li><strong>Conceito de Proxy Server</strong></li>
+<li><strong>Instalação e configuração do Squid Proxy Server</strong></li>
+<li><strong>Bloqueios e logs de usuários</strong></li>
+</ul>
+<h2 id="nfs-server">NFS Server</h2>
+<ul>
+<li><strong>Conceituando o NFS (Network File Sistem)</strong></li>
+<li><strong>Instalando os pacotes do NFS</strong></li>
+<li><strong>Configurando acesso NFS</strong></li>
+<li><strong>Segurança em conexões NFS</strong></li>
+</ul>
+<h2 id="ftp-server">FTP Server</h2>
+<ul>
+<li><strong>Conceituando o Servidor de FTP</strong></li>
+<li><strong>Configurando acesso FTP</strong></li>
+<li><strong>Segurança em conexões FTP</strong></li>
+<li><strong>sftp</strong></li>
+</ul>
+<h2 id="file-server">File Server</h2>
+<ul>
+<li><strong>Conceito de Servidor de Arquivos</strong></li>
+<li><strong>Instalação dos pacotes Samba4 compilado</strong></li>
+<li><strong>Configuração do File Server</strong></li>
+</ul>
+<h2 id="backups-de-dados-com-scripts">Backups de dados com scripts</h2>
+<ul>
+<li><strong>O que é backup?</strong></li>
+<li><strong>Criando scripts de backup</strong></li>
+<li><strong>Gerenciando de backups automaticos com cron</strong></li>
+</ul>
+<h2 id="controlador-de-dominio-primario">Controlador de Domínio Primário</h2>
+<ul>
+<li><strong>Conceito de DC01</strong></li>
+<li><strong>Instalação dos pacotes Samba4</strong></li>
+<li><strong>Configuração do DC01</strong></li>
+</ul>
+<h2 id="controlador-de-dominio-primario-secundario">Controlador de Domínio Primário Secundário</h2>
+<ul>
+<li><strong>Conceito de DC02</strong></li>
+<li><strong>Instalação dos pacotes Samba4</strong></li>
+<li><strong>Configuração do DC02</strong></li>
+</ul>
+<h2 id="dns-server">DNS Server</h2>
+<ul>
+<li><strong>Conceito de DNS</strong></li>
+<li><strong>Instalação dos pacotes BIND9</strong></li>
+<li><strong>Configuração do bind</strong></li>
+</ul>
+<h2 id="ntp-server">NTP Server</h2>
+<ul>
+<li><strong>Conceito de NTP</strong></li>
+<li><strong>Instalação dos pacotes NTP</strong></li>
+<li><strong>Configuração do NTP</strong></li>
+</ul>
+<h2 id="firewall">Firewall</h2>
+<ul>
+<li><strong>Conceito de Firewall</strong></li>
+<li><strong>Instalação dos pacotes do iptables</strong></li>
+<li><strong>Configuração do script firewall.sh</strong></li>
+<li><strong>Inicialização com o sistema</strong></li>
+</ul>
+<h2 id="virtualizacao">Virtualização</h2>
+<ul>
+<li><strong>Conceito de Virtualização</strong></li>
+<li><strong>Instalação do Hipervisor Virtualbox</strong></li>
+<li><strong>Instalação do Hipervisor QEMU/Virt-manager</strong></li>
+</ul>
+<h2 id="os-50-principais-comandos-do-linux">Os 50 Principais Comandos do Linux</h2>
+<ul>
+<li><strong>Revisão dos 50 comandos mais utilizados no Linux</strong></li>
+<li><strong>Exemplos de uso prático</strong></li>
+</ul>
+<p>THAT’S ALL FOLKS!!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Firewall_Server/" class="btn btn-neutral float-left" title="📁 Firewall Server"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Mkdocs_Server/" class="btn btn-neutral float-right" title="📁 Servidor de documentação MkDocs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Firewall_Server/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Mkdocs_Server/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

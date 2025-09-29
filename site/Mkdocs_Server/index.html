@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 Servidor de documentação MkDocs - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 Servidor de documenta\u00e7\u00e3o MkDocs";
+        var mkdocs_page_input_path = "Mkdocs_Server.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 Servidor de documentação MkDocs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#setando-e-validando-o-hostname-do-servidor-mkdocs">Setando e validando o hostname do Servidor MkDocs:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configurando-o-arquivo-de-hosts">Configurando o arquivo de hosts:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setando-ip-fixo-no-servidor-dcmaster">Setando ip fixo no servidor dcmaster:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setando-endereco-do-firewall-como-resolvedor-externo">Setando endereço do firewall como resolvedor externo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validando-o-ip-da-placa">Validando o ip da placa:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-dos-pacotes-necessarios-ao-debian">Instalação dos pacotes necessários ao Debian:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instalacao-dos-pacotes-do-mkdocs">Instalação dos pacotes do MkDocs:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validando-versao-do-pacote">Validando versão do pacote:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criando-um-novo-projeto">Criando um novo projeto:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#valide-a-criacao-da-estrutura">Valide a criação da estrutura:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#valida-o-ip-do-servidor">Valida o ip do Servidor:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inicia-o-servidor">Inicia o Servidor:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#agora-abra-no-seu-navegador-o-endereco">Agora abra no seu navegador o endereço:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#edite-o-arquivo-de-configuracao-principal">Edite o arquivo de configuração principal:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#restart-do-servico">Restart do Serviço:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#agora-vamos-criar-2-arquivos-de-exemplo-sobremd-e-instalacaomd">Agora vamos criar 2 arquivos de exemplo, "Sobre.md" e "Instalação.md":</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inicie-o-servico">Inicie o serviço:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#e-possivel-inserir-figuras-na-documentacao-com-a-seguinte-estrutura">É possível inserir figuras na documentação, com a seguinte estrutura:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ou">ou</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#o-mkdocs-pode-gerar-conteudo-estatico-para-ser-inserido-no-apache-server-ou-nginx-server">O MKDocs pode gerar conteúdo estático, para ser inserido no Apache Server ou NGINX Server:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vai-criar-um-diretorio-chamado-de-site-que-pode-ser-copiado-para-varwwwhtml">Vai criar um diretório chamado de site, que pode ser copiado para /var/www/html:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#seta-permissoes-no-diretorio">Seta permissões no diretório:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#restart-do-apache-server">Restart do Apache Server:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acesse-pelo-seu-navegador-web-favorito">Acesse pelo seu navegador Web favorito:</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 Servidor de documentação MkDocs</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="servidor-de-documentacao-mkdocs">📁 Servidor de documentação MkDocs</h1>
+<p>MkDocs é um gerador de site estático rápido, simples e absolutamente lindo que é voltado para a documentação do projeto de construção. Os arquivos de origem da documentação são gravados em Markdown e configurados com um único arquivo de configuração YAML.</p>
+<h4 id="setando-e-validando-o-hostname-do-servidor-mkdocs">Setando e validando o hostname do Servidor MkDocs:</h4>
+<pre><code class="language-bash">hostnamectl set-hostname mkdocs
+</code></pre>
+<h4 id="configurando-o-arquivo-de-hosts">Configurando o arquivo de hosts:</h4>
+<pre><code class="language-bash">vim /etc/hosts
+</code></pre>
+<pre><code class="language-bash">.0.0.1             localhost
+127.0.1.1          mkdocs.officinas.edu        mkdocs
+192.168.70.150     fileserver.officinas.edu    fileserver
+192.168.70.200     dcslave.officinas.edu       dcslave
+192.168.70.222     mkdocs.officinas.edu        mkdocs
+192.168.70.250     dcmaster.officinas.edu      dcmaster
+192.168.70.254     firewall.officinas.edu      firewall
+</code></pre>
+<pre><code class="language-bash">hostname -f
+</code></pre>
+<h4 id="setando-ip-fixo-no-servidor-dcmaster">Setando ip fixo no servidor dcmaster:</h4>
+<pre><code class="language-bash">vim /etc/network/interfaces
+</code></pre>
+<pre><code class="language-bash">iface enp1s0 inet static
+address           192.168.70.222
+netmask           255.255.255.0
+gateway           192.168.70.254
+dns-nameserver    192.168.70.254 #(firewall)
+dns-search        officinas.edu
+</code></pre>
+<h4 id="setando-endereco-do-firewall-como-resolvedor-externo">Setando endereço do firewall como resolvedor externo:</h4>
+<pre><code class="language-bash">vim /etc/resolv.conf
+</code></pre>
+<pre><code class="language-bash">domain             officinas.edu
+search             officinas.edu.
+nameserver         192.168.70.254 #(firewall)
+</code></pre>
+<h4 id="validando-o-ip-da-placa">Validando o ip da placa:</h4>
+<pre><code class="language-bash">ip -c addr
+</code></pre>
+<pre><code class="language-bash">ip -br link
+</code></pre>
+<h4 id="instalacao-dos-pacotes-necessarios-ao-debian">Instalação dos pacotes necessários ao Debian:</h4>
+<pre><code class="language-bash">apt install wget net-tools tree python3-pip vim
+</code></pre>
+<h4 id="instalacao-dos-pacotes-do-mkdocs">Instalação dos pacotes do MkDocs:</h4>
+<pre><code class="language-bash">apt install mkdocs mkdocs-material-extensions mkdocs-nature mkdocs-click
+</code></pre>
+<h4 id="validando-versao-do-pacote">Validando versão do pacote:</h4>
+<pre><code class="language-bash">mkdocs --version
+</code></pre>
+<h4 id="criando-um-novo-projeto">Criando um novo projeto:</h4>
+<pre><code class="language-bash">cd /opt/
+mkdocs new mkdocs
+cd /opt/mkdocs
+</code></pre>
+<h4 id="valide-a-criacao-da-estrutura">Valide a criação da estrutura:</h4>
+<pre><code class="language-bash">tree
+</code></pre>
+<pre><code class="language-bash">├── docs
+│   └── index.md
+├── mkdocs.yml
+└── site
+    ├── 404.html
+    ├── css
+    │   ├── base.css
+    │   ├── bootstrap.min.css
+    │   └── font-awesome.min.css
+    ├── fonts
+    │   ├── FontAwesome.otf
+    │   ├── fontawesome-webfont.eot
+    │   ├── fontawesome-webfont.svg
+    │   ├── fontawesome-webfont.ttf
+    │   ├── fontawesome-webfont.woff
+    │   └── fontawesome-webfont.woff2
+    ├── img
+    │   ├── favicon.ico
+    │   └── grid.png
+    ├── index.html
+    ├── js
+    │   ├── base.js
+    │   ├── bootstrap.min.js
+    │   └── jquery-1.10.2.min.js
+    ├── search
+    │   ├── lunr.js
+    │   ├── main.js
+    │   ├── search_index.json
+    │   └── worker.js
+    ├── sitemap.xml
+    └── sitemap.xml.gz
+</code></pre>
+<h4 id="valida-o-ip-do-servidor">Valida o ip do Servidor:</h4>
+<pre><code class="language-bash">ip -c addr
+</code></pre>
+<h4 id="inicia-o-servidor">Inicia o Servidor:</h4>
+<pre><code class="language-bash">mkdocs serve -a 192.168.70.222:8000
+</code></pre>
+<pre><code class="language-bash">INFO     -  Building documentation...
+INFO     -  Cleaning site directory
+INFO     -  Documentation built in 0.05 seconds
+INFO     -  [10:41:22] Serving on http://192.168.70.222:8000/
+</code></pre>
+<h4 id="agora-abra-no-seu-navegador-o-endereco">Agora abra no seu navegador o endereço:</h4>
+<pre><code class="language-bash">http://192.168.70.222:8000
+</code></pre>
+<h4 id="edite-o-arquivo-de-configuracao-principal">Edite o arquivo de configuração principal:</h4>
+<pre><code class="language-bash">vim /opt/mkdocs/mkdocs.yml
+</code></pre>
+<pre><code class="language-bash">site_name: Officina's
+theme:
+  name: readthedocs
+</code></pre>
+<h4 id="restart-do-servico">Restart do Serviço:</h4>
+<pre><code class="language-bash">systemctl restart mkdocs
+</code></pre>
+<h4 id="agora-vamos-criar-2-arquivos-de-exemplo-sobremd-e-instalacaomd">Agora vamos criar 2 arquivos de exemplo, "Sobre.md" e "Instalação.md":</h4>
+<pre><code class="language-bash">vim /opt/mkdocs/docs/sobre.md
+</code></pre>
+<pre><code class="language-bash"># Markdown
+
+## O que é Markdown ?
+
+Markdown é uma linguagem de marcação leve com sintaxe de formatação de texto simples projetada para que ela possa ser convertida em HTML e muitos outros formatos usando uma ferramenta com o mesmo nome. Markdown é usado frequentemente para formatar arquivos readme, para escrever mensagens em fóruns de discussão on-line e para criar texto rico usando um editor de texto simples.
+
+## Porque usar Markdown?
+
+* **FÁCIL** : A sintaxe é tão fácil que você pode aprender em um minuto ou dois, em seguida, escreva sem perceber nada estranho ou nerd.
+
+* **RÁPIDO** : Ele economiza tempo em comparação com outros tipos de arquivos / formatos de texto. Isso ajuda a aumentar a produtividade e os fluxos de trabalho do escritor.
+
+* **LIMPO** : Tanto a sintaxe como a saída são limpas, sem confusão com nossos olhos e simples de gerenciar.
+
+* **FLEXÍVEL** : Com apenas algumas configurações, o seu texto será traduzido atravessando qualquer plataforma lá fora, editável em qualquer software de edição de texto e conversível para uma ampla variedade de formatos.
+
+
+**Em resumo**, os usuários comuns acharão útil em todos os casos, especialmente quando você precisar de algo melhor que o texto simples, mas menos funcional do que o Microsoft Word.
+
+**Para desenvolvedores**, Se você é preguiçoso para escrever código HTML, você vai adorar o markdown. **Além disso**, **Github** e muitos sites favorecem o markdown para o arquivo readme de projetos. Isso significa que você vai encontrar o markdown em sua vida de uma forma ou de outra.
+</code></pre>
+<pre><code class="language-bash">vim /opt/mkdocs/docs/instalação.md
+</code></pre>
+<pre><code class="language-bash"># apt install mkdocs
+# pip3 install mkdocs
+</code></pre>
+<pre><code class="language-bash">
+Crie um novo projeto chamado mkdocs e construa um novo site:
+```bash
+# cd /opt/
+# mkdocs new mkdocs
+# cd /opt/mkdocs
+# mkdocs build
+</code></pre>
+<h4 id="inicie-o-servico">Inicie o serviço:</h4>
+<pre><code class="language-bash"># mkdocs serve -a 192.168.70.222:8000
+</code></pre>
+<h4 id="e-possivel-inserir-figuras-na-documentacao-com-a-seguinte-estrutura">É possível inserir figuras na documentação, com a seguinte estrutura:</h4>
+<pre><code class="language-bash">![Descrição da imagem](caminho/para/a/imagem.jpg)
+</code></pre>
+<h4 id="ou">ou</h4>
+<pre><code class="language-bash">![Descrição da imagem](URL_da_imagem)
+</code></pre>
+<h4 id="o-mkdocs-pode-gerar-conteudo-estatico-para-ser-inserido-no-apache-server-ou-nginx-server">O MKDocs pode gerar conteúdo estático, para ser inserido no Apache Server ou NGINX Server:</h4>
+<pre><code class="language-bash">mkdocs build
+</code></pre>
+<h4 id="vai-criar-um-diretorio-chamado-de-site-que-pode-ser-copiado-para-varwwwhtml">Vai criar um diretório chamado de site, que pode ser copiado para /var/www/html:</h4>
+<pre><code class="language-bash">cp -rv /opt/mkdocs/site /var/www/html
+</code></pre>
+<h4 id="seta-permissoes-no-diretorio">Seta permissões no diretório:</h4>
+<pre><code class="language-bash">chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html 
+</code></pre>
+<h4 id="restart-do-apache-server">Restart do Apache Server:</h4>
+<pre><code class="language-bash">systemctl restart apache2
+</code></pre>
+<h4 id="acesse-pelo-seu-navegador-web-favorito">Acesse pelo seu navegador Web favorito:</h4>
+<pre><code class="language-bash">http://192.168.70.251/site
+</code></pre>
+<p>THAT’S ALL FOLKS!!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Historia/" class="btn btn-neutral float-left" title="O Universo Linux - Conceitos"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Modulo_103.1-aula00/" class="btn btn-neutral float-right" title="🐧 Módulo 103.1 AULA 00">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Historia/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Modulo_103.1-aula00/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

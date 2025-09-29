@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 Tutorial Completo de systemd - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 Tutorial Completo de systemd";
+        var mkdocs_page_input_path = "Systemd.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 Tutorial Completo de systemd</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introducao">📖 Introdução</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conceitos-fundamentais">🛠️ Conceitos Fundamentais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#o-que-e-o-systemd">O que é o systemd?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tipos-de-units">Tipos de Units</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#comandos-essenciais">🚀 Comandos Essenciais</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#verificar-status">Verificar status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iniciar-parar-reiniciar">Iniciar / Parar / Reiniciar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#habilitar-desabilitar-no-boot">Habilitar / Desabilitar (no boot)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#listar-servicos-ativos">Listar serviços ativos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recarregar-unidades-apos-alteracoes">Recarregar unidades após alterações</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trabalhando-com-units">🧩 Trabalhando com Units</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#estrutura-de-uma-unit-service">Estrutura de uma Unit .service</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ativar-novo-servico">Ativar novo serviço</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#timers-agendamentos">⏱️ Timers (Agendamentos)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#logs-e-diagnostico">📜 Logs e Diagnóstico</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gerenciamento-de-recursos">🔒 Gerenciamento de Recursos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#targets-e-boot">🔄 Targets e Boot</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#targets-comuns">Targets comuns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exemplos-avancados">🧪 Exemplos Avançados</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#servico-com-dependencia-de-banco-de-dados">Serviço com dependência de banco de dados</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#socket-activation">Socket Activation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusao">📚 Conclusão</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 Tutorial Completo de systemd</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorial-completo-de-systemd">📁 Tutorial Completo de systemd</h1>
+<h2 id="introducao">📖 Introdução</h2>
+<p>O <strong>systemd</strong> é um <em>system and service manager</em> para sistemas Linux modernos. Ele substitui o <strong>SysVinit</strong> tradicional e provê recursos avançados para gerenciamento de serviços, inicialização do sistema, logging, controle de dependências e gerenciamento de recursos.</p>
+<h2 id="conceitos-fundamentais">🛠️ Conceitos Fundamentais</h2>
+<h3 id="o-que-e-o-systemd">O que é o systemd?</h3>
+<ul>
+<li><strong>Gerenciador de serviços</strong>: Controla inicialização, interrupção e supervisão de processos.</li>
+<li><strong>Gerenciador de unidades (units)</strong>: Tudo no systemd é representado como uma <em>unit</em>.</li>
+<li><strong>Inicialização paralela</strong>: Acelera o boot executando serviços em paralelo.</li>
+<li><strong>Integração com journal</strong>: Sistema de logs centralizado (<code>journalctl</code>).</li>
+</ul>
+<h3 id="tipos-de-units">Tipos de Units</h3>
+<ul>
+<li><code>.service</code> → Representa serviços (daemons).</li>
+<li><code>.socket</code> → Define sockets para ativação sob demanda.</li>
+<li><code>.target</code> → Agrupamento lógico de units (substitui <em>runlevels</em>).</li>
+<li><code>.mount</code> e <code>.automount</code> → Gerenciam pontos de montagem.</li>
+<li><code>.timer</code> → Tarefas agendadas (substitui cron em alguns cenários).</li>
+<li><code>.slice</code> e <code>.scope</code> → Gerenciam recursos (CPU, memória).</li>
+</ul>
+<hr />
+<h2 id="comandos-essenciais">🚀 Comandos Essenciais</h2>
+<h3 id="verificar-status">Verificar status</h3>
+<pre><code class="language-bash">systemctl status nginx.service
+</code></pre>
+<h3 id="iniciar-parar-reiniciar">Iniciar / Parar / Reiniciar</h3>
+<pre><code class="language-bash">systemctl start nginx.service
+systemctl stop nginx.service
+systemctl restart nginx.service
+</code></pre>
+<h3 id="habilitar-desabilitar-no-boot">Habilitar / Desabilitar (no boot)</h3>
+<pre><code class="language-bash">systemctl enable nginx.service
+systemctl disable nginx.service
+</code></pre>
+<h3 id="listar-servicos-ativos">Listar serviços ativos</h3>
+<pre><code class="language-bash">systemctl list-units --type=service
+</code></pre>
+<h3 id="recarregar-unidades-apos-alteracoes">Recarregar unidades após alterações</h3>
+<pre><code class="language-bash">systemctl daemon-reload
+</code></pre>
+<hr />
+<h2 id="trabalhando-com-units">🧩 Trabalhando com Units</h2>
+<h3 id="estrutura-de-uma-unit-service">Estrutura de uma Unit <code>.service</code></h3>
+<p>Exemplo: <code>/etc/systemd/system/meuapp.service</code></p>
+<pre><code class="language-ini">[Unit]
+Description=Meu Aplicativo Exemplo
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/meuapp/app.py
+Restart=always
+User=meuusuario
+WorkingDirectory=/opt/meuapp
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p><strong>Explicação:</strong></p>
+<ul>
+<li><code>Description</code>: Descrição do serviço.</li>
+<li><code>After</code>: Define dependências de inicialização.</li>
+<li><code>ExecStart</code>: Comando que inicia o processo.</li>
+<li><code>Restart</code>: Política de reinício (ex: always, on-failure).</li>
+<li><code>User</code>: Usuário que executa o processo.</li>
+<li><code>WorkingDirectory</code>: Diretório de trabalho.</li>
+<li><code>WantedBy</code>: Indica em qual <em>target</em> o serviço será ativado.</li>
+</ul>
+<h3 id="ativar-novo-servico">Ativar novo serviço</h3>
+<pre><code class="language-bash">sudo systemctl daemon-reload
+sudo systemctl enable meuapp.service
+sudo systemctl start meuapp.service
+</code></pre>
+<hr />
+<h2 id="timers-agendamentos">⏱️ Timers (Agendamentos)</h2>
+<p>Exemplo de <em>timer</em> que roda um script diariamente:</p>
+<p>Arquivo <code>/etc/systemd/system/backup.service</code></p>
+<pre><code class="language-ini">[Unit]
+Description=Backup Diário
+
+[Service]
+ExecStart=/usr/local/bin/backup.sh
+</code></pre>
+<p>Arquivo <code>/etc/systemd/system/backup.timer</code></p>
+<pre><code class="language-ini">[Unit]
+Description=Agendamento de Backup Diário
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+</code></pre>
+<p>Ativar:</p>
+<pre><code class="language-bash">sudo systemctl enable backup.timer
+sudo systemctl start backup.timer
+</code></pre>
+<p>Ver timers ativos:</p>
+<pre><code class="language-bash">systemctl list-timers
+</code></pre>
+<hr />
+<h2 id="logs-e-diagnostico">📜 Logs e Diagnóstico</h2>
+<ul>
+<li>Ver logs de todo o sistema:</li>
+</ul>
+<pre><code class="language-bash">journalctl
+</code></pre>
+<ul>
+<li>Ver logs de um serviço específico:</li>
+</ul>
+<pre><code class="language-bash">journalctl -u nginx.service
+</code></pre>
+<ul>
+<li>Acompanhar em tempo real:</li>
+</ul>
+<pre><code class="language-bash">journalctl -u meuapp.service -f
+</code></pre>
+<hr />
+<h2 id="gerenciamento-de-recursos">🔒 Gerenciamento de Recursos</h2>
+<p>O systemd integra-se ao <strong>cgroups</strong> do kernel Linux para controlar recursos:</p>
+<p>Exemplo: limitar memória de um serviço (<code>/etc/systemd/system/meuapp.service.d/limites.conf</code>):</p>
+<pre><code class="language-ini">[Service]
+MemoryMax=500M
+CPUQuota=50%
+</code></pre>
+<p>Aplicar:</p>
+<pre><code class="language-bash">systemctl daemon-reexec
+systemctl restart meuapp.service
+</code></pre>
+<hr />
+<h2 id="targets-e-boot">🔄 Targets e Boot</h2>
+<h3 id="targets-comuns">Targets comuns</h3>
+<ul>
+<li><code>graphical.target</code> → Interface gráfica.</li>
+<li><code>multi-user.target</code> → Multiusuário, sem GUI.</li>
+<li><code>rescue.target</code> → Modo de recuperação.</li>
+<li><code>emergency.target</code> → Modo de emergência.</li>
+</ul>
+<p>Ver target atual:</p>
+<pre><code class="language-bash">systemctl get-default
+</code></pre>
+<p>Alterar target padrão:</p>
+<pre><code class="language-bash">systemctl set-default multi-user.target
+</code></pre>
+<p>Entrar em modo de emergência:</p>
+<pre><code class="language-bash">systemctl isolate emergency.target
+</code></pre>
+<hr />
+<h2 id="exemplos-avancados">🧪 Exemplos Avançados</h2>
+<h3 id="servico-com-dependencia-de-banco-de-dados">Serviço com dependência de banco de dados</h3>
+<pre><code class="language-ini">[Unit]
+Description=Aplicativo Web
+After=network.target mariadb.service
+Requires=mariadb.service
+</code></pre>
+<h3 id="socket-activation">Socket Activation</h3>
+<p>Arquivo <code>/etc/systemd/system/meuapp.socket</code>:</p>
+<pre><code class="language-ini">[Unit]
+Description=Socket para MeuApp
+
+[Socket]
+ListenStream=8080
+
+[Install]
+WantedBy=sockets.target
+</code></pre>
+<p>Arquivo <code>/etc/systemd/system/meuapp.service</code>:</p>
+<pre><code class="language-ini">[Service]
+ExecStart=/opt/meuapp/server --socket-activated
+</code></pre>
+<hr />
+<h2 id="conclusao">📚 Conclusão</h2>
+<p>O <strong>systemd</strong> é muito mais do que um simples substituto do <code>init</code>:<br />
+- Fornece controle detalhado sobre serviços.<br />
+- Possibilita agendamentos com <em>timers</em>.<br />
+- Facilita o monitoramento via <em>journal</em>.<br />
+- Gerencia recursos de forma integrada.  </p>
+<p>É uma ferramenta essencial para administradores de sistemas Linux modernos.  </p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Samba4_Binario/" class="btn btn-neutral float-left" title="SAMBA4 por repositórios"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Universo_NIX/" class="btn btn-neutral float-right" title="📁 O Universo *nix - Conceitos">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Samba4_Binario/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Universo_NIX/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

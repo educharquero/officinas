@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>📁 FileServer no Debian com binários - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ud83d\udcc1 FileServer no Debian com bin\u00e1rios";
+        var mkdocs_page_input_path = "Fileserver_Debian.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 FileServer no Debian com binários</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">📁 FileServer no Debian com binários</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fileserver-no-debian-com-binarios">📁 FileServer no Debian com binários</h1>
+<h1 id="tutorial-de-configuracao-do-samba4-como-fileserver-no-debian-13">Tutorial de Configuração do Samba4 como FileServer no Debian 13</h1>
+<h3 id="este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios">Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.</h3>
+<p>0 -  Atualizar o Sistema</p>
+<pre><code class="language-bash">    sudo apt update &amp;&amp; sudo apt full-upgrade
+</code></pre>
+<p>1 -  Instalar o Samba</p>
+<pre><code class="language-bash">    sudo apt install samba -y
+</code></pre>
+<p>2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):</p>
+<pre><code class="language-bash">    sudo useradd -s /bin/false -M kalel
+    sudo useradd -s /bin/false -M diana
+</code></pre>
+<p>Para liberar um shell em caso de necessidade:
+"sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"</p>
+<p>3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:</p>
+<pre><code class="language-bash">    sudo groupadd gdiretoria
+</code></pre>
+<pre><code class="language-bash">    sudo groupadd gfinanceiro
+</code></pre>
+<p>Adicione os usuários aos grupos ao qual terão acesso:</p>
+<pre><code class="language-bash">    sudo usermod -aG gdiretoria kalel
+</code></pre>
+<pre><code class="language-bash">    sudo usermod -aG gfinanceiro diana
+</code></pre>
+<p>3 - Adicione os usuários ao banco de senhas do Samba:</p>
+<pre><code class="language-bash">    sudo smbpasswd -a kalel
+    sudo smbpasswd -a diana
+</code></pre>
+<p>4 -  Criar os diretórios para os compartilhamentos de rede:</p>
+<pre><code class="language-bash">    sudo mkdir -p /srv/samba/arquivos/diretoria
+</code></pre>
+<pre><code class="language-bash">    sudo mkdir -p /srv/samba/arquivos/financeiro
+</code></pre>
+<pre><code class="language-bash">    sudo mkdir -p /srv/samba/arquivos/publica
+</code></pre>
+<p>5 -  Definir as permissões das pastas:</p>
+<p>A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.</p>
+<pre><code class="language-bash">    sudo chmod 2770 -R /srv/samba/arquivos/diretoria
+</code></pre>
+<pre><code class="language-bash">    sudo chmod 2770 -R /srv/samba/arquivos/financeiro
+</code></pre>
+<pre><code class="language-bash">    sudo chmod 2775 -R /srv/samba/arquivos/publica
+</code></pre>
+<pre><code class="language-bash">    sudo chown -R root:gdiretoria /srv/samba/arquivos/diretoria
+</code></pre>
+<pre><code class="language-bash">   sudo chown -R root:gfinanceiro /srv/samba/arquivos/financeiro
+</code></pre>
+<pre><code class="language-bash">sudo chown -R nobody:nogroup /srv/samba/arquivos/publica
+</code></pre>
+<p>6 - Antes de editar, faça backup do arquivo principal do Samba:</p>
+<pre><code class="language-bash">    sudo cp /etc/samba/smb.conf{,.orig}
+</code></pre>
+<p>7 - Edite o arquivo de configuração do Samba:</p>
+<pre><code class="language-bash">    sudo nano /etc/samba/smb.conf
+</code></pre>
+<p>Insira o seguinte conteúdo:</p>
+<pre><code class="language-bash">[global]
+   workgroup = ESHARKNET
+   netbios name = Fileserver
+   server string = Servidor de Arquivos
+   security = user
+   map to guest = bad user
+   dns proxy = no
+
+[diretoria]
+   comment = Diretório diretoria
+   path = /srv/samba/arquivos/diretoria
+   browseable = yes
+   writable = yes
+   guest ok = no
+   valid users = @gdiretoria
+   write list = @gdiretoria
+   create mask = 0660
+   directory mask = 2770
+
+[financeiro]
+   comment = Diretório financeiro
+   path = /srv/samba/arquivos/financeiro
+   browseable = no
+   writable = yes
+   guest ok = no
+   valid users = @gfinanceiro
+   write list = @gfinanceiro
+   create mask = 0660
+   directory mask = 2770
+
+[publica]
+   comment = Pasta Publica
+   path = /srv/samba/arquivos/publica
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   create mask = 0664
+   directory mask = 2775
+</code></pre>
+<p>8 - Ativar e reiniciar os serviços do Samba</p>
+<pre><code class="language-bash">    sudo systemctl enable smbd
+    sudo systemctl restart smbd
+</code></pre>
+<p>9 - Testar configuração, verificando se não há erros:</p>
+<pre><code class="language-bash">    testparm
+</code></pre>
+<p>10 - Acessar os compartilhamentos</p>
+<p>Agora, de outra máquina na mesma rede, você pode acessar:</p>
+<ul>
+<li>No Explorer do Windows:</li>
+</ul>
+<pre><code class="language-bash">    \\IP_DO_SERVIDOR\diretoria
+    \\IP_DO_SERVIDOR\financeiro
+    \\IP_DO_SERVIDOR\Publico
+</code></pre>
+<ul>
+<li>Na barra do gerenciador de arquivos do Linux: </li>
+</ul>
+<pre><code class="language-bash">    smb://IP_DO_SERVIDOR
+</code></pre>
+<p>Lembre-se de ajustar as configurações de firewall se necessário para permitir o tráfego SMB na sua rede.</p>
+<hr />
+<h2 id="sessao-de-anotacoes">SESSÃO DE ANOTAÇÕES:</h2>
+<h3 id="diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica">Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)</h3>
+<pre><code class="language-bash">     valid users
+</code></pre>
+<ul>
+<li>
+<p>Define quem pode acessar o compartilhamento.</p>
+</li>
+<li>
+<p>Se alguém que não está nessa lista tentar montar o compartilhamento, vai levar acesso negado.</p>
+</li>
+</ul>
+<p>Você pode usar:</p>
+<ul>
+<li>
+<p>Usuários individuais: valid users = kalel diana</p>
+</li>
+<li>
+<p>Grupos: valid users = @projetox</p>
+</li>
+</ul>
+<pre><code class="language-bash">     write list
+</code></pre>
+<ul>
+<li>
+<p>Define quem pode escrever (alterar, criar, excluir arquivos).</p>
+</li>
+<li>
+<p>Se não estiver no write list, o usuário só terá permissão de leitura, mesmo que consiga acessar.</p>
+</li>
+</ul>
+<p>Exemplo:</p>
+<ul>
+<li>
+<p>write list = @projetox → só membros do grupo podem escrever.</p>
+</li>
+<li>
+<p>valid users = @todos → todos acessam, mas só o grupo projetox pode gravar.</p>
+</li>
+</ul>
+<hr />
+<h3 id="as-flags-de-setuid-setgid-e-sticky-bit">As flags de SETUID, SETGID e STICKY BIT:</h3>
+<p>Esses parâmetros, no Samba, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.</p>
+<p>Significado dos valores</p>
+<p>DIRETÓRIOS:</p>
+<pre><code class="language-bash">* directory mask = 0775
+</code></pre>
+<p>Afeta DIRETÓRIOS novos.</p>
+<p>0775 em octal:</p>
+<p>0 → bits especiais (setuid/setgid/sticky) desligados</p>
+<p>7 → dono: leitura (r), escrita (w), execução (x)</p>
+<p>7 → grupo: leitura (r), escrita (w), execução (x)</p>
+<p>5 → outros: leitura (r), escrita (x), execução (-)</p>
+<p>ARQUIVOS:</p>
+<pre><code class="language-bash">* create mask = 0664
+</code></pre>
+<p>Afeta ARQUIVOS novos (arquivos nunca precisam de "execução").</p>
+<p>0664 em octal:</p>
+<p>0 → bits especiais (setuid/setgid/sticky) desligados</p>
+<p>6 → dono: leitura (r), escrita (w), execução (-)</p>
+<p>6 → grupo: leitura (r), escrita (w), execução (-)</p>
+<p>4 → outros: leitura (r), escrita, (-) execução (-)</p>
+<p>THAT'S ALL FOLKS</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../FHS/" class="btn btn-neutral float-left" title="📁 FHS Filesystem Hierarchy Standard"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Fileserver_Rocky/" class="btn btn-neutral float-right" title="📁 FileServer Rocky">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../FHS/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Fileserver_Rocky/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

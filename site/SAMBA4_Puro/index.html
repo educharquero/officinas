@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>SAMBA4 - Modo manual sem RSAT - 🐧 Comunidade Officinas</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SAMBA4 - Modo manual sem RSAT";
+        var mkdocs_page_input_path = "SAMBA4_Puro.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="..">
+          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">SAMBA4 - Modo manual sem RSAT</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-configuracao-de-compartilhamento-smb-no-linux">Tutorial: Configuração de Compartilhamento SMB no Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criando-usuarios-e-diretorios">Criando Usuários e Diretórios</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configurando-o-samba">Configurando o Samba</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adicionando-usuarios-ao-samba">Adicionando Usuários ao Samba</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reiniciando-e-testando-o-servico">Reiniciando e Testando o Serviço</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#revisando-usuarios-e-grupos">Revisando usuários e grupos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outras-validacoes-no-dominio">Outras validações no domínio:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verificando-servico-ativo">Verificando serviço ativo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consultando-o-servidor">Consultando o Servidor:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#relendo-as-configuracoes-do-samba4">Relendo as configurações do Samba4:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validando-a-troca-de-tickets-do-kerberos">Validando a troca de tickets do Kerberos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consultando-servicos-do-kerberos-e-do-ldap">Consultando serviços do kerberos e do ldap:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor">Agora é só instalar as ferramentas do rsat em uma máquina Windows e gerenciar o Servidor!</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acessando-os-compartilhamentos">Acessando os Compartilhamentos</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">🐧 Comunidade Officinas</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">SAMBA4 - Modo manual sem RSAT</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="samba4-modo-manual-sem-rsat">SAMBA4 - Modo manual sem RSAT</h1>
+<h2 id="tutorial-configuracao-de-compartilhamento-smb-no-linux">Tutorial: Configuração de Compartilhamento SMB no Linux</h2>
+<p>Este tutorial irá guiá-lo através do processo de configuração de um servidor Samba em um ambiente Linux.</p>
+<p>## Instalação do Samba</p>
+<p>Primeiro, atualize a lista de pacotes e instale o Samba:</p>
+<pre><code class="language-bash">sudo apt update
+</code></pre>
+<pre><code class="language-bash">sudo apt install samba -y
+</code></pre>
+<h2 id="criando-usuarios-e-diretorios">Criando Usuários e Diretórios</h2>
+<pre><code class="language-bash">sudo adduser suporte
+</code></pre>
+<p>Criar diretórios para compartilhamento</p>
+<pre><code class="language-bash">sudo mkdir -p /home/samba/estoque
+</code></pre>
+<pre><code class="language-bash">sudo mkdir -p /home/samba/gestao
+</code></pre>
+<pre><code class="language-bash">sudo mkdir -p /home/samba/publico
+</code></pre>
+<p>Ajustar permissões dos diretórios</p>
+<pre><code class="language-bash">sudo chmod -R 770 /home/samba/estoque
+</code></pre>
+<pre><code class="language-bash">sudo chmod -R 770 /home/samba/gestao
+</code></pre>
+<pre><code class="language-bash">sudo chmod -R 777 /home/samba/publico
+</code></pre>
+<pre><code class="language-bash">sudo chown -R root:users /home/samba/estoque
+</code></pre>
+<pre><code class="language-bash">sudo chown -R root:users /home/samba/gestao
+</code></pre>
+<pre><code class="language-bash">sudo chown -R nobody:nogroup /home/samba/publico
+</code></pre>
+<h2 id="configurando-o-samba">Configurando o Samba</h2>
+<p>Fazer backup do arquivo de configuração original</p>
+<pre><code class="language-bash">sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+</code></pre>
+<p>Editar o arquivo de configuração</p>
+<pre><code class="language-bash">sudo nano /etc/samba/smb.conf
+</code></pre>
+<p>Adicione as seguintes configurações ao final do arquivo:</p>
+<pre><code class="language-bash">[global]
+   workgroup = WORKGROUP
+   server string = Servidor Samba
+   security = user
+   map to guest = bad user
+   dns proxy = no
+
+[Estoque]
+   comment = Diretório de Estoque
+   path = /home/samba/estoque
+   browsable = yes
+   writable = yes
+   valid users = @users
+   create mask = 0770
+   directory mask = 0770
+
+[Gestao]
+   comment = Diretório de Gestão
+   path = /home/samba/gestao
+   browsable = yes
+   writable = yes
+   valid users = @users
+   create mask = 0770
+   directory mask = 0770
+
+[Publico]
+   comment = Diretório Público
+   path = /home/samba/publico
+   browsable = yes
+   writable = yes
+   guest ok = yes
+   create mask = 0777
+   directory mask = 0777
+</code></pre>
+<h2 id="adicionando-usuarios-ao-samba">Adicionando Usuários ao Samba</h2>
+<p>Adicione o usuário criado anteriormente ao Samba:</p>
+<pre><code class="language-bash">sudo smbpasswd -a suporte
+</code></pre>
+<p>Você será solicitado a definir uma senha para o acesso Samba.</p>
+<h2 id="reiniciando-e-testando-o-servico">Reiniciando e Testando o Serviço</h2>
+<pre><code class="language-bash">sudo systemctl restart smbd
+</code></pre>
+<pre><code class="language-bash">sudo systemctl restart nmbd
+</code></pre>
+<pre><code class="language-bash">sudo systemctl status smbd
+</code></pre>
+<p>Testar a configuração</p>
+<pre><code class="language-bash">testparm
+</code></pre>
+<h2 id="revisando-usuarios-e-grupos">Revisando usuários e grupos:</h2>
+<pre><code>cat /etc/passwd # ( usuários locais do Linux gerencia do LDAP )
+</code></pre>
+<pre><code>samba-tool user list # ( usuários de rede gerenciados pelo SAMBA4 )
+</code></pre>
+<h2 id="outras-validacoes-no-dominio">Outras validações no domínio:</h2>
+<pre><code>wbinfo -u
+wbinfo -g
+wbinfo --ping-dc
+getent group “Domain Admins”
+</code></pre>
+<h2 id="verificando-servico-ativo">Verificando serviço ativo:</h2>
+<pre><code>ps aux | grep samba
+ps ax | egrep &quot;samba|smbd|nmbd|winbindd&quot;
+ps axf
+</code></pre>
+<h2 id="consultando-o-servidor">Consultando o Servidor:</h2>
+<pre><code>testparm
+smbclient --version
+smbclient -L localhost -U%
+samba-tool domain level show
+</code></pre>
+<h2 id="desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</h2>
+<pre><code>samba-tool domain passwordsettings show
+samba-tool domain passwordsettings set --complexity=off
+samba-tool domain passwordsettings set --history-length=0
+samba-tool domain passwordsettings set --min-pwd-length=0
+samba-tool domain passwordsettings set --min-pwd-age=0
+samba-tool user setexpiry Administrator --noexpiry
+</code></pre>
+<h2 id="relendo-as-configuracoes-do-samba4">Relendo as configurações do Samba4:</h2>
+<pre><code>smbcontrol all reload-config
+</code></pre>
+<h2 id="validando-a-troca-de-tickets-do-kerberos">Validando a troca de tickets do Kerberos:</h2>
+<pre><code>kinit Administrator@ESHARKNET.EDU
+klist
+</code></pre>
+<h2 id="consultando-servicos-do-kerberos-e-do-ldap">Consultando serviços do <code>kerberos</code> e do <code>ldap</code>:</h2>
+<pre><code>host -t srv _kerberos._tcp.ESHARKNET.edu
+host -t srv _ldap._tcp.ESHARKNET.edu
+dig ESHARKNET.edu
+host -t A firewall
+</code></pre>
+<h2 id="agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor">Agora é só instalar as ferramentas do <code>rsat</code> em uma máquina Windows e gerenciar o Servidor!</h2>
+<p>THAT’S ALL FOLKS!!</p>
+<h2 id="acessando-os-compartilhamentos">Acessando os Compartilhamentos</h2>
+<p>Agora você pode acessar os compartilhamentos de outros computadores na rede:</p>
+<ul>
+<li>No Windows: Abra o Explorer e digite \IP_DO_SERVIDOR na barra de endereços</li>
+<li>No Linux: Abra o gerenciador de arquivos e digite smb://IP_DO_SERVIDOR na barra de endereços</li>
+</ul>
+<p>(Substitua IP_DO_SERVIDOR pelo endereço IP do seu servidor Linux.)</p>
+<p>Conclusão</p>
+<p>Você configurou com sucesso um servidor Samba com três compartilhamentos diferentes:</p>
+<ul>
+<li>Estoque: Acessível apenas para usuários autenticados</li>
+<li>Gestao: Acessível apenas para usuários autenticados</li>
+<li>Publico: Acessível para qualquer usuário, incluindo convidados</li>
+</ul>
+<p>Lembre-se de ajustar as configurações de firewall se necessário para permitir o tráfego SMB na sua rede.</p>
+<p>Thats All Folk's</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Raid/" class="btn btn-neutral float-left" title="📁 RAID - Redundant Array of Independent Disks:"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Samba4_Binario/" class="btn btn-neutral float-right" title="SAMBA4 por repositórios">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Raid/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Samba4_Binario/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
