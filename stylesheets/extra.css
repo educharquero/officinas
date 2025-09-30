@@ -1,8 +1,13 @@
-.wy-nav-content {
-    max-width: 100% !important; /* ocupa toda a largura */
+/* /docs/stylesheets/extra.css - Versão para o Tema MATERIAL */
+
+/* Aumenta a largura do conteúdo principal */
+.md-grid {
+  max-width: 1500px; /* Experimente valores como 1100px, 1400px, etc. */
 }
 
-.wy-nav-content-wrap {
-    max-width: 100% !important;
+/* Aumenta o tamanho do logo no cabeçalho */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2.5rem; /* Experimente valores como 2rem, 3rem, etc. */
+  width: auto;
 }
-
