@@ -1,6 +1,6 @@
 # 📁 DHCP Server
 
-# Criando um Servidor de DHCP
+## Criando um Servidor de DHCP
 
 A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!
 
@@ -25,6 +25,8 @@ INTERFACESv4=”enp7s0″
 ```bash
 mv /etc/dhcp/dhcpd.conf{,.orig}
 ```
+
+## Criação do novo arquivo:
 
 ```bash
 vim /etc/dhcp/dhcpd.conf
