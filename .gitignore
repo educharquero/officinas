@@ -1,0 +1,10 @@
+# Arquivos de cache e build do MkDocs
+/site/
+
+# Ambiente virtual do Python
+/venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
