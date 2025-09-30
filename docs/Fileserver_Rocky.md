@@ -1,12 +1,12 @@
 # 📁 FileServer Rocky
 
-#  Servidor de Arquivos do AD no Rocky Linux 9
+##  Servidor de Arquivos do AD no Rocky Linux 9
 
 
-Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos. 
+## Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos. 
 
 
-Atualizar o sistema:
+## Atualizar o sistema:
 ```
 yum update -y && yum upgrade -y
 ```
@@ -30,7 +30,7 @@ nano /etc/hosts
 **Salvar o arquivo**
 
 
-Configurar e editar **/etc/hostname:**
+## Configurar e editar **/etc/hostname:**
 ```
 nano /etc/hostname
 ```
@@ -40,7 +40,7 @@ arquivos.esharknet.edu
 **Salvar o Arquivo**
 
 
-Configurar e editar **/etc/nsswitch.conf**:
+## Configurar e editar **/etc/nsswitch.conf**:
 ```
 nano /etc/nsswitch.conf
 ```
@@ -69,7 +69,7 @@ group: files winbind
 **Salve o arquivo** 
 
 
-#### Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:
+## Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:
 ```
 nmtui
 ```
@@ -87,12 +87,12 @@ Então, selecione OK **com as setas de direção e digite enter**.
 
 Com a **tecla Tab**, vá até a opção: **voltar** e digite **enter**. Então, com a tecla **Tab**, selecione a **opção OK** e digite **enter**
 
-Reiniciar o sistema:
+## Reiniciar o sistema:
 ```
 reboot
 ```
 
-Editar o arquivo **user.map** no diretório **/etc/samba** com o conteúdo:
+## Editar o arquivo **user.map** no diretório **/etc/samba** com o conteúdo:
 ```
 nano /etc/samba/user.map
 ```
@@ -102,7 +102,7 @@ nano /etc/samba/user.map
 **Salve o arquivo**
 
 
-Fazer um backup do arquivo **/etc/samba/smb.conf**:
+## Fazer um backup do arquivo **/etc/samba/smb.conf**:
 ```
 mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
 ```
@@ -133,7 +133,7 @@ nano /etc/samba/smb.conf
 	vfs objects = acl_xattr
 ```
 
-Fazer uma cópia do arquivo **/etc/krb5.conf**
+## Fazer uma cópia do arquivo **/etc/krb5.conf**
 
 ```
 mv /etc/krb5.conf /etc/krb5.conf.bkp
@@ -154,17 +154,17 @@ nano /etc/krb5.conf
 
 **Salvar o arquivo**
 
-Verificar se existe algum erro de sintaxe com o comando:
+## Verificar se existe algum erro de sintaxe com o comando:
 
 ```
 testparm
 ```
 
-Se não houver erros, executar o comando para recarregar o samba novamente
+## Se não houver erros, executar o comando para recarregar o samba novamente
 ```
 smbcontrol all reload-config
 ```
-Desabilitar o **SELinux:**
+## Desabilitar o **SELinux:**
 ```
 nano /etc/selinux/config
 ```
@@ -172,18 +172,18 @@ Na linha SELINUX=enforcing trocar para **SELINUX=disabled**
 
 **Salvar o arquivo**
 
-Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall: 
+## Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall: 
 ```
 firewall-cmd --add-service=samba --permanent
 firewall-cmd --reload
 ```
 
-**Reiniciar o servidor**:
+## **Reiniciar o servidor**:
 ```
 reboot
 ```
 
-Comando para juntar-se ao Domínio Criado:
+## Comando para juntar-se ao Domínio Criado:
 ```
 net ads join -U administrator  
 Enter administrator's password: senha do provisionamento
@@ -193,7 +193,7 @@ Using short domain name -- ESHARKNET
 Joined 'ARQUIVOS' to dns domain 'esharknet.edu'
 ```
 
-#### Verificar conexão NETLOGON com o AD:
+## Verificar conexão NETLOGON com o AD:
 
 ```
 wbinfo --ping-dc
@@ -205,7 +205,7 @@ Como resultado deve aparecer:
 checking the NETLOGON for domain[ESHARKNET] dc connection to "dcmaster.esharknet.edu" succeeded
 ```
 
-#### Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:
+## Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:
 
 ```
 nslookup dcmaster.esharknet.edu
@@ -220,7 +220,7 @@ Name:	dcmaster.esharknet.edu
 Address: 192.168.70.250
 ```
 
-#### E também através IP do seu Servidor DCMaster:
+## E também através IP do seu Servidor DCMaster:
 ```
 nslookup 192.168.70.250
 ```
@@ -246,13 +246,13 @@ E também adicione um usuário:
 samba-tool user add 'esharkuser'
 ```
 
-#### Verificar se retorna o GID do Grupo:
+## Verificar se retorna o GID do Grupo:
 ```
 getent group "ESHARKNET\\Linux Domain"
 linux domain:x:3013:
 ```
 
-#### Garantir privilégio de acesso com o Comando:
+## Garantir privilégio de acesso com o Comando:
 ```
 net rpc rights grant "ESHARKNET\Domain Admins" SeDiskOperatorPrivilege -U "ESHARKNET\Administrator"
 Enter ESHARK\Administrator password: senha CRIADA no provisionamento do DCMaster
@@ -260,11 +260,11 @@ Enter ESHARK\Administrator password: senha CRIADA no provisionamento do DCMaster
 
 Successfully granted rights.
 ```
-Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.
+## Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.
 
 Exemplo:
 
-Se criou um disco e disponibilizou o diretório **/srv/arquivos** e então, indicou esse caminho em seu **smb.conf** ou seja, após a sessão **global** indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:
+## Se criou um disco e disponibilizou o diretório **/srv/arquivos** e então, indicou esse caminho em seu **smb.conf** ou seja, após a sessão **global** indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:
 
 ```
 vim /etc/samba/smb.conf
@@ -276,21 +276,21 @@ vim /etc/samba/smb.conf
    browseable = yes
 ```
 
-Salve o arquivo
+## Salve o arquivo
 
-#### Ajustando as permissões para o Grupo no diretório criado:
+## Ajustando as permissões para o Grupo no diretório criado:
 
 ```
 chown root:"Domain Admins" /srv/arquivos
 chmod 775 -R /srv/arquivos
 ```
 
-#### Recarregar novamente o smbcontrol
+## Recarregar novamente o smbcontrol
 ```
 smbcontrol all reload-config
 ```
 
-Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.
+## Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.
 
 ![ad-win-42a](https://user-images.githubusercontent.com/38897311/232552064-cf5763de-fe67-42d2-ac32-fe2b16138afd.png)
 

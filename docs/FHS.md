@@ -67,7 +67,7 @@ Vamos mergulhar na estrutura de diretórios do Linux para entender melhor como o
 
 - Armazena arquivos que podem variar de tamanho dinamicamente durante a operação do sistema. Isso inclui logs, spools de impressão, arquivos de cache e bancos de dados.
 
-Esta é uma visão mais detalhada da estrutura de diretórios no Linux, destacando a função e o propósito de cada diretório. Cada um desempenha um papel vital no funcionamento adequado do sistema operacional.
+## Esta é uma visão mais detalhada da estrutura de diretórios no Linux, destacando a função e o propósito de cada diretório. Cada um desempenha um papel vital no funcionamento adequado do sistema operacional.
 
 
 that's all folks!

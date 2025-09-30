@@ -1,22 +1,22 @@
 # 📁 FileServer no Debian com binários
 
-# Tutorial de Configuração do Samba4 como FileServer no Debian 13
+## Tutorial de Configuração do Samba4 como FileServer no Debian 13
 
-### Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+## Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
 
-0 -  Atualizar o Sistema
+## 0 -  Atualizar o Sistema
 
 ```bash
     sudo apt update && sudo apt full-upgrade
 ```
 
-1 -  Instalar o Samba
+## 1 -  Instalar o Samba
 
 ```bash
     sudo apt install samba -y
 ```
 
-2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+## 2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
 
 ```bash
     sudo useradd -s /bin/false -M kalel
@@ -25,7 +25,7 @@
 Para liberar um shell em caso de necessidade:
 "sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"
 
-3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+## 3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
 
 ```bash
     sudo groupadd gdiretoria
@@ -43,14 +43,14 @@ Adicione os usuários aos grupos ao qual terão acesso:
     sudo usermod -aG gfinanceiro diana
 ```
 
-3 - Adicione os usuários ao banco de senhas do Samba:
+Adicione os usuários ao banco de senhas do Samba:
 
 ```bash
     sudo smbpasswd -a kalel
     sudo smbpasswd -a diana
 ```
 
-4 -  Criar os diretórios para os compartilhamentos de rede:
+## 4 -  Criar os diretórios para os compartilhamentos de rede:
 
 ```bash
     sudo mkdir -p /srv/samba/arquivos/diretoria
@@ -62,7 +62,7 @@ Adicione os usuários aos grupos ao qual terão acesso:
     sudo mkdir -p /srv/samba/arquivos/publica
 ```
 
-5 -  Definir as permissões das pastas:
+## 5 -  Definir as permissões das pastas:
 
 A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.
 
@@ -88,13 +88,13 @@ A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, h
 sudo chown -R nobody:nogroup /srv/samba/arquivos/publica
 ```
 
-6 - Antes de editar, faça backup do arquivo principal do Samba:
+## 6 - Antes de editar, faça backup do arquivo principal do Samba:
 
 ```bash
     sudo mv /etc/samba/smb.conf{,.orig}
 ```
 
-7 - Crie o arquivo de configuração do Samba:
+## 7 - Crie o arquivo de configuração do Samba:
 
 ```bash
     sudo vim /etc/samba/smb.conf
@@ -143,20 +143,20 @@ Insira o seguinte conteúdo:
    directory mask = 2775
 ```
 
-8 - Ativar e reiniciar os serviços do Samba
+## 8 - Ativar e reiniciar os serviços do Samba
 
 ```bash
     sudo systemctl enable smbd
     sudo systemctl restart smbd
 ```
 
-9 - Testar configuração, verificando se não há erros:
+## 9 - Testar configuração, verificando se não há erros:
 
 ```bash
     testparm
 ```
 
-10 - Acessar os compartilhamentos
+## 10 - Acessar os compartilhamentos
 
 Agora, de outra máquina na mesma rede, você pode acessar:
 
@@ -178,7 +178,7 @@ Lembre-se de ajustar as configurações de firewall se necessário para permitir
 
 ## SESSÃO DE ANOTAÇÕES:
 
-### Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+## Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
 
 ```bash
      valid users
@@ -212,7 +212,7 @@ Exemplo:
 -----------------------------------------------------------------------------
 
 
-### As flags de SETUID, SETGID e STICKY BIT:
+## As flags de SETUID, SETGID e STICKY BIT:
 
 Esses parâmetros, no Samba, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.
 

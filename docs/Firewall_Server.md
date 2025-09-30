@@ -1,6 +1,6 @@
 # 📁 Firewall Server
 
-# Criando um Servidor de Firewall
+## Criando um Servidor de Firewall
 
 ## Esta máquina está equipada com 2 placas de rede (enp1s0 e enp7s0):
 

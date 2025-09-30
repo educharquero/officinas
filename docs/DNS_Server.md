@@ -1,6 +1,6 @@
 # 📁 DNS Server
 
-# Criando um Servidor de DNS
+## Criando um Servidor de DNS
 
 A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!
 

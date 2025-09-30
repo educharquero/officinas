@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # deploy.sh - v2 - Script para construir, versionar e implantar o site
+#  ./deploy.sh "Sua mensagem"
 
 # --- Configuração ---
 PROJECT_DIR="/opt/mkdocs"
