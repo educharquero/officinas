@@ -11,3 +11,11 @@
   height: 2.5rem; /* Experimente valores como 2rem, 3rem, etc. */
   width: auto;
 }
+
+/* extra.css */
+
+/* Regra para colorir o texto */
+.text-red {
+  color: #E53935; /* Um tom de vermelho agradável */
+}
+

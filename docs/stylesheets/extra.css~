@@ -1,8 +1,0 @@
-.wy-nav-content {
-    max-width: 100% !important; /* ocupa toda a largura */
-}
-
-.wy-nav-content-wrap {
-    max-width: 100% !important;
-}
-

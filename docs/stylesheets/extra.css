@@ -16,6 +16,6 @@
 
 /* Regra para colorir o texto */
 .text-red {
-  color: #E53935; /* Um tom de vermelho agradável */
+  color: #E53935 !important; /* Um tom de vermelho agradável */
 }
 
