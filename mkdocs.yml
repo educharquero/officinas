@@ -9,6 +9,8 @@ copyright: >-
   </a>
   - Eduardo Charquero
 
+# --- SEÇÃO 'plugins' ADICIONADA ---
+
 # --- SEÇÃO 'nav' ATUALIZADA ---
 nav:
   - 'Início': 'index.md'
@@ -107,12 +109,11 @@ extra_css:
 
 # Adicione esta seção. É essencial para o Material.
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
   - admonition
-  - codehilite:
-      guess_lang: false
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
 
