@@ -81,7 +81,8 @@ Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
 
 
-Visite a página do Linux Professional Institute [aqui](https://www.lpi.org/pt-br/our-certifications/lpic-1-overview/).
+<a href="https://www.lpi.org" target="_blank">Visite a página do Linux Professional Institute aqui.</a>
+
 
 Baixe uma cópia do Debian Linux 🐧
 
