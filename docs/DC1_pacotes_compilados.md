@@ -1,6 +1,6 @@
 # 📁 DC1 instalação por pacotes compilados
 
-## Controlador de Domínio Primário, Secundário e Fileserver no Debian Linux 12
+## Controlador de Domínio Primário, Secundário e Fileserver no Debian Linux 13
 
 ## Layout de rede usado no laboratório:
 
@@ -471,7 +471,7 @@ dig officinas.edu
 
 THAT’S ALL FOLKS!!
 
-# Controlador de Domínio secundário com Samba4 no Debian 12
+# Controlador de Domínio secundário com Samba4 no Debian Linux 13
 
 ## Layout de rede usado no laboratório:
 
@@ -1364,7 +1364,7 @@ THAT’S ALL FOLKS!!
 
 
 
-# FileServer com Samba4 no Debian 12
+# FileServer com Samba4 no Debian Linux 13
 
 ## Layout de rede usado no laboratório:
 
