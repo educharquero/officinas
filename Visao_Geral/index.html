@@ -1,0 +1,2165 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../DHCP_Server/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Visão Geral - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-de-estudos-certificacao-lpic-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Visão Geral
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#este-guia-contem-os-principais-topicos-cobrados-no-exame-lpic-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este guia contém os principais tópicos cobrados no exame LPIC-1.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exame-101-topicos-101-a-104" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exame 101 (Tópicos 101 a 104)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-101-arquitetura-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 101 - Arquitetura do Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1011-identificar-e-editar-configuracoes-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.1 Identificar e editar configurações de hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1012-inicio-boot-de-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.2 Início (Boot) de Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1013-runlevels-boot-targets-desligar-e-reiniciar" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.3 Runlevels, Boot Targets, Desligar e Reiniciar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-102-instalacao-e-gerenciamento-de-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 102 - Instalação e Gerenciamento de Pacotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-ferramentas-por-categoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de ferramentas por categoria:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-103-comandos-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 103 - Comandos Linux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizados-por-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizados por tema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-104-dispositivos-sistemas-de-arquivos-e-fhs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 104 - Dispositivos, Sistemas de Arquivos e FHS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exame-102-topicos-105-a-110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exame 102 (Tópicos 105 a 110)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-105-shell-e-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 105 - Shell e Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-106-interfaces-de-usuarios-e-desktops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 106 - Interfaces de Usuários e Desktops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-107-tarefas-administrativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 107 - Tarefas Administrativas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-108-servicos-essenciais-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 108 - Serviços Essenciais do Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-109-fundamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 109 - Fundamentos de Rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-110-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 110 - Segurança
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#este-guia-contem-os-principais-topicos-cobrados-no-exame-lpic-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este guia contém os principais tópicos cobrados no exame LPIC-1.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sumário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exame-101-topicos-101-a-104" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exame 101 (Tópicos 101 a 104)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-101-arquitetura-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 101 - Arquitetura do Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1011-identificar-e-editar-configuracoes-de-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.1 Identificar e editar configurações de hardware
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1012-inicio-boot-de-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.2 Início (Boot) de Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1013-runlevels-boot-targets-desligar-e-reiniciar" class="md-nav__link">
+    <span class="md-ellipsis">
+      101.3 Runlevels, Boot Targets, Desligar e Reiniciar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-102-instalacao-e-gerenciamento-de-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 102 - Instalação e Gerenciamento de Pacotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-de-ferramentas-por-categoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de ferramentas por categoria:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-103-comandos-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 103 - Comandos Linux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#organizados-por-tema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organizados por tema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-104-dispositivos-sistemas-de-arquivos-e-fhs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 104 - Dispositivos, Sistemas de Arquivos e FHS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exame-102-topicos-105-a-110" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exame 102 (Tópicos 105 a 110)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-105-shell-e-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 105 - Shell e Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-106-interfaces-de-usuarios-e-desktops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 106 - Interfaces de Usuários e Desktops
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-107-tarefas-administrativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 107 - Tarefas Administrativas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-108-servicos-essenciais-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 108 - Serviços Essenciais do Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-109-fundamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 109 - Fundamentos de Rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topico-110-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópico 110 - Segurança
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guia-de-estudos-certificacao-lpic-1">Guia de Estudos - Certificação LPIC-1</h1>
+<h2 id="este-guia-contem-os-principais-topicos-cobrados-no-exame-lpic-1">Este guia contém os principais tópicos cobrados no exame <strong>LPIC-1</strong>.</h2>
+<p><a href="https://www.lpi.org/pt-br/our-certifications/lpic-1-overview/">Página oficial da LPI</a></p>
+<hr />
+<h2 id="sumario">Sumário</h2>
+<ul>
+<li><a href="#exame-101-topicos-101-a-104">Exame 101</a></li>
+<li><a href="#topico-101-arquitetura-do-sistema">Tópico 101 - Arquitetura do Sistema</a></li>
+<li><a href="#topico-102-instalacao-e-gerenciamento-de-pacotes">Tópico 102 - Instalação e Gerenciamento de Pacotes</a></li>
+<li><a href="#topico-103-comandos-linux">Tópico 103 - Comandos Linux</a></li>
+<li><a href="#topico-104-dispositivos-sistemas-de-arquivos-e-fhs">Tópico 104 - Dispositivos, Sistemas de Arquivos e FHS</a></li>
+<li><a href="#exame-102-topicos-105-a-110">Exame 102</a></li>
+<li><a href="#topico-105-shell-e-scripts">Tópico 105 - Shell e Scripts</a></li>
+<li><a href="#topico-106-interfaces-de-usuarios-e-desktops">Tópico 106 - Interfaces de Usuários e Desktops</a></li>
+<li><a href="#topico-107-tarefas-administrativas">Tópico 107 - Tarefas Administrativas</a></li>
+<li><a href="#topico-108-servicos-essenciais-do-sistema">Tópico 108 - Serviços Essenciais do Sistema</a></li>
+<li><a href="#topico-109-fundamentos-de-rede">Tópico 109 - Fundamentos de Rede</a></li>
+<li><a href="#topico-110-seguranca">Tópico 110 - Segurança</a></li>
+</ul>
+<hr />
+<h2 id="exame-101-topicos-101-a-104">Exame 101 (Tópicos 101 a 104)</h2>
+<h2 id="topico-101-arquitetura-do-sistema">Tópico 101 - Arquitetura do Sistema</h2>
+<h2 id="1011-identificar-e-editar-configuracoes-de-hardware">101.1 Identificar e editar configurações de hardware</h2>
+<p><strong>Áreas de Conhecimento</strong></p>
+<ol>
+<li>Habilitar/desabilitar periféricos integrados  </li>
+<li>Configurar sistemas com periféricos externos (ex.: teclado)  </li>
+<li>Diferenciar tipos de dispositivos de armazenamento  </li>
+<li>Coldplug x Hotplug  </li>
+<li>Determinar recursos de hardware  </li>
+<li>Utilizar ferramentas de listagem (<code>lsusb</code>, <code>lspci</code>, etc.)  </li>
+<li>Manipular dispositivos USB  </li>
+<li>Conceitos: <code>sysfs</code>, <code>udev</code>, <code>dbus</code>  </li>
+</ol>
+<p><strong>Ferramentas e Arquivos</strong>  </p>
+<ul>
+<li><strong>Diretórios</strong> → <code>/sys/</code>, <code>/proc/</code>, <code>/dev/</code>  </li>
+<li><strong>Módulos</strong> → <code>modprobe</code>, <code>lsmod</code>  </li>
+<li><strong>Listagem</strong> → <code>lspci</code>, <code>lsusb</code>  </li>
+</ul>
+<hr />
+<h2 id="1012-inicio-boot-de-sistema">101.2 Início (Boot) de Sistema</h2>
+<p><strong>Áreas de Conhecimento</strong></p>
+<ul>
+<li>Comandos/opções de bootloader e kernel  </li>
+<li>Sequência de inicialização do BIOS  </li>
+<li>Conhecimento do <strong>SysVinit</strong> e <strong>systemd</strong>  </li>
+<li>Noções de <strong>Upstart</strong>  </li>
+<li>Logs de eventos de inicialização  </li>
+</ul>
+<p><strong>Ferramentas e Arquivos</strong>  </p>
+<ul>
+<li><strong>Logs</strong> → <code>dmesg</code>  </li>
+<li><strong>Firmware</strong> → <code>BIOS</code>  </li>
+<li><strong>Boot</strong> → <code>bootloader</code>, <code>kernel</code>, <code>initramfs</code>  </li>
+<li><strong>Inicialização</strong> → <code>init</code>, <code>SysVinit</code>, <code>systemd</code>  </li>
+</ul>
+<hr />
+<h2 id="1013-runlevels-boot-targets-desligar-e-reiniciar">101.3 Runlevels, Boot Targets, Desligar e Reiniciar</h2>
+<p><strong>Áreas de Conhecimento</strong></p>
+<ul>
+<li>Definir runlevel e boot target padrão  </li>
+<li>Alternar entre runlevels/boot targets (modo single user)  </li>
+<li>Desligar/reiniciar pela linha de comando  </li>
+<li>Avisar usuários antes de alterações críticas  </li>
+<li>Encerrar processos corretamente  </li>
+</ul>
+<p><strong>Ferramentas e Arquivos</strong>  </p>
+<ul>
+<li><strong>Configuração</strong> → <code>/etc/inittab</code>, <code>/etc/init.d/</code>, <code>/etc/systemd/</code>, <code>/usr/lib/systemd/</code>  </li>
+<li><strong>Gerenciamento</strong> → <code>shutdown</code>, <code>init</code>, <code>telinit</code>  </li>
+<li><strong>Systemd</strong> → <code>systemd</code>, <code>systemctl</code>  </li>
+<li><strong>Comunicação</strong> → <code>wall</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-102-instalacao-e-gerenciamento-de-pacotes">Tópico 102 - Instalação e Gerenciamento de Pacotes</h2>
+<h2 id="exemplos-de-ferramentas-por-categoria">Exemplos de ferramentas por categoria:</h2>
+<table>
+<thead>
+<tr>
+<th>Área</th>
+<th>Utilitários</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Partições e sistemas de arquivos</td>
+<td><code>/</code>, <code>/var</code>, <code>/home</code>, <code>/boot</code>, swap</td>
+</tr>
+<tr>
+<td>Bootloader (GRUB)</td>
+<td><code>menu.lst</code>, <code>grub.cfg</code>, <code>grub-install</code>, <code>grub-mkconfig</code>, <code>MBR</code></td>
+</tr>
+<tr>
+<td>Bibliotecas compartilhadas</td>
+<td><code>ldd</code>, <code>ldconfig</code>, <code>/etc/ld.so.conf</code>, <code>LD_LIBRARY_PATH</code></td>
+</tr>
+<tr>
+<td>Debian</td>
+<td><code>dpkg</code>, <code>apt-get</code>, <code>apt-cache</code>, <code>aptitude</code>, <code>/etc/apt/sources.list</code></td>
+</tr>
+<tr>
+<td>RedHat</td>
+<td><code>rpm</code>, <code>yum</code>, <code>/etc/yum.conf</code>, <code>/etc/yum.repos.d/</code></td>
+</tr>
+<tr>
+<td>Virtualização</td>
+<td>Máquinas Virtuais, Contêineres, <code>cloud-init</code>, chaves SSH</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="topico-103-comandos-linux">Tópico 103 - Comandos Linux</h2>
+<h2 id="organizados-por-tema">Organizados por tema:</h2>
+<ul>
+<li><strong>Linha de Comando</strong> → <code>bash</code>, <code>echo</code>, <code>env</code>, <code>history</code>, <code>alias</code>, <code>PATH</code>  </li>
+<li><strong>Filtros de Texto</strong> → <code>cat</code>, <code>cut</code>, <code>head</code>, <code>sed</code>, <code>sort</code>, <code>uniq</code>, <code>wc</code>  </li>
+<li><strong>Gerenciamento de Arquivos</strong> → <code>cp</code>, <code>mv</code>, <code>rm</code>, <code>find</code>, <code>tar</code>, <code>dd</code>, <code>gzip</code>  </li>
+<li><strong>Pipes e Redirecionamentos</strong> → <code>tee</code>, <code>xargs</code>, operadores <code>&gt;</code>, <code>&gt;&gt;</code>, <code>2&gt;</code>  </li>
+<li><strong>Processos</strong> → <code>ps</code>, <code>top</code>, <code>kill</code>, <code>jobs</code>, <code>nohup</code>, <code>screen</code>, <code>tmux</code>  </li>
+<li><strong>Prioridade de Execução</strong> → <code>nice</code>, <code>renice</code>  </li>
+<li><strong>Regex em Arquivos</strong> → <code>grep</code>, <code>egrep</code>, <code>sed</code>, <code>regex(7)</code>  </li>
+<li><strong>Edição de Arquivos</strong> → <code>vi</code>, <code>nano</code>, <code>emacs</code>, variáveis <code>EDITOR</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-104-dispositivos-sistemas-de-arquivos-e-fhs">Tópico 104 - Dispositivos, Sistemas de Arquivos e FHS</h2>
+<ul>
+<li><strong>Partições e FS</strong> → <code>fdisk</code>, <code>gdisk</code>, <code>parted</code>, <code>mkfs</code>, <code>mkswap</code>  </li>
+<li><strong>Integridade FS</strong> → <code>fsck</code>, <code>tune2fs</code>, <code>xfs_repair</code>  </li>
+<li><strong>Montagem/Desmontagem</strong> → <code>mount</code>, <code>umount</code>, <code>/etc/fstab</code>, <code>lsblk</code>  </li>
+<li><strong>Permissões e Propriedade</strong> → <code>chmod</code>, <code>umask</code>, <code>chown</code>, <code>chgrp</code>  </li>
+<li><strong>Links</strong> → <code>ln</code>, <code>ls</code>  </li>
+<li><strong>Localização de Arquivos</strong> → <code>find</code>, <code>locate</code>, <code>updatedb</code>, <code>which</code>, <code>/etc/updatedb.conf</code>  </li>
+</ul>
+<hr />
+<h2 id="exame-102-topicos-105-a-110">Exame 102 (Tópicos 105 a 110)</h2>
+<h2 id="topico-105-shell-e-scripts">Tópico 105 - Shell e Scripts</h2>
+<ul>
+<li><strong>Ambiente de Shell</strong> → <code>PATH</code>, <code>alias</code>, <code>~/.bashrc</code>, <code>/etc/profile</code>  </li>
+<li><strong>Scripts Básicos</strong> → <code>for</code>, <code>while</code>, <code>if</code>, <code>read</code>, <code>exec</code>, <code>&amp;&amp;</code>, <code>||</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-106-interfaces-de-usuarios-e-desktops">Tópico 106 - Interfaces de Usuários e Desktops</h2>
+<ul>
+<li><strong>X11</strong> → <code>/etc/X11/xorg.conf</code>, <code>xhost</code>, <code>DISPLAY</code>  </li>
+<li><strong>Desktops</strong> → KDE, Gnome, Xfce, VNC, RDP  </li>
+<li><strong>Acessibilidade</strong> → Leitor de Tela, Alto Contraste, Teclado Virtual  </li>
+</ul>
+<hr />
+<h2 id="topico-107-tarefas-administrativas">Tópico 107 - Tarefas Administrativas</h2>
+<ul>
+<li><strong>Usuários/Grupos</strong> → <code>useradd</code>, <code>usermod</code>, <code>/etc/passwd</code>, <code>/etc/shadow</code>  </li>
+<li><strong>Automatização</strong> → <code>cron</code>, <code>at</code>, <code>systemd timers</code>  </li>
+<li><strong>Internacionalização</strong> → <code>LANG</code>, <code>LC_ALL</code>, <code>/etc/localtime</code>, <code>timedatectl</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-108-servicos-essenciais-do-sistema">Tópico 108 - Serviços Essenciais do Sistema</h2>
+<ul>
+<li><strong>Hora/Data</strong> → <code>date</code>, <code>hwclock</code>, <code>ntpd</code>, <code>chrony</code>  </li>
+<li><strong>Logs</strong> → <code>rsyslog</code>, <code>logrotate</code>, <code>journalctl</code>  </li>
+<li><strong>MTA</strong> → <code>sendmail</code>, <code>postfix</code>, <code>mail</code>  </li>
+<li><strong>Impressão</strong> → <code>cups</code>, <code>lpq</code>, <code>lpr</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-109-fundamentos-de-rede">Tópico 109 - Fundamentos de Rede</h2>
+<ul>
+<li><strong>Protocolos</strong> → TCP, UDP, ICMP, IPv4, IPv6, portas comuns  </li>
+<li><strong>Configuração de Rede</strong> → <code>/etc/hosts</code>, <code>nmcli</code>, <code>hostnamectl</code>  </li>
+<li><strong>Solução de Problemas</strong> → <code>ping</code>, <code>traceroute</code>, <code>ip</code>, <code>netstat</code>  </li>
+<li><strong>DNS Cliente</strong> → <code>/etc/resolv.conf</code>, <code>host</code>, <code>dig</code>, <code>getent</code>  </li>
+</ul>
+<hr />
+<h2 id="topico-110-seguranca">Tópico 110 - Segurança</h2>
+<ul>
+<li><strong>Administração de Segurança</strong> → <code>find</code>, <code>passwd</code>, <code>nmap</code>, <code>sudo</code>, <code>ulimit</code>  </li>
+<li><strong>Segurança de Host</strong> → <code>/etc/shadow</code>, <code>/etc/hosts.allow</code>, <code>systemd.socket</code>  </li>
+<li><strong>Criptografia</strong> → <code>ssh</code>, <code>ssh-keygen</code>, <code>gpg</code>, <code>authorized_keys</code>  </li>
+</ul>
+<hr />
+<h1 id="dica-final-estude-os-comandos-na-pratica-simulando-cenarios-reais-em-laboratorio"><strong>Dica Final</strong>: estude os comandos na prática, simulando cenários reais em laboratório.</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

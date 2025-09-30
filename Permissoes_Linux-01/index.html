@@ -1,0 +1,2309 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Raid/">
+      
+      
+        <link rel="next" href="../Permissoes_Linux-02/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Permissões Linux 01 - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-de-permissoes-de-arquivos-e-diretorios-no-linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Permissões Linux 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entendendo-as-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 Entendendo as Permissões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modificando-permissoes-chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Modificando Permissões: chmod
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Modificando Permissões: chmod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modo-numerico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Modo Numérico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-simbolico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔤 Modo Simbólico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mudando-dono-e-grupo-chown-e-chgrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      👤 Mudando Dono e Grupo: chown e chgrp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👤 Mudando Dono e Grupo: chown e chgrp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chown-altera-o-dono-eou-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      chown – Altera o dono e/ou grupo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chgrp-altera-apenas-o-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      chgrp – Altera apenas o grupo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-em-diretorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Permissões em Diretórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-recursivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Permissões Recursivas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Permissões Especiais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Permissões Especiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setuid-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 setuid (S)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgid-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 setgid (S)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sticky-bit-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Sticky bit (t)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-praticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Exemplos Práticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Exemplos Práticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tornar-um-script-executavel-apenas-para-o-dono" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tornar um script executável apenas para o dono:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permitir-que-todos-leiam-um-arquivo-mas-apenas-o-dono-possa-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Permitir que todos leiam um arquivo, mas apenas o dono possa editar:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-definir-uma-pasta-compartilhada-por-um-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Definir uma pasta compartilhada por um grupo:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificando-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Verificando Permissões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛑 Atenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entendendo-as-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📑 Entendendo as Permissões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modificando-permissoes-chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Modificando Permissões: chmod
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Modificando Permissões: chmod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modo-numerico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Modo Numérico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modo-simbolico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔤 Modo Simbólico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mudando-dono-e-grupo-chown-e-chgrp" class="md-nav__link">
+    <span class="md-ellipsis">
+      👤 Mudando Dono e Grupo: chown e chgrp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👤 Mudando Dono e Grupo: chown e chgrp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chown-altera-o-dono-eou-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      chown – Altera o dono e/ou grupo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chgrp-altera-apenas-o-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      chgrp – Altera apenas o grupo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-em-diretorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Permissões em Diretórios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-recursivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Permissões Recursivas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissoes-especiais" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Permissões Especiais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Permissões Especiais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setuid-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 setuid (S)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setgid-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 setgid (S)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sticky-bit-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Sticky bit (t)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplos-praticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧪 Exemplos Práticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧪 Exemplos Práticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tornar-um-script-executavel-apenas-para-o-dono" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Tornar um script executável apenas para o dono:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-permitir-que-todos-leiam-um-arquivo-mas-apenas-o-dono-possa-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Permitir que todos leiam um arquivo, mas apenas o dono possa editar:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-definir-uma-pasta-compartilhada-por-um-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Definir uma pasta compartilhada por um grupo:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificando-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Verificando Permissões
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛑 Atenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Referências
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tutorial-de-permissoes-de-arquivos-e-diretorios-no-linux">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</h1>
+<blockquote>
+<p>Aprenda a visualizar, modificar e entender o sistema de permissões no Linux utilizando comandos como <code>chmod</code>, <code>chown</code> e <code>chgrp</code>.</p>
+</blockquote>
+<hr />
+<h2 id="introducao">🔍 Introdução</h2>
+<p>O sistema de permissões do Linux é fundamental para garantir a segurança e organização do sistema. Cada arquivo ou diretório possui regras que definem quem pode <strong>ler (r)</strong>, <strong>escrever (w)</strong> e <strong>executar (x)</strong>.</p>
+<hr />
+<h2 id="entendendo-as-permissoes">📑 Entendendo as Permissões</h2>
+<p>Execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ls<span class="w"> </span>-l
+</code></pre></div>
+<p>Exemplo de saída:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-rwxr-xr-- 1 user grupo 1234 jul 28 10:00 script.sh
+</code></pre></div>
+<p>Explicando os campos:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-</code></td>
+<td>Tipo de arquivo (<code>-</code> arquivo, <code>d</code> diretório)</td>
+</tr>
+<tr>
+<td><code>rwx</code></td>
+<td>Permissões do <strong>dono</strong></td>
+</tr>
+<tr>
+<td><code>r-x</code></td>
+<td>Permissões do <strong>grupo</strong></td>
+</tr>
+<tr>
+<td><code>r--</code></td>
+<td>Permissões de <strong>outros (público)</strong></td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Número de links</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>Dono do arquivo</td>
+</tr>
+<tr>
+<td><code>grupo</code></td>
+<td>Grupo do arquivo</td>
+</tr>
+<tr>
+<td><code>1234</code></td>
+<td>Tamanho em bytes</td>
+</tr>
+<tr>
+<td><code>jul 28 10:00</code></td>
+<td>Data de modificação</td>
+</tr>
+<tr>
+<td><code>script.sh</code></td>
+<td>Nome do arquivo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="modificando-permissoes-chmod">🔧 Modificando Permissões: <code>chmod</code></h2>
+<h3 id="modo-numerico">🧮 Modo Numérico</h3>
+<p>As permissões são representadas por números:</p>
+<table>
+<thead>
+<tr>
+<th>Permissão</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code> (read)</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>w</code> (write)</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>x</code> (execute)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>chmod<span class="w"> </span><span class="m">754</span><span class="w"> </span>script.sh
+</code></pre></div>
+<p>Isso define:</p>
+<ul>
+<li>Dono: <code>7</code> = <code>rwx</code></li>
+<li>Grupo: <code>5</code> = <code>r-x</code></li>
+<li>Outros: <code>4</code> = <code>r--</code></li>
+</ul>
+<h3 id="modo-simbolico">🔤 Modo Simbólico</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh
+</code></pre></div>
+<p>Adiciona permissão de execução para o <strong>usuário (u)</strong>.</p>
+<p>Outros símbolos:</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>u</code></td>
+<td>Usuário (owner)</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>Grupo</td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td>Outros</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Todos</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Adiciona permissão</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Remove permissão</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>Define exatamente essas permissões</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplos</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>chmod<span class="w"> </span>g-w<span class="w"> </span>arquivo.txt<span class="w">     </span><span class="c1"># Remove escrita do grupo</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>chmod<span class="w"> </span><span class="nv">o</span><span class="o">=</span>r<span class="w"> </span>arquivo.txt<span class="w">     </span><span class="c1"># Outros só podem ler</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>chmod<span class="w"> </span>a+x<span class="w"> </span>script.sh<span class="w">       </span><span class="c1"># Todos ganham permissão de execução</span>
+</code></pre></div>
+<hr />
+<h2 id="mudando-dono-e-grupo-chown-e-chgrp">👤 Mudando Dono e Grupo: <code>chown</code> e <code>chgrp</code></h2>
+<h3 id="chown-altera-o-dono-eou-grupo"><code>chown</code> – Altera o dono e/ou grupo</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>chown<span class="w"> </span>novo_dono<span class="w"> </span>arquivo.txt
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>chown<span class="w"> </span>novo_dono:novo_grupo<span class="w"> </span>arquivo.txt
+</code></pre></div>
+<h3 id="chgrp-altera-apenas-o-grupo"><code>chgrp</code> – Altera apenas o grupo</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>chgrp<span class="w"> </span>novo_grupo<span class="w"> </span>arquivo.txt
+</code></pre></div>
+<p><strong>Exemplo</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chown<span class="w"> </span>joao:desenvolvedores<span class="w"> </span>projeto/
+</code></pre></div>
+<hr />
+<h2 id="permissoes-em-diretorios">📁 Permissões em Diretórios</h2>
+<p>As permissões têm efeitos diferentes:</p>
+<table>
+<thead>
+<tr>
+<th>Permissão</th>
+<th>Significado no diretório</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>Listar arquivos (<code>ls</code>)</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Criar/apagar arquivos</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>Acessar arquivos no diretório</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="permissoes-recursivas">🔄 Permissões Recursivas</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>pasta/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>chown<span class="w"> </span>-R<span class="w"> </span>user:grupo<span class="w"> </span>pasta/
+</code></pre></div>
+<hr />
+<h2 id="permissoes-especiais">📌 Permissões Especiais</h2>
+<h3 id="setuid-s">🔒 <code>setuid</code> (S)</h3>
+<p>Permite que o programa execute com permissões do dono.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>chmod<span class="w"> </span>u+s<span class="w"> </span>arquivo
+</code></pre></div>
+<h3 id="setgid-s">🔒 <code>setgid</code> (S)</h3>
+<p>Arquivos criados no diretório herdam o grupo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chmod<span class="w"> </span>g+s<span class="w"> </span>pasta
+</code></pre></div>
+<h3 id="sticky-bit-t">🔒 Sticky bit (t)</h3>
+<p>Em diretórios públicos, evita que usuários deletem arquivos de outros.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>chmod<span class="w"> </span>+t<span class="w"> </span>/tmp
+</code></pre></div>
+<hr />
+<h2 id="exemplos-praticos">🧪 Exemplos Práticos</h2>
+<h3 id="1-tornar-um-script-executavel-apenas-para-o-dono">1. Tornar um script executável apenas para o dono:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>script.sh
+</code></pre></div>
+<h3 id="2-permitir-que-todos-leiam-um-arquivo-mas-apenas-o-dono-possa-editar">2. Permitir que todos leiam um arquivo, mas apenas o dono possa editar:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>documento.txt
+</code></pre></div>
+<h3 id="3-definir-uma-pasta-compartilhada-por-um-grupo">3. Definir uma pasta compartilhada por um grupo:</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>chgrp<span class="w"> </span>grupo<span class="w"> </span>pasta/
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>pasta/
+</code></pre></div>
+<hr />
+<h2 id="verificando-permissoes">✅ Verificando Permissões</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>stat<span class="w"> </span>arquivo.txt
+</code></pre></div>
+<hr />
+<h2 id="atencao">🛑 Atenção</h2>
+<ul>
+<li>Cuidado com <code>chmod 777</code> — permite tudo para todos, o que representa risco de segurança.</li>
+<li>Modifique permissões com consciência, especialmente em ambientes multiusuário ou servidores.</li>
+</ul>
+<hr />
+<h2 id="referencias">📚 Referências</h2>
+<ul>
+<li><code>man chmod</code></li>
+<li><code>man chown</code></li>
+<li><code>man chgrp</code></li>
+<li><a href="https://tldp.org">The Linux Documentation Project</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

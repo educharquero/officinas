@@ -1,0 +1,2093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Modulo_103.1-aula00/">
+      
+      
+        <link rel="next" href="../Modulo_103.1-aula02/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Aula 01 - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-1031-aula-01" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aula 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="modulo-1031-aula-01">🐧 Módulo 103.1 AULA 01</h1>
+<h1 id="o-shell">O SHELL</h1>
+<h3 id="sh-dash-bash-csh-zsh">sh, dash, bash, csh, zsh ...</h3>
+<p>O shell é uma interface ou ambiente de interação entre o usuário e o <em>kernel</em> (ou núcleo), que por sua vez, interage com o hardware, que o usuário não consegue fazer.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>HARDWARE &lt;---&gt; KERNEL &lt;---&gt; SHELL &lt;---&gt; USUÁRIO
+</code></pre></div>
+<p>Vamos analizar um comando importante nessa aula, o comando <code>echo</code>:</p>
+<p>O comando <code>echo</code> imprime na tela o que for digitado na tela.</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>echo linux
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>echo &quot;Debian Linux&quot;
+</code></pre></div>
+<p>Podemos consultar informações sobre esse comando com o <em>manual</em> ou com o <em>help</em>, do comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>help echo
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>man echo
+</code></pre></div>
+<h3 id="variaveis">VARIÁVEIS</h3>
+<p>Variáveis são elementos que recebem e guardam um valor atribuído a elas.</p>
+<p><code>VARIÁVEIS != CONSTANTES</code></p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>senha=123
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>echo senha
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>echo $senha
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>senhas=&quot;123 321&quot;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>echo $senhas
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>fruta=banana
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>echo $fruta
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nota=10
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>echo $nota
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nomes=&quot;joao jose maria&quot;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>echo $nomes
+</code></pre></div>
+<p>Note que o <code>Shell</code> tem suas próprias variáveis de trabalho, que podem ser consultadas através do comando <code>env</code> e pelo comando <code>set</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>env
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>set
+</code></pre></div>
+<p>Uma variável pode receber a saída de um comando do sistema, desde que esteja entre <code>$()</code>:</p>
+<p>Exemplo, lembra do comando <code>whoami</code>? Vamos testar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>QuemSouEu=$(whoami)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>echo $QuemSouEu
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Conteudo_Local=$(ls --color)
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>echo $Conteudo_Local
+</code></pre></div>
+<p>Expandindo o comando na execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>fruta=&#39;echo abacaxi&#39;
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>echo $fruta
+</code></pre></div>
+<p><code>!=</code> de</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>fruta=$(echo abacaxi)
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>echo $fruta
+</code></pre></div>
+<p>Podemos criar variáveis com:</p>
+<p><code>LETRAS MAIÚSCULAS</code> e/ou <code>MINÚSCULAS</code> e/ou <code>NÚMEROS</code></p>
+<p>O <strong>único</strong> caracter permitido na composição de uma variável é o underline <code>_</code></p>
+<p>NÃO podem conter acentos e NÃO podem iniciar com números nem com qualquer outro caractere.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>cria_pasta=$(mkdir PASTA-DE-FOTOS)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ls
+</code></pre></div>
+<p>NOTE QUE SE EU ENTRAR EM OUTRA SESSÃO DE SHELL ESSAS VARIÁVEIS NÃO CONSTAM:</p>
+<p>Exemplo de chamada para outra <em>sessão</em> de terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>bash
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>echo $senhas
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>echo $fruta
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>echo $nota
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>echo $QuemSouEu
+</code></pre></div>
+<p>Fechando essa <em>sessão</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>exit
+</code></pre></div>
+<p>Agora as variáveis que criamos constam novamente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>echo $senhas
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>echo $fruta
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>echo $nota
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>echo $QuemSouEu
+</code></pre></div>
+<p>A não ser que vc use o comando <code>export</code>, que faz com que a variável que você criou, seja enviada para as variáveis do Sistema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>export fruta=kiwi
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>env | grep fruta
+</code></pre></div>
+<p>Vai estar visível para essa sessão de bash e seus processos filhos, apenas!</p>
+<p>Caso queira "DES-exportar"</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>unset fruta
+</code></pre></div>
+<h3 id="comando-read-ou-leia">COMANDO <code>read</code> OU LEIA</h3>
+<p>O comando <code>read</code> espera e armazena como variável o valor que você digitar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>read &quot;x&quot;
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>caderno
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>echo $x
+</code></pre></div>
+<p>A variável é <code>x</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>read &quot;variavel14&quot;
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>vassoura
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>echo $variavel14
+</code></pre></div>
+<p>A variável é <code>variavel14</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>read nota
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>echo $nota
+</code></pre></div>
+<p>A variável é <code>nota</code></p>
+<p>Adicionando a opção <code>-p</code> de <em>prompt</em>, ele fica interativo (porém vai precisar de uma variável de armazenamento):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>read -p &quot;fruta&quot;
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>echo $fruta
+</code></pre></div>
+<p>Interage mas não armazenou nada, pois não criamos uma variável!</p>
+<p>Agora vamos ler e armazenar uma variável:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>read -p &quot;fruta&quot; var
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>echo $var
+</code></pre></div>
+<p>CUIDADO para não dar um <code>echo</code> em <code>fruta</code>, e sim em <code>$var</code>!</p>
+<p>Vamos tentar de novo...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>read -p &quot;fruta: &quot; x
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>echo $fruta ou echo $x ??
+</code></pre></div>
+<p>NOTE que deixamos um espaço entre os <code>:</code> e <code>"</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>unset fruta
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>read -p &quot;Diga uma fruta: &quot; fruta
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>echo $fruta
+</code></pre></div>
+<p>Lendo uma variável que armazena um nome:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>read -p &quot;Digite seu nome: &quot; x
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>echo $x
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>read -p &quot;Digite seu nome: &quot; y
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>echo $y
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>read -p &quot;Digite seu nome: &quot; nome
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>echo $nome
+</code></pre></div>
+<p>Lendo uma variável que armazena uma nota:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>read -p &quot;Digite a nota do aluno: &quot; nota
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>echo $nota
+</code></pre></div>
+<h3 id="os-comandos-builtin-comandos-internos-do-shell">OS <em>COMANDOS</em> <em>BUILTIN</em> (<em>Comandos</em> <em>Internos</em>) DO <code>shell</code></h3>
+<p>Podemos ver quais são os <em>comandos</em> <em>internos</em> ou <em>builtins</em> do shell com o <code>help</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>help
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>help &lt;2xtab&gt;
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>help echo
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>help pwd
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>help cd
+</code></pre></div>
+<p>NOTE que um <code>help ls</code> não retorna nada, pois o <code>ls</code> não é um <em>comando builtin</em>.</p>
+<p>Também podemos comparar os <em>comandos</em> <em>builtin</em> e os <em>comandos</em> <em>utilitários</em> do sistema com o<code>type</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>type cd
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>type echo
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>type ls
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>type apt
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>type mv
+</code></pre></div>
+<p>Os <em>comandos</em> que NÃO FOREM <em><code>builtin</code></em>, sempre terão sua localização <code>PATH</code> apontada. Os <em>comandos</em> <em>builtin</em> não tem esse apontamento.</p>
+<h3 id="as-variaveis-de-ambiente-em-uso-pelo-sistema-operacional">AS VARIÁVEIS DE AMBIENTE EM USO PELO SISTEMA OPERACIONAl</h3>
+<p>As variáveis de ambiente são definidas sempre em <em>caixa alta</em>. Sendo mostradas pelos comandos <code>set</code> ou <code>env</code>:</p>
+<p>O <em>comando</em> <em>utilitário</em> <code>env</code> MOSTRA APENAS AS VARÁVEIS GLOBAIS E AS EXPORTADAS NA SESSÃO.</p>
+<p>O <em>builtin</em> <code>set</code> mostra todas as <em>variáveis</em> <em>internas</em> e <em>globais</em>, mesmo sem exportar.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>type env
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>type set
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>env | less
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>set | less
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>SHELL=/bin/bash
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>LANGUAGE=pt_BR
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>XCURSOR_SIZE=24
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>LOGNAME=mevorak
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>HOME=/home/mevorak
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>USER=mevorak
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>HOSTNAME=mevorak
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>...
+</code></pre></div>
+<p>Podemos realizar buscas por variáveis específicas:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>echo $USER 
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>echo $SHELL
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>echo $LANGUAGE
+</code></pre></div>
+<h3 id="o-conceito-de-path-ou-caminho">O CONCEITO DE <code>PATH</code> OU <em>CAMINHO</em></h3>
+<p>Nos comandos dados ao <code>bash</code>, ele valida PRIMEIRO se é um <em>comando</em> <em>builtin</em>, DEPOIS ele valida se é um <em>comando</em> <em>utilitário</em> do sistema, da variável <code>PATH</code>, DEPOIS ele imprime um erro de <code>COMMAND NOT FOUND</code>. bem lógico!</p>
+<p>Exemplo::</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>meu_programa
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>bash: meu_programa: comando não encontrado
+</code></pre></div>
+<p>MAS eu posso criar um arquivo com esse nome e fazer virar um <code>Shell script</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>echo &quot;ls&quot; &gt; meu_programa
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>chmod +x meu_programa
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>./meuprograma
+</code></pre></div>
+<p>Outros exemplos práticos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>echo &quot;echo Olá mundo&quot; &gt; meu_programa
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>echo mkdir PASTA_D &gt; meu_programa
+</code></pre></div>
+<p>Ou então posso jogar o meu programa no <code>PATH</code>do Sistema:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>sudo mv meu_programa /usr/bin/
+</code></pre></div>
+<p>Agora ele consta nos <em>comandos</em> <em>internos</em> do Sistema e autocompleta com a tecla <code>TAB</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>meu_prog 2x&lt;TAB&gt;
+</code></pre></div>
+<h3 id="a-linguagem-do-shell-script-modo-nao-interativo">A LINGUAGEM DO <code>SHELL SCRIPT</code> (Modo não interativo)</h3>
+<p>Qual a vantagem de usar <em>Shell script</em>? Bom, podemos usar comandos em lote, ao invés de um de cada vez!</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>whoami
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>hostname
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>uptime -p
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>uname -rms
+</code></pre></div>
+<p>Imagine se tivesse que validar essas informações a cada troca de turno, por exemplo. </p>
+<p>Sendo <strong>MUITO</strong> mais prático, criar um Shell script com todos estes comandos para rodar de uma vez só.</p>
+<p>Criando o arquivo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>$ &gt; informacoes.sh
+</code></pre></div>
+<p>Inserindo os comandos nele:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>#! /usr/bin/env bash
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a> whoami
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a> hostname
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a> uptime -p
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a> uname -rms
+</code></pre></div>
+<p>Setando permissão de execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>chmod +x informacoes.sh
+</code></pre></div>
+<p>Chamando o programa para rodar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>./informacoes.sh
+</code></pre></div>
+<p>A linha <code>/usr/bin/env bash</code> informa ao <code>Shell</code> qual interpretador vai rodar o script, no caso, apontamos para o <code>bash</code>. Chamamos essa linha <em>obrigatória</em> inicial de <code>Hashbang</code>ou de <code>Shebang</code>, tanto faz.</p>
+<p>Na maioria dos casos o programador vai usar o <em>caminho</em> <em>absoluto</em> <code>#!/bin/bash</code>, para criar a <code>hashbang</code> ao invés de optar pelo <em>environment</em> (ambiente) <code>env</code>.</p>
+<p>Vamos criar um arquivo de <em>Shell script</em> que leia, guarde e imprima um nome:</p>
+<p>Criamos o arquivo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>&gt; seunome.sh
+</code></pre></div>
+<p>Inserimos o conteúdo:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>#!/usr/bin/env bash
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>read -p &quot;Digite seu nome: &quot; nome
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>echo &quot;Olá, $nome!&quot;
+</code></pre></div>
+<p>Setamos a permissão de execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>chmod +x seunome.sh
+</code></pre></div>
+<p>Chamamos á execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>./seunome
+</code></pre></div>
+<p>Criemos outro <em>Shell script</em> que mostre a data e hora, hospedando no <code>/opt</code>e usando o editor <code>vim</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>mkdir -p /opt/Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>vim /opt/Meus_Programa/Data_Hora
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>#!/bin/bash
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>echo &quot;Este é um Script de Teste&quot;
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>echo &quot; &quot;
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>
+<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>date
+<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>
+<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>echo &quot; &quot;
+<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>
+<a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a>echo &quot;Fim do Script&quot;
+</code></pre></div>
+<p>Este script só roda se eu der permissão e rodar o comando á partir do próprio diretório:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>chmod +x /opt/Meus_Programas/Data_Hora
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>cd /opt/Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>./Data_Hora #./ aponta diretório atual
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>sh Data_Hora
+</code></pre></div>
+<p>Ou</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>bash Data_Hora
+</code></pre></div>
+<p>Opcionalmente posso apontar o <code>PATH</code> completo no comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>bash /opt/Meuprograma/Data_Hora
+</code></pre></div>
+<p>Tentar executá-lo á partir de outro diretório será impossível!</p>
+<h3 id="caminho-absoluto-x-caminho-relativo">CAMINHO ABSOLUTO X CAMINHO RELATIVO:</h3>
+<p><em>CAMINHO</em> <em>ABSOLUTO</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>/opt/Meuprograma/Data_Hora
+</code></pre></div>
+<p><em>CAMINHO</em> <em>RELATIVO</em></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>cd /opt/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>cd Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>cd Data_Hora
+</code></pre></div>
+<h3 id="a-variavel-path-ou-caminho">A VARIÁVEL <code>PATH</code> ( OU CAMINHO)</h3>
+<p>Todo <em>programa</em> que roda no Terminal, está armazenado em algum lugar específico.</p>
+<p>Geralmente os scripts do Sistema operacional, ficam em <code>/usr/bin/</code>, <code>/usr/sbin</code>, <code>/bin</code>, etc.</p>
+<p>Contudo, pra que eu não tenha que ficar digitando o caminho completo, toda vez em que for preciso rodar um programa, como por exemplo o navegador web <em>Firefox</em>, foi criada a variável <code>PATH</code>, contendo os caminhos de busca, para uso do Sistema operacional.</p>
+<p>Temos dois modos de adicionar o caminho do diretório onde salvei meu script, á variável <code>PATH</code>, que é onde o Terminal busca os programas, possibilitando com que ele conste, á partir de qualquer diretório onde eu estiver.</p>
+<p>1) MODO TRANSITÓRIO</p>
+<p>Leio o <code>PATH</code>padrão:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>echo $PATH
+</code></pre></div>
+<p>Adiciono meu próprio caminho á ela:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>PATH=$PATH:/opt/Meus_Programas
+</code></pre></div>
+<p>Leio novamente e ele está constando nela:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>echo $PATH
+</code></pre></div>
+<p>2) MODO DEFINITIVO</p>
+<p>Leio o <code>PATH</code> padrão:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>echo $PATH
+</code></pre></div>
+<p>Edito o próprio <em>arquivo</em> <em>global</em> do Sistema operacional, adicionando o caminho do meu programa:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>sudo vim /etc/profile
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/Meus_Programas&quot;
+</code></pre></div>
+<p>Forço a reconfiguração para efetivar a alteração:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>sudo source /etc/profile
+</code></pre></div>
+<p>Releio o <code>PATH</code> padrão e já consta o <code>/opt/Meus_Programas</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>echo $PATH
+</code></pre></div>
+<p>Inclusive os comandos <code>which</code> ou <code>whereis</code> tbém já encontram o meu <em>programa</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>whereis Data_Hora
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>which Data_Hora
+</code></pre></div>
+<p>Respondendo á tecla <code>TAB</code> para autocompletar o nome do <em>programa</em>: </p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>Data_H 2x&lt;TAB&gt;
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>Data_Hora
+</code></pre></div>
+<p>Alguns usuários preferem criar seus próprios diretórios pessoais, ignorando a <em>variável</em> <em>Global</em> <code>/etc/profile</code>, optando por usar a <em>variável</em> <em>local</em> <code>.bashrc</code>, para armazenar seus próprios caminhos.</p>
+<p>Exemplo:</p>
+<p>Criamos o diretorio <code>/home/usuario/Programas</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>mkdir ~/Programas
+</code></pre></div>
+<p>Editamos a <em>variável</em> <em>local</em> <code>.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>sudo vim ~/.bashrc
+</code></pre></div>
+<p>Adicionamos um teste de execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>if [ -d ~/Programas ]
+<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>then
+<a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>   PATH=$PATH:~/Programas
+<a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>fi
+</code></pre></div>
+<p>Copia um script, como o <code>seunome.sh</code> para dentro desse diretório:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>cp seunome.sh /home/usuario/Programas/
+</code></pre></div>
+<p>Forçamos a releitura da configuração da <em>variável</em> <em>de</em> <em>sistema</em>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>source .bashrc
+</code></pre></div>
+<p>Procuramos o novo caminho na variável <code>PATH</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>env | grep PATH
+</code></pre></div>
+<h3 id="criando-um-script-e-setando-no-path-do-sistema">CRIANDO UM SCRIPT E SETANDO NO <code>PATH</code> DO SISTEMA</h3>
+<p>Faça os seguintes testes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>echo &quot;máquina; hostname
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>echo -n máquina; hostname
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>echo -n máquina:; hostname
+</code></pre></div>
+<p>ENTÃO</p>
+<p>Criamos o script:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>vim ~/Programas/Informacoes
+</code></pre></div>
+<p>Inserimos os comandos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>#! /usr/bin/env bash
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a># Informações.sh
+<a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a># Versão 1.0
+<a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a># Script para capturar informações do Sistema
+<a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a># 02/25
+<a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a># Eduardo Charquero
+<a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>
+<a id="__codelineno-87-9" name="__codelineno-87-9" href="#__codelineno-87-9"></a>clear
+<a id="__codelineno-87-10" name="__codelineno-87-10" href="#__codelineno-87-10"></a>
+<a id="__codelineno-87-11" name="__codelineno-87-11" href="#__codelineno-87-11"></a>echo &quot;&quot;
+<a id="__codelineno-87-12" name="__codelineno-87-12" href="#__codelineno-87-12"></a>
+<a id="__codelineno-87-13" name="__codelineno-87-13" href="#__codelineno-87-13"></a>echo &quot;VALIDANDO NFORMAÇÕES LOCAIS:&quot;
+<a id="__codelineno-87-14" name="__codelineno-87-14" href="#__codelineno-87-14"></a>
+<a id="__codelineno-87-15" name="__codelineno-87-15" href="#__codelineno-87-15"></a>echo &quot;----------------------------------&quot;
+<a id="__codelineno-87-16" name="__codelineno-87-16" href="#__codelineno-87-16"></a>
+<a id="__codelineno-87-17" name="__codelineno-87-17" href="#__codelineno-87-17"></a>echo -n &quot;Usuário logado : &quot;
+<a id="__codelineno-87-18" name="__codelineno-87-18" href="#__codelineno-87-18"></a>whoami
+<a id="__codelineno-87-19" name="__codelineno-87-19" href="#__codelineno-87-19"></a>
+<a id="__codelineno-87-20" name="__codelineno-87-20" href="#__codelineno-87-20"></a>echo -n &quot;Máquina da rede: &quot;
+<a id="__codelineno-87-21" name="__codelineno-87-21" href="#__codelineno-87-21"></a>hostname
+<a id="__codelineno-87-22" name="__codelineno-87-22" href="#__codelineno-87-22"></a>
+<a id="__codelineno-87-23" name="__codelineno-87-23" href="#__codelineno-87-23"></a>echo -n &quot;Kernel em uso  : &quot;
+<a id="__codelineno-87-24" name="__codelineno-87-24" href="#__codelineno-87-24"></a>uname -rms
+<a id="__codelineno-87-25" name="__codelineno-87-25" href="#__codelineno-87-25"></a>
+<a id="__codelineno-87-26" name="__codelineno-87-26" href="#__codelineno-87-26"></a>echo -n &quot;Tempo ligada   : &quot;
+<a id="__codelineno-87-27" name="__codelineno-87-27" href="#__codelineno-87-27"></a>uptime -p
+<a id="__codelineno-87-28" name="__codelineno-87-28" href="#__codelineno-87-28"></a>
+<a id="__codelineno-87-29" name="__codelineno-87-29" href="#__codelineno-87-29"></a>echo &quot;----------------------------------&quot;
+<a id="__codelineno-87-30" name="__codelineno-87-30" href="#__codelineno-87-30"></a>echo &quot;&quot;
+</code></pre></div>
+<p>Setamos permissão de execução:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>chmod +x ~/Programas/Informacoes
+</code></pre></div>
+<p>Mandamos o <code>TAB</code>autocompletar e o <code>ENTER</code> para rodar:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>Infor 2x&lt;TAB&gt; ENTER
+</code></pre></div>
+<h3 id="dicas">DICAS</h3>
+<p>Locais interessantes de usar para repositório de seus scripts pessoais:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>~/.Programas
+<a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>
+<a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a>/opt
+<a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a>
+<a id="__codelineno-90-5" name="__codelineno-90-5" href="#__codelineno-90-5"></a>/usr/local/bin
+</code></pre></div>
+<h3 id="atencao">ATENÇÃO!!</h3>
+<p>NÃO RODE COMANDOS OU SCRIPTS DE TERCEIROS ENCONTRADOS NA WEB, SEM SABER O QUE ELE DE FATO ESTÁ FAZENDO!</p>
+<p>CUIDADO COM O USO DE USUÁRIO ROOT OU SUDO!</p>
+<p>Você foi avisado!!</p>
+<p>THAT’S ALL FOLKS!!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>

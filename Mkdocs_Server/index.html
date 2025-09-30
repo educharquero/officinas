@@ -1,0 +1,2261 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Firewall_Server/">
+      
+      
+        <link rel="next" href="../NFS_Server/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>MkDocs Server - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#servidor-de-documentacao-mkdocs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MkDocs Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setando-e-validando-o-hostname-do-servidor-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando e validando o hostname do Servidor MkDocs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-o-arquivo-de-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando o arquivo de hosts:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-ip-fixo-no-servidor-dcmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando ip fixo no servidor dcmaster:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-endereco-do-firewall-como-resolvedor-externo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando endereço do firewall como resolvedor externo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-o-ip-da-placa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando o ip da placa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-necessarios-ao-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes necessários ao Debian:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-do-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes do MkDocs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-versao-do-pacote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando versão do pacote:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-novo-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um novo projeto:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-a-criacao-da-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide a criação da estrutura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-ip-do-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o ip do Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-abra-no-seu-navegador-o-endereco" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora abra no seu navegador o endereço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-configuracao-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de configuração principal:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-do-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart do Serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-criar-2-arquivos-de-exemplo-sobremd-e-instalacaomd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos criar 2 arquivos de exemplo, "Sobre.md" e "Instalação.md":
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicie-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicie o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-possivel-inserir-figuras-na-documentacao-com-a-seguinte-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      É possível inserir figuras na documentação, com a seguinte estrutura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou" class="md-nav__link">
+    <span class="md-ellipsis">
+      ou
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-mkdocs-pode-gerar-conteudo-estatico-para-ser-inserido-no-apache-server-ou-nginx-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      O MKDocs pode gerar conteúdo estático, para ser inserido no Apache Server ou NGINX Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vai-criar-um-diretorio-chamado-de-site-que-pode-ser-copiado-para-varwwwhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vai criar um diretório chamado de site, que pode ser copiado para /var/www/html:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seta-permissoes-no-diretorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seta permissões no diretório:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-do-apache-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart do Apache Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesse-pelo-seu-navegador-web-favorito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesse pelo seu navegador Web favorito:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setando-e-validando-o-hostname-do-servidor-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando e validando o hostname do Servidor MkDocs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-o-arquivo-de-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando o arquivo de hosts:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-ip-fixo-no-servidor-dcmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando ip fixo no servidor dcmaster:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-endereco-do-firewall-como-resolvedor-externo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando endereço do firewall como resolvedor externo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-o-ip-da-placa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando o ip da placa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-necessarios-ao-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes necessários ao Debian:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-do-mkdocs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes do MkDocs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-versao-do-pacote" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando versão do pacote:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-novo-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um novo projeto:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-a-criacao-da-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide a criação da estrutura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valida-o-ip-do-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valida o ip do Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicia-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicia o Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-abra-no-seu-navegador-o-endereco" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora abra no seu navegador o endereço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-configuracao-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de configuração principal:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-do-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart do Serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-criar-2-arquivos-de-exemplo-sobremd-e-instalacaomd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos criar 2 arquivos de exemplo, "Sobre.md" e "Instalação.md":
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inicie-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inicie o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-possivel-inserir-figuras-na-documentacao-com-a-seguinte-estrutura" class="md-nav__link">
+    <span class="md-ellipsis">
+      É possível inserir figuras na documentação, com a seguinte estrutura:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou" class="md-nav__link">
+    <span class="md-ellipsis">
+      ou
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-mkdocs-pode-gerar-conteudo-estatico-para-ser-inserido-no-apache-server-ou-nginx-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      O MKDocs pode gerar conteúdo estático, para ser inserido no Apache Server ou NGINX Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vai-criar-um-diretorio-chamado-de-site-que-pode-ser-copiado-para-varwwwhtml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vai criar um diretório chamado de site, que pode ser copiado para /var/www/html:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seta-permissoes-no-diretorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Seta permissões no diretório:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-do-apache-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart do Apache Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesse-pelo-seu-navegador-web-favorito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesse pelo seu navegador Web favorito:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="servidor-de-documentacao-mkdocs">📁 Servidor de documentação MkDocs</h1>
+<p>MkDocs é um gerador de site estático rápido, simples e absolutamente lindo que é voltado para a documentação do projeto de construção. Os arquivos de origem da documentação são gravados em Markdown e configurados com um único arquivo de configuração YAML.</p>
+<h4 id="setando-e-validando-o-hostname-do-servidor-mkdocs">Setando e validando o hostname do Servidor MkDocs:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>mkdocs
+</code></pre></div>
+<h4 id="configurando-o-arquivo-de-hosts">Configurando o arquivo de hosts:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>vim<span class="w"> </span>/etc/hosts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>.0.0.1<span class="w">             </span>localhost
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="m">127</span>.0.1.1<span class="w">          </span>mkdocs.officinas.edu<span class="w">        </span>mkdocs
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="m">192</span>.168.70.150<span class="w">     </span>fileserver.officinas.edu<span class="w">    </span>fileserver
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="m">192</span>.168.70.200<span class="w">     </span>dcslave.officinas.edu<span class="w">       </span>dcslave
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="m">192</span>.168.70.222<span class="w">     </span>mkdocs.officinas.edu<span class="w">        </span>mkdocs
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="m">192</span>.168.70.250<span class="w">     </span>dcmaster.officinas.edu<span class="w">      </span>dcmaster
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="m">192</span>.168.70.254<span class="w">     </span>firewall.officinas.edu<span class="w">      </span>firewall
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>hostname<span class="w"> </span>-f
+</code></pre></div>
+<h4 id="setando-ip-fixo-no-servidor-dcmaster">Setando ip fixo no servidor dcmaster:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>vim<span class="w"> </span>/etc/network/interfaces
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>address<span class="w">           </span><span class="m">192</span>.168.70.222
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>netmask<span class="w">           </span><span class="m">255</span>.255.255.0
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>gateway<span class="w">           </span><span class="m">192</span>.168.70.254
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>dns-nameserver<span class="w">    </span><span class="m">192</span>.168.70.254<span class="w"> </span><span class="c1">#(firewall)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>dns-search<span class="w">        </span>officinas.edu
+</code></pre></div>
+<h4 id="setando-endereco-do-firewall-como-resolvedor-externo">Setando endereço do firewall como resolvedor externo:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>vim<span class="w"> </span>/etc/resolv.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>domain<span class="w">             </span>officinas.edu
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>search<span class="w">             </span>officinas.edu.
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>nameserver<span class="w">         </span><span class="m">192</span>.168.70.254<span class="w"> </span><span class="c1">#(firewall)</span>
+</code></pre></div>
+<h4 id="validando-o-ip-da-placa">Validando o ip da placa:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ip<span class="w"> </span>-c<span class="w"> </span>addr
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ip<span class="w"> </span>-br<span class="w"> </span>link
+</code></pre></div>
+<h4 id="instalacao-dos-pacotes-necessarios-ao-debian">Instalação dos pacotes necessários ao Debian:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>apt<span class="w"> </span>install<span class="w"> </span>wget<span class="w"> </span>net-tools<span class="w"> </span>tree<span class="w"> </span>python3-pip<span class="w"> </span>vim
+</code></pre></div>
+<h4 id="instalacao-dos-pacotes-do-mkdocs">Instalação dos pacotes do MkDocs:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>apt<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material-extensions<span class="w"> </span>mkdocs-nature<span class="w"> </span>mkdocs-click
+</code></pre></div>
+<h4 id="validando-versao-do-pacote">Validando versão do pacote:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mkdocs<span class="w"> </span>--version
+</code></pre></div>
+<h4 id="criando-um-novo-projeto">Criando um novo projeto:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span><span class="w"> </span>/opt/
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>mkdocs<span class="w"> </span>new<span class="w"> </span>mkdocs
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">cd</span><span class="w"> </span>/opt/mkdocs
+</code></pre></div>
+<h4 id="valide-a-criacao-da-estrutura">Valide a criação da estrutura:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>tree
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>├──<span class="w"> </span>docs
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>│<span class="w">   </span>└──<span class="w"> </span>index.md
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>├──<span class="w"> </span>mkdocs.yml
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>└──<span class="w"> </span>site
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span>├──<span class="w"> </span><span class="m">404</span>.html
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span>├──<span class="w"> </span>css
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>base.css
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>bootstrap.min.css
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>font-awesome.min.css
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span>├──<span class="w"> </span>fonts
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>FontAwesome.otf
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>fontawesome-webfont.eot
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>fontawesome-webfont.svg
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>fontawesome-webfont.ttf
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>fontawesome-webfont.woff
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>fontawesome-webfont.woff2
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span>├──<span class="w"> </span>img
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>favicon.ico
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>grid.png
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">    </span>├──<span class="w"> </span>index.html
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">    </span>├──<span class="w"> </span>js
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>base.js
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>bootstrap.min.js
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>jquery-1.10.2.min.js
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">    </span>├──<span class="w"> </span>search
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>lunr.js
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>main.js
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>search_index.json
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>worker.js
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">    </span>├──<span class="w"> </span>sitemap.xml
+<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">    </span>└──<span class="w"> </span>sitemap.xml.gz
+</code></pre></div>
+<h4 id="valida-o-ip-do-servidor">Valida o ip do Servidor:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>ip<span class="w"> </span>-c<span class="w"> </span>addr
+</code></pre></div>
+<h4 id="inicia-o-servidor">Inicia o Servidor:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mkdocs<span class="w"> </span>serve<span class="w"> </span>-a<span class="w"> </span><span class="m">192</span>.168.70.222:8000
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>INFO<span class="w">     </span>-<span class="w">  </span>Building<span class="w"> </span>documentation...
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>INFO<span class="w">     </span>-<span class="w">  </span>Cleaning<span class="w"> </span>site<span class="w"> </span>directory
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>INFO<span class="w">     </span>-<span class="w">  </span>Documentation<span class="w"> </span>built<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.05<span class="w"> </span>seconds
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>INFO<span class="w">     </span>-<span class="w">  </span><span class="o">[</span><span class="m">10</span>:41:22<span class="o">]</span><span class="w"> </span>Serving<span class="w"> </span>on<span class="w"> </span>http://192.168.70.222:8000/
+</code></pre></div>
+<h4 id="agora-abra-no-seu-navegador-o-endereco">Agora abra no seu navegador o endereço:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>http://192.168.70.222:8000
+</code></pre></div>
+<h4 id="edite-o-arquivo-de-configuracao-principal">Edite o arquivo de configuração principal:</h4>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>vim<span class="w"> </span>/opt/mkdocs/mkdocs.yml
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>site_name:<span class="w"> </span>Officina<span class="err">&#39;</span>s
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>theme:
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span>name:<span class="w"> </span>readthedocs
+</code></pre></div></p>
+<h4 id="restart-do-servico">Restart do Serviço:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>mkdocs
+</code></pre></div>
+<h4 id="agora-vamos-criar-2-arquivos-de-exemplo-sobremd-e-instalacaomd">Agora vamos criar 2 arquivos de exemplo, "Sobre.md" e "Instalação.md":</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>vim<span class="w"> </span>/opt/mkdocs/docs/sobre.md
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Markdown</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="c1">## O que é Markdown ?</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>Markdown<span class="w"> </span>é<span class="w"> </span>uma<span class="w"> </span>linguagem<span class="w"> </span>de<span class="w"> </span>marcação<span class="w"> </span>leve<span class="w"> </span>com<span class="w"> </span>sintaxe<span class="w"> </span>de<span class="w"> </span>formatação<span class="w"> </span>de<span class="w"> </span>texto<span class="w"> </span>simples<span class="w"> </span>projetada<span class="w"> </span>para<span class="w"> </span>que<span class="w"> </span>ela<span class="w"> </span>possa<span class="w"> </span>ser<span class="w"> </span>convertida<span class="w"> </span>em<span class="w"> </span>HTML<span class="w"> </span>e<span class="w"> </span>muitos<span class="w"> </span>outros<span class="w"> </span>formatos<span class="w"> </span>usando<span class="w"> </span>uma<span class="w"> </span>ferramenta<span class="w"> </span>com<span class="w"> </span>o<span class="w"> </span>mesmo<span class="w"> </span>nome.<span class="w"> </span>Markdown<span class="w"> </span>é<span class="w"> </span>usado<span class="w"> </span>frequentemente<span class="w"> </span>para<span class="w"> </span>formatar<span class="w"> </span>arquivos<span class="w"> </span>readme,<span class="w"> </span>para<span class="w"> </span>escrever<span class="w"> </span>mensagens<span class="w"> </span>em<span class="w"> </span>fóruns<span class="w"> </span>de<span class="w"> </span>discussão<span class="w"> </span>on-line<span class="w"> </span>e<span class="w"> </span>para<span class="w"> </span>criar<span class="w"> </span>texto<span class="w"> </span>rico<span class="w"> </span>usando<span class="w"> </span>um<span class="w"> </span>editor<span class="w"> </span>de<span class="w"> </span>texto<span class="w"> </span>simples.
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="c1">## Porque usar Markdown?</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>*<span class="w"> </span>**FÁCIL**<span class="w"> </span>:<span class="w"> </span>A<span class="w"> </span>sintaxe<span class="w"> </span>é<span class="w"> </span>tão<span class="w"> </span>fácil<span class="w"> </span>que<span class="w"> </span>você<span class="w"> </span>pode<span class="w"> </span>aprender<span class="w"> </span>em<span class="w"> </span>um<span class="w"> </span>minuto<span class="w"> </span>ou<span class="w"> </span>dois,<span class="w"> </span>em<span class="w"> </span>seguida,<span class="w"> </span>escreva<span class="w"> </span>sem<span class="w"> </span>perceber<span class="w"> </span>nada<span class="w"> </span>estranho<span class="w"> </span>ou<span class="w"> </span>nerd.
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>*<span class="w"> </span>**RÁPIDO**<span class="w"> </span>:<span class="w"> </span>Ele<span class="w"> </span>economiza<span class="w"> </span>tempo<span class="w"> </span>em<span class="w"> </span>comparação<span class="w"> </span>com<span class="w"> </span>outros<span class="w"> </span>tipos<span class="w"> </span>de<span class="w"> </span>arquivos<span class="w"> </span>/<span class="w"> </span>formatos<span class="w"> </span>de<span class="w"> </span>texto.<span class="w"> </span>Isso<span class="w"> </span>ajuda<span class="w"> </span>a<span class="w"> </span>aumentar<span class="w"> </span>a<span class="w"> </span>produtividade<span class="w"> </span>e<span class="w"> </span>os<span class="w"> </span>fluxos<span class="w"> </span>de<span class="w"> </span>trabalho<span class="w"> </span><span class="k">do</span><span class="w"> </span>escritor.
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>*<span class="w"> </span>**LIMPO**<span class="w"> </span>:<span class="w"> </span>Tanto<span class="w"> </span>a<span class="w"> </span>sintaxe<span class="w"> </span>como<span class="w"> </span>a<span class="w"> </span>saída<span class="w"> </span>são<span class="w"> </span>limpas,<span class="w"> </span>sem<span class="w"> </span>confusão<span class="w"> </span>com<span class="w"> </span>nossos<span class="w"> </span>olhos<span class="w"> </span>e<span class="w"> </span>simples<span class="w"> </span>de<span class="w"> </span>gerenciar.
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>*<span class="w"> </span>**FLEXÍVEL**<span class="w"> </span>:<span class="w"> </span>Com<span class="w"> </span>apenas<span class="w"> </span>algumas<span class="w"> </span>configurações,<span class="w"> </span>o<span class="w"> </span>seu<span class="w"> </span>texto<span class="w"> </span>será<span class="w"> </span>traduzido<span class="w"> </span>atravessando<span class="w"> </span>qualquer<span class="w"> </span>plataforma<span class="w"> </span>lá<span class="w"> </span>fora,<span class="w"> </span>editável<span class="w"> </span>em<span class="w"> </span>qualquer<span class="w"> </span>software<span class="w"> </span>de<span class="w"> </span>edição<span class="w"> </span>de<span class="w"> </span>texto<span class="w"> </span>e<span class="w"> </span>conversível<span class="w"> </span>para<span class="w"> </span>uma<span class="w"> </span>ampla<span class="w"> </span>variedade<span class="w"> </span>de<span class="w"> </span>formatos.
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>**Em<span class="w"> </span>resumo**,<span class="w"> </span>os<span class="w"> </span>usuários<span class="w"> </span>comuns<span class="w"> </span>acharão<span class="w"> </span>útil<span class="w"> </span>em<span class="w"> </span>todos<span class="w"> </span>os<span class="w"> </span>casos,<span class="w"> </span>especialmente<span class="w"> </span>quando<span class="w"> </span>você<span class="w"> </span>precisar<span class="w"> </span>de<span class="w"> </span>algo<span class="w"> </span>melhor<span class="w"> </span>que<span class="w"> </span>o<span class="w"> </span>texto<span class="w"> </span>simples,<span class="w"> </span>mas<span class="w"> </span>menos<span class="w"> </span>funcional<span class="w"> </span><span class="k">do</span><span class="w"> </span>que<span class="w"> </span>o<span class="w"> </span>Microsoft<span class="w"> </span>Word.
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>**Para<span class="w"> </span>desenvolvedores**,<span class="w"> </span>Se<span class="w"> </span>você<span class="w"> </span>é<span class="w"> </span>preguiçoso<span class="w"> </span>para<span class="w"> </span>escrever<span class="w"> </span>código<span class="w"> </span>HTML,<span class="w"> </span>você<span class="w"> </span>vai<span class="w"> </span>adorar<span class="w"> </span>o<span class="w"> </span>markdown.<span class="w"> </span>**Além<span class="w"> </span>disso**,<span class="w"> </span>**Github**<span class="w"> </span>e<span class="w"> </span>muitos<span class="w"> </span>sites<span class="w"> </span>favorecem<span class="w"> </span>o<span class="w"> </span>markdown<span class="w"> </span>para<span class="w"> </span>o<span class="w"> </span>arquivo<span class="w"> </span>readme<span class="w"> </span>de<span class="w"> </span>projetos.<span class="w"> </span>Isso<span class="w"> </span>significa<span class="w"> </span>que<span class="w"> </span>você<span class="w"> </span>vai<span class="w"> </span>encontrar<span class="w"> </span>o<span class="w"> </span>markdown<span class="w"> </span>em<span class="w"> </span>sua<span class="w"> </span>vida<span class="w"> </span>de<span class="w"> </span>uma<span class="w"> </span>forma<span class="w"> </span>ou<span class="w"> </span>de<span class="w"> </span>outra.
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>vim<span class="w"> </span>/opt/mkdocs/docs/instalação.md
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="c1"># apt install mkdocs</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># pip3 install mkdocs</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Crie<span class="w"> </span>um<span class="w"> </span>novo<span class="w"> </span>projeto<span class="w"> </span>chamado<span class="w"> </span>mkdocs<span class="w"> </span>e<span class="w"> </span>construa<span class="w"> </span>um<span class="w"> </span>novo<span class="w"> </span>site:
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="sb">```</span>bash
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="c1"># cd /opt/</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1"># mkdocs new mkdocs</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1"># cd /opt/mkdocs</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="c1"># mkdocs build</span>
+</code></pre></div></p>
+<h4 id="inicie-o-servico">Inicie o serviço:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># mkdocs serve -a 192.168.70.222:8000</span>
+</code></pre></div>
+<h4 id="e-possivel-inserir-figuras-na-documentacao-com-a-seguinte-estrutura">É possível inserir figuras na documentação, com a seguinte estrutura:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>!<span class="o">[</span>Descrição<span class="w"> </span>da<span class="w"> </span>imagem<span class="o">](</span>caminho/para/a/imagem.jpg<span class="o">)</span>
+</code></pre></div>
+<h4 id="ou">ou</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>!<span class="o">[</span>Descrição<span class="w"> </span>da<span class="w"> </span>imagem<span class="o">](</span>URL_da_imagem<span class="o">)</span>
+</code></pre></div>
+<h4 id="o-mkdocs-pode-gerar-conteudo-estatico-para-ser-inserido-no-apache-server-ou-nginx-server">O MKDocs pode gerar conteúdo estático, para ser inserido no Apache Server ou NGINX Server:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>mkdocs<span class="w"> </span>build
+</code></pre></div>
+<h4 id="vai-criar-um-diretorio-chamado-de-site-que-pode-ser-copiado-para-varwwwhtml">Vai criar um diretório chamado de site, que pode ser copiado para /var/www/html:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>cp<span class="w"> </span>-rv<span class="w"> </span>/opt/mkdocs/site<span class="w"> </span>/var/www/html
+</code></pre></div>
+<h4 id="seta-permissoes-no-diretorio">Seta permissões no diretório:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>www-data:www-data<span class="w"> </span>/var/www/html
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>/var/www/html<span class="w"> </span>
+</code></pre></div>
+<h4 id="restart-do-apache-server">Restart do Apache Server:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</code></pre></div>
+<h4 id="acesse-pelo-seu-navegador-web-favorito">Acesse pelo seu navegador Web favorito:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>http://192.168.70.251/site
+</code></pre></div>
+<p>THAT’S ALL FOLKS!!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
