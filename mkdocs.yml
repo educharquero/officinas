@@ -78,10 +78,12 @@ theme:
   # --- SEÇÃO ADICIONADA ---
   palette:
     - scheme: default # Tema claro
+      primary: indigo # <-- COR PRIMÁRIA PARA O MODO CLARO
       toggle:
         icon: material/brightness-7 # Ícone de sol
         name: Mudar para o modo escuro
     - scheme: slate # Tema escuro
+      primary: indigo # <-- COR PRIMÁRIA PARA O MODO ESCURO
       toggle:
         icon: material/brightness-4 # Ícone de lua
         name: Mudar para o modo claro
