@@ -492,6 +492,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -503,6 +516,151 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-servidor-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um Servidor de DHCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vamos-a-instalacao-do-pacote-do-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vamos a instalação do pacote do DHCP Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-do-arquivo-original" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup do arquivo original:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-do-novo-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação do novo arquivo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-reiniciar-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos reiniciar o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-os-aliases-dos-arquivos-para-os-diretorios-especifios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie os aliases dos arquivos para os diretórios específios:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-as-concessoes-dhcp-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imprime as concessões DHCP ativas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-uma-saida-legivel-por-maquina-com-datas-completas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para uma saída legível por máquina com datas completas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-o-ultimo-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      imprime o último MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      imprime todas as entradas, ou seja, mais de um por MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validar-as-locacoes-dhcpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validar as locações dhcpd:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1613,6 +1771,140 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-servidor-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um Servidor de DHCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vamos-a-instalacao-do-pacote-do-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vamos a instalação do pacote do DHCP Server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-do-arquivo-original" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup do arquivo original:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criacao-do-novo-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criação do novo arquivo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-reiniciar-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora vamos reiniciar o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-os-aliases-dos-arquivos-para-os-diretorios-especifios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie os aliases dos arquivos para os diretórios específios:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-as-concessoes-dhcp-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imprime as concessões DHCP ativas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-uma-saida-legivel-por-maquina-com-datas-completas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para uma saída legível por máquina com datas completas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-o-ultimo-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      imprime o último MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      imprime todas as entradas, ou seja, mais de um por MAC:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validar-as-locacoes-dhcpd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validar as locações dhcpd:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1628,7 +1920,7 @@
 
 
 <h1 id="dhcp-server">📁 DHCP Server</h1>
-<h1 id="criando-um-servidor-de-dhcp">Criando um Servidor de DHCP</h1>
+<h2 id="criando-um-servidor-de-dhcp">Criando um Servidor de DHCP</h2>
 <p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
 <h2 id="vamos-a-instalacao-do-pacote-do-dhcp-server">Vamos a instalação do pacote do DHCP Server:</h2>
 <div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>isc-dhcp-server
@@ -1641,6 +1933,7 @@
 <h2 id="backup-do-arquivo-original">Backup do arquivo original:</h2>
 <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/etc/dhcp/dhcpd.conf<span class="o">{</span>,.orig<span class="o">}</span>
 </code></pre></div>
+<h2 id="criacao-do-novo-arquivo">Criação do novo arquivo:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/dhcp/dhcpd.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># NOME DE DOMÍNIO:</span>
