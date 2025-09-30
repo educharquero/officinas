@@ -1,8 +1,8 @@
 # 📁 DC1 instalação por pacotes compilados
 
-# Controlador de Domínio Primário, Secundário e Fileserver no Debian Linux 12
+## Controlador de Domínio Primário, Secundário e Fileserver no Debian Linux 12
 
-#### Layout de rede usado no laboratório:
+## Layout de rede usado no laboratório:
 
 ```bash
 firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
@@ -18,19 +18,19 @@ fileserver         192.168.70.150   (ssh 22100)
 ; fileserver       Servidor de Arquivos
 ```
 
-#### Instalando as dependências para compilação do código fonte  do Samba4:
+## Instalando as dependências para compilação do código fonte  do Samba4:
 
 ```bash
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1-6-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed  tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-#### Setando e validando o hostname do dcmaster:
+## Setando e validando o hostname do dcmaster:
 
 ```bash
 hostnamectl set-hostname dcmaster
 ```
 
-#### Configurando o arquivo de hosts:
+## Configurando o arquivo de hosts:
 
 ```bash
 vim /etc/hosts
@@ -46,7 +46,7 @@ vim /etc/hosts
 hostname -f
 ```
 
-#### Setando ip fixo no servidor dcmaster:
+## Setando ip fixo no servidor dcmaster:
 
 ```bash
 vim /etc/network/interfaces
@@ -59,7 +59,7 @@ netmask           255.255.255.0
 gateway           192.168.70.254
 ```
 
-#### Setando endereço do firewall como resolvedor externo (temporário até provisionar o domínio):
+## Setando endereço do firewall como resolvedor externo (temporário até provisionar o domínio):
 
 ```bash
 vim /etc/resolv.conf
@@ -69,7 +69,7 @@ vim /etc/resolv.conf
 nameserver         192.168.70.254 #(firewall)
 ```
 
-#### Validando o ip da placa:
+## Validando o ip da placa:
 
 ```bash
 ip -c addr
@@ -79,7 +79,7 @@ ip -c addr
 ip -br link
 ```
 
-#### Baixando e compilando o código fonte do Samba4:
+## Baixando e compilando o código fonte do Samba4:
 
 ```bash
 wget https://download.samba.org/pub/samba/samba-4.22.1.tar.gz
@@ -105,9 +105,9 @@ make
 make install
 ```
 
-#### Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
+## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
 
-#### PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
+## PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 
 ```bash
 vim ~/.bashrc
@@ -117,13 +117,13 @@ vim ~/.bashrc
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 ```
 
-#### Relendo o arquivo de profile:
+## Relendo o arquivo de profile:
 
 ```bash
 source ~/.bashrc
 ```
 
-#### Criando o daemon de inicialização do Samba4 com o sistema:
+## Criando o daemon de inicialização do Samba4 com o sistema:
 
 ```bash
 vim /etc/systemd/system/samba-ad-dc.service
@@ -147,7 +147,7 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-#### Instalando e editando o serviço de sincronização de horário:
+## Instalando e editando o serviço de sincronização de horário:
 
 ```bash
 cp /etc/ntpsec/ntp.conf{,.orig}
@@ -177,13 +177,13 @@ systemctl restart ntpd
 ntpq -p
 ```
 
-#### Provisionando o novo domínio suportado pelo dcmaster:
+## Provisionando o novo domínio suportado pelo dcmaster:
 
 ```bash
 samba-tool domain provision --use-rfc2307 --interactive --option=”interfaces=lo enp1s0” --option=”bind interfaces only=yes”
 ```
 
-#### Habilitando o daemon pra subir no boot do sistema:
+## Habilitando o daemon pra subir no boot do sistema:
 
 ```bash
 systemctl daemon-reload
@@ -201,7 +201,7 @@ systemctl start samba-ad-dc.service
 systemctl status samba-ad-dc.service
 ```
 
-#### Linkando o arquivo krb5.conf do Samba4 ao /etc do sistema:
+## Linkando o arquivo krb5.conf do Samba4 ao /etc do sistema:
 
 ```bash
 mv /etc/krb5.conf{,.orig}
@@ -211,7 +211,7 @@ mv /etc/krb5.conf{,.orig}
 ln -sf /opt/samba/private/krb5.conf /etc/krb5.conf
 ```
 
-#### APÓS o provisionamento da Samba4, precisamos reconfigurar o /etc/resolv.conf e setar o DNS apontando a resolução de nomes para o próprio dcmaster:
+## APÓS o provisionamento da Samba4, precisamos reconfigurar o /etc/resolv.conf e setar o DNS apontando a resolução de nomes para o próprio dcmaster:
 
 ```bash
 vim /etc/resolv.conf
@@ -223,13 +223,13 @@ search           officinas.edu.
 nameserver       127.0.0.1 #(localhost)
 ```
 
-#### Bloqueando alteração do resolv.conf:
+## Bloqueando alteração do resolv.conf:
 
 ```bash
 chattr +i /etc/resolv.conf
 ```
 
-#### Validando resolvedor de nomes pelo dcmaster:
+## Validando resolvedor de nomes pelo dcmaster:
 
 ```bash
 nslookup dcmaster.officinas.edu
@@ -245,13 +245,13 @@ Name:   dcmaster.officinas.edu
 Address: 192.168.70.250
 ```
 
-#### Reboot do servidor dcmaster:
+## Reboot do servidor dcmaster:
 
 ```bash
 reboot
 ```
 
-#### Validando os serviços do Samba4 no boot do sistema:
+## Validando os serviços do Samba4 no boot do sistema:
 
 ```bash
 ps aux | grep samba
@@ -269,7 +269,7 @@ find / -name samba.pid
 pgrep samba
 ```
 
-#### Dando poderes de root ao Administrator:
+## Dando poderes de root ao Administrator:
 
 ```bash
 vim /opt/samba/etc/user.map
@@ -279,7 +279,7 @@ vim /opt/samba/etc/user.map
 !root=officinas.edu\Administrator
 ```
 
-#### Linkando bibliotecas do Samba4 para mapeamento de usuários no sistema Linux (rode esses comandos manualmente sem copiar e colar):
+## Linkando bibliotecas do Samba4 para mapeamento de usuários no sistema Linux (rode esses comandos manualmente sem copiar e colar):
 
 ```bash
 /opt/samba/sbin/smbd -b | grep LIBDIR
@@ -297,7 +297,7 @@ ln -s /lib/x86_64-linux-gnu/libnss_winbind.so.2 /lib/x86_64-linux-gnu/libnss_win
 ldconfig
 ```
 
-#### Validando a autenticação de usuários de rede no sistema Linux mas tbém no winbind:
+## Validando a autenticação de usuários de rede no sistema Linux mas tbém no winbind:
 
 ```bash
 vim /etc/nsswitch.conf
@@ -309,7 +309,7 @@ group: files systemd winbind
 shadow: files
 ```
 
-#### Editando o arquivo smb.conf e adicionando no dns forwarder, quem resolve nomes para consultas externas (o firewall e o google):
+## Editando o arquivo smb.conf e adicionando no dns forwarder, quem resolve nomes para consultas externas (o firewall e o google):
 
 ```bash
 cp /opt/samba/etc/smb.conf{,.orig}
@@ -339,19 +339,19 @@ vim /opt/samba/etc/smb.conf
       read only = No
 ```
 
-#### Relendo a configuração do Samba4:
+## Relendo a configuração do Samba4:
 
 ```bash
 smbcontrol all reload-config
 ```
 
-#### Validando usuários da base do ldap local:
+## Validando usuários da base do ldap local:
 
 ```bash
 cat /etc/passwd | grep root
 ```
 
-#### Validando usuários de rede do Samba4 (Intermediados pelo winbind):
+## Validando usuários de rede do Samba4 (Intermediados pelo winbind):
 
 ```bash
 samba-tool user show administrator
@@ -377,7 +377,7 @@ wbinfo --ping-dc
 getent group "Domain Admins"
 ```
 
-#### Validando daemons ativos:
+## Validando daemons ativos:
 
 ```bash
 ps aux | egrep "samba|smbd|nmbd|winbind"
@@ -387,7 +387,7 @@ ps aux | egrep "samba|smbd|nmbd|winbind"
 ps axf
 ```
 
-#### Consultando serviços do SAMBA4:
+## Consultando serviços do SAMBA4:
 
 ```bash
 smbclient --version
@@ -409,7 +409,7 @@ testparm
 samba-tool domain level show
 ```
 
-#### Desabilitando complexidade de senhas (inseguro):
+## Desabilitando complexidade de senhas (inseguro):
 
 ```bash
 samba-tool domain passwordsettings show
@@ -435,13 +435,13 @@ samba-tool domain passwordsettings set --min-pwd-age=0
 samba-tool user setexpiry Administrator --noexpiry
 ```
 
-#### Relendo as configurações do SAMBA4:
+## Relendo as configurações do SAMBA4:
 
 ```bash
 smbcontrol all reload-config
 ```
 
-#### Validando a troca de tickets do Kerberos:
+## Validando a troca de tickets do Kerberos:
 
 ```bash
  kinit Administrator@OFFICINAS.EDU
@@ -451,7 +451,7 @@ smbcontrol all reload-config
 klist 
 ```
 
-#### Consultando as bases do kerberos, ldap e dns:
+## Consultando as bases do kerberos, ldap e dns:
 
 ```bash
 host -t srv _kerberos._tcp.officinas.edu
@@ -473,7 +473,7 @@ THAT’S ALL FOLKS!!
 
 # Controlador de Domínio secundário com Samba4 no Debian 12
 
-#### Layout de rede usado no laboratório:
+## Layout de rede usado no laboratório:
 
 ```bash
 firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
@@ -489,13 +489,13 @@ fileserver         192.168.70.150   (ssh 22100)
 ; fileserver       Servidor de Arquivos
 ```
 
-#### Instalando as dependências para compilação do código fonte do Samba4:
+## Instalando as dependências para compilação do código fonte do Samba4:
 
 ```bash
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ntp rsync ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1--5-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-#### Setando e validando o hostname do dcslave:
+## Setando e validando o hostname do dcslave:
 
 ```bash
 vim /etc/hostname
@@ -513,7 +513,7 @@ hostname -f
 dcslave.officinas.edu
 ```
 
-#### Configurando o arquivo de hosts:
+## Configurando o arquivo de hosts:
 
 ```bash
 vim /etc/hosts
@@ -529,7 +529,7 @@ vim /etc/hosts
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
-#### Setando ip fixo no servidor dcslave:
+## Setando ip fixo no servidor dcslave:
 
 ```bash
 vim /etc/network/interfaces
@@ -543,7 +543,7 @@ netmask           255.255.255.0
 gateway           192.168.70.254
 ```
 
-#### Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário, até provisionar):
+## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário, até provisionar):
 
 ```bash
 vim /etc/resolv.conf
@@ -556,7 +556,7 @@ nameserver       192.168.70.250 #(dcmaster)
 nameserver       127.0.0.1
 ```
 
-#### Validando a resolução de nomes pelo dcmaster:
+## Validando a resolução de nomes pelo dcmaster:
 
 ```bash
 nslookup officinas.edu
@@ -572,13 +572,13 @@ Name:   officinas.edu
 Address: 192.168.70.200
 ```
 
-#### Relendo as configurações de rede:
+## Relendo as configurações de rede:
 
 ```bash
 systemctl restart networking
 ```
 
-#### Validando o ip da placa:
+## Validando o ip da placa:
 
 ```bash
 ip -c addr
@@ -588,7 +588,7 @@ ip -c addr
 ip -br link
 ```
 
-#### Baixando e compilando o código fonte do Samba4:
+## Baixando e compilando o código fonte do Samba4:
 
 ```bash
 wget https://download.samba.org/pub/samba/samba-4.19.4.tar.gz
@@ -610,9 +610,9 @@ cd samba-4.19.4
 make && make install
 ```
 
-#### Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
+## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
 
-#### PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
+## PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 
 ```bash
 vim ~/.bashrc
@@ -622,13 +622,13 @@ vim ~/.bashrc
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 ```
 
-#### Relendo o arquivo de profile:
+## Relendo o arquivo de profile:
 
 ```bash
 source ~/.bashrc
 ```
 
-#### Criando o daemon de inicialização do Samba4 com o sistema:
+## Criando o daemon de inicialização do Samba4 com o sistema:
 
 ```bash
 vim /etc/systemd/system/samba-ad-dc.service
@@ -652,7 +652,7 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-#### Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
+## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
 
 ```bash
 mv /etc/ntpsec/ntp.conf{,.orig}
@@ -687,13 +687,13 @@ date
 
 As máquinas Windows/Linux, membros do domínio, usarão o DC1 que retém a função FSMO emulador PDC como fonte de tempo padrão!
 
-#### Provisionando o servidor DCSLAVE:
+## Provisionando o servidor DCSLAVE:
 
 ```bash
 samba-tool domain join OFFICINAS.EDU DC -U Administrator --realm=OFFICINAS.EDU --dns-backend=SAMBA_INTERNAL --option="interfaces=lo enp1s0" --option="bind interfaces only=yes" --option="idmap_ldb:use-rfc2307=yes"
 ```
 
-#### Habilitando o daemon pra subir no boot do sistema:
+## Habilitando o daemon pra subir no boot do sistema:
 
 ```bash
 systemctl daemon reload
@@ -711,7 +711,7 @@ systemctl start samba-ad-dc.service
 systemctl status samba-ad-dc.service
 ```
 
-#### Editando o arquivo do kerberos:
+## Editando o arquivo do kerberos:
 
 ```bash
 mv /etc/krb5.conf{,.orig}
@@ -728,7 +728,7 @@ vim /etc/krb5.conf
     default_realm = OFFICINAS.EDU
 ```
 
-#### Visualizando o arquivo smb.conf:
+## Visualizando o arquivo smb.conf:
 
 ```bash
 cat /opt/samba/etc/smb.conf
@@ -754,7 +754,7 @@ cat /opt/samba/etc/smb.conf
     read only = No
 ```
 
-#### Validando as entradas DNS usadas:
+## Validando as entradas DNS usadas:
 
 ```bash
 apt install ldb-tools
@@ -764,7 +764,7 @@ apt install ldb-tools
 host -t A officinas.edu.
 ```
 
-#### (SE NECESSÁRIO), SE Necessário, adicione as entradas do dcslave, manualmente AO DNS do Samba4, no dcmaster:
+## (SE NECESSÁRIO), SE Necessário, adicione as entradas do dcslave, manualmente AO DNS do Samba4, no dcmaster:
 
 ```bash
 samba-tool dns add dcmaster OFFICINAS.EDU dcslave A 192.168.70.200 -U administrator
@@ -778,15 +778,15 @@ ldbsearch -H /opt/samba/private/sam.ldb '(invocationId=*)' --cross-ncs objectgui
 host -t CNAME df4bdd8c-abc7-4779-b01e-4dd4553ca3e9._msdcs.officinas.edu.
 ```
 
-#### SE não rodar, execute a replicação para todos os DCs:
+## SE não rodar, execute a replicação para todos os DCs:
 
 ```bash
 samba-tool dns add dcmaster _msdcs.officinas.edu df4bdd8c-abc7-4779-b01e-4dd4553ca3e9 CNAME dcslave.officinas.edu -Uadministrator
 ```
 
-#### PASTA SYSVOL
+## PASTA SYSVOL
 
-#### Replicando a pasta sysvol. Mapeando IDs de grupos e usuários para o dcslave (execute estes comando NO DCMASTER):
+## Replicando a pasta sysvol. Mapeando IDs de grupos e usuários para o dcslave (execute estes comando NO DCMASTER):
 
 ```bash
 tdbbackup -s .bak /opt/samba/private/idmap.ldb
@@ -800,7 +800,7 @@ scp -rv -p22200 /opt/samba/private/idmap.ldb.bak root@dcslave:/root
 scp -rv -p22200 /opt/samba/var/locks/sysvol/* root@dcslave:/opt/samba/var/locks/sysvol
 ```
 
-#### Aplicando o arquivo BD que enviamos do dcmaster (execute estes comandos NO DCSLAVE):
+## Aplicando o arquivo BD que enviamos do dcmaster (execute estes comandos NO DCSLAVE):
 
 ```bash
 mv /root/idmap.ldb.bak /root/idmap.ldb
@@ -814,9 +814,9 @@ cp -rfv /root/idmap.ldb /opt/samba/private/
 samba-tool ntacl sysvolreset
 ```
 
-#### Agora precisamos pensar que tendo dois DCs na rede, SE cair o primário o secundário assume o controle, e vice versa. Logicamente devemos apontar um pro outro como resolvedor de nomes primário, ou seja, o dcmaster vai resolver primeiro no dcslave e o dcslave vai resolver primeiro no dcmaster:
+## Agora precisamos pensar que tendo dois DCs na rede, SE cair o primário o secundário assume o controle, e vice versa. Logicamente devemos apontar um pro outro como resolvedor de nomes primário, ou seja, o dcmaster vai resolver primeiro no dcslave e o dcslave vai resolver primeiro no dcmaster:
 
-#### Edite o /etc/resolv.conf NO DCMASTER e aponte pro dcslave:
+## Edite o /etc/resolv.conf NO DCMASTER e aponte pro dcslave:
 
 ```bash
 vim /etc/resolv.conf
@@ -829,15 +829,15 @@ nameserver       192.168.70.200 #(dcslave)
 nameserver       127.0.0.1
 ```
 
-#### Bloqueando a edição do arquivo resolv.conf:
+## Bloqueando a edição do arquivo resolv.conf:
 
 ```bash
 chattr +i /etc/resolv.conf
 ```
 
-#### E no reverso, edite o /etc/resolv.conf NO DCSLAVE apontando pro dcmaster:
+## E no reverso, edite o /etc/resolv.conf NO DCSLAVE apontando pro dcmaster:
 
-#### Desbloqueando a edição do arquivo resolv.conf:
+## Desbloqueando a edição do arquivo resolv.conf:
 
 ```bash
 chattr -i /etc/resolv.conf
@@ -854,19 +854,19 @@ nameserver       192.168.70.250 #(dcmaster)
 nameserver       127.0.0.1
 ```
 
-#### Bloqueando a edição do arquivo resolv.conf:
+## Bloqueando a edição do arquivo resolv.conf:
 
 ```bash
 chattr +i /etc/resolv.conf
 ```
 
-#### Validando a replicação ( execute em todos os DCs):
+## Validando a replicação ( execute em todos os DCs):
 
 ```bash
 samba-tool drs showrepl
 ```
 
-#### Criando um usuário no dcmaster (execute NO DCMASTER):
+## Criando um usuário no dcmaster (execute NO DCMASTER):
 
 ```bash
 samba-tool user create userteste
@@ -876,13 +876,13 @@ samba-tool user create userteste
 samba-tool user list
 ```
 
-#### Validando no dcslave, se consta o usuário criado no dcmaster (execute NO DCSLAVE):
+## Validando no dcslave, se consta o usuário criado no dcmaster (execute NO DCSLAVE):
 
 ```bash
 samba-tool user list
 ```
 
-#### Validando o compartilhamento padrão:
+## Validando o compartilhamento padrão:
 
 ```bash
 smbclient -L localhost -U%
@@ -892,13 +892,13 @@ smbclient -L localhost -U%
 smbclient //localhost/netlogon -UAdministrator -c 'ls'
 ```
 
-#### Validando o DNS local:
+## Validando o DNS local:
 
 ```bash
 host -t A officinas.edu localhost
 ```
 
-#### Validando a troca de tickets do kerberos:
+## Validando a troca de tickets do kerberos:
 
 ```bash
 kinit Administrator
@@ -908,7 +908,7 @@ kinit Administrator
 klist
 ```
 
-#### Validando configuração de kerberos e ldap:
+## Validando configuração de kerberos e ldap:
 
 ```bash
 host -t srv _kerberos._tcp.officinas.edu
@@ -926,7 +926,7 @@ dig officinas.edu
 host -t A <máquina do domínio>
 ```
 
-#### Validando informações de servidor qual controla o PDC Emulator:
+## Validando informações de servidor qual controla o PDC Emulator:
 
 ```bash
 samba-tool fsmo show | grep -i pdc
@@ -936,7 +936,7 @@ samba-tool fsmo show | grep -i pdc
 samba-tool fsmo show
 ```
 
-#### Validando a localização do diretório 'sysvol' do dcmaster:
+## Validando a localização do diretório 'sysvol' do dcmaster:
 
 ```bash
 uname -ra
@@ -950,19 +950,19 @@ find /opt/samba -iname sysvol
      /opt/samba/var/locks/sysvol
 ```
 
-#### Validando espaço disponível:
+## Validando espaço disponível:
 
 ```bash
 df -h
 ```
 
-#### Validando a UUID do seu disco:
+## Validando a UUID do seu disco:
 
 ```bash
 blkid /dev/sda2 #(Sete A SUA partição de disco)
 ```
 
-#### Validando suporte ativo no Kernel ás flags de acl e segurança:
+## Validando suporte ativo no Kernel ás flags de acl e segurança:
 
 ```bash
 cat /boot/config-6.1.0-17-amd64 | grep _ACL
@@ -972,9 +972,9 @@ cat /boot/config-6.1.0-17-amd64 | grep _ACL
 cat /boot/config-6.1.0-17-amd64 | grep FS_SECURITY
 ```
 
-#### Gerando e enviando as chaves do ssh para sincronização entre o dcmaster e o dcslave (crie as chaves NO DCMASTER e envie a chave pública para o dcslave):
+## Gerando e enviando as chaves do ssh para sincronização entre o dcmaster e o dcslave (crie as chaves NO DCMASTER e envie a chave pública para o dcslave):
 
-#### (Pode deixar a senha em branco SE preferir)
+## (Pode deixar a senha em branco SE preferir)
 
 ```bash
 ssh-keygen -t rsa -b 1024
@@ -984,7 +984,7 @@ ssh-keygen -t rsa -b 1024
 ssh-copy-id -p22200 -i ~/.ssh/id_rsa.pub root@dcslave #(O MEU dcslave usa a porta ssh 22200)
 ```
 
-#### Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
+## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
 ssh -p22200 dcslave
@@ -994,7 +994,7 @@ ssh -p22200 dcslave
 exit
 ```
 
-#### Agora inverta a ordem e crie as chaves NO DCSLAVE e envie para o dcmaster (Rode estes comandos NO DCSLAVE):
+## Agora inverta a ordem e crie as chaves NO DCSLAVE e envie para o dcmaster (Rode estes comandos NO DCSLAVE):
 
 ```bash
 ssh-keygen -t rsa -b 1024
@@ -1004,7 +1004,7 @@ ssh-keygen -t rsa -b 1024
 ssh-copy-id -p22250 -i ~/.ssh/id_rsa.pub root@dcmaster #(enviando para o dcmaster, que usa porta ssh 22250)
 ```
 
-#### Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
+## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
 ssh -p22250 dcmaster
@@ -1014,7 +1014,7 @@ ssh -p22250 dcmaster
 exit
 ```
 
-#### Criando script de sincronização com rsync do diretório 'sysvol' DO DCMASTER para envio ao dcslave (rode estes comando NO DCMASTER):
+## Criando script de sincronização com rsync do diretório 'sysvol' DO DCMASTER para envio ao dcslave (rode estes comando NO DCMASTER):
 
 ```bash
 cd /opt
@@ -1040,7 +1040,7 @@ chmod +x rsync-sysvol
 ./rsync-sysvol
 ```
 
-#### Agendando a sincronização no cron do dcmaster:
+## Agendando a sincronização no cron do dcmaster:
 
 ```bash
 crontab -e
@@ -1050,9 +1050,9 @@ crontab -e
 */5 * * * * root  bash /opt/rsync-sysvol.sh --silent
 ```
 
-#### REPITA o processo de replicação do sysvol, agora NO DCSLAVE, INVERTENDO os apontamentos de ip, obviamente!
+## REPITA o processo de replicação do sysvol, agora NO DCSLAVE, INVERTENDO os apontamentos de ip, obviamente!
 
-#### Criando script de sincronização do diretório 'sysvol' DO DCSLAVE para envio ao dcmaster (rode os comando agora NO DCSLAVE):
+## Criando script de sincronização do diretório 'sysvol' DO DCSLAVE para envio ao dcmaster (rode os comando agora NO DCSLAVE):
 
 ```bash
 cd /opt
@@ -1078,7 +1078,7 @@ chmod +x rsync-sysvol
 ./rsync-sysvol
 ```
 
-#### Agendando a sincronização no cron do dcslave:
+## Agendando a sincronização no cron do dcslave:
 
 ```bash
 crontab -e
@@ -1088,11 +1088,11 @@ crontab -e
 */5 * * * * root  bash /opt/rsync-sysvol.sh --silent
 ```
 
-#### As Estações de trabalho, usarão, como DNS primário o PDC Emulator do Domínio, e como DNS secundário o PDC Secundário da rede.
+## As Estações de trabalho, usarão, como DNS primário o PDC Emulator do Domínio, e como DNS secundário o PDC Secundário da rede.
 
-#### OSYNC
+## OSYNC
 
-#### Configurando a sincronização da pasta sysvol com osync, que vai espelhar os DCs (rode esses comandos NO DCMASTER, primeiro):
+## Configurando a sincronização da pasta sysvol com osync, que vai espelhar os DCs (rode esses comandos NO DCMASTER, primeiro):
 
 ```bash
 cd /opt
@@ -1110,9 +1110,9 @@ cd osync
 sh ./install.sh
 ```
 
-#### Vai criar o diretório /etc/osync:
+## Vai criar o diretório /etc/osync:
 
-#### Dentro dele vai ter o arquivo de configuração sync.conf.example. Crie um arquivo sync.conf e cole o conteúdo abaixo:
+## Dentro dele vai ter o arquivo de configuração sync.conf.example. Crie um arquivo sync.conf e cole o conteúdo abaixo:
 
 ```bash
 vim /etc/osync/sync.conf
@@ -1142,13 +1142,13 @@ DESTINATION_MAILS="roor@localhost"
 #REMOTE_RUN_AFTER_CMD="/opt/samba/bin/samba-tool ntacl sysvolreset"
 ```
 
-#### rodando o script de atualização, que está dentro do /opt/osync, apontando pro arquivo /etc/osync/sync.conf:
+## rodando o script de atualização, que está dentro do /opt/osync, apontando pro arquivo /etc/osync/sync.conf:
 
 ```bash
 ./upgrade-v1.0x-v1.2x.sh /etc/osync/sync.conf
 ```
 
-#### Vai ficar semelhante ao modelo abaixo:
+## Vai ficar semelhante ao modelo abaixo:
 
 ```bash
 #!/usr/bin/env bash
@@ -1200,19 +1200,19 @@ SSH_CONTROLMASTER=false
 REMOTE_HOST_PING=false
 ```
 
-#### Testando o sincronizmo (ignore o erro de email):
+## Testando o sincronizmo (ignore o erro de email):
 
 ```bash
 /usr/local/bin/osync.sh /etc/osync/sync.conf --dry --verbose
 ```
 
-#### Rodar o sincronizmo de fato:
+## Rodar o sincronizmo de fato:
 
 ```bash
 /usr/local/bin/osync.sh /etc/osync/sync.conf --verbose
 ```
 
-#### Agendar no cron:
+## Agendar no cron:
 
 ```bash
 crontab -e
@@ -1222,13 +1222,13 @@ crontab -e
 */5 * * * * root  bash /usr/local/bin/osync.sh /etc/osync/sync.conf --silent
 ```
 
-#### Validando os logs em tempo real, rode o /usr/local/bin/osync.sh, mantendo outro terminal aberto com o comando:
+## Validando os logs em tempo real, rode o /usr/local/bin/osync.sh, mantendo outro terminal aberto com o comando:
 
 ```bash
 tail -f /var/log/osync.sysvol_sync.log
 ```
 
-#### INVERTENDO a sincronização com o Osync, vamos refazer tudo, incluíndo o ip e porta ssh, agora NO DCSLAVE:
+## INVERTENDO a sincronização com o Osync, vamos refazer tudo, incluíndo o ip e porta ssh, agora NO DCSLAVE:
 
 ```bash
 cd /opt
@@ -1246,9 +1246,9 @@ cd osync
 sh ./install.sh
 ```
 
-#### Vai criar o diretório /etc/osync:
+## Vai criar o diretório /etc/osync:
 
-#### Dentro dele vai ter o arquivo de configuração sync.conf.example. Crie um arquivo sync.conf e cole o conteúdo abaixo:
+## Dentro dele vai ter o arquivo de configuração sync.conf.example. Crie um arquivo sync.conf e cole o conteúdo abaixo:
 
 ```bash
 #!/usr/bin/env bash
@@ -1274,13 +1274,13 @@ DESTINATION_MAILS="roor@localhost"
 #REMOTE_RUN_AFTER_CMD="/opt/samba/bin/samba-tool ntacl sysvolreset"
 ```
 
-#### Vai precisa configurar seu ip e o path pra rodar o script de atualização, apontando pro arquivo sync.conf:
+## Vai precisa configurar seu ip e o path pra rodar o script de atualização, apontando pro arquivo sync.conf:
 
 ```bash
 ./upgrade-v1.0x-v1.2x.sh /etc/osync/sync.conf
 ```
 
-#### Vai ficar semelhante ao modelo abaixo:
+## Vai ficar semelhante ao modelo abaixo:
 
 ```bash
 #!/usr/bin/env bash
@@ -1332,19 +1332,19 @@ SSH_CONTROLMASTER=false
 REMOTE_HOST_PING=false
 ```
 
-#### Testar o sincronizmo (ignore o erro de email):
+## Testar o sincronizmo (ignore o erro de email):
 
 ```bash
 /usr/local/bin/osync.sh /etc/osync/sync.conf --dry --verbose
 ```
 
-#### Rodar o sincronizmo de fato:
+## Rodar o sincronizmo de fato:
 
 ```bash
 /usr/local/bin/osync.sh /etc/osync/sync.conf --verbose
 ```
 
-#### Agendar no cron:
+## Agendar no cron:
 
 ```bash
 crontab -e
@@ -1354,7 +1354,7 @@ crontab -e
 */5 * * * * root  bash /usr/local/bin/osync.sh /etc/osync/sync.conf --silent
 ```
 
-#### Validando os logs em tempo real, rode o /usr/local/bin/osync.sh, mantendo outro terminal aberto com o comando:
+## Validando os logs em tempo real, rode o /usr/local/bin/osync.sh, mantendo outro terminal aberto com o comando:
 
 ```bash
 tail -f /var/log/osync.sysvol_sync.log
@@ -1366,7 +1366,7 @@ THAT’S ALL FOLKS!!
 
 # FileServer com Samba4 no Debian 12
 
-#### Layout de rede usado no laboratório:
+## Layout de rede usado no laboratório:
 
 ```bash
 firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
@@ -1382,13 +1382,13 @@ fileserver         192.168.70.150   (ssh 22100)
 ; fileserver       Servidor de Arquivos
 ```
 
-#### Instalando as dependências para compilação do código fonte do Samba4:
+## Instalando as dependências para compilação do código fonte do Samba4:
 
 ```bash
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim ntp net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ntp rsync ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1--5-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed  tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-#### Setando e validando o hostname do dcslave:
+## Setando e validando o hostname do dcslave:
 
 ```bash
 vim /etc/hostname
@@ -1406,7 +1406,7 @@ hostname -f
 fileserver.officinas.edu
 ```
 
-#### Configurando o arquivo de hosts:
+## Configurando o arquivo de hosts:
 
 ```bash
 vim /etc/hosts
@@ -1422,7 +1422,7 @@ vim /etc/hosts
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
-#### Setando ip fixo no servidor dcslave:
+## Setando ip fixo no servidor dcslave:
 
 ```bash
 vim /etc/network/interfaces
@@ -1436,7 +1436,7 @@ netmask           255.255.255.0
 gateway           192.168.70.254
 ```
 
-#### Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário):
+## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário):
 
 ```bash
 vim /etc/resolv.conf
@@ -1449,13 +1449,13 @@ nameserver       192.168.70.250 #(dcmaster)
 nameserver       192.168.70.200 #(dcslave)
 ```
 
-#### Bloqueando alteração do resolv.conf:
+## Bloqueando alteração do resolv.conf:
 
 ```bash
 chattr +i /etc/resolv.conf
 ```
 
-#### Validando a resolução de nomes pelo dcmaster:
+## Validando a resolução de nomes pelo dcmaster:
 
 ```bash
 nslookup officinas.edu
@@ -1471,13 +1471,13 @@ Name:   officinas.edu
 Address: 192.168.70.200
 ```
 
-#### Relendo as configurações de rede:
+## Relendo as configurações de rede:
 
 ```bash
 systemctl restart networking
 ```
 
-#### Validando o ip da placa:
+## Validando o ip da placa:
 
 ```bash
 ip -c addr
@@ -1487,7 +1487,7 @@ ip -c addr
 ip -br link
 ```
 
-#### Baixando e compilando o código fonte do Samba4:
+## Baixando e compilando o código fonte do Samba4:
 
 ```bash
 wget https://download.samba.org/pub/samba/samba-4.19.4.tar.gz
@@ -1509,9 +1509,9 @@ cd samba-4.19.4
 make && make install
 ```
 
-#### Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
+## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
 
-#### PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
+## PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 
 ```bash
 vim ~/.bashrc
@@ -1521,13 +1521,13 @@ vim ~/.bashrc
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 ```
 
-#### Relendo o arquivo de profile:
+## Relendo o arquivo de profile:
 
 ```bash
 source ~/.bashrc
 ```
 
-#### Criando o daemon de inicialização do Samba4 com o sistema:
+## Criando o daemon de inicialização do Samba4 com o sistema:
 
 ```bash
 vim /etc/systemd/system/samba-ad-dc.service
@@ -1551,7 +1551,7 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-#### Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
+## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
 
 ```bash
 mv /etc/ntpsec/ntp.conf{,.orig}
@@ -1584,13 +1584,13 @@ ntpq -p
 date
 ```
 
-#### ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!
+## ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!
 
-#### ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!
+## ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!
 
-#### 
+## 
 
-#### Configurando o /etc/krb5.conf:
+## Configurando o /etc/krb5.conf:
 
 ```bash
 # vim /etc/krb5.conf
@@ -1603,7 +1603,7 @@ date
    default_realm = OFFICINAS.EDU
 ```
 
-#### Configurando o time server:
+## Configurando o time server:
 
 ```bash
 apt-get install ntp ntpdate -y
@@ -1637,13 +1637,13 @@ ntpq -p
 date
 ```
 
-#### Validando mapeamentos:
+## Validando mapeamentos:
 
 ```bash
 getent hosts fileserver
 ```
 
-#### Configurando o smb.conf:
+## Configurando o smb.conf:
 
 ```bash
 # vim /opt/samba/etc/smb.conf
@@ -1741,7 +1741,7 @@ Ou aponte para um diretório interno, como:
 log file = /opt/samba/var/logs/%m.log
 ```
 
-#### Auditando arquivos deletados:
+## Auditando arquivos deletados:
 
 ```bash
 cat /var/log/syslog | grep unlinkat
@@ -1751,7 +1751,7 @@ cat /var/log/syslog | grep unlinkat
 tail -f /var/log/syslog | grep unlinkat #(Teste em tempo real).
 ```
 
-#### Criando o diretório da rede:
+## Criando o diretório da rede:
 
 ```bash
 mkdir /home/fileserver
@@ -1769,7 +1769,7 @@ chown -R root:"domain admins" /home/fileserver
 getfacl /home/fileserver
 ```
 
-#### EXTRA! SE optar por uso de perfil móvel:
+## EXTRA! SE optar por uso de perfil móvel:
 
 ```bash
 mkdir /opt/samba/var/lib/samba/profiles
@@ -1783,9 +1783,9 @@ chmod -R 0770 /opt/samba/var/lib/samba/profiles
 chown -R root:"domain admins" /opt/samba/var/lib/samba/profiles
 ```
 
-#### Adicionando o path do /opt/samba/etc/smb.conf:
+## Adicionando o path do /opt/samba/etc/smb.conf:
 
-#### Linkando as bibliotecas para mapeamento de usuários de sistema local e Samba4:
+## Linkando as bibliotecas para mapeamento de usuários de sistema local e Samba4:
 
 ```bash
 /opt/samba/sbin/smbd -b | grep LIBDIR
@@ -1813,7 +1813,7 @@ vim /etc/nsswitch.conf
    shadow: files
 ```
 
-#### Dando poderes de root ao Administrator:
+## Dando poderes de root ao Administrator:
 
 ```bash
 nano /opt/samba/etc/user.map
@@ -1823,13 +1823,13 @@ nano /opt/samba/etc/user.map
 !root=officinas.edu\Administrator
 ```
 
-#### Criando o diretório de logs:
+## Criando o diretório de logs:
 
 ```bash
 mkdir /var/log/samba
 ```
 
-#### Validando a troca de tickets do Kerberos:
+## Validando a troca de tickets do Kerberos:
 
 ```bash
 kinit Administrator
@@ -1839,19 +1839,19 @@ kinit Administrator
 klist
 ```
 
-#### Ingressando o Fileserver ao domínio:
+## Ingressando o Fileserver ao domínio:
 
 ```bash
 net ads join -U Administrator
 ```
 
-#### Subindo os serviços ao boot do Sistema:
+## Subindo os serviços ao boot do Sistema:
 
 ```bash
 /opt/samba/sbin/smbd && /opt/samba/sbin/nmbd && /opt/samba/sbin/winbindd
 ```
 
-#### Adicionando o smbd ao boot do Linux:
+## Adicionando o smbd ao boot do Linux:
 
 ```bash
 cd /etc/systemd/system
@@ -1873,7 +1873,7 @@ vim smbd.service
    WantedBy=multi-user.target
 ```
 
-#### Adicionando o nmbd ao boot do Linux:
+## Adicionando o nmbd ao boot do Linux:
 
 ```bash
 cd /etc/systemd/system
@@ -1895,7 +1895,7 @@ vim nmbd.service
    WantedBy=multi-user.target
 ```
 
-#### Adicionando o nmbd ao boot do Linux:
+## Adicionando o nmbd ao boot do Linux:
 
 ```bash
 cd /etc/systemd/system
@@ -1945,7 +1945,7 @@ echo "systemctl restart smbd.service nmbd.service winbindd.service" > /sbin/rest
 chmod +x /sbin/*.samba
 ```
 
-#### Facilitando o boot dos serviços:
+## Facilitando o boot dos serviços:
 
 ```bash
 echo "systemctl start smbd.service nmbd.service winbindd.service" > /sbin/start.samba
@@ -1963,13 +1963,13 @@ echo "systemctl restart smbd.service nmbd.service winbindd.service" > /sbin/rest
 chmod +x /sbin/*.samba
 ```
 
-#### Responde agora com:
+## Responde agora com:
 
 ```bash
 start.samba, restart.samba e stop.samba
 ```
 
-#### Validando wbinfo e getent:
+## Validando wbinfo e getent:
 
 ```bash
 wbinfo --ping-dc
@@ -1991,7 +1991,7 @@ getent passwd Administrator
 getent group "domain admins"
 ```
 
-#### Criando o script de backup do /home/fileserver:
+## Criando o script de backup do /home/fileserver:
 
 ```bash
 mkdir /media/HDEXTERNO
@@ -2020,7 +2020,7 @@ vim /opt/samba/bkpdiario.sh
    echo " " >> $LOG
 ```
 
-#### Adicionando o script ao crontab:
+## Adicionando o script ao crontab:
 
 ```bash
 vim /etc/crontab
@@ -2032,6 +2032,6 @@ vim /etc/crontab
    45 23 * * 1-5 root /opt/samba/bkpdiario.sh  > /dev/null 2>&1
 ```
 
-#### VAI MONTAR O HD EXTERNO, FAZER O BACKUP E DESMONTAR O HD EXTERNO!
+## VAI MONTAR O HD EXTERNO, FAZER O BACKUP E DESMONTAR O HD EXTERNO!
 
 THAT’S ALL FOLKS!!

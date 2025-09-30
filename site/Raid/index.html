@@ -1,365 +1,1959 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>📁 RAID - Redundant Array of Independent Disks: - 🐧 Comunidade Officinas</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../extra.css" rel="stylesheet" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "\ud83d\udcc1 RAID - Redundant Array of Independent Disks:";
-        var mkdocs_page_input_path = "Raid.md";
-        var mkdocs_page_url = null;
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Systemd/">
+      
+      
+        <link rel="next" href="../Permissoes_Linux-01/">
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="..">
-          <img src="../imagens/logo.png" class="logo" alt="Logo"/>
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">🐧 Bem-vindo à Comunidade Officinas</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_binarios/">📁 DC01 instalação por pacotes binários</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC1_pacotes_compilados/">📁 DC1 instalação por pacotes compilados</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DHCP_Server/">📁 DHCP Server</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DNS_Server/">📁 DNS Server</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../FHS/">📁 FHS Filesystem Hierarchy Standard</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Debian/">📁 FileServer no Debian com binários</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_Rocky/">📁 FileServer Rocky</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_RockyLinux/">📁 FileServer RockyLinux</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Fileserver_sem_RSAT/">SAMBA4 - Fileserver sem gerenciamento por RSAT</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Firewall_Server/">📁 Firewall Server</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 - AULA 00</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 - AULA 01</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA02</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA03</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula04/">🐧 Módulo 103.1 AULA 04</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula05/">🐧 Módulo 103.1 AULA 05</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.2-aula01/">🐧 Módulo 103.2 AULA 01</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../NFS_Server/">📁 NFS Server no Debian Linux</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../OpenSUSE/">OpenSUSE TW Pós instalação:</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-01/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Permissoes_Linux-02/">📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ...</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">📁 RAID - Redundant Array of Independent Disks:</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#raid-0-striping">RAID 0 (striping):</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-1-espelhamento">RAID 1 (espelhamento):</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-4">RAID 4:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-5">RAID 5:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-6">RAID 6:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-10">RAID 10:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#raid-50-e-raid-60">RAID 50 e RAID 60:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#mdadm-md-significa-multiplos-dispositivos-o-adm-de-mdadm-e-abreviacao-para-administracao">MDADM "md" significa múltiplos dispositivos. O "adm" de mdadm é abreviação para administração:</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#estou-utilizando-uma-maquina-virtual-com-o-debian-linux-nesta-maquina-possuo-os-seguintes-discos">Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#agora-o-disco-virtual-chamado-devmd0-foi-criado-em-meu-sistema-devemos-entao-atualizar-o-arquivo-de-configuracao-do-mdadm-forcando-o-dispositivo-a-se-chamar-devmd0-caso-contrario-o-udev-ira-automaticamente-renomea-lo-para-devmd127">Agora o disco virtual chamado /dev/md0 foi criado em meu sistema. Devemos então atualizar o arquivo de configuração do mdadm, forçando o dispositivo a se chamar /dev/md0. Caso contrário, o udev irá automaticamente renomeá-lo para /dev/md127:</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#para-remover-o-raid-com-o-mdadm">Para remover o RAID com o MDADM:</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Systemd/">📁 Tutorial Completo de systemd</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Universo_NIX/">📁 O Universo *nix - Conceitos</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-1/">📁 Gerenciamento de Usuários e Grupos no Linux - Primeira parte.</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Usuarios_e_Grupos-2/">📁 Gerenciamento de Usuários e Grupos no Linux - Segunda parte.</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Visao_Geral/">📘 Guia de Estudos - Certificação LPIC-1</a>
-                </li>
-              </ul>
-      </div>
-    </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">🐧 Comunidade Officinas</a>
+    
+      
+        <title>RAID - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
         
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">📁 RAID - Redundant Array of Independent Disks:</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="raid-redundant-array-of-independent-disks">📁 RAID - Redundant Array of Independent Disks:</h1>
-<p>Raid é uma tecnologia de armazenamento que envolve a combinação de vários discos rígidos (ou unidades de estado sólido) em uma única unidade lógica para melhorar o desempenho, a redundância ou uma combinação de ambos. RAID é usado principalmente para melhorar a confiabilidade e/ou o desempenho do armazenamento de dados em sistemas de computador.</p>
-<h4 id="raid-0-striping">RAID 0 (striping):</h4>
-<pre><code class="language-bash">São usados no mínimo 2 discos nessa configuração. A capacidade de 
-armazenamento é a soma dos discos utilizados. Não possui nenhum backup 
-(redundância), embora melhore de forma significante a performance, dando 
-mais velocidade de I/O. Exemplo, RAID 0 com dois discos de 200 GB cada um
-totalizando em 400 GB o volume montado no RAID. Se um disco falhar é 
-perdido todo o conteúdo. Possui striping, ou seja, os discos executam 
-tarefas como leitura e gravação de dados de forma simultânea, entregando 
-maior desempenho e liberando a capacidade total dos discos para 
-armazenar informações.
-</code></pre>
-<h4 id="raid-1-espelhamento">RAID 1 (espelhamento):</h4>
-<pre><code class="language-bash">São usados no mínimo 2 discos nessa configuração. A capacidade de 
-armazenamento é metade da soma total dos discos. Exemplo, RAID 0 com dois
-discos de 200 GB cada um deles, o espaço total no volume montado será de 
-200 GB. Se um disco falhar, o conteúdo não é perdido.
-</code></pre>
-<h4 id="raid-4">RAID 4:</h4>
-<pre><code class="language-bash">São usados no mínimo 3 discos nessa configuração. Um dos discos é 
-dedicado à paridade. A capacidade de armazenamento é a soma de todos os 
-discos, menos um. Exemplo, 3 discos de 100GB cada um, resulta em um RAID 
-4 de 200GB. O próximo nível de RAID, o 5, possui mais vantagens se 
-comparado com o RAID 4.
-</code></pre>
-<h4 id="raid-5">RAID 5:</h4>
-<pre><code class="language-bash">São usados no mínimo 3 discos nessa configuração. Possui paridade e 
-striping. Conforme o RAID 4, a capacidade de armazenamento é a soma de 
-todos os discos, menos um.
-</code></pre>
-<h4 id="raid-6">RAID 6:</h4>
-<pre><code class="language-bash">Existe um segundo disco de paridade, diferentemente do RAID 5, que 
-possui apenas 1.
-</code></pre>
-<h4 id="raid-10">RAID 10:</h4>
-<pre><code class="language-bash">combinação do RAID 0 e do RAID 1. Dois ou mais RAID 0 se juntam, formando
-um RAID 1, e por consequência, um RAID 10.
-</code></pre>
-<h4 id="raid-50-e-raid-60">RAID 50 e RAID 60:</h4>
-<pre><code class="language-bash">São combinações de RAID 5 e RAID 0 ou RAID 6 e RAID 0, respectivamente. 
-Eles oferecem um equilíbrio entre desempenho e redundância, adequados 
-para aplicativos de alto desempenho e alta disponibilidade.
-</code></pre>
-<h4 id="mdadm-md-significa-multiplos-dispositivos-o-adm-de-mdadm-e-abreviacao-para-administracao">MDADM "md" significa múltiplos dispositivos. O "adm" de mdadm é abreviação para administração:</h4>
-<pre><code class="language-bash">sudo apt install mdadm -y
-</code></pre>
-<h4 id="estou-utilizando-uma-maquina-virtual-com-o-debian-linux-nesta-maquina-possuo-os-seguintes-discos">Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:</h4>
-<pre><code class="language-bash">    /dev/sda - 50GB (Disco principal)
-    /dev/sdb - 2GB
-    /dev/sdc - 2GB
-    /dev/sdd - 2GB
-    /dev/sde - 2GB
-</code></pre>
-<pre><code class="language-bash">sudo -i
-</code></pre>
-<pre><code class="language-bash">mdadm --create /dev/md0 --level=0 --raid-devices=4 /dev/sdb /dev/sdc /dev/sdd /dev/sde
-</code></pre>
-<pre><code class="language-bash">mdadm: Defaulting to version 4.1 metadata
-</code></pre>
-<pre><code class="language-bash">mdadm: array /dev/md0 started 
-</code></pre>
-<h5 id="agora-o-disco-virtual-chamado-devmd0-foi-criado-em-meu-sistema-devemos-entao-atualizar-o-arquivo-de-configuracao-do-mdadm-forcando-o-dispositivo-a-se-chamar-devmd0-caso-contrario-o-udev-ira-automaticamente-renomea-lo-para-devmd127">Agora o disco virtual chamado /dev/md0 foi criado em meu sistema. Devemos então atualizar o arquivo de configuração do mdadm, forçando o dispositivo a se chamar /dev/md0. Caso contrário, o udev irá automaticamente renomeá-lo para /dev/md127:</h5>
-<pre><code class="language-bash">mdadm --detail --scan /dev/md0 &gt;&gt; /etc/mdadm/mdadm.conf
-</code></pre>
-<pre><code class="language-bash">update-initramfs -u
-</code></pre>
-<pre><code class="language-bash">cat /proc/mdstat
-</code></pre>
-<pre><code class="language-bash">sudo mdadm --detail /dev/md0
-</code></pre>
-<pre><code class="language-bash"> mkfs.ext4 /dev/md0
-</code></pre>
-<pre><code class="language-bash">mkdir /mnt/md0
-</code></pre>
-<pre><code class="language-bash">mount /dev/md0 /mnt/md0
-</code></pre>
-<pre><code class="language-bash">df -h
-</code></pre>
-<pre><code class="language-bash">/dev/md0        7,9G   36M  7,4G   1% /mnt/md0
-</code></pre>
-<h4 id="para-remover-o-raid-com-o-mdadm">Para remover o RAID com o MDADM:</h4>
-<pre><code class="language-bash">umount /dev/md0
-</code></pre>
-<pre><code class="language-bash">mdadm --stop /dev/md0
-</code></pre>
-<pre><code class="language-bash">mdadm --zero-superblock /dev/sdb
-</code></pre>
-<pre><code class="language-bash">mdadm --zero-superblock /dev/sdc
-</code></pre>
-<pre><code class="language-bash">mdadm --zero-superblock /dev/sdd
-</code></pre>
-<pre><code class="language-bash">mdadm --zero-superblock /dev/sde
-</code></pre>
-<pre><code class="language-bash">nano /etc/mdadm/mdadm.conf
-</code></pre>
-<pre><code class="language-bash">ARRAY /dev/md0 metadata=1.2 name=debian:0 UUID=5ecf1997:9d6ea966:a3590659:e36f5a88
-</code></pre>
-<pre><code class="language-bash">update-initramfs -u
-</code></pre>
-<p>THAT’S ALL FOLKS!!</p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Permissoes_Linux-02/" class="btn btn-neutral float-left" title="📁 Tutorial de Permissões de Arquivos e Diretórios no Linux - Fixação ..."><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Systemd/" class="btn btn-neutral float-right" title="📁 Tutorial Completo de systemd">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#raid-redundant-array-of-independent-disks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-  <hr/>
+  
 
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RAID
+            
+          </span>
         </div>
       </div>
-
-    </section>
-
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Início
 
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
     
-      <span><a href="../Permissoes_Linux-02/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
     
     
-      <span><a href="../Systemd/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  Tópicos de Estudo
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  Módulos LPI
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  Ataques e Segurança
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  Sistemas Operacionais
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
     
   </span>
-</div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
+  
 
-</body>
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tópicos de Estudo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tópicos de Estudo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#raid-0-striping" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 0 (striping):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-1-espelhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 1 (espelhamento):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 5:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 6:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 10:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-50-e-raid-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 50 e RAID 60:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mdadm-md-significa-multiplos-dispositivos-o-adm-de-mdadm-e-abreviacao-para-administracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDADM "md" significa múltiplos dispositivos. O "adm" de mdadm é abreviação para administração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estou-utilizando-uma-maquina-virtual-com-o-debian-linux-nesta-maquina-possuo-os-seguintes-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agora-o-disco-virtual-chamado-devmd0-foi-criado-em-meu-sistema-devemos-entao-atualizar-o-arquivo-de-configuracao-do-mdadm-forcando-o-dispositivo-a-se-chamar-devmd0-caso-contrario-o-udev-ira-automaticamente-renomea-lo-para-devmd127" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora o disco virtual chamado /dev/md0 foi criado em meu sistema. Devemos então atualizar o arquivo de configuração do mdadm, forçando o dispositivo a se chamar /dev/md0. Caso contrário, o udev irá automaticamente renomeá-lo para /dev/md127:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-remover-o-raid-com-o-mdadm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para remover o RAID com o MDADM:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulos LPI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Módulos LPI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ataques e Segurança
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Ataques e Segurança
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sistemas Operacionais
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Sistemas Operacionais
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#raid-0-striping" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 0 (striping):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-1-espelhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 1 (espelhamento):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 5:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 6:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 10:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raid-50-e-raid-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      RAID 50 e RAID 60:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mdadm-md-significa-multiplos-dispositivos-o-adm-de-mdadm-e-abreviacao-para-administracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      MDADM "md" significa múltiplos dispositivos. O "adm" de mdadm é abreviação para administração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estou-utilizando-uma-maquina-virtual-com-o-debian-linux-nesta-maquina-possuo-os-seguintes-discos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agora-o-disco-virtual-chamado-devmd0-foi-criado-em-meu-sistema-devemos-entao-atualizar-o-arquivo-de-configuracao-do-mdadm-forcando-o-dispositivo-a-se-chamar-devmd0-caso-contrario-o-udev-ira-automaticamente-renomea-lo-para-devmd127" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora o disco virtual chamado /dev/md0 foi criado em meu sistema. Devemos então atualizar o arquivo de configuração do mdadm, forçando o dispositivo a se chamar /dev/md0. Caso contrário, o udev irá automaticamente renomeá-lo para /dev/md127:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-remover-o-raid-com-o-mdadm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para remover o RAID com o MDADM:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="raid-redundant-array-of-independent-disks">📁 RAID - Redundant Array of Independent Disks:</h1>
+<p>Raid é uma tecnologia de armazenamento que envolve a combinação de vários discos rígidos (ou unidades de estado sólido) em uma única unidade lógica para melhorar o desempenho, a redundância ou uma combinação de ambos. RAID é usado principalmente para melhorar a confiabilidade e/ou o desempenho do armazenamento de dados em sistemas de computador.</p>
+<h4 id="raid-0-striping">RAID 0 (striping):</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>São<span class="w"> </span>usados<span class="w"> </span>no<span class="w"> </span>mínimo<span class="w"> </span><span class="m">2</span><span class="w"> </span>discos<span class="w"> </span>nessa<span class="w"> </span>configuração.<span class="w"> </span>A<span class="w"> </span>capacidade<span class="w"> </span>de<span class="w"> </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>armazenamento<span class="w"> </span>é<span class="w"> </span>a<span class="w"> </span>soma<span class="w"> </span>dos<span class="w"> </span>discos<span class="w"> </span>utilizados.<span class="w"> </span>Não<span class="w"> </span>possui<span class="w"> </span>nenhum<span class="w"> </span>backup<span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">(</span>redundância<span class="o">)</span>,<span class="w"> </span>embora<span class="w"> </span>melhore<span class="w"> </span>de<span class="w"> </span>forma<span class="w"> </span>significante<span class="w"> </span>a<span class="w"> </span>performance,<span class="w"> </span>dando<span class="w"> </span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>mais<span class="w"> </span>velocidade<span class="w"> </span>de<span class="w"> </span>I/O.<span class="w"> </span>Exemplo,<span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span><span class="w"> </span>com<span class="w"> </span>dois<span class="w"> </span>discos<span class="w"> </span>de<span class="w"> </span><span class="m">200</span><span class="w"> </span>GB<span class="w"> </span>cada<span class="w"> </span>um
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>totalizando<span class="w"> </span>em<span class="w"> </span><span class="m">400</span><span class="w"> </span>GB<span class="w"> </span>o<span class="w"> </span>volume<span class="w"> </span>montado<span class="w"> </span>no<span class="w"> </span>RAID.<span class="w"> </span>Se<span class="w"> </span>um<span class="w"> </span>disco<span class="w"> </span>falhar<span class="w"> </span>é<span class="w"> </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>perdido<span class="w"> </span>todo<span class="w"> </span>o<span class="w"> </span>conteúdo.<span class="w"> </span>Possui<span class="w"> </span>striping,<span class="w"> </span>ou<span class="w"> </span>seja,<span class="w"> </span>os<span class="w"> </span>discos<span class="w"> </span>executam<span class="w"> </span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>tarefas<span class="w"> </span>como<span class="w"> </span>leitura<span class="w"> </span>e<span class="w"> </span>gravação<span class="w"> </span>de<span class="w"> </span>dados<span class="w"> </span>de<span class="w"> </span>forma<span class="w"> </span>simultânea,<span class="w"> </span>entregando<span class="w"> </span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>maior<span class="w"> </span>desempenho<span class="w"> </span>e<span class="w"> </span>liberando<span class="w"> </span>a<span class="w"> </span>capacidade<span class="w"> </span>total<span class="w"> </span>dos<span class="w"> </span>discos<span class="w"> </span>para<span class="w"> </span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>armazenar<span class="w"> </span>informações.
+</code></pre></div>
+<h4 id="raid-1-espelhamento">RAID 1 (espelhamento):</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>São<span class="w"> </span>usados<span class="w"> </span>no<span class="w"> </span>mínimo<span class="w"> </span><span class="m">2</span><span class="w"> </span>discos<span class="w"> </span>nessa<span class="w"> </span>configuração.<span class="w"> </span>A<span class="w"> </span>capacidade<span class="w"> </span>de<span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>armazenamento<span class="w"> </span>é<span class="w"> </span>metade<span class="w"> </span>da<span class="w"> </span>soma<span class="w"> </span>total<span class="w"> </span>dos<span class="w"> </span>discos.<span class="w"> </span>Exemplo,<span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span><span class="w"> </span>com<span class="w"> </span>dois
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>discos<span class="w"> </span>de<span class="w"> </span><span class="m">200</span><span class="w"> </span>GB<span class="w"> </span>cada<span class="w"> </span>um<span class="w"> </span>deles,<span class="w"> </span>o<span class="w"> </span>espaço<span class="w"> </span>total<span class="w"> </span>no<span class="w"> </span>volume<span class="w"> </span>montado<span class="w"> </span>será<span class="w"> </span>de<span class="w"> </span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="m">200</span><span class="w"> </span>GB.<span class="w"> </span>Se<span class="w"> </span>um<span class="w"> </span>disco<span class="w"> </span>falhar,<span class="w"> </span>o<span class="w"> </span>conteúdo<span class="w"> </span>não<span class="w"> </span>é<span class="w"> </span>perdido.
+</code></pre></div>
+<h4 id="raid-4">RAID 4:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>São<span class="w"> </span>usados<span class="w"> </span>no<span class="w"> </span>mínimo<span class="w"> </span><span class="m">3</span><span class="w"> </span>discos<span class="w"> </span>nessa<span class="w"> </span>configuração.<span class="w"> </span>Um<span class="w"> </span>dos<span class="w"> </span>discos<span class="w"> </span>é<span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dedicado<span class="w"> </span>à<span class="w"> </span>paridade.<span class="w"> </span>A<span class="w"> </span>capacidade<span class="w"> </span>de<span class="w"> </span>armazenamento<span class="w"> </span>é<span class="w"> </span>a<span class="w"> </span>soma<span class="w"> </span>de<span class="w"> </span>todos<span class="w"> </span>os<span class="w"> </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>discos,<span class="w"> </span>menos<span class="w"> </span>um.<span class="w"> </span>Exemplo,<span class="w"> </span><span class="m">3</span><span class="w"> </span>discos<span class="w"> </span>de<span class="w"> </span>100GB<span class="w"> </span>cada<span class="w"> </span>um,<span class="w"> </span>resulta<span class="w"> </span>em<span class="w"> </span>um<span class="w"> </span>RAID<span class="w"> </span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="m">4</span><span class="w"> </span>de<span class="w"> </span>200GB.<span class="w"> </span>O<span class="w"> </span>próximo<span class="w"> </span>nível<span class="w"> </span>de<span class="w"> </span>RAID,<span class="w"> </span>o<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>possui<span class="w"> </span>mais<span class="w"> </span>vantagens<span class="w"> </span>se<span class="w"> </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>comparado<span class="w"> </span>com<span class="w"> </span>o<span class="w"> </span>RAID<span class="w"> </span><span class="m">4</span>.
+</code></pre></div>
+<h4 id="raid-5">RAID 5:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>São<span class="w"> </span>usados<span class="w"> </span>no<span class="w"> </span>mínimo<span class="w"> </span><span class="m">3</span><span class="w"> </span>discos<span class="w"> </span>nessa<span class="w"> </span>configuração.<span class="w"> </span>Possui<span class="w"> </span>paridade<span class="w"> </span>e<span class="w"> </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>striping.<span class="w"> </span>Conforme<span class="w"> </span>o<span class="w"> </span>RAID<span class="w"> </span><span class="m">4</span>,<span class="w"> </span>a<span class="w"> </span>capacidade<span class="w"> </span>de<span class="w"> </span>armazenamento<span class="w"> </span>é<span class="w"> </span>a<span class="w"> </span>soma<span class="w"> </span>de<span class="w"> </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>todos<span class="w"> </span>os<span class="w"> </span>discos,<span class="w"> </span>menos<span class="w"> </span>um.
+</code></pre></div>
+<h4 id="raid-6">RAID 6:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Existe<span class="w"> </span>um<span class="w"> </span>segundo<span class="w"> </span>disco<span class="w"> </span>de<span class="w"> </span>paridade,<span class="w"> </span>diferentemente<span class="w"> </span><span class="k">do</span><span class="w"> </span>RAID<span class="w"> </span><span class="m">5</span>,<span class="w"> </span>que<span class="w"> </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>possui<span class="w"> </span>apenas<span class="w"> </span><span class="m">1</span>.
+</code></pre></div>
+<h4 id="raid-10">RAID 10:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>combinação<span class="w"> </span><span class="k">do</span><span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span><span class="w"> </span>e<span class="w"> </span><span class="k">do</span><span class="w"> </span>RAID<span class="w"> </span><span class="m">1</span>.<span class="w"> </span>Dois<span class="w"> </span>ou<span class="w"> </span>mais<span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span><span class="w"> </span>se<span class="w"> </span>juntam,<span class="w"> </span>formando
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>um<span class="w"> </span>RAID<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>e<span class="w"> </span>por<span class="w"> </span>consequência,<span class="w"> </span>um<span class="w"> </span>RAID<span class="w"> </span><span class="m">10</span>.
+</code></pre></div>
+<h4 id="raid-50-e-raid-60">RAID 50 e RAID 60:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>São<span class="w"> </span>combinações<span class="w"> </span>de<span class="w"> </span>RAID<span class="w"> </span><span class="m">5</span><span class="w"> </span>e<span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span><span class="w"> </span>ou<span class="w"> </span>RAID<span class="w"> </span><span class="m">6</span><span class="w"> </span>e<span class="w"> </span>RAID<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>respectivamente.<span class="w"> </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Eles<span class="w"> </span>oferecem<span class="w"> </span>um<span class="w"> </span>equilíbrio<span class="w"> </span>entre<span class="w"> </span>desempenho<span class="w"> </span>e<span class="w"> </span>redundância,<span class="w"> </span>adequados<span class="w"> </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>para<span class="w"> </span>aplicativos<span class="w"> </span>de<span class="w"> </span>alto<span class="w"> </span>desempenho<span class="w"> </span>e<span class="w"> </span>alta<span class="w"> </span>disponibilidade.
+</code></pre></div>
+<h4 id="mdadm-md-significa-multiplos-dispositivos-o-adm-de-mdadm-e-abreviacao-para-administracao">MDADM "md" significa múltiplos dispositivos. O "adm" de mdadm é abreviação para administração:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mdadm<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="estou-utilizando-uma-maquina-virtual-com-o-debian-linux-nesta-maquina-possuo-os-seguintes-discos">Estou utilizando uma máquina virtual, com o Debian Linux. Nesta máquina, possuo os seguintes discos:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span>/dev/sda<span class="w"> </span>-<span class="w"> </span>50GB<span class="w"> </span><span class="o">(</span>Disco<span class="w"> </span>principal<span class="o">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span>/dev/sdb<span class="w"> </span>-<span class="w"> </span>2GB
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span>/dev/sdc<span class="w"> </span>-<span class="w"> </span>2GB
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span>/dev/sdd<span class="w"> </span>-<span class="w"> </span>2GB
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span>/dev/sde<span class="w"> </span>-<span class="w"> </span>2GB
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>-i
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mdadm<span class="w"> </span>--create<span class="w"> </span>/dev/md0<span class="w"> </span>--level<span class="o">=</span><span class="m">0</span><span class="w"> </span>--raid-devices<span class="o">=</span><span class="m">4</span><span class="w"> </span>/dev/sdb<span class="w"> </span>/dev/sdc<span class="w"> </span>/dev/sdd<span class="w"> </span>/dev/sde
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>mdadm:<span class="w"> </span>Defaulting<span class="w"> </span>to<span class="w"> </span>version<span class="w"> </span><span class="m">4</span>.1<span class="w"> </span>metadata
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mdadm:<span class="w"> </span>array<span class="w"> </span>/dev/md0<span class="w"> </span>started<span class="w"> </span>
+</code></pre></div>
+<h5 id="agora-o-disco-virtual-chamado-devmd0-foi-criado-em-meu-sistema-devemos-entao-atualizar-o-arquivo-de-configuracao-do-mdadm-forcando-o-dispositivo-a-se-chamar-devmd0-caso-contrario-o-udev-ira-automaticamente-renomea-lo-para-devmd127">Agora o disco virtual chamado /dev/md0 foi criado em meu sistema. Devemos então atualizar o arquivo de configuração do mdadm, forçando o dispositivo a se chamar /dev/md0. Caso contrário, o udev irá automaticamente renomeá-lo para /dev/md127:</h5>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mdadm<span class="w"> </span>--detail<span class="w"> </span>--scan<span class="w"> </span>/dev/md0<span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/mdadm/mdadm.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>update-initramfs<span class="w"> </span>-u
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cat<span class="w"> </span>/proc/mdstat
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>mdadm<span class="w"> </span>--detail<span class="w"> </span>/dev/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w"> </span>mkfs.ext4<span class="w"> </span>/dev/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdir<span class="w"> </span>/mnt/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>mount<span class="w"> </span>/dev/md0<span class="w"> </span>/mnt/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>df<span class="w"> </span>-h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>/dev/md0<span class="w">        </span><span class="m">7</span>,9G<span class="w">   </span>36M<span class="w">  </span><span class="m">7</span>,4G<span class="w">   </span><span class="m">1</span>%<span class="w"> </span>/mnt/md0
+</code></pre></div>
+<h4 id="para-remover-o-raid-com-o-mdadm">Para remover o RAID com o MDADM:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>umount<span class="w"> </span>/dev/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mdadm<span class="w"> </span>--stop<span class="w"> </span>/dev/md0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/sdb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/sdc
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/sdd
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>mdadm<span class="w"> </span>--zero-superblock<span class="w"> </span>/dev/sde
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>nano<span class="w"> </span>/etc/mdadm/mdadm.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ARRAY<span class="w"> </span>/dev/md0<span class="w"> </span><span class="nv">metadata</span><span class="o">=</span><span class="m">1</span>.2<span class="w"> </span><span class="nv">name</span><span class="o">=</span>debian:0<span class="w"> </span><span class="nv">UUID</span><span class="o">=</span>5ecf1997:9d6ea966:a3590659:e36f5a88
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>update-initramfs<span class="w"> </span>-u
+</code></pre></div>
+<p>THAT’S ALL FOLKS!!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
 </html>
