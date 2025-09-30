@@ -75,7 +75,8 @@ Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos
 
 * **`INSTRUTOR`** disponível á turma de alunos, para subirmos juntos cada degrau dessa tremenda escalada!
 
-* **`SOFTWARE LIVRE`** aliando os conceitos de diversão e responsabilidade.
+* <span class="text-red">**`SOFTWARE LIVRE`**</span> aliando os conceitos de diversão e responsabilidade.
+
 
 
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
