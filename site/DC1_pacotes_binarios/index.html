@@ -46,14 +46,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
                 </li>
               </ul>
@@ -80,13 +72,33 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ativando-os-servicos-do-samba-ad-dc">Ativando os serviços do samba-ad-dc</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#revalidando-as-portas-em-escuta">Revalidando as portas em escuta:</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#reapontando-o-servidor-de-dns-para-o-proprio-dc01">Reapontando o Servidor de DNS para o próprio DC01:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#travando-o-arquivo-contra-alteracoes-automaticas">Travando o arquivo contra alterações automáticas:</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#configuracao-do-arquivo-smbconf">Configuração do arquivo smb.conf:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#criando-o-diretorio-compartilhado">Criando o diretório compartilhado:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setando-as-permissoes-de-acesso">Setando as permissões de acesso:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#revisando-usuarios-e-grupos">Revisando usuários e grupos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outras-validacoes-no-dominio">Outras validações no domínio:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verificando-servico-ativo">Verificando serviço ativo:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consultando-o-servidor">Consultando o Servidor:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#relendo-as-configuracoes-do-samba4">Relendo as configurações do Samba4:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#validando-a-troca-de-tickets-do-kerberos">Validando a troca de tickets do Kerberos:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#consultando-servicos-do-kerberos-e-do-ldap">Consultando serviços do kerberos e do ldap:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor">Agora é só instalar as ferramentas do rsat em uma máquina Windows e gerenciar o Servidor!</a>
     </li>
     </ul>
                 </li>
@@ -97,14 +109,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
                 </li>
               </ul>
               <ul>
@@ -140,27 +144,23 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 - AULA 00</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 - AULA 01</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA02</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA03</a>
                 </li>
               </ul>
               <ul>
@@ -193,14 +193,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
                 </li>
               </ul>
               <ul>
@@ -253,8 +245,7 @@
 <h2 id="setando-as-configuracoes-e-rede">Setando as Configurações e rede:</h2>
 <pre><code>vim /etc/network/interfaces
 </code></pre>
-<pre><code>allow-hotplug en7s0
-iface enp7s0 inet static
+<pre><code>iface enp7s0 inet static
 address 192.168.70.250
 netmask 255.255.255.0
 gateway 192.168.70.254
@@ -274,7 +265,7 @@ gateway 192.168.70.254
 192.168.70.250 dc01.esharknet.edu dc01
 </code></pre>
 <h2 id="instalacao-dos-pacotes-necessarios">Instalação dos pacotes necessários:</h2>
-<pre><code>apt install samba smb-client krb5-user krb5-config # VALIDAR: winbind acl attr
+<pre><code>apt install samba samba-client krb5-user dns-utils # validar krb5-config winbind acl attr
 </code></pre>
 <p>Durante a configuração do krb5-user, você será solicitado a inserir as informações:</p>
 <pre><code>- Default Kerberos version 5 realm: ESHARKNET.EDU
@@ -301,7 +292,7 @@ gateway 192.168.70.254
     fcc-mit-ticketflags = true
 
 [realms]
-    esharknet.edu = {
+    officinas.edu = {
         kdc = dc01.esharknet.edu
         admin_server = dc01.esharknet.edu
         default_domain = esharknet.edu
@@ -328,14 +319,12 @@ systemctl disable smbd nmbd winbind
 <pre><code>samba-tool domain provision --use-rfc2307 --interactive
 </code></pre>
 <pre><code class="language-bash">Realm [ESHARKNET.EDU]: (nome de seu domínio completo).
-dc01 [esharknet]: (nome de seu domínio abreviado).
+dcmaster [esharknet]: (nome de seu domínio abreviado).
 Server Role (dc, member, standalone) [dc]: (tipo de servidor controlador de domínio).
 DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: (tipo de serviço DNS).
 DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.0.1]: (Encaminhador DNS)
 </code></pre>
 <h2 id="validando-as-portas-em-escuta">Validando as portas em escuta:</h2>
-<pre><code>apt install net-tools
-</code></pre>
 <pre><code>netstat -pultan
 </code></pre>
 <h2 id="ativando-os-servicos-do-samba-ad-dc">Ativando os serviços do <code>samba-ad-dc</code></h2>
@@ -344,11 +333,6 @@ DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.0.1]:
 <pre><code>systemctl enable samba-ad-dc.service
 </code></pre>
 <pre><code>systemctl start samba-ad-dc.service
-</code></pre>
-<h2 id="revalidando-as-portas-em-escuta">Revalidando as portas em escuta:</h2>
-<pre><code>apt install net-tools
-</code></pre>
-<pre><code>netstat -pultan
 </code></pre>
 <h2 id="reapontando-o-servidor-de-dns-para-o-proprio-dc01">Reapontando o Servidor de DNS para o próprio DC01:</h2>
 <pre><code>vim /etc/resolv.conf
@@ -361,108 +345,68 @@ DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.0.1]:
 <h2 id="configuracao-do-arquivo-smbconf">Configuração do arquivo <code>smb.conf</code>:</h2>
 <pre><code>vim /etc/samba/smb.conf
 </code></pre>
-<h1 id="global-parameters">Global parameters</h1>
-<pre><code>[global]
-    dns forwarder = 192.168.122.1
-    netbios name = dc01
-    realm = ESHARKNET.EDU
-    server role = active directory domain controller
-    workgroup = ESHARKNET
-    idmap_ldb:use rfc2307 = yes
+<p>Adicione ou modifique as seguintes seções:</p>
+<pre><code>-[global]
 
-[sysvol]
-    path = /var/lib/samba/sysvol
-    read only = No
+-workgroup = ESHARKNET
+-realm = ESHARKNET.EDU
+-netbios name = dc01
+-server role = active directory domain controller
+-idmap_ldb:use rfc2307 = yes
+-dns forwarder = 192.168.70.254
+-vfs objects = dfs_samba4 acl_xattr recycle
+-vfs objects = dfs_samba4 acl_xattr audit
+-recycle:repository = .recycle
+-recycle:keeptree = yes
+-recycle:versions = yes
+-recycle:touch = no
+-recycle:directory_mode = 0777
+-recycle:subdir_mode = 0700
+-recycle:exclude = *.tmp,*.temp,*.o,*.obj
+-recycle:exclude_dir = /tmp,/temp,/cache
+-template homedir = /home/%U
+-log file = /var/log/samba/%m.log
+-log level = 3
 
-[netlogon]
-    path = /var/lib/samba/sysvol/esharknet.edu/scripts
-    read only = No
-</code></pre>
-<h1 id="se-for-usar-o-controlador-de-dominio-como-fileserver-nao-recomendado-adiciona-os-campos-ao-smbconf">SE for usar o Controlador de Domínio como FileServer (Não recomendado!), adiciona os campos ao smb.conf:</h1>
-<pre><code>[ARQUIVOS]
-    path = /srv/samba/arquivos
-    comment = Compartilhamentos da Rede
-    browsable = yes
-    writable = yes
-    read only = no
+-[sysvol]
+-path = /var/lib/samba/sysvol
+-read only = No
+-browseable = No
+
+-[netlogon]
+-path = /var/lib/samba/sysvol/ESHARKNET.edu/scripts
+-read only = No
+-browseable = No
+
+-[ARQUIVOS]
+-path = /srv/samba/arquivos
+-comment = Compartilhamentos da Rede
+-browsable = yes
+-writable = yes
+-read only = no
 </code></pre>
 <h2 id="criando-o-diretorio-compartilhado">Criando o diretório compartilhado:</h2>
 <pre><code>mkdir -p /srv/samba/arquivos
 </code></pre>
 <h2 id="setando-as-permissoes-de-acesso">Setando as permissões de acesso:</h2>
-<pre><code>wbinfo -g
-</code></pre>
 <pre><code>chmod -R 0770 /srv/samba/arquivos
-chown -R root:&quot;domain users&quot; /srv/samba/arquivos
+chown -R root:&quot;Domain Users&quot; /srv/samba/arquivos
 </code></pre>
 <h2 id="revisando-usuarios-e-grupos">Revisando usuários e grupos:</h2>
 <pre><code>cat /etc/passwd # ( usuários locais do Linux gerencia do LDAP )
 </code></pre>
-<pre><code>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
-_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
-nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
-dhcpcd:x:100:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
-systemd-timesync:x:991:991:systemd Time Synchronization:/:/usr/sbin/nologin
-messagebus:x:990:990:System Message Bus:/nonexistent:/usr/sbin/nologin
-sshd:x:989:65534:sshd user:/run/sshd:/usr/sbin/nologin
-suporte:x:1000:1000:Suporte:/home/suporte:/bin/bash
-</code></pre>
 <pre><code>samba-tool user list # ( usuários de rede gerenciados pelo SAMBA4 )
-</code></pre>
-<pre><code>Administrator
-Guest
-krbtgt
 </code></pre>
 <h2 id="outras-validacoes-no-dominio">Outras validações no domínio:</h2>
 <pre><code>wbinfo -u
 </code></pre>
-<pre><code>ESHARKNET\administrator
-ESHARKNET\guest
-ESHARKNET\krbtgt
-</code></pre>
 <pre><code>wbinfo -g
-</code></pre>
-<pre><code>ESHARKNET\cert publishers
-ESHARKNET\ras and ias servers
-ESHARKNET\allowed rodc password replication group
-ESHARKNET\denied rodc password replication group
-ESHARKNET\dnsadmins
-ESHARKNET\enterprise read-only domain controllers
-ESHARKNET\domain admins
-ESHARKNET\domain users
-ESHARKNET\domain guests
-ESHARKNET\domain computers
-ESHARKNET\domain controllers
-ESHARKNET\schema admins
-ESHARKNET\enterprise admins
-ESHARKNET\group policy creator owners
-ESHARKNET\read-only domain controllers
-ESHARKNET\protected users
-ESHARKNET\dnsupdateproxy
 </code></pre>
 <pre><code>wbinfo --ping-dc
 </code></pre>
-<pre><code>checking the NETLOGON for domain[ESHARNKET dc connection to &quot;dc01.esharknet.edu&quot; succeeded
-</code></pre>
 <pre><code>wbinfo --all-domains
 </code></pre>
-<pre><code>BUILTIN
-ESHARKNET
+<pre><code>getent group “Domain Admins”
 </code></pre>
 <h2 id="verificando-servico-ativo">Verificando serviço ativo:</h2>
 <pre><code>ps aux | grep samba
@@ -474,76 +418,29 @@ ESHARKNET
 <h2 id="consultando-o-servidor">Consultando o Servidor:</h2>
 <pre><code>testparm
 </code></pre>
-<pre><code>Load smb config files from /etc/samba/smb.conf
-Loaded services file OK.
-Weak crypto is allowed by GnuTLS (e.g. NTLM as a compatibility fallback)
-
-Server role: ROLE_ACTIVE_DIRECTORY_DC
-
-Press enter to see a dump of your service definitions
-
-# Global parameters
-[global]
-    dns forwarder = 192.168.70.1
-    passdb backend = samba_dsdb
-    realm = ESHARNKET.INFO
-    server role = active directory domain controller
-    workgroup = ESHARNKET
-    rpc_server:tcpip = no
-    rpc_daemon:spoolssd = embedded
-    rpc_server:spoolss = embedded
-    rpc_server:winreg = embedded
-    rpc_server:ntsvcs = embedded
-    rpc_server:eventlog = embedded
-    rpc_server:srvsvc = embedded
-    rpc_server:svcctl = embedded
-    rpc_server:default = external
-    winbindd:use external pipes = true
-    idmap_ldb:use rfc2307 = yes
-    idmap config * : backend = tdb
-    map archive = No
-    vfs objects = dfs_samba4 acl_xattr
-
-
-[sysvol]
-    path = /var/lib/samba/sysvol
-    read only = No
-
-
-[netlogon]
-    path = /var/lib/samba/sysvol/esharknet.edu/scripts
-    read only = No
-
-
-[ARQUIVOS]
-    comment = Compartilhamentos da Rede
-    path = /srv/samba/Arquivos
-    read only = No
-</code></pre>
 <pre><code>smbclient --version
-</code></pre>
-<pre><code>Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-
 </code></pre>
 <pre><code>smbclient -L localhost -U%
 </code></pre>
-<pre><code>Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-root@dc01:~# smbclient -L localhost -U%
+<pre><code>smbclient -L -U Administrator
+</code></pre>
+<pre><code>Enter Administrator's password:
+</code></pre>
+<pre><code>Password for [Administrator@ESHARKNET.EDU]:
 
     Sharename       Type      Comment
     ---------       ----      -------
     sysvol          Disk      
     netlogon        Disk      
-    ARQUIVOS        Disk      Compartilhamentos da Rede
-    IPC$            IPC       IPC Service (Samba 4.22.4-Debian-4.22.4+dfsg-1~deb13u1)
+    IPC$            IPC       IPC Service (Samba 4.21.4-Debian-4.21.4+dfsg-1)
 SMB1 disabled -- no workgroup available
 </code></pre>
 <pre><code>samba-tool domain level show
 </code></pre>
-<pre><code>dc01 and forest function level for dc01 'DC=officinas,DC=edu'
+<pre><code>dcmaster and forest function level for dcmaster 'DC=officinas,DC=edu'
 
 Forest function level: (Windows) 2008 R2
-dc01 function level: (Windows) 2008 R2
+dcmaster function level: (Windows) 2008 R2
 Lowest function level of a DC: (Windows) 2008 R2
 </code></pre>
 <h2 id="desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</h2>
@@ -567,54 +464,27 @@ Lowest function level of a DC: (Windows) 2008 R2
 </code></pre>
 <pre><code>klist
 </code></pre>
-<pre><code>Ticket cache: FILE:/tmp/krb5cc_0
-Default principal: Administrator@ESHARKNET.EDU
-
-Valid starting       Expires              Service principal
-23/09/2025 16:35:24  24/09/2025 02:35:24  krbtgt/ESHARKNET.EDU@ESHARKNET.EDU
-    renew until 24/09/2025 16:35:19
-</code></pre>
 <h2 id="consultando-servicos-do-kerberos-e-do-ldap">Consultando serviços do <code>kerberos</code> e do <code>ldap</code>:</h2>
 <pre><code>host -t A esharknet.edu
 </code></pre>
-<pre><code>esharknet.edu has address 192.168.70.250
+<pre><code>host -t
 </code></pre>
-<pre><code>Using dc01 server:
-Name: esharknet.edu
-Address: 192.168.70.1#53
+<pre><code>Using dcmaster server:
+Name: officinas.edu
+Address: 192.168.0.1#53
 Aliases: 
 
 A has no SRV record
 </code></pre>
 <pre><code>host -t srv _kerberos._tcp.ESHARKNET.edu
 </code></pre>
-<pre><code>_ldap._tcp.esharknet.edu has SRV record 0 100 389 dc01.esharknet.edu.
+<pre><code>_ldap._tcp.officinas.edu has SRV record 0 100 389 dcmaster.officinas.edu.
 </code></pre>
 <pre><code>host -t srv _ldap._tcp.ESHARKNET.edu
 </code></pre>
-<pre><code>_kerberos._udp.esharknet.edu has SRV record 0 100 88 dc01.esharknet.edu.
+<pre><code>_kerberos._udp.officinas.edu has SRV record 0 100 88 dcmaster.officinas.edu.
 </code></pre>
-<pre><code>dig ESHARKNET.EDU
-</code></pre>
-<pre><code>; &lt;&lt;&gt;&gt; DiG 9.20.11-4-Debian &lt;&lt;&gt;&gt; ESHARKNET.EDU
-;; global options: +cmd
-;; Got answer:
-;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 52366
-;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 0
-
-;; QUESTION SECTION:
-;ESHARKNET.EDU.         IN  A
-
-;; ANSWER SECTION:
-ESHARKNET.EDU.      900 IN  A   192.168.70.250
-
-;; AUTHORITY SECTION:
-esharknet.edu.      3600    IN  SOA dc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
-
-;; Query time: 4 msec
-;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
-;; WHEN: Tue Sep 23 16:40:41 -03 2025
-;; MSG SIZE  rcvd: 120
+<pre><code>dig ESHARKNET.edu
 </code></pre>
 <h2 id="agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor">Agora é só instalar as ferramentas do <code>rsat</code> em uma máquina Windows e gerenciar o Servidor!</h2>
 <p>THAT’S ALL FOLKS!!</p>

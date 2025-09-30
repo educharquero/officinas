@@ -1,0 +1,75 @@
+Revisão Definitiva: O Processo Correto para Conectar e Enviar Arquivos ao GitHub com SSH
+
+
+Parte 1: Configuração Inicial (Feita Apenas Uma Vez por Computador)
+
+Esta etapa cria a relação de confiança entre sua máquina e sua conta no GitHub.
+
+Gerar o Par de Chaves SSH:
+Comando: ssh-keygen -t ed25519 -C "seu_email@github.com"
+
+O que faz: Cria dois arquivos na pasta oculta ~/.ssh/:
+id_ed25519: Sua chave privada. Secreta, nunca deve ser compartilhada. Fica apenas no seu computador.
+id_ed25519.pub: Sua chave pública. É o "cadeado" que você entrega ao GitHub.
+
+Ações: Você pressionou Enter para aceitar o local padrão e (opcionalmente) definiu uma senha (passphrase) para uma camada extra de segurança na sua chave privada.
+
+Registrar a Chave Pública no GitHub:
+Comando: cat ~/.ssh/id_ed25519.pub
+
+O que faz: Exibe o conteúdo da sua chave pública no terminal.
+
+Ações: Você copiou todo o texto (de ssh-ed25519... até o seu email).
+
+No site do GitHub: Você foi em Settings > SSH and GPG keys > New SSH key, colou a chave pública e deu um nome a ela. Com isso, você autorizou o GitHub a "conversar" com qualquer computador que prove possuir a chave privada correspondente.
+
+
+Parte 2: Conectar um Projeto Local a um Repositório Remoto via SSH
+
+Esta etapa conecta uma pasta específica do seu computador a um repositório no GitHub.
+
+Criar o Repositório no GitHub:
+Ação: Você criou um novo repositório vazio no GitHub (ex: Officinas).
+
+Iniciar o Git no Projeto Local:
+
+Comandos:
+
+cd /caminho/do/seu/projeto
+git init -b main
+git add .
+git commit -m "Commit inicial"
+
+O que fazem: Preparam sua pasta local para ser um repositório Git.
+
+Apontar o Repositório Local para o Remoto (O Passo Crucial com SSH):
+
+Comando: git remote add origin git@github.com:educharquero/Officinas.git
+
+O que faz: Este comando estabelece a conexão. Ele diz ao Git local: "O destino remoto, que chamaremos de origin, está no endereço SSH git@github.com:educharquero/Officinas.git". A URL que começa com git@ é o que força o uso da autenticação SSH.
+
+Parte 3: O Fluxo de Trabalho Diário (O Que Você Fará Sempre)
+
+Esta é a rotina para atualizar seu projeto.
+
+Fazer Alterações: Você edita seus arquivos .md, mkdocs.yml, etc.
+
+Registrar as Alterações no Git:
+
+Comando: git add . (ou git add nome_do_arquivo para adicionar arquivos específicos).
+
+O que faz: Adiciona suas alterações à "área de preparação" (staging area).
+
+"Salvar" as Alterações com um Commit:
+
+Comando: git commit -m "Uma mensagem descritiva do que você mudou"
+
+O que faz: Cria um ponto na história do seu projeto com as alterações que você preparou.
+
+Enviar as Alterações para o GitHub:
+
+Comando: git push origin main (ou o nome da branch que você estiver usando, como dev).
+
+O que faz: O Git no seu computador contata o GitHub, apresenta sua chave SSH para se autenticar e envia os commits. Como a autenticação é via chave, nenhuma senha ou token é solicitado.
+
+Este resumo cobre o processo correto do início ao fim.

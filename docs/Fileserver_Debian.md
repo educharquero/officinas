@@ -91,13 +91,13 @@ sudo chown -R nobody:nogroup /srv/samba/arquivos/publica
 6 - Antes de editar, faça backup do arquivo principal do Samba:
 
 ```bash
-    sudo cp /etc/samba/smb.conf{,.orig}
+    sudo mv /etc/samba/smb.conf{,.orig}
 ```
 
-7 - Edite o arquivo de configuração do Samba:
+7 - Crie o arquivo de configuração do Samba:
 
 ```bash
-    sudo nano /etc/samba/smb.conf
+    sudo vim /etc/samba/smb.conf
 ```
 
 Insira o seguinte conteúdo:

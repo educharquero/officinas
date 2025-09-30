@@ -37,7 +37,7 @@ vim /etc/hosts
 ```
 
 ```bash
-.0.0.1             localhost
+127.0.0.1          localhost
 127.0.1.1          dcmaster.officinas.edu    dcmaster
 192.168.70.254     dcmaster.officinas.edu    dcmaster
 ```
@@ -57,8 +57,6 @@ iface enp1s0 inet static
 address           192.168.70.250
 netmask           255.255.255.0
 gateway           192.168.70.254
-dns-nameserver    192.168.70.254 #(firewall)
-dns-search        officinas.edu
 ```
 
 #### Setando endereço do firewall como resolvedor externo (temporário até provisionar o domínio):
@@ -68,8 +66,6 @@ vim /etc/resolv.conf
 ```
 
 ```bash
-domain             officinas.edu
-search             officinas.edu.
 nameserver         192.168.70.254 #(firewall)
 ```
 

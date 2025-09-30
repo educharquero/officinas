@@ -46,14 +46,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Aircrack-NG/">📁 Ataque de Deauth ou Dissociação de WI-FI</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC1_Debian/">DC1 Debian</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../DC1_Rocky/">📁 DC1 Rocky</a>
                 </li>
               </ul>
@@ -67,14 +59,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../DC2_Rocky/">📁 DC2 Rocky</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC_RockyLinux/">Samba AD-DC no Rocky Linux 8.7</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../DC_eSharknet/">DC eSharknet</a>
                 </li>
               </ul>
               <ul>
@@ -112,27 +96,23 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Historia/">O Universo Linux - Conceitos</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Mkdocs_Server/">📁 Servidor de documentação MkDocs</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 AULA 00</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula00/">🐧 Módulo 103.1 - AULA 00</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 AULA 01</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula01/">🐧 Módulo 103.1 - AULA 01</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA 02</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula02/">🐧 Módulo ﻿103.1 AULA02</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA 03</a>
+                <li class="toctree-l1"><a class="reference internal" href="../Modulo_103.1-aula03/">🐧 Módulo ﻿103.1 AULA03</a>
                 </li>
               </ul>
               <ul>
@@ -165,14 +145,6 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Raid/">📁 RAID - Redundant Array of Independent Disks:</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../SAMBA4_Puro/">SAMBA4 - Modo manual sem RSAT</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Samba4_Binario/">SAMBA4 por repositórios</a>
                 </li>
               </ul>
               <ul>
@@ -364,22 +336,21 @@ arquivos                          IN              CNAME   dcmaster.officinas.edu
 www                               IN              CNAME   webserver.officinas.edu.
 </code></pre>
 <h2 id="atencao-explicacao-dos-campos-zona-e-zona-reversa">ATENÇÃO - Explicação dos Campos zona e zona reversa:</h2>
-<ul>
-<li>IN = Internet</li>
-<li>SOA = Start of Autority</li>
-<li>@ = Origem do Dominio e/ou Inicio da Configuracao</li>
-<li>TTL = Tempo de vida</li>
-<li>NS = Name Server</li>
-<li>MX = Mail Exchanger (10/20 numero de prioridade quanto maior o numero menor e a prioridade)</li>
-<li>hostmaster = email do administrador note que e separado por "." e NAO "@"</li>
-<li>A = Apontamento para IPv4 (Address Mapping)</li>
-<li>AAAA = Apontamento para IPv6 (Address Mapping)</li>
-<li>CNAME = Apontamento para Nome Canonico/alias</li>
-<li>PTR = PoinTeR (aponta dominio reverso a partir de um endereço IP)</li>
-<li>TXT = TeXT, permite incluir um texto curto em um hostname. Tecnica usada para implementar o SPF.</li>
-<li>SPF = SenderPolicyFramework.Permite ao administrador de um dominio definir os enderecos das maquinas autorizadas a enviar mensagens neste dominio.</li>
-<li>SRV = SeRVice, permite definir localizacao de servicos disponiveis em um dominio, inclusive seus protocolos e portas.</li>
-</ul>
+<pre><code class="language-bash">IN = Internet
+SOA = Start of Autority
+@ = Origem do Dominio e/ou Inicio da Configuracao
+TTL = Tempo de vida
+NS = Name Server
+MX = Mail Exchanger (10/20 numero de prioridade quanto maior o numero menor e a prioridade)
+hostmaster = email do administrador note que e separado por &quot;.&quot; e NAO &quot;@&quot;
+A = Apontamento para IPv4 (Address Mapping)
+AAAA = Apontamento para IPv6 (Address Mapping)
+CNAME = Apontamento para Nome Canonico/alias
+PTR = PoinTeR (aponta dominio reverso a partir de um endereço IP)
+TXT = TeXT, permite incluir um texto curto em um hostname. Tecnica usada para implementar o SPF.
+SPF = SenderPolicyFramework.Permite ao administrador de um dominio definir os enderecos das maquinas autorizadas a enviar mensagens neste dominio.
+SRV = SeRVice, permite definir localizacao de servicos disponiveis em um dominio, inclusive seus protocolos e portas.
+</code></pre>
 <h2 id="fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192">Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:</h2>
 <pre><code class="language-bash">cp /etc/bind/db.127 /etc/bind/zones/db.70.168.192
 </code></pre>

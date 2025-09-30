@@ -1,4 +1,4 @@
-# 📁 Ataque de Deauth ou Dissociação de WI-FI
+# Ataque de Deauth ou Dissociação de Redes WI-FI
 
 Redes cabeadas se autenticam com 3 Way Handshake, eqto redes de Wi-fi autenticam com 4 Way Handshake.
 
@@ -90,7 +90,7 @@ sudo airodump-ng wlan0mon -d 64:D1:54:09:EE:3E
 
 ## Vai constar o novo cliente, com dados do aparelho, definidos em STATION.
 
-**`TERMINAL 01`** - VAMOS INICIAR A CAPTURA DOS PACOTES
+`TERMINAL 01` - VAMOS INICIAR A CAPTURA DOS PACOTES
 
 ## Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:
 
@@ -104,7 +104,7 @@ sudo airodump-ng -w capturados --channel 2 --essid Condominio_Flores_II wlan0mon
 
 Á partir daqui, eu aguardo algum dispositivo se conectar para realizar a captura do 4 Way Hand Shake.... OU
 
-**`TERMINAL 02`** - VAMOS INICIAR O ATAQUE DE DESAUTENTICAÇÃO
+`TERMINAL 02` - VAMOS INICIAR O ATAQUE DE DESAUTENTICAÇÃO
 
 ## Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):
 
