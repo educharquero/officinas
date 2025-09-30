@@ -301,4 +301,13 @@ Afeta ARQUIVOS novos (arquivos nunca precisam de "execução").
 4 → outros: leitura (r), escrita, (-) execução (-)
 
 
+## Referências
+
+[1] [Debian Releases](https://www.debian.org/releases/)
+[2] [Securing Samba on debian 10 - smb](https://unix.stackexchange.com/questions/678416/securing-samba-on-debian-10)
+[3] [Samba Server Security](https://www.samba.org/samba/docs/server_security.html)
+[4] [Debian Samba Setup: Complete Configuration Guide for Beginners](https://serverspace.io/support/help/configuring-samba-on-debian/)
+[5] [smb.conf - SambaWiki](https://wiki.samba.org/index.php/Samba_Configuration_File)
+
+
 THAT'S ALL FOLKS
