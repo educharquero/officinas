@@ -14,8 +14,12 @@
 
 /* extra.css */
 
-/* Regra para colorir o texto */
-.text-red {
-  color: #E53935 !important; /* Um tom de vermelho agradável */
+.text-red-code {
+  color: #E53935 !important; /* A cor vermelha */
+  font-family: "Roboto Mono", monospace; /* A fonte de código */
+  font-weight: bold; /* Deixa em negrito */
+  background-color: rgba(229, 57, 53, 0.1); /* Um fundo vermelho bem clarinho, como o da tag `code` */
+  padding: 0.1em 0.4em; /* Espaçamento interno, igual ao da tag `code` */
+  border-radius: 3px; /* Bordas arredondadas */
 }
 
