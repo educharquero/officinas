@@ -1,4 +1,4 @@
-# Guia de Estudos - Certificação LPIC-1
+# 🌐 Guia de Estudos - Certificação LPIC-1
 
 ## Este guia contém os principais tópicos cobrados no exame **LPIC-1**.
 

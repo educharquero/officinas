@@ -515,6 +515,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -526,6 +539,214 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-servidor-de-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um Servidor de DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-os-pacotes-necessarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalar os pacotes necessários:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar o arquivo /etc/default/named e deixa-lo como no exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-arquivo-etcbindnamedconf-fica-sem-alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      O arquivo /etc/bind/named.conf fica sem alteração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      O arquivo /etc/bind/named.conf.local tbém fica sem alteração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrar-em-etcbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrar em /etc/bind:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-um-backup-do-arquivo-original" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer um backup do arquivo original:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar named.conf.default-zones e deixa-lo como no exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-namedconfoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo named.conf.options:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-a-pasta-zones-em-etcbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar a pasta zones em /etc/bind:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrar-na-pasta-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrar na pasta zones:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-de-zona-dbofficinasedu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo de zona "db.officinas.edu":
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao-explicacao-dos-campos-zona-e-zona-reversa" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATENÇÃO - Explicação dos Campos zona e zona reversa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-de-zona-reversa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo de zona reversa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-reload-no-bind9-analisando-os-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart/ reload no bind9 analisando os logs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checar-se-as-confs-foram-aplicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checar se as confs foram aplicadas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-o-dns-utilizando-o-comando-nslookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testar o DNS utilizando o comando nslookup:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-o-dns-utilizando-o-dig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testar o DNS utilizando o dig:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloqueia-a-edicao-do-arquivo-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloqueia a edição do arquivo /etc/resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1613,6 +1834,203 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#criando-um-servidor-de-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando um Servidor de DNS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-os-pacotes-necessarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalar os pacotes necessários:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar o arquivo /etc/default/named e deixa-lo como no exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-arquivo-etcbindnamedconf-fica-sem-alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      O arquivo /etc/bind/named.conf fica sem alteração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      O arquivo /etc/bind/named.conf.local tbém fica sem alteração:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrar-em-etcbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrar em /etc/bind:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-um-backup-do-arquivo-original" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer um backup do arquivo original:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar named.conf.default-zones e deixa-lo como no exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-namedconfoptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo named.conf.options:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-a-pasta-zones-em-etcbind" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar a pasta zones em /etc/bind:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entrar-na-pasta-zones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entrar na pasta zones:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-de-zona-dbofficinasedu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo de zona "db.officinas.edu":
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao-explicacao-dos-campos-zona-e-zona-reversa" class="md-nav__link">
+    <span class="md-ellipsis">
+      ATENÇÃO - Explicação dos Campos zona e zona reversa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-editar-o-arquivo-de-zona-reversa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar/ editar o Arquivo de zona reversa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-reload-no-bind9-analisando-os-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart/ reload no bind9 analisando os logs:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checar-se-as-confs-foram-aplicadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checar se as confs foram aplicadas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-o-dns-utilizando-o-comando-nslookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testar o DNS utilizando o comando nslookup:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-o-dns-utilizando-o-dig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testar o DNS utilizando o dig:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bloqueia-a-edicao-do-arquivo-etcresolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bloqueia a edição do arquivo /etc/resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1628,7 +2046,7 @@
 
 
 <h1 id="dns-server">📁 DNS Server</h1>
-<h1 id="criando-um-servidor-de-dns">Criando um Servidor de DNS</h1>
+<h2 id="criando-um-servidor-de-dns">Criando um Servidor de DNS</h2>
 <p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
 <h2 id="instalar-os-pacotes-necessarios">Instalar os pacotes necessários:</h2>
 <div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>bind9<span class="w"> </span>openssh-server<span class="w"> </span>dnsutils

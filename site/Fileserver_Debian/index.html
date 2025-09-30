@@ -655,6 +655,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -666,6 +679,169 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-de-configuracao-do-samba4-como-fileserver-no-debian-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial de Configuração do Samba4 como FileServer no Debian 13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      0 - Atualizar o Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalar-o-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 - Instalar o Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adicione-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-criar-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-criar-os-diretorios-para-os-compartilhamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 - Criar os diretórios para os compartilhamentos de rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-definir-as-permissoes-das-pastas" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 - Definir as permissões das pastas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-antes-de-editar-faca-backup-do-arquivo-principal-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 - Antes de editar, faça backup do arquivo principal do Samba:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-crie-o-arquivo-de-configuracao-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 - Crie o arquivo de configuração do Samba:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ativar-e-reiniciar-os-servicos-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 - Ativar e reiniciar os serviços do Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-testar-configuracao-verificando-se-nao-ha-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 - Testar configuração, verificando se não há erros:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-acessar-os-compartilhamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 - Acessar os compartilhamentos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessao-de-anotacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      SESSÃO DE ANOTAÇÕES:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as-flags-de-setuid-setgid-e-sticky-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      As flags de SETUID, SETGID e STICKY BIT:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1615,6 +1791,158 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-de-configuracao-do-samba4-como-fileserver-no-debian-13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial de Configuração do Samba4 como FileServer no Debian 13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0-atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      0 - Atualizar o Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalar-o-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 - Instalar o Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-adicione-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-criar-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-criar-os-diretorios-para-os-compartilhamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 - Criar os diretórios para os compartilhamentos de rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-definir-as-permissoes-das-pastas" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 - Definir as permissões das pastas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-antes-de-editar-faca-backup-do-arquivo-principal-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 - Antes de editar, faça backup do arquivo principal do Samba:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-crie-o-arquivo-de-configuracao-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 - Crie o arquivo de configuração do Samba:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-ativar-e-reiniciar-os-servicos-do-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 - Ativar e reiniciar os serviços do Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-testar-configuracao-verificando-se-nao-ha-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 - Testar configuração, verificando se não há erros:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-acessar-os-compartilhamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 - Acessar os compartilhamentos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessao-de-anotacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      SESSÃO DE ANOTAÇÕES:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as-flags-de-setuid-setgid-e-sticky-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      As flags de SETUID, SETGID e STICKY BIT:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1630,21 +1958,21 @@
 
 
 <h1 id="fileserver-no-debian-com-binarios">📁 FileServer no Debian com binários</h1>
-<h1 id="tutorial-de-configuracao-do-samba4-como-fileserver-no-debian-13">Tutorial de Configuração do Samba4 como FileServer no Debian 13</h1>
-<h3 id="este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios">Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.</h3>
-<p>0 -  Atualizar o Sistema</p>
+<h2 id="tutorial-de-configuracao-do-samba4-como-fileserver-no-debian-13">Tutorial de Configuração do Samba4 como FileServer no Debian 13</h2>
+<h2 id="este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios">Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.</h2>
+<h2 id="0-atualizar-o-sistema">0 -  Atualizar o Sistema</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade
 </code></pre></div>
-<p>1 -  Instalar o Samba</p>
+<h2 id="1-instalar-o-samba">1 -  Instalar o Samba</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>-y
 </code></pre></div>
-<p>2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):</p>
+<h2 id="2-adicione-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home">2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):</h2>
 <p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-M<span class="w"> </span>kalel
 <span class="w">    </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-M<span class="w"> </span>diana
 </code></pre></div>
 Para liberar um shell em caso de necessidade:
 "sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"</p>
-<p>3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:</p>
+<h2 id="3-criar-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios">3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:</h2>
 <p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>gdiretoria
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>gfinanceiro
@@ -1654,18 +1982,18 @@ Para liberar um shell em caso de necessidade:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>gfinanceiro<span class="w"> </span>diana
 </code></pre></div></p>
-<p>3 - Adicione os usuários ao banco de senhas do Samba:</p>
+<p>Adicione os usuários ao banco de senhas do Samba:</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>kalel
 <span class="w">    </span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>diana
 </code></pre></div>
-<p>4 -  Criar os diretórios para os compartilhamentos de rede:</p>
+<h2 id="4-criar-os-diretorios-para-os-compartilhamentos-de-rede">4 -  Criar os diretórios para os compartilhamentos de rede:</h2>
 <p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/diretoria
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/financeiro
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div></p>
-<p>5 -  Definir as permissões das pastas:</p>
+<h2 id="5-definir-as-permissoes-das-pastas">5 -  Definir as permissões das pastas:</h2>
 <p>A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.</p>
 <p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/diretoria
 </code></pre></div>
@@ -1679,10 +2007,10 @@ Para liberar um shell em caso de necessidade:
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody:nogroup<span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div>
-<p>6 - Antes de editar, faça backup do arquivo principal do Samba:</p>
+<h2 id="6-antes-de-editar-faca-backup-do-arquivo-principal-do-samba">6 - Antes de editar, faça backup do arquivo principal do Samba:</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/samba/smb.conf<span class="o">{</span>,.orig<span class="o">}</span>
 </code></pre></div>
-<p>7 - Crie o arquivo de configuração do Samba:</p>
+<h2 id="7-crie-o-arquivo-de-configuracao-do-samba">7 - Crie o arquivo de configuração do Samba:</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
 <p>Insira o seguinte conteúdo:</p>
@@ -1725,14 +2053,14 @@ Para liberar um shell em caso de necessidade:
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0664</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2775</span>
 </code></pre></div>
-<p>8 - Ativar e reiniciar os serviços do Samba</p>
+<h2 id="8-ativar-e-reiniciar-os-servicos-do-samba">8 - Ativar e reiniciar os serviços do Samba</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd
 <span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd
 </code></pre></div>
-<p>9 - Testar configuração, verificando se não há erros:</p>
+<h2 id="9-testar-configuracao-verificando-se-nao-ha-erros">9 - Testar configuração, verificando se não há erros:</h2>
 <div class="highlight"><pre><span></span><code><span class="w">    </span>testparm
 </code></pre></div>
-<p>10 - Acessar os compartilhamentos</p>
+<h2 id="10-acessar-os-compartilhamentos">10 - Acessar os compartilhamentos</h2>
 <p>Agora, de outra máquina na mesma rede, você pode acessar:</p>
 <ul>
 <li>
@@ -1751,7 +2079,7 @@ Para liberar um shell em caso de necessidade:
 <p>Lembre-se de ajustar as configurações de firewall se necessário para permitir o tráfego SMB na sua rede.</p>
 <hr />
 <h2 id="sessao-de-anotacoes">SESSÃO DE ANOTAÇÕES:</h2>
-<h3 id="diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica">Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)</h3>
+<h2 id="diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica">Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)</h2>
 <div class="highlight"><pre><span></span><code><span class="w">     </span>valid<span class="w"> </span>users
 </code></pre></div>
 <ul>
@@ -1791,7 +2119,7 @@ Para liberar um shell em caso de necessidade:
 </li>
 </ul>
 <hr />
-<h3 id="as-flags-de-setuid-setgid-e-sticky-bit">As flags de SETUID, SETGID e STICKY BIT:</h3>
+<h2 id="as-flags-de-setuid-setgid-e-sticky-bit">As flags de SETUID, SETGID e STICKY BIT:</h2>
 <p>Esses parâmetros, no Samba, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.</p>
 <p>Significado dos valores</p>
 <p>DIRETÓRIOS:</p>

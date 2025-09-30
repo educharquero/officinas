@@ -678,6 +678,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -689,6 +702,292 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#servidor-de-arquivos-do-ad-no-rocky-linux-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servidor de Arquivos do AD no Rocky Linux 9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-a-instalacao-do-sistema-operacional-seguir-com-os-comandos-para-a-instalacao-e-configuracao-do-samba-como-membro-e-servidor-de-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizar o sistema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-e-editar-etchostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar e editar /etc/hostname:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-e-editar-etcnsswitchconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar e editar /etc/nsswitch.conf:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurar e editar /etc/nsswitch.conf:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-a-rede-e-inserir-dados-do-dns-do-ad-dc-ou-seja-do-seu-controlador-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reiniciar o sistema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-o-arquivo-usermap-no-diretorio-etcsamba-com-o-conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar o arquivo user.map no diretório /etc/samba com o conteúdo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-um-backup-do-arquivo-etcsambasmbconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer um backup do arquivo /etc/samba/smb.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-uma-copia-do-arquivo-etckrb5conf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer uma cópia do arquivo /etc/krb5.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-existe-algum-erro-de-sintaxe-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se existe algum erro de sintaxe com o comando:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-nao-houver-erros-executar-o-comando-para-recarregar-o-samba-novamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se não houver erros, executar o comando para recarregar o samba novamente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desabilitar-o-selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desabilitar o SELinux:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajustar-o-firewall-adicionar-o-servico-do-samba-e-recarregar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reiniciar o servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comando-para-juntar-se-ao-dominio-criado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comando para juntar-se ao Domínio Criado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-conexao-netlogon-com-o-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar conexão NETLOGON com o AD:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-o-servidor-dc1-seu-controlador-de-dominio-volta-resposta-com-o-comando-nslookup-seudominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-tambem-atraves-ip-do-seu-servidor-dcmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      E também através IP do seu Servidor DCMaster:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-retorna-o-gid-do-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se retorna o GID do Grupo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#garantir-privilegio-de-acesso-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Garantir privilégio de acesso com o Comando:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chegando-nesse-ponto-esta-apto-a-iniciar-a-configuracao-da-montagem-de-disco-o-diretorio-escolhido-para-abrigar-seus-arquivos-bem-como-ajustar-as-permissoes-de-acesso-para-que-seja-possivel-fazer-as-alteracoes-via-rsat-com-as-devidas-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-criou-um-disco-e-disponibilizou-o-diretorio-srvarquivos-e-entao-indicou-esse-caminho-em-seu-smbconf-ou-seja-apos-a-sessao-global-indicando-o-nome-de-seu-compartilhamento-do-servidor-de-arquivos-caminho-e-ajustar-as-permissoes-de-acesso-seguindo-o-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se criou um disco e disponibilizou o diretório /srv/arquivos e então, indicou esse caminho em seu smb.conf ou seja, após a sessão global indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salve-o-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salve o arquivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajustando-as-permissoes-para-o-grupo-no-diretorio-criado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajustando as permissões para o Grupo no diretório criado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recarregar-novamente-o-smbcontrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recarregar novamente o smbcontrol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atraves-do-windows-logue-se-com-a-conta-administrator-e-atraves-do-rsat-inicie-suas-configuracoes-desejadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1615,6 +1914,281 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#servidor-de-arquivos-do-ad-no-rocky-linux-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servidor de Arquivos do AD no Rocky Linux 9
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-a-instalacao-do-sistema-operacional-seguir-com-os-comandos-para-a-instalacao-e-configuracao-do-samba-como-membro-e-servidor-de-arquivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atualizar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizar o sistema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-e-editar-etchostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar e editar /etc/hostname:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-e-editar-etcnsswitchconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar e editar /etc/nsswitch.conf:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurar e editar /etc/nsswitch.conf:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-a-rede-e-inserir-dados-do-dns-do-ad-dc-ou-seja-do-seu-controlador-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-o-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reiniciar o sistema:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editar-o-arquivo-usermap-no-diretorio-etcsamba-com-o-conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editar o arquivo user.map no diretório /etc/samba com o conteúdo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-um-backup-do-arquivo-etcsambasmbconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer um backup do arquivo /etc/samba/smb.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fazer-uma-copia-do-arquivo-etckrb5conf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazer uma cópia do arquivo /etc/krb5.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-existe-algum-erro-de-sintaxe-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se existe algum erro de sintaxe com o comando:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-nao-houver-erros-executar-o-comando-para-recarregar-o-samba-novamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se não houver erros, executar o comando para recarregar o samba novamente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desabilitar-o-selinux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desabilitar o SELinux:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajustar-o-firewall-adicionar-o-servico-do-samba-e-recarregar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reiniciar o servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comando-para-juntar-se-ao-dominio-criado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comando para juntar-se ao Domínio Criado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-conexao-netlogon-com-o-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar conexão NETLOGON com o AD:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-o-servidor-dc1-seu-controlador-de-dominio-volta-resposta-com-o-comando-nslookup-seudominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-tambem-atraves-ip-do-seu-servidor-dcmaster" class="md-nav__link">
+    <span class="md-ellipsis">
+      E também através IP do seu Servidor DCMaster:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-se-retorna-o-gid-do-grupo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar se retorna o GID do Grupo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#garantir-privilegio-de-acesso-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Garantir privilégio de acesso com o Comando:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chegando-nesse-ponto-esta-apto-a-iniciar-a-configuracao-da-montagem-de-disco-o-diretorio-escolhido-para-abrigar-seus-arquivos-bem-como-ajustar-as-permissoes-de-acesso-para-que-seja-possivel-fazer-as-alteracoes-via-rsat-com-as-devidas-permissoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-criou-um-disco-e-disponibilizou-o-diretorio-srvarquivos-e-entao-indicou-esse-caminho-em-seu-smbconf-ou-seja-apos-a-sessao-global-indicando-o-nome-de-seu-compartilhamento-do-servidor-de-arquivos-caminho-e-ajustar-as-permissoes-de-acesso-seguindo-o-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se criou um disco e disponibilizou o diretório /srv/arquivos e então, indicou esse caminho em seu smb.conf ou seja, após a sessão global indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salve-o-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salve o arquivo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajustando-as-permissoes-para-o-grupo-no-diretorio-criado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajustando as permissões para o Grupo no diretório criado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recarregar-novamente-o-smbcontrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recarregar novamente o smbcontrol
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atraves-do-windows-logue-se-com-a-conta-administrator-e-atraves-do-rsat-inicie-suas-configuracoes-desejadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1630,10 +2204,10 @@
 
 
 <h1 id="fileserver-rocky">📁 FileServer Rocky</h1>
-<h1 id="servidor-de-arquivos-do-ad-no-rocky-linux-9">Servidor de Arquivos do AD no Rocky Linux 9</h1>
-<p>Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos. </p>
-<p>Atualizar o sistema:
-<div class="highlight"><pre><span></span><code>yum update -y &amp;&amp; yum upgrade -y
+<h2 id="servidor-de-arquivos-do-ad-no-rocky-linux-9">Servidor de Arquivos do AD no Rocky Linux 9</h2>
+<h2 id="apos-a-instalacao-do-sistema-operacional-seguir-com-os-comandos-para-a-instalacao-e-configuracao-do-samba-como-membro-e-servidor-de-arquivos">Após a instalação do sistema operacional, seguir com os comandos para a instalação e configuração do samba como membro e servidor de arquivos.</h2>
+<h2 id="atualizar-o-sistema">Atualizar o sistema:</h2>
+<p><div class="highlight"><pre><span></span><code>yum update -y &amp;&amp; yum upgrade -y
 </code></pre></div>
 Instalar os pacotes do samba necessários para samba e servidor de arquivos:
 <div class="highlight"><pre><span></span><code>yum install samba samba-winbind samba-winbind-clients
@@ -1649,15 +2223,15 @@ Habilitar os serviços para iniciar junto ao boot do sistema:
 ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
 </code></pre></div>
 <strong>Salvar o arquivo</strong></p>
-<p>Configurar e editar <strong>/etc/hostname:</strong>
-<div class="highlight"><pre><span></span><code>nano /etc/hostname
+<h2 id="configurar-e-editar-etchostname">Configurar e editar <strong>/etc/hostname:</strong></h2>
+<p><div class="highlight"><pre><span></span><code>nano /etc/hostname
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>arquivos.esharknet.edu
 </code></pre></div>
 <strong>Salvar o Arquivo</strong></p>
-<p>Configurar e editar <strong>/etc/nsswitch.conf</strong>:
+<h2 id="configurar-e-editar-etcnsswitchconf">Configurar e editar <strong>/etc/nsswitch.conf</strong>:</h2>
 <div class="highlight"><pre><span></span><code>nano /etc/nsswitch.conf
-</code></pre></div></p>
+</code></pre></div>
 <p><strong>Mudar a configuração</strong></p>
 <p>De:
 <div class="highlight"><pre><span></span><code>passwd: sss files systemd
@@ -1672,7 +2246,7 @@ Habilitar os serviços para iniciar junto ao boot do sistema:
 <p><div class="highlight"><pre><span></span><code>group: files winbind
 </code></pre></div>
 <strong>Salve o arquivo</strong> </p>
-<h4 id="configurar-a-rede-e-inserir-dados-do-dns-do-ad-dc-ou-seja-do-seu-controlador-de-dominio">Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:</h4>
+<h2 id="configurar-a-rede-e-inserir-dados-do-dns-do-ad-dc-ou-seja-do-seu-controlador-de-dominio">Configurar a rede e inserir dados do DNS do AD-DC ou seja, do seu controlador de domínio:</h2>
 <div class="highlight"><pre><span></span><code>nmtui
 </code></pre></div>
 <p>Escolha <strong>Editar uma Conexão</strong></p>
@@ -1682,17 +2256,17 @@ Habilitar os serviços para iniciar junto ao boot do sistema:
 <p>Ainda com as setas de direção, vá até <strong>Domínios de pesquisa</strong> e digite enter para adicionar o <strong>seu.domínio</strong>.
 Então, selecione OK <strong>com as setas de direção e digite enter</strong>. </p>
 <p>Com a <strong>tecla Tab</strong>, vá até a opção: <strong>voltar</strong> e digite <strong>enter</strong>. Então, com a tecla <strong>Tab</strong>, selecione a <strong>opção OK</strong> e digite <strong>enter</strong></p>
-<p>Reiniciar o sistema:
+<h2 id="reiniciar-o-sistema">Reiniciar o sistema:</h2>
 <div class="highlight"><pre><span></span><code>reboot
-</code></pre></div></p>
-<p>Editar o arquivo <strong>user.map</strong> no diretório <strong>/etc/samba</strong> com o conteúdo:
-<div class="highlight"><pre><span></span><code>nano /etc/samba/user.map
+</code></pre></div>
+<h2 id="editar-o-arquivo-usermap-no-diretorio-etcsamba-com-o-conteudo">Editar o arquivo <strong>user.map</strong> no diretório <strong>/etc/samba</strong> com o conteúdo:</h2>
+<p><div class="highlight"><pre><span></span><code>nano /etc/samba/user.map
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>!root = DOMINIO\Administrator
 </code></pre></div>
 <strong>Salve o arquivo</strong></p>
-<p>Fazer um backup do arquivo <strong>/etc/samba/smb.conf</strong>:
-<div class="highlight"><pre><span></span><code>mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
+<h2 id="fazer-um-backup-do-arquivo-etcsambasmbconf">Fazer um backup do arquivo <strong>/etc/samba/smb.conf</strong>:</h2>
+<p><div class="highlight"><pre><span></span><code>mv /etc/samba/smb.conf /etc/samba/smb.conf.bkp
 </code></pre></div>
 Fazer um arquivo <strong>smb.conf</strong> para funcionar como membro e servidor de arquivo de modelo (<strong>rid</strong>)
 <div class="highlight"><pre><span></span><code>nano /etc/samba/smb.conf
@@ -1717,7 +2291,7 @@ Fazer um arquivo <strong>smb.conf</strong> para funcionar como membro e servidor
     map acl inherit = Yes
     vfs objects = acl_xattr
 </code></pre></div>
-<p>Fazer uma cópia do arquivo <strong>/etc/krb5.conf</strong></p>
+<h2 id="fazer-uma-copia-do-arquivo-etckrb5conf">Fazer uma cópia do arquivo <strong>/etc/krb5.conf</strong></h2>
 <div class="highlight"><pre><span></span><code>mv /etc/krb5.conf /etc/krb5.conf.bkp
 </code></pre></div>
 <p>Editar um novo arquivo krb5.conf</p>
@@ -1729,38 +2303,38 @@ Fazer um arquivo <strong>smb.conf</strong> para funcionar como membro e servidor
     default_realm = ESHARKNET.EDU
 </code></pre></div>
 <p><strong>Salvar o arquivo</strong></p>
-<p>Verificar se existe algum erro de sintaxe com o comando:</p>
+<h2 id="verificar-se-existe-algum-erro-de-sintaxe-com-o-comando">Verificar se existe algum erro de sintaxe com o comando:</h2>
 <div class="highlight"><pre><span></span><code>testparm
 </code></pre></div>
-<p>Se não houver erros, executar o comando para recarregar o samba novamente
+<h2 id="se-nao-houver-erros-executar-o-comando-para-recarregar-o-samba-novamente">Se não houver erros, executar o comando para recarregar o samba novamente</h2>
 <div class="highlight"><pre><span></span><code>smbcontrol all reload-config
 </code></pre></div>
-Desabilitar o <strong>SELinux:</strong>
-<div class="highlight"><pre><span></span><code>nano /etc/selinux/config
+<h2 id="desabilitar-o-selinux">Desabilitar o <strong>SELinux:</strong></h2>
+<p><div class="highlight"><pre><span></span><code>nano /etc/selinux/config
 </code></pre></div>
 Na linha SELINUX=enforcing trocar para <strong>SELINUX=disabled</strong></p>
 <p><strong>Salvar o arquivo</strong></p>
-<p>Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall: 
+<h2 id="ajustar-o-firewall-adicionar-o-servico-do-samba-e-recarregar-o-firewall">Ajustar o Firewall. Adicionar o serviço do samba e recarregar o Firewall:</h2>
 <div class="highlight"><pre><span></span><code>firewall-cmd --add-service=samba --permanent
 firewall-cmd --reload
-</code></pre></div></p>
-<p><strong>Reiniciar o servidor</strong>:
+</code></pre></div>
+<h2 id="reiniciar-o-servidor"><strong>Reiniciar o servidor</strong>:</h2>
 <div class="highlight"><pre><span></span><code>reboot
-</code></pre></div></p>
-<p>Comando para juntar-se ao Domínio Criado:
-<div class="highlight"><pre><span></span><code>net ads join -U administrator  
+</code></pre></div>
+<h2 id="comando-para-juntar-se-ao-dominio-criado">Comando para juntar-se ao Domínio Criado:</h2>
+<p><div class="highlight"><pre><span></span><code>net ads join -U administrator  
 Enter administrator&#39;s password: senha do provisionamento
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Using short domain name -- ESHARKNET
 Joined &#39;ARQUIVOS&#39; to dns domain &#39;esharknet.edu&#39;
 </code></pre></div></p>
-<h4 id="verificar-conexao-netlogon-com-o-ad">Verificar conexão NETLOGON com o AD:</h4>
+<h2 id="verificar-conexao-netlogon-com-o-ad">Verificar conexão NETLOGON com o AD:</h2>
 <div class="highlight"><pre><span></span><code>wbinfo --ping-dc
 </code></pre></div>
 <p>Como resultado deve aparecer:</p>
 <div class="highlight"><pre><span></span><code>checking the NETLOGON for domain[ESHARKNET] dc connection to &quot;dcmaster.esharknet.edu&quot; succeeded
 </code></pre></div>
-<h4 id="verificar-se-o-servidor-dc1-seu-controlador-de-dominio-volta-resposta-com-o-comando-nslookup-seudominio">Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:</h4>
+<h2 id="verificar-se-o-servidor-dc1-seu-controlador-de-dominio-volta-resposta-com-o-comando-nslookup-seudominio">Verificar se o Servidor DC1 (seu controlador de dominio) volta resposta com o comando: nslookup SEU.DOMINIO:</h2>
 <p><div class="highlight"><pre><span></span><code>nslookup dcmaster.esharknet.edu
 </code></pre></div>
 Um resultado parecido com esse deve aparecer na tela:</p>
@@ -1770,7 +2344,7 @@ Address:    192.168.70.250#53
 Name:   dcmaster.esharknet.edu
 Address: 192.168.70.250
 </code></pre></div>
-<h4 id="e-tambem-atraves-ip-do-seu-servidor-dcmaster">E também através IP do seu Servidor DCMaster:</h4>
+<h2 id="e-tambem-atraves-ip-do-seu-servidor-dcmaster">E também através IP do seu Servidor DCMaster:</h2>
 <div class="highlight"><pre><span></span><code>nslookup 192.168.70.250
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Authoritative answers can be found from:
@@ -1789,20 +2363,20 @@ Address: 192.168.70.250
 E também adicione um usuário:
 <div class="highlight"><pre><span></span><code>samba-tool user add &#39;esharkuser&#39;
 </code></pre></div></p>
-<h4 id="verificar-se-retorna-o-gid-do-grupo">Verificar se retorna o GID do Grupo:</h4>
+<h2 id="verificar-se-retorna-o-gid-do-grupo">Verificar se retorna o GID do Grupo:</h2>
 <div class="highlight"><pre><span></span><code>getent group &quot;ESHARKNET\\Linux Domain&quot;
 linux domain:x:3013:
 </code></pre></div>
-<h4 id="garantir-privilegio-de-acesso-com-o-comando">Garantir privilégio de acesso com o Comando:</h4>
-<p><div class="highlight"><pre><span></span><code>net rpc rights grant &quot;ESHARKNET\Domain Admins&quot; SeDiskOperatorPrivilege -U &quot;ESHARKNET\Administrator&quot;
+<h2 id="garantir-privilegio-de-acesso-com-o-comando">Garantir privilégio de acesso com o Comando:</h2>
+<div class="highlight"><pre><span></span><code>net rpc rights grant &quot;ESHARKNET\Domain Admins&quot; SeDiskOperatorPrivilege -U &quot;ESHARKNET\Administrator&quot;
 Enter ESHARK\Administrator password: senha CRIADA no provisionamento do DCMaster
 # Caso tenha criado corretamente o sistema irá dar sucesso do comando
 
 Successfully granted rights.
 </code></pre></div>
-Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.</p>
+<h2 id="chegando-nesse-ponto-esta-apto-a-iniciar-a-configuracao-da-montagem-de-disco-o-diretorio-escolhido-para-abrigar-seus-arquivos-bem-como-ajustar-as-permissoes-de-acesso-para-que-seja-possivel-fazer-as-alteracoes-via-rsat-com-as-devidas-permissoes">Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco, o diretório escolhido para abrigar seus arquivos bem como, ajustar as permissões de acesso para que seja possível fazer as alterações via RSAT com as devidas permissões.</h2>
 <p>Exemplo:</p>
-<p>Se criou um disco e disponibilizou o diretório <strong>/srv/arquivos</strong> e então, indicou esse caminho em seu <strong>smb.conf</strong> ou seja, após a sessão <strong>global</strong> indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:</p>
+<h2 id="se-criou-um-disco-e-disponibilizou-o-diretorio-srvarquivos-e-entao-indicou-esse-caminho-em-seu-smbconf-ou-seja-apos-a-sessao-global-indicando-o-nome-de-seu-compartilhamento-do-servidor-de-arquivos-caminho-e-ajustar-as-permissoes-de-acesso-seguindo-o-exemplo">Se criou um disco e disponibilizou o diretório <strong>/srv/arquivos</strong> e então, indicou esse caminho em seu <strong>smb.conf</strong> ou seja, após a sessão <strong>global</strong> indicando o nome de seu compartilhamento do servidor de arquivos, caminho, e ajustar as permissões de acesso seguindo o exemplo:</h2>
 <p><div class="highlight"><pre><span></span><code>vim /etc/samba/smb.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[ARQUIVOS]
@@ -1810,15 +2384,15 @@ Chegando nesse ponto, está apto a iniciar a configuração da montagem de disco
    read only = no
    browseable = yes
 </code></pre></div></p>
-<p>Salve o arquivo</p>
-<h4 id="ajustando-as-permissoes-para-o-grupo-no-diretorio-criado">Ajustando as permissões para o Grupo no diretório criado:</h4>
+<h2 id="salve-o-arquivo">Salve o arquivo</h2>
+<h2 id="ajustando-as-permissoes-para-o-grupo-no-diretorio-criado">Ajustando as permissões para o Grupo no diretório criado:</h2>
 <div class="highlight"><pre><span></span><code>chown root:&quot;Domain Admins&quot; /srv/arquivos
 chmod 775 -R /srv/arquivos
 </code></pre></div>
-<h4 id="recarregar-novamente-o-smbcontrol">Recarregar novamente o smbcontrol</h4>
+<h2 id="recarregar-novamente-o-smbcontrol">Recarregar novamente o smbcontrol</h2>
 <div class="highlight"><pre><span></span><code>smbcontrol all reload-config
 </code></pre></div>
-<p>Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.</p>
+<h2 id="atraves-do-windows-logue-se-com-a-conta-administrator-e-atraves-do-rsat-inicie-suas-configuracoes-desejadas">Através do Windows, logue-se com a conta Administrator e através do RSAT inicie suas configurações desejadas.</h2>
 <p><img alt="ad-win-42a" src="https://user-images.githubusercontent.com/38897311/232552064-cf5763de-fe67-42d2-ac32-fe2b16138afd.png" /></p>
 <p>THAT’S ALL FOLKS!!</p>
 
