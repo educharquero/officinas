@@ -1,5 +1,5 @@
 
-# 🐧 Bem-vindo à Comunidade Officinas
+# 🐧 Bem-vindo ao site da Comunidade Officinas
 
 
 <p align="center">
