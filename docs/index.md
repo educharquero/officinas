@@ -24,7 +24,7 @@
 Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos, configurações de serviços e materiais de apoio.
 
 
-## Visão Geral
+## 🌐 Visão Geral
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
