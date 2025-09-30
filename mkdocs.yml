@@ -13,10 +13,10 @@ copyright: >-
 
 # --- SEÇÃO 'nav' ATUALIZADA ---
 nav:
-  - 'Início': 'index.md'
-  - 'Visão Geral': 'Visao_Geral.md'
+  - 📂 'Início': 'index.md'
+  - 📂 'Visão Geral': 'Visao_Geral.md'
 
-  - 'Servidores':
+  - 📂 'Servidores':
     - 'DHCP Server': 'DHCP_Server.md'
     - 'DNS Server': 'DNS_Server.md'
     - 'Firewall Server': 'Firewall_Server.md'
@@ -33,7 +33,7 @@ nav:
       - 'DC-1 Pacotes Binários': 'DC1_pacotes_binarios.md'
       - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
 
-  - 'Tópicos de Estudo':
+  - 📂 'Tópicos de Estudo':
     - 'Universo NIX': 'Universo_NIX.md'
     - 'FHS (Filesystem Hierarchy Standard)': 'FHS.md'
     - 'Systemd': 'Systemd.md'
@@ -43,7 +43,7 @@ nav:
     - 'Usuários e Grupos 01': 'Usuarios_e_Grupos-1.md'
     - 'Usuários e Grupos 02': 'Usuarios_e_Grupos-2.md'
 
-  - 'Módulos LPI':
+  - 📂 'Módulos LPI':
     - 'Módulo 103.1 - Linha de Comando':
       - 'Aula 00': 'Modulo_103.1-aula00.md'
       - 'Aula 01': 'Modulo_103.1-aula01.md'
@@ -54,11 +54,11 @@ nav:
     - 'Módulo 103.2 - Processamento de Texto':
       - 'Aula 01': 'Modulo_103.2-aula01.md'
 
-  - 'Ataques e Segurança':
+  - 📂 'Ataques e Segurança':
     - 'Aircrack-NG': 'Aircrack-NG.md'
     # Os outros itens foram movidos para 'Servidores'
 
-  - 'Sistemas Operacionais':
+  - 📂 'Sistemas Operacionais':
     - 'OpenSUSE': 'OpenSUSE.md'
 
   # - 'Objetivos': 'objetivos.md' # Arquivo não encontrado, comentei

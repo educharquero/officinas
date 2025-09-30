@@ -21,7 +21,7 @@
 * **`TRANSPARÊNCIA`** - Incentivando a adoção de ferramentas com código fonte auditável, para uso na máquina pública ou privada.
 
 
-Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos, configurações de serviços e materiais de apoio.
+📘 Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos, configurações de serviços e materiais de apoio.
 
 
 ## 🌐 Visão Geral
@@ -76,9 +76,6 @@ Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos
 * **`INSTRUTOR`** disponível á turma de alunos, para subirmos juntos cada degrau dessa tremenda escalada!
 
 * **`SOFTWARE LIVRE`** aliando os conceitos de diversão e responsabilidade.
-
-
-
 
 
 
