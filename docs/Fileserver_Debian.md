@@ -1,22 +1,67 @@
-# 📁 FileServer no Debian com binários
-
-## Tutorial de Configuração do Samba4 como FileServer no Debian 13
+# 📁 FileServer no Debian com pacotes binários
 
 ## Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
 
-## 0 -  Atualizar o Sistema
+## Primeiramente vamos ajustar as configurações padrão de rede no Servidor.
 
-```bash
-    sudo apt update && sudo apt full-upgrade
+- Ip fixo do Servidor = 192.168.70.250
+- Roteador local      = 192.168.70.1
+- Gateway             = o roteador
+- DNS                 = o roteador
+
+## 1 - Setando ip fixo na placa de rede:
+
+```
+vim /etc/network/interfaces
 ```
 
-## 1 -  Instalar o Samba
+```
+allow-hotplug en7s0
+iface enp7s0 inet static
+address 192.168.70.250
+netmask 255.255.255.0
+gateway 192.168.70.1
+```
+
+## 2 - Setando as Configurações de DNS:
+
+```
+vim /etc/resolv.conf
+```
+
+```
+nameserver 192.168.70.1
+```
+
+## 3 - Setando as Configurações de hosts:
+
+```
+hostnamectl set-hostname smb01
+```
+
+```
+vim /etc/hosts
+```
+
+```
+127.0.0.1 localhost 
+127.0.1.1 smb01.esharknet.edu smb01
+192.168.70.250 smb01.esharknet.edu smb01
+```
+
+## 4 - Sincronizando, atualizando os pacotes e o Sistema operacional:
+
+```
+sudo apt update && sudo apt full-upgrade
+```
+
+## 5 -  Instalando o pacote do SAMBA4:
 
 ```bash
     sudo apt install samba -y
 ```
 
-## 2 - Adicione ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+## 6 - Adicionando ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
 
 ```bash
     sudo useradd -s /bin/false -M kalel
@@ -25,7 +70,7 @@
 Para liberar um shell em caso de necessidade:
 "sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"
 
-## 3 - Criar os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+## 7 - Criando os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
 
 ```bash
     sudo groupadd gdiretoria
@@ -34,7 +79,7 @@ Para liberar um shell em caso de necessidade:
     sudo groupadd gfinanceiro
 ```
 
-Adicione os usuários aos grupos ao qual terão acesso:
+Adicionando os usuários aos grupos ao qual terão acesso:
 
 ```bash
     sudo usermod -aG gdiretoria kalel
@@ -43,14 +88,14 @@ Adicione os usuários aos grupos ao qual terão acesso:
     sudo usermod -aG gfinanceiro diana
 ```
 
-Adicione os usuários ao banco de senhas do Samba:
+Adicionando os usuários ao banco de senhas do Samba:
 
 ```bash
     sudo smbpasswd -a kalel
     sudo smbpasswd -a diana
 ```
 
-## 4 -  Criar os diretórios para os compartilhamentos de rede:
+## 8 - Criando os diretórios para os compartilhamentos de rede:
 
 ```bash
     sudo mkdir -p /srv/samba/arquivos/diretoria
@@ -62,7 +107,7 @@ Adicione os usuários ao banco de senhas do Samba:
     sudo mkdir -p /srv/samba/arquivos/publica
 ```
 
-## 5 -  Definir as permissões das pastas:
+## 9 - Definindo as permissões das pastas:
 
 A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.
 
@@ -88,13 +133,13 @@ A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, h
 sudo chown -R nobody:nogroup /srv/samba/arquivos/publica
 ```
 
-## 6 - Antes de editar, faça backup do arquivo principal do Samba:
+## 10 - Antes de editar, faça backup do arquivo principal do SAMBA4:
 
 ```bash
     sudo mv /etc/samba/smb.conf{,.orig}
 ```
 
-## 7 - Crie o arquivo de configuração do Samba:
+## 11 - Criando o arquivo de configuração do SAMBA4:
 
 ```bash
     sudo vim /etc/samba/smb.conf
@@ -143,20 +188,20 @@ Insira o seguinte conteúdo:
    directory mask = 2775
 ```
 
-## 8 - Ativar e reiniciar os serviços do Samba
+## 12 - Ativando e reiniciando os serviços do SAMBA4:
 
 ```bash
     sudo systemctl enable smbd
     sudo systemctl restart smbd
 ```
 
-## 9 - Testar configuração, verificando se não há erros:
+## 13 - Validando se não há erros no smb.conf:
 
 ```bash
     testparm
 ```
 
-## 10 - Acessar os compartilhamentos
+## 14 - Acessando os compartilhamentos de rede:
 
 Agora, de outra máquina na mesma rede, você pode acessar:
 
@@ -214,7 +259,7 @@ Exemplo:
 
 ## As flags de SETUID, SETGID e STICKY BIT:
 
-Esses parâmetros, no Samba, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.
+Esses parâmetros, no SAMBA4, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.
 
 Significado dos valores
 
