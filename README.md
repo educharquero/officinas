@@ -1,6 +1,6 @@
 # 🐧 Comunidade Officinas
 
-![Banner do Site](../imagens/banner-officinas.png) 
+![Banner do Site](../imagens/officinas.png) 
 <!-- Sugestão: Crie um banner legal para o projeto e coloque aqui! -->
 
 **Bem-vindo ao repositório da Comunidade Officinas! Este é o código-fonte do nosso portal de conhecimento dedicado ao universo do Software Livre, com foco em Linux, servidores e preparação para certificações.**
