@@ -1732,12 +1732,16 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>HISTFILE=/home/usuario/.bash_history
 HISTFILESIZE=20000
-_=HISTFILE
 </code></pre></div>
 <p>Assim como a que aponta o tamanho do <em>cache</em>, <code>HISTSIZE</code>, em número de linhas:</p>
 <div class="highlight"><pre><span></span><code>echo $HISTSIZE
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>1000
+<div class="highlight"><pre><span></span><code>2000
+</code></pre></div>
+<p>Já o apontamento do tamanho do <code>HISTFILESIZE</code>, define em número de linhas o que é escrito no arquivo:</p>
+<div class="highlight"><pre><span></span><code>echo $HISTFILESIZE
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>2000
 </code></pre></div>
 <p>Uma opção poderosa na busca de histórico de comandos, é a associação entre <code>ctrl+r</code> e alguma parte do comando, ao dar <code>ENTER</code>, ele roda o comando:</p>
 <div class="highlight"><pre><span></span><code>ctrl + r dist
