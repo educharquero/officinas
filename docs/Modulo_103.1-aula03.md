@@ -132,6 +132,9 @@ $ whereis echo
 $ whereis ls
 ```
 
+(Note que o comando 'type -a' faz as mesmas buscas).
+ 
+
 ### O COMANDO `uname`
 
 O comando `uname` mostra a versão do `Kernel`, usada pelo Sistema Operacional:

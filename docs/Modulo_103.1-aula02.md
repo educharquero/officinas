@@ -47,7 +47,6 @@ set | grep HISTFILE
 ```
 HISTFILE=/home/usuario/.bash_history
 HISTFILESIZE=20000
-_=HISTFILE
 ```
 
 Assim como a que aponta o tamanho do _cache_, `HISTSIZE`, em número de linhas:
@@ -57,7 +56,17 @@ echo $HISTSIZE
 ```
 
 ```
-1000
+2000
+```
+
+Já o apontamento do tamanho do `HISTFILESIZE`, define em número de linhas o que é escrito no arquivo:
+
+```
+echo $HISTFILESIZE
+```
+
+```
+2000
 ```
 
 Uma opção poderosa na busca de histórico de comandos, é a associação entre `ctrl+r` e alguma parte do comando, ao dar `ENTER`, ele roda o comando:
