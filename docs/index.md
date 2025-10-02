@@ -1,3 +1,4 @@
+![Banner da Comunidade Officinas](../imagens/banner-officinas.png )
 
 # 🐧 Bem-vindo à Comunidade Officinas
 
