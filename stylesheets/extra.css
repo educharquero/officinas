@@ -11,3 +11,17 @@
   height: 2.5rem; /* Experimente valores como 2rem, 3rem, etc. */
   width: auto;
 }
+
+/* extra.css */
+
+/* Regra específica para o conteúdo do artigo */
+.md-content .text-red-code {
+  color: #E53935 !important;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  background-color: rgba(229, 57, 53, 0.1);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+
