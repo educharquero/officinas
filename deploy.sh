@@ -17,12 +17,6 @@ cd "$PROJECT_DIR" || exit
 echo "✅ Navegou para $PROJECT_DIR"
 
 ## 2. Sincroniza o CÓDIGO-FONTE com o repositório Git
-#echo "☁️  Sincronizando código-fonte com o repositório Git (branch main)..."
-#git add .
-#git commit -m "${1:-$COMMIT_MESSAGE}"
-#git push origin main
-#echo "✅ Repositório Git (main) atualizado."
-
 echo "☁️  Sincronizando código-fonte com o repositório Git (branch main)..."
 git add .
 # Tenta fazer o commit. Se não houver nada, apenas continua.
