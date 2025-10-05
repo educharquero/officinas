@@ -77,6 +77,7 @@
 
 * **`SOFTWARE LIVRE`** aliando os conceitos de diversão e responsabilidade.
 
+⚠️  Você pode contribuir na página do projeto no Github.com.
 
 
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
