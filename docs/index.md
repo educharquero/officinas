@@ -50,6 +50,9 @@
 - [FHS](./FHS.md)
 
 ## 🔩 Módulos
+- [Módulo 101.1 - Detecção de Hardware](./LPIC-101.1_identificacao_e_configuracao_de_Hardware.md)
+- [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_processo_de_inicializacao_do_linux.md)
+- [Módulo 101.3 - Runlevels](./LPIC-101.3_runlevel_shutdown_e_reboot.md)
 - [Módulo 103.1 - Aula 00](./Modulo_103.1-aula00.md)
 - [Módulo 103.1 - Aula 01](./Modulo_103.1-aula01.md)
 - [Módulo 103.1 - Aula 02](./Modulo_103.1-aula02.md)
