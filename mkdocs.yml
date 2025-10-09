@@ -48,8 +48,6 @@ nav:
     - 'Módulo 101.1': 'LPIC-101.1_identificacao_e_configuracao_de_Hardware.md'
     - 'Módulo 101.2': 'LPIC-101.2_processo_de_inicializacao_do_linux.md'
     - 'Módulo 101.3': 'LPIC-101.3_runlevel_shutdown_e_reboot.md'
-
-
     - 'Módulo 103.1 - Linha de Comando':
       - 'Aula 00': 'Modulo_103.1-aula00.md'
       - 'Aula 01': 'Modulo_103.1-aula01.md'
