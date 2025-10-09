@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>101.3 Runlevel, Shutdown e Reboot (LPIC-1) - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1013-runlevel-shutdown-e-reboot-lpic-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              101.3 Runlevel, Shutdown e Reboot (LPIC-1)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  📂 'Início'
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  📂 'Visão Geral'
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  
+  📂 'Servidores'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  
+  📂 'Tópicos de Estudo'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  
+  📂 'Módulos LPI'
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  
+  📂 'Ataques e Segurança'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  
+  📂 'Sistemas Operacionais'
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 'Início'
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 'Visão Geral'
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Servidores'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Servidores'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Tópicos de Estudo'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Tópicos de Estudo'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Módulos LPI'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Módulos LPI'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Ataques e Segurança'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Ataques e Segurança'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Sistemas Operacionais'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Sistemas Operacionais'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-processo-de-inicializacao-do-linux-e-o-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O Processo de Inicialização do Linux e o init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implementacoes-do-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implementações do init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-sysv-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. SysV Init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-upstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Upstart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. SystemD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-openrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. OpenRC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-sysv-init-em-detalhes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. O SysV Init em Detalhes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-codigos-de-runlevels" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Códigos de Runlevels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-gerenciamento-de-runlevels-sysv-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Gerenciamento de Runlevels (SysV Init)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-estrutura-do-etcinittab" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Estrutura do /etc/inittab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-acoes-comuns-no-etcinittab" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Ações Comuns no /etc/inittab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validamos-o-runlevel-atual-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validamos o Runlevel atual com o comando:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1013-runlevel-shutdown-e-reboot-lpic-1">101.3 Runlevel, Shutdown e Reboot (LPIC-1)</h1>
+<p>Este documento apresenta um resumo detalhado do conteúdo abordado na seção "101.3 Runlevel, Shutdown e Reboot" da certificação LPIC-1. O foco principal é o processo de inicialização do Linux, as diferentes implementações do <code>init</code>, o gerenciamento de runlevels e targets, e os comandos relacionados a desligamento e reinicialização do sistema.</p>
+<h2 id="1-o-processo-de-inicializacao-do-linux-e-o-init">1. O Processo de Inicialização do Linux e o <code>init</code></h2>
+<p>O processo de inicialização do Linux é iniciado por um processo com <strong>PID 1</strong>, tradicionalmente conhecido como <code>init</code>. Este é o primeiro processo no espaço de usuário e serve como o pai de todos os outros processos do sistema. Sua função primordial é gerenciar o estado do sistema e iniciar/parar serviços.</p>
+<h2 id="2-implementacoes-do-init">2. Implementações do <code>init</code></h2>
+<p>Ao longo do tempo, diversas implementações do <code>init</code> surgiram, cada uma com suas particularidades:</p>
+<h2 id="21-sysv-init">2.1. SysV Init</h2>
+<p>O <strong>SysV Init</strong> é o método tradicional, baseado em scripts localizados em <code>/etc/init.d/</code> e links simbólicos em diretórios como <code>/etc/rcX.d/</code>, onde <code>X</code> representa o runlevel. Embora ainda presente em algumas distribuições, tem sido gradualmente substituído por sistemas mais modernos.</p>
+<h2 id="22-upstart">2.2. Upstart</h2>
+<p>Desenvolvido pela Canonical, o <strong>Upstart</strong> foi uma tentativa de modernizar o processo de inicialização, introduzindo suporte a eventos e inicialização paralela. Foi amplamente utilizado em versões anteriores do Ubuntu, mas foi substituído pelo SystemD.</p>
+<h2 id="23-systemd">2.3. SystemD</h2>
+<p>Atualmente, o <strong>SystemD</strong> é o padrão na maioria das distribuições Linux modernas (Red Hat, Fedora, Debian, Ubuntu, etc.). Ele transcende o papel de um simples <code>init</code>, atuando como um gerenciador completo de sistema e serviços. O SystemD introduz o conceito de <strong>unidades</strong> (units) e <strong>targets</strong>, gerenciados principalmente pelo comando <code>systemctl</code>. Ele mantém compatibilidade com scripts SysV para suportar serviços legados.</p>
+<h2 id="24-openrc">2.4. OpenRC</h2>
+<p>O <strong>OpenRC</strong> é uma alternativa leve e eficiente, utilizada em distribuições como Alpine Linux e Gentoo. Ele mantém compatibilidade com o estilo SysV, mas oferece suporte a paralelismo e dependências entre serviços.</p>
+<h2 id="3-o-sysv-init-em-detalhes">3. O SysV Init em Detalhes</h2>
+<p>O SysV Init opera com o conceito de <strong>runlevels</strong> (níveis de execução), onde cada runlevel define um conjunto de serviços e programas a serem iniciados ou finalizados. As configurações principais são definidas no arquivo <code>/etc/inittab</code>, que especifica o runlevel padrão e mapeia ações para eventos. Os scripts de inicialização estão em <code>/etc/init.d/</code> e são organizados por runlevel nos diretórios <code>/etc/rcX.d/</code>.</p>
+<ul>
+<li>Scripts com prefixo <code>S</code> (Start) são iniciados.</li>
+<li>Scripts com prefixo <code>K</code> (Kill) são finalizados.</li>
+</ul>
+<h2 id="31-codigos-de-runlevels">3.1. Códigos de Runlevels</h2>
+<p>A tabela a seguir descreve os runlevels padrão no SysV Init:</p>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Desligamento</td>
+</tr>
+<tr>
+<td>1, s, S ou Single</td>
+<td>Single User (modo de manutenção, um único usuário)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>MultiUser sem rede</td>
+</tr>
+<tr>
+<td>3</td>
+<td>MultiUser com rede</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reservado para uso personalizado</td>
+</tr>
+<tr>
+<td>5</td>
+<td>MultiUser com rede e interface gráfica (desktops)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reinicialização</td>
+</tr>
+</tbody>
+</table>
+<h2 id="32-gerenciamento-de-runlevels-sysv-init">3.2. Gerenciamento de Runlevels (SysV Init)</h2>
+<ul>
+<li><strong>Verificar runlevel padrão</strong>: Consultar <code>/etc/inittab</code>.</li>
+<li><strong>Verificar runlevel atual e anterior</strong>: Comando <code>runlevel</code>.</li>
+<li><strong>Mudar de runlevel</strong>: <code>init X</code> ou <code>telinit X</code> (onde <code>X</code> é o número do runlevel).</li>
+<li><strong>Recarregar <code>/etc/inittab</code></strong>: <code>telinit q</code> ou <code>telinit Q</code>.</li>
+<li><strong>Reaplicar runlevel atual</strong>: <code>telinit u</code> ou <code>telinit U</code>.</li>
+</ul>
+<h2 id="33-estrutura-do-etcinittab">3.3. Estrutura do <code>/etc/inittab</code></h2>
+<p>Cada linha no <code>/etc/inittab</code> segue a estrutura <code>id:runlevels:action:process</code>:</p>
+<ul>
+<li><code>id</code>: Identificador da entrada (até quatro caracteres).</li>
+<li><code>runlevels</code>: Runlevels nos quais a ação deve ocorrer (0-6).</li>
+<li><code>action</code>: Comportamento do <code>init</code> em relação ao processo.</li>
+<li><code>process</code>: Caminho do comando ou script a ser executado.</li>
+</ul>
+<p>Subindo uma distro com esse tipo de gerenciamento (Slackware por exemplo), teríamos essa estrutura:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Default runlevel</span>
+id:3:initdefault:
+
+<span class="c1"># Configuration script executed during boot</span>
+si::sysinit:/etc/init.d/rcS
+
+<span class="c1"># Action taken on runlevel S (single user)</span>
+~:S:wait:/sbin/sulogin
+
+<span class="c1">## id:runlevels:action:process</span>
+<span class="c1"># Configuration for each execution level</span>
+l0:0:wait:/etc/init.d/rc<span class="w"> </span><span class="m">0</span>
+l1:1:wait:/etc/init.d/rc<span class="w"> </span><span class="m">1</span>
+l2:2:wait:/etc/init.d/rc<span class="w"> </span><span class="m">2</span>
+l3:3:wait:/etc/init.d/rc<span class="w"> </span><span class="m">3</span>
+l4:4:wait:/etc/init.d/rc<span class="w"> </span><span class="m">4</span>
+l5:5:wait:/etc/init.d/rc<span class="w"> </span><span class="m">5</span>
+l6:6:wait:/etc/init.d/rc<span class="w"> </span><span class="m">6</span>
+
+<span class="c1"># Action taken upon ctrl+alt+del keystroke</span>
+ca::ctrlaltdel:/sbin/shutdown<span class="w"> </span>-r<span class="w"> </span>now
+
+<span class="c1"># Enable consoles for runlevels 2 and 3</span>
+<span class="m">1</span>:23:respawn:/sbin/getty<span class="w"> </span>tty1<span class="w"> </span>VC<span class="w"> </span>linux
+<span class="m">2</span>:23:respawn:/sbin/getty<span class="w"> </span>tty2<span class="w"> </span>VC<span class="w"> </span>linux
+<span class="m">3</span>:23:respawn:/sbin/getty<span class="w"> </span>tty3<span class="w"> </span>VC<span class="w"> </span>linux
+<span class="m">4</span>:23:respawn:/sbin/getty<span class="w"> </span>tty4<span class="w"> </span>VC<span class="w"> </span>linux
+
+<span class="c1"># For runlevel 3, also enable serial</span>
+<span class="c1"># terminals ttyS0 and ttyS1 (modem) consoles</span>
+S0:3:respawn:/sbin/getty<span class="w"> </span>-L<span class="w"> </span><span class="m">9600</span><span class="w"> </span>ttyS0<span class="w"> </span>vt320
+S1:3:respawn:/sbin/mgetty<span class="w"> </span>-x0<span class="w"> </span>-D<span class="w"> </span>ttyS1
+</code></pre></div>
+<h2 id="34-acoes-comuns-no-etcinittab">3.4. Ações Comuns no <code>/etc/inittab</code></h2>
+<table>
+<thead>
+<tr>
+<th>Ação</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boot</code></td>
+<td>Executa o processo uma vez durante a inicialização, ignorando <code>runlevels</code>.</td>
+</tr>
+<tr>
+<td><code>bootwait</code></td>
+<td>Similar a <code>boot</code>, mas <code>init</code> aguarda a finalização do processo.</td>
+</tr>
+<tr>
+<td><code>sysinit</code></td>
+<td>Executa durante a inicialização, antes de qualquer runlevel ser ativado.</td>
+</tr>
+<tr>
+<td><code>wait</code></td>
+<td>Executa nos runlevels especificados e <code>init</code> aguarda sua conclusão.</td>
+</tr>
+<tr>
+<td><code>once</code></td>
+<td>Executa uma única vez ao entrar no runlevel especificado.</td>
+</tr>
+<tr>
+<td><code>respawn</code></td>
+<td>Reinicia o processo sempre que ele for finalizado (comum para terminais).</td>
+</tr>
+<tr>
+<td><code>ctrlaltdel</code></td>
+<td>Executa quando o sistema recebe <code>SIGINT</code> via Ctrl+Alt+Del.</td>
+</tr>
+</tbody>
+</table>
+<p>Os scripts de inicialização ficam em /etc/init.d:</p>
+<p><div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/etc/init.d/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>total<span class="w"> </span><span class="m">156</span>
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3740</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">1</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>apparmor
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2964</span><span class="w"> </span>Dec<span class="w">  </span><span class="m">6</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>apport
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1071</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">24</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>atd
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1232</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">27</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>console-setup.sh
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3059</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">11</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>cron
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">937</span><span class="w"> </span>Feb<span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>cryptdisks
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">896</span><span class="w"> </span>Feb<span class="w">  </span><span class="m">4</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>cryptdisks-early
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3152</span><span class="w"> </span>Sep<span class="w"> </span><span class="m">30</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>dbus
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">985</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">12</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>grub-common
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2363</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">17</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>haveged
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3809</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">28</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>hwclock.sh
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4698</span><span class="w"> </span>Jun<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2018</span><span class="w"> </span>ifplugd
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2638</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">13</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>irqbalance
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1503</span><span class="w"> </span>May<span class="w"> </span><span class="m">11</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>iscsid
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1479</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">27</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>keyboard-setup.sh
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2044</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">19</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>kmod
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">695</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>lvm2
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">586</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>lvm2-lvmpolld
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2827</span><span class="w"> </span>Jan<span class="w">  </span><span class="m">9</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>multipath-tools
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4445</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">29</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>networking
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2503</span><span class="w"> </span>May<span class="w"> </span><span class="m">11</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>open-iscsi
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1846</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">9</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>open-vm-tools
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1366</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>plymouth
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">752</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>plymouth-log
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w">  </span><span class="m">924</span><span class="w"> </span>Feb<span class="w"> </span><span class="m">13</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>procps
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3117</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>qemu-guest-agent
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">4417</span><span class="w"> </span>Oct<span class="w"> </span><span class="m">15</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>rsync
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2864</span><span class="w"> </span>Mar<span class="w">  </span><span class="m">7</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>rsyslog
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1222</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">2017</span><span class="w"> </span>screen-cleanup
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">3939</span><span class="w"> </span>May<span class="w"> </span><span class="m">29</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>ssh
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1582</span><span class="w"> </span>Dec<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2019</span><span class="w"> </span>sysstat
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">6872</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">22</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>udev
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">2083</span><span class="w"> </span>Jan<span class="w"> </span><span class="m">21</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>ufw
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1391</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">13</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>unattended-upgrades
+-rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>root<span class="w"> </span>root<span class="w"> </span><span class="m">1306</span><span class="w"> </span>Apr<span class="w">  </span><span class="m">2</span><span class="w">  </span><span class="m">2020</span><span class="w"> </span>uuidd
+</code></pre></div></p>
+<h2 id="validamos-o-runlevel-atual-com-o-comando">Validamos o Runlevel atual com o comando:</h2>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>runlevel<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>N<span class="w"> </span><span class="m">5</span>
+</code></pre></div></p>
+<p>Para validar os serviços rodando, podemos usar os comandos:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>service<span class="w"> </span>--status-all
+</code></pre></div>
+<h1 id="ver-staus-do-ssh">Ver staus do ssh:</h1>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>sshd<span class="w"> </span>status
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>openssh-daemon<span class="w"> </span><span class="o">(</span>pid<span class="w">  </span><span class="m">1392</span><span class="o">)</span><span class="w"> </span>is<span class="w"> </span>running...
+</code></pre></div></p>
+<h1 id="reiniciar-um-servico">Reiniciar um serviço:</h1>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>rsyslog<span class="w"> </span>restart
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Shutting<span class="w"> </span>down<span class="w"> </span>system<span class="w"> </span>logger:<span class="w">                               </span><span class="o">[</span><span class="w">  </span>OK<span class="w">  </span><span class="o">]</span>
+Starting<span class="w"> </span>system<span class="w"> </span>logger:<span class="w">                                    </span><span class="o">[</span><span class="w">  </span>OK<span class="w">  </span><span class="o">]</span>
+</code></pre></div></p>
+<h1 id="parar-um-servico">Parar um serviço:</h1>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>rsyslog<span class="w"> </span>stop
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Shutting<span class="w"> </span>down<span class="w"> </span>system<span class="w"> </span>logger:<span class="w">                               </span><span class="o">[</span><span class="w">  </span>OK<span class="w">  </span><span class="o">]</span>
+</code></pre></div></p>
+<h1 id="iniciar-um-servico">Iniciar um serviço:</h1>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>rsyslog<span class="w"> </span>start
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Starting<span class="w"> </span>system<span class="w"> </span>logger:<span class="w">                                    </span><span class="o">[</span><span class="w">  </span>OK<span class="w">  </span><span class="o">]</span>
+</code></pre></div></p>
+<h2 id="existem-ferramentas-para-gerencia-da-criacaoremocao-dos-links-simbolicos-dentro-dos-diretorios-facilitando-a-vida-do-administrador-de-sistemas">Existem ferramentas para gerência da criação/remoção dos links simbólicos, dentro dos diretórios, facilitando a vida do Administrador de Sistemas</h2>
+<ul>
+<li>CHKCONFIG - Família RedHat</li>
+<li>UPDATE-RC.D - Família Debian</li>
+</ul>
+<p>Vamos avaliar o chkconfig:</p>
+<div class="highlight"><pre><span></span><code>chkconfig<span class="w"> </span>--add<span class="w">           </span>-<span class="w"> </span>Adiciona<span class="w"> </span>um<span class="w"> </span>script<span class="w"> </span>à<span class="w"> </span>inicialização<span class="w"> </span><span class="o">(</span>cria<span class="w"> </span>os<span class="w"> </span>links<span class="w"> </span>nos<span class="w"> </span>diretórios<span class="w"> </span>rc<span class="o">[</span><span class="m">0</span>-6<span class="o">]</span>.d<span class="o">)</span>
+chkconfig<span class="w"> </span>--del<span class="w">           </span>-<span class="w"> </span>Remove<span class="w"> </span>o<span class="w"> </span>script<span class="w"> </span>da<span class="w"> </span>inicialização<span class="w"> </span><span class="o">(</span>remove<span class="w"> </span>os<span class="w"> </span>links<span class="w"> </span>nos<span class="w"> </span>diretórios<span class="w"> </span>rc<span class="o">[</span><span class="m">0</span>-6<span class="o">]</span>.d<span class="o">)</span>
+chkconfig<span class="w"> </span>--list<span class="w">          </span>-<span class="w"> </span>Lista<span class="w"> </span>todos<span class="w"> </span>os<span class="w"> </span>scripts<span class="w"> </span>registrados<span class="w"> </span>no<span class="w"> </span>chkconfig<span class="w"> </span>e<span class="w"> </span>seus<span class="w"> </span>estados<span class="w"> </span>nos<span class="w"> </span>runlevels
+chkconfig<span class="w"> </span>--level<span class="w"> </span>&lt;N&gt;<span class="w">     </span>-<span class="w"> </span>Define<span class="w"> </span>manualmente<span class="w"> </span>em<span class="w"> </span>quais<span class="w"> </span>runlevels<span class="w"> </span>o<span class="w"> </span>serviço<span class="w"> </span>estará<span class="w"> </span><span class="s1">&#39;on&#39;</span><span class="w"> </span>ou<span class="w"> </span><span class="s1">&#39;off&#39;</span>
+</code></pre></div>
+<p>NOTE que um chkconfig sem argumentos, vai trazer TODOS os scripts que estão carregados na iniciaçização do sistema!
+Rode um chkconfig --help ou man chkconfig para mais informações.</p>
+<p>Vamos avaliar o updaterc.d:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Iniciando um script no boot (Para o runlevel 5):</span>
+$<span class="w"> </span>sudo<span class="w"> </span>update-rc.d<span class="w"> </span>cups<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Desabilitando este script do runlevel 5:</span>
+$<span class="w"> </span>sudo<span class="w"> </span>update-rc.d<span class="w"> </span>cups<span class="w"> </span>disable<span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<ul>
+<li>Se omitir o id do runlevel, ele será habilitado ou desabilitado nos runlevels [1-5]</li>
+</ul>
+<h1 id="remova-todos-os-links-para-um-script">Remova todos os links para um script:</h1>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>update-rc.d<span class="w"> </span>cups<span class="w"> </span>remove
+<span class="c1"># Apaga ele dos diretórios /etc/rc[1-5].d/</span>
+</code></pre></div>
+<h1 id="adicionando-um-script-no-mapeamento-podemos-usar-ele-de-novo-com-o-enable-e-disable">Adicionando um script no mapeamento (Podemos usar ele de novo com o Enable e Disable):</h1>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>update-rc.d<span class="w"> </span>cups<span class="w"> </span>defaults
+<span class="c1"># Adiciona ele dos diretórios /etc/rc[1-5].d/</span>
+</code></pre></div>
+<h2 id="4-systemd-em-detalhes">4. SystemD em Detalhes</h2>
+<p>O SystemD substitui o SysV Init com melhorias como paralelização nativa e gerenciamento baseado em eventos. Ele utiliza <strong>units</strong> e <strong>targets</strong> para definir o estado do sistema.</p>
+<h2 id="41-conceitos-chave-systemd">4.1. Conceitos Chave (SystemD)</h2>
+<ul>
+<li><strong>Units</strong>: Elementos fundamentais que representam serviços, sockets, dispositivos, pontos de montagem, etc.</li>
+<li><strong>Targets</strong>: Grupos de units que definem um estado do sistema, funcionando como o equivalente moderno aos runlevels.</li>
+</ul>
+<h2 id="42-tipos-comuns-de-units">4.2. Tipos Comuns de Units</h2>
+<ul>
+<li><code>service</code>: Daemons (ex: <code>sshd.service</code>).</li>
+<li><code>socket</code>: Sockets de sistema ou rede.</li>
+<li><code>device</code>: Dispositivos do kernel.</li>
+<li><code>mount</code>: Pontos de montagem.</li>
+<li><code>automount</code>: Pontos de montagem ativados sob demanda.</li>
+<li><code>target</code>: Agrupa units para configurar estados (ex: <code>multi-user.target</code>, <code>graphical.target</code>).</li>
+<li><code>timer</code>: Substitui <code>cron jobs</code>, ativando serviços em horários específicos.</li>
+</ul>
+<p>Os arquivos das units geralmente estão em <code>/lib/systemd/system/</code> e seguem o formato <code>nome.tipo</code>.</p>
+<h2 id="43-comandos-systemctl">4.3. Comandos <code>systemctl</code></h2>
+<p>O comando <code>systemctl</code> é a principal ferramenta para gerenciar o SystemD:</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start &lt;unit&gt;</code></td>
+<td>Inicia a unit.</td>
+</tr>
+<tr>
+<td><code>stop &lt;unit&gt;</code></td>
+<td>Interrompe a unit.</td>
+</tr>
+<tr>
+<td><code>restart &lt;unit&gt;</code></td>
+<td>Reinicia a unit.</td>
+</tr>
+<tr>
+<td><code>status &lt;unit&gt;</code></td>
+<td>Mostra o estado da unit (em execução, ativa no boot, etc.).</td>
+</tr>
+<tr>
+<td><code>is-active &lt;unit&gt;</code></td>
+<td>Verifica se a unit está ativa (<code>active</code> ou <code>inactive</code>).</td>
+</tr>
+<tr>
+<td><code>enable &lt;unit&gt;</code></td>
+<td>Habilita a unit para iniciar na inicialização do sistema.</td>
+</tr>
+<tr>
+<td><code>disable &lt;unit&gt;</code></td>
+<td>Desabilita a unit da inicialização.</td>
+</tr>
+<tr>
+<td><code>enable --now &lt;unit&gt;</code></td>
+<td>Habilita e inicia a unit imediatamente.</td>
+</tr>
+<tr>
+<td><code>is-enabled &lt;unit&gt;</code></td>
+<td>Verifica se a unit está habilitada para iniciar com o sistema.</td>
+</tr>
+<tr>
+<td><code>isolate &lt;target&gt;</code></td>
+<td>Muda para um target específico (equivalente a <code>telinit NUMERO</code>).</td>
+</tr>
+<tr>
+<td><code>set-default &lt;target&gt;</code></td>
+<td>Configura um novo target padrão.</td>
+</tr>
+<tr>
+<td><code>get-default</code></td>
+<td>Exibe o target padrão.</td>
+</tr>
+<tr>
+<td><code>list-unit-files</code></td>
+<td>Lista todas as units disponíveis e seu status de habilitação.</td>
+</tr>
+<tr>
+<td><code>list-units</code></td>
+<td>Mostra as units ativas ou que estiveram ativas na sessão atual.</td>
+</tr>
+<tr>
+<td><code>list-units --type=&lt;Unit&gt;</code></td>
+<td>Filtra units por tipo.</td>
+</tr>
+<tr>
+<td><code>suspend</code></td>
+<td>Coloca o sistema em modo de baixo consumo (dados na memória).</td>
+</tr>
+<tr>
+<td><code>hibernate</code></td>
+<td>Copia dados da memória para o disco para recuperação posterior.</td>
+</tr>
+<tr>
+<td><code>poweroff</code></td>
+<td>Desliga a máquina.</td>
+</tr>
+<tr>
+<td><code>reboot</code></td>
+<td>Reinicia a máquina.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="44-compatibilidade-com-runlevels-systemd">4.4. Compatibilidade com Runlevels (SystemD)</h2>
+<p>O SystemD mapeia os antigos runlevels do SysV Init para seus próprios targets:</p>
+<ul>
+<li><code>runlevel0.target</code> -&gt; <code>poweroff.target</code></li>
+<li><code>runlevel1.target</code> -&gt; <code>rescue.target</code></li>
+<li><code>runlevel2.target</code> -&gt; <code>multi-user.target</code></li>
+<li><code>runlevel3.target</code> -&gt; <code>multi-user.target</code></li>
+<li><code>runlevel4.target</code> -&gt; <code>multi-user.target</code></li>
+<li><code>runlevel5.target</code> -&gt; <code>graphical.target</code></li>
+<li><code>runlevel6.target</code> -&gt; <code>reboot.target</code></li>
+</ul>
+<h2 id="5-upstart-em-detalhes">5. Upstart em Detalhes</h2>
+<p>O Upstart, embora substituído, ainda é relevante para sistemas legados. Ele usa scripts em <code>/etc/init.d/</code> para compatibilidade, mas seus arquivos de configuração ficam em <code>/etc/init/</code>.</p>
+<h2 id="51-comandos-initctl-upstart">5.1. Comandos <code>initctl</code> (Upstart)</h2>
+<ul>
+<li><code>initctl list</code>: Lista trabalhos e instâncias, exibindo o status.</li>
+<li><code>initctl status &lt;SERVIÇO&gt;</code>: Exibe o status de um serviço.</li>
+<li><code>initctl start &lt;SERVIÇO&gt;</code>: Inicia um serviço.</li>
+<li><code>initctl stop &lt;SERVIÇO&gt;</code>: Para um serviço.</li>
+</ul>
+<h2 id="6-shutdown-e-restart">6. Shutdown e Restart</h2>
+<p>Comandos para desligar ou reiniciar o sistema, com a capacidade de enviar mensagens de aviso aos usuários e agendar operações.</p>
+<h2 id="61-opcoes-comuns-do-shutdown">6.1. Opções Comuns do <code>shutdown</code></h2>
+<ul>
+<li><code>-P</code>: Desliga o Linux e a máquina.</li>
+<li><code>-h</code>: Desliga o Linux, mas não a máquina (depende do hardware).</li>
+<li><code>-r</code>: Reinicia.</li>
+<li><code>-c</code>: Cancela um desligamento agendado.</li>
+</ul>
+<h2 id="62-agendamento-de-desligamentoreinicializacao">6.2. Agendamento de Desligamento/Reinicialização</h2>
+<ul>
+<li><code>sudo shutdown +N</code>: Agenda o desligamento para <code>N</code> minutos no futuro.</li>
+<li><code>sudo shutdown HH:MM</code>: Agenda o desligamento para um horário específico.</li>
+<li><code>sudo shutdown -P now</code> ou <code>sudo shutdown -P +0</code>: Desliga imediatamente.</li>
+<li><code>sudo shutdown -r now</code> ou <code>sudo shutdown -r +0</code>: Reinicia imediatamente.</li>
+<li>`sudo shutdown +N </li>
+</ul>
+<p>"Mensagem" &amp;`: Agenda o desligamento com uma mensagem personalizada.</p>
+<h2 id="63-outros-comandos-de-desligamentoreinicializacao">6.3. Outros Comandos de Desligamento/Reinicialização</h2>
+<ul>
+<li><strong>Desligar</strong>: <code>poweroff</code>, <code>halt</code>, <code>systemctl poweroff</code>, <code>systemctl halt</code>.</li>
+<li><strong>Reiniciar</strong>: <code>reboot</code>, <code>systemctl reboot</code>.</li>
+</ul>
+<h2 id="7-wall">7. WALL</h2>
+<p>O comando <code>wall</code> é utilizado para enviar uma mensagem para todos os usuários conectados no sistema, ou para um grupo específico de usuários.</p>
+<h2 id="8-acpid-advanced-configuration-and-power-interface">8. ACPID - Advanced Configuration and Power Interface</h2>
+<p>O daemon <code>acpid</code> é o principal gerenciador de energia do Linux. Ele permite configurar ações personalizadas em resposta a eventos relacionados ao consumo de energia, como fechar a tampa de um laptop, bateria fraca ou níveis de carga da bateria.</p>
+<p>That's All Folks</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
+  CC BY-SA 4.0
+</a> - eduardo.charquero@gmail.com
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

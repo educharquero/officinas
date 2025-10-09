@@ -1,0 +1,3124 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../imagens/tux.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>LPIC-101.1 - Identificação e Configuração de Hardware - 🐧 Comunidade Officinas</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lpic-1011-identificacao-e-configuracao-de-hardware" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-header__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            🐧 Comunidade Officinas
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LPIC-101.1 - Identificação e Configuração de Hardware
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  📂 'Início'
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Visao_Geral/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  📂 'Visão Geral'
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../DHCP_Server/" class="md-tabs__link">
+          
+  
+  
+  📂 'Servidores'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Universo_NIX/" class="md-tabs__link">
+          
+  
+  
+  📂 'Tópicos de Estudo'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+          
+  
+  
+  📂 'Módulos LPI'
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Aircrack-NG/" class="md-tabs__link">
+          
+  
+  
+  📂 'Ataques e Segurança'
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../OpenSUSE/" class="md-tabs__link">
+          
+  
+  
+  📂 'Sistemas Operacionais'
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="🐧 Comunidade Officinas" class="md-nav__button md-logo" aria-label="🐧 Comunidade Officinas" data-md-component="logo">
+      
+  <img src="../imagens/logo.png" alt="logo">
+
+    </a>
+    🐧 Comunidade Officinas
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 'Início'
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Visao_Geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    📂 'Visão Geral'
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Servidores'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Servidores'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DHCP_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DHCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DNS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Firewall_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Mkdocs_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NFS_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NFS Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    File Servers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            File Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Debian/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Debian
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_RockyLinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver Rocky (Alternativo)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Fileserver_sem_RSAT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fileserver sem RSAT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Controladores de Domínio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Controladores de Domínio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC2_Rocky/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-2 (Rocky)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_binarios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Binários
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DC1_pacotes_compilados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DC-1 Pacotes Compilados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Tópicos de Estudo'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Tópicos de Estudo'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universo_NIX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Universo NIX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FHS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FHS (Filesystem Hierarchy Standard)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Raid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RAID
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissões Linux 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Permissoes_Linux-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Permissões Linux 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usuarios_e_Grupos-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Usuários e Grupos 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Módulos LPI'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Módulos LPI'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Módulo 103.1 - Linha de Comando
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.1 - Linha de Comando
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula00/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 00
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 02
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 03
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.1-aula05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 05
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Módulo 103.2 - Processamento de Texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Módulo 103.2 - Processamento de Texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Modulo_103.2-aula01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aula 01
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Ataques e Segurança'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Ataques e Segurança'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Aircrack-NG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aircrack-NG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    📂 'Sistemas Operacionais'
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            📂 'Sistemas Operacionais'
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OpenSUSE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSUSE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bios-basic-inputoutput-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      BIOS - Basic Input/Output System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#irq-interrupt-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      IRQ - Interrupt Request
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enderecos-de-entrada-e-saida-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endereços de Entrada e Saída (I/O)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumo-da-informacao-obtida-acima" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumo da informação obtida acima
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acesso-direto-a-memoria-dma-direct-memory-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acesso Direto à Memória (DMA - Direct Memory Access)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#particoes-virtuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Partições Virtuais
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partições Virtuais">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recuperacao-de-sistema-montando-particoes-virtuais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recuperação de Sistema: Montando Partições Virtuais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conteudo-de-proc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conteúdo de /proc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conteúdo de /proc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proccmdline" class="md-nav__link">
+    <span class="md-ellipsis">
+      /proc/cmdline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procfilesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      /proc/filesystems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procmounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      /proc/mounts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#udev" class="md-nav__link">
+    <span class="md-ellipsis">
+      UDEV
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-do-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Módulos do Kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-internos-built-in-e-externos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Módulos Internos (Built-In) e Externos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulos Internos (Built-In) e Externos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificando-um-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificando um módulo:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-em-uso-nao-podem-ser-descarregados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Módulos "em uso" não podem ser descarregados.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#barramento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Barramento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lspci" class="md-nav__link">
+    <span class="md-ellipsis">
+      LSPCI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LSPCI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções Comuns:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lsusb" class="md-nav__link">
+    <span class="md-ellipsis">
+      LSUSB
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LSUSB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcoes-comuns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções Comuns:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplos de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lsmem" class="md-nav__link">
+    <span class="md-ellipsis">
+      LSMEM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LSMEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-uso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coldplug-x-hotplug" class="md-nav__link">
+    <span class="md-ellipsis">
+      Coldplug x Hotplug
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ide-pata-sata-e-scsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDE, PATA, SATA e SCSI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outros-dispositivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outros Dispositivos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulos-no-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Módulos no Linux
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lsmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      LSMOD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-saida-do-lsmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Saída do lsmod:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analisando-os-10-logs-do-exemplo-acima" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analisando os 10 logs do exemplo acima:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-lsmod-primeiras-linhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de lsmod (primeiras linhas):
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemplo de lsmod (primeiras linhas):">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conteudo-de-procmodules-primeiras-linhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conteúdo de /proc/modules (primeiras linhas):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exibindo-modulos-que-nao-serao-ativados-blacklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exibindo módulos que não serão ativados (blacklist):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODINFO
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MODINFO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-uso_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendo-o-caminho-do-modulo-com-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vendo o caminho do módulo com -n:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rmmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      RMMOD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RMMOD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-uso_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      INSMOD
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="INSMOD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-uso_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modprobe" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODPROBE
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carregar-um-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carregar um módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remover-um-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remover um módulo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mostrar-os-modulos-que-serao-carregados-como-dependencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mostrar os módulos que serão carregados como dependência
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-uso_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#carregamento-automagico-de-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Carregamento automágico de módulos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modprobed" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODPROBE.D
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEPMOD
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lpic-1011-identificacao-e-configuracao-de-hardware">LPIC-101.1 - Identificação e Configuração de Hardware</h1>
+<h2 id="bios-basic-inputoutput-system">BIOS - Basic Input/Output System</h2>
+<p>Ao iniciar um computador, antes mesmo do sistema operacional ser carregado, ocorre uma etapa crucial conhecida como POST (Power-on Self-Test). Durante o POST, os componentes de hardware essenciais, como memória, CPU, teclado, mouse e outras configurações básicas, são verificados e inicializados para assegurar seu funcionamento adequado. Historicamente, até meados dos anos 2000, essa função era desempenhada pelo <strong>BIOS (Basic Input/Output System)</strong>.</p>
+<p>A partir do final da primeira década dos anos 2000, sistemas baseados na arquitetura x86 começaram a adotar o <strong>UEFI (Unified Extensible Firmware Interface)</strong> como substituto do BIOS. O UEFI oferece uma implementação mais moderna e robusta, com recursos avançados para identificação, teste, configuração e atualização de firmware. Apesar das diferenças tecnológicas, tanto o BIOS quanto o UEFI cumprem o propósito fundamental de preparar o hardware para a inicialização do sistema operacional.</p>
+<h2 id="irq-interrupt-request">IRQ - Interrupt Request</h2>
+<p>Um <strong>IRQ (Interrupt Request)</strong> é um sinal eletrônico enviado por um dispositivo de hardware à CPU, indicando a necessidade de atenção imediata. Imagine, por exemplo, um modem que precisa processar dados; ele envia um IRQ para a CPU, solicitando que o processador pause sua tarefa atual para atender à requisição do modem. Esse mecanismo é análogo ao <em>time slice</em> em sistemas operacionais, mas aplicado a interações entre a CPU e dispositivos físicos, e não apenas a processos lógicos.</p>
+<p>Em arquiteturas compatíveis com IBM, os IRQs são numerados de 0 a 15 e possuem prioridades específicas, garantindo que dispositivos mais críticos sejam atendidos primeiro. Atualmente, a maioria dos usuários não precisa se preocupar com a configuração manual de IRQs, pois a tecnologia <em>Plug and Play</em> automatiza esse processo. É possível visualizar os IRQs em uso no sistema através do arquivo <code>/proc/interrupts</code>. Abaixo, um exemplo de sua saída:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/proc/interrupts<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w">            </span>CPU0<span class="w">       </span>CPU1<span class="w">       </span>CPU2<span class="w">       </span>CPU3<span class="w">       </span>CPU4<span class="w">       </span>CPU5<span class="w">       </span>CPU6<span class="w">       </span>CPU7<span class="w">       </span>
+<span class="w">   </span><span class="m">1</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">25151</span><span class="w"> </span>IR-IO-APIC<span class="w">    </span><span class="m">1</span>-edge<span class="w">      </span>i8042
+<span class="w">   </span><span class="m">8</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">    </span><span class="m">8</span>-edge<span class="w">      </span>rtc0
+<span class="w">   </span><span class="m">9</span>:<span class="w">     </span><span class="m">200001</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">    </span><span class="m">9</span>-fasteoi<span class="w">   </span>acpi
+<span class="w">  </span><span class="m">14</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">   </span><span class="m">14</span>-fasteoi<span class="w">   </span>INT3455:00
+<span class="w">  </span><span class="m">16</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">8</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">   </span><span class="m">16</span>-fasteoi<span class="w">   </span>i801_smbus,<span class="w"> </span>idma64.0,<span class="w"> </span>i2c_designware.0
+<span class="w">  </span><span class="m">17</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">28778</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">   </span><span class="m">17</span>-fasteoi<span class="w">   </span>idma64.1,<span class="w"> </span>i2c_designware.1
+<span class="w">  </span><span class="m">48</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">464</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-IO-APIC<span class="w">   </span><span class="m">48</span>-fasteoi<span class="w">   </span>SYNA2B61:00
+<span class="w"> </span><span class="m">120</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>DMAR-MSI<span class="w"> </span><span class="m">1024</span>-edge<span class="w">      </span>dmar0-prq
+<span class="w"> </span><span class="m">121</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>DMAR-MSI<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>dmar0
+<span class="w"> </span><span class="m">122</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>DMAR-MSI<span class="w">    </span><span class="m">1</span>-edge<span class="w">      </span>dmar1
+<span class="w"> </span><span class="m">123</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:1d.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>PCIe<span class="w"> </span>PME,<span class="w"> </span>pciehp,<span class="w"> </span>PCIe<span class="w"> </span>bwctrl
+<span class="w"> </span><span class="m">124</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">1</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:1d.4<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>PCIe<span class="w"> </span>PME,<span class="w"> </span>PCIe<span class="w"> </span>bwctrl
+<span class="w"> </span><span class="m">125</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span><span class="m">260700</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:14.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>xhci_hcd
+<span class="w"> </span><span class="m">133</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">385</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>nvme0q0
+<span class="w"> </span><span class="m">134</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:17.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>ahci<span class="o">[</span><span class="m">0000</span>:00:17.0<span class="o">]</span>
+<span class="w"> </span><span class="m">135</span>:<span class="w">      </span><span class="m">53610</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">1</span>-edge<span class="w">      </span>nvme0q1
+<span class="w"> </span><span class="m">136</span>:<span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">63442</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">2</span>-edge<span class="w">      </span>nvme0q2
+<span class="w"> </span><span class="m">137</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">71369</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">3</span>-edge<span class="w">      </span>nvme0q3
+<span class="w"> </span><span class="m">138</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">59887</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">4</span>-edge<span class="w">      </span>nvme0q4
+<span class="w"> </span><span class="m">139</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">60997</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">5</span>-edge<span class="w">      </span>nvme0q5
+<span class="w"> </span><span class="m">140</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">54037</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">6</span>-edge<span class="w">      </span>nvme0q6
+<span class="w"> </span><span class="m">141</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">63748</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">7</span>-edge<span class="w">      </span>nvme0q7
+<span class="w"> </span><span class="m">142</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">54660</span><span class="w"> </span>IR-PCI-MSIX-0000:06:00.0<span class="w">    </span><span class="m">8</span>-edge<span class="w">      </span>nvme0q8
+<span class="w"> </span><span class="m">143</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">403</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">    </span>dummy<span class="w">    </span><span class="m">0</span><span class="w">  </span>i2c_hid_acpi
+<span class="w"> </span><span class="m">144</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span>rmi4<span class="w">    </span><span class="m">0</span><span class="w">  </span>rmi4-00.fn34
+<span class="w"> </span><span class="m">145</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span>rmi4<span class="w">    </span><span class="m">1</span><span class="w">  </span>rmi4-00.fn01
+<span class="w"> </span><span class="m">146</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">        </span><span class="m">403</span><span class="w">          </span><span class="m">0</span><span class="w">     </span>rmi4<span class="w">    </span><span class="m">2</span><span class="w">  </span>rmi4-00.fn11
+<span class="w"> </span><span class="m">147</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span>rmi4<span class="w">    </span><span class="m">3</span><span class="w">  </span>rmi4-00.fn11
+<span class="w"> </span><span class="m">148</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span>rmi4<span class="w">    </span><span class="m">4</span><span class="w">  </span>rmi4-00.fn30
+<span class="w"> </span><span class="m">149</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">    </span><span class="m">3764032</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:02.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>i915
+<span class="w"> </span><span class="m">150</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">         </span><span class="m">79</span><span class="w"> </span>IR-PCI-MSI-0000:00:16.0<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>mei_me
+<span class="w"> </span><span class="m">151</span>:<span class="w">     </span><span class="m">740517</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>iwlwifi:default_queue
+<span class="w"> </span><span class="m">152</span>:<span class="w">     </span><span class="m">164836</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">1</span>-edge<span class="w">      </span>iwlwifi:queue_1
+<span class="w"> </span><span class="m">153</span>:<span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">14022</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">2</span>-edge<span class="w">      </span>iwlwifi:queue_2
+<span class="w"> </span><span class="m">154</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">17084</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">3</span>-edge<span class="w">      </span>iwlwifi:queue_3
+<span class="w"> </span><span class="m">155</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">29655</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">4</span>-edge<span class="w">      </span>iwlwifi:queue_4
+<span class="w"> </span><span class="m">156</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">35689</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">5</span>-edge<span class="w">      </span>iwlwifi:queue_5
+<span class="w"> </span><span class="m">157</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span><span class="m">114867</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">6</span>-edge<span class="w">      </span>iwlwifi:queue_6
+<span class="w"> </span><span class="m">158</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">     </span><span class="m">123114</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">7</span>-edge<span class="w">      </span>iwlwifi:queue_7
+<span class="w"> </span><span class="m">159</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">      </span><span class="m">69265</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">8</span>-edge<span class="w">      </span>iwlwifi:queue_8
+<span class="w"> </span><span class="m">160</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">5</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSIX-0000:00:14.3<span class="w">    </span><span class="m">9</span>-edge<span class="w">      </span>iwlwifi:exception
+<span class="w"> </span><span class="m">161</span>:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">       </span><span class="m">7639</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w"> </span>IR-PCI-MSI-0000:00:1f.3<span class="w">    </span><span class="m">0</span>-edge<span class="w">      </span>snd_hda_intel:card0
+<span class="w"> </span>NMI:<span class="w">        </span><span class="m">299</span><span class="w">        </span><span class="m">298</span><span class="w">        </span><span class="m">317</span><span class="w">        </span><span class="m">302</span><span class="w">        </span><span class="m">295</span><span class="w">        </span><span class="m">295</span><span class="w">        </span><span class="m">260</span><span class="w">        </span><span class="m">293</span><span class="w">   </span>Non-maskable<span class="w"> </span>interrupts
+<span class="w"> </span>LOC:<span class="w">    </span><span class="m">6373377</span><span class="w">    </span><span class="m">6356794</span><span class="w">    </span><span class="m">6408473</span><span class="w">    </span><span class="m">6512646</span><span class="w">    </span><span class="m">6183443</span><span class="w">    </span><span class="m">6435111</span><span class="w">    </span><span class="m">6669812</span><span class="w">    </span><span class="m">6335419</span><span class="w">   </span>Local<span class="w"> </span>timer<span class="w"> </span>interrupts
+<span class="w"> </span>SPU:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Spurious<span class="w"> </span>interrupts
+<span class="w"> </span>PMI:<span class="w">        </span><span class="m">299</span><span class="w">        </span><span class="m">298</span><span class="w">        </span><span class="m">317</span><span class="w">        </span><span class="m">302</span><span class="w">        </span><span class="m">295</span><span class="w">        </span><span class="m">295</span><span class="w">        </span><span class="m">260</span><span class="w">        </span><span class="m">293</span><span class="w">   </span>Performance<span class="w"> </span>monitoring<span class="w"> </span>interrupts
+<span class="w"> </span>IWI:<span class="w">      </span><span class="m">66133</span><span class="w">      </span><span class="m">77969</span><span class="w">      </span><span class="m">69382</span><span class="w">      </span><span class="m">62111</span><span class="w">      </span><span class="m">65037</span><span class="w">      </span><span class="m">69388</span><span class="w">    </span><span class="m">2079035</span><span class="w">      </span><span class="m">70050</span><span class="w">   </span>IRQ<span class="w"> </span>work<span class="w"> </span>interrupts
+<span class="w"> </span>RTR:<span class="w">          </span><span class="m">6</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>APIC<span class="w"> </span>ICR<span class="w"> </span><span class="nb">read</span><span class="w"> </span>retries
+<span class="w"> </span>RES:<span class="w">      </span><span class="m">18148</span><span class="w">      </span><span class="m">66032</span><span class="w">      </span><span class="m">89094</span><span class="w">      </span><span class="m">68718</span><span class="w">      </span><span class="m">58053</span><span class="w">      </span><span class="m">37537</span><span class="w">      </span><span class="m">33077</span><span class="w">      </span><span class="m">68564</span><span class="w">   </span>Rescheduling<span class="w"> </span>interrupts
+<span class="w"> </span>CAL:<span class="w">     </span><span class="m">789866</span><span class="w">     </span><span class="m">689049</span><span class="w">     </span><span class="m">570784</span><span class="w">     </span><span class="m">547644</span><span class="w">     </span><span class="m">500765</span><span class="w">     </span><span class="m">482624</span><span class="w">     </span><span class="m">481394</span><span class="w">     </span><span class="m">507027</span><span class="w">   </span>Function<span class="w"> </span>call<span class="w"> </span>interrupts
+<span class="w"> </span>TLB:<span class="w">     </span><span class="m">234091</span><span class="w">     </span><span class="m">271370</span><span class="w">     </span><span class="m">242552</span><span class="w">     </span><span class="m">251695</span><span class="w">     </span><span class="m">236393</span><span class="w">     </span><span class="m">224611</span><span class="w">     </span><span class="m">235211</span><span class="w">     </span><span class="m">261823</span><span class="w">   </span>TLB<span class="w"> </span>shootdowns
+<span class="w"> </span>TRM:<span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">        </span><span class="m">578</span><span class="w">   </span>Thermal<span class="w"> </span>event<span class="w"> </span>interrupts
+<span class="w"> </span>THR:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Threshold<span class="w"> </span>APIC<span class="w"> </span>interrupts
+<span class="w"> </span>DFR:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Deferred<span class="w"> </span>Error<span class="w"> </span>APIC<span class="w"> </span>interrupts
+<span class="w"> </span>MCE:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Machine<span class="w"> </span>check<span class="w"> </span>exceptions
+<span class="w"> </span>MCP:<span class="w">        </span><span class="m">169</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">        </span><span class="m">170</span><span class="w">   </span>Machine<span class="w"> </span>check<span class="w"> </span>polls
+<span class="w"> </span>ERR:<span class="w">          </span><span class="m">0</span>
+<span class="w"> </span>MIS:<span class="w">          </span><span class="m">0</span>
+<span class="w"> </span>PIN:<span class="w">        </span><span class="m">811</span><span class="w">        </span><span class="m">749</span><span class="w">        </span><span class="m">658</span><span class="w">        </span><span class="m">763</span><span class="w">        </span><span class="m">777</span><span class="w">        </span><span class="m">905</span><span class="w">        </span><span class="m">698</span><span class="w">        </span><span class="m">588</span><span class="w">   </span>Posted-interrupt<span class="w"> </span>notification<span class="w"> </span>event
+<span class="w"> </span>NPI:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Nested<span class="w"> </span>posted-interrupt<span class="w"> </span>event
+<span class="w"> </span>PIW:<span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">          </span><span class="m">0</span><span class="w">   </span>Posted-interrupt<span class="w"> </span>wakeup<span class="w"> </span>event
+</code></pre></div>
+<p>Neste exemplo, a primeira coluna indica o número do IRQ. As colunas subsequentes (<code>CPU0</code> a <code>CPU7</code>) mostram quantas vezes cada CPU processou a interrupção para aquele IRQ específico. Por exemplo, o IRQ 48 foi processado 464 vezes pela <code>CPU5</code>, enquanto o IRQ 133 foi processado 385 vezes pela <code>CPU3</code>.</p>
+<h2 id="enderecos-de-entrada-e-saida-io">Endereços de Entrada e Saída (I/O)</h2>
+<p>As portas de Entrada/Saída (I/O) são regiões de memória dedicadas no microprocessador que permitem a comunicação entre a CPU e os dispositivos periféricos. Esses endereços servem como um canal simplificado para a troca de dados, facilitando a interação do processador com o hardware conectado.</p>
+<p>É comum que dispositivos utilizem uma única porta ou uma faixa de endereços para suas operações. Por exemplo, um Teclado padrão pode empregar as portas 0060-0060, 0064-0064 e uma saída de vídeo, a porta 03c0-03df. É crucial que cada dispositivo possua um endereço de porta exclusivo para evitar conflitos. Os endereços de I/O atualmente em uso no sistema podem ser consultados através do comando <code>cat /proc/ioports</code>.</p>
+<p><strong>Importante:</strong> Para acessar as informações completas dos endereços de I/O, é necessário executar o comando com privilégios de superusuário (<code>sudo</code>).</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>cat<span class="w"> </span>/proc/ioports
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="m">0000</span>-0cf7<span class="w"> </span>:<span class="w"> </span>PCI<span class="w"> </span>Bus<span class="w"> </span><span class="m">0000</span>:00
+<span class="w">  </span><span class="m">0000</span>-001f<span class="w"> </span>:<span class="w"> </span>dma1
+<span class="w">  </span><span class="m">0020</span>-0021<span class="w"> </span>:<span class="w"> </span>pic1
+<span class="w">  </span><span class="m">0040</span>-0043<span class="w"> </span>:<span class="w"> </span>timer0
+<span class="w">  </span><span class="m">0050</span>-0053<span class="w"> </span>:<span class="w"> </span>timer1
+<span class="w">  </span><span class="m">0060</span>-0060<span class="w"> </span>:<span class="w"> </span>keyboard
+<span class="w">  </span><span class="m">0062</span>-0062<span class="w"> </span>:<span class="w"> </span>PNP0C09:00
+<span class="w">    </span><span class="m">0062</span>-0062<span class="w"> </span>:<span class="w"> </span>EC<span class="w"> </span>data
+<span class="w">  </span><span class="m">0064</span>-0064<span class="w"> </span>:<span class="w"> </span>keyboard
+<span class="w">  </span><span class="m">0066</span>-0066<span class="w"> </span>:<span class="w"> </span>PNP0C09:00
+<span class="w">    </span><span class="m">0066</span>-0066<span class="w"> </span>:<span class="w"> </span>EC<span class="w"> </span>cmd
+<span class="w">  </span><span class="m">0070</span>-0071<span class="w"> </span>:<span class="w"> </span>rtc_cmos
+<span class="w">    </span><span class="m">0070</span>-0071<span class="w"> </span>:<span class="w"> </span>rtc0
+<span class="w">  </span><span class="m">0080</span>-008f<span class="w"> </span>:<span class="w"> </span>dma<span class="w"> </span>page<span class="w"> </span>reg
+<span class="w">  </span>00a0-00a1<span class="w"> </span>:<span class="w"> </span>pic2
+<span class="w">  </span>00c0-00df<span class="w"> </span>:<span class="w"> </span>dma2
+<span class="w">  </span>00f0-00ff<span class="w"> </span>:<span class="w"> </span>fpu
+<span class="w">  </span>03c0-03df<span class="w"> </span>:<span class="w"> </span>vga+
+<span class="w">  </span><span class="m">0400</span>-041f<span class="w"> </span>:<span class="w"> </span>iTCO_wdt
+<span class="w">    </span><span class="m">0400</span>-041f<span class="w"> </span>:<span class="w"> </span>iTCO_wdt
+<span class="w">  </span><span class="m">0680</span>-069f<span class="w"> </span>:<span class="w"> </span>pnp<span class="w"> </span><span class="m">00</span>:00
+0cf8-0cff<span class="w"> </span>:<span class="w"> </span>PCI<span class="w"> </span>conf1
+0d00-ffff<span class="w"> </span>:<span class="w"> </span>PCI<span class="w"> </span>Bus<span class="w"> </span><span class="m">0000</span>:00
+<span class="w">  </span>164e-164f<span class="w"> </span>:<span class="w"> </span>pnp<span class="w"> </span><span class="m">00</span>:00
+<span class="w">  </span><span class="m">1800</span>-1803<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>PM1a_EVT_BLK
+<span class="w">  </span><span class="m">1804</span>-1805<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>PM1a_CNT_BLK
+<span class="w">  </span><span class="m">1808</span>-180b<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>PM_TMR
+<span class="w">  </span><span class="m">1810</span>-1815<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>CPU<span class="w"> </span>throttle
+<span class="w">  </span><span class="m">1850</span>-1850<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>PM2_CNT_BLK
+<span class="w">  </span><span class="m">1854</span>-1857<span class="w"> </span>:<span class="w"> </span>INT3F0D:00
+<span class="w">  </span><span class="m">1860</span>-187f<span class="w"> </span>:<span class="w"> </span>ACPI<span class="w"> </span>GPE0_BLK
+<span class="w">  </span><span class="m">2000</span>-20fe<span class="w"> </span>:<span class="w"> </span>pnp<span class="w"> </span><span class="m">00</span>:04
+<span class="w">  </span><span class="m">3000</span>-3fff<span class="w"> </span>:<span class="w"> </span>PCI<span class="w"> </span>Bus<span class="w"> </span><span class="m">0000</span>:06
+<span class="w">  </span><span class="m">4000</span>-4fff<span class="w"> </span>:<span class="w"> </span>PCI<span class="w"> </span>Bus<span class="w"> </span><span class="m">0000</span>:01
+<span class="w">  </span><span class="m">5000</span>-503f<span class="w"> </span>:<span class="w"> </span><span class="m">0000</span>:00:02.0
+<span class="w">  </span><span class="m">5040</span>-505f<span class="w"> </span>:<span class="w"> </span><span class="m">0000</span>:00:1f.4
+<span class="w">  </span><span class="m">5060</span>-507f<span class="w"> </span>:<span class="w"> </span><span class="m">0000</span>:00:17.0
+<span class="w">    </span><span class="m">5060</span>-507f<span class="w"> </span>:<span class="w"> </span>ahci
+<span class="w">  </span><span class="m">5080</span>-5087<span class="w"> </span>:<span class="w"> </span><span class="m">0000</span>:00:17.0
+<span class="w">    </span><span class="m">5080</span>-5087<span class="w"> </span>:<span class="w"> </span>ahci
+<span class="w">  </span><span class="m">5088</span>-508b<span class="w"> </span>:<span class="w"> </span><span class="m">0000</span>:00:17.0
+<span class="w">    </span><span class="m">5088</span>-508b<span class="w"> </span>:<span class="w"> </span>ahci
+</code></pre></div>
+<h2 id="resumo-da-informacao-obtida-acima">Resumo da informação obtida acima</h2>
+<p>Endereço(s), Dispositivo Identificado e Descrição da Função:</p>
+<div class="highlight"><pre><span></span><code><span class="m">0000</span>-001f
+
+dma1
+
+Controlador<span class="w"> </span>de<span class="w"> </span>Acesso<span class="w"> </span>Direto<span class="w"> </span>à<span class="w"> </span>Memória<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>para<span class="w"> </span>transferências<span class="w"> </span>de<span class="w"> </span>dados<span class="w"> </span>sem<span class="w"> </span>usar<span class="w"> </span>a<span class="w"> </span>CPU.
+<span class="m">0020</span>-0021
+
+pic1
+
+Controlador<span class="w"> </span>de<span class="w"> </span>Interrupção<span class="w"> </span>Programável<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>gerencia<span class="w"> </span>as<span class="w"> </span>interrupções<span class="w"> </span>de<span class="w"> </span>hardware.
+<span class="m">0040</span>-0043
+
+timer0
+
+Timer<span class="w"> </span><span class="k">do</span><span class="w"> </span>sistema,<span class="w"> </span>usado<span class="w"> </span>para<span class="w"> </span>tarefas<span class="w"> </span>de<span class="w"> </span>temporização<span class="w"> </span><span class="k">do</span><span class="w"> </span>kernel.
+<span class="m">0060</span>-0060,<span class="w"> </span><span class="m">0064</span>-0064
+
+keyboard
+
+Controlador<span class="w"> </span><span class="k">do</span><span class="w"> </span>teclado.
+<span class="m">0070</span>-0071
+
+rtc0<span class="w"> </span>/<span class="w"> </span>rtc_cmos
+
+Relógio<span class="w"> </span>de<span class="w"> </span>Tempo<span class="w"> </span>Real<span class="w"> </span><span class="o">(</span>Real-Time<span class="w"> </span>Clock<span class="o">)</span>,<span class="w"> </span>mantém<span class="w"> </span>a<span class="w"> </span>data<span class="w"> </span>e<span class="w"> </span>a<span class="w"> </span>hora<span class="w"> </span><span class="k">do</span><span class="w"> </span>sistema.
+00a0-00a1
+
+pic2
+
+Controlador<span class="w"> </span>de<span class="w"> </span>Interrupção<span class="w"> </span>Programável<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>em<span class="w"> </span>cascata<span class="w"> </span>com<span class="w"> </span>o<span class="w"> </span>pic1<span class="o">)</span>.
+00c0-00df
+
+dma2
+
+Controlador<span class="w"> </span>de<span class="w"> </span>Acesso<span class="w"> </span>Direto<span class="w"> </span>à<span class="w"> </span>Memória<span class="w"> </span><span class="m">2</span>.
+00f0-00ff
+
+fpu
+
+Unidade<span class="w"> </span>de<span class="w"> </span>Ponto<span class="w"> </span>Flutuante<span class="w"> </span><span class="o">(</span>Floating-Point<span class="w"> </span>Unit<span class="o">)</span>,<span class="w"> </span>parte<span class="w"> </span><span class="k">do</span><span class="w"> </span>processador<span class="w"> </span>para<span class="w"> </span>cálculos<span class="w"> </span>matemáticos.
+03c0-03df
+
+vga+
+
+Controlador<span class="w"> </span>de<span class="w"> </span>vídeo<span class="w"> </span>compatível<span class="w"> </span>com<span class="w"> </span>o<span class="w"> </span>padrão<span class="w"> </span>VGA,<span class="w"> </span>responsável<span class="w"> </span>pela<span class="w"> </span>saída<span class="w"> </span>de<span class="w"> </span>vídeo.
+<span class="m">0400</span>-041f
+
+iTCO_wdt
+
+Intel<span class="w"> </span>TCO<span class="w"> </span>Watchdog<span class="w"> </span>Timer,<span class="w"> </span>um<span class="w"> </span>mecanismo<span class="w"> </span>de<span class="w"> </span>segurança<span class="w"> </span>que<span class="w"> </span>reinicia<span class="w"> </span>o<span class="w"> </span>sistema<span class="w"> </span>se<span class="w"> </span>ele<span class="w"> </span>travar.
+<span class="m">1800</span>-187f
+
+ACPI
+
+Vários<span class="w"> </span>blocos<span class="w"> </span>relacionados<span class="w"> </span>ao<span class="w"> </span>ACPI<span class="w"> </span><span class="o">(</span>Advanced<span class="w"> </span>Configuration<span class="w"> </span>and<span class="w"> </span>Power<span class="w"> </span>Interface<span class="o">)</span>,<span class="w"> </span>que<span class="w"> </span>gerencia<span class="w"> </span>a<span class="w"> </span>energia<span class="w"> </span><span class="k">do</span><span class="w"> </span>sistema<span class="w"> </span><span class="o">(</span>suspensão,<span class="w"> </span>hibernação,<span class="w"> </span>etc.<span class="o">)</span>.
+0cf8-0cff
+
+PCI<span class="w"> </span>conf1
+
+Mecanismo<span class="w"> </span>de<span class="w"> </span>configuração<span class="w"> </span>para<span class="w"> </span>o<span class="w"> </span>barramento<span class="w"> </span>PCI.
+<span class="m">5060</span>-508b
+
+ahci
+
+Controlador<span class="w"> </span>AHCI<span class="w"> </span><span class="o">(</span>Advanced<span class="w"> </span>Host<span class="w"> </span>Controller<span class="w"> </span>Interface<span class="o">)</span>,<span class="w"> </span>responsável<span class="w"> </span>pela<span class="w"> </span>comunicação<span class="w"> </span>com<span class="w"> </span>dispositivos<span class="w"> </span>de<span class="w"> </span>armazenamento<span class="w"> </span>SATA<span class="w"> </span><span class="o">(</span>HDs,<span class="w"> </span>SSDs<span class="o">)</span>.
+</code></pre></div>
+<h2 id="acesso-direto-a-memoria-dma-direct-memory-access">Acesso Direto à Memória (DMA - Direct Memory Access)</h2>
+<p>O <strong>DMA (Direct Memory Access)</strong> é uma funcionalidade que permite a transferência de dados diretamente entre dispositivos de hardware e a memória principal do sistema, sem a necessidade de intervenção constante da CPU. Isso otimiza o desempenho, liberando o processador para outras tarefas enquanto as transferências de dados ocorrem em segundo plano. As transferências são realizadas através de canais DMA dedicados.</p>
+<p>A maioria dos computadores possui controladores DMA que gerenciam esses canais. Tradicionalmente, existem dois controladores, um para os canais 0 a 3 e outro para os canais 4 a 7, totalizando oito canais. Esse sistema de acesso direto à memória contribui significativamente para a alta taxa de transferência de dados em operações de I/O.</p>
+<p>Para verificar os canais DMA em uso no sistema, pode-se consultar o arquivo <code>/proc/dma</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/proc/dma
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="m">4</span>:<span class="w"> </span>cascade
+</code></pre></div>
+<h2 id="particoes-virtuais">Partições Virtuais</h2>
+<p>As partições virtuais no Linux não armazenam dados de arquivos ou diretórios no sentido tradicional, mas sim informações dinâmicas sobre o estado atual de funcionamento do sistema. Elas são montadas automaticamente a cada inicialização do sistema e fornecem interfaces para o kernel e para o espaço do usuário acessarem dados internos. As principais partições virtuais são:</p>
+<ul>
+<li>
+<p><strong>/proc</strong>: Contém informações detalhadas sobre processos ativos, recursos de hardware e configurações do kernel. É uma interface para estruturas de dados internas do kernel.</p>
+</li>
+<li>
+<p><strong>/sys</strong>: Fornece uma interface para o sistema de arquivos <code>sysfs</code>, que expõe informações sobre dispositivos de hardware conectados ao sistema. Por exemplo, detalhes sobre dispositivos de rede podem ser encontrados em <code>/sys/class/net/</code>, e informações sobre dispositivos Bluetooth em <code>/sys/class/bluetooth/</code>.</p>
+</li>
+<li>
+<p><strong>/dev</strong>: Contém referências (arquivos de dispositivo) para todos os dispositivos de hardware do sistema, incluindo dispositivos de armazenamento. O gerenciamento dinâmico desses arquivos é feito pelo <code>udev</code>.</p>
+</li>
+<li>
+<p><strong>udev</strong>: O <code>udev</code> (Device Manager) é o subsistema do kernel Linux responsável por gerenciar dinamicamente os dispositivos. Ele detecta a conexão e desconexão de hardware (como dispositivos USB ou discos rígidos) e cria ou remove os arquivos de dispositivo correspondentes em <code>/dev</code>.</p>
+</li>
+<li>
+<p><strong>dbus (atual) / hald (antigo)</strong>: São sistemas de comunicação entre processos que informam aos aplicativos sobre o estado e eventos dos dispositivos de hardware. O <code>dbus</code> é a implementação moderna para essa comunicação.</p>
+</li>
+</ul>
+<h3 id="recuperacao-de-sistema-montando-particoes-virtuais">Recuperação de Sistema: Montando Partições Virtuais</h3>
+<p>Em cenários de recuperação de sistema, pode ser necessário montar manualmente essas partições virtuais para acessar informações ou realizar reparos. Os comandos para montá-las são:</p>
+<ul>
+<li>Para montar <code>/proc</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>proc<span class="w"> </span>none<span class="w"> </span>/proc
+</code></pre></div>
+<ul>
+<li>Para montar <code>/sys</code> (sysfs):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>sysfs<span class="w"> </span>none<span class="w"> </span>/sys
+</code></pre></div>
+<ul>
+<li>Para montar <code>/dev</code> (udev):</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>devtmpfs<span class="w"> </span>-o<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>/dev<span class="w"> </span>/dev
+</code></pre></div>
+<h2 id="conteudo-de-proc">Conteúdo de <code>/proc</code></h2>
+<p>O diretório <code>/proc</code> é um sistema de arquivos virtual que fornece uma interface para as estruturas de dados internas do kernel. Ele não contém arquivos reais no disco, mas sim informações dinâmicas sobre o estado do sistema e dos processos em execução. Abaixo, exploramos alguns de seus arquivos mais relevantes:</p>
+<h3 id="proccmdline"><code>/proc/cmdline</code></h3>
+<p>Este arquivo exibe os parâmetros que o <em>bootloader</em> (como GRUB) passou para o kernel Linux durante a inicialização do sistema. Esses parâmetros podem incluir a localização da partição raiz, opções de inicialização e outras configurações importantes. Por exemplo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/proc/cmdline<span class="w"> </span>
+<span class="nv">BOOT_IMAGE</span><span class="o">=</span>/vmlinuz-6.16.8+deb14-amd64<span class="w"> </span><span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>ebda8b09-bd9f-4ff9-8f77-917471c36c72<span class="w"> </span>ro<span class="w"> </span>quiet
+</code></pre></div>
+<h3 id="procfilesystems"><code>/proc/filesystems</code></h3>
+<p>Este arquivo lista todos os sistemas de arquivos que o kernel Linux suporta atualmente. Ele indica quais tipos de <em>filesystems</em> podem ser montados e utilizados no sistema. A coluna <code>nodev</code> indica sistemas de arquivos que não estão associados a um dispositivo físico.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/proc/filesystems
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nodev<span class="w">   </span>sysfs
+nodev<span class="w">   </span>tmpfs
+nodev<span class="w">   </span>bdev
+nodev<span class="w">   </span>proc
+nodev<span class="w">   </span>cgroup
+nodev<span class="w">   </span>cgroup2
+nodev<span class="w">   </span>devtmpfs
+nodev<span class="w">   </span>debugfs
+nodev<span class="w">   </span>tracefs
+nodev<span class="w">   </span>securityfs
+nodev<span class="w">   </span>sockfs
+nodev<span class="w">   </span>bpf
+nodev<span class="w">   </span>pipefs
+nodev<span class="w">   </span>ramfs
+nodev<span class="w">   </span>hugetlbfs
+nodev<span class="w">   </span>devpts
+<span class="w">    </span>fuseblk
+nodev<span class="w">   </span>fuse
+nodev<span class="w">   </span>fusectl
+nodev<span class="w">   </span>virtiofs
+nodev<span class="w">   </span>mqueue
+nodev<span class="w">   </span>pstore
+<span class="w">    </span>ext3
+<span class="w">    </span>ext2
+<span class="w">    </span>ext4
+nodev<span class="w">   </span>autofs
+nodev<span class="w">   </span>configfs
+nodev<span class="w">   </span>binfmt_misc
+nodev<span class="w">   </span>rpc_pipefs
+nodev<span class="w">   </span>nfsd
+nodev<span class="w">   </span>overlay
+</code></pre></div>
+<h3 id="procmounts"><code>/proc/mounts</code></h3>
+<p>Este arquivo fornece uma lista detalhada de todos os sistemas de arquivos e partições que estão montados no sistema, incluindo suas opções de montagem. É uma fonte de informação valiosa para entender como o armazenamento está sendo utilizado.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/proc/mounts
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sysfs<span class="w"> </span>/sys<span class="w"> </span>sysfs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+proc<span class="w"> </span>/proc<span class="w"> </span>proc<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+udev<span class="w"> </span>/dev<span class="w"> </span>devtmpfs<span class="w"> </span>rw,nosuid,relatime,size<span class="o">=</span>9972552k,nr_inodes<span class="o">=</span><span class="m">2493138</span>,mode<span class="o">=</span><span class="m">755</span>,inode64<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+devpts<span class="w"> </span>/dev/pts<span class="w"> </span>devpts<span class="w"> </span>rw,nosuid,noexec,relatime,gid<span class="o">=</span><span class="m">5</span>,mode<span class="o">=</span><span class="m">600</span>,ptmxmode<span class="o">=</span><span class="m">000</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tmpfs<span class="w"> </span>/run<span class="w"> </span>tmpfs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime,size<span class="o">=</span>2003308k,mode<span class="o">=</span><span class="m">755</span>,inode64<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+/dev/nvme0n1p2<span class="w"> </span>/<span class="w"> </span>ext4<span class="w"> </span>rw,relatime,errors<span class="o">=</span>remount-ro<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+securityfs<span class="w"> </span>/sys/kernel/security<span class="w"> </span>securityfs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tmpfs<span class="w"> </span>/dev/shm<span class="w"> </span>tmpfs<span class="w"> </span>rw,nosuid,nodev,inode64<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+cgroup2<span class="w"> </span>/sys/fs/cgroup<span class="w"> </span>cgroup2<span class="w"> </span>rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+none<span class="w"> </span>/sys/fs/pstore<span class="w"> </span>pstore<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+bpf<span class="w"> </span>/sys/fs/bpf<span class="w"> </span>bpf<span class="w"> </span>rw,nosuid,nodev,noexec,relatime,mode<span class="o">=</span><span class="m">700</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+systemd-1<span class="w"> </span>/proc/sys/fs/binfmt_misc<span class="w"> </span>autofs<span class="w"> </span>rw,relatime,fd<span class="o">=</span><span class="m">41</span>,pgrp<span class="o">=</span><span class="m">1</span>,timeout<span class="o">=</span><span class="m">0</span>,minproto<span class="o">=</span><span class="m">5</span>,maxproto<span class="o">=</span><span class="m">5</span>,direct,pipe_ino<span class="o">=</span><span class="m">1392</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+mqueue<span class="w"> </span>/dev/mqueue<span class="w"> </span>mqueue<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+hugetlbfs<span class="w"> </span>/dev/hugepages<span class="w"> </span>hugetlbfs<span class="w"> </span>rw,nosuid,nodev,relatime,pagesize<span class="o">=</span>2M<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+debugfs<span class="w"> </span>/sys/kernel/debug<span class="w"> </span>debugfs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tracefs<span class="w"> </span>/sys/kernel/tracing<span class="w"> </span>tracefs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tmpfs<span class="w"> </span>/tmp<span class="w"> </span>tmpfs<span class="w"> </span>rw,nosuid,nodev,size<span class="o">=</span>10016528k,nr_inodes<span class="o">=</span><span class="m">1048576</span>,inode64<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+fusectl<span class="w"> </span>/sys/fs/fuse/connections<span class="w"> </span>fusectl<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tmpfs<span class="w"> </span>/run/credentials/systemd-journald.service<span class="w"> </span>tmpfs<span class="w"> </span>ro,nosuid,nodev,noexec,relatime,nosymfollow,size<span class="o">=</span>1024k,nr_inodes<span class="o">=</span><span class="m">1024</span>,mode<span class="o">=</span><span class="m">700</span>,inode64,noswap<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+configfs<span class="w"> </span>/sys/kernel/config<span class="w"> </span>configfs<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+/dev/nvme0n1p1<span class="w"> </span>/boot<span class="w"> </span>ext4<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+binfmt_misc<span class="w"> </span>/proc/sys/fs/binfmt_misc<span class="w"> </span>binfmt_misc<span class="w"> </span>rw,nosuid,nodev,noexec,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+sunrpc<span class="w"> </span>/run/rpc_pipefs<span class="w"> </span>rpc_pipefs<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+nfsd<span class="w"> </span>/proc/fs/nfsd<span class="w"> </span>nfsd<span class="w"> </span>rw,relatime<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+overlay<span class="w"> </span>/var/lib/docker/overlay2/5b151ac374e80432efcb0bfde4e14ed5c238db825767c2d2ff6d4141ab5975c3/merged<span class="w"> </span>overlay<span class="w"> </span>rw,relatime,lowerdir<span class="o">=</span>/var/lib/docker/overlay2/l/CYS4ELAEKWSKWJ44IYWYIP32ID:/var/lib/docker/overlay2/l/RAY5PXS7WSHVFW4PV6AM6AIJW7:/var/lib/docker/overlay2/l/Q5YREHOL2643IXD5DVPQY2FES3:/var/lib/docker/overlay2/l/2JHQNWXDAXRTHE7G2ZUURCM2MD:/var/lib/docker/overlay2/l/RV2TOVPYR7ULE6MM5RB4DIREY6:/var/lib/docker/overlay2/l/2KYKEEZMA7OATCFO4264ZKDVUT:/var/lib/docker/overlay2/l/F7NZFLSQO3G7F4D4SMF45LFJMR:/var/lib/docker/overlay2/l/UCRKUTNKUGWIWXTZY6YAKMKYCT:/var/lib/docker/overlay2/l/5TBIABCVK52CEFOLUOCLGSKO4B:/var/lib/docker/overlay2/l/7OVEXL6YTCQKH6NLU2U7NHH2SK:/var/lib/docker/overlay2/l/PG4RWL33FJ2RLKJI3PZUFMWXFU:/var/lib/docker/overlay2/l/3ICMVTFWUM5U23KFKUYUBVFXNY:/var/lib/docker/overlay2/l/F6EGGCID6J33Y5EHTKM3FZMJK5:/var/lib/docker/overlay2/l/DJLDIFUAC5RYVCRTKBXGH7VVUQ:/var/lib/docker/overlay2/l/D6345QDXWMPWEOAF32DTWWS2ZO:/var/lib/docker/overlay2/l/ZFPEBAPDFWJV7JDDVNEAGJMHHC,upperdir<span class="o">=</span>/var/lib/docker/overlay2/5b151ac374e80432efcb0bfde4e14ed5c238db825767c2d2ff6d4141ab5975c3/diff,workdir<span class="o">=</span>/var/lib/docker/overlay2/5b151ac374e80432efcb0bfde4e14ed5c238db825767c2d2ff6d4141ab5975c3/work<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+nsfs<span class="w"> </span>/run/docker/netns/97abc155ca7a<span class="w"> </span>nsfs<span class="w"> </span>rw<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+tmpfs<span class="w"> </span>/run/user/1000<span class="w"> </span>tmpfs<span class="w"> </span>rw,nosuid,nodev,relatime,size<span class="o">=</span>2003304k,nr_inodes<span class="o">=</span><span class="m">500826</span>,mode<span class="o">=</span><span class="m">700</span>,uid<span class="o">=</span><span class="m">1000</span>,gid<span class="o">=</span><span class="m">1000</span>,inode64<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+gvfsd-fuse<span class="w"> </span>/run/user/1000/gvfs<span class="w"> </span>fuse.gvfsd-fuse<span class="w"> </span>rw,nosuid,nodev,relatime,user_id<span class="o">=</span><span class="m">1000</span>,group_id<span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+portal<span class="w"> </span>/run/user/1000/doc<span class="w"> </span>fuse.portal<span class="w"> </span>rw,nosuid,nodev,relatime,user_id<span class="o">=</span><span class="m">1000</span>,group_id<span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<h2 id="udev">UDEV</h2>
+<p>O <strong>udev</strong> é o gerenciador de dispositivos do kernel Linux, encarregado de detectar, nomear e configurar dispositivos de hardware de forma dinâmica, ou seja, à medida que são conectados ou desconectados do sistema. Em sistemas Linux modernos que utilizam o SystemD, o daemon do udev é executado como <code>systemd-udevd</code>, o que demonstra sua integração profunda com o gerenciador de serviços do sistema.</p>
+<p>O funcionamento do udev baseia-se no conceito de <em>hotplug</em>, o que significa que ele reage a eventos de hardware em tempo real. Sempre que um dispositivo é conectado (como um pendrive, disco rígido, teclado ou mouse), o udev intercepta esse evento (conhecido como <em>uevent</em>) e aplica um conjunto de regras predefinidas para lidar com o dispositivo. Essas regras determinam aspectos como permissões de acesso, nomes simbólicos, associação a grupos e a execução de scripts específicos.</p>
+<p>Após o processamento do evento, o udev cria dinamicamente um arquivo de dispositivo no diretório <code>/dev/</code>, permitindo que o kernel e os programas do espaço de usuário interajam com o hardware recém-detectado.</p>
+<p>Para interagir com o sistema udev, utiliza-se o comando <code>udevadm</code> (embora não seja um tópico diretamente cobrado na certificação LPIC-1). Este comando oferece funcionalidades como monitoramento de eventos em tempo real (<code>udevadm monitor</code>), teste de regras, recarregamento de regras e consulta de informações sobre dispositivos.</p>
+<p>Por exemplo, para monitorar os eventos do udev em tempo real:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>udevadm<span class="w"> </span>monitor
+</code></pre></div>
+<p>Este comando exibirá tanto os <em>uevents</em> do kernel quanto os eventos do udev processados à medida que os dispositivos são conectados ou removidos.</p>
+<p>As regras do udev, que controlam o comportamento de cada tipo de dispositivo, são definidas em arquivos com a extensão <code>.rules</code>. As regras padrão do sistema são armazenadas em <code>/lib/udev/rules.d/</code>. Para criar ou modificar regras personalizadas, o diretório <code>/etc/udev/rules.d/</code> deve ser utilizado, pois as regras definidas aqui têm prioridade sobre as do sistema e não são sobrescritas por atualizações. Essas regras permitem configurar o comportamento de dispositivos específicos com base em seus atributos, como ID do fabricante, tipo de barramento ou nome.</p>
+<p>O udev opera sobre um sistema de arquivos especial chamado <code>devtmpfs</code>, que é montado em <code>/dev</code>. Este <em>filesystem</em> é mantido em memória RAM (similar ao <code>tmpfs</code>), o que significa que os arquivos de dispositivo não são persistentes no disco. Eles são criados dinamicamente na inicialização do sistema e removidos ao desligar a máquina, sendo gerenciados em tempo real pelo udev.</p>
+<h2 id="modulos-do-kernel">Módulos do Kernel</h2>
+<p>Para que um sistema operacional funcione de maneira eficiente, o kernel precisa ser capaz de reconhecer e interagir com o hardware conectado. Tradicionalmente, isso exigiria a recompilação do kernel a cada nova adição de hardware, um processo que pode ser complexo e demorado.</p>
+<p>O Linux adota o conceito de <strong>modularidade</strong> para contornar essa dificuldade. Isso significa que muitos <em>drivers</em> e funcionalidades podem ser compilados como módulos separados, que o sistema pode carregar e descarregar dinamicamente conforme a necessidade. Essa abordagem permite que apenas os módulos essenciais estejam ativos, otimizando o uso de recursos e eliminando a necessidade de recompilar o kernel para cada mudança de hardware.</p>
+<p>É importante notar que nem todos os recursos podem ser modularizados. Alguns são compilados diretamente no kernel (conhecidos como <em>built-in</em>) e não podem ser removidos ou carregados dinamicamente. Outros são módulos externos, que podem ser inseridos ou removidos em tempo de execução.</p>
+<p>Os módulos do kernel são armazenados no diretório <code>/lib/modules/</code>, que é organizado em subpastas por versão do kernel. Cada versão possui seu próprio conjunto de módulos, identificados pela extensão <code>.ko</code> (Kernel Object).</p>
+<p>Para visualizar os módulos atualmente carregados no sistema, pode-se consultar o arquivo <code>/proc/modules</code>. O comando <code>lsmod</code> lê as informações desse arquivo para gerar sua saída. Para verificar os módulos disponíveis para o kernel ativo, utilize o comando <code>ls /lib/modules/$(uname -r)/kernel/</code>.</p>
+<p>É possível criar apelidos (aliases) para os módulos do kernel, facilitando seu carregamento. Esses apelidos são configurados em arquivos dentro do diretório <code>/etc/modprobe.d/</code>, como no exemplo a seguir, no arquivo <code>/etc/modprobe.d/alias.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/modprobe.d/alias.conf</span>
+<span class="nb">alias</span><span class="w"> </span>wireless_driver<span class="w"> </span>iwlwifi
+<span class="nb">alias</span><span class="w"> </span>som<span class="w"> </span>onboard<span class="w"> </span>snd_hda_intel
+</code></pre></div>
+<p>Com essa configuração, ao executar <code>modprobe wireless_driver</code>, o sistema carregará o módulo <code>iwlwifi</code>.</p>
+<h2 id="modulos-internos-built-in-e-externos">Módulos Internos (Built-In) e Externos</h2>
+<p>No Linux, os módulos do kernel podem ser classificados em dois tipos principais: <strong>Built-In</strong> e <strong>externos</strong>. Os módulos Built-In são aqueles compilados diretamente no kernel, tornando-se parte integrante dele. Já os módulos externos são compilados separadamente e podem ser carregados ou removidos dinamicamente em tempo de execução.</p>
+<p>Para identificar o tipo de um módulo, pode-se inspecionar o arquivo de configuração do kernel (<code>/boot/config-&lt;versão_do_kernel&gt;</code>). Módulos marcados com <code>m</code> são externos, enquanto os marcados com <code>y</code> são Built-In. Veja os exemplos abaixo (testes realizados em uma máquina virtual):</p>
+<h3 id="verificando-um-modulo">Verificando um módulo:</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/boot/config-6.16.8+deb14-amd64
+</code></pre></div>
+<p>Outra maneira de verificar o tipo de módulo é utilizando o comando <code>modinfo</code></p>
+<div class="highlight"><pre><span></span><code>modinfo<span class="w"> </span>-h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Usage:
+<span class="w">    </span>modinfo<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>&lt;modulename<span class="p">|</span>filename&gt;<span class="w"> </span><span class="o">[</span>args<span class="o">]</span>
+Options:
+<span class="w">    </span>-a,<span class="w"> </span>--author<span class="w">                </span>Print<span class="w"> </span>only<span class="w"> </span><span class="s1">&#39;author&#39;</span>
+<span class="w">    </span>-d,<span class="w"> </span>--description<span class="w">           </span>Print<span class="w"> </span>only<span class="w"> </span><span class="s1">&#39;description&#39;</span>
+<span class="w">    </span>-l,<span class="w"> </span>--license<span class="w">               </span>Print<span class="w"> </span>only<span class="w"> </span><span class="s1">&#39;license&#39;</span>
+<span class="w">    </span>-p,<span class="w"> </span>--parameters<span class="w">            </span>Print<span class="w"> </span>only<span class="w"> </span><span class="s1">&#39;parm&#39;</span>
+<span class="w">    </span>-n,<span class="w"> </span>--filename<span class="w">              </span>Print<span class="w"> </span>only<span class="w"> </span><span class="s1">&#39;filename&#39;</span>
+<span class="w">    </span>-0,<span class="w"> </span>--null<span class="w">                  </span>Use<span class="w"> </span><span class="se">\0</span><span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span><span class="se">\n</span>
+<span class="w">    </span>-m,<span class="w"> </span>--modname<span class="w">               </span>Handle<span class="w"> </span>argument<span class="w"> </span>as<span class="w"> </span>module<span class="w"> </span>name<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span><span class="nb">alias</span><span class="w"> </span>or<span class="w"> </span>filename
+<span class="w">    </span>-F,<span class="w"> </span>--field<span class="o">=</span>FIELD<span class="w">           </span>Print<span class="w"> </span>only<span class="w"> </span>provided<span class="w"> </span>FIELD
+<span class="w">    </span>-k,<span class="w"> </span>--set-version<span class="o">=</span>VERSION<span class="w">   </span>Use<span class="w"> </span>VERSION<span class="w"> </span>instead<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>uname<span class="w"> </span>-r<span class="sb">`</span>
+<span class="w">    </span>-b,<span class="w"> </span>--basedir<span class="o">=</span>DIR<span class="w">           </span>Use<span class="w"> </span>DIR<span class="w"> </span>as<span class="w"> </span>filesystem<span class="w"> </span>root<span class="w"> </span><span class="k">for</span><span class="w"> </span>/lib/modules
+<span class="w">    </span>-V,<span class="w"> </span>--version<span class="w">               </span>Show<span class="w"> </span>version
+<span class="w">    </span>-h,<span class="w"> </span>--help<span class="w">                  </span>Show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>modinfo<span class="w"> </span>ext4<span class="w"> </span>-d
+<span class="w"> </span><span class="sb">```</span>
+
+<span class="w"> </span><span class="sb">```</span>bash
+Fourth<span class="w"> </span>Extended<span class="w"> </span>Filesystem
+root@debian:~#<span class="w">  </span>modinfo<span class="w"> </span>ext4<span class="w"> </span>-m
+filename:<span class="w">       </span>/lib/modules/6.16.8+deb14-amd64/kernel/fs/ext4/ext4.ko.xz
+license:<span class="w">        </span>GPL
+description:<span class="w">    </span>Fourth<span class="w"> </span>Extended<span class="w"> </span>Filesystem
+author:<span class="w">         </span>Remy<span class="w"> </span>Card,<span class="w"> </span>Stephen<span class="w"> </span>Tweedie,<span class="w"> </span>Andrew<span class="w"> </span>Morton,<span class="w"> </span>Andreas<span class="w"> </span>Dilger,<span class="w"> </span>Theodore<span class="w"> </span>Ts<span class="err">&#39;</span>o<span class="w"> </span>and<span class="w"> </span>others
+alias:<span class="w">          </span>fs-ext4
+alias:<span class="w">          </span>ext3
+alias:<span class="w">          </span>fs-ext3
+alias:<span class="w">          </span>ext2
+alias:<span class="w">          </span>fs-ext2
+depends:<span class="w">        </span>jbd2,crc16,mbcache
+intree:<span class="w">         </span>Y
+name:<span class="w">           </span>ext4
+retpoline:<span class="w">      </span>Y
+vermagic:<span class="w">       </span><span class="m">6</span>.16.8+deb14-amd64<span class="w"> </span>SMP<span class="w"> </span>preempt<span class="w"> </span>mod_unload<span class="w"> </span>modversions<span class="w"> </span>
+sig_id:<span class="w">         </span>PKCS#7
+signer:<span class="w">         </span>Build<span class="w"> </span><span class="nb">time</span><span class="w"> </span>autogenerated<span class="w"> </span>kernel<span class="w"> </span>key
+sig_key:<span class="w">        </span><span class="m">77</span>:EC:43:61:13:91:E5:13:AC:6E:54:40:A7:6B:4B:2F:1F:75:F9:AA
+sig_hashalgo:<span class="w">   </span>sha256
+signature:<span class="w">      </span><span class="m">30</span>:64:02:30:64:4A:24:9D:FA:80:AE:AB:C0:98:21:89:79:79:B6:23:
+<span class="w">        </span><span class="m">55</span>:DE:2D:C9:59:B7:91:71:93:F6:05:FA:03:8D:C4:B8:92:3D:3C:80:
+<span class="w">        </span><span class="m">70</span>:82:53:EF:2C:05:54:54:3A:29:6F:86:02:30:54:5C:EC:F0:CC:DA:
+<span class="w">        </span>E7:1F:9A:28:73:D5:00:D9:1D:A5:60:A5:16:99:B2:68:33:92:A6:BA:
+<span class="w">        </span>9A:1C:DF:AD:DA:87:A8:5C:20:80:D7:D8:3F:D6:A2:4A:6A:1F:1D:B5:
+<span class="w">        </span><span class="m">09</span>:FF
+</code></pre></div>
+<h2 id="modulos-em-uso-nao-podem-ser-descarregados">Módulos "em uso" não podem ser descarregados.</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>modprobe<span class="w"> </span>-r<span class="w"> </span>ext4
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>modprobe:<span class="w"> </span>FATAL:<span class="w"> </span>Module<span class="w"> </span>ext4<span class="w"> </span>is<span class="w"> </span><span class="k">in</span><span class="w"> </span>use.
+</code></pre></div>
+<p>Uma forma adicional de identificar módulos é consultando os arquivos <code>modules</code> dentro do diretório da versão do kernel:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/lib/modules/<span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span>/
+</code></pre></div>
+<p>Para mais detalhes, como alias usados no sistema, pode-se usar <code>cat</code> neste arquivo:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/lib/modules/<span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span>/modules.alias
+</code></pre></div>
+<h2 id="barramento">Barramento</h2>
+<p>O barramento é um sistema de comunicação que permite a transferência de dados entre os componentes de hardware de um computador. Ele é essencial para conectar dispositivos à placa-mãe. Na certificação LPI, os barramentos mais abordados são o <strong>PCI (Peripheral Component Interconnect)</strong> e o <strong>USB (Universal Serial Bus)</strong>.</p>
+<h2 id="lspci">LSPCI</h2>
+<p>O comando <code>lspci</code> é utilizado para listar todos os dispositivos conectados ao barramento <strong>PCI (Peripheral Component Interconnect)</strong>. Ele fornece informações detalhadas sobre cada dispositivo, como o tipo de hardware, fabricante e modelo.</p>
+<h3 id="opcoes-comuns">Opções Comuns:</h3>
+<ul>
+<li><code>-v</code>: Exibe informações mais detalhadas (pode ser usado como <code>-vv</code> ou <code>-vvv</code> para níveis crescentes de detalhe).</li>
+<li><code>-s &lt;Dominio ou Barramento&gt;:&lt;Dispositivo&gt;.&lt;Função&gt;</code>: Filtra a saída para mostrar apenas dispositivos em um domínio, barramento, dispositivo e/ou função específicos. Os domínios são numerados de <code>0</code> a <code>ffff</code>, o barramento de <code>0</code> a <code>ff</code>, o dispositivo de <code>0</code> a <code>1f</code> e a função de <code>0</code> a <code>7</code>.</li>
+</ul>
+<h3 id="exemplo-de-uso">Exemplo de Uso:</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lspci
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="m">00</span>:00.0<span class="w"> </span>Host<span class="w"> </span>bridge:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>Processor<span class="w"> </span>Host<span class="w"> </span>Bridge/DRAM<span class="w"> </span>Registers<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">03</span><span class="o">)</span>
+<span class="m">00</span>:02.0<span class="w"> </span>VGA<span class="w"> </span>compatible<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Iris<span class="w"> </span>Plus<span class="w"> </span>Graphics<span class="w"> </span>G1<span class="w"> </span><span class="o">(</span>Ice<span class="w"> </span>Lake<span class="o">)</span><span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">07</span><span class="o">)</span>
+<span class="m">00</span>:04.0<span class="w"> </span>Signal<span class="w"> </span>processing<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Processor<span class="w"> </span>Power<span class="w"> </span>and<span class="w"> </span>Thermal<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">03</span><span class="o">)</span>
+<span class="m">00</span>:14.0<span class="w"> </span>USB<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>USB<span class="w"> </span><span class="m">3</span>.1<span class="w"> </span>xHCI<span class="w"> </span>Host<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:14.2<span class="w"> </span>RAM<span class="w"> </span>memory:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>DRAM<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:14.3<span class="w"> </span>Network<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>PCH<span class="w"> </span>CNVi<span class="w"> </span>WiFi<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:15.0<span class="w"> </span>Serial<span class="w"> </span>bus<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>Serial<span class="w"> </span>IO<span class="w"> </span>I2C<span class="w"> </span>Controller<span class="w"> </span><span class="c1">#0 (rev 30)</span>
+<span class="m">00</span>:15.1<span class="w"> </span>Serial<span class="w"> </span>bus<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>Serial<span class="w"> </span>IO<span class="w"> </span>I2C<span class="w"> </span>Controller<span class="w"> </span><span class="c1">#1 (rev 30)</span>
+<span class="m">00</span>:16.0<span class="w"> </span>Communication<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>Management<span class="w"> </span>Engine<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:17.0<span class="w"> </span>SATA<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>SATA<span class="w"> </span>Controller<span class="w"> </span><span class="o">[</span>AHCI<span class="w"> </span>mode<span class="o">]</span><span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:1d.0<span class="w"> </span>PCI<span class="w"> </span>bridge:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>PCI<span class="w"> </span>Express<span class="w"> </span>Root<span class="w"> </span>Port<span class="w"> </span><span class="c1">#9 (rev 30)</span>
+<span class="m">00</span>:1d.4<span class="w"> </span>PCI<span class="w"> </span>bridge:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>PCIe<span class="w"> </span>Port<span class="w"> </span><span class="c1">#13 (rev 30)</span>
+<span class="m">00</span>:1f.0<span class="w"> </span>ISA<span class="w"> </span>bridge:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>LPC<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:1f.3<span class="w"> </span>Audio<span class="w"> </span>device:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>Smart<span class="w"> </span>Sound<span class="w"> </span>Technology<span class="w"> </span>Audio<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:1f.4<span class="w"> </span>SMBus:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>SMBus<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">00</span>:1f.5<span class="w"> </span>Serial<span class="w"> </span>bus<span class="w"> </span>controller:<span class="w"> </span>Intel<span class="w"> </span>Corporation<span class="w"> </span>Ice<span class="w"> </span>Lake-LP<span class="w"> </span>SPI<span class="w"> </span>Controller<span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">30</span><span class="o">)</span>
+<span class="m">06</span>:00.0<span class="w"> </span>Non-Volatile<span class="w"> </span>memory<span class="w"> </span>controller:<span class="w"> </span>Kingston<span class="w"> </span>Technology<span class="w"> </span>Company,<span class="w"> </span>Inc.<span class="w"> </span>NV2<span class="w"> </span>NVMe<span class="w"> </span>SSD<span class="w"> </span><span class="o">[</span>SM2267XT<span class="o">]</span><span class="w"> </span><span class="o">(</span>DRAM-less<span class="o">)</span><span class="w"> </span><span class="o">(</span>rev<span class="w"> </span><span class="m">03</span><span class="o">)</span>
+</code></pre></div>
+<h2 id="lsusb">LSUSB</h2>
+<p>O comando <code>lsusb</code> é utilizado para listar os dispositivos conectados ao barramento <strong>USB (Universal Serial Bus)</strong>. Diferente do PCI, o USB não utiliza o conceito de 'função' no mesmo sentido, focando mais no barramento e no número do dispositivo.</p>
+<h3 id="opcoes-comuns_1">Opções Comuns:</h3>
+<ul>
+<li><code>-v</code>: Exibe informações detalhadas sobre os dispositivos (pode ser usado como <code>-vv</code> ou <code>-vvv</code> para níveis crescentes de detalhe).</li>
+<li><code>-s &lt;Barramento&gt;:&lt;Dispositivo&gt;</code>: Filtra a saída para mostrar apenas um dispositivo específico, identificado pelo número do barramento e do dispositivo.</li>
+<li><code>-t</code>: Apresenta a saída em formato de árvore, mostrando a hierarquia dos dispositivos USB.</li>
+<li><code>-d &lt;ID_Vendedor&gt;:&lt;ID_Produto&gt;</code>: Exibe todos os dispositivos que correspondem a um ID de vendedor e ID de produto específicos.</li>
+</ul>
+<h3 id="exemplos-de-uso">Exemplos de Uso:</h3>
+<p><strong>Exibindo todos os dispositivos USB:</strong></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsusb
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0002<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">003</span>:<span class="w"> </span>ID<span class="w"> </span>04f2:b624<span class="w"> </span>Chicony<span class="w"> </span>Electronics<span class="w"> </span>Co.,<span class="w"> </span>Ltd<span class="w"> </span>Integrated<span class="w"> </span>Camera
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">005</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">8087</span>:0aaa<span class="w"> </span>Intel<span class="w"> </span>Corp.<span class="w"> </span>Bluetooth<span class="w"> </span><span class="m">9460</span>/9560<span class="w"> </span>Jefferson<span class="w"> </span>Peak<span class="w"> </span><span class="o">(</span>JfP<span class="o">)</span>
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">006</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">3151</span>:3020<span class="w"> </span>YICHIP<span class="w"> </span>Wireless<span class="w"> </span>Device
+Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">013</span>:<span class="w"> </span>ID<span class="w"> </span>048d:1234<span class="w"> </span>Integrated<span class="w"> </span>Technology<span class="w"> </span>Express,<span class="w"> </span>Inc.<span class="w"> </span>Chipsbank<span class="w"> </span>CBM2199<span class="w"> </span>Flash<span class="w"> </span>Drive
+Bus<span class="w"> </span><span class="m">002</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:0003<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">3</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</code></pre></div>
+<p><strong>Filtrando por barramento e dispositivo com <code>-s</code>:</strong></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsusb<span class="w"> </span>-s<span class="w"> </span><span class="m">001</span>:006
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Bus<span class="w"> </span><span class="m">005</span><span class="w"> </span>Device<span class="w"> </span><span class="m">001</span>:<span class="w"> </span>ID<span class="w"> </span>1d6b:006<span class="w"> </span>Linux<span class="w"> </span>Foundation<span class="w"> </span><span class="m">2</span>.0<span class="w"> </span>root<span class="w"> </span>hub
+</code></pre></div>
+<p><strong>Utilizando <code>-s</code> e <code>-v</code> para detalhes:</strong></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsusb<span class="w"> </span>-s<span class="w"> </span><span class="m">001</span>:006<span class="w"> </span>-v
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Bus<span class="w"> </span><span class="m">001</span><span class="w"> </span>Device<span class="w"> </span><span class="m">006</span>:<span class="w"> </span>ID<span class="w"> </span><span class="m">3151</span>:3020<span class="w"> </span>YICHIP<span class="w"> </span>Wireless<span class="w"> </span>Device
+Couldn<span class="err">&#39;</span>t<span class="w"> </span>open<span class="w"> </span>device,<span class="w"> </span>some<span class="w"> </span>information<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>missing
+Negotiated<span class="w"> </span>speed:<span class="w"> </span>Full<span class="w"> </span>Speed<span class="w"> </span><span class="o">(</span>12Mbps<span class="o">)</span>
+Device<span class="w"> </span>Descriptor:
+<span class="w">  </span>bLength<span class="w">                </span><span class="m">18</span>
+<span class="w">  </span>bDescriptorType<span class="w">         </span><span class="m">1</span>
+<span class="w">  </span>bcdUSB<span class="w">               </span><span class="m">2</span>.00
+<span class="w">  </span>bDeviceClass<span class="w">            </span><span class="m">0</span><span class="w"> </span><span class="o">[</span>unknown<span class="o">]</span>
+<span class="w">  </span>bDeviceSubClass<span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="o">[</span>unknown<span class="o">]</span>
+<span class="w">  </span>bDeviceProtocol<span class="w">         </span><span class="m">0</span><span class="w"> </span>
+<span class="w">  </span>bMaxPacketSize0<span class="w">        </span><span class="m">64</span>
+<span class="w">  </span>idVendor<span class="w">           </span>0x3151<span class="w"> </span>YICHIP
+<span class="w">  </span>idProduct<span class="w">          </span>0x3020<span class="w"> </span>Wireless<span class="w"> </span>Device
+<span class="w">  </span>bcdDevice<span class="w">            </span><span class="m">0</span>.02
+<span class="w">  </span>iManufacturer<span class="w">           </span><span class="m">1</span><span class="w"> </span>YICHIP
+<span class="w">  </span>iProduct<span class="w">                </span><span class="m">2</span><span class="w"> </span>Wireless<span class="w"> </span>Device
+<span class="w">  </span>iSerial<span class="w">                 </span><span class="m">3</span><span class="w"> </span>b120300001
+<span class="w">  </span>bNumConfigurations<span class="w">      </span><span class="m">1</span>
+<span class="w">  </span>Configuration<span class="w"> </span>Descriptor:
+<span class="w">    </span>bLength<span class="w">                 </span><span class="m">9</span>
+<span class="w">    </span>bDescriptorType<span class="w">         </span><span class="m">2</span>
+<span class="w">    </span>wTotalLength<span class="w">       </span>0x003b
+<span class="w">    </span>bNumInterfaces<span class="w">          </span><span class="m">2</span>
+<span class="w">    </span>bConfigurationValue<span class="w">     </span><span class="m">1</span>
+<span class="w">    </span>iConfiguration<span class="w">          </span><span class="m">0</span><span class="w"> </span>
+<span class="w">    </span>bmAttributes<span class="w">         </span>0xa0
+<span class="w">      </span><span class="o">(</span>Bus<span class="w"> </span>Powered<span class="o">)</span>
+<span class="w">      </span>Remote<span class="w"> </span>Wakeup
+<span class="w">    </span>MaxPower<span class="w">              </span>100mA
+<span class="w">    </span>Interface<span class="w"> </span>Descriptor:
+<span class="w">      </span>bLength<span class="w">                 </span><span class="m">9</span>
+<span class="w">      </span>bDescriptorType<span class="w">         </span><span class="m">4</span>
+<span class="w">      </span>bInterfaceNumber<span class="w">        </span><span class="m">0</span>
+<span class="w">      </span>bAlternateSetting<span class="w">       </span><span class="m">0</span>
+<span class="w">      </span>bNumEndpoints<span class="w">           </span><span class="m">1</span>
+<span class="w">      </span>bInterfaceClass<span class="w">         </span><span class="m">3</span><span class="w"> </span>Human<span class="w"> </span>Interface<span class="w"> </span>Device
+<span class="w">      </span>bInterfaceSubClass<span class="w">      </span><span class="m">1</span><span class="w"> </span>Boot<span class="w"> </span>Interface<span class="w"> </span>Subclass
+<span class="w">      </span>bInterfaceProtocol<span class="w">      </span><span class="m">1</span><span class="w"> </span>Keyboard
+<span class="w">      </span>iInterface<span class="w">              </span><span class="m">0</span><span class="w"> </span>
+<span class="w">        </span>HID<span class="w"> </span>Device<span class="w"> </span>Descriptor:
+<span class="w">          </span>bLength<span class="w">                 </span><span class="m">9</span>
+<span class="w">          </span>bDescriptorType<span class="w">        </span><span class="m">33</span>
+<span class="w">          </span>bcdHID<span class="w">               </span><span class="m">2</span>.00
+<span class="w">          </span>bCountryCode<span class="w">            </span><span class="m">0</span><span class="w"> </span>Not<span class="w"> </span>supported
+<span class="w">          </span>bNumDescriptors<span class="w">         </span><span class="m">1</span>
+<span class="w">          </span>bDescriptorType<span class="w">        </span><span class="m">34</span><span class="w"> </span><span class="o">(</span>null<span class="o">)</span>
+<span class="w">          </span>wDescriptorLength<span class="w">      </span><span class="m">63</span>
+<span class="w">          </span>Report<span class="w"> </span>Descriptors:<span class="w"> </span>
+<span class="w">            </span>**<span class="w"> </span>UNAVAILABLE<span class="w"> </span>**
+<span class="w">      </span>Endpoint<span class="w"> </span>Descriptor:
+<span class="w">        </span>bLength<span class="w">                 </span><span class="m">7</span>
+<span class="w">        </span>bDescriptorType<span class="w">         </span><span class="m">5</span>
+<span class="w">        </span>bEndpointAddress<span class="w">     </span>0x81<span class="w">  </span>EP<span class="w"> </span><span class="m">1</span><span class="w"> </span>IN
+<span class="w">        </span>bmAttributes<span class="w">            </span><span class="m">3</span>
+<span class="w">          </span>Transfer<span class="w"> </span>Type<span class="w">            </span>Interrupt
+<span class="w">          </span>Synch<span class="w"> </span>Type<span class="w">               </span>None
+<span class="w">          </span>Usage<span class="w"> </span>Type<span class="w">               </span>Data
+<span class="w">        </span>wMaxPacketSize<span class="w">     </span>0x0040<span class="w">  </span>1x<span class="w"> </span><span class="m">64</span><span class="w"> </span>bytes
+<span class="w">        </span>bInterval<span class="w">               </span><span class="m">2</span>
+<span class="w">    </span>Interface<span class="w"> </span>Descriptor:
+<span class="w">      </span>bLength<span class="w">                 </span><span class="m">9</span>
+<span class="w">      </span>bDescriptorType<span class="w">         </span><span class="m">4</span>
+<span class="w">      </span>bInterfaceNumber<span class="w">        </span><span class="m">1</span>
+<span class="w">      </span>bAlternateSetting<span class="w">       </span><span class="m">0</span>
+<span class="w">      </span>bNumEndpoints<span class="w">           </span><span class="m">1</span>
+<span class="w">      </span>bInterfaceClass<span class="w">         </span><span class="m">3</span><span class="w"> </span>Human<span class="w"> </span>Interface<span class="w"> </span>Device
+<span class="w">      </span>bInterfaceSubClass<span class="w">      </span><span class="m">1</span><span class="w"> </span>Boot<span class="w"> </span>Interface<span class="w"> </span>Subclass
+<span class="w">      </span>bInterfaceProtocol<span class="w">      </span><span class="m">2</span><span class="w"> </span>Mouse
+<span class="w">      </span>iInterface<span class="w">              </span><span class="m">0</span><span class="w"> </span>
+<span class="w">        </span>HID<span class="w"> </span>Device<span class="w"> </span>Descriptor:
+<span class="w">          </span>bLength<span class="w">                 </span><span class="m">9</span>
+<span class="w">          </span>bDescriptorType<span class="w">        </span><span class="m">33</span>
+<span class="w">          </span>bcdHID<span class="w">               </span><span class="m">2</span>.00
+<span class="w">          </span>bCountryCode<span class="w">            </span><span class="m">0</span><span class="w"> </span>Not<span class="w"> </span>supported
+<span class="w">          </span>bNumDescriptors<span class="w">         </span><span class="m">1</span>
+<span class="w">          </span>bDescriptorType<span class="w">        </span><span class="m">34</span><span class="w"> </span><span class="o">(</span>null<span class="o">)</span>
+<span class="w">          </span>wDescriptorLength<span class="w">     </span><span class="m">163</span>
+<span class="w">          </span>Report<span class="w"> </span>Descriptors:<span class="w"> </span>
+<span class="w">            </span>**<span class="w"> </span>UNAVAILABLE<span class="w"> </span>**
+<span class="w">      </span>Endpoint<span class="w"> </span>Descriptor:
+<span class="w">        </span>bLength<span class="w">                 </span><span class="m">7</span>
+<span class="w">        </span>bDescriptorType<span class="w">         </span><span class="m">5</span>
+<span class="w">        </span>bEndpointAddress<span class="w">     </span>0x82<span class="w">  </span>EP<span class="w"> </span><span class="m">2</span><span class="w"> </span>IN
+<span class="w">        </span>bmAttributes<span class="w">            </span><span class="m">3</span>
+<span class="w">          </span>Transfer<span class="w"> </span>Type<span class="w">            </span>Interrupt
+<span class="w">          </span>Synch<span class="w"> </span>Type<span class="w">               </span>None
+<span class="w">          </span>Usage<span class="w"> </span>Type<span class="w">               </span>Data
+<span class="w">        </span>wMaxPacketSize<span class="w">     </span>0x0040<span class="w">  </span>1x<span class="w"> </span><span class="m">64</span><span class="w"> </span>bytes
+<span class="w">        </span>bInterval<span class="w">               </span><span class="m">2</span><span class="w">               </span>
+</code></pre></div>
+<h2 id="lsmem">LSMEM</h2>
+<p>O comando <code>lsmem</code> é uma ferramenta que exibe informações detalhadas sobre a arquitetura de memória do sistema, incluindo a organização e o estado dos blocos de memória. As informações apresentadas por <code>lsmem</code> são derivadas do arquivo virtual <code>/proc/meminfo</code>, que fornece dados em tempo real sobre o uso da memória pelo kernel.</p>
+<h3 id="exemplo-de-uso_1">Exemplo de Uso:</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsmem
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>RANGE<span class="w">                                  </span>SIZE<span class="w">   </span>STATE<span class="w"> </span>REMOVABLE<span class="w">  </span>BLOCK
+0x0000000000000000-0x000000004fffffff<span class="w">  </span><span class="m">1</span>,3G<span class="w"> </span>on-line<span class="w">       </span>sim<span class="w">    </span><span class="m">0</span>-9
+0x0000000100000000-0x000000059fffffff<span class="w"> </span><span class="m">18</span>,5G<span class="w"> </span>on-line<span class="w">       </span>sim<span class="w"> </span><span class="m">32</span>-179
+
+Tamanho<span class="w"> </span>de<span class="w"> </span>bloco<span class="w"> </span>de<span class="w"> </span>memória:<span class="w">     </span>128M
+Memória<span class="w"> </span>total<span class="w"> </span>online:<span class="w">           </span><span class="m">19</span>,8G
+Memória<span class="w"> </span>total<span class="w"> </span>offline:<span class="w">             </span>0B
+</code></pre></div>
+<h2 id="coldplug-x-hotplug">Coldplug x Hotplug</h2>
+<p>No contexto de hardware, os termos <strong>coldplug</strong> e <strong>hotplug</strong> referem-se à capacidade de um dispositivo ser conectado ou desconectado do sistema enquanto ele está ligado ou desligado.</p>
+<ul>
+<li>
+<p><strong>Dispositivos Coldplug (Plugagem Fria)</strong>: São aqueles que exigem que o computador esteja completamente desligado para que possam ser conectados ou removidos e reconhecidos corretamente pelo sistema. Exemplos incluem interfaces PS/2, controladoras IDE, placas PCI e ISA.</p>
+</li>
+<li>
+<p><strong>Dispositivos Hotplug (Plugagem Quente)</strong>: São dispositivos que podem ser conectados ou removidos com o sistema em funcionamento, sendo automaticamente detectados e configurados. Exemplos comuns são dispositivos SATA e USB.</p>
+</li>
+</ul>
+<h2 id="ide-pata-sata-e-scsi">IDE, PATA, SATA e SCSI</h2>
+<p>Essas siglas representam diferentes interfaces de conexão para dispositivos de armazenamento, como discos rígidos e unidades ópticas, cada uma com suas características e evoluções.</p>
+<ul>
+<li><strong>(P)ATA - Parallel Advanced Technology Attachment</strong></li>
+</ul>
+<p>Também conhecido como <strong>IDE (Integrated Drive Electronics)</strong>, refere-se a uma interface de conexão paralela. Historicamente, no Linux, esses dispositivos eram mapeados como <code>hda</code>, <code>hdb</code>, <code>hdc</code>, etc. No entanto, em sistemas modernos, independentemente da interface física, muitos dispositivos de armazenamento são mapeados como <code>sdX</code> (por exemplo, <code>sda</code>, <code>sdb</code>), seguindo o padrão de nomenclatura de dispositivos SCSI.</p>
+<p>Dispositivos PATA utilizavam um sistema de <strong>Master e Slave</strong>, configurado por <em>jumpers</em> no próprio disco rígido, permitindo a conexão de até dois HDs por cabo <em>flat</em> (também conhecido como cabo IDE). Um driver de CD/DVD IDE também era referenciado como <code>hdX</code>, mas hoje é mais comum vê-lo mapeado como <code>sr0</code>.</p>
+<ul>
+<li><strong>SATA - Serial Advanced Technology Attachment</strong></li>
+</ul>
+<p>O SATA é o sucessor do PATA, oferecendo uma interface serial mais rápida e eficiente. Uma de suas principais vantagens é o suporte a <em>hot-swap</em>, que permite a troca de discos com a máquina ligada (uma funcionalidade <em>hotplug</em>). Cada cabo SATA conecta apenas um disco, e seu mapeamento no Linux segue o padrão <code>sda</code>, <code>sdb</code>, <code>sdc</code>, etc., alinhando-se com a nomenclatura de dispositivos SCSI.</p>
+<ul>
+<li><strong>SCSI - Small Computer System Interface</strong></li>
+</ul>
+<p>O SCSI é uma interface de alta performance projetada para transferência rápida de dados, comumente utilizada em servidores e estações de trabalho de alto desempenho. Existem duas variações principais:</p>
+<ul>
+<li><strong>8 bits</strong>: Permite a conexão de até 7 dispositivos em um único barramento, além de 1 controladora.</li>
+<li><strong>16 bits</strong>: Permite a conexão de até 15 dispositivos em um único barramento, além de 1 controladora.</li>
+</ul>
+<p>Dispositivos SCSI são identificados por um ID composto por três números: <strong>Canal</strong>, <strong>ID do dispositivo</strong> e <strong>LUN (Logical Unit Number)</strong>. Essas informações podem ser visualizadas com comandos como <code>lsscsi</code>, <code>scsi_info</code> ou <code>cat /proc/scsi/scsi</code>.</p>
+<ul>
+<li><strong>Canal</strong>: Identifica cada adaptador.</li>
+<li><strong>ID</strong>: Identificador único para cada dispositivo.</li>
+<li><strong>LUN</strong>: Número lógico da unidade.</li>
+</ul>
+<p>O mapeamento de dispositivos SCSI no Linux é similar ao SATA, e informações detalhadas podem ser encontradas em <code>/proc/scsi/scsi</code>.</p>
+<h2 id="outros-dispositivos">Outros Dispositivos</h2>
+<p>Além dos dispositivos de armazenamento mencionados, o Linux atribui nomes específicos a outros tipos de hardware. Alguns exemplos incluem:</p>
+<ul>
+<li><strong>Disquete (Floppy Disk)</strong>: <code>/dev/fd0</code></li>
+<li><strong>SCSI CD-Rom</strong>: <code>/dev/scd0</code></li>
+<li><strong>SCSI DVD</strong>: <code>/dev/sr0</code></li>
+<li><strong>/dev/dvd</strong>: Geralmente um link simbólico para o dispositivo de DVD real.</li>
+<li><strong>/dev/cdrom</strong>: Geralmente um link simbólico para o dispositivo de CD-ROM real.</li>
+</ul>
+<p>Para verificar os discos que foram conectados ao sistema, é possível consultar os logs do kernel, especificamente o <code>dmesg</code>. Este comando exibe as mensagens do <em>buffer</em> de mensagens do kernel, que incluem informações sobre a detecção e configuração de hardware durante a inicialização e em tempo de execução.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dmesg
+</code></pre></div>
+<h2 id="modulos-no-linux">Módulos no Linux</h2>
+<p>Os módulos no Linux são componentes de software que podem ser carregados e descarregados do kernel do sistema operacional em tempo de execução, sem a necessidade de reiniciar o sistema. Eles representam uma funcionalidade chave que confere ao kernel Linux sua notável modularidade e flexibilidade.
+Conceito e Propósito:
+O principal objetivo dos módulos é permitir que o kernel seja mantido o mais compacto possível, carregando apenas o código necessário para o hardware e as funcionalidades em uso. Isso contrasta com um kernel monolítico, onde todo o código para suportar diversos hardwares e recursos é compilado diretamente no kernel, tornando-o maior e menos adaptável. Os módulos são comumente utilizados para:</p>
+<ul>
+<li>Drivers de Dispositivo: Suporte a novos hardwares (placas de rede, placas de vídeo, dispositivos USB, etc.) sem recompilar o kernel.</li>
+<li>Sistemas de Arquivos: Adicionar suporte a diferentes tipos de sistemas de arquivos (como NTFS, Btrfs, ZFS) conforme a necessidade.</li>
+<li>Funcionalidades Específicas: Implementar recursos adicionais do kernel, como criptografia, firewalls (Netfilter) ou virtualização.</li>
+</ul>
+<p>Tipos de Módulos:
+Existem essencialmente dois tipos:</p>
+<ul>
+<li>Módulos Built-In (Internos): Compilados diretamente no kernel. Não podem ser carregados ou descarregados dinamicamente. São essenciais para a inicialização do sistema.</li>
+<li>Módulos Externos (Carregáveis): Compilados separadamente e armazenados como arquivos .ko (Kernel Object) em /lib/modules/. Podem ser carregados, descarregados e configurados em tempo de execução.</li>
+</ul>
+<h2 id="lsmod">LSMOD</h2>
+<p>O comando <code>lsmod</code> é utilizado para listar os módulos do kernel que estão atualmente carregados e ativos no sistema. As informações exibidas por <code>lsmod</code> são, na verdade, uma representação formatada do conteúdo encontrado no arquivo virtual <code>/proc/modules</code>.</p>
+<p>A saída do <code>lsmod</code> é organizada em colunas, cada uma fornecendo informações específicas sobre o módulo:</p>
+<ul>
+<li><strong>Module</strong>: O nome do módulo do kernel.</li>
+<li><strong>Size</strong>: O tamanho do módulo em bytes.</li>
+<li><strong>Used by</strong>: Esta coluna indica se o módulo está sendo utilizado por outros módulos e quantas instâncias dele estão ativas. Um valor <code>0</code> significa que o módulo está carregado, mas não está em uso por outros módulos. Um valor <code>-1</code> pode indicar algum problema. Os nomes listados após o número indicam os módulos que dependem ou estão utilizando o módulo em questão.</li>
+</ul>
+<h2 id="exemplo-de-saida-do-lsmod">Exemplo de Saída do <code>lsmod</code>:</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span>-n<span class="w"> </span><span class="s1">&#39;1p; /i915/p&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+i915<span class="w">                 </span><span class="m">4931584</span><span class="w">  </span><span class="m">49</span>
+drm_buddy<span class="w">              </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>i915
+ttm<span class="w">                   </span><span class="m">135168</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>i915
+i2c_algo_bit<span class="w">           </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>i915
+drm_display_helper<span class="w">    </span><span class="m">299008</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>i915
+cec<span class="w">                    </span><span class="m">77824</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>drm_display_helper,i915
+drm_client_lib<span class="w">         </span><span class="m">12288</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>i915
+drm_kms_helper<span class="w">        </span><span class="m">258048</span><span class="w">  </span><span class="m">3</span><span class="w"> </span>drm_display_helper,drm_client_lib,i915
+drm<span class="w">                   </span><span class="m">835584</span><span class="w">  </span><span class="m">24</span><span class="w"> </span>i2c_hid,drm_kms_helper,drm_display_helper,drm_buddy,drm_client_lib,i915,ttm
+video<span class="w">                  </span><span class="m">81920</span><span class="w">  </span><span class="m">2</span><span class="w"> </span>ideapad_laptop,i915
+</code></pre></div>
+<h2 id="analisando-os-10-logs-do-exemplo-acima">Analisando os 10 logs do exemplo acima:</h2>
+<p>1 - i915                 4931584  49</p>
+<pre><code>Este é o módulo principal, que é o driver gráfico da Intel (geralmente para GPUs integradas). Seu tamanho é de aproximadamente 4.9 MB. O número 49 na coluna Used by indica que 49 outros módulos ou processos do kernel estão utilizando o i915. Isso é um número alto, mas esperado para um driver gráfico central, mostrando sua importância e integração com várias partes do sistema gráfico.
+</code></pre>
+<p>2- drm_buddy              32768  1 i915</p>
+<pre><code>O módulo drm_buddy (parte do Direct Rendering Manager) tem 32 KB e está sendo usado por 1 outro módulo, que é o i915. Isso significa que i915 depende de drm_buddy para alguma de suas funcionalidades, provavelmente relacionada ao gerenciamento de memória gráfica.
+</code></pre>
+<p>3 - ttm                   135168  1 i915</p>
+<pre><code>ttm (Translation Table Manager) é um módulo de 135 KB, também usado por 1 outro módulo, o i915. O TTM é crucial para o gerenciamento de memória de vídeo, permitindo que a GPU acesse a memória do sistema de forma eficiente. A dependência de i915 em ttm é fundamental para o desempenho gráfico.
+</code></pre>
+<p>4 - i2c_algo_bit           16384  1 i915</p>
+<pre><code>Este módulo de 16 KB é usado por i915. i2c_algo_bit implementa um algoritmo de software para o barramento I2C (Inter-Integrated Circuit), que é frequentemente usado para comunicação com componentes de hardware de baixo nível, como sensores ou monitores, que podem estar integrados à GPU ou à placa-mãe e são gerenciados pelo driver gráfico.
+</code></pre>
+<p>5 - drm_display_helper    299008  1 i915</p>
+<pre><code>Um módulo de 299 KB, usado por i915. Como o nome sugere, drm_display_helper fornece funções auxiliares para o gerenciamento de displays, o que é uma parte essencial de qualquer driver gráfico.
+</code></pre>
+<p>6 - O módulo cec (Consumer Electronics Control) tem 77 KB e é usado por 2 outros módulos: drm_display_helper e i915. O CEC é um protocolo que permite que dispositivos HDMI se comuniquem entre si. Sua dependência de drm_display_helper e i915 indica que o driver gráfico e seus auxiliares estão envolvidos no controle de dispositivos CEC via HDMI.</p>
+<p>7 - drm_client_lib         12288  1 i915</p>
+<pre><code>Uma biblioteca cliente do DRM de 12 KB, usada por i915. Fornece funcionalidades comuns para clientes do DRM
+</code></pre>
+<p>8 - drm_kms_helper        258048  3 drm_display_helper,drm_client_lib,i915</p>
+<pre><code>drm_kms_helper (Kernel ModeSetting Helper) é um módulo de 258 KB, usado por 3 outros módulos: drm_display_helper, drm_client_lib e i915. Este módulo é crucial para o Kernel ModeSetting, que permite que o kernel configure e gerencie os modos de exibição diretamente, resultando em uma inicialização gráfica mais suave e rápida.
+</code></pre>
+<p>9 - drm                   835584  24 i2c_hid,drm_kms_helper,drm_display_helper,drm_buddy,drm_client_lib,i915,ttm</p>
+<pre><code>Este é o módulo drm (Direct Rendering Manager) principal, com 835 KB. Ele é usado por 24 outros módulos, incluindo muitos dos que já vimos (drm_kms_helper, drm_display_helper, drm_buddy, drm_client_lib, i915, ttm). O DRM é a base da pilha gráfica moderna do Linux, fornecendo a interface entre os drivers gráficos do kernel e as aplicações de espaço de usuário.
+</code></pre>
+<p>10 - video                  81920  2 ideapad_laptop,i915</p>
+<pre><code>O módulo video (81 KB) é um módulo genérico para controle de vídeo. Ele é usado por 2 outros módulos: ideapad_laptop (provavelmente um módulo específico para laptops Lenovo IdeaPad) e i915. Isso sugere que o driver i915 e o módulo do laptop utilizam as funcionalidades genéricas de vídeo fornecidas por este módulo.
+</code></pre>
+<p>Para que módulos sejam carregados automaticamente na inicialização do sistema, eles podem ser adicionados ao arquivo <code>/etc/modules</code>, ou arquivos de configuração contendo a lista de módulos podem ser criados em <code>/etc/modules-load.d/</code>. Além disso, o diretório <code>/etc/modprobe.d/</code> pode ser usado para configurar aliases ou para criar <em>blacklists</em> (listas de módulos que não devem ser carregados). É uma boa prática utilizar os diretórios dentro de <code>/etc/</code> para configurações personalizadas, pois eles têm prioridade e não são sobrescritos por atualizações do sistema.</p>
+<h2 id="exemplo-de-lsmod-primeiras-linhas">Exemplo de <code>lsmod</code> (primeiras linhas):</h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-15
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Module<span class="w">                  </span>Size<span class="w">  </span>Used<span class="w"> </span>by
+isofs<span class="w">                  </span><span class="m">61440</span><span class="w">  </span><span class="m">0</span>
+cdrom<span class="w">                  </span><span class="m">81920</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>isofs
+sg<span class="w">                     </span><span class="m">45056</span><span class="w">  </span><span class="m">0</span>
+uas<span class="w">                    </span><span class="m">32768</span><span class="w">  </span><span class="m">0</span>
+usb_storage<span class="w">            </span><span class="m">90112</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>uas
+btrfs<span class="w">                </span><span class="m">2293760</span><span class="w">  </span><span class="m">0</span>
+blake2b_generic<span class="w">        </span><span class="m">20480</span><span class="w">  </span><span class="m">0</span>
+xor<span class="w">                    </span><span class="m">24576</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>btrfs
+raid6_pq<span class="w">              </span><span class="m">135168</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>btrfs
+vhost_net<span class="w">              </span><span class="m">36864</span><span class="w">  </span><span class="m">1</span>
+vhost<span class="w">                  </span><span class="m">69632</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>vhost_net
+vhost_iotlb<span class="w">            </span><span class="m">16384</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>vhost
+tap<span class="w">                    </span><span class="m">32768</span><span class="w">  </span><span class="m">1</span><span class="w"> </span>vhost_net
+sd_mod<span class="w">                 </span><span class="m">90112</span><span class="w">  </span><span class="m">0</span>
+</code></pre></div>
+<h3 id="conteudo-de-procmodules-primeiras-linhas">Conteúdo de <code>/proc/modules</code> (primeiras linhas):</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>head<span class="w"> </span>-15<span class="w"> </span>/proc/modules<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>isofs<span class="w"> </span><span class="m">61440</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+cdrom<span class="w"> </span><span class="m">81920</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>isofs,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+sg<span class="w"> </span><span class="m">45056</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+uas<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+usb_storage<span class="w"> </span><span class="m">90112</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>uas,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+btrfs<span class="w"> </span><span class="m">2293760</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+blake2b_generic<span class="w"> </span><span class="m">20480</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+xor<span class="w"> </span><span class="m">24576</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>btrfs,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+raid6_pq<span class="w"> </span><span class="m">135168</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>btrfs,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+vhost_net<span class="w"> </span><span class="m">36864</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+vhost<span class="w"> </span><span class="m">69632</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>vhost_net,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+vhost_iotlb<span class="w"> </span><span class="m">16384</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>vhost,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+tap<span class="w"> </span><span class="m">32768</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>vhost_net,<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+sd_mod<span class="w"> </span><span class="m">90112</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+snd_seq_dummy<span class="w"> </span><span class="m">12288</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>Live<span class="w"> </span>0x0000000000000000
+</code></pre></div>
+<h3 id="exibindo-modulos-que-nao-serao-ativados-blacklist">Exibindo módulos que não serão ativados (blacklist):</h3>
+<p>É possível impedir que certos módulos sejam carregados no sistema utilizando uma <em>blacklist</em>. Isso é feito em arquivos de configuração, como o exemplo abaixo, que impede o carregamento do módulo <code>fbdev</code>:</p>
+<p>(O módulo fbdev escolhido, refere-se a framebuffer devices, que são drivers gráficos genéricos. É comum que esses drivers sejam blacklisted para permitir que drivers gráficos mais modernos e específicos (como i915 para Intel, nouveau para Nvidia ou amdgpu para AMD) assumam o controle da saída de vídeo, oferecendo melhor desempenho e funcionalidades.)</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/lib/modprobe.d/fbdev-blacklist.conf<span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># This file blacklists most old-style PCI framebuffer drivers.</span>
+blacklist<span class="w"> </span>arkfb
+blacklist<span class="w"> </span>aty128fb
+blacklist<span class="w"> </span>atyfb
+blacklist<span class="w"> </span>radeonfb
+blacklist<span class="w"> </span>cirrusfb
+blacklist<span class="w"> </span>cyber2000fb
+blacklist<span class="w"> </span>kyrofb
+blacklist<span class="w"> </span>matroxfb_base
+blacklist<span class="w"> </span>mb862xxfb
+blacklist<span class="w"> </span>neofb
+blacklist<span class="w"> </span>pm2fb
+blacklist<span class="w"> </span>pm3fb
+blacklist<span class="w"> </span>s3fb
+blacklist<span class="w"> </span>savagefb
+blacklist<span class="w"> </span>sisfb
+blacklist<span class="w"> </span>tdfxfb
+blacklist<span class="w"> </span>tridentfb
+blacklist<span class="w"> </span>vt8623fb
+</code></pre></div>
+<h2 id="modinfo">MODINFO</h2>
+<p>O comando <code>modinfo</code> é uma ferramenta essencial para obter informações detalhadas sobre um módulo do kernel, independentemente de ele estar carregado ou não. Ele fornece metadados importantes que ajudam a entender a função, dependências e localização de um módulo.</p>
+<p>As informações chave fornecidas por <code>modinfo</code> incluem:</p>
+<ul>
+<li><code>description</code>: Uma breve explicação sobre a finalidade do módulo.</li>
+<li><code>depends</code>: Lista de outros módulos dos quais este módulo depende para funcionar corretamente.</li>
+<li><code>filename</code>: O caminho completo para o arquivo do módulo no sistema de arquivos.</li>
+</ul>
+<p>Além disso, a opção <code>-n</code> pode ser usada para exibir apenas o caminho do arquivo do módulo.</p>
+<h3 id="exemplo-de-uso_2">Exemplo de Uso:</h3>
+<p>Para obter informações sobre o módulo <code>usb_common</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>modinfo<span class="w"> </span>usb_common
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>filename:<span class="w">       </span>/lib/modules/6.16.8+deb14-amd64/kernel/drivers/usb/common/usb-common.ko.xz
+license:<span class="w">        </span>GPL
+description:<span class="w">    </span>Common<span class="w"> </span>code<span class="w"> </span><span class="k">for</span><span class="w"> </span>host<span class="w"> </span>and<span class="w"> </span>device<span class="w"> </span>side<span class="w"> </span>USB
+depends:<span class="w">        </span>
+intree:<span class="w">         </span>Y
+name:<span class="w">           </span>usb_common
+retpoline:<span class="w">      </span>Y
+vermagic:<span class="w">       </span><span class="m">6</span>.16.8+deb14-amd64<span class="w"> </span>SMP<span class="w"> </span>preempt<span class="w"> </span>mod_unload<span class="w"> </span>modversions<span class="w"> </span>
+sig_id:<span class="w">         </span>PKCS#7
+signer:<span class="w">         </span>Build<span class="w"> </span><span class="nb">time</span><span class="w"> </span>autogenerated<span class="w"> </span>kernel<span class="w"> </span>key
+sig_key:<span class="w">        </span><span class="m">77</span>:EC:43:61:13:91:E5:13:AC:6E:54:40:A7:6B:4B:2F:1F:75:F9:AA
+sig_hashalgo:<span class="w">   </span>sha256
+signature:<span class="w">      </span><span class="m">30</span>:66:02:31:00:D8:82:B7:31:DC:46:06:5A:BE:88:5B:75:33:A8:69:
+<span class="w">        </span>4C:CE:57:90:71:D2:8C:2D:90:AA:B4:72:86:66:BC:CD:59:36:F3:0C:
+<span class="w">        </span>C9:E3:B1:7C:75:F8:80:29:94:AA:76:08:6B:02:31:00:A7:E5:3E:8B:
+<span class="w">        </span>F8:D1:A7:00:B4:7C:6D:CD:73:7E:A0:61:E9:57:2E:1F:07:94:E9:A8:
+<span class="w">        </span>7E:00:81:EB:84:34:3A:ED:02:D8:57:5F:FA:DE:D3:B3:EB:DA:54:E4:
+<span class="w">        </span><span class="m">21</span>:31:A5:56
+</code></pre></div>
+<h3 id="vendo-o-caminho-do-modulo-com-n">Vendo o caminho do módulo com <code>-n</code>:</h3>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>modinfo<span class="w"> </span>-n<span class="w"> </span>usb_common
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/lib/modules/6.16.8+deb14-amd64/kernel/drivers/usb/common/usb-common.ko.xz
+</code></pre></div>
+<h2 id="rmmod">RMMOD</h2>
+<p>O comando <code>rmmod</code> é utilizado para descarregar um módulo do kernel que está ativo no sistema. Ao utilizá-lo, é importante omitir a extensão <code>.ko</code> do nome do módulo. Embora <code>rmmod</code> funcione, a prática recomendada é usar o comando <code>modprobe -r</code>, que não só descarrega o módulo especificado, mas também gerencia automaticamente suas dependências, descarregando-as se não estiverem sendo usadas por outros módulos.</p>
+<h3 id="exemplo-de-uso_3">Exemplo de Uso:</h3>
+<p>Para remover o módulo <code>psmouse</code> (disponível em máquinas virtuais para teste):</p>
+<div class="highlight"><pre><span></span><code>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>psmouse
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rmmod<span class="w"> </span>psmouse
+</code></pre></div>
+<h2 id="insmod">INSMOD</h2>
+<p>O comando <code>insmod</code> é responsável por carregar um módulo do kernel no sistema. No entanto, ele exige o caminho completo para o arquivo <code>.ko</code> do módulo. Assim como no caso do <code>rmmod</code>, a recomendação é utilizar o comando <code>modprobe</code>, pois ele simplifica o processo ao resolver automaticamente as dependências do módulo, carregando-as conforme necessário.</p>
+<h3 id="exemplo-de-uso_4">Exemplo de Uso:</h3>
+<p>Antes de usar <code>insmod</code>, é preciso saber o caminho completo do módulo. Isso pode ser obtido com <code>modinfo</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>modinfo<span class="w"> </span>psmouse
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>filename:<span class="w">       </span>/lib/modules/6.16.8+deb14-amd64/kernel/drivers/input/mouse/psmouse.ko.xz
+license:<span class="w">        </span>GPL
+description:<span class="w">    </span>PS/2<span class="w"> </span>mouse<span class="w"> </span>driver
+author:<span class="w">         </span>Vojtech<span class="w"> </span>Pavlik<span class="w"> </span>&lt;vojtech@suse.cz&gt;
+alias:<span class="w">          </span>serio:ty05pr*id*ex*
+alias:<span class="w">          </span>serio:ty01pr*id*ex*
+depends:<span class="w">        </span>
+intree:<span class="w">         </span>Y
+name:<span class="w">           </span>psmouse
+retpoline:<span class="w">      </span>Y
+vermagic:<span class="w">       </span><span class="m">6</span>.16.8+deb14-amd64<span class="w"> </span>SMP<span class="w"> </span>preempt<span class="w"> </span>mod_unload<span class="w"> </span>modversions<span class="w"> </span>
+sig_id:<span class="w">         </span>PKCS#7
+signer:<span class="w">         </span>Build<span class="w"> </span><span class="nb">time</span><span class="w"> </span>autogenerated<span class="w"> </span>kernel<span class="w"> </span>key
+sig_key:<span class="w">        </span><span class="m">77</span>:EC:43:61:13:91:E5:13:AC:6E:54:40:A7:6B:4B:2F:1F:75:F9:AA
+sig_hashalgo:<span class="w">   </span>sha256
+signature:<span class="w">      </span><span class="m">30</span>:64:02:30:73:15:78:4B:F4:F2:A4:B3:FB:80:81:64:80:D2:DB:F6:
+<span class="w">        </span><span class="m">57</span>:62:C1:4F:B3:FF:FF:F8:C7:8A:D0:3F:6C:E4:EC:8B:91:B4:8A:81:
+<span class="w">        </span><span class="m">13</span>:C5:D6:A0:FE:79:8C:A4:D6:10:66:C6:02:30:4F:D9:58:84:80:82:
+<span class="w">        </span>7B:E0:D5:C5:0F:40:46:60:A8:38:62:48:D6:8B:7F:42:78:CC:37:ED:
+<span class="w">        </span>C6:6D:97:55:4D:11:7D:37:F6:86:47:6A:CA:10:BA:CF:82:06:4C:5B:
+<span class="w">        </span>E3:F6
+parm:<span class="w">           </span>elantech_smbus:Use<span class="w"> </span>a<span class="w"> </span>secondary<span class="w"> </span>bus<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Elantech<span class="w"> </span>device.<span class="w"> </span><span class="o">(</span>int<span class="o">)</span>
+parm:<span class="w">           </span>synaptics_intertouch:Use<span class="w"> </span>a<span class="w"> </span>secondary<span class="w"> </span>bus<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>Synaptics<span class="w"> </span>device.<span class="w"> </span><span class="o">(</span>int<span class="o">)</span>
+parm:<span class="w">           </span>proto:Highest<span class="w"> </span>protocol<span class="w"> </span>extension<span class="w"> </span>to<span class="w"> </span>probe<span class="w"> </span><span class="o">(</span>bare,<span class="w"> </span>imps,<span class="w"> </span>exps,<span class="w"> </span>any<span class="o">)</span>.<span class="w"> </span>Useful<span class="w"> </span><span class="k">for</span><span class="w"> </span>KVM<span class="w"> </span>switches.<span class="w"> </span><span class="o">(</span>proto_abbrev<span class="o">)</span>
+parm:<span class="w">           </span>resolution:Resolution,<span class="w"> </span><span class="k">in</span><span class="w"> </span>dpi.<span class="w"> </span><span class="o">(</span>uint<span class="o">)</span>
+parm:<span class="w">           </span>rate:Report<span class="w"> </span>rate,<span class="w"> </span><span class="k">in</span><span class="w"> </span>reports<span class="w"> </span>per<span class="w"> </span>second.<span class="w"> </span><span class="o">(</span>uint<span class="o">)</span>
+parm:<span class="w">           </span>smartscroll:Logitech<span class="w"> </span>Smartscroll<span class="w"> </span>autorepeat,<span class="w"> </span><span class="nv">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>enabled<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>,<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>disabled.<span class="w"> </span><span class="o">(</span>bool<span class="o">)</span>
+parm:<span class="w">           </span>a4tech_workaround:A4Tech<span class="w"> </span>second<span class="w"> </span>scroll<span class="w"> </span>wheel<span class="w"> </span>workaround,<span class="w"> </span><span class="nv">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>enabled,<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>disabled<span class="w"> </span><span class="o">(</span>default<span class="o">)</span>.<span class="w"> </span><span class="o">(</span>bool<span class="o">)</span>
+parm:<span class="w">           </span>resetafter:Reset<span class="w"> </span>device<span class="w"> </span>after<span class="w"> </span>so<span class="w"> </span>many<span class="w"> </span>bad<span class="w"> </span>packets<span class="w"> </span><span class="o">(</span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>never<span class="o">)</span>.<span class="w"> </span><span class="o">(</span>uint<span class="o">)</span>
+parm:<span class="w">           </span>resync_time:How<span class="w"> </span>long<span class="w"> </span>can<span class="w"> </span>mouse<span class="w"> </span>stay<span class="w"> </span>idle<span class="w"> </span>before<span class="w"> </span>forcing<span class="w"> </span>resync<span class="w"> </span><span class="o">(</span><span class="k">in</span><span class="w"> </span>seconds,<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>never<span class="o">)</span>.<span class="w"> </span><span class="o">(</span>uint<span class="o">)</span>
+</code></pre></div>
+<p>Com o caminho do módulo (<code>/lib/modules/6.16.8+deb14-amd64/kernel/drivers/input/mouse/psmouse.ko.xz</code>), pode-se carregá-lo com <code>insmod</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>insmod<span class="w"> </span>/lib/modules/5.4.0-65-generic/kernel/drivers/input/mouse/psmouse.ko.xz
+</code></pre></div>
+<h2 id="modprobe">MODPROBE</h2>
+<p>O comando <code>modprobe</code> é uma ferramenta essencial para gerenciar módulos do kernel Linux.
+Sua principal função é adicionar (modprobe <módulo>) ou remover (modprobe -r <módulo>) módulos do kernel em tempo de execução.
+Ao contrário de insmod e rmmod, o modprobe resolve automaticamente as dependências de módulos, carregando ou descarregando-as conforme necessário.
+Ele consulta arquivos de configuração em /etc/modprobe.d/ e /lib/modprobe.d/.
+Isso inclui o uso de apelidos (aliases) para módulos e o respeito a blacklists, que impedem o carregamento de módulos específicos.
+modprobe simplifica a interação com o kernel, garantindo que os módulos corretos sejam carregados com suas dependências.
+É a forma recomendada para manipular módulos, oferecendo robustez e evitando erros de dependência.
+Em suma, é a interface padrão para o gerenciamento dinâmico e inteligente de funcionalidades do kernel.</p>
+<p>Modo de operação:</p>
+<h2 id="carregar-um-modulo">Carregar um módulo</h2>
+<div class="highlight"><pre><span></span><code>modprobe<span class="w"> </span>&lt;nome_do_módulo&gt;
+</code></pre></div>
+<h2 id="remover-um-modulo">Remover um módulo</h2>
+<div class="highlight"><pre><span></span><code>modprobe<span class="w"> </span>-r<span class="w"> </span>&lt;nome_do_módulo&gt;
+</code></pre></div>
+<h2 id="mostrar-os-modulos-que-serao-carregados-como-dependencia">Mostrar os módulos que serão carregados como dependência</h2>
+<div class="highlight"><pre><span></span><code>modprobe --show-depends módulo
+</code></pre></div>
+<h2 id="exemplo-de-uso_5">Exemplo de uso</h2>
+<p>Removendo o módulo 'psmouse' (mouse PS/2):</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>modprobe<span class="w"> </span>-r<span class="w"> </span>psmouse
+</code></pre></div>
+<p>Carregando o módulo novamente:</p>
+<div class="highlight"><pre><span></span><code>$ sudo modprobe psmouse
+</code></pre></div>
+<p>Verificando as dependências do módulo 'btrfs':</p>
+<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>modprobe<span class="w"> </span>--show-depends<span class="w"> </span>btrfs
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>insmod<span class="w"> </span>/lib/modules/6.16.8+deb14-amd64/kernel/lib/raid6/raid6_pq.ko.xz<span class="w"> </span>
+insmod<span class="w"> </span>/lib/modules/6.16.8+deb14-amd64/kernel/crypto/xor.ko.xz<span class="w"> </span>
+insmod<span class="w"> </span>/lib/modules/6.16.8+deb14-amd64/kernel/crypto/blake2b_generic.ko.xz<span class="w"> </span>
+insmod<span class="w"> </span>/lib/modules/6.16.8+deb14-amd64/kernel/fs/btrfs/btrfs.ko.xz
+</code></pre></div></p>
+<h2 id="carregamento-automagico-de-modulos">Carregamento automágico de módulos</h2>
+<p>Pode-se adicionar módulos para que carreguem automaticamente quando o Sistema Operacional subir, adicionando-os ao arquivo /etc/modules:</p>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/modules
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>psmouse
+btrfs
+</code></pre></div>
+<p>Uma alternativa seria o /etc/modules-load.d/psmouse.conf</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>psmouse<span class="w"> </span>&gt;<span class="w"> </span>/etc/modules-load.d/psmouse.conf
+</code></pre></div>
+<p>Naturalmente, pode-se impedir o carregamento de um módulo, no boot do Sistema Operacional, adicionando-os ao arquivo /etc/modprobe.d/</p>
+<div class="highlight"><pre><span></span><code>blacklist<span class="w"> </span>&lt;nome_do_módulo&gt;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;blacklist psmouse&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/modprobe.d/blacklist-psmouse.conf
+</code></pre></div>
+<p>Esse bloqueio impede que o módulo seja carregado automaticamente, mesmo que outro módulo dependa dele. Porém, ainda será possível carregá-lo manualmente com modprobe, a menos que você adicione uma regra mais forte como:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># /etc/modprobe.d/deny-psmouse.conf</span>
+install<span class="w"> </span>psmouse<span class="w"> </span>/bin/false
+</code></pre></div>
+<p>Isso substitui qualquer tentativa de carregamento do módulo por um comando falso, bloqueando completamente.</p>
+<h2 id="modprobed">MODPROBE.D</h2>
+<p>O diretório /etc/modprobe.d/ é o local onde ficam os arquivos de configuração dos módulos do kernel Linux. Esses arquivos permitem personalizar o comportamento do modprobe, a ferramenta usada para carregar e descarregar módulos de forma dinâmica, resolvendo dependências automaticamente.</p>
+<p>Os módulos definidos nos arquivos de configuração em /etc/modprobe.d/ não são carregados automaticamente no boot apenas por estarem definidos ali.</p>
+<p>O conteúdo desses arquivos define como o sistema deve lidar com os módulos: bloquear, passar parâmetros, criar aliases ou substituir comportamentos padrão.</p>
+<p>Esses arquivos são todos lidos pelo modprobe no momento em que você tenta carregar ou remover um módulo, seja manualmente ou automaticamente (por exemplo, ao conectar um hardware que precisa de driver).</p>
+<p>Cada arquivo .conf dentro do /etc/modprobe.d/ pode conter instruções como:</p>
+<ul>
+<li>blacklist</li>
+</ul>
+<p>Impede que o módulo seja carregado automaticamente pelo kernel, mas não impede carregamento manual via modprobe:</p>
+<div class="highlight"><pre><span></span><code>blacklist<span class="w"> </span>usb_storage
+</code></pre></div>
+<ul>
+<li>install</li>
+</ul>
+<p>Substitui o comportamento padrão do modprobe ao tentar carregar um módulo. Usado, por exemplo, para bloquear completamente o carregamento:</p>
+<div class="highlight"><pre><span></span><code>install<span class="w"> </span>psmouse<span class="w"> </span>/bin/false
+</code></pre></div>
+<ul>
+<li>remove</li>
+</ul>
+<p>Define o que deve ser feito quando o módulo for removido com modprobe -r.</p>
+<div class="highlight"><pre><span></span><code>remove<span class="w"> </span>usb_storage<span class="w"> </span>/bin/true
+</code></pre></div>
+<ul>
+<li>options</li>
+</ul>
+<p>Permite passar parâmetros específicos para um módulo no momento do carregamento.</p>
+<div class="highlight"><pre><span></span><code>options<span class="w"> </span>iwlwifi<span class="w"> </span><span class="nv">power_save</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+<ul>
+<li>alias</li>
+</ul>
+<p>Cria apelidos para módulos, permitindo que você os carregue usando nomes mais simples ou personalizados.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span>placa_wifi_driver<span class="w"> </span>iwlwifi
+</code></pre></div>
+<p>O nome dos arquivos dentro de /etc/modprobe.d/ não precisa seguir um padrão rígido, mas é uma boa prática dar nomes descritivos com final .conf, como:</p>
+<ul>
+<li>blacklist-som.conf</li>
+<li>iwlwifi.conf</li>
+<li>custom-modules.conf</li>
+</ul>
+<p>Todos os arquivos .conf serão lidos e aplicados, independente do nome, desde que tenham sintaxe válida.</p>
+<p>Além de /etc/modprobe.d/, o sistema também pode ler configurações de:</p>
+<ul>
+<li>/run/modprobe.d/ (configurações temporárias)</li>
+<li>/lib/modprobe.d/ (configurações padrão do sistema ou da distribuição)</li>
+</ul>
+<p>As configurações em /etc/modprobe.d/ têm prioridade sobre as demais, pois são consideradas personalizações feitas pelo administrador.</p>
+<h2 id="depmod">DEPMOD</h2>
+<p>O comando depmod é uma ferramenta fundamental para o gerenciamento de módulos do kernel Linux. Sua principal função é gerar os arquivos que descrevem as relações de dependência entre os módulos, ou seja, ele constrói um "mapa" que indica quais módulos precisam ser carregados antes de outros para que tudo funcione corretamente. O principal arquivo gerado por ele é o /lib/modules/$(uname -r)/modules.dep.</p>
+<p>Esse arquivo modules.dep é utilizado pelas ferramentas do sistema (como o modprobe) para saber quais outros módulos devem ser carregados automaticamente junto com o módulo que você solicitou. Por exemplo, se um determinado driver depende de outro módulo, essa relação estará registrada nesse arquivo. Assim, ao tentar carregar o primeiro módulo, o sistema sabe que precisa carregar o segundo também, evitando falhas de execução.</p>
+<p>Quando você compila ou instala um novo módulo manualmente, esse novo arquivo .ko (kernel object) é adicionado ao diretório de módulos da versão do kernel atual, mas o sistema ainda não sabe que ele existe nem quais dependências ele possui. O mesmo acontece se, por algum motivo, os arquivos de dependência forem corrompidos ou apagados. Nesse caso, o kernel tentará carregar um módulo sem saber do que ele depende, o que geralmente resulta em erro.</p>
+<p>Para resolver isso, você deve rodar o comando depmod. Ele varre todo o conteúdo do diretório /lib/modules/$(uname -r)/, analisa os módulos disponíveis e recria o arquivo modules.dep e outros arquivos auxiliares, como modules.alias, modules.symbols, entre outros. Você pode executá-lo assim:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>depmod
+</code></pre></div>
+<p>Ou, se quiser acompanhar os detalhes do que está sendo feito:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>depmod<span class="w"> </span>-v
+</code></pre></div>
+<p>Depois de rodar o depmod, o sistema passa a reconhecer corretamente os módulos novos e suas dependências, permitindo que eles sejam carregados normalmente usando comandos como modprobe.</p>
+<p>Portanto, sempre que você adicionar, remover ou recompilar um módulo manualmente, é importante executar o depmod. Sem isso, o kernel pode não conseguir usar o novo módulo, mesmo que ele esteja fisicamente presente no sistema.</p>
+<p>That's All Folks</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
+  CC BY-SA 4.0
+</a> - eduardo.charquero@gmail.com
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
