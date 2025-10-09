@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../LPIC-101.2_processo_de_inicializacao_do_linux/">
+      
+      
+        <link rel="next" href="../Modulo_103.1-aula00/">
       
       
       <link rel="icon" href="../imagens/tux.ico">
@@ -16,7 +20,7 @@
     
     
       
-        <title>101.3 Runlevel, Shutdown e Reboot (LPIC-1) - 🐧 Comunidade Officinas</title>
+        <title>Módulo 101.3 - 🐧 Comunidade Officinas</title>
       
     
     
@@ -105,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              101.3 Runlevel, Shutdown e Reboot (LPIC-1)
+              Módulo 101.3
             
           </span>
         </div>
@@ -274,18 +278,13 @@
   
   
   
-  
     
-    
-      
-  
-  
   
   
     
     
-      <li class="md-tabs__item">
-        <a href="../Modulo_103.1-aula00/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LPIC-101.1_identificacao_e_configuracao_de_Hardware/" class="md-tabs__link">
           
   
   
@@ -293,9 +292,6 @@
 
         </a>
       </li>
-    
-  
-
     
   
 
@@ -1111,26 +1107,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1143,12 +1144,231 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             📂 'Módulos LPI'
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LPIC-101.1_identificacao_e_configuracao_de_Hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 101.1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LPIC-101.2_processo_de_inicializacao_do_linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 101.2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Módulo 101.3
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Módulo 101.3
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-processo-de-inicializacao-do-linux-e-o-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. O Processo de Inicialização do Linux e o init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-implementacoes-do-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Implementações do init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-sysv-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. SysV Init
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-upstart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Upstart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-systemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. SystemD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-openrc" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. OpenRC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-sysv-init-em-detalhes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. O SysV Init em Detalhes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-codigos-de-runlevels" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Códigos de Runlevels
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-gerenciamento-de-runlevels-sysv-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Gerenciamento de Runlevels (SysV Init)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-estrutura-do-etcinittab" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Estrutura do /etc/inittab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-acoes-comuns-no-etcinittab" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Ações Comuns no /etc/inittab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validamos-o-runlevel-atual-com-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validamos o Runlevel atual com o comando:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -1163,17 +1383,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
             
   
   
@@ -1186,8 +1409,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Módulo 103.1 - Linha de Comando
           </label>
@@ -1352,17 +1575,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="">
             
   
   
@@ -1375,8 +1601,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Módulo 103.2 - Processamento de Texto
           </label>
