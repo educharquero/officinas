@@ -2,7 +2,7 @@
 
 ## Este guia contém os principais tópicos cobrados no exame **LPIC-1**.
 
-[Página oficial da LPI](https://www.lpi.org/pt-br/our-certifications/lpic-1-overview/)
+<a href="https://www.lpi.org/pt-br/our-certifications/lpic-1-overview/" target="_blank">Visite a página do Linux Professional Institute aqui.</a>
 
 ---
 
