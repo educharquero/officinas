@@ -83,7 +83,7 @@
 * **`SOFTWARE LIVRE`** aliando os conceitos de diversão e responsabilidade.
 
 
-⚠️  Você pode contribuir com o projeto:
+⚠️  QUER AJUDAR?
 
 <a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o Projeto Officinas"
 
