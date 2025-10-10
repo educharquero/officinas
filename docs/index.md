@@ -50,16 +50,16 @@
 - [FHS](./FHS.md)
 
 ## 🔩 Módulos
-- [Módulo 101.1 - Detecção de Hardware](./LPIC-101.1_identificacao_e_configuracao_de_Hardware.md)
+- [Módulo 101.1 - Detecção de hardware](./LPIC-101.1_identificacao_e_configuracao_de_Hardware.md)
 - [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_processo_de_inicializacao_do_linux.md)
-- [Módulo 101.3 - Runlevels, Shutdown e Reboot](./LPIC-101.3_runlevel_shutdown_e_reboot.md)
-- [Módulo 103.1 - Aula 00](./Modulo_103.1-aula00.md)
-- [Módulo 103.1 - Aula 01](./Modulo_103.1-aula01.md)
-- [Módulo 103.1 - Aula 02](./Modulo_103.1-aula02.md)
-- [Módulo 103.1 - Aula 03](./Modulo_103.1-aula03.md)
-- [Módulo 103.1 - Aula 04](./Modulo_103.1-aula04.md)
-- [Módulo 103.1 - Aula 05](./Modulo_103.1-aula05.md)
-- [Módulo 103.2 - Aula 01](./Modulo_103.2-aula01.md)
+- [Módulo 101.3 - Runlevels, shutdown e reboot](./LPIC-101.3_runlevel_shutdown_e_reboot.md)
+- [Módulo 103.1 - Aula de Introdução](./Modulo_103.1-aula00.md)
+- [Módulo 103.1 - Shell, variáveis e path](./Modulo_103.1-aula01.md)
+- [Módulo 103.1 - History e comandos sequenciais](./Modulo_103.1-aula02.md)
+- [Módulo 103.1 - Alias, which, uname e quoting](./Modulo_103.1-aula03.md)
+- [Módulo 103.1 - Cat, head, tail, sort, less e wc](./Modulo_103.1-aula04.md)
+- [Módulo 103.1 - Tr, cut e sed](./Modulo_103.1-aula05.md)
+- [Módulo 103.2 - Filtros de fluxo de texto](./Modulo_103.2-aula01.md)
 
 ## 🔒 Permissões e Usuários
 - [Permissões Linux - Parte 01](./Permissoes_Linux-01.md)
