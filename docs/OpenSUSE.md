@@ -1,6 +1,8 @@
 # OpenSUSE TW Pós instalação:
 
-## Atualiza a distibuição
+O openSUSE é uma distribuição Linux voltada tanto para usuários iniciantes quanto para profissionais, conhecida por sua estabilidade, segurança e flexibilidade. Desenvolvida pela comunidade com apoio da empresa alemã SUSE, oferece duas versões principais: Leap, com foco em estabilidade e uso corporativo, e Tumbleweed, modelo rolling release com atualizações contínuas. O openSUSE suporta diversos ambientes gráficos, como KDE Plasma, GNOME e XFCE. É amplamente utilizado em servidores e desktops, além de servir de base para o SUSE Linux Enterprise. A comunidade ativa e a documentação completa tornam-no uma excelente opção para aprendizado e uso profissional.
+
+## Atualizando a distibuição
 
 ```
 sudo zypper ref && sudo zypper dup
@@ -148,28 +150,7 @@ sudo gpasswd -a $USER vboxusers
 
 Instale o Gerenciador de Extensões, pelo "Programas" e busque pela extensão "dash2doc animated"
 
-## MKDocs Server
+Após instalado e ajustado, o OpenSUSE dificilmente precisará ser reinstalado, mantendo sua integridade por muitos e muitos anos!
 
-```
-sudo zypper install python313-pipx
-```
 
-```
-sudo pipx install mkdocs
-```
-
-```
-sudo mkdocs --version
-```
-
-```
-sudo mkdocs new mkdocs
-```
-
-```
-sudo mkdocs build
-```
-
-```
-mkdocs serve -a localhost
-```
+That's All Folks!
