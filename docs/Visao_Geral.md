@@ -8,12 +8,12 @@
 
 ## Sumário
 
-- [Exame 101](#exame-101-topicos-101-a-104)
+  - [Exame 101](#exame-101-topicos-101-a-104)
   - [Tópico 101 - Arquitetura do Sistema](#topico-101-arquitetura-do-sistema)
   - [Tópico 102 - Instalação e Gerenciamento de Pacotes](#topico-102-instalacao-e-gerenciamento-de-pacotes)
   - [Tópico 103 - Comandos Linux](#topico-103-comandos-linux)
   - [Tópico 104 - Dispositivos, Sistemas de Arquivos e FHS](#topico-104-dispositivos-sistemas-de-arquivos-e-fhs)
-- [Exame 102](#exame-102-topicos-105-a-110)
+  - [Exame 102](#exame-102-topicos-105-a-110)
   - [Tópico 105 - Shell e Scripts](#topico-105-shell-e-scripts)
   - [Tópico 106 - Interfaces de Usuários e Desktops](#topico-106-interfaces-de-usuarios-e-desktops)
   - [Tópico 107 - Tarefas Administrativas](#topico-107-tarefas-administrativas)
@@ -27,7 +27,7 @@
 
 ## Tópico 101 - Arquitetura do Sistema
 
-## 101.1 Identificar e editar configurações de hardware
+## 101.1 - Identificar e editar configurações de hardware
 
 **Áreas de Conhecimento**
 
@@ -49,7 +49,7 @@
 
 ---
 
-## 101.2 Início (Boot) de Sistema
+## 101.2 - Início (Boot) de Sistema
 
 **Áreas de Conhecimento**
 
@@ -69,7 +69,7 @@
 
 ---
 
-## 101.3 Runlevels, Boot Targets, Desligar e Reiniciar
+## 101.3 - Runlevels, Boot Targets, Desligar e Reiniciar
 
 **Áreas de Conhecimento**
 
@@ -181,5 +181,5 @@
 
 ---
 
-#  **Dica Final**: estude os comandos na prática, simulando cenários reais em laboratório.
+##  **Dica Final**: estude os comandos na prática, simulando cenários reais em laboratório.
 
