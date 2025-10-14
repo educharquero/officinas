@@ -15,7 +15,6 @@ copyright: >-
 nav:
   - 📂 'Início': 'index.md'
   - 📂 'Visão Geral': 'Visao_Geral.md'
-
   - 📂 'Servidores':
     - 'DHCP Server': 'DHCP_Server.md'
     - 'DNS Server': 'DNS_Server.md'
@@ -32,12 +31,10 @@ nav:
       - 'DC-2 (Rocky)': 'DC2_Rocky.md'
       - 'DC-1 Pacotes Binários': 'DC1_pacotes_binarios.md'
       - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
-
   - 📂 'Distros Linux':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
-  
-- 📂 'Módulos LPI':
+  - 📂 'Módulos LPI':
     - 'LPI Aula de Introdução': 'LPI_Aula_de_introducao.md'
     - 'Módulo LPIC-101':
       - '101.1': 'LPIC-101.1_Identificacao_e_configuracao_de_hardware.md'
@@ -54,7 +51,6 @@ nav:
       - 'Aula 05': 'Modulo_103.1-aula05.md'
     - 'Módulo 103.2 - Processamento de Texto':
       - 'Aula 01': 'Modulo_103.2-aula01.md'
-
   - 📂 'Outros assuntos':
     - 'Universo *NIX': 'Universo_NIX.md'
     - 'Aircrack-NG': 'Aircrack-NG.md'
