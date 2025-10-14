@@ -1,8 +1,8 @@
 # 🐧 Módulo 103.1 AULA 01
 
-# O SHELL
+## O SHELL
 
-### sh, dash, bash, csh, zsh ...
+## sh, dash, bash, csh, zsh ...
 
 O shell é uma interface ou ambiente de interação entre o usuário e o _kernel_ (ou núcleo), que por sua vez, interage com o hardware, que o usuário não consegue fazer.
 
@@ -34,7 +34,7 @@ help echo
 man echo
 ```
 
-### VARIÁVEIS
+## VARIÁVEIS
 
 Variáveis são elementos que recebem e guardam um valor atribuído a elas.
 
@@ -184,7 +184,7 @@ Caso queira "DES-exportar"
 unset fruta
 ```
 
-### COMANDO `read` OU LEIA
+## COMANDO `read` OU LEIA
 
 O comando `read` espera e armazena como variável o valor que você digitar:
 
@@ -282,7 +282,7 @@ read -p "Digite a nota do aluno: " nota
 echo $nota
 ```
 
-### OS _COMANDOS_ _BUILTIN_ (_Comandos_ _Internos_) DO `shell`
+## OS _COMANDOS_ _BUILTIN_ (_Comandos_ _Internos_) DO `shell`
 
 Podemos ver quais são os _comandos_ _internos_ ou _builtins_ do shell com o `help`:
 
@@ -316,7 +316,7 @@ type mv
 
 Os _comandos_ que NÃO FOREM _`builtin`_, sempre terão sua localização `PATH` apontada. Os _comandos_ _builtin_ não tem esse apontamento.
 
-### AS VARIÁVEIS DE AMBIENTE EM USO PELO SISTEMA OPERACIONAl
+## AS VARIÁVEIS DE AMBIENTE EM USO PELO SISTEMA OPERACIONAl
 
 As variáveis de ambiente são definidas sempre em _caixa alta_. Sendo mostradas pelos comandos `set` ou `env`:
 
@@ -356,7 +356,7 @@ echo $SHELL
 echo $LANGUAGE
 ```
 
-### O CONCEITO DE `PATH` OU _CAMINHO_
+## O CONCEITO DE `PATH` OU _CAMINHO_
 
 Nos comandos dados ao `bash`, ele valida PRIMEIRO se é um _comando_ _builtin_, DEPOIS ele valida se é um _comando_ _utilitário_ do sistema, da variável `PATH`, DEPOIS ele imprime um erro de `COMMAND NOT FOUND`. bem lógico!
 
@@ -398,7 +398,7 @@ Agora ele consta nos _comandos_ _internos_ do Sistema e autocompleta com a tecla
 meu_prog 2x<TAB>
 ```
 
-### A LINGUAGEM DO `SHELL SCRIPT` (Modo não interativo)
+## A LINGUAGEM DO `SHELL SCRIPT` (Modo não interativo)
 
 Qual a vantagem de usar _Shell script_? Bom, podemos usar comandos em lote, ao invés de um de cada vez!
 
@@ -540,7 +540,7 @@ bash /opt/Meuprograma/Data_Hora
 
 Tentar executá-lo á partir de outro diretório será impossível!
 
-### CAMINHO ABSOLUTO X CAMINHO RELATIVO:
+## CAMINHO ABSOLUTO X CAMINHO RELATIVO:
 
 _CAMINHO_ _ABSOLUTO_
 
@@ -562,7 +562,7 @@ cd Meus_Programas/
 cd Data_Hora
 ```
 
-### A VARIÁVEL `PATH` ( OU CAMINHO)
+## A VARIÁVEL `PATH` ( OU CAMINHO)
 
 Todo _programa_ que roda no Terminal, está armazenado em algum lugar específico.
 
@@ -681,7 +681,7 @@ Procuramos o novo caminho na variável `PATH`:
 env | grep PATH
 ```
 
-### CRIANDO UM SCRIPT E SETANDO NO `PATH` DO SISTEMA
+## CRIANDO UM SCRIPT E SETANDO NO `PATH` DO SISTEMA
 
 Faça os seguintes testes:
 
@@ -752,7 +752,7 @@ Mandamos o `TAB`autocompletar e o `ENTER` para rodar:
 Infor 2x<TAB> ENTER
 ```
 
-### DICAS
+## DICAS
 
 Locais interessantes de usar para repositório de seus scripts pessoais:
 
@@ -764,12 +764,13 @@ Locais interessantes de usar para repositório de seus scripts pessoais:
 /usr/local/bin
 ```
 
-### ATENÇÃO!!
+## ATENÇÃO!!
 
 NÃO RODE COMANDOS OU SCRIPTS DE TERCEIROS ENCONTRADOS NA WEB, SEM SABER O QUE ELE DE FATO ESTÁ FAZENDO!
 
 CUIDADO COM O USO DE USUÁRIO ROOT OU SUDO!
 
 Você foi avisado!!
+
 
 THAT’S ALL FOLKS!!
