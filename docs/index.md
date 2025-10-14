@@ -51,9 +51,9 @@
 
 ## 🔩 Módulos Certificação LPIC-1 
 - [LPI - Aula de Introdução](./LPI_Aula_de_introducao.md)
-- [Módulo 101.1 - Detecção de hardware](./LPIC-101.1_identificacao_e_configuracao_de_Hardware.md)
-- [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_processo_de_inicializacao_do_linux.md)
-- [Módulo 101.3 - Runlevels, shutdown e reboot](./LPIC-101.3_runlevel_shutdown_e_reboot.md)
+- [Módulo 101.1 - Detecção de hardware](./LPIC-101.1_Identificacao_e_configuracao_de_Hardware.md)
+- [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_Processo_de_inicializacao_do_linux.md)
+- [Módulo 101.3 - Runlevels, shutdown e reboot](./LPIC-101.3_Runlevel_shutdown_e_reboot.md)
 - [Módulo 102.1 - Particionamento de discos](./LPIC-102.1_Particionamento_de_discos.md)
 - [Módulo 102.2 - Gerenciamento de boot manager](./LPIC-102.2_Gerenciamento_de_boot_manager.md)
 - [Módulo 103.1 - Shell, variáveis e path](./Modulo_103.1_Linha_de_comandos.md)
