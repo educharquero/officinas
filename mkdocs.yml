@@ -44,6 +44,7 @@ nav:
     - 'Usuários e Grupos 02': 'Usuarios_e_Grupos-2.md'
 
   - 📂 'Módulos LPI':
+      - 'LPI Aula de Introdução': 'LPI_Aula_de_introducao.md'
     - 'Módulo LPIC-101':
       - '101.1': 'LPIC-101.1_Identificacao_e_configuracao_de_hardware.md'
       - '101.2': 'LPIC-101.2_Processo_de_inicializacao_do_linux.md'
