@@ -49,7 +49,7 @@
 - [OpenSUSE Linux](./OpenSUSE_Linux.md)
 - [Devuan Linux](./Devuan_Linux.md)
 
-## 🔩 Módulos Certificação LPIC-1 
+## 🔩 Módulos LPI
 - [LPI - Aula de Introdução](./LPI_Aula_de_introducao.md)
 - [Módulo 101.1 - Detecção de hardware](./LPIC-101.1_Identificacao_e_configuracao_de_hardware.md)
 - [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_Processo_de_inicializacao_do_linux.md)
