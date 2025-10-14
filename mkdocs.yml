@@ -61,8 +61,10 @@ nav:
     - 'Módulo 103.2 - Processamento de Texto':
       - 'Aula 01': 'Modulo_103.2-aula01.md'
 
-  - 📂 'Ataques e Segurança':
+  - 📂 'Outros assuntos':
+    - 'Universo *NIX': 'Universo_NIX.md'
     - 'Aircrack-NG': 'Aircrack-NG.md'
+    - 'O SystemD': 'Systemd.md'
 
   - 📂 'Sistema Operacional':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
