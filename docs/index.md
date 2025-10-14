@@ -49,7 +49,7 @@
 - [Systemd](./Systemd.md)
 - [FHS](./FHS.md)
 
-## 🔩 Módulos da Certificação LPIC-1 
+## 🔩 Módulos Certificação LPIC-1 
 - [LPI - Aula de Introdução](./LPI_Aula_de_introducao.md)
 - [Módulo 101.1 - Detecção de hardware](./LPIC-101.1_identificacao_e_configuracao_de_Hardware.md)
 - [Módulo 101.2 - Inicialização do Sistema](./LPIC-101.2_processo_de_inicializacao_do_linux.md)
