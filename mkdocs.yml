@@ -1,7 +1,7 @@
 # mkdocs.yml - VERSÃO ATUALIZADA COM MODO CLARO/ESCURO
 
 # Versão para o tema MATERIAL FOR MKDOCS
-site_name: 🐧 Comunidade Officinas
+site_name: 🐧 Comunidade Officina's
 
 copyright: >-
   <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
@@ -34,7 +34,7 @@ nav:
       - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
 
   - 📂 'Tópicos de Estudo':
-    - 'Universo NIX': 'Universo_NIX.md'
+    - 'Universo *NIX': 'Universo_NIX.md'
     - 'FHS (Filesystem Hierarchy Standard)': 'FHS.md'
     - 'Systemd': 'Systemd.md'
     - 'RAID': 'Raid.md'
@@ -63,17 +63,11 @@ nav:
 
   - 📂 'Ataques e Segurança':
     - 'Aircrack-NG': 'Aircrack-NG.md'
-    # Os outros itens foram movidos para 'Servidores'
 
   - 📂 'Sistema Operacional':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
 
-  # - 'Objetivos': 'objetivos.md' # Arquivo não encontrado, comentei
-  # - 'Outros': 'outros.md' # Arquivo não encontrado, comentei
-  # - 'Propostas': 'propostas.md' # Arquivo não encontrado, comentei
-  # - 'Permissoes': 'permissoes.md' # Arquivo não encontrado, comentei
-  # - 'Modulos': 'modulos.md' # Arquivo não encontrado, comentei
 
 # --- FIM DA SEÇÃO 'nav' ---
 

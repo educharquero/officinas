@@ -88,7 +88,7 @@
 
 ⚠️  QUER AJUDAR?
 
-<a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o "Projeto Officinas"
+<a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o "Projeto Officinas".</a>
 
 
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
