@@ -69,6 +69,8 @@ nav:
   - 📂 'Sistema Operacional':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
+    - 'SystemD': 'Systemd.md'
+    - 'FHS': 'FHS.md'
 
 
 # --- FIM DA SEÇÃO 'nav' ---

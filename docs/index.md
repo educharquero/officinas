@@ -71,7 +71,7 @@
 - [Usuários e Grupos - Parte 01](./Usuarios_e_Grupos-1.md)
 - [Usuários e Grupos - Parte 02](./Usuarios_e_Grupos-2.md)
 
-## 🔧 Outros
+## 🔧 Outros Assuntos
 - [Universo *NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
 
