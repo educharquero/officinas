@@ -65,13 +65,11 @@ nav:
     - 'Universo *NIX': 'Universo_NIX.md'
     - 'Aircrack-NG': 'Aircrack-NG.md'
     - 'O SystemD': 'Systemd.md'
-
-  - 📂 'Sistema Operacional':
-    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
-    - 'Devuan Linux': 'Devuan_Linux.md'
-    - 'SystemD': 'Systemd.md'
     - 'FHS': 'FHS.md'
 
+  - 📂 'Distros Linux':
+    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
+    - 'Devuan Linux': 'Devuan_Linux.md'
 
 # --- FIM DA SEÇÃO 'nav' ---
 

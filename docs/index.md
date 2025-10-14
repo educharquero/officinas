@@ -45,11 +45,9 @@
 - [NFS Server](./NFS_Server.md)
 - [RAID](./Raid.md)
 
-## 📟 Sistema Operacional
+## 📟 Distros Linux
 - [OpenSUSE Linux](./OpenSUSE_Linux.md)
 - [Devuan Linux](./Devuan_Linux.md)
-- [Systemd](./Systemd.md)
-- [FHS](./FHS.md)
 
 ## 🔩 Módulos Certificação LPIC-1 
 - [LPI - Aula de Introdução](./LPI_Aula_de_introducao.md)
@@ -74,6 +72,8 @@
 ## 🔧 Outros Assuntos
 - [Universo *NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
+- [Systemd](./Systemd.md)
+- [FHS](./FHS.md)
 
 ## 🧑‍💻 Propostas
 
