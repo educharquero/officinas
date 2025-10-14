@@ -66,7 +66,7 @@ nav:
     # Os outros itens foram movidos para 'Servidores'
 
   - 📂 'Sistemas Operacionais':
-    - 'OpenSUSE Linux': 'OpenSUSE.md'
+    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
 
   # - 'Objetivos': 'objetivos.md' # Arquivo não encontrado, comentei
