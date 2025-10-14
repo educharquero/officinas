@@ -33,7 +33,11 @@ nav:
       - 'DC-1 Pacotes Binários': 'DC1_pacotes_binarios.md'
       - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
 
-  - 📂 'Módulos LPI':
+  - 📂 'Distros Linux':
+    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
+    - 'Devuan Linux': 'Devuan_Linux.md'
+  
+- 📂 'Módulos LPI':
     - 'LPI Aula de Introdução': 'LPI_Aula_de_introducao.md'
     - 'Módulo LPIC-101':
       - '101.1': 'LPIC-101.1_Identificacao_e_configuracao_de_hardware.md'
@@ -61,10 +65,6 @@ nav:
     - 'Permissões Linux 02': 'Permissoes_Linux-02.md'
     - 'Usuários e Grupos 01': 'Usuarios_e_Grupos-1.md'
     - 'Usuários e Grupos 02': 'Usuarios_e_Grupos-2.md'
-
-  - 📂 'Distros Linux':
-    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
-    - 'Devuan Linux': 'Devuan_Linux.md'
 
 # --- FIM DA SEÇÃO 'nav' ---
 
