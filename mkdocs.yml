@@ -34,7 +34,6 @@ nav:
       - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
 
   - 📂 'Tópicos de Estudo':
-    - 'Universo *NIX': 'Universo_NIX.md'
     - 'FHS (Filesystem Hierarchy Standard)': 'FHS.md'
     - 'Systemd': 'Systemd.md'
     - 'RAID': 'Raid.md'
