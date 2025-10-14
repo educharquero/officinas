@@ -63,17 +63,15 @@
 - [Módulo 103.1 - Tr, cut e sed](./Modulo_103.1-aula05.md)
 - [Módulo 103.2 - Filtros de fluxo de texto](./Modulo_103.2-aula01.md)
 
-## 🔒 Permissões e Usuários
-- [Permissões Linux - Parte 01](./Permissoes_Linux-01.md)
-- [Permissões Linux - Parte 02](./Permissoes_Linux-02.md)
-- [Usuários e Grupos - Parte 01](./Usuarios_e_Grupos-1.md)
-- [Usuários e Grupos - Parte 02](./Usuarios_e_Grupos-2.md)
-
 ## 🔧 Outros Assuntos
 - [Universo *NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
 - [Systemd](./Systemd.md)
 - [FHS](./FHS.md)
+- [Permissões Linux - Parte 01](./Permissoes_Linux-01.md)
+- [Permissões Linux - Parte 02](./Permissoes_Linux-02.md)
+- [Usuários e Grupos - Parte 01](./Usuarios_e_Grupos-1.md)
+- [Usuários e Grupos - Parte 02](./Usuarios_e_Grupos-2.md)
 
 ## 🧑‍💻 Propostas
 
