@@ -146,10 +146,12 @@ O `journalctl` é a interface principal para o sistema de log do systemd. Ele ce
 *   `sudo journalctl`: Exibe todos os logs coletados pelo systemd.
 *   `sudo journalctl -b`: Exibe as mensagens de log específicas do boot atual.
 
- O journalctl pode substituir o dmesg, se usarmos as opções
-- journalctl -k
-- journactl --dmesg
+ O journalctl pode substituir o dmesg, se usarmos as opções journalctl -k ou journactl --dmesg
 
 ## Conclusão
 
 O processo de inicialização do Linux, desde as suas origens com BIOS/MBR até a implementação moderna com UEFI/GPT, é um pilar fundamental para a estabilidade, segurança e desempenho do sistema. Um domínio aprofundado de suas nuances, dos papéis desempenhados pelos bootloaders, da utilização dos parâmetros do kernel e das ferramentas de diagnóstico é uma competência indispensável para qualquer profissional que atue com sistemas Linux, capacitando-o para uma gestão eficiente e uma resolução ágil de problemas.
+
+
+THAT'S ALL FOLKS!!
+
