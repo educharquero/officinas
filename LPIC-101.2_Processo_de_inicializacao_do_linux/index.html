@@ -2358,6 +2358,13 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>Fonte: Lê e exibe o conteúdo do buffer de anel do kernel (kernel ring buffer). Este é um espaço na memória RAM onde o kernel armazena mensagens de log, principalmente durante o processo de inicialização.</li>
+<li>Conteúdo: Focado exclusivamente em mensagens do kernel. Isso inclui detecção de hardware, inicialização de drivers de dispositivo e erros de hardware que ocorrem enquanto o sistema está em execução.</li>
+<li>Persistência: Os logs são voláteis. Como o buffer está na RAM, seu conteúdo é perdido a cada reinicialização. Além disso, o buffer tem um tamanho fixo; quando fica cheio, as mensagens mais antigas são sobrescritas pelas mais novas.</li>
+<li>Formato: A saída é texto simples, sem metadados estruturados, e geralmente mostra o tempo em segundos desde a inicialização.</li>
+<li>Uso Ideal: Diagnosticar problemas de hardware e drivers, especialmente durante ou logo após a inicialização. É rápido e direto para ver o que o kernel está fazendo.</li>
+</ul>
 <h3 id="52-journalctl">5.2. <code>journalctl</code></h3>
 <p>O <code>journalctl</code> é a interface principal para o sistema de log do systemd. Ele centraliza os logs do kernel e de todas as aplicações e serviços gerenciados pelo systemd, sendo uma ferramenta poderosa para verificar logs de boot e diagnosticar problemas.</p>
 <table>
@@ -2398,12 +2405,21 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>Fonte: É uma ferramenta para consultar o systemd journal, um sistema de log centralizado. O serviço journald coleta logs de múltiplas fontes: o kernel, serviços do sistema (systemd units), aplicações e o syslog tradicional.Conteúdo: Abrange todo o sistema. Inclui as mensagens do kernel (que ele também coleta do ring buffer), mas vai além, capturando logs de praticamente tudo que roda no sistema.</li>
+<li>Persistência: Os logs são persistentes por padrão na maioria das distribuições modernas. Eles são armazenados em arquivos no disco (geralmente em /var/log/journal/) e sobrevivem a reinicializações. Isso permite analisar logs de sessões de boot anteriores.</li>
+<li>Formato: Os logs são armazenados em um formato binário estruturado. Cada entrada de log é enriquecida com metadados, como o serviço de origem (_SYSTEMD_UNIT), o ID do processo (_PID), e timestamps precisos. A saída pode ser formatada de várias maneiras, incluindo JSON.</li>
+<li>Uso Ideal: Análise de problemas complexos que podem envolver a interação entre diferentes serviços e o kernel. É extremamente poderoso para filtrar logs por tempo, serviço, nível de prioridade (erro, aviso, etc.) e muito mais.</li>
+</ul>
 <p><strong>Exemplos de Uso do <code>journalctl</code>:</strong></p>
 <ul>
 <li><code>sudo systemctl status systemd-journald</code>: Verifica o status do serviço de journald.</li>
 <li><code>sudo journalctl</code>: Exibe todos os logs coletados pelo systemd.</li>
 <li><code>sudo journalctl -b</code>: Exibe as mensagens de log específicas do boot atual.</li>
 </ul>
+<p>O journalctl pode substituir o dmesg, se usarmos as opções
+- journalctl -k
+- journactl --dmesg</p>
 <h2 id="conclusao">Conclusão</h2>
 <p>O processo de inicialização do Linux, desde as suas origens com BIOS/MBR até a implementação moderna com UEFI/GPT, é um pilar fundamental para a estabilidade, segurança e desempenho do sistema. Um domínio aprofundado de suas nuances, dos papéis desempenhados pelos bootloaders, da utilização dos parâmetros do kernel e das ferramentas de diagnóstico é uma competência indispensável para qualquer profissional que atue com sistemas Linux, capacitando-o para uma gestão eficiente e uma resolução ágil de problemas.</p>
 
