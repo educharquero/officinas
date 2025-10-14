@@ -53,7 +53,6 @@ nav:
       - '102.2': 'LPIC-102.2_Gerenciamento_do_boot_manager.md'
     - 'Módulo LPIC-103':
       - '103.1': 'LPIC-103.1_Shell_e_linha_de_comandos.md'
-      - 'Aula 00': 'Modulo_103.1-aula00.md'
       - 'Aula 01': 'Modulo_103.1-aula01.md'
       - 'Aula 02': 'Modulo_103.1-aula02.md'
       - 'Aula 03': 'Modulo_103.1-aula03.md'
