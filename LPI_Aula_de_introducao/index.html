@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../Fileserver_sem_RSAT/">
-      
-      
-        <link rel="next" href="../DC2_Rocky/">
       
       
       <link rel="icon" href="../imagens/tux.ico">
@@ -20,7 +16,7 @@
     
     
       
-        <title>DC-1 (Rocky) - 🐧 Comunidade Officinas</title>
+        <title>🐧 Módulo 103.1 AULA 00 - 🐧 Comunidade Officinas</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dc1-rocky" class="md-skip">
+        <a href="#modulo-1031-aula-00" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DC-1 (Rocky)
+              🐧 Módulo 103.1 AULA 00
             
           </span>
         </div>
@@ -238,12 +234,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../DHCP_Server/" class="md-tabs__link">
           
   
@@ -422,31 +416,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -459,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             📂 'Servidores'
@@ -594,20 +583,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   
@@ -731,31 +717,26 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   
@@ -768,7 +749,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             Controladores de Domínio
@@ -779,19 +760,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
         
   
   
@@ -802,7 +774,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1688,425 +1659,66 @@
 
 
 
-<h1 id="dc1-rocky">📁 DC1 Rocky</h1>
-<h1 id="controlador-de-dominio-primario-no-rocky-linux-9">Controlador de Domínio Primário no Rocky Linux 9</h1>
-<p>Update do sistema:</p>
-<div class="highlight"><pre><span></span><code>yum update -y &amp;&amp; yum upgrade -y 
-</code></pre></div>
-<p>Instalar o editor de texto <strong>nano</strong>:</p>
-<div class="highlight"><pre><span></span><code>dnf install nano
-</code></pre></div>
-<p>Verificar sua <strong>configuração de rede</strong> e <strong>DNS</strong>, bem como <strong>nome de domínio</strong>. Uma das formas: Abra um <strong>terminal</strong> e chame o nmtui:</p>
-<div class="highlight"><pre><span></span><code> nmtui
-</code></pre></div>
-<p>Selecione <strong>Editar uma conexão</strong>. Então a opção <strong>Editar</strong>.</p>
-<p>Verificar ou alterar seu <strong>endereço ip</strong> e máscara de <strong>sub-rede</strong> e seu <strong>Gateway</strong>. </p>
-<p>Na opção <strong>Servidor DNS</strong>: inserir o DNS desejado. Não esquecer de inserir em <strong>Domínios de pesquisa:</strong> <strong>seu.domínio</strong>.</p>
-<p>Vá até o fim e selecione <strong>OK</strong> para salvar.</p>
-<p>Selecione <strong>Voltar</strong> e então no menu: <strong>selecionar</strong> a opção: <strong>Definir nome de máquina do sistema</strong>: dc1.seu.dominio. </p>
-<p>Agora selecione a opção: <strong>OK</strong> para salvar. Novamente selecione <strong>OK</strong>. Deve retornar para o terminal.</p>
-<p>Editar o arquivo <strong>/etc/host</strong>:</p>
-<div class="highlight"><pre><span></span><code>nano /etc/hosts
-</code></pre></div>
-<p>Inserir os dados referentes ao seu servidor:</p>
-<div class="highlight"><pre><span></span><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-# inserir os dados de seu server
-10.1.1.31    dc1                            dc1.seu.dominio
-</code></pre></div>
-<p>Onde:
-10.1.1.31 = IP de seu próprio AD-DC (controlador de domínio)</p>
-<p>dc1 = nome simplificado do seu <strong>host</strong> de seu controlador de domínio</p>
-<p>dc1.seu.domínio = nome do host + seu.domínio </p>
-<p>Veririficar se existe algum processo do samba rodando:</p>
-<div class="highlight"><pre><span></span><code># ps ax | egrep &quot;samba|smbd|nmbd|winbindd&quot;
-</code></pre></div>
-<p>Remover qualquer config file que houver, checando com o comando:</p>
-<div class="highlight"><pre><span></span><code># smbd -b | grep &quot;CONFIGFILE&quot;
-   CONFIGFILE: /usr/local/samba/etc/samba/smb.conf
-</code></pre></div>
-<p>Remover todos arquivos de data base que houver. Como: <em>.tdb e </em>.ldb:  </p>
-<div class="highlight"><pre><span></span><code># smbd -b | egrep &quot;LOCKDIR|STATEDIR|CACHEDIR|PRIVATE_DIR&quot;
-  LOCKDIR: /usr/local/samba/var/lock/
-  STATEDIR: /usr/local/samba/var/locks/
-  CACHEDIR: /usr/local/samba/var/cache/
-  PRIVATE_DIR: /usr/local/samba/private/
-</code></pre></div>
-<p>Remover o arquivo <strong>/etc/krb5.conf</strong> se houver, com o comando:</p>
-<div class="highlight"><pre><span></span><code>rm /etc/krb5.conf
-</code></pre></div>
-<p>Instalar plugins e habilitar o repositório PowerTools com os comandos abaixo:</p>
-<div class="highlight"><pre><span></span><code>dnf install dnf-plugins-core
-dnf install epel-release
-dnf config-manager --set-enabled powertools
-dnf update
-</code></pre></div>
-<p>Checar os repositórios adicionados com o comando:</p>
-<div class="highlight"><pre><span></span><code>dnf repolist
-</code></pre></div>
-<p>O resultado deve ser algo como:</p>
-<div class="highlight"><pre><span></span><code>id do repo nome do repo
-appstream Rocky Linux 8 - AppStream
-baseos Rocky Linux 8 - BaseOS
-devel Rocky Linux 8 - Devel WARNING! FOR BUILDROOT AND KOJI USE
-
-- epel Extra Packages for Enterprise Linux 8 - x86_64
-- extras Rocky Linux 8 - Extras
-- powertools Rocky Linux 8 - PowerTools
-</code></pre></div>
-<h2 id="setar-a-hora-local-ntp">Setar a hora local (ntp):</h2>
-<p>Listando as opções de hora local.</p>
-<div class="highlight"><pre><span></span><code>timedatectl list-timezones
-</code></pre></div>
-<p>Para setar o timezone desejado, usar o comando: </p>
-<div class="highlight"><pre><span></span><code>timedatectl set-timezone America/Sao_Paulo 
-</code></pre></div>
-<p>Verificando o timezone setado:</p>
-<div class="highlight"><pre><span></span><code>timedatectl
-</code></pre></div>
-<p>O resultado deve parecer como abaixo:</p>
-<div class="highlight"><pre><span></span><code>Local time: qua 2023-04-12 09:04:22 -03
-           Universal time: qua 2023-04-12 12:04:22 UTC
-                 RTC time: qua 2023-04-12 12:00:16
-                Time zone: America/Sao_Paulo (-03, -0300)
-System clock synchronized: yes
-              NTP service: active
-          RTC in local TZ: no 
-</code></pre></div>
-<p>Instalar as dependências dos pacotes. Fazer um arquivo do tipo script executável e inserir os comandos:</p>
-<div class="highlight"><pre><span></span><code>nano depende.sh
-</code></pre></div>
-<p>Inserir os comandos:</p>
-<div class="highlight"><pre><span></span><code>set -xueo pipefail
-
-yum update -y
-yum install -y dnf-plugins-core
-yum install -y epel-release
-
-yum -v repolist all
-yum config-manager --set-enabled PowerTools -y || \
-    yum config-manager --set-enabled powertools -y
-yum config-manager --set-enabled Devel -y || \
-    yum config-manager --set-enabled devel -y
-yum update -y
-
-yum install -y \
-    --setopt=install_weak_deps=False \
-    &quot;@Development Tools&quot; \
-    acl \
-    attr \
-    autoconf \
-    avahi-devel \
-    bind-utils \
-    binutils \
-    bison \
-    ccache \
-    chrpath \
-    cups-devel \
-    curl \
-    dbus-devel \
-    docbook-dtds \
-    docbook-style-xsl \
-    flex \
-    gawk \
-    gcc \
-    gdb \
-    git \
-    glib2-devel \
-    glibc-common \
-    glibc-langpack-en \
-    glusterfs-api-devel \
-    glusterfs-devel \
-    gnutls-devel \
-    gpgme-devel \
-    gzip \
-    hostname \
-    htop \
-    jansson-devel \
-    keyutils-libs-devel \
-    krb5-devel \
-    krb5-server \
-    libacl-devel \
-    libarchive-devel \
-    libattr-devel \
-    libblkid-devel \
-    libbsd-devel \
-    libcap-devel \
-    libcephfs-devel \
-    libicu-devel \
-    libnsl2-devel \
-    libpcap-devel \
-    libtasn1-devel \
-    libtasn1-tools \
-    libtirpc-devel \
-    libunwind-devel \
-    libuuid-devel \
-    libxslt \
-    lmdb \
-    lmdb-devel \
-    make \
-    mingw64-gcc \
-    ncurses-devel \
-    openldap-devel \
-    pam-devel \
-    patch \
-    perl \
-    perl-Archive-Tar \
-    perl-ExtUtils-MakeMaker \
-    perl-JSON \
-    perl-Parse-Yapp \
-    perl-Test-Simple \
-    perl-generators \
-    perl-interpreter \
-    pkgconfig \
-    popt-devel \
-    procps-ng \
-    psmisc \
-    python3 \
-    python3-cryptography \
-    python3-devel \
-    python3-dns \
-    python3-gpg \
-    python3-iso8601 \
-    python3-libsemanage \
-    python3-markdown \
-    python3-policycoreutils \
-    python3-pyasn1 \
-    python3-setproctitle \
-    quota-devel \
-    readline-devel \
-    redhat-lsb \
-    rng-tools \
-    rpcgen \
-    rpcsvc-proto-devel \
-    rsync \
-    sed \
-    sudo \
-    systemd-devel \
-    tar \
-    tree \
-    wget \
-    which \
-    xfsprogs-devel \
-    yum-utils \
-    zlib-devel \
-    nano \
-    krb5-workstation
-
-yum clean all 
-</code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<p>Transformar o arquivo em um executável com o comando:</p>
-<div class="highlight"><pre><span></span><code>chmod +x depende.sh
-</code></pre></div>
-<p>Executar o aquivo com o comando:</p>
-<div class="highlight"><pre><span></span><code>./depende.sh
-</code></pre></div>
-<p>Fazer download da última versão do samba ou da versão desejada: </p>
-<div class="highlight"><pre><span></span><code>wget https://download.samba.org/pub/samba/stable/samba-4.18.0.tar.gz
-</code></pre></div>
-<p>Descompactar o arquivo baixado:</p>
-<div class="highlight"><pre><span></span><code>tar -zxvf samba-nome-arquivo
-</code></pre></div>
-<p>Mudar para o diretório onde foi descompactado:</p>
-<div class="highlight"><pre><span></span><code>cd samba-nome-arquivo/
-</code></pre></div>
-<p>Compilar o samba para o arquivo de configuração ficar em: <strong>/etc/samba/smb.conf</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>./configure --sysconfdir=/etc/samba/
-</code></pre></div>
-<p>Aguarde o processo finalizar.</p>
-<p>E então faça os comandos make e make install:</p>
-<div class="highlight"><pre><span></span><code>make &amp;&amp; make install
-</code></pre></div>
-<p>No diretório <strong>/root</strong> edite o arquivo <strong>.bash_profile</strong></p>
-<div class="highlight"><pre><span></span><code>nano .bash_profile
-</code></pre></div>
-<p>E inserir a linha:</p>
-<div class="highlight"><pre><span></span><code># User specific environment and startup programs
-PATH=$PATH:$HOME/bin
-
-# ESTA LINHA
-PATH=/usr/local/samba/bin/:/usr/local/samba/sbin/:$PATH
-
-export PATH
-</code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<h2 id="criar-um-arquivo-de-servico-systemd">Criar um arquivo de serviço systemd.</h2>
-<p>Executar os comandos:</p>
-<div class="highlight"><pre><span></span><code># systemctl mask smbd nmbd winbind
-# systemctl disable smbd nmbd winbind
-</code></pre></div>
-<p>Criar o arquivo em: <code>/etc/systemd/system/samba-ad-dc.service</code></p>
-<div class="highlight"><pre><span></span><code>nano /etc/systemd/system/samba-ad-dc.service
-</code></pre></div>
-<p>Com as seguintes linhas:</p>
-<div class="highlight"><pre><span></span><code>[Unit]
-Description=Samba Active Directory Domain Controller
-After=network.target remote-fs.target nss-lookup.target
-
-[Service]
-Type=forking
-ExecStart=/usr/local/samba/sbin/samba -D
-PIDFile=/usr/local/samba/var/run/samba.pid
-ExecReload=/bin/kill -HUP $MAINPID
-
-[Install]
-WantedBy=multi-user.target
-</code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<p>Recarrregar o <code>systemd</code> com o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl daemon-reload
-</code></pre></div>
-<p>Habilitar o <code>samba-ad-dc</code> para iniciar no boot do sistema:</p>
-<div class="highlight"><pre><span></span><code>systemctl enable samba-ad-dc
-</code></pre></div>
-<p>Verificar em qual dispositivo de rede está sua conexão:</p>
-<div class="highlight"><pre><span></span><code>ip a
-</code></pre></div>
-<p>O resultado deve ser parecido com isso:</p>
-<div class="highlight"><pre><span></span><code>2: ens18: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether de:1e:07:63:42:51 brd ff:ff:ff:ff:ff:ff
-    altname enp0s18
-    inet 10.1.1.31/24 brd 10.1.1.255 scope global noprefixroute ens18
-</code></pre></div>
-<p><strong>OBS</strong>: o <strong>ens18</strong> neste caso é seu dispositivo</p>
-<p><strong>Reestart o sistema:</strong></p>
-<div class="highlight"><pre><span></span><code>reboot
-</code></pre></div>
-<p>Vamos Provisionar o Samba. Abrir um <strong>terminal:</strong></p>
-<div class="highlight"><pre><span></span><code>samba-tool domain provision --use-rfc2307 --interactive --option=&quot;interfaces= lo ens18&quot; --option=&quot;bind interfaces only=yes&quot;
-</code></pre></div>
-<p>Responda as questões referente sua configuração:</p>
-<div class="highlight"><pre><span></span><code>Realm: SEU.Dominio 
-Domain [AD]: Domínio  
-Server Role (dc, member, standalone) [dc]: dc 
-DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) SAMBA_INTERNAL]: SAMBA_INTERNAL 
-DNS forwarder IP address (write &#39;none&#39; to disable forwarding) [SEU_IP_DNS]:IP DNS  
-Administrator password: escolher uma senha  
-Retype password: repetir a mesma senha
-</code></pre></div>
-<p><strong>OBS: Guarde a senha de provisionamento</strong></p>
-<p>Configurar Kerberos:</p>
-<div class="highlight"><pre><span></span><code>cp /usr/local/samba/private/krb5.conf /etc/krb5.conf
-</code></pre></div>
-<p>Reestart o serviço do samba-ad com o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl restart samba-ad-dc
-</code></pre></div>
-<p>Para parar serviço fazer o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl stop samba-ad-dc
-</code></pre></div>
-<p>Se necessitar desabilitar o serviço, utilizar o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl disable samba-ad-dc
-</code></pre></div>
-<p>Verificar a versão do samba:</p>
-<div class="highlight"><pre><span></span><code>smbclient --version
-</code></pre></div>
-<p>Testar o samba com o comando:</p>
-<div class="highlight"><pre><span></span><code>smbclient -L localhost -U%
-</code></pre></div>
-<p>Verificar o <strong>DNS</strong> (_ldap):</p>
-<div class="highlight"><pre><span></span><code>host -t SRV _ldap._tcp.seu.dominio
-</code></pre></div>
-<p>Verificar <strong>_kerberos</strong>:</p>
-<div class="highlight"><pre><span></span><code> host -t SRV _kerberos._udp.seu.dominio.
-</code></pre></div>
-<p>A Gravação A</p>
-<div class="highlight"><pre><span></span><code>host -t A seu.dominio
-</code></pre></div>
-<p>Verificando o Kerberos</p>
-<div class="highlight"><pre><span></span><code>kinit Administrator
-Password for Administrator@SEU.DOMINIO:
-Warning: Your password will expire in 41 days on Tue 22 Sep 2020 03:41:22 PM IST
-</code></pre></div>
-<p>Listar o cache dos tickets</p>
-<div class="highlight"><pre><span></span><code>klist
-</code></pre></div>
-<p>Com a resposta parecida com essa:</p>
-<div class="highlight"><pre><span></span><code>Valid starting       Expires              Service principal
-13/04/2023 13:54:57  13/04/2023 23:54:57  krbtgt/SEU.DOMINIO@SEU.DOMINIO
-    renew until 14/04/2023 13:54:50
-</code></pre></div>
-<h2 id="configurar-o-firewall">Configurar o Firewall</h2>
-<p>Adicionar serviços:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --add-service={dns,ldap,ldaps,kerberos}
-</code></pre></div>
-<p>Adicionar portas:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --add-port={389/udp,135/tcp,135/udp,138/udp,138/tcp,137/tcp,137/udp,139/udp,139/tcp,445/tcp,445/udp,3268/udp,3268/tcp,3269/tcp,3269/udp,49152/tcp}
-</code></pre></div>
-<p>Recarregar o Firewall:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --reload
-</code></pre></div>
-<h3 id="para-criar-um-segundo-dc-clique-aqui">Para Criar um Segundo DC, clique <a href="https://github.com/doguibnu/rocky-linux-8-7-samba-ad-dc-complete/blob/main/samba-ad2.md">aqui</a></h3>
-<h4 id="replicacao-do-sysvol-backup-do-ad-para-um-dc2">Replicação do SysVol (backup do AD) para um DC2</h4>
-<p>Gerar uma chave SSH-Keygen no <strong>DC1</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
-</code></pre></div>
-<p>Algumas perguntas serão feitas:</p>
-<p>Onde salvar o arquvo de chave, que neste caso: <strong>(/root/.ssh/id_rsa)</strong> teclar <strong>enter</strong></p>
-<p>Entre com uma senha (ou apenas digite <strong>enter</strong> para ficar sem senha), teclar <strong>enter</strong></p>
-<p>Entre com a senha novamente: teclar <strong>enter</strong></p>
-<p>A saída será algo como:</p>
-<div class="highlight"><pre><span></span><code>Your identification has been saved in /root/.ssh/id_rsa.
-Your public key has been saved in /root/.ssh/id_rsa.pub.
-</code></pre></div>
-<p>Quando a chave for criada, copiar para o servidor que será o <strong>segundo DC2</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>ssh-copy-id user-dc2@IP-Seu-DC2
-</code></pre></div>
-<p>Agora pode-se conectar com ssh sem requerer senha de acesso.</p>
-<p>Conecte-se via ssh em seu DC2 e mude as permissões de acesso para que o usuário do dc2 possa escrever no diretório com o comando:</p>
-<div class="highlight"><pre><span></span><code>chown root.user-dc2 -R /usr/local/samba/var/locks/sysvol/
-</code></pre></div>
-<p>Fazendo o backup do DC1 para o DC2. Para um teste antes, fazer o comando usando a opção <strong>--dry-run</strong> para apenas um teste sem alteração.</p>
-<div class="highlight"><pre><span></span><code>rsync --dry-run -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ user-dc2@IP-DC2:/usr/local/samba/var/locks/sysvol/
-</code></pre></div>
-<p>O comando <strong>rsync</strong> fará uma copia do <strong>sysvol</strong> de seu DC1 (<strong>parte1</strong>) para o <strong>sysvol</strong> de seu DC2 (<strong>parte2</strong>):</p>
-<p><code>Parte 1:</code> </p>
-<p>rsync --dry-run -XAavz  --delete-after --progress --stats <strong>/usr/local/samba/var/locks/sysvol/</strong></p>
-<p><code>Parte 2:</code></p>
-<p>user-dc2@<strong>IP-DC2:/usr/local/samba/var/locks/sysvol/</strong></p>
-<p>O resultado deve ser algo parecido com:</p>
-<div class="highlight"><pre><span></span><code>building file list ... 
-12 files to consider
-./
-seu.dominio/
-seu.dominio/Policies/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/GPT.INI
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/USER/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/GPT.INI
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/MACHINE/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/USER/
-seu.dominio/scripts/
-
-Number of files: 12 (reg: 2, dir: 10)
-Number of created files: 9 (reg: 2, dir: 7)
-Number of deleted files: 0
-Number of regular files transferred: 2
-Total file size: 40 bytes
-Total transferred file size: 40 bytes
-Literal data: 0 bytes
-Matched data: 0 bytes
-File list size: 0
-File list generation time: 0.038 seconds
-File list transfer time: 0.000 seconds
-Total bytes sent: 2,011
-Total bytes received: 51
-
-sent 2,011 bytes  received 51 bytes  1,374.67 bytes/sec
-total size is 40  speedup is 0.02 **(DRY RUN)**
-</code></pre></div>
-<p>Com o resultado positivo, pode-se rodar o comando sem a opção <strong>--dry-run</strong>:</p>
-<div class="highlight"><pre><span></span><code>rsync -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ dc2@IP-DC2:/usr/local/samba/var/locks/sysvol/
-</code></pre></div>
-<p>Para automatizar o processo, inserir o comando no <strong>crontab</strong>. Para aprender mais sobre o crontab clique <a href="https://www.hostinger.com.br/tutoriais/cron-job-guia?ppc_campaign=google_search_generic_hosting_all&amp;bidkw=defaultkeyword&amp;lo=1031952&amp;gclid=CjwKCAjw__ihBhADEiwAXEazJsMs2yOLBskI2NlzC9qK_ovK0G1a9KsbBpIfWGsKR49S0-V8Fa2mHBoCZJsQAvD_BwE">aqui</a></p>
-<p>Adicionar um script no crontab com o comando:</p>
-<div class="highlight"><pre><span></span><code>crontab -e
-</code></pre></div>
-<p>E insira a linha:</p>
-<div class="highlight"><pre><span></span><code>0 12 * * 1-5 root rsync -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ srvad2@10.1.1.38:/usr/local/samba/var/locks/sysvol/
-</code></pre></div>
+<h1 id="modulo-1031-aula-00">🐧 Módulo 103.1 AULA 00</h1>
+<h1 id="comandos-basicos-do-terminal-linux">COMANDOS BÁSICOS DO TERMINAL LINUX</h1>
+<h2 id="navegacao-e-manipulacao-de-arquivos">NAVEGAÇÃO E MANIPULAÇÃO DE ARQUIVOS</h2>
+<h3 id="o-comandols">O COMANDO<code>ls</code></h3>
+<p>Lista os arquivos e diretórios no diretório atual.</p>
+<h3 id="o-comando-cd">O COMANDO <code>cd</code></h3>
+<p>Muda o diretório atual para o especificado.</p>
+<h3 id="o-comando-pwd">O COMANDO <code>pwd</code></h3>
+<p>Exibe o caminho completo do diretório atual.</p>
+<h3 id="o-comando-clear">O COMANDO <code>clear</code></h3>
+<p>Limpa a tela do terminal.</p>
+<h3 id="o-comando-whoami">O COMANDO <code>whoami</code></h3>
+<p>Exibe o nome do usuário atual.</p>
+<h3 id="o-comando-touch">O COMANDO <code>touch</code></h3>
+<p>Cria um arquivo vazio ou atualiza a data de modificação de um arquivo existente.</p>
+<h3 id="o-comando-cat">O COMANDO <code>cat</code></h3>
+<p>Concatena e exibe o conteúdo de um ou mais arquivos.</p>
+<h3 id="o-comando-tac">O COMANDO <code>tac</code></h3>
+<p>Concatena e exibe o conteúdo de um ou mais arquivos em ordem inversa.</p>
+<h3 id="o-comando-cp">O COMANDO <code>cp</code></h3>
+<p>Copia arquivos ou diretórios.</p>
+<h3 id="o-comando-mv">O COMANDO <code>mv</code></h3>
+<p>Move ou renomeia arquivos ou diretórios.</p>
+<h3 id="o-comando-find">O COMANDO <code>find</code></h3>
+<p>Procura por arquivos e diretórios em um diretório especificado.</p>
+<h3 id="o-comando-less">O COMANDO <code>less</code></h3>
+<p>Exibe o conteúdo de um arquivo uma página por vez.</p>
+<h3 id="o-comando-grep">O COMANDO <code>grep</code></h3>
+<p>Filtra um arquivo de texto buscando a expressão que você digitou.</p>
+<h3 id="o-comando-mkdir">O COMANDO <code>mkdir</code></h3>
+<p>Cria um diretório vazio.</p>
+<h3 id="o-comando-rmdir">O COMANDO <code>rmdir</code></h3>
+<p>Remove um diretório vazio.</p>
+<h3 id="o-comando">O COMANDO <code>&gt;</code></h3>
+<p>Cria um arquivo vazio.</p>
+<h3 id="o-comando-rm">O COMANDO <code>rm</code></h3>
+<p>Remove um arquivos.</p>
+<h2 id="informacoes-do-sistema">INFORMAÇÕES DO SISTEMA</h2>
+<h3 id="o-comando-hostname">O COMANDO <code>hostname</code></h3>
+<p>Exibe o nome do host do sistema.</p>
+<h3 id="o-comando-uname">O COMANDO <code>uname</code></h3>
+<p>Exibe informações sobre o sistema operacional.</p>
+<h3 id="o-comando-ip-a">O COMANDO <code>ip a</code></h3>
+<p>Exibe informações sobre as interfaces de rede.</p>
+<h3 id="o-comando-ping">O COMANDO <code>ping</code></h3>
+<p>Envia pacotes ICMP ECHO_REQUEST para testar a conectividade de rede.</p>
+<h3 id="o-comando-free">O COMANDO <code>free</code></h3>
+<p>Exibe a quantidade de memória livre e usada no sistema.</p>
+<h3 id="o-comando-top">O COMANDO <code>top</code></h3>
+<p>Exibe os processos em execução e o uso de recursos do sistema em tempo real.</p>
+<h3 id="o-comando-df-h">O COMANDO <code>df -h</code></h3>
+<p>Exibe o uso de espaço em disco em um formato legível por humanos.</p>
+<h2 id="historico">HISTÓRICO</h2>
+<h3 id="o-comando-history">O COMANDO <code>history</code></h3>
+<p>Exibe o histórico de comandos executados no terminal.</p>
+<h2 id="direcionadores">DIRECIONADORES</h2>
+<h3 id="o-direcionador-simples-historyhistoricotxt">O DIRECIONADOR SIMPLES <code>history</code>&gt;<code>historico.txt</code></h3>
+<p>Salva o histórico de comandos em um arquivo chamado <code>historico.txt</code>.</p>
+<h3 id="o-direcionador-duplo-historyhistorico2txt">O DIRECIONADOR DUPLO <code>history</code>&gt;&gt;<code>historico2.txt</code></h3>
+<p>Adiciona o histórico de comandos a um arquivo chamado <code>historico2.txt</code> sem sobrescrever o conteúdo existente.</p>
 <p>THAT’S ALL FOLKS!!</p>
 
 

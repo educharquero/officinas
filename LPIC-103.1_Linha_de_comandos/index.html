@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../Fileserver_sem_RSAT/">
-      
-      
-        <link rel="next" href="../DC2_Rocky/">
       
       
       <link rel="icon" href="../imagens/tux.ico">
@@ -20,7 +16,7 @@
     
     
       
-        <title>DC-1 (Rocky) - 🐧 Comunidade Officinas</title>
+        <title>🐧 Módulo 103.1 AULA 01 - 🐧 Comunidade Officinas</title>
       
     
     
@@ -74,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dc1-rocky" class="md-skip">
+        <a href="#modulo-1031-aula-01" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DC-1 (Rocky)
+              🐧 Módulo 103.1 AULA 01
             
           </span>
         </div>
@@ -238,12 +234,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../DHCP_Server/" class="md-tabs__link">
           
   
@@ -422,31 +416,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -459,7 +448,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             📂 'Servidores'
@@ -594,20 +583,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
-          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
             
   
   
@@ -731,31 +717,26 @@
                 
   
   
-    
   
   
-  
     
     
     
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
         
           
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
             
   
   
@@ -768,7 +749,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
             Controladores de Domínio
@@ -779,19 +760,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../DC1_Rocky/" class="md-nav__link">
         
   
   
@@ -802,7 +774,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1688,425 +1659,479 @@
 
 
 
-<h1 id="dc1-rocky">📁 DC1 Rocky</h1>
-<h1 id="controlador-de-dominio-primario-no-rocky-linux-9">Controlador de Domínio Primário no Rocky Linux 9</h1>
-<p>Update do sistema:</p>
-<div class="highlight"><pre><span></span><code>yum update -y &amp;&amp; yum upgrade -y 
+<h1 id="modulo-1031-aula-01">🐧 Módulo 103.1 AULA 01</h1>
+<h1 id="o-shell">O SHELL</h1>
+<h3 id="sh-dash-bash-csh-zsh">sh, dash, bash, csh, zsh ...</h3>
+<p>O shell é uma interface ou ambiente de interação entre o usuário e o <em>kernel</em> (ou núcleo), que por sua vez, interage com o hardware, que o usuário não consegue fazer.</p>
+<div class="highlight"><pre><span></span><code>HARDWARE &lt;---&gt; KERNEL &lt;---&gt; SHELL &lt;---&gt; USUÁRIO
 </code></pre></div>
-<p>Instalar o editor de texto <strong>nano</strong>:</p>
-<div class="highlight"><pre><span></span><code>dnf install nano
+<p>Vamos analizar um comando importante nessa aula, o comando <code>echo</code>:</p>
+<p>O comando <code>echo</code> imprime na tela o que for digitado na tela.</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code>echo linux
 </code></pre></div>
-<p>Verificar sua <strong>configuração de rede</strong> e <strong>DNS</strong>, bem como <strong>nome de domínio</strong>. Uma das formas: Abra um <strong>terminal</strong> e chame o nmtui:</p>
-<div class="highlight"><pre><span></span><code> nmtui
+<div class="highlight"><pre><span></span><code>echo &quot;Debian Linux&quot;
 </code></pre></div>
-<p>Selecione <strong>Editar uma conexão</strong>. Então a opção <strong>Editar</strong>.</p>
-<p>Verificar ou alterar seu <strong>endereço ip</strong> e máscara de <strong>sub-rede</strong> e seu <strong>Gateway</strong>. </p>
-<p>Na opção <strong>Servidor DNS</strong>: inserir o DNS desejado. Não esquecer de inserir em <strong>Domínios de pesquisa:</strong> <strong>seu.domínio</strong>.</p>
-<p>Vá até o fim e selecione <strong>OK</strong> para salvar.</p>
-<p>Selecione <strong>Voltar</strong> e então no menu: <strong>selecionar</strong> a opção: <strong>Definir nome de máquina do sistema</strong>: dc1.seu.dominio. </p>
-<p>Agora selecione a opção: <strong>OK</strong> para salvar. Novamente selecione <strong>OK</strong>. Deve retornar para o terminal.</p>
-<p>Editar o arquivo <strong>/etc/host</strong>:</p>
-<div class="highlight"><pre><span></span><code>nano /etc/hosts
+<p>Podemos consultar informações sobre esse comando com o <em>manual</em> ou com o <em>help</em>, do comando:</p>
+<div class="highlight"><pre><span></span><code>help echo
 </code></pre></div>
-<p>Inserir os dados referentes ao seu servidor:</p>
-<div class="highlight"><pre><span></span><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
-::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-# inserir os dados de seu server
-10.1.1.31    dc1                            dc1.seu.dominio
+<div class="highlight"><pre><span></span><code>man echo
 </code></pre></div>
-<p>Onde:
-10.1.1.31 = IP de seu próprio AD-DC (controlador de domínio)</p>
-<p>dc1 = nome simplificado do seu <strong>host</strong> de seu controlador de domínio</p>
-<p>dc1.seu.domínio = nome do host + seu.domínio </p>
-<p>Veririficar se existe algum processo do samba rodando:</p>
-<div class="highlight"><pre><span></span><code># ps ax | egrep &quot;samba|smbd|nmbd|winbindd&quot;
-</code></pre></div>
-<p>Remover qualquer config file que houver, checando com o comando:</p>
-<div class="highlight"><pre><span></span><code># smbd -b | grep &quot;CONFIGFILE&quot;
-   CONFIGFILE: /usr/local/samba/etc/samba/smb.conf
-</code></pre></div>
-<p>Remover todos arquivos de data base que houver. Como: <em>.tdb e </em>.ldb:  </p>
-<div class="highlight"><pre><span></span><code># smbd -b | egrep &quot;LOCKDIR|STATEDIR|CACHEDIR|PRIVATE_DIR&quot;
-  LOCKDIR: /usr/local/samba/var/lock/
-  STATEDIR: /usr/local/samba/var/locks/
-  CACHEDIR: /usr/local/samba/var/cache/
-  PRIVATE_DIR: /usr/local/samba/private/
-</code></pre></div>
-<p>Remover o arquivo <strong>/etc/krb5.conf</strong> se houver, com o comando:</p>
-<div class="highlight"><pre><span></span><code>rm /etc/krb5.conf
-</code></pre></div>
-<p>Instalar plugins e habilitar o repositório PowerTools com os comandos abaixo:</p>
-<div class="highlight"><pre><span></span><code>dnf install dnf-plugins-core
-dnf install epel-release
-dnf config-manager --set-enabled powertools
-dnf update
-</code></pre></div>
-<p>Checar os repositórios adicionados com o comando:</p>
-<div class="highlight"><pre><span></span><code>dnf repolist
-</code></pre></div>
-<p>O resultado deve ser algo como:</p>
-<div class="highlight"><pre><span></span><code>id do repo nome do repo
-appstream Rocky Linux 8 - AppStream
-baseos Rocky Linux 8 - BaseOS
-devel Rocky Linux 8 - Devel WARNING! FOR BUILDROOT AND KOJI USE
+<h3 id="variaveis">VARIÁVEIS</h3>
+<p>Variáveis são elementos que recebem e guardam um valor atribuído a elas.</p>
+<p><code>VARIÁVEIS != CONSTANTES</code></p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code>senha=123
 
-- epel Extra Packages for Enterprise Linux 8 - x86_64
-- extras Rocky Linux 8 - Extras
-- powertools Rocky Linux 8 - PowerTools
-</code></pre></div>
-<h2 id="setar-a-hora-local-ntp">Setar a hora local (ntp):</h2>
-<p>Listando as opções de hora local.</p>
-<div class="highlight"><pre><span></span><code>timedatectl list-timezones
-</code></pre></div>
-<p>Para setar o timezone desejado, usar o comando: </p>
-<div class="highlight"><pre><span></span><code>timedatectl set-timezone America/Sao_Paulo 
-</code></pre></div>
-<p>Verificando o timezone setado:</p>
-<div class="highlight"><pre><span></span><code>timedatectl
-</code></pre></div>
-<p>O resultado deve parecer como abaixo:</p>
-<div class="highlight"><pre><span></span><code>Local time: qua 2023-04-12 09:04:22 -03
-           Universal time: qua 2023-04-12 12:04:22 UTC
-                 RTC time: qua 2023-04-12 12:00:16
-                Time zone: America/Sao_Paulo (-03, -0300)
-System clock synchronized: yes
-              NTP service: active
-          RTC in local TZ: no 
-</code></pre></div>
-<p>Instalar as dependências dos pacotes. Fazer um arquivo do tipo script executável e inserir os comandos:</p>
-<div class="highlight"><pre><span></span><code>nano depende.sh
-</code></pre></div>
-<p>Inserir os comandos:</p>
-<div class="highlight"><pre><span></span><code>set -xueo pipefail
+echo senha
 
-yum update -y
-yum install -y dnf-plugins-core
-yum install -y epel-release
+echo $senha
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>senhas=&quot;123 321&quot;
 
-yum -v repolist all
-yum config-manager --set-enabled PowerTools -y || \
-    yum config-manager --set-enabled powertools -y
-yum config-manager --set-enabled Devel -y || \
-    yum config-manager --set-enabled devel -y
-yum update -y
+echo $senhas
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>fruta=banana
 
-yum install -y \
-    --setopt=install_weak_deps=False \
-    &quot;@Development Tools&quot; \
-    acl \
-    attr \
-    autoconf \
-    avahi-devel \
-    bind-utils \
-    binutils \
-    bison \
-    ccache \
-    chrpath \
-    cups-devel \
-    curl \
-    dbus-devel \
-    docbook-dtds \
-    docbook-style-xsl \
-    flex \
-    gawk \
-    gcc \
-    gdb \
-    git \
-    glib2-devel \
-    glibc-common \
-    glibc-langpack-en \
-    glusterfs-api-devel \
-    glusterfs-devel \
-    gnutls-devel \
-    gpgme-devel \
-    gzip \
-    hostname \
-    htop \
-    jansson-devel \
-    keyutils-libs-devel \
-    krb5-devel \
-    krb5-server \
-    libacl-devel \
-    libarchive-devel \
-    libattr-devel \
-    libblkid-devel \
-    libbsd-devel \
-    libcap-devel \
-    libcephfs-devel \
-    libicu-devel \
-    libnsl2-devel \
-    libpcap-devel \
-    libtasn1-devel \
-    libtasn1-tools \
-    libtirpc-devel \
-    libunwind-devel \
-    libuuid-devel \
-    libxslt \
-    lmdb \
-    lmdb-devel \
-    make \
-    mingw64-gcc \
-    ncurses-devel \
-    openldap-devel \
-    pam-devel \
-    patch \
-    perl \
-    perl-Archive-Tar \
-    perl-ExtUtils-MakeMaker \
-    perl-JSON \
-    perl-Parse-Yapp \
-    perl-Test-Simple \
-    perl-generators \
-    perl-interpreter \
-    pkgconfig \
-    popt-devel \
-    procps-ng \
-    psmisc \
-    python3 \
-    python3-cryptography \
-    python3-devel \
-    python3-dns \
-    python3-gpg \
-    python3-iso8601 \
-    python3-libsemanage \
-    python3-markdown \
-    python3-policycoreutils \
-    python3-pyasn1 \
-    python3-setproctitle \
-    quota-devel \
-    readline-devel \
-    redhat-lsb \
-    rng-tools \
-    rpcgen \
-    rpcsvc-proto-devel \
-    rsync \
-    sed \
-    sudo \
-    systemd-devel \
-    tar \
-    tree \
-    wget \
-    which \
-    xfsprogs-devel \
-    yum-utils \
-    zlib-devel \
-    nano \
-    krb5-workstation
+echo $fruta
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nota=10
 
-yum clean all 
+echo $nota
 </code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<p>Transformar o arquivo em um executável com o comando:</p>
-<div class="highlight"><pre><span></span><code>chmod +x depende.sh
-</code></pre></div>
-<p>Executar o aquivo com o comando:</p>
-<div class="highlight"><pre><span></span><code>./depende.sh
-</code></pre></div>
-<p>Fazer download da última versão do samba ou da versão desejada: </p>
-<div class="highlight"><pre><span></span><code>wget https://download.samba.org/pub/samba/stable/samba-4.18.0.tar.gz
-</code></pre></div>
-<p>Descompactar o arquivo baixado:</p>
-<div class="highlight"><pre><span></span><code>tar -zxvf samba-nome-arquivo
-</code></pre></div>
-<p>Mudar para o diretório onde foi descompactado:</p>
-<div class="highlight"><pre><span></span><code>cd samba-nome-arquivo/
-</code></pre></div>
-<p>Compilar o samba para o arquivo de configuração ficar em: <strong>/etc/samba/smb.conf</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>./configure --sysconfdir=/etc/samba/
-</code></pre></div>
-<p>Aguarde o processo finalizar.</p>
-<p>E então faça os comandos make e make install:</p>
-<div class="highlight"><pre><span></span><code>make &amp;&amp; make install
-</code></pre></div>
-<p>No diretório <strong>/root</strong> edite o arquivo <strong>.bash_profile</strong></p>
-<div class="highlight"><pre><span></span><code>nano .bash_profile
-</code></pre></div>
-<p>E inserir a linha:</p>
-<div class="highlight"><pre><span></span><code># User specific environment and startup programs
-PATH=$PATH:$HOME/bin
+<div class="highlight"><pre><span></span><code>nomes=&quot;joao jose maria&quot;
 
-# ESTA LINHA
-PATH=/usr/local/samba/bin/:/usr/local/samba/sbin/:$PATH
+echo $nomes
+</code></pre></div>
+<p>Note que o <code>Shell</code> tem suas próprias variáveis de trabalho, que podem ser consultadas através do comando <code>env</code> e pelo comando <code>set</code>:</p>
+<div class="highlight"><pre><span></span><code>env
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>set
+</code></pre></div>
+<p>Uma variável pode receber a saída de um comando do sistema, desde que esteja entre <code>$()</code>:</p>
+<p>Exemplo, lembra do comando <code>whoami</code>? Vamos testar:</p>
+<div class="highlight"><pre><span></span><code>QuemSouEu=$(whoami)
 
-export PATH
+echo $QuemSouEu
 </code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<h2 id="criar-um-arquivo-de-servico-systemd">Criar um arquivo de serviço systemd.</h2>
-<p>Executar os comandos:</p>
-<div class="highlight"><pre><span></span><code># systemctl mask smbd nmbd winbind
-# systemctl disable smbd nmbd winbind
-</code></pre></div>
-<p>Criar o arquivo em: <code>/etc/systemd/system/samba-ad-dc.service</code></p>
-<div class="highlight"><pre><span></span><code>nano /etc/systemd/system/samba-ad-dc.service
-</code></pre></div>
-<p>Com as seguintes linhas:</p>
-<div class="highlight"><pre><span></span><code>[Unit]
-Description=Samba Active Directory Domain Controller
-After=network.target remote-fs.target nss-lookup.target
+<div class="highlight"><pre><span></span><code>Conteudo_Local=$(ls --color)
 
-[Service]
-Type=forking
-ExecStart=/usr/local/samba/sbin/samba -D
-PIDFile=/usr/local/samba/var/run/samba.pid
-ExecReload=/bin/kill -HUP $MAINPID
+echo $Conteudo_Local
+</code></pre></div>
+<p>Expandindo o comando na execução:</p>
+<div class="highlight"><pre><span></span><code>fruta=&#39;echo abacaxi&#39;
 
-[Install]
-WantedBy=multi-user.target
+echo $fruta
 </code></pre></div>
-<p><strong>Salvar o arquivo</strong></p>
-<p>Recarrregar o <code>systemd</code> com o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl daemon-reload
-</code></pre></div>
-<p>Habilitar o <code>samba-ad-dc</code> para iniciar no boot do sistema:</p>
-<div class="highlight"><pre><span></span><code>systemctl enable samba-ad-dc
-</code></pre></div>
-<p>Verificar em qual dispositivo de rede está sua conexão:</p>
-<div class="highlight"><pre><span></span><code>ip a
-</code></pre></div>
-<p>O resultado deve ser parecido com isso:</p>
-<div class="highlight"><pre><span></span><code>2: ens18: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether de:1e:07:63:42:51 brd ff:ff:ff:ff:ff:ff
-    altname enp0s18
-    inet 10.1.1.31/24 brd 10.1.1.255 scope global noprefixroute ens18
-</code></pre></div>
-<p><strong>OBS</strong>: o <strong>ens18</strong> neste caso é seu dispositivo</p>
-<p><strong>Reestart o sistema:</strong></p>
-<div class="highlight"><pre><span></span><code>reboot
-</code></pre></div>
-<p>Vamos Provisionar o Samba. Abrir um <strong>terminal:</strong></p>
-<div class="highlight"><pre><span></span><code>samba-tool domain provision --use-rfc2307 --interactive --option=&quot;interfaces= lo ens18&quot; --option=&quot;bind interfaces only=yes&quot;
-</code></pre></div>
-<p>Responda as questões referente sua configuração:</p>
-<div class="highlight"><pre><span></span><code>Realm: SEU.Dominio 
-Domain [AD]: Domínio  
-Server Role (dc, member, standalone) [dc]: dc 
-DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) SAMBA_INTERNAL]: SAMBA_INTERNAL 
-DNS forwarder IP address (write &#39;none&#39; to disable forwarding) [SEU_IP_DNS]:IP DNS  
-Administrator password: escolher uma senha  
-Retype password: repetir a mesma senha
-</code></pre></div>
-<p><strong>OBS: Guarde a senha de provisionamento</strong></p>
-<p>Configurar Kerberos:</p>
-<div class="highlight"><pre><span></span><code>cp /usr/local/samba/private/krb5.conf /etc/krb5.conf
-</code></pre></div>
-<p>Reestart o serviço do samba-ad com o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl restart samba-ad-dc
-</code></pre></div>
-<p>Para parar serviço fazer o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl stop samba-ad-dc
-</code></pre></div>
-<p>Se necessitar desabilitar o serviço, utilizar o comando:</p>
-<div class="highlight"><pre><span></span><code>systemctl disable samba-ad-dc
-</code></pre></div>
-<p>Verificar a versão do samba:</p>
-<div class="highlight"><pre><span></span><code>smbclient --version
-</code></pre></div>
-<p>Testar o samba com o comando:</p>
-<div class="highlight"><pre><span></span><code>smbclient -L localhost -U%
-</code></pre></div>
-<p>Verificar o <strong>DNS</strong> (_ldap):</p>
-<div class="highlight"><pre><span></span><code>host -t SRV _ldap._tcp.seu.dominio
-</code></pre></div>
-<p>Verificar <strong>_kerberos</strong>:</p>
-<div class="highlight"><pre><span></span><code> host -t SRV _kerberos._udp.seu.dominio.
-</code></pre></div>
-<p>A Gravação A</p>
-<div class="highlight"><pre><span></span><code>host -t A seu.dominio
-</code></pre></div>
-<p>Verificando o Kerberos</p>
-<div class="highlight"><pre><span></span><code>kinit Administrator
-Password for Administrator@SEU.DOMINIO:
-Warning: Your password will expire in 41 days on Tue 22 Sep 2020 03:41:22 PM IST
-</code></pre></div>
-<p>Listar o cache dos tickets</p>
-<div class="highlight"><pre><span></span><code>klist
-</code></pre></div>
-<p>Com a resposta parecida com essa:</p>
-<div class="highlight"><pre><span></span><code>Valid starting       Expires              Service principal
-13/04/2023 13:54:57  13/04/2023 23:54:57  krbtgt/SEU.DOMINIO@SEU.DOMINIO
-    renew until 14/04/2023 13:54:50
-</code></pre></div>
-<h2 id="configurar-o-firewall">Configurar o Firewall</h2>
-<p>Adicionar serviços:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --add-service={dns,ldap,ldaps,kerberos}
-</code></pre></div>
-<p>Adicionar portas:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --add-port={389/udp,135/tcp,135/udp,138/udp,138/tcp,137/tcp,137/udp,139/udp,139/tcp,445/tcp,445/udp,3268/udp,3268/tcp,3269/tcp,3269/udp,49152/tcp}
-</code></pre></div>
-<p>Recarregar o Firewall:</p>
-<div class="highlight"><pre><span></span><code>firewall-cmd --reload
-</code></pre></div>
-<h3 id="para-criar-um-segundo-dc-clique-aqui">Para Criar um Segundo DC, clique <a href="https://github.com/doguibnu/rocky-linux-8-7-samba-ad-dc-complete/blob/main/samba-ad2.md">aqui</a></h3>
-<h4 id="replicacao-do-sysvol-backup-do-ad-para-um-dc2">Replicação do SysVol (backup do AD) para um DC2</h4>
-<p>Gerar uma chave SSH-Keygen no <strong>DC1</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
-</code></pre></div>
-<p>Algumas perguntas serão feitas:</p>
-<p>Onde salvar o arquvo de chave, que neste caso: <strong>(/root/.ssh/id_rsa)</strong> teclar <strong>enter</strong></p>
-<p>Entre com uma senha (ou apenas digite <strong>enter</strong> para ficar sem senha), teclar <strong>enter</strong></p>
-<p>Entre com a senha novamente: teclar <strong>enter</strong></p>
-<p>A saída será algo como:</p>
-<div class="highlight"><pre><span></span><code>Your identification has been saved in /root/.ssh/id_rsa.
-Your public key has been saved in /root/.ssh/id_rsa.pub.
-</code></pre></div>
-<p>Quando a chave for criada, copiar para o servidor que será o <strong>segundo DC2</strong> com o comando:</p>
-<div class="highlight"><pre><span></span><code>ssh-copy-id user-dc2@IP-Seu-DC2
-</code></pre></div>
-<p>Agora pode-se conectar com ssh sem requerer senha de acesso.</p>
-<p>Conecte-se via ssh em seu DC2 e mude as permissões de acesso para que o usuário do dc2 possa escrever no diretório com o comando:</p>
-<div class="highlight"><pre><span></span><code>chown root.user-dc2 -R /usr/local/samba/var/locks/sysvol/
-</code></pre></div>
-<p>Fazendo o backup do DC1 para o DC2. Para um teste antes, fazer o comando usando a opção <strong>--dry-run</strong> para apenas um teste sem alteração.</p>
-<div class="highlight"><pre><span></span><code>rsync --dry-run -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ user-dc2@IP-DC2:/usr/local/samba/var/locks/sysvol/
-</code></pre></div>
-<p>O comando <strong>rsync</strong> fará uma copia do <strong>sysvol</strong> de seu DC1 (<strong>parte1</strong>) para o <strong>sysvol</strong> de seu DC2 (<strong>parte2</strong>):</p>
-<p><code>Parte 1:</code> </p>
-<p>rsync --dry-run -XAavz  --delete-after --progress --stats <strong>/usr/local/samba/var/locks/sysvol/</strong></p>
-<p><code>Parte 2:</code></p>
-<p>user-dc2@<strong>IP-DC2:/usr/local/samba/var/locks/sysvol/</strong></p>
-<p>O resultado deve ser algo parecido com:</p>
-<div class="highlight"><pre><span></span><code>building file list ... 
-12 files to consider
-./
-seu.dominio/
-seu.dominio/Policies/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/GPT.INI
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/
-seu.dominio/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/USER/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/GPT.INI
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/MACHINE/
-seu.dominio/Policies/{6AC1786C-016F-11D2-945F-00C04FB984F9}/USER/
-seu.dominio/scripts/
+<p><code>!=</code> de</p>
+<div class="highlight"><pre><span></span><code>fruta=$(echo abacaxi)
 
-Number of files: 12 (reg: 2, dir: 10)
-Number of created files: 9 (reg: 2, dir: 7)
-Number of deleted files: 0
-Number of regular files transferred: 2
-Total file size: 40 bytes
-Total transferred file size: 40 bytes
-Literal data: 0 bytes
-Matched data: 0 bytes
-File list size: 0
-File list generation time: 0.038 seconds
-File list transfer time: 0.000 seconds
-Total bytes sent: 2,011
-Total bytes received: 51
+echo $fruta
+</code></pre></div>
+<p>Podemos criar variáveis com:</p>
+<p><code>LETRAS MAIÚSCULAS</code> e/ou <code>MINÚSCULAS</code> e/ou <code>NÚMEROS</code></p>
+<p>O <strong>único</strong> caracter permitido na composição de uma variável é o underline <code>_</code></p>
+<p>NÃO podem conter acentos e NÃO podem iniciar com números nem com qualquer outro caractere.</p>
+<div class="highlight"><pre><span></span><code>cria_pasta=$(mkdir PASTA-DE-FOTOS)
 
-sent 2,011 bytes  received 51 bytes  1,374.67 bytes/sec
-total size is 40  speedup is 0.02 **(DRY RUN)**
+ls
 </code></pre></div>
-<p>Com o resultado positivo, pode-se rodar o comando sem a opção <strong>--dry-run</strong>:</p>
-<div class="highlight"><pre><span></span><code>rsync -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ dc2@IP-DC2:/usr/local/samba/var/locks/sysvol/
+<p>NOTE QUE SE EU ENTRAR EM OUTRA SESSÃO DE SHELL ESSAS VARIÁVEIS NÃO CONSTAM:</p>
+<p>Exemplo de chamada para outra <em>sessão</em> de terminal:</p>
+<div class="highlight"><pre><span></span><code>bash
 </code></pre></div>
-<p>Para automatizar o processo, inserir o comando no <strong>crontab</strong>. Para aprender mais sobre o crontab clique <a href="https://www.hostinger.com.br/tutoriais/cron-job-guia?ppc_campaign=google_search_generic_hosting_all&amp;bidkw=defaultkeyword&amp;lo=1031952&amp;gclid=CjwKCAjw__ihBhADEiwAXEazJsMs2yOLBskI2NlzC9qK_ovK0G1a9KsbBpIfWGsKR49S0-V8Fa2mHBoCZJsQAvD_BwE">aqui</a></p>
-<p>Adicionar um script no crontab com o comando:</p>
-<div class="highlight"><pre><span></span><code>crontab -e
+<div class="highlight"><pre><span></span><code>echo $senhas
+
+echo $fruta
+
+echo $nota
+
+echo $QuemSouEu
 </code></pre></div>
-<p>E insira a linha:</p>
-<div class="highlight"><pre><span></span><code>0 12 * * 1-5 root rsync -XAavz --delete-after --progress --stats /usr/local/samba/var/locks/sysvol/ srvad2@10.1.1.38:/usr/local/samba/var/locks/sysvol/
+<p>Fechando essa <em>sessão</em>:</p>
+<div class="highlight"><pre><span></span><code>exit
 </code></pre></div>
+<p>Agora as variáveis que criamos constam novamente:</p>
+<div class="highlight"><pre><span></span><code>echo $senhas
+
+echo $fruta
+
+echo $nota
+
+echo $QuemSouEu
+</code></pre></div>
+<p>A não ser que vc use o comando <code>export</code>, que faz com que a variável que você criou, seja enviada para as variáveis do Sistema:</p>
+<div class="highlight"><pre><span></span><code>export fruta=kiwi
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>env | grep fruta
+</code></pre></div>
+<p>Vai estar visível para essa sessão de bash e seus processos filhos, apenas!</p>
+<p>Caso queira "DES-exportar"</p>
+<div class="highlight"><pre><span></span><code>unset fruta
+</code></pre></div>
+<h3 id="comando-read-ou-leia">COMANDO <code>read</code> OU LEIA</h3>
+<p>O comando <code>read</code> espera e armazena como variável o valor que você digitar:</p>
+<div class="highlight"><pre><span></span><code>read &quot;x&quot;
+
+caderno
+
+echo $x
+</code></pre></div>
+<p>A variável é <code>x</code></p>
+<div class="highlight"><pre><span></span><code>read &quot;variavel14&quot;
+
+vassoura
+
+echo $variavel14
+</code></pre></div>
+<p>A variável é <code>variavel14</code></p>
+<div class="highlight"><pre><span></span><code>read nota
+
+echo $nota
+</code></pre></div>
+<p>A variável é <code>nota</code></p>
+<p>Adicionando a opção <code>-p</code> de <em>prompt</em>, ele fica interativo (porém vai precisar de uma variável de armazenamento):</p>
+<div class="highlight"><pre><span></span><code>read -p &quot;fruta&quot;
+
+echo $fruta
+</code></pre></div>
+<p>Interage mas não armazenou nada, pois não criamos uma variável!</p>
+<p>Agora vamos ler e armazenar uma variável:</p>
+<div class="highlight"><pre><span></span><code>read -p &quot;fruta&quot; var
+
+echo $var
+</code></pre></div>
+<p>CUIDADO para não dar um <code>echo</code> em <code>fruta</code>, e sim em <code>$var</code>!</p>
+<p>Vamos tentar de novo...</p>
+<div class="highlight"><pre><span></span><code>read -p &quot;fruta: &quot; x
+
+echo $fruta ou echo $x ??
+</code></pre></div>
+<p>NOTE que deixamos um espaço entre os <code>:</code> e <code>"</code></p>
+<div class="highlight"><pre><span></span><code>unset fruta
+
+read -p &quot;Diga uma fruta: &quot; fruta
+
+echo $fruta
+</code></pre></div>
+<p>Lendo uma variável que armazena um nome:</p>
+<div class="highlight"><pre><span></span><code>read -p &quot;Digite seu nome: &quot; x
+
+echo $x
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>read -p &quot;Digite seu nome: &quot; y
+
+echo $y
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>read -p &quot;Digite seu nome: &quot; nome
+
+echo $nome
+</code></pre></div>
+<p>Lendo uma variável que armazena uma nota:</p>
+<div class="highlight"><pre><span></span><code>read -p &quot;Digite a nota do aluno: &quot; nota
+
+echo $nota
+</code></pre></div>
+<h3 id="os-comandos-builtin-comandos-internos-do-shell">OS <em>COMANDOS</em> <em>BUILTIN</em> (<em>Comandos</em> <em>Internos</em>) DO <code>shell</code></h3>
+<p>Podemos ver quais são os <em>comandos</em> <em>internos</em> ou <em>builtins</em> do shell com o <code>help</code>:</p>
+<div class="highlight"><pre><span></span><code>help
+
+help &lt;2xtab&gt;
+
+help echo
+
+help pwd
+
+help cd
+</code></pre></div>
+<p>NOTE que um <code>help ls</code> não retorna nada, pois o <code>ls</code> não é um <em>comando builtin</em>.</p>
+<p>Também podemos comparar os <em>comandos</em> <em>builtin</em> e os <em>comandos</em> <em>utilitários</em> do sistema com o<code>type</code>:</p>
+<div class="highlight"><pre><span></span><code>type cd
+
+type echo
+
+type ls
+
+type apt
+
+type mv
+</code></pre></div>
+<p>Os <em>comandos</em> que NÃO FOREM <em><code>builtin</code></em>, sempre terão sua localização <code>PATH</code> apontada. Os <em>comandos</em> <em>builtin</em> não tem esse apontamento.</p>
+<h3 id="as-variaveis-de-ambiente-em-uso-pelo-sistema-operacional">AS VARIÁVEIS DE AMBIENTE EM USO PELO SISTEMA OPERACIONAl</h3>
+<p>As variáveis de ambiente são definidas sempre em <em>caixa alta</em>. Sendo mostradas pelos comandos <code>set</code> ou <code>env</code>:</p>
+<p>O <em>comando</em> <em>utilitário</em> <code>env</code> MOSTRA APENAS AS VARÁVEIS GLOBAIS E AS EXPORTADAS NA SESSÃO.</p>
+<p>O <em>builtin</em> <code>set</code> mostra todas as <em>variáveis</em> <em>internas</em> e <em>globais</em>, mesmo sem exportar.</p>
+<div class="highlight"><pre><span></span><code>type env
+
+type set
+
+env | less
+
+set | less
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>SHELL=/bin/bash
+LANGUAGE=pt_BR
+XCURSOR_SIZE=24
+LOGNAME=mevorak
+HOME=/home/mevorak
+USER=mevorak
+HOSTNAME=mevorak
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+...
+</code></pre></div>
+<p>Podemos realizar buscas por variáveis específicas:</p>
+<div class="highlight"><pre><span></span><code>echo $USER 
+
+echo $SHELL
+
+echo $LANGUAGE
+</code></pre></div>
+<h3 id="o-conceito-de-path-ou-caminho">O CONCEITO DE <code>PATH</code> OU <em>CAMINHO</em></h3>
+<p>Nos comandos dados ao <code>bash</code>, ele valida PRIMEIRO se é um <em>comando</em> <em>builtin</em>, DEPOIS ele valida se é um <em>comando</em> <em>utilitário</em> do sistema, da variável <code>PATH</code>, DEPOIS ele imprime um erro de <code>COMMAND NOT FOUND</code>. bem lógico!</p>
+<p>Exemplo::</p>
+<div class="highlight"><pre><span></span><code>meu_programa
+
+bash: meu_programa: comando não encontrado
+</code></pre></div>
+<p>MAS eu posso criar um arquivo com esse nome e fazer virar um <code>Shell script</code></p>
+<div class="highlight"><pre><span></span><code>echo &quot;ls&quot; &gt; meu_programa
+
+chmod +x meu_programa
+
+./meuprograma
+</code></pre></div>
+<p>Outros exemplos práticos:</p>
+<div class="highlight"><pre><span></span><code>echo &quot;echo Olá mundo&quot; &gt; meu_programa
+
+echo mkdir PASTA_D &gt; meu_programa
+</code></pre></div>
+<p>Ou então posso jogar o meu programa no <code>PATH</code>do Sistema:</p>
+<div class="highlight"><pre><span></span><code>sudo mv meu_programa /usr/bin/
+</code></pre></div>
+<p>Agora ele consta nos <em>comandos</em> <em>internos</em> do Sistema e autocompleta com a tecla <code>TAB</code>:</p>
+<div class="highlight"><pre><span></span><code>meu_prog 2x&lt;TAB&gt;
+</code></pre></div>
+<h3 id="a-linguagem-do-shell-script-modo-nao-interativo">A LINGUAGEM DO <code>SHELL SCRIPT</code> (Modo não interativo)</h3>
+<p>Qual a vantagem de usar <em>Shell script</em>? Bom, podemos usar comandos em lote, ao invés de um de cada vez!</p>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code>whoami
+
+hostname
+
+uptime -p
+
+uname -rms
+</code></pre></div>
+<p>Imagine se tivesse que validar essas informações a cada troca de turno, por exemplo. </p>
+<p>Sendo <strong>MUITO</strong> mais prático, criar um Shell script com todos estes comandos para rodar de uma vez só.</p>
+<p>Criando o arquivo:</p>
+<div class="highlight"><pre><span></span><code>$ &gt; informacoes.sh
+</code></pre></div>
+<p>Inserindo os comandos nele:</p>
+<div class="highlight"><pre><span></span><code>#! /usr/bin/env bash
+
+ whoami
+
+ hostname
+
+ uptime -p
+
+ uname -rms
+</code></pre></div>
+<p>Setando permissão de execução:</p>
+<div class="highlight"><pre><span></span><code>chmod +x informacoes.sh
+</code></pre></div>
+<p>Chamando o programa para rodar:</p>
+<div class="highlight"><pre><span></span><code>./informacoes.sh
+</code></pre></div>
+<p>A linha <code>#! /usr/bin/env bash</code> informa ao <code>Shell</code> qual interpretador vai rodar o script, no caso, apontamos para o <code>bash</code>. Chamamos essa linha <em>obrigatória</em> inicial de <code>Hashbang</code>ou de <code>Shebang</code>, tanto faz.</p>
+<p>Na maioria dos casos o programador vai usar o <em>caminho</em> <em>absoluto</em> <code>#!/bin/bash</code>, para criar a <code>hashbang</code> ao invés de optar pelo <em>environment</em> (ambiente) <code>env</code>.</p>
+<p>Vamos criar um arquivo de <em>Shell script</em> que leia, guarde e imprima um nome:</p>
+<p>Criamos o arquivo:</p>
+<div class="highlight"><pre><span></span><code>&gt; seunome.sh
+</code></pre></div>
+<p>Inserimos o conteúdo:</p>
+<div class="highlight"><pre><span></span><code>#!/usr/bin/env bash
+
+read -p &quot;Digite seu nome: &quot; nome
+
+echo &quot;Olá, $nome!&quot;
+</code></pre></div>
+<p>Setamos a permissão de execução:</p>
+<div class="highlight"><pre><span></span><code>chmod +x seunome.sh
+</code></pre></div>
+<p>Chamamos á execução:</p>
+<div class="highlight"><pre><span></span><code>./seunome
+</code></pre></div>
+<p>Criemos outro <em>Shell script</em> que mostre a data e hora, hospedando no <code>/opt</code>e usando o editor <code>vim</code>:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /opt/Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>vim /opt/Meus_Programa/Data_Hora
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+
+echo &quot;Este é um Script de Teste&quot;
+
+echo &quot; &quot;
+
+date
+
+echo &quot; &quot;
+
+echo &quot;Fim do Script&quot;
+</code></pre></div>
+<p>Este script só roda se eu der permissão e rodar o comando á partir do próprio diretório:</p>
+<div class="highlight"><pre><span></span><code>chmod +x /opt/Meus_Programas/Data_Hora
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cd /opt/Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>./Data_Hora #./ aponta diretório atual
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sh Data_Hora
+</code></pre></div>
+<p>Ou</p>
+<div class="highlight"><pre><span></span><code>bash Data_Hora
+</code></pre></div>
+<p>Opcionalmente posso apontar o <code>PATH</code> completo no comando:</p>
+<div class="highlight"><pre><span></span><code>bash /opt/Meuprograma/Data_Hora
+</code></pre></div>
+<p>Tentar executá-lo á partir de outro diretório será impossível!</p>
+<h3 id="caminho-absoluto-x-caminho-relativo">CAMINHO ABSOLUTO X CAMINHO RELATIVO:</h3>
+<p><em>CAMINHO</em> <em>ABSOLUTO</em></p>
+<div class="highlight"><pre><span></span><code>/opt/Meuprograma/Data_Hora
+</code></pre></div>
+<p><em>CAMINHO</em> <em>RELATIVO</em></p>
+<div class="highlight"><pre><span></span><code>cd /opt/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cd Meus_Programas/
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cd Data_Hora
+</code></pre></div>
+<h3 id="a-variavel-path-ou-caminho">A VARIÁVEL <code>PATH</code> ( OU CAMINHO)</h3>
+<p>Todo <em>programa</em> que roda no Terminal, está armazenado em algum lugar específico.</p>
+<p>Geralmente os scripts do Sistema operacional, ficam em <code>/usr/bin/</code>, <code>/usr/sbin</code>, <code>/bin</code>, etc.</p>
+<p>Contudo, pra que eu não tenha que ficar digitando o caminho completo, toda vez em que for preciso rodar um programa, como por exemplo o navegador web <em>Firefox</em>, foi criada a variável <code>PATH</code>, contendo os caminhos de busca, para uso do Sistema operacional.</p>
+<p>Temos dois modos de adicionar o caminho do diretório onde salvei meu script, á variável <code>PATH</code>, que é onde o Terminal busca os programas, possibilitando com que ele conste, á partir de qualquer diretório onde eu estiver.</p>
+<p>1) MODO TRANSITÓRIO</p>
+<p>Leio o <code>PATH</code>padrão:</p>
+<div class="highlight"><pre><span></span><code>echo $PATH
+</code></pre></div>
+<p>Adiciono meu próprio caminho á ela:</p>
+<div class="highlight"><pre><span></span><code>PATH=$PATH:/opt/Meus_Programas
+</code></pre></div>
+<p>Leio novamente e ele está constando nela:</p>
+<div class="highlight"><pre><span></span><code>echo $PATH
+</code></pre></div>
+<p>2) MODO DEFINITIVO</p>
+<p>Leio o <code>PATH</code> padrão:</p>
+<div class="highlight"><pre><span></span><code>echo $PATH
+</code></pre></div>
+<p>Edito o próprio <em>arquivo</em> <em>global</em> do Sistema operacional, adicionando o caminho do meu programa:</p>
+<div class="highlight"><pre><span></span><code>sudo vim /etc/profile
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/Meus_Programas&quot;
+</code></pre></div>
+<p>Forço a reconfiguração para efetivar a alteração:</p>
+<div class="highlight"><pre><span></span><code>sudo source /etc/profile
+</code></pre></div>
+<p>Releio o <code>PATH</code> padrão e já consta o <code>/opt/Meus_Programas</code>:</p>
+<div class="highlight"><pre><span></span><code>echo $PATH
+</code></pre></div>
+<p>Inclusive os comandos <code>which</code> ou <code>whereis</code> tbém já encontram o meu <em>programa</em>:</p>
+<div class="highlight"><pre><span></span><code>whereis Data_Hora
+
+which Data_Hora
+</code></pre></div>
+<p>Respondendo á tecla <code>TAB</code> para autocompletar o nome do <em>programa</em>: </p>
+<div class="highlight"><pre><span></span><code>Data_H 2x&lt;TAB&gt;
+
+Data_Hora
+</code></pre></div>
+<p>Alguns usuários preferem criar seus próprios diretórios pessoais, ignorando a <em>variável</em> <em>Global</em> <code>/etc/profile</code>, optando por usar a <em>variável</em> <em>local</em> <code>.bashrc</code>, para armazenar seus próprios caminhos.</p>
+<p>Exemplo:</p>
+<p>Criamos o diretorio <code>/home/usuario/Programas</code>:</p>
+<div class="highlight"><pre><span></span><code>mkdir ~/Programas
+</code></pre></div>
+<p>Editamos a <em>variável</em> <em>local</em> <code>.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo vim ~/.bashrc
+</code></pre></div>
+<p>Adicionamos um teste de execução:</p>
+<div class="highlight"><pre><span></span><code>if [ -d ~/Programas ]
+then
+   PATH=$PATH:~/Programas
+fi
+</code></pre></div>
+<p>Copia um script, como o <code>seunome.sh</code> para dentro desse diretório:</p>
+<div class="highlight"><pre><span></span><code>cp seunome.sh /home/usuario/Programas/
+</code></pre></div>
+<p>Forçamos a releitura da configuração da <em>variável</em> <em>de</em> <em>sistema</em>:</p>
+<div class="highlight"><pre><span></span><code>source .bashrc
+</code></pre></div>
+<p>Procuramos o novo caminho na variável <code>PATH</code>:</p>
+<div class="highlight"><pre><span></span><code>env | grep PATH
+</code></pre></div>
+<h3 id="criando-um-script-e-setando-no-path-do-sistema">CRIANDO UM SCRIPT E SETANDO NO <code>PATH</code> DO SISTEMA</h3>
+<p>Faça os seguintes testes:</p>
+<div class="highlight"><pre><span></span><code>echo &quot;máquina; hostname
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>echo -n máquina; hostname
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>echo -n máquina:; hostname
+</code></pre></div>
+<p>ENTÃO</p>
+<p>Criamos o script:</p>
+<div class="highlight"><pre><span></span><code>vim ~/Programas/Informacoes
+</code></pre></div>
+<p>Inserimos os comandos:</p>
+<div class="highlight"><pre><span></span><code>#! /usr/bin/env bash
+
+# Informações.sh
+# Versão 1.0
+# Script para capturar informações do Sistema
+# 02/25
+# Eduardo Charquero
+
+clear
+
+echo &quot;&quot;
+
+echo &quot;VALIDANDO NFORMAÇÕES LOCAIS:&quot;
+
+echo &quot;----------------------------------&quot;
+
+echo -n &quot;Usuário logado : &quot;
+whoami
+
+echo -n &quot;Máquina da rede: &quot;
+hostname
+
+echo -n &quot;Kernel em uso  : &quot;
+uname -rms
+
+echo -n &quot;Tempo ligada   : &quot;
+uptime -p
+
+echo &quot;----------------------------------&quot;
+echo &quot;&quot;
+</code></pre></div>
+<p>Setamos permissão de execução:</p>
+<div class="highlight"><pre><span></span><code>chmod +x ~/Programas/Informacoes
+</code></pre></div>
+<p>Mandamos o <code>TAB</code>autocompletar e o <code>ENTER</code> para rodar:</p>
+<div class="highlight"><pre><span></span><code>Infor 2x&lt;TAB&gt; ENTER
+</code></pre></div>
+<h3 id="dicas">DICAS</h3>
+<p>Locais interessantes de usar para repositório de seus scripts pessoais:</p>
+<div class="highlight"><pre><span></span><code>~/.Programas
+
+/opt
+
+/usr/local/bin
+</code></pre></div>
+<h3 id="atencao">ATENÇÃO!!</h3>
+<p>NÃO RODE COMANDOS OU SCRIPTS DE TERCEIROS ENCONTRADOS NA WEB, SEM SABER O QUE ELE DE FATO ESTÁ FAZENDO!</p>
+<p>CUIDADO COM O USO DE USUÁRIO ROOT OU SUDO!</p>
+<p>Você foi avisado!!</p>
 <p>THAT’S ALL FOLKS!!</p>
 
 
