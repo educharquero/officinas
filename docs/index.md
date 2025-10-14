@@ -1,5 +1,5 @@
 
-# 🐧 Bem-vindo à Comunidade Officinas
+# 🐧 Bem-vindo à Comunidade Officina's
 
 
 <p align="center">
@@ -7,7 +7,7 @@
 </p>
 
 
-📚  Este é o portal de conhecimento técnico e colaborativo da **Comunidade Officinas**, voltado ao aprendizado, prática e documentação de tecnologias voltadas ao uso de **Linux**, **servidores**, **infraestrutura de rede** e muito mais.
+📚  Este é o portal de conhecimento técnico e colaborativo da **Comunidade Officina's**, voltado ao aprendizado, prática e documentação de tecnologias voltadas ao uso de **Linux**, **servidores**, **infraestrutura de rede** e muito mais.
 
 
 ⚠️  v0c3 3574 pr0n70 p4r4 p3n54r f0r4 d4 c41x4?
@@ -89,7 +89,7 @@
 
 ⚠️  QUER AJUDAR?
 
-<a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o "Projeto Officinas".</a>
+<a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o "Projeto Officina's".</a>
 
 
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
