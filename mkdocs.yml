@@ -65,7 +65,7 @@ nav:
     - 'Aircrack-NG': 'Aircrack-NG.md'
     # Os outros itens foram movidos para 'Servidores'
 
-  - 📂 'Sistemas Operacionais':
+  - 📂 'Sistema Operacional':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
 
