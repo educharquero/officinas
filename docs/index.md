@@ -45,7 +45,8 @@
 - [RAID](./Raid.md)
 
 ## 📟 Sistema Operacional
-- [OpenSUSE](./OpenSUSE.md)
+- [OpenSUSE Linux](./OpenSUSE_Linux.md)
+- [Devuan Linux](./Devuan_Linux.md)
 - [Systemd](./Systemd.md)
 - [FHS](./FHS.md)
 
