@@ -64,7 +64,7 @@ Cada linha no `/etc/inittab` segue a estrutura `id:runlevels:action:process`:
 - `action`: Comportamento do `init` em relação ao processo.
 - `process`: Caminho do comando ou script a ser executado.
 
-Subindo uma distro com esse tipo de gerenciamento (Slackware por exemplo), teríamos essa estrutura:
+Subindo uma distro com esse tipo de gerenciamento (Devuan por exemplo), teríamos essa estrutura:
 
 ```bash
 # Default runlevel
