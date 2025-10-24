@@ -82,15 +82,15 @@ ip -br link
 ## Baixando e compilando o código fonte do Samba4:
 
 ```bash
-wget https://download.samba.org/pub/samba/samba-4.22.1.tar.gz
+wget https://download.samba.org/pub/samba/samba-4.23.2.tar.gz
 ```
 
 ```bash
-tar -xvzf samba-4.22.1.tar.gz
+tar -xvzf samba-4.23.2.tar.gz
 ```
 
 ```bash
-cd samba-4.22.1
+cd samba-4.23.2
 ```
 
 ```bash
