@@ -1502,11 +1502,15 @@ cd samba-4.19.4
 ```
 
 ```bash
-./configure --prefix=/opt/samba
+./configure --prefix=/opt/samba --enable-debug --enable-selftest
 ```
 
 ```bash
-make && make install
+make -j$(nproc)
+```
+
+```bash
+ make install
 ```
 
 ## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
