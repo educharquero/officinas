@@ -3388,9 +3388,11 @@ Address:<span class="w"> </span><span class="m">192</span>.168.70.200
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>samba-4.19.4
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>./configure<span class="w"> </span>--prefix<span class="o">=</span>/opt/samba
+<div class="highlight"><pre><span></span><code>./configure<span class="w"> </span>--prefix<span class="o">=</span>/opt/samba<span class="w"> </span>--enable-debug<span class="w"> </span>--enable-selftest
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>install
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
 <h2 id="adicionando-optsamba-ao-path-padrao-do-linux-colando-a-linha-completa-ao-final-do-bashrc_2">Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:</h2>
 <h2 id="pathusrlocalsbinusrlocalbinusrsbinusrbinsbinbinoptsambabinoptsambasbin_2">PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"</h2>

@@ -5,7 +5,7 @@
 ## Layout de rede usado no laboratório:
 
 ```bash
-firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
+firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
 dcmaster           192.168.70.250   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
 dcslave            192.168.70.200   (ssh 22200)
@@ -180,8 +180,10 @@ ntpq -p
 ## Provisionando o novo domínio suportado pelo dcmaster:
 
 ```bash
-samba-tool domain provision --use-rfc2307 --interactive --option=”interfaces=lo enp1s0” --option=”bind interfaces only=yes”
+samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option="ad dc functional level = 2016" --function-level=2016
+
 ```
+
 
 ## Habilitando o daemon pra subir no boot do sistema:
 
