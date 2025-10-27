@@ -6,15 +6,15 @@
 
 ```bash
 firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-dcmaster           192.168.70.250   (ssh 22250)
+srvdc01            192.168.70.250   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-dcslave            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.200   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
-; dcmaster         Controlador de Domínio primário
+; srvdc01          Controlador de Domínio primário
 ; mkdocs           Servidor de Documentos
-; dcslave          Controlador de Domínio secundário
+; srvdc02          Controlador de Domínio secundário
 ; fileserver       Servidor de Arquivos
 ```
 
@@ -24,10 +24,10 @@ fileserver         192.168.70.150   (ssh 22100)
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1-6-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed  tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-## Setando e validando o hostname do dcmaster:
+## Setando e validando o hostname do srvdc01:
 
 ```bash
-hostnamectl set-hostname dcmaster
+hostnamectl set-hostname srvdc01
 ```
 
 ## Configurando o arquivo de hosts:
@@ -38,15 +38,15 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1          localhost
-127.0.1.1          dcmaster.officinas.edu    dcmaster
-192.168.70.254     dcmaster.officinas.edu    dcmaster
+127.0.1.1          srvdc01.officinas.edu    srvdc01
+192.168.70.254     srvdc01.officinas.edu    srvdc01
 ```
 
 ```bash
 hostname -f
 ```
 
-## Setando ip fixo no servidor dcmaster:
+## Setando ip fixo no servidor srvdc01:
 
 ```bash
 vim /etc/network/interfaces
@@ -98,19 +98,19 @@ cd samba-4.23.2
 ```
 
 ```bash
-make
+make -j$(nproc)
 ```
 
 ```bash
 make install
 ```
 
-## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
+## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do /etc/profile:
 
 ## PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 
 ```bash
-vim ~/.bashrc
+vim /etc/profile
 ```
 
 ```bash
@@ -120,7 +120,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bi
 ## Relendo o arquivo de profile:
 
 ```bash
-source ~/.bashrc
+source /etc/profile
 ```
 
 ## Criando o daemon de inicialização do Samba4 com o sistema:
@@ -177,7 +177,7 @@ systemctl restart ntpd
 ntpq -p
 ```
 
-## Provisionando o novo domínio suportado pelo dcmaster:
+## Provisionando o novo domínio suportado pelo srvdc01:
 
 ```bash
 samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option="ad dc functional level = 2016" --function-level=2016
@@ -213,7 +213,7 @@ mv /etc/krb5.conf{,.orig}
 ln -sf /opt/samba/private/krb5.conf /etc/krb5.conf
 ```
 
-## APÓS o provisionamento da Samba4, precisamos reconfigurar o /etc/resolv.conf e setar o DNS apontando a resolução de nomes para o próprio dcmaster:
+## APÓS o provisionamento da Samba4, precisamos reconfigurar o /etc/resolv.conf e setar o DNS apontando a resolução de nomes para o próprio srvdc01:
 
 ```bash
 vim /etc/resolv.conf
@@ -231,10 +231,10 @@ nameserver       127.0.0.1 #(localhost)
 chattr +i /etc/resolv.conf
 ```
 
-## Validando resolvedor de nomes pelo dcmaster:
+## Validando resolvedor de nomes pelo srvdc01:
 
 ```bash
-nslookup dcmaster.officinas.edu
+nslookup srvdc01.officinas.edu
 ```
 
 ### Vai validar na tela:
@@ -243,11 +243,11 @@ nslookup dcmaster.officinas.edu
 Server:         127.0.0.1
 Address:        127.0.0.1#53
 
-Name:   dcmaster.officinas.edu
+Name:   srvdc01.officinas.edu
 Address: 192.168.70.250
 ```
 
-## Reboot do servidor dcmaster:
+## Reboot do servidor srvdc01:
 
 ```bash
 reboot
@@ -464,7 +464,7 @@ host -t srv _ldap._tcp.officinas.edu
 ```
 
 ```bash
-host -t A dcmaster.officinas.edu.
+host -t A srvdc01.officinas.edu.
 ```
 
 ```bash
@@ -479,15 +479,15 @@ THAT’S ALL FOLKS!!
 
 ```bash
 firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-dcmaster           192.168.70.250   (ssh 22250)
+srvdc01           192.168.70.250   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-dcslave            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.200   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
-; dcmaster         Controlador de Domínio primário
+; srvdc01         Controlador de Domínio primário
 ; mkdocs           Servidor de Documentos
-; dcslave          Controlador de Domínio secundário
+; srvdc02          Controlador de Domínio secundário
 ; fileserver       Servidor de Arquivos
 ```
 
@@ -497,14 +497,14 @@ fileserver         192.168.70.150   (ssh 22100)
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ntp rsync ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1--5-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-## Setando e validando o hostname do dcslave:
+## Setando e validando o hostname do srvdc02:
 
 ```bash
 vim /etc/hostname
 ```
 
 ```bash
-dcslave
+srvdc02
 ```
 
 ```bash
@@ -512,7 +512,7 @@ hostname -f
 ```
 
 ```bash
-dcslave.officinas.edu
+srvdc02.officinas.edu
 ```
 
 ## Configurando o arquivo de hosts:
@@ -523,15 +523,15 @@ vim /etc/hosts
 
 ```bash
 .0.0.1              localhost
-127.0.1.1           dcslave.officinas.edu       dcslave
+127.0.1.1           srvdc02.officinas.edu       srvdc02
 192.168.70.150      fileserver.officinas.edu    fileserver
-192.168.70.200      dcslave.officinas.edu       dcslave
+192.168.70.200      srvdc02.officinas.edu       srvdc02
 192.168.70.222      mkdocs.officinas.edu        mkdocs
-192.168.70.250      dcmaster.officinas.edu      dcmaster
+192.168.70.250      srvdc01.officinas.edu      srvdc01
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
-## Setando ip fixo no servidor dcslave:
+## Setando ip fixo no servidor srvdc02:
 
 ```bash
 vim /etc/network/interfaces
@@ -545,7 +545,7 @@ netmask           255.255.255.0
 gateway           192.168.70.254
 ```
 
-## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário, até provisionar):
+## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, srvdc01 (temporário, até provisionar):
 
 ```bash
 vim /etc/resolv.conf
@@ -554,11 +554,11 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(dcmaster)
+nameserver       192.168.70.250 #(srvdc01)
 nameserver       127.0.0.1
 ```
 
-## Validando a resolução de nomes pelo dcmaster:
+## Validando a resolução de nomes pelo srvdc01:
 
 ```bash
 nslookup officinas.edu
@@ -593,15 +593,15 @@ ip -br link
 ## Baixando e compilando o código fonte do Samba4:
 
 ```bash
-wget https://download.samba.org/pub/samba/samba-4.19.4.tar.gz
+wget https://download.samba.org/pub/samba/samba-4.23.2.tar.gz
 ```
 
 ```bash
-tar -xvzf samba-4.19.4.tar.gz
+tar -xvzf samba-4.23.2.tar.gz
 ```
 
 ```bash
-cd samba-4.19.4
+cd samba-4.23.2
 ```
 
 ```bash
@@ -609,7 +609,11 @@ cd samba-4.19.4
 ```
 
 ```bash
-make && make install
+make -j$(nproc)
+```
+
+```bash
+make install
 ```
 
 ## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
@@ -654,7 +658,7 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
+## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, srvdc01:
 
 ```bash
 mv /etc/ntpsec/ntp.conf{,.orig}
@@ -668,7 +672,7 @@ vim /etc/ntpsec/ntp.conf
 driftfile /var/lib/ntpsec/ntp.drift
 leapfile /usr/share/zoneinfo/leap-seconds.list
 tos minclock 4 minsane 3
-pool 192.168.70.250 iburst #(dcmaster)
+pool 192.168.70.250 iburst #(srvdc01)
 restrict default kod nomodify nopeer noquery limited
 restrict 127.0.0.1
 restrict ::1
@@ -766,10 +770,10 @@ apt install ldb-tools
 host -t A officinas.edu.
 ```
 
-## (SE NECESSÁRIO), SE Necessário, adicione as entradas do dcslave, manualmente AO DNS do Samba4, no dcmaster:
+## (SE NECESSÁRIO), SE Necessário, adicione as entradas do srvdc02, manualmente AO DNS do Samba4, no srvdc01:
 
 ```bash
-samba-tool dns add dcmaster OFFICINAS.EDU dcslave A 192.168.70.200 -U administrator
+samba-tool dns add srvdc01 OFFICINAS.EDU srvdc02 A 192.168.70.200 -U administrator
 ```
 
 ```bash
@@ -783,26 +787,26 @@ host -t CNAME df4bdd8c-abc7-4779-b01e-4dd4553ca3e9._msdcs.officinas.edu.
 ## SE não rodar, execute a replicação para todos os DCs:
 
 ```bash
-samba-tool dns add dcmaster _msdcs.officinas.edu df4bdd8c-abc7-4779-b01e-4dd4553ca3e9 CNAME dcslave.officinas.edu -Uadministrator
+samba-tool dns add srvdc01 _msdcs.officinas.edu df4bdd8c-abc7-4779-b01e-4dd4553ca3e9 CNAME srvdc02.officinas.edu -Uadministrator
 ```
 
 ## PASTA SYSVOL
 
-## Replicando a pasta sysvol. Mapeando IDs de grupos e usuários para o dcslave (execute estes comando NO DCMASTER):
+## Replicando a pasta sysvol. Mapeando IDs de grupos e usuários para o srvdc02 (execute estes comando NO DCMASTER):
 
 ```bash
 tdbbackup -s .bak /opt/samba/private/idmap.ldb
 ```
 
 ```bash
-scp -rv -p22200 /opt/samba/private/idmap.ldb.bak root@dcslave:/root
+scp -rv -p22200 /opt/samba/private/idmap.ldb.bak root@srvdc02:/root
 ```
 
 ```bash
-scp -rv -p22200 /opt/samba/var/locks/sysvol/* root@dcslave:/opt/samba/var/locks/sysvol
+scp -rv -p22200 /opt/samba/var/locks/sysvol/* root@srvdc02:/opt/samba/var/locks/sysvol
 ```
 
-## Aplicando o arquivo BD que enviamos do dcmaster (execute estes comandos NO DCSLAVE):
+## Aplicando o arquivo BD que enviamos do srvdc01 (execute estes comandos NO DCSLAVE):
 
 ```bash
 mv /root/idmap.ldb.bak /root/idmap.ldb
@@ -816,9 +820,9 @@ cp -rfv /root/idmap.ldb /opt/samba/private/
 samba-tool ntacl sysvolreset
 ```
 
-## Agora precisamos pensar que tendo dois DCs na rede, SE cair o primário o secundário assume o controle, e vice versa. Logicamente devemos apontar um pro outro como resolvedor de nomes primário, ou seja, o dcmaster vai resolver primeiro no dcslave e o dcslave vai resolver primeiro no dcmaster:
+## Agora precisamos pensar que tendo dois DCs na rede, SE cair o primário o secundário assume o controle, e vice versa. Logicamente devemos apontar um pro outro como resolvedor de nomes primário, ou seja, o srvdc01 vai resolver primeiro no srvdc02 e o srvdc02 vai resolver primeiro no srvdc01:
 
-## Edite o /etc/resolv.conf NO DCMASTER e aponte pro dcslave:
+## Edite o /etc/resolv.conf NO DCMASTER e aponte pro srvdc02:
 
 ```bash
 vim /etc/resolv.conf
@@ -827,7 +831,7 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.200 #(dcslave)
+nameserver       192.168.70.200 #(srvdc02)
 nameserver       127.0.0.1
 ```
 
@@ -837,7 +841,7 @@ nameserver       127.0.0.1
 chattr +i /etc/resolv.conf
 ```
 
-## E no reverso, edite o /etc/resolv.conf NO DCSLAVE apontando pro dcmaster:
+## E no reverso, edite o /etc/resolv.conf NO DCSLAVE apontando pro srvdc01:
 
 ## Desbloqueando a edição do arquivo resolv.conf:
 
@@ -852,7 +856,7 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(dcmaster)
+nameserver       192.168.70.250 #(srvdc01)
 nameserver       127.0.0.1
 ```
 
@@ -868,7 +872,7 @@ chattr +i /etc/resolv.conf
 samba-tool drs showrepl
 ```
 
-## Criando um usuário no dcmaster (execute NO DCMASTER):
+## Criando um usuário no srvdc01 (execute NO DCMASTER):
 
 ```bash
 samba-tool user create userteste
@@ -878,7 +882,7 @@ samba-tool user create userteste
 samba-tool user list
 ```
 
-## Validando no dcslave, se consta o usuário criado no dcmaster (execute NO DCSLAVE):
+## Validando no srvdc02, se consta o usuário criado no srvdc01 (execute NO DCSLAVE):
 
 ```bash
 samba-tool user list
@@ -938,7 +942,7 @@ samba-tool fsmo show | grep -i pdc
 samba-tool fsmo show
 ```
 
-## Validando a localização do diretório 'sysvol' do dcmaster:
+## Validando a localização do diretório 'sysvol' do srvdc01:
 
 ```bash
 uname -ra
@@ -974,7 +978,7 @@ cat /boot/config-6.1.0-17-amd64 | grep _ACL
 cat /boot/config-6.1.0-17-amd64 | grep FS_SECURITY
 ```
 
-## Gerando e enviando as chaves do ssh para sincronização entre o dcmaster e o dcslave (crie as chaves NO DCMASTER e envie a chave pública para o dcslave):
+## Gerando e enviando as chaves do ssh para sincronização entre o srvdc01 e o srvdc02 (crie as chaves NO DCMASTER e envie a chave pública para o srvdc02):
 
 ## (Pode deixar a senha em branco SE preferir)
 
@@ -983,40 +987,40 @@ ssh-keygen -t rsa -b 1024
 ```
 
 ```bash
-ssh-copy-id -p22200 -i ~/.ssh/id_rsa.pub root@dcslave #(O MEU dcslave usa a porta ssh 22200)
+ssh-copy-id -p22200 -i ~/.ssh/id_rsa.pub root@srvdc02 #(O MEU srvdc02 usa a porta ssh 22200)
 ```
 
 ## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
-ssh -p22200 dcslave
+ssh -p22200 srvdc02
 ```
 
 ```bash
 exit
 ```
 
-## Agora inverta a ordem e crie as chaves NO DCSLAVE e envie para o dcmaster (Rode estes comandos NO DCSLAVE):
+## Agora inverta a ordem e crie as chaves NO DCSLAVE e envie para o srvdc01 (Rode estes comandos NO DCSLAVE):
 
 ```bash
 ssh-keygen -t rsa -b 1024
 ```
 
 ```bash
-ssh-copy-id -p22250 -i ~/.ssh/id_rsa.pub root@dcmaster #(enviando para o dcmaster, que usa porta ssh 22250)
+ssh-copy-id -p22250 -i ~/.ssh/id_rsa.pub root@srvdc01 #(enviando para o srvdc01, que usa porta ssh 22250)
 ```
 
 ## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
-ssh -p22250 dcmaster
+ssh -p22250 srvdc01
 ```
 
 ```bash
 exit
 ```
 
-## Criando script de sincronização com rsync do diretório 'sysvol' DO DCMASTER para envio ao dcslave (rode estes comando NO DCMASTER):
+## Criando script de sincronização com rsync do diretório 'sysvol' DO DCMASTER para envio ao srvdc02 (rode estes comando NO DCMASTER):
 
 ```bash
 cd /opt
@@ -1028,9 +1032,9 @@ vim rsync-sysvol.sh
 
 ```bash
 #!/bin/bash
-# Sincronizando Diretorios do Sysvol do dcmaster para envio ao dcslave:
+# Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
 #rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.200:/opt/samba/var/locks/sysvol/
-# no MEU CASO onde a porta do ssh não á a default. MEU dcslave usa 22200:
+# no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22200:
 rsync -Cravz -e "ssh -p 22200" /opt/samba/var/locks/sysvol/*  root@192.168.70.200:/opt/samba/var/locks/sysvol/
 ```
 
@@ -1042,7 +1046,7 @@ chmod +x rsync-sysvol
 ./rsync-sysvol
 ```
 
-## Agendando a sincronização no cron do dcmaster:
+## Agendando a sincronização no cron do srvdc01:
 
 ```bash
 crontab -e
@@ -1054,7 +1058,7 @@ crontab -e
 
 ## REPITA o processo de replicação do sysvol, agora NO DCSLAVE, INVERTENDO os apontamentos de ip, obviamente!
 
-## Criando script de sincronização do diretório 'sysvol' DO DCSLAVE para envio ao dcmaster (rode os comando agora NO DCSLAVE):
+## Criando script de sincronização do diretório 'sysvol' DO DCSLAVE para envio ao srvdc01 (rode os comando agora NO DCSLAVE):
 
 ```bash
 cd /opt
@@ -1066,9 +1070,9 @@ vim rsync-sysvol.sh
 
 ```bash
 #!/bin/bash
-# Sincronizando Diretorios do Sysvol do dcmaster para envio ao dcslave:
+# Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
 #rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.250:/opt/samba/var/locks/sysvol/
-# no MEU CASO onde a porta do ssh não á a default. MEU dcmaster usa 22250:
+# no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22250:
 rsync -Cravz -e "ssh -p 22250" /opt/samba/var/locks/sysvol/*  root@192.168.70.250:/opt/samba/var/locks/sysvol/
 ```
 
@@ -1080,7 +1084,7 @@ chmod +x rsync-sysvol
 ./rsync-sysvol
 ```
 
-## Agendando a sincronização no cron do dcslave:
+## Agendando a sincronização no cron do srvdc02:
 
 ```bash
 crontab -e
@@ -1371,16 +1375,16 @@ THAT’S ALL FOLKS!!
 ## Layout de rede usado no laboratório:
 
 ```bash
-firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-dcmaster           192.168.70.250   (ssh 22250)
+firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
+srvdc01            192.168.70.250   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-dcslave            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.200   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
-; dcmaster         Controlador de Domínio primário
+; srvdc01          Controlador de Domínio primário
 ; mkdocs           Servidor de Documentos
-; dcslave          Controlador de Domínio secundário
+; srvdc02          Controlador de Domínio secundário
 ; fileserver       Servidor de Arquivos
 ```
 
@@ -1390,7 +1394,7 @@ fileserver         192.168.70.150   (ssh 22100)
 export DEBIAN_FRONTEND=noninteractive;apt-get update; apt-get install vim ntp net-tools rsync acl apt-utils attr autoconf bind9-utils binutils bison build-essential ntp rsync ccache chrpath curl debhelper bind9-dnsutils docbook-xml docbook-xsl flex gcc gdb git glusterfs-common gzip heimdal-multidev hostname htop krb5-config krb5-user lcov libacl1-dev libarchive-dev libattr1-dev libavahi-common-dev libblkid-dev libbsd-dev libcap-dev libcephfs-dev libcups2-dev libdbus-1-dev libglib2.0-dev libgnutls28-dev libgpgme-dev libicu-dev libjansson-dev libjs-jquery libjson-perl libkrb5-dev libldap2-dev liblmdb-dev libncurses-dev libpam0g-dev libparse-yapp-perl libpcap-dev libpopt-dev libreadline-dev libsystemd-dev libtasn1-bin libtasn1--5-dev libunwind-dev lmdb-utils locales lsb-release make mawk mingw-w64 patch perl perl-modules-5.40 pkg-config procps psmisc python3 python3-cryptography python3-dbg python3-dev python3-dnspython python3-gpg python3-iso8601 python3-markdown python3-matplotlib python3-pexpect python3-pyasn1 rsync sed  tar tree uuid-dev wget xfslibs-dev xsltproc zlib1g-dev -y
 ```
 
-## Setando e validando o hostname do dcslave:
+## Setando e validando o hostname do srvdc02:
 
 ```bash
 vim /etc/hostname
@@ -1418,13 +1422,13 @@ vim /etc/hosts
 .0.0.1              localhost
 127.0.1.1           fileserver.officinas.edu    fileserver
 192.168.70.150      fileserver.officinas.edu    fileserver
-192.168.70.200      dcslave.officinas.edu       dcslave
+192.168.70.200      srvdc02.officinas.edu       srvdc02
 192.168.70.222      mkdocs.officinas.edu        mkdocs
-192.168.70.250      dcmaster.officinas.edu      dcmaster
+192.168.70.250      srvdc01.officinas.edu      srvdc01
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
-## Setando ip fixo no servidor dcslave:
+## Setando ip fixo no servidor srvdc02:
 
 ```bash
 vim /etc/network/interfaces
@@ -1438,7 +1442,7 @@ netmask           255.255.255.0
 gateway           192.168.70.254
 ```
 
-## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, dcmaster (temporário):
+## Apontando o endereço do resolvedor de nomes principal da rede pro Controlador de domínio primário, srvdc01 (temporário):
 
 ```bash
 vim /etc/resolv.conf
@@ -1447,8 +1451,8 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(dcmaster)
-nameserver       192.168.70.200 #(dcslave)
+nameserver       192.168.70.250 #(srvdc01)
+nameserver       192.168.70.200 #(srvdc02)
 ```
 
 ## Bloqueando alteração do resolv.conf:
@@ -1457,7 +1461,7 @@ nameserver       192.168.70.200 #(dcslave)
 chattr +i /etc/resolv.conf
 ```
 
-## Validando a resolução de nomes pelo dcmaster:
+## Validando a resolução de nomes pelo srvdc01:
 
 ```bash
 nslookup officinas.edu
@@ -1492,15 +1496,15 @@ ip -br link
 ## Baixando e compilando o código fonte do Samba4:
 
 ```bash
-wget https://download.samba.org/pub/samba/samba-4.19.4.tar.gz
+wget https://download.samba.org/pub/samba/samba-4.23.2.tar.gz
 ```
 
 ```bash
-tar -xvzf samba-4.19.4.tar.gz
+tar -xvzf samba-4.23.2.tar.gz
 ```
 
 ```bash
-cd samba-4.19.4
+cd samba-4.23.2
 ```
 
 ```bash
@@ -1557,7 +1561,7 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, dcmaster:
+## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, srvdc01:
 
 ```bash
 mv /etc/ntpsec/ntp.conf{,.orig}
@@ -1571,7 +1575,7 @@ vim /etc/ntpsec/ntp.conf
 driftfile /var/lib/ntpsec/ntp.drift
 leapfile /usr/share/zoneinfo/leap-seconds.list
 tos minclock 4 minsane 3
-pool 192.168.70.250 iburst #(dcmaster)
+pool 192.168.70.250 iburst #(srvdc01)
 restrict default kod nomodify nopeer noquery limited
 restrict 127.0.0.1
 restrict ::1
@@ -1629,7 +1633,7 @@ nano /etc/ntpsec/ntp.conf
 # Relógio Local ( Nota: Este não é o endereço localhost! )
    server 127.127.1.0
    fudge  127.127.1.0 stratum 10
-   server 192.168.70.250 iburst prefer #(dcmaster)
+   server 192.168.70.250 iburst prefer #(srvdc01)
    driftfile /var/lib/ntp/ntp.drift
    logfile   /var/log/ntp
    restrict default ignore
