@@ -30,7 +30,6 @@ nav:
       - 'DC-1 (Rocky)': 'DC1_Rocky.md'
       - 'DC-2 (Rocky)': 'DC2_Rocky.md'
       - 'DC-1 Pacotes Binários': 'DC1_pacotes_binarios.md'
-      - 'DC-1 Pacotes Compilados': 'DC1_pacotes_compilados.md'
   - 📂 'Distros Linux':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'

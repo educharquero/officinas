@@ -31,7 +31,6 @@
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
-- [DC1 Compilado](./DC1_pacotes_compilados.md)
 - [DC1 Binarios](./DC1_pacotes_binarios.md)
 - [DC1 Rocky](./DC1_Rocky.md)
 - [DC2 Rocky](./DC2_Rocky.md)
