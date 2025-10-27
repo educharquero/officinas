@@ -472,7 +472,7 @@ dig officinas.edu
 THAT’S ALL FOLKS!!
 
 
-# O MATERIAL DO CONTROLADOR DE DOMÓNIO SECUNDÁRIO ESTÁ SENDO REVISADO!
+# O MATERIAL DO CONTROLADOR DE DOMÍNIO SECUNDÁRIO ESTÁ SENDO REVISADO!
 # Controlador de Domínio secundário com Samba4 no Debian Linux 13
 
 ## Layout de rede usado no laboratório:
