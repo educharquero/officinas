@@ -32,13 +32,9 @@
 
 ## 🛠️ Servidores
 - [DC1 Binarios](./DC1_pacotes_binarios.md)
-- [DC1 Rocky](./DC1_Rocky.md)
-- [DC2 Rocky](./DC2_Rocky.md)
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
 - [Fileserver Debian binario](./Fileserver_Debian.md)
-- [Fileserver Rocky](./Fileserver_Rocky.md)
-- [Fileserver Rocky Linux](./Fileserver_RockyLinux.md)
 - [Firewall Server](./Firewall_Server.md)
 - [MkDocs Server](./Mkdocs_Server.md)
 - [NFS Server](./NFS_Server.md)
