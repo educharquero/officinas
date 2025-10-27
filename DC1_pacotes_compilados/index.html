@@ -2492,15 +2492,13 @@
 <h1 id="dc1-instalacao-por-pacotes-compilados">📁 DC1 instalação por pacotes compilados</h1>
 <h2 id="controlador-de-dominio-primario-secundario-e-fileserver-no-debian-linux-13">Controlador de Domínio Primário, Secundário e Fileserver no Debian Linux 13</h2>
 <h2 id="layout-de-rede-usado-no-laboratorio">Layout de rede usado no laboratório:</h2>
-<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w">   </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">2277</span><span class="o">)</span>
-srvdc01<span class="w">            </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22250</span><span class="o">)</span>
-mkdocs<span class="w">             </span><span class="m">192</span>.168.70.222<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22222</span><span class="o">)</span>
-srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22200</span><span class="o">)</span>
-fileserver<span class="w">         </span><span class="m">192</span>.168.70.150<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22100</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w">   </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22254</span><span class="o">)</span>
+srvdc01<span class="w">            </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22253</span><span class="o">)</span>
+srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22252</span><span class="o">)</span>
+fileserver<span class="w">         </span><span class="m">192</span>.168.70.251<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22251</span><span class="o">)</span>
 
-<span class="p">;</span><span class="w"> </span>firewall<span class="w">         </span>Roteamento<span class="w"> </span>por<span class="w"> </span>Iptables
+<span class="p">;</span><span class="w"> </span>firewall<span class="w">         </span>Roteamento<span class="w"> </span>e<span class="w"> </span>Controle<span class="w"> </span>de<span class="w"> </span>pacotes
 <span class="p">;</span><span class="w"> </span>srvdc01<span class="w">          </span>Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span>primário
-<span class="p">;</span><span class="w"> </span>mkdocs<span class="w">           </span>Servidor<span class="w"> </span>de<span class="w"> </span>Documentos
 <span class="p">;</span><span class="w"> </span>srvdc02<span class="w">          </span>Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span>secundário
 <span class="p">;</span><span class="w"> </span>fileserver<span class="w">       </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos
 </code></pre></div>
@@ -2754,13 +2752,14 @@ shadow:<span class="w"> </span>files
 <div class="highlight"><pre><span></span><code>dig<span class="w"> </span>officinas.edu
 </code></pre></div>
 <p>THAT’S ALL FOLKS!!</p>
+<h1 id="o-material-do-controlador-de-domonio-secundario-esta-sendo-revisado">O MATERIAL DO CONTROLADOR DE DOMÓNIO SECUNDÁRIO ESTÁ SENDO REVISADO!</h1>
 <h1 id="controlador-de-dominio-secundario-com-samba4-no-debian-linux-13">Controlador de Domínio secundário com Samba4 no Debian Linux 13</h1>
 <h2 id="layout-de-rede-usado-no-laboratorio_1">Layout de rede usado no laboratório:</h2>
-<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w"> </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">2277</span><span class="o">)</span>
-srvdc01<span class="w">           </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22250</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w"> </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22254</span><span class="o">)</span>
+srvdc01<span class="w">           </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22253</span><span class="o">)</span>
 mkdocs<span class="w">             </span><span class="m">192</span>.168.70.222<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22222</span><span class="o">)</span>
-srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22200</span><span class="o">)</span>
-fileserver<span class="w">         </span><span class="m">192</span>.168.70.150<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22100</span><span class="o">)</span>
+srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22252</span><span class="o">)</span>
+fileserver<span class="w">         </span><span class="m">192</span>.168.70.251<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22251</span><span class="o">)</span>
 
 <span class="p">;</span><span class="w"> </span>firewall<span class="w">         </span>Roteamento<span class="w"> </span>por<span class="w"> </span>Iptables
 <span class="p">;</span><span class="w"> </span>srvdc01<span class="w">         </span>Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span>primário
@@ -2785,7 +2784,7 @@ fileserver<span class="w">         </span><span class="m">192</span>.168.70.150<
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>.0.0.1<span class="w">              </span>localhost
 <span class="m">127</span>.0.1.1<span class="w">           </span>srvdc02.officinas.edu<span class="w">       </span>srvdc02
-<span class="m">192</span>.168.70.150<span class="w">      </span>fileserver.officinas.edu<span class="w">    </span>fileserver
+<span class="m">192</span>.168.70.251<span class="w">      </span>fileserver.officinas.edu<span class="w">    </span>fileserver
 <span class="m">192</span>.168.70.252<span class="w">      </span>srvdc02.officinas.edu<span class="w">       </span>srvdc02
 <span class="m">192</span>.168.70.222<span class="w">      </span>mkdocs.officinas.edu<span class="w">        </span>mkdocs
 <span class="m">192</span>.168.70.253<span class="w">      </span>srvdc01.officinas.edu<span class="w">      </span>srvdc01
@@ -2949,9 +2948,9 @@ tinker<span class="w"> </span>panic<span class="w"> </span><span class="m">0</sp
 <h2 id="replicando-a-pasta-sysvol-mapeando-ids-de-grupos-e-usuarios-para-o-srvdc02-execute-estes-comando-no-dcmaster">Replicando a pasta sysvol. Mapeando IDs de grupos e usuários para o srvdc02 (execute estes comando NO DCMASTER):</h2>
 <div class="highlight"><pre><span></span><code>tdbbackup<span class="w"> </span>-s<span class="w"> </span>.bak<span class="w"> </span>/opt/samba/private/idmap.ldb
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-rv<span class="w"> </span>-p22200<span class="w"> </span>/opt/samba/private/idmap.ldb.bak<span class="w"> </span>root@srvdc02:/root
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-rv<span class="w"> </span>-p22252<span class="w"> </span>/opt/samba/private/idmap.ldb.bak<span class="w"> </span>root@srvdc02:/root
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-rv<span class="w"> </span>-p22200<span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w"> </span>root@srvdc02:/opt/samba/var/locks/sysvol
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>-rv<span class="w"> </span>-p22252<span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w"> </span>root@srvdc02:/opt/samba/var/locks/sysvol
 </code></pre></div>
 <h2 id="aplicando-o-arquivo-bd-que-enviamos-do-srvdc01-execute-estes-comandos-no-dcslave">Aplicando o arquivo BD que enviamos do srvdc01 (execute estes comandos NO DCSLAVE):</h2>
 <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/root/idmap.ldb.bak<span class="w"> </span>/root/idmap.ldb
@@ -3046,20 +3045,20 @@ nameserver<span class="w">       </span><span class="m">127</span>.0.0.1
 <h2 id="pode-deixar-a-senha-em-branco-se-preferir">(Pode deixar a senha em branco SE preferir)</h2>
 <div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">1024</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>-p22200<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@srvdc02<span class="w"> </span><span class="c1">#(O MEU srvdc02 usa a porta ssh 22200)</span>
+<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>-p22252<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@srvdc02<span class="w"> </span><span class="c1">#(O MEU srvdc02 usa a porta ssh 22252)</span>
 </code></pre></div>
 <h2 id="testando-a-conexao-por-ssh-sem-pedir-senha-se-vc-deixou-em-branco">Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):</h2>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p22200<span class="w"> </span>srvdc02
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p22252<span class="w"> </span>srvdc02
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
 <h2 id="agora-inverta-a-ordem-e-crie-as-chaves-no-dcslave-e-envie-para-o-srvdc01-rode-estes-comandos-no-dcslave">Agora inverta a ordem e crie as chaves NO DCSLAVE e envie para o srvdc01 (Rode estes comandos NO DCSLAVE):</h2>
 <div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">1024</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>-p22250<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@srvdc01<span class="w"> </span><span class="c1">#(enviando para o srvdc01, que usa porta ssh 22250)</span>
+<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>-p22253<span class="w"> </span>-i<span class="w"> </span>~/.ssh/id_rsa.pub<span class="w"> </span>root@srvdc01<span class="w"> </span><span class="c1">#(enviando para o srvdc01, que usa porta ssh 22253)</span>
 </code></pre></div>
 <h2 id="testando-a-conexao-por-ssh-sem-pedir-senha-se-vc-deixou-em-branco_1">Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):</h2>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p22250<span class="w"> </span>srvdc01
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p22253<span class="w"> </span>srvdc01
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nb">exit</span>
 </code></pre></div>
@@ -3071,8 +3070,8 @@ nameserver<span class="w">       </span><span class="m">127</span>.0.0.1
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:</span>
 <span class="c1">#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/</span>
-<span class="c1"># no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22200:</span>
-rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 22200&quot;</span><span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w">  </span>root@192.168.70.252:/opt/samba/var/locks/sysvol/
+<span class="c1"># no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22252:</span>
+rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 22252&quot;</span><span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w">  </span>root@192.168.70.252:/opt/samba/var/locks/sysvol/
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>rsync-sysvol
 </code></pre></div>
@@ -3092,8 +3091,8 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 <div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="c1"># Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:</span>
 <span class="c1">#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/</span>
-<span class="c1"># no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22250:</span>
-rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 22250&quot;</span><span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w">  </span>root@192.168.70.253:/opt/samba/var/locks/sysvol/
+<span class="c1"># no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22253:</span>
+rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;ssh -p 22253&quot;</span><span class="w"> </span>/opt/samba/var/locks/sysvol/*<span class="w">  </span>root@192.168.70.253:/opt/samba/var/locks/sysvol/
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>rsync-sysvol
 </code></pre></div>
@@ -3125,7 +3124,7 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 
 <span class="nv">INITIATOR_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/samba/var/locks/sysvol&quot;</span>
 
-<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol&quot;</span>
+<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.252:22252//opt/samba/var/locks/sysvol&quot;</span>
 
 <span class="nv">SSH_RSA_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;/root/.ssh/id_rsa&quot;</span>
 
@@ -3151,7 +3150,7 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 
 <span class="nv">INITIATOR_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/samba/var/locks/sysvol&quot;</span>
 
-<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol&quot;</span>
+<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.252:22252//opt/samba/var/locks/sysvol&quot;</span>
 
 <span class="nv">SSH_RSA_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;/root/.ssh/id_rsa&quot;</span>
 
@@ -3224,7 +3223,7 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 
 <span class="nv">INITIATOR_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/samba/var/locks/sysvol&quot;</span>
 
-<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol&quot;</span>
+<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.253:22253//opt/samba/var/locks/sysvol&quot;</span>
 
 <span class="nv">SSH_RSA_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;/root/.ssh/id_rsa&quot;</span>
 
@@ -3250,7 +3249,7 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 
 <span class="nv">INITIATOR_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/samba/var/locks/sysvol&quot;</span>
 
-<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol&quot;</span>
+<span class="nv">TARGET_SYNC_DIR</span><span class="o">=</span><span class="s2">&quot;ssh://root@192.168.70.253:22253//opt/samba/var/locks/sysvol&quot;</span>
 
 <span class="nv">SSH_RSA_PRIVATE_KEY</span><span class="o">=</span><span class="s2">&quot;/root/.ssh/id_rsa&quot;</span>
 
@@ -3309,15 +3308,13 @@ rsync<span class="w"> </span>-Cravz<span class="w"> </span>-e<span class="w"> </
 <p>THAT’S ALL FOLKS!!</p>
 <h1 id="fileserver-com-samba4-no-debian-linux-13">FileServer com Samba4 no Debian Linux 13</h1>
 <h2 id="layout-de-rede-usado-no-laboratorio_2">Layout de rede usado no laboratório:</h2>
-<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w">   </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">2277</span><span class="o">)</span>
-srvdc01<span class="w">            </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22250</span><span class="o">)</span>
-mkdocs<span class="w">             </span><span class="m">192</span>.168.70.222<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22222</span><span class="o">)</span>
-srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22200</span><span class="o">)</span>
-fileserver<span class="w">         </span><span class="m">192</span>.168.70.150<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22100</span><span class="o">)</span>
+<div class="highlight"><pre><span></span><code>firewall<span class="w">           </span><span class="m">192</span>.168.70.254<span class="w">   </span><span class="o">(</span>enp1s0<span class="o">)</span><span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.122.254<span class="w"> </span><span class="o">(</span>enp7s0<span class="o">)</span><span class="w"> </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22254</span><span class="o">)</span>
+srvdc01<span class="w">            </span><span class="m">192</span>.168.70.253<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22253</span><span class="o">)</span>
+srvdc02<span class="w">            </span><span class="m">192</span>.168.70.252<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22252</span><span class="o">)</span>
+fileserver<span class="w">         </span><span class="m">192</span>.168.70.251<span class="w">   </span><span class="o">(</span>ssh<span class="w"> </span><span class="m">22251</span><span class="o">)</span>
 
-<span class="p">;</span><span class="w"> </span>firewall<span class="w">         </span>Roteamento<span class="w"> </span>por<span class="w"> </span>Iptables
+<span class="p">;</span><span class="w"> </span>firewall<span class="w">         </span>Roteamento<span class="w"> </span>e<span class="w"> </span>filtro<span class="w"> </span>de<span class="w"> </span>pacotes
 <span class="p">;</span><span class="w"> </span>srvdc01<span class="w">          </span>Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span>primário
-<span class="p">;</span><span class="w"> </span>mkdocs<span class="w">           </span>Servidor<span class="w"> </span>de<span class="w"> </span>Documentos
 <span class="p">;</span><span class="w"> </span>srvdc02<span class="w">          </span>Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span>secundário
 <span class="p">;</span><span class="w"> </span>fileserver<span class="w">       </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos
 </code></pre></div>
@@ -3338,18 +3335,14 @@ fileserver<span class="w">         </span><span class="m">192</span>.168.70.150<
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>.0.0.1<span class="w">              </span>localhost
 <span class="m">127</span>.0.1.1<span class="w">           </span>fileserver.officinas.edu<span class="w">    </span>fileserver
-<span class="m">192</span>.168.70.150<span class="w">      </span>fileserver.officinas.edu<span class="w">    </span>fileserver
-<span class="m">192</span>.168.70.252<span class="w">      </span>srvdc02.officinas.edu<span class="w">       </span>srvdc02
-<span class="m">192</span>.168.70.222<span class="w">      </span>mkdocs.officinas.edu<span class="w">        </span>mkdocs
-<span class="m">192</span>.168.70.253<span class="w">      </span>srvdc01.officinas.edu<span class="w">      </span>srvdc01
-<span class="m">192</span>.168.70.254<span class="w">      </span>firewall.officinas.edu<span class="w">      </span>firewall
+<span class="m">192</span>.168.70.251<span class="w">      </span>fileserver.officinas.edu<span class="w">    </span>fileserver
 </code></pre></div>
 <h2 id="setando-ip-fixo-no-servidor-srvdc02_1">Setando ip fixo no servidor srvdc02:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/network/interfaces
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>allow-hotplug<span class="w"> </span>enp1s0
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
-address<span class="w">           </span><span class="m">192</span>.168.70.150
+address<span class="w">           </span><span class="m">192</span>.168.70.251
 netmask<span class="w">           </span><span class="m">255</span>.255.255.0
 gateway<span class="w">           </span><span class="m">192</span>.168.70.254
 </code></pre></div>
@@ -3396,14 +3389,14 @@ Address:<span class="w"> </span><span class="m">192</span>.168.70.252
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>make<span class="w"> </span>install
 </code></pre></div>
-<h2 id="adicionando-optsamba-ao-path-padrao-do-linux-colando-a-linha-completa-ao-final-do-bashrc_1">Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:</h2>
+<h2 id="adicionando-optsamba-ao-path-padrao-do-linux-colando-a-linha-completa-ao-final-do-etcprofile_1">Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do /etc/profile:</h2>
 <h2 id="pathusrlocalsbinusrlocalbinusrsbinusrbinsbinbinoptsambabinoptsambasbin_2">PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/.bashrc
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/profile
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin&quot;</span>
 </code></pre></div>
 <h2 id="relendo-o-arquivo-de-profile_2">Relendo o arquivo de profile:</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/etc/profile
 </code></pre></div>
 <h2 id="criando-o-daemon-de-inicializacao-do-samba4-com-o-sistema_2">Criando o daemon de inicialização do Samba4 com o sistema:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/systemd/system/samba-ad-dc.service
@@ -3422,26 +3415,6 @@ Address:<span class="w"> </span><span class="m">192</span>.168.70.252
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/etc/systemd/system/samba-ad-dc.service
 </code></pre></div>
-<h2 id="configurando-o-servico-de-sincronizacao-de-horario-apontando-pro-controlador-de-dominio-primario-srvdc01_1">Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, srvdc01:</h2>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/etc/ntpsec/ntp.conf<span class="o">{</span>,.orig<span class="o">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/ntpsec/ntp.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>driftfile<span class="w"> </span>/var/lib/ntpsec/ntp.drift
-leapfile<span class="w"> </span>/usr/share/zoneinfo/leap-seconds.list
-tos<span class="w"> </span>minclock<span class="w"> </span><span class="m">4</span><span class="w"> </span>minsane<span class="w"> </span><span class="m">3</span>
-pool<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>iburst<span class="w"> </span><span class="c1">#(srvdc01)</span>
-restrict<span class="w"> </span>default<span class="w"> </span>kod<span class="w"> </span>nomodify<span class="w"> </span>nopeer<span class="w"> </span>noquery<span class="w"> </span>limited
-restrict<span class="w"> </span><span class="m">127</span>.0.0.1
-restrict<span class="w"> </span>::1
-tinker<span class="w"> </span>panic<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c1">#(Usado SOMENTE em VMs)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>ntp
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>ntpq<span class="w"> </span>-p
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>date
-</code></pre></div>
 <h2 id="atencao-nao-provisione-o-samba-do-fileserver">ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!</h2>
 <div class="admonition warning">
 <p class="admonition-title">Atenção</p>
@@ -3456,27 +3429,6 @@ tinker<span class="w"> </span>panic<span class="w"> </span><span class="m">0</sp
 <span class="w">   </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
 <span class="w">   </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="w">   </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
-</code></pre></div>
-<h2 id="configurando-o-time-server">Configurando o time server:</h2>
-<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>ntp<span class="w"> </span>ntpdate<span class="w"> </span>-y
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>/etc/ntpsec/ntp.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># Relógio Local ( Nota: Este não é o endereço localhost! )</span>
-<span class="w">   </span>server<span class="w"> </span><span class="m">127</span>.127.1.0
-<span class="w">   </span>fudge<span class="w">  </span><span class="m">127</span>.127.1.0<span class="w"> </span>stratum<span class="w"> </span><span class="m">10</span>
-<span class="w">   </span>server<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>iburst<span class="w"> </span>prefer<span class="w"> </span><span class="c1">#(srvdc01)</span>
-<span class="w">   </span>driftfile<span class="w"> </span>/var/lib/ntp/ntp.drift
-<span class="w">   </span>logfile<span class="w">   </span>/var/log/ntp
-<span class="w">   </span>restrict<span class="w"> </span>default<span class="w"> </span>ignore
-<span class="w">   </span>restrict<span class="w"> </span><span class="m">127</span>.0.0.1
-<span class="w">   </span>restrict<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w">   </span>mask<span class="w"> </span><span class="m">255</span>.255.255.255<span class="w">    </span>nomodify<span class="w"> </span>notrap<span class="w"> </span>nopeer<span class="w"> </span>noquery
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>ntp
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>ntpq<span class="w"> </span>-p
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>date
 </code></pre></div>
 <h2 id="validando-mapeamentos">Validando mapeamentos:</h2>
 <div class="highlight"><pre><span></span><code>getent<span class="w"> </span>hosts<span class="w"> </span>fileserver
