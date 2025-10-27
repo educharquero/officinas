@@ -5,15 +5,13 @@
 ## Layout de rede usado no laboratório:
 
 ```bash
-firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01            192.168.70.253   (ssh 22250)
-mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.252   (ssh 22200)
-fileserver         192.168.70.150   (ssh 22100)
+firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 22254)
+srvdc01            192.168.70.253   (ssh 22253)
+srvdc02            192.168.70.252   (ssh 22252)
+fileserver         192.168.70.251   (ssh 22251)
 
-; firewall         Roteamento por Iptables
+; firewall         Roteamento e Controle de pacotes
 ; srvdc01          Controlador de Domínio primário
-; mkdocs           Servidor de Documentos
 ; srvdc02          Controlador de Domínio secundário
 ; fileserver       Servidor de Arquivos
 ```
@@ -473,16 +471,18 @@ dig officinas.edu
 
 THAT’S ALL FOLKS!!
 
+
+# O MATERIAL DO CONTROLADOR DE DOMÓNIO SECUNDÁRIO ESTÁ SENDO REVISADO!
 # Controlador de Domínio secundário com Samba4 no Debian Linux 13
 
 ## Layout de rede usado no laboratório:
 
 ```bash
-firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01           192.168.70.253   (ssh 22250)
+firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 22254)
+srvdc01           192.168.70.253   (ssh 22253)
 mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.252   (ssh 22200)
-fileserver         192.168.70.150   (ssh 22100)
+srvdc02            192.168.70.252   (ssh 22252)
+fileserver         192.168.70.251   (ssh 22251)
 
 ; firewall         Roteamento por Iptables
 ; srvdc01         Controlador de Domínio primário
@@ -524,7 +524,7 @@ vim /etc/hosts
 ```bash
 .0.0.1              localhost
 127.0.1.1           srvdc02.officinas.edu       srvdc02
-192.168.70.150      fileserver.officinas.edu    fileserver
+192.168.70.251      fileserver.officinas.edu    fileserver
 192.168.70.252      srvdc02.officinas.edu       srvdc02
 192.168.70.222      mkdocs.officinas.edu        mkdocs
 192.168.70.253      srvdc01.officinas.edu      srvdc01
@@ -799,11 +799,11 @@ tdbbackup -s .bak /opt/samba/private/idmap.ldb
 ```
 
 ```bash
-scp -rv -p22200 /opt/samba/private/idmap.ldb.bak root@srvdc02:/root
+scp -rv -p22252 /opt/samba/private/idmap.ldb.bak root@srvdc02:/root
 ```
 
 ```bash
-scp -rv -p22200 /opt/samba/var/locks/sysvol/* root@srvdc02:/opt/samba/var/locks/sysvol
+scp -rv -p22252 /opt/samba/var/locks/sysvol/* root@srvdc02:/opt/samba/var/locks/sysvol
 ```
 
 ## Aplicando o arquivo BD que enviamos do srvdc01 (execute estes comandos NO DCSLAVE):
@@ -987,13 +987,13 @@ ssh-keygen -t rsa -b 1024
 ```
 
 ```bash
-ssh-copy-id -p22200 -i ~/.ssh/id_rsa.pub root@srvdc02 #(O MEU srvdc02 usa a porta ssh 22200)
+ssh-copy-id -p22252 -i ~/.ssh/id_rsa.pub root@srvdc02 #(O MEU srvdc02 usa a porta ssh 22252)
 ```
 
 ## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
-ssh -p22200 srvdc02
+ssh -p22252 srvdc02
 ```
 
 ```bash
@@ -1007,13 +1007,13 @@ ssh-keygen -t rsa -b 1024
 ```
 
 ```bash
-ssh-copy-id -p22250 -i ~/.ssh/id_rsa.pub root@srvdc01 #(enviando para o srvdc01, que usa porta ssh 22250)
+ssh-copy-id -p22253 -i ~/.ssh/id_rsa.pub root@srvdc01 #(enviando para o srvdc01, que usa porta ssh 22253)
 ```
 
 ## Testando a conexão por ssh sem pedir senha (SE vc deixou em branco):
 
 ```bash
-ssh -p22250 srvdc01
+ssh -p22253 srvdc01
 ```
 
 ```bash
@@ -1034,8 +1034,8 @@ vim rsync-sysvol.sh
 #!/bin/bash
 # Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
 #rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/
-# no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22200:
-rsync -Cravz -e "ssh -p 22200" /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/
+# no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22252:
+rsync -Cravz -e "ssh -p 22252" /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/
 ```
 
 ```bash
@@ -1072,8 +1072,8 @@ vim rsync-sysvol.sh
 #!/bin/bash
 # Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
 #rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/
-# no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22250:
-rsync -Cravz -e "ssh -p 22250" /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/
+# no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22253:
+rsync -Cravz -e "ssh -p 22253" /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/
 ```
 
 ```bash
@@ -1131,7 +1131,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.252:22252//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1163,7 +1163,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.252:22252//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1263,7 +1263,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.253:22253//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1295,7 +1295,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.253:22253//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1375,15 +1375,13 @@ THAT’S ALL FOLKS!!
 ## Layout de rede usado no laboratório:
 
 ```bash
-firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01            192.168.70.253   (ssh 22250)
-mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.252   (ssh 22200)
-fileserver         192.168.70.150   (ssh 22100)
+firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 22254)
+srvdc01            192.168.70.253   (ssh 22253)
+srvdc02            192.168.70.252   (ssh 22252)
+fileserver         192.168.70.251   (ssh 22251)
 
-; firewall         Roteamento por Iptables
+; firewall         Roteamento e filtro de pacotes
 ; srvdc01          Controlador de Domínio primário
-; mkdocs           Servidor de Documentos
 ; srvdc02          Controlador de Domínio secundário
 ; fileserver       Servidor de Arquivos
 ```
@@ -1421,11 +1419,7 @@ vim /etc/hosts
 ```bash
 .0.0.1              localhost
 127.0.1.1           fileserver.officinas.edu    fileserver
-192.168.70.150      fileserver.officinas.edu    fileserver
-192.168.70.252      srvdc02.officinas.edu       srvdc02
-192.168.70.222      mkdocs.officinas.edu        mkdocs
-192.168.70.253      srvdc01.officinas.edu      srvdc01
-192.168.70.254      firewall.officinas.edu      firewall
+192.168.70.251      fileserver.officinas.edu    fileserver
 ```
 
 ## Setando ip fixo no servidor srvdc02:
@@ -1437,7 +1431,7 @@ vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-address           192.168.70.150
+address           192.168.70.251
 netmask           255.255.255.0
 gateway           192.168.70.254
 ```
@@ -1519,12 +1513,12 @@ make -j$(nproc)
  make install
 ```
 
-## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do .bashrc:
+## Adicionando /opt/Samba ao path padrão do Linux, colando a linha completa ao final do /etc/profile:
 
 ## PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bin:/opt/samba/sbin"
 
 ```bash
-vim ~/.bashrc
+vim /etc/profile
 ```
 
 ```bash
@@ -1534,7 +1528,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/samba/bi
 ## Relendo o arquivo de profile:
 
 ```bash
-source ~/.bashrc
+source /etc/profile
 ```
 
 ## Criando o daemon de inicialização do Samba4 com o sistema:
@@ -1561,39 +1555,6 @@ vim /etc/systemd/system/samba-ad-dc.service
 chmod +x /etc/systemd/system/samba-ad-dc.service
 ```
 
-## Configurando o serviço de sincronização de horário, apontando pro Controlador de domínio primário, srvdc01:
-
-```bash
-mv /etc/ntpsec/ntp.conf{,.orig}
-```
-
-```bash
-vim /etc/ntpsec/ntp.conf
-```
-
-```bash
-driftfile /var/lib/ntpsec/ntp.drift
-leapfile /usr/share/zoneinfo/leap-seconds.list
-tos minclock 4 minsane 3
-pool 192.168.70.253 iburst #(srvdc01)
-restrict default kod nomodify nopeer noquery limited
-restrict 127.0.0.1
-restrict ::1
-tinker panic 0 #(Usado SOMENTE em VMs)
-```
-
-```bash
-systemctl restart ntp
-```
-
-```bash
-ntpq -p
-```
-
-```bash
-date
-```
-
 ## ATENÇÃO!! NÃO PROVISIONE O SAMBA DO FILESERVER!!
 
 
@@ -1617,40 +1578,6 @@ date
    dns_lookup_realm = false
    dns_lookup_kdc = true
    default_realm = OFFICINAS.EDU
-```
-
-## Configurando o time server:
-
-```bash
-apt-get install ntp ntpdate -y
-```
-
-```bash
-nano /etc/ntpsec/ntp.conf
-```
-
-```bash
-# Relógio Local ( Nota: Este não é o endereço localhost! )
-   server 127.127.1.0
-   fudge  127.127.1.0 stratum 10
-   server 192.168.70.253 iburst prefer #(srvdc01)
-   driftfile /var/lib/ntp/ntp.drift
-   logfile   /var/log/ntp
-   restrict default ignore
-   restrict 127.0.0.1
-   restrict 192.168.70.253   mask 255.255.255.255    nomodify notrap nopeer noquery
-```
-
-```bash
-systemctl restart ntp
-```
-
-```bash
-ntpq -p
-```
-
-```bash
-date
 ```
 
 ## Validando mapeamentos:
