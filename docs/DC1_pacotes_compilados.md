@@ -6,9 +6,9 @@
 
 ```bash
 firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01            192.168.70.250   (ssh 22250)
+srvdc01            192.168.70.253   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.252   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
@@ -54,7 +54,7 @@ vim /etc/network/interfaces
 
 ```bash
 iface enp1s0 inet static
-address           192.168.70.250
+address           192.168.70.253
 netmask           255.255.255.0
 gateway           192.168.70.254
 ```
@@ -244,7 +244,7 @@ Server:         127.0.0.1
 Address:        127.0.0.1#53
 
 Name:   srvdc01.officinas.edu
-Address: 192.168.70.250
+Address: 192.168.70.253
 ```
 
 ## Reboot do servidor srvdc01:
@@ -479,9 +479,9 @@ THAT’S ALL FOLKS!!
 
 ```bash
 firewall           192.168.70.254 (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01           192.168.70.250   (ssh 22250)
+srvdc01           192.168.70.253   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.252   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
@@ -525,9 +525,9 @@ vim /etc/hosts
 .0.0.1              localhost
 127.0.1.1           srvdc02.officinas.edu       srvdc02
 192.168.70.150      fileserver.officinas.edu    fileserver
-192.168.70.200      srvdc02.officinas.edu       srvdc02
+192.168.70.252      srvdc02.officinas.edu       srvdc02
 192.168.70.222      mkdocs.officinas.edu        mkdocs
-192.168.70.250      srvdc01.officinas.edu      srvdc01
+192.168.70.253      srvdc01.officinas.edu      srvdc01
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
@@ -540,7 +540,7 @@ vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-address           192.168.70.200
+address           192.168.70.252
 netmask           255.255.255.0
 gateway           192.168.70.254
 ```
@@ -554,7 +554,7 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(srvdc01)
+nameserver       192.168.70.253 #(srvdc01)
 nameserver       127.0.0.1
 ```
 
@@ -565,13 +565,13 @@ nslookup officinas.edu
 ```
 
 ```bash
-Server:         192.168.70.250
-Address:        192.168.70.250#53
+Server:         192.168.70.253
+Address:        192.168.70.253#53
 
 Name:   officinas.edu
-Address: 192.168.70.250
+Address: 192.168.70.253
 Name:   officinas.edu
-Address: 192.168.70.200
+Address: 192.168.70.252
 ```
 
 ## Relendo as configurações de rede:
@@ -672,7 +672,7 @@ vim /etc/ntpsec/ntp.conf
 driftfile /var/lib/ntpsec/ntp.drift
 leapfile /usr/share/zoneinfo/leap-seconds.list
 tos minclock 4 minsane 3
-pool 192.168.70.250 iburst #(srvdc01)
+pool 192.168.70.253 iburst #(srvdc01)
 restrict default kod nomodify nopeer noquery limited
 restrict 127.0.0.1
 restrict ::1
@@ -773,7 +773,7 @@ host -t A officinas.edu.
 ## (SE NECESSÁRIO), SE Necessário, adicione as entradas do srvdc02, manualmente AO DNS do Samba4, no srvdc01:
 
 ```bash
-samba-tool dns add srvdc01 OFFICINAS.EDU srvdc02 A 192.168.70.200 -U administrator
+samba-tool dns add srvdc01 OFFICINAS.EDU srvdc02 A 192.168.70.252 -U administrator
 ```
 
 ```bash
@@ -831,7 +831,7 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.200 #(srvdc02)
+nameserver       192.168.70.252 #(srvdc02)
 nameserver       127.0.0.1
 ```
 
@@ -856,7 +856,7 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(srvdc01)
+nameserver       192.168.70.253 #(srvdc01)
 nameserver       127.0.0.1
 ```
 
@@ -1033,9 +1033,9 @@ vim rsync-sysvol.sh
 ```bash
 #!/bin/bash
 # Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
-#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.200:/opt/samba/var/locks/sysvol/
+#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/
 # no MEU CASO onde a porta do ssh não á a default. MEU srvdc02 usa 22200:
-rsync -Cravz -e "ssh -p 22200" /opt/samba/var/locks/sysvol/*  root@192.168.70.200:/opt/samba/var/locks/sysvol/
+rsync -Cravz -e "ssh -p 22200" /opt/samba/var/locks/sysvol/*  root@192.168.70.252:/opt/samba/var/locks/sysvol/
 ```
 
 ```bash
@@ -1071,9 +1071,9 @@ vim rsync-sysvol.sh
 ```bash
 #!/bin/bash
 # Sincronizando Diretorios do Sysvol do srvdc01 para envio ao srvdc02:
-#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.250:/opt/samba/var/locks/sysvol/
+#rsync -Cravz /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/
 # no MEU CASO onde a porta do ssh não á a default. MEU srvdc01 usa 22250:
-rsync -Cravz -e "ssh -p 22250" /opt/samba/var/locks/sysvol/*  root@192.168.70.250:/opt/samba/var/locks/sysvol/
+rsync -Cravz -e "ssh -p 22250" /opt/samba/var/locks/sysvol/*  root@192.168.70.253:/opt/samba/var/locks/sysvol/
 ```
 
 ```bash
@@ -1131,7 +1131,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.200:22200//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1163,7 +1163,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.200:22200//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.252:22200//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1263,7 +1263,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.250:22250//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1295,7 +1295,7 @@ INSTANCE_ID="sysvol_sync"
 
 INITIATOR_SYNC_DIR="/opt/samba/var/locks/sysvol"
 
-TARGET_SYNC_DIR="ssh://root@192.168.70.250:22250//opt/samba/var/locks/sysvol"
+TARGET_SYNC_DIR="ssh://root@192.168.70.253:22250//opt/samba/var/locks/sysvol"
 
 SSH_RSA_PRIVATE_KEY="/root/.ssh/id_rsa"
 
@@ -1376,9 +1376,9 @@ THAT’S ALL FOLKS!!
 
 ```bash
 firewall           192.168.70.254   (enp1s0) - 192.168.122.254 (enp7s0) (ssh 2277)
-srvdc01            192.168.70.250   (ssh 22250)
+srvdc01            192.168.70.253   (ssh 22250)
 mkdocs             192.168.70.222   (ssh 22222)
-srvdc02            192.168.70.200   (ssh 22200)
+srvdc02            192.168.70.252   (ssh 22200)
 fileserver         192.168.70.150   (ssh 22100)
 
 ; firewall         Roteamento por Iptables
@@ -1422,9 +1422,9 @@ vim /etc/hosts
 .0.0.1              localhost
 127.0.1.1           fileserver.officinas.edu    fileserver
 192.168.70.150      fileserver.officinas.edu    fileserver
-192.168.70.200      srvdc02.officinas.edu       srvdc02
+192.168.70.252      srvdc02.officinas.edu       srvdc02
 192.168.70.222      mkdocs.officinas.edu        mkdocs
-192.168.70.250      srvdc01.officinas.edu      srvdc01
+192.168.70.253      srvdc01.officinas.edu      srvdc01
 192.168.70.254      firewall.officinas.edu      firewall
 ```
 
@@ -1451,8 +1451,8 @@ vim /etc/resolv.conf
 ```bash
 domain           officinas.edu
 search           officinas.edu.
-nameserver       192.168.70.250 #(srvdc01)
-nameserver       192.168.70.200 #(srvdc02)
+nameserver       192.168.70.253 #(srvdc01)
+nameserver       192.168.70.252 #(srvdc02)
 ```
 
 ## Bloqueando alteração do resolv.conf:
@@ -1468,13 +1468,13 @@ nslookup officinas.edu
 ```
 
 ```bash
-Server:         192.168.70.250
-Address:        192.168.70.250#53
+Server:         192.168.70.253
+Address:        192.168.70.253#53
 
 Name:   officinas.edu
-Address: 192.168.70.250
+Address: 192.168.70.253
 Name:   officinas.edu
-Address: 192.168.70.200
+Address: 192.168.70.252
 ```
 
 ## Relendo as configurações de rede:
@@ -1575,7 +1575,7 @@ vim /etc/ntpsec/ntp.conf
 driftfile /var/lib/ntpsec/ntp.drift
 leapfile /usr/share/zoneinfo/leap-seconds.list
 tos minclock 4 minsane 3
-pool 192.168.70.250 iburst #(srvdc01)
+pool 192.168.70.253 iburst #(srvdc01)
 restrict default kod nomodify nopeer noquery limited
 restrict 127.0.0.1
 restrict ::1
@@ -1633,12 +1633,12 @@ nano /etc/ntpsec/ntp.conf
 # Relógio Local ( Nota: Este não é o endereço localhost! )
    server 127.127.1.0
    fudge  127.127.1.0 stratum 10
-   server 192.168.70.250 iburst prefer #(srvdc01)
+   server 192.168.70.253 iburst prefer #(srvdc01)
    driftfile /var/lib/ntp/ntp.drift
    logfile   /var/log/ntp
    restrict default ignore
    restrict 127.0.0.1
-   restrict 192.168.70.250   mask 255.255.255.255    nomodify notrap nopeer noquery
+   restrict 192.168.70.253   mask 255.255.255.255    nomodify notrap nopeer noquery
 ```
 
 ```bash
