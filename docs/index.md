@@ -61,6 +61,7 @@
 ## 🔧 Outros Assuntos
 - [Universo *NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
+- [Linux no Domínio](./Ingressar_Linux_no_dominio.md)
 - [Systemd](./Systemd.md)
 - [FHS](./FHS.md)
 - [Permissões Linux - Parte 01](./Permissoes_Linux-01.md)
