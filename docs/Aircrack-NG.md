@@ -57,7 +57,7 @@ sudo airmon-ng
 ## Com a ferramenta AIRODUMP-NG, inicia o scan de todas as redes próximas (aparecerão diversas redes):
 
 ```bash
-sudo airodump-ng start wlp0s20f3mon
+sudo airodump-ng wlp0s20f3mon
 ```
 
 ## Encerra o scan das redes após escolher o alvo:
@@ -83,7 +83,7 @@ Condominio_Flores_II
 ## Podemos validar apenas a rede alvo, se preferir:
 
 ```bash
-sudo airodump-ng wlp0s20f3mon -d 64:D1:54:09:EE:3E
+sudo airodump-ng wlp0s20f3mon -d 70:4F:57:70:B6:5A
 ```
 
 ## Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.
@@ -95,7 +95,7 @@ sudo airodump-ng wlp0s20f3mon -d 64:D1:54:09:EE:3E
 ## Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:
 
 ```bash
-sudo airodump-ng -w capturados -c 2 --bssid 64:D1:54:09:EE:3E wlp0s20f3mon
+sudo airodump-ng -w capturados -c 2 --bssid 70:4F:57:70:B6:5A wlp0s20f3mon
 ```
 OU
 ```bash
