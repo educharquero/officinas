@@ -49,7 +49,7 @@ nav:
   - 📂 'Outros assuntos':
     - 'Universo *NIX': 'Universo_NIX.md'
     - 'Aircrack-NG': 'Aircrack-NG.md'
-    - 'Linux no Domínio': 'Ingressar_Linux_no_Dominio.md'
+    - 'Linux no Domínio': 'Ingressar_Linux_no_dominio.md'
     - 'O SystemD': 'Systemd.md'
     - 'FHS': 'FHS.md'
     - 'RAID': 'Raid.md'

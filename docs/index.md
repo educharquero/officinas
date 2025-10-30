@@ -59,7 +59,7 @@
 - [Módulo 103.2 - Filtros de fluxo de texto](./Modulo_103.2-aula01.md)
 
 ## 🔧 Outros Assuntos
-- [Universo *NIX](./Universo_NIX.md)
+- [Universo \*NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
 - [Linux no Domínio](./Ingressar_Linux_no_dominio.md)
 - [Systemd](./Systemd.md)
