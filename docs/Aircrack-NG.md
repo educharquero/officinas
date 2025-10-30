@@ -32,7 +32,7 @@ sudo apt install aircrack-ng
 ip -c addr
 ```
 
-## Valida possíveis conflitos de hardware antes de iniciar os processos:
+## Com a ferramenta AIRMON-NG, validamos possíveis conflitos de hardware antes de iniciar os processos:
 
 ```bash
 sudo airmon-ng check kill
@@ -54,7 +54,7 @@ ip -c addr
 sudo airmon-ng
 ```
 
-## Inicia o scan de todas as redes próximas (aparecerão diversas redes):
+## Com a ferramenta AIRODUMP-NG, inicia o scan de todas as redes próximas (aparecerão diversas redes):
 
 ```bash
 sudo airodump-ng start wlp0s20f3mon
