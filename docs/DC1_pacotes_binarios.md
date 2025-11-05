@@ -50,7 +50,7 @@ vim /etc/hosts
 ## Instalação dos pacotes necessários:
 
 ```
-apt install samba smb-client krb5-user krb5-config # VALIDAR: winbind acl attr
+apt install samba smbclient krb5-user krb5-config # VALIDAR: winbind acl attr
 ```
 
 Durante a configuração do krb5-user, você será solicitado a inserir as informações:
