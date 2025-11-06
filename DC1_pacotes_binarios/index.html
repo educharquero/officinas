@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dc01-instalacao-por-pacotes-binarios" class="md-skip">
+        <a href="#srvdc01-instalacao-por-pacotes-binarios" class="md-skip">
           Skip to content
         </a>
       
@@ -766,72 +766,162 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atualizando-o-sistema-operacional" class="md-nav__link">
+  <a href="#ok-chegou-a-hora-de-subir-um-servidor-com-debian-13-para-rodar-como-controlador-de-dominio-primario-nesse-cenario-introdutorio-de-laboratorio-usaremos-o-modelo-de-pacotes-binarios-dos-repositorios-da-distro-maos-a-obra" class="md-nav__link">
     <span class="md-ellipsis">
-      Atualizando o Sistema operacional:
+      Ok, chegou a hora de subir um Servidor com Debian 13, para rodar como Controlador de Domínio primário. Nesse cenário introdutório, de laboratório, usaremos o modelo de pacotes binários dos repositórios da distro. Mãos á obra!
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-e-rede" class="md-nav__link">
+  <a href="#o-primeiro-passo-e-ajustar-a-sincronizacao-de-horarios-do-servidor-entao-desative-o-systemd-timesyncd-para-nao-conflitar" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações e rede:
+      O primeiro passo é ajustar a sincronização de horários do Servidor, então desative o systemd-timesyncd para não conflitar:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-de-dns" class="md-nav__link">
+  <a href="#agora-instalamos-o-pacote-do-chrony-pelo-repositorio-do-debian-e-habilitamos-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações de DNS:
+      Agora instalamos o pacote do chrony pelo repositório do Debian e habilitamos no boot:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-de-hosts" class="md-nav__link">
+  <a href="#editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações de hosts:
+      Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalacao-dos-pacotes-necessarios" class="md-nav__link">
+  <a href="#reinicie-o-servico-e-teste" class="md-nav__link">
     <span class="md-ellipsis">
-      Instalação dos pacotes necessários:
+      Reinicie o serviço e teste:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#valide-o-arquivo-do-nsswitchconf" class="md-nav__link">
+  <a href="#sincronize-os-repositorios" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide o arquivo do nsswitch.conf:
+      Sincronize os repositórios:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio" class="md-nav__link">
+  <a href="#atuelize-os-pacotes-e-o-kernel-do-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      Parando os serviços smbd, nmbd, winbind, ANTES de provisionar o domínio:
+      Atuelize os pacotes e o kernel do Linux:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#efetivando-o-provisionamento-do-dominio" class="md-nav__link">
+  <a href="#setando-as-configuracoes-de-rede-use-um-ip-fixo-e-aponte-o-gw-sera-o-firewall-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      Efetivando o provisionamento do domínio:
+      Setando as Configurações de rede use um ip fixo e aponte o GW será o Firewall da rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-as-configuracoes-de-dns-aponte-para-o-firewall-resolver-temporariamente-ate-esse-controlador-estar-em-pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando as Configurações de DNS aponte para o Firewall resolver, temporariamente, até esse Controlador estar em pé:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-seu-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando seu hostname:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajuste-a-configuracao-de-hosts-para-adequar-ao-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuste a configuração de hosts para adequar ao cenário:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sugiro-ajustar-as-configuracoes-de-acesso-por-ssh-bloqueando-o-usuario-root-e-trocando-a-porta-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sugiro ajustar as configurações de acesso por SSH, bloqueando o usuário root e trocando a porta de acesso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-necessarios-a-criacao-do-controlador-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes necessários á criação do Controlador de Domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siga-as-instrucoes-interativas-para-configurar-o-dominio-se-precisar-siga-o-modelo-abaixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siga as instruções interativas para configurar o domínio. SE precisar siga o modelo abaixo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajuste-o-arquivo-do-nsswitchconf-para-validar-pelo-winbind-tambem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuste o arquivo do nsswitch.conf para validar pelo winbind também:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parando-e-desabilitando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parando e desabilitando os serviços smbd, nmbd, winbind, ANTES de provisionar o domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efetivando-o-provisionamento-do-dominio-ja-com-nivel-funcional-do-windows-server-2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efetivando o provisionamento do domínio já com nível funcional do Windows Server 2016:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ativando-os-servicos-do-samba-ad-dc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ativando os serviços do samba-ad-dc:
     </span>
   </a>
   
@@ -847,27 +937,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ativando-os-servicos-do-samba-ad-dc" class="md-nav__link">
+  <a href="#reapontando-o-servidor-de-dns-para-resolver-no-proprio-srvdc01-a-partir-de-agora" class="md-nav__link">
     <span class="md-ellipsis">
-      Ativando os serviços do samba-ad-dc
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#revalidando-as-portas-em-escuta" class="md-nav__link">
-    <span class="md-ellipsis">
-      Revalidando as portas em escuta:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reapontando-o-servidor-de-dns-para-o-proprio-dc01" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reapontando o Servidor de DNS para o próprio DC01:
+      Reapontando o Servidor de DNS para resolver no próprio SRVDC01 á pártir de agora:
     </span>
   </a>
   
@@ -886,6 +958,123 @@
   <a href="#configuracao-do-arquivo-smbconf" class="md-nav__link">
     <span class="md-ellipsis">
       Configuração do arquivo smb.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#global-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-ambiente-coorporativo-sempre-separamos-o-controlador-de-dominio-do-fileserver-por-questoes-de-permissoes-e-seguranca-porem-se-for-usar-o-controlador-de-dominio-como-fileserver-adiciona-os-campos-ao-smbconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      No ambiente coorporativo, sempre separamos o Controlador de Domínio do Fileserver, por questões de permissões e segurança. porém, SE for usar o Controlador de Domínio como FileServer, adiciona os campos ao smb.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-o-diretorio-compartilhado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando o diretório compartilhado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-as-permissoes-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando as permissões de acesso:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revisando-usuarios-e-grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisando usuários e grupos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outras-validacoes-no-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outras validações no domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificando-servico-ativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificando serviço ativo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultando-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultando o Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desabilitando-a-complexidade-de-senhas-inseguro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desabilitando a complexidade de senhas (INSEGURO!):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relendo-as-configuracoes-do-samba4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relendo as configurações do Samba4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-a-troca-de-tickets-do-kerberos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando a troca de tickets do Kerberos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultando-servicos-do-kerberos-e-do-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultando serviços do kerberos e do ldap:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora é só instalar as ferramentas do rsat em uma máquina Windows e gerenciar o Servidor!
     </span>
   </a>
   
@@ -1848,72 +2037,162 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#atualizando-o-sistema-operacional" class="md-nav__link">
+  <a href="#ok-chegou-a-hora-de-subir-um-servidor-com-debian-13-para-rodar-como-controlador-de-dominio-primario-nesse-cenario-introdutorio-de-laboratorio-usaremos-o-modelo-de-pacotes-binarios-dos-repositorios-da-distro-maos-a-obra" class="md-nav__link">
     <span class="md-ellipsis">
-      Atualizando o Sistema operacional:
+      Ok, chegou a hora de subir um Servidor com Debian 13, para rodar como Controlador de Domínio primário. Nesse cenário introdutório, de laboratório, usaremos o modelo de pacotes binários dos repositórios da distro. Mãos á obra!
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-e-rede" class="md-nav__link">
+  <a href="#o-primeiro-passo-e-ajustar-a-sincronizacao-de-horarios-do-servidor-entao-desative-o-systemd-timesyncd-para-nao-conflitar" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações e rede:
+      O primeiro passo é ajustar a sincronização de horários do Servidor, então desative o systemd-timesyncd para não conflitar:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-de-dns" class="md-nav__link">
+  <a href="#agora-instalamos-o-pacote-do-chrony-pelo-repositorio-do-debian-e-habilitamos-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações de DNS:
+      Agora instalamos o pacote do chrony pelo repositório do Debian e habilitamos no boot:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setando-as-configuracoes-de-hosts" class="md-nav__link">
+  <a href="#editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil" class="md-nav__link">
     <span class="md-ellipsis">
-      Setando as Configurações de hosts:
+      Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalacao-dos-pacotes-necessarios" class="md-nav__link">
+  <a href="#reinicie-o-servico-e-teste" class="md-nav__link">
     <span class="md-ellipsis">
-      Instalação dos pacotes necessários:
+      Reinicie o serviço e teste:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#valide-o-arquivo-do-nsswitchconf" class="md-nav__link">
+  <a href="#sincronize-os-repositorios" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide o arquivo do nsswitch.conf:
+      Sincronize os repositórios:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#parando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio" class="md-nav__link">
+  <a href="#atuelize-os-pacotes-e-o-kernel-do-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      Parando os serviços smbd, nmbd, winbind, ANTES de provisionar o domínio:
+      Atuelize os pacotes e o kernel do Linux:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#efetivando-o-provisionamento-do-dominio" class="md-nav__link">
+  <a href="#setando-as-configuracoes-de-rede-use-um-ip-fixo-e-aponte-o-gw-sera-o-firewall-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      Efetivando o provisionamento do domínio:
+      Setando as Configurações de rede use um ip fixo e aponte o GW será o Firewall da rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-as-configuracoes-de-dns-aponte-para-o-firewall-resolver-temporariamente-ate-esse-controlador-estar-em-pe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando as Configurações de DNS aponte para o Firewall resolver, temporariamente, até esse Controlador estar em pé:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-seu-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando seu hostname:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajuste-a-configuracao-de-hosts-para-adequar-ao-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuste a configuração de hosts para adequar ao cenário:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sugiro-ajustar-as-configuracoes-de-acesso-por-ssh-bloqueando-o-usuario-root-e-trocando-a-porta-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sugiro ajustar as configurações de acesso por SSH, bloqueando o usuário root e trocando a porta de acesso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalacao-dos-pacotes-necessarios-a-criacao-do-controlador-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalação dos pacotes necessários á criação do Controlador de Domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siga-as-instrucoes-interativas-para-configurar-o-dominio-se-precisar-siga-o-modelo-abaixo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siga as instruções interativas para configurar o domínio. SE precisar siga o modelo abaixo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ajuste-o-arquivo-do-nsswitchconf-para-validar-pelo-winbind-tambem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuste o arquivo do nsswitch.conf para validar pelo winbind também:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parando-e-desabilitando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parando e desabilitando os serviços smbd, nmbd, winbind, ANTES de provisionar o domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efetivando-o-provisionamento-do-dominio-ja-com-nivel-funcional-do-windows-server-2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efetivando o provisionamento do domínio já com nível funcional do Windows Server 2016:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ativando-os-servicos-do-samba-ad-dc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ativando os serviços do samba-ad-dc:
     </span>
   </a>
   
@@ -1929,27 +2208,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ativando-os-servicos-do-samba-ad-dc" class="md-nav__link">
+  <a href="#reapontando-o-servidor-de-dns-para-resolver-no-proprio-srvdc01-a-partir-de-agora" class="md-nav__link">
     <span class="md-ellipsis">
-      Ativando os serviços do samba-ad-dc
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#revalidando-as-portas-em-escuta" class="md-nav__link">
-    <span class="md-ellipsis">
-      Revalidando as portas em escuta:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reapontando-o-servidor-de-dns-para-o-proprio-dc01" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reapontando o Servidor de DNS para o próprio DC01:
+      Reapontando o Servidor de DNS para resolver no próprio SRVDC01 á pártir de agora:
     </span>
   </a>
   
@@ -1973,6 +2234,123 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#global-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-ambiente-coorporativo-sempre-separamos-o-controlador-de-dominio-do-fileserver-por-questoes-de-permissoes-e-seguranca-porem-se-for-usar-o-controlador-de-dominio-como-fileserver-adiciona-os-campos-ao-smbconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      No ambiente coorporativo, sempre separamos o Controlador de Domínio do Fileserver, por questões de permissões e segurança. porém, SE for usar o Controlador de Domínio como FileServer, adiciona os campos ao smb.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criando-o-diretorio-compartilhado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criando o diretório compartilhado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setando-as-permissoes-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setando as permissões de acesso:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revisando-usuarios-e-grupos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Revisando usuários e grupos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outras-validacoes-no-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Outras validações no domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificando-servico-ativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificando serviço ativo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultando-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultando o Servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desabilitando-a-complexidade-de-senhas-inseguro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desabilitando a complexidade de senhas (INSEGURO!):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relendo-as-configuracoes-do-samba4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relendo as configurações do Samba4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validando-a-troca-de-tickets-do-kerberos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validando a troca de tickets do Kerberos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consultando-servicos-do-kerberos-e-do-ldap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Consultando serviços do kerberos e do ldap:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora é só instalar as ferramentas do rsat em uma máquina Windows e gerenciar o Servidor!
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1989,45 +2367,84 @@
 
 
 
-<h1 id="dc01-instalacao-por-pacotes-binarios">📁 DC01 instalação por pacotes binários</h1>
-<h2 id="atualizando-o-sistema-operacional">Atualizando o Sistema operacional:</h2>
-<div class="highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt full-upgrade
+<h1 id="srvdc01-instalacao-por-pacotes-binarios">📁 SRVDC01 instalação por pacotes binários</h1>
+<h2 id="ok-chegou-a-hora-de-subir-um-servidor-com-debian-13-para-rodar-como-controlador-de-dominio-primario-nesse-cenario-introdutorio-de-laboratorio-usaremos-o-modelo-de-pacotes-binarios-dos-repositorios-da-distro-maos-a-obra">Ok, chegou a hora de subir um Servidor com Debian 13, para rodar como Controlador de Domínio primário. Nesse cenário introdutório, de laboratório, usaremos o modelo de pacotes binários dos repositórios da distro. Mãos á obra!</h2>
+<h2 id="o-primeiro-passo-e-ajustar-a-sincronizacao-de-horarios-do-servidor-entao-desative-o-systemd-timesyncd-para-nao-conflitar">O primeiro passo é ajustar a sincronização de horários do Servidor, então desative o systemd-timesyncd para não conflitar:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>systemd-timesyncd
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>systemd-timesyncd
 </code></pre></div>
-<h2 id="setando-as-configuracoes-e-rede">Setando as Configurações e rede:</h2>
+<h2 id="agora-instalamos-o-pacote-do-chrony-pelo-repositorio-do-debian-e-habilitamos-no-boot">Agora instalamos o pacote do chrony pelo repositório do Debian e habilitamos no boot:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>chrony<span class="w"> </span>-y
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>chrony
+</code></pre></div>
+<h2 id="editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil">Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Servidores externos públicos do Brasil</span>
+server<span class="w"> </span><span class="m">0</span>.br.pool.ntp.org<span class="w"> </span>iburst
+server<span class="w"> </span><span class="m">1</span>.br.pool.ntp.org<span class="w"> </span>iburst
+server<span class="w"> </span><span class="m">2</span>.br.pool.ntp.org<span class="w"> </span>iburst
+server<span class="w"> </span><span class="m">3</span>.br.pool.ntp.org<span class="w"> </span>iburst
+
+<span class="c1"># Permitir que clientes da rede interna sincronizem com este servidor (ATENÇÃO para a sua faixa de rede)</span>
+allow<span class="w"> </span><span class="m">192</span>.168.70.0/24
+
+<span class="c1"># Log de operações</span>
+logdir<span class="w"> </span>/var/log/chrony
+
+<span class="c1"># Local drift file</span>
+driftfile<span class="w"> </span>/var/lib/chrony/chrony.drift
+
+<span class="c1"># Local RTC synchronization</span>
+rtcsync
+</code></pre></div>
+<h2 id="reinicie-o-servico-e-teste">Reinicie o serviço e teste:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>chrony
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>sources<span class="w"> </span>-v
+</code></pre></div>
+<h2 id="sincronize-os-repositorios">Sincronize os repositórios:</h2>
+<div class="highlight"><pre><span></span><code>sudo apt update
+</code></pre></div>
+<h2 id="atuelize-os-pacotes-e-o-kernel-do-linux">Atuelize os pacotes e o kernel do Linux:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade
+</code></pre></div>
+<h2 id="setando-as-configuracoes-de-rede-use-um-ip-fixo-e-aponte-o-gw-sera-o-firewall-da-rede">Setando as Configurações de rede use um ip fixo e aponte o GW será o Firewall da rede:</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/network/interfaces
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>allow-hotplug en7s0
-iface enp7s0 inet static
+iface enp1s0 inet static
 address 192.168.70.250
 netmask 255.255.255.0
 gateway 192.168.70.254
 </code></pre></div>
-<h2 id="setando-as-configuracoes-de-dns">Setando as Configurações de DNS:</h2>
+<h2 id="setando-as-configuracoes-de-dns-aponte-para-o-firewall-resolver-temporariamente-ate-esse-controlador-estar-em-pe">Setando as Configurações de DNS aponte para o Firewall resolver, temporariamente, até esse Controlador estar em pé:</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/resolv.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nameserver 192.168.70.254
 </code></pre></div>
-<h2 id="setando-as-configuracoes-de-hosts">Setando as Configurações de hosts:</h2>
-<div class="highlight"><pre><span></span><code>hostnamectl set-hostname dc01
+<h2 id="setando-seu-hostname">Setando seu hostname:</h2>
+<div class="highlight"><pre><span></span><code>hostnamectl set-hostname srvdc01
 </code></pre></div>
+<h2 id="ajuste-a-configuracao-de-hosts-para-adequar-ao-cenario">Ajuste a configuração de hosts para adequar ao cenário:</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/hosts
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>127.0.0.1 localhost 
-127.0.1.1 dc01.esharknet.edu dc01
-192.168.70.250 dc01.esharknet.edu dc01
+127.0.1.1 srvdc01.esharknet.edu srvdc01
+192.168.70.250 srvdc01.esharknet.edu srvdc01
 </code></pre></div>
-<h2 id="instalacao-dos-pacotes-necessarios">Instalação dos pacotes necessários:</h2>
-<div class="highlight"><pre><span></span><code>apt install samba smbclient krb5-user krb5-config # VALIDAR: winbind acl attr
+<h2 id="sugiro-ajustar-as-configuracoes-de-acesso-por-ssh-bloqueando-o-usuario-root-e-trocando-a-porta-de-acesso">Sugiro ajustar as configurações de acesso por SSH, bloqueando o usuário root e trocando a porta de acesso</h2>
+<h2 id="instalacao-dos-pacotes-necessarios-a-criacao-do-controlador-de-dominio">Instalação dos pacotes necessários á criação do Controlador de Domínio:</h2>
+<div class="highlight"><pre><span></span><code>apt install samba smbclient krb5-user krb5-config winbind libnss-winbind ldb-tools python3-cryptography
 </code></pre></div>
-<p>Durante a configuração do krb5-user, você será solicitado a inserir as informações:</p>
+<p>Durante a configuração do krb5-user, você será solicitado a inserir as informações do seu domínio</p>
 <pre><code>- Default Kerberos version 5 realm: ESHARKNET.EDU
-- KDCs for your realm: dc01
-- Administrative server for your Kerberos realm: dc01
+- KDCs for your realm: srvdc01
+- Administrative server for your Kerberos realm: srvdc01
 </code></pre>
 <p>SE vc errar nessa parte, pode rodar o reconfigure para o Kerberos, depois:</p>
 <div class="highlight"><pre><span></span><code>dpkg-reconfigure krb5.conf
 </code></pre></div>
-<p>Siga as instruções interativas para configurar o domínio ESHARKNET.edu. SE precisar siga o modelo abaixo:</p>
+<h2 id="siga-as-instrucoes-interativas-para-configurar-o-dominio-se-precisar-siga-o-modelo-abaixo">Siga as instruções interativas para configurar o domínio. SE precisar siga o modelo abaixo:</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
 <span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
 <span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
@@ -2045,8 +2462,8 @@ gateway 192.168.70.254
 
 <span class="o">[</span>realms<span class="o">]</span>
 <span class="w">    </span>esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dc01.esharknet.edu
-<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dc01.esharknet.edu
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>srvdc01.esharknet.edu
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>srvdc01.esharknet.edu
 <span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>esharknet.edu
 <span class="w">    </span><span class="o">}</span>
 
@@ -2054,46 +2471,41 @@ gateway 192.168.70.254
 <span class="w">    </span>.esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
 <span class="w">    </span>esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
 </code></pre></div>
-<h2 id="valide-o-arquivo-do-nsswitchconf">Valide o arquivo do nsswitch.conf:</h2>
+<h2 id="ajuste-o-arquivo-do-nsswitchconf-para-validar-pelo-winbind-tambem">Ajuste o arquivo do nsswitch.conf para validar pelo winbind também:</h2>
 <p><div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>passwd:       files systemd winbind
 group:        files systemd winbind
 </code></pre></div></p>
-<h2 id="parando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio">Parando os serviços <code>smbd</code>, <code>nmbd</code>, <code>winbind</code>, ANTES de provisionar o domínio:</h2>
+<h2 id="parando-e-desabilitando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio">Parando e desabilitando os serviços <code>smbd</code>, <code>nmbd</code>, <code>winbind</code>, ANTES de provisionar o domínio:</h2>
 <div class="highlight"><pre><span></span><code>systemctl stop smbd nmbd winbind
 
 systemctl disable smbd nmbd winbind
 </code></pre></div>
-<h2 id="efetivando-o-provisionamento-do-dominio">Efetivando o <em>provisionamento</em> do domínio:</h2>
+<h2 id="efetivando-o-provisionamento-do-dominio-ja-com-nivel-funcional-do-windows-server-2016">Efetivando o <em>provisionamento</em> do domínio já com nível funcional do Windows Server 2016:</h2>
 <div class="highlight"><pre><span></span><code>mv /etc/samba/smb.conf{,.orig}
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code>samba-tool domain provision --use-rfc2307 --interactive
+<p><div class="highlight"><pre><span></span><code>samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option=&quot;ad dc functional level = 2016&quot; --function-level=2016
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Realm<span class="w"> </span><span class="o">[</span>ESHARKNET.EDU<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>nome<span class="w"> </span>de<span class="w"> </span>seu<span class="w"> </span>domínio<span class="w"> </span>completo<span class="o">)</span>.
-dc01<span class="w"> </span><span class="o">[</span>esharknet<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>nome<span class="w"> </span>de<span class="w"> </span>seu<span class="w"> </span>domínio<span class="w"> </span>abreviado<span class="o">)</span>.
+srvdc01<span class="w"> </span><span class="o">[</span>esharknet<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>nome<span class="w"> </span>de<span class="w"> </span>seu<span class="w"> </span>domínio<span class="w"> </span>abreviado<span class="o">)</span>.
 Server<span class="w"> </span>Role<span class="w"> </span><span class="o">(</span>dc,<span class="w"> </span>member,<span class="w"> </span>standalone<span class="o">)</span><span class="w"> </span><span class="o">[</span>dc<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>tipo<span class="w"> </span>de<span class="w"> </span>servidor<span class="w"> </span>controlador<span class="w"> </span>de<span class="w"> </span>domínio<span class="o">)</span>.
 DNS<span class="w"> </span>backend<span class="w"> </span><span class="o">(</span>SAMBA_INTERNAL,<span class="w"> </span>BIND9_FLATFILE,<span class="w"> </span>BIND9_DLZ,<span class="w"> </span>NONE<span class="o">)</span><span class="w"> </span><span class="o">[</span>SAMBA_INTERNAL<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>tipo<span class="w"> </span>de<span class="w"> </span>serviço<span class="w"> </span>DNS<span class="o">)</span>.
-DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span><span class="o">(</span>write<span class="w"> </span>‘none’<span class="w"> </span>to<span class="w"> </span>disable<span class="w"> </span>forwarding<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">192</span>.168.0.1<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>Encaminhador<span class="w"> </span>DNS<span class="o">)</span>
+DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span><span class="o">(</span>write<span class="w"> </span>‘none’<span class="w"> </span>to<span class="w"> </span>disable<span class="w"> </span>forwarding<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">192</span>.168.70.254<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>Encaminhador<span class="w"> </span>DNS<span class="o">)</span>
 </code></pre></div></p>
-<h2 id="validando-as-portas-em-escuta">Validando as portas em escuta:</h2>
-<div class="highlight"><pre><span></span><code>apt install net-tools
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>netstat -pultan
-</code></pre></div>
-<h2 id="ativando-os-servicos-do-samba-ad-dc">Ativando os serviços do <code>samba-ad-dc</code></h2>
+<h2 id="ativando-os-servicos-do-samba-ad-dc">Ativando os serviços do <code>samba-ad-dc</code>:</h2>
 <p><div class="highlight"><pre><span></span><code>systemctl unmask samba-ad-dc.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>systemctl enable samba-ad-dc.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>systemctl start samba-ad-dc.service
 </code></pre></div></p>
-<h2 id="revalidando-as-portas-em-escuta">Revalidando as portas em escuta:</h2>
+<h2 id="validando-as-portas-em-escuta">Validando as portas em escuta:</h2>
 <div class="highlight"><pre><span></span><code>apt install net-tools
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>netstat -pultan
 </code></pre></div>
-<h2 id="reapontando-o-servidor-de-dns-para-o-proprio-dc01">Reapontando o Servidor de DNS para o próprio DC01:</h2>
+<h2 id="reapontando-o-servidor-de-dns-para-resolver-no-proprio-srvdc01-a-partir-de-agora">Reapontando o Servidor de DNS para resolver no próprio SRVDC01 á pártir de agora:</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/resolv.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nameserver 127.0.0.1
@@ -2104,10 +2516,10 @@ DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> <
 <h2 id="configuracao-do-arquivo-smbconf">Configuração do arquivo <code>smb.conf</code>:</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/samba/smb.conf
 </code></pre></div>
-<h1 id="global-parameters">Global parameters</h1>
+<h2 id="global-parameters">Global parameters</h2>
 <pre><code>[global]
-    dns forwarder = 192.168.122.1
-    netbios name = dc01
+    dns forwarder = 192.168.70.254
+    netbios name = srvdc01
     realm = ESHARKNET.EDU
     server role = active directory domain controller
     workgroup = ESHARKNET
@@ -2121,7 +2533,7 @@ DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> <
     path = /var/lib/samba/sysvol/esharknet.edu/scripts
     read only = No
 </code></pre>
-<h1 id="se-for-usar-o-controlador-de-dominio-como-fileserver-nao-recomendado-adiciona-os-campos-ao-smbconf">SE for usar o Controlador de Domínio como FileServer (Não recomendado!), adiciona os campos ao smb.conf:</h1>
+<h2 id="no-ambiente-coorporativo-sempre-separamos-o-controlador-de-dominio-do-fileserver-por-questoes-de-permissoes-e-seguranca-porem-se-for-usar-o-controlador-de-dominio-como-fileserver-adiciona-os-campos-ao-smbconf">No ambiente coorporativo, sempre separamos o Controlador de Domínio do Fileserver, por questões de permissões e segurança. porém, SE for usar o Controlador de Domínio como FileServer, adiciona os campos ao smb.conf:</h2>
 <pre><code>[ARQUIVOS]
     path = /srv/samba/arquivos
     comment = Compartilhamentos da Rede
@@ -2200,7 +2612,7 @@ ESHARKNET\dnsupdateproxy
 </code></pre></div></p>
 <p><div class="highlight"><pre><span></span><code>wbinfo --ping-dc
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>checking the NETLOGON for domain[ESHARNKET dc connection to &quot;dc01.esharknet.edu&quot; succeeded
+<div class="highlight"><pre><span></span><code>checking the NETLOGON for domain[ESHARNKET dc connection to &quot;srvdc01.esharknet.edu&quot; succeeded
 </code></pre></div></p>
 <p><div class="highlight"><pre><span></span><code>wbinfo --all-domains
 </code></pre></div>
@@ -2270,7 +2682,7 @@ Press enter to see a dump of your service definitions
 <p><div class="highlight"><pre><span></span><code>smbclient -L localhost -U%
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-root@dc01:~# smbclient -L localhost -U%
+root@srvdc01:~# smbclient -L localhost -U%
 
     Sharename       Type      Comment
     ---------       ----      -------
@@ -2282,10 +2694,10 @@ SMB1 disabled -- no workgroup available
 </code></pre></div></p>
 <p><div class="highlight"><pre><span></span><code>samba-tool domain level show
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>dc01 and forest function level for dc01 &#39;DC=officinas,DC=edu&#39;
+<div class="highlight"><pre><span></span><code>srvdc01 and forest function level for srvdc01 &#39;DC=officinas,DC=edu&#39;
 
 Forest function level: (Windows) 2008 R2
-dc01 function level: (Windows) 2008 R2
+srvdc01 function level: (Windows) 2008 R2
 Lowest function level of a DC: (Windows) 2008 R2
 </code></pre></div></p>
 <h2 id="desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</h2>
@@ -2321,7 +2733,7 @@ Valid starting       Expires              Service principal
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>esharknet.edu has address 192.168.70.250
 </code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>Using dc01 server:
+<p><div class="highlight"><pre><span></span><code>Using srvdc01 server:
 Name: esharknet.edu
 Address: 192.168.70.1#53
 Aliases: 
@@ -2330,11 +2742,11 @@ A has no SRV record
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>host -t srv _kerberos._tcp.ESHARKNET.edu
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>_ldap._tcp.esharknet.edu has SRV record 0 100 389 dc01.esharknet.edu.
+<div class="highlight"><pre><span></span><code>_ldap._tcp.esharknet.edu has SRV record 0 100 389 srvdc01.esharknet.edu.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>host -t srv _ldap._tcp.ESHARKNET.edu
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>_kerberos._udp.esharknet.edu has SRV record 0 100 88 dc01.esharknet.edu.
+<div class="highlight"><pre><span></span><code>_kerberos._udp.esharknet.edu has SRV record 0 100 88 srvdc01.esharknet.edu.
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dig ESHARKNET.EDU
 </code></pre></div>
@@ -2351,7 +2763,7 @@ A has no SRV record
 ESHARKNET.EDU.      900 IN  A   192.168.70.250
 
 ;; AUTHORITY SECTION:
-esharknet.edu.      3600    IN  SOA dc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
+esharknet.edu.      3600    IN  SOA srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
 
 ;; Query time: 4 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
