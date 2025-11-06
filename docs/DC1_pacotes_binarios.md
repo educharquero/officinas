@@ -1,6 +1,5 @@
 # 📁 SRVDC01 instalação por pacotes binários
 
-
 ## Ok, chegou a hora de subir um Servidor com Debian 13, para rodar como Controlador de Domínio primário. Nesse cenário introdutório, de laboratório, usaremos o modelo de pacotes binários dos repositórios da distro. Mãos á obra!
 
 ## O primeiro passo é ajustar a sincronização de horários do Servidor, então desative o systemd-timesyncd para não conflitar:
@@ -16,11 +15,7 @@ sudo systemctl disable systemd-timesyncd
 sudo apt install chrony -y
 ```
 
-```bash
-sudo systemctl enable chrony
-```
-
-## Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
+## Editamos o arquivo /etc/chrony/chrony.conf inserindo os servers do Brasil e liberamos sincronização da rede interna:
 
 ```bash
 # Servidores externos públicos do Brasil
@@ -31,18 +26,13 @@ server 3.br.pool.ntp.org iburst
 
 # Permitir que clientes da rede interna sincronizem com este servidor (ATENÇÃO para a sua faixa de rede)
 allow 192.168.70.0/24
-
-# Log de operações
-logdir /var/log/chrony
-
-# Local drift file
-driftfile /var/lib/chrony/chrony.drift
-
-# Local RTC synchronization
-rtcsync
 ```
 
-## Reinicie o serviço e teste:
+## Habilite e reinicie o serviço e teste:
+
+```bash
+sudo systemctl enable chrony
+```
 
 ```bash
 sudo systemctl restart chrony
@@ -161,6 +151,7 @@ dpkg-reconfigure krb5.conf
 ```bash
 vim /etc/nsswitch.conf
 ```
+
 ```
 passwd:       files systemd winbind
 group:        files systemd winbind
@@ -183,6 +174,7 @@ mv /etc/samba/smb.conf{,.orig}
 ```
 samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option="ad dc functional level = 2016" --function-level=2016
 ```
+
 ```bash
 Realm [ESHARKNET.EDU]: (nome de seu domínio completo).
 srvdc01 [esharknet]: (nome de seu domínio abreviado).
@@ -192,12 +184,15 @@ DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.70.25
 ```
 
 ## Ativando os serviços do `samba-ad-dc`:
+
 ```
 systemctl unmask samba-ad-dc.service
 ```
+
 ```
 systemctl enable samba-ad-dc.service
 ```
+
 ```
 systemctl start samba-ad-dc.service
 ```
@@ -233,22 +228,24 @@ chattr +i /etc/resolv.conf
 ```
 vim /etc/samba/smb.conf
 ```
+
 ## Global parameters
+
     [global]
-	    dns forwarder = 192.168.70.254
-	    netbios name = srvdc01
-	    realm = ESHARKNET.EDU
-	    server role = active directory domain controller
-	    workgroup = ESHARKNET
-	    idmap_ldb:use rfc2307 = yes
-
+        dns forwarder = 192.168.70.254
+        netbios name = srvdc01
+        realm = ESHARKNET.EDU
+        server role = active directory domain controller
+        workgroup = ESHARKNET
+        idmap_ldb:use rfc2307 = yes
+    
     [sysvol]
-	    path = /var/lib/samba/sysvol
-	    read only = No
-
+        path = /var/lib/samba/sysvol
+        read only = No
+    
     [netlogon]
-	    path = /var/lib/samba/sysvol/esharknet.edu/scripts
-	    read only = No
+        path = /var/lib/samba/sysvol/esharknet.edu/scripts
+        read only = No
 
 ## No ambiente coorporativo, sempre separamos o Controlador de Domínio do Fileserver, por questões de permissões e segurança. porém, SE for usar o Controlador de Domínio como FileServer, adiciona os campos ao smb.conf:
 
@@ -259,17 +256,18 @@ vim /etc/samba/smb.conf
         writable = yes
         read only = no
 
-
 ## Criando o diretório compartilhado:
 
 ```
 mkdir -p /srv/samba/arquivos
 ```
+
 ## Setando as permissões de acesso:
 
 ```
 wbinfo -g
 ```
+
 ```
 chmod -R 0770 /srv/samba/arquivos
 chown -R root:"domain users" /srv/samba/arquivos
@@ -280,6 +278,7 @@ chown -R root:"domain users" /srv/samba/arquivos
 ```
 cat /etc/passwd # ( usuários locais do Linux gerencia do LDAP )
 ```
+
 ```
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -309,6 +308,7 @@ suporte:x:1000:1000:Suporte:/home/suporte:/bin/bash
 ```
 samba-tool user list # ( usuários de rede gerenciados pelo SAMBA4 )
 ```
+
 ```
 Administrator
 Guest
@@ -320,6 +320,7 @@ krbtgt
 ```
 wbinfo -u
 ```
+
 ```
 ESHARKNET\administrator
 ESHARKNET\guest
@@ -329,6 +330,7 @@ ESHARKNET\krbtgt
 ```
 wbinfo -g
 ```
+
 ```
 ESHARKNET\cert publishers
 ESHARKNET\ras and ias servers
@@ -352,6 +354,7 @@ ESHARKNET\dnsupdateproxy
 ```
 wbinfo --ping-dc
 ```
+
 ```
 checking the NETLOGON for domain[ESHARNKET dc connection to "srvdc01.esharknet.edu" succeeded
 ```
@@ -359,6 +362,7 @@ checking the NETLOGON for domain[ESHARNKET dc connection to "srvdc01.esharknet.e
 ```
 wbinfo --all-domains
 ```
+
 ```
 BUILTIN
 ESHARKNET
@@ -369,9 +373,11 @@ ESHARKNET
 ```
 ps aux | grep samba
 ```
+
 ```
 ps ax | egrep "samba|smbd|nmbd|winbindd"
 ```
+
 ```
 ps axf
 ```
@@ -381,6 +387,7 @@ ps axf
 ```
 testparm
 ```
+
 ```
 Load smb config files from /etc/samba/smb.conf
 Loaded services file OK.
@@ -392,69 +399,72 @@ Press enter to see a dump of your service definitions
 
 # Global parameters
 [global]
-	dns forwarder = 192.168.70.1
-	passdb backend = samba_dsdb
-	realm = ESHARNKET.INFO
-	server role = active directory domain controller
-	workgroup = ESHARNKET
-	rpc_server:tcpip = no
-	rpc_daemon:spoolssd = embedded
-	rpc_server:spoolss = embedded
-	rpc_server:winreg = embedded
-	rpc_server:ntsvcs = embedded
-	rpc_server:eventlog = embedded
-	rpc_server:srvsvc = embedded
-	rpc_server:svcctl = embedded
-	rpc_server:default = external
-	winbindd:use external pipes = true
-	idmap_ldb:use rfc2307 = yes
-	idmap config * : backend = tdb
-	map archive = No
-	vfs objects = dfs_samba4 acl_xattr
+    dns forwarder = 192.168.70.1
+    passdb backend = samba_dsdb
+    realm = ESHARNKET.INFO
+    server role = active directory domain controller
+    workgroup = ESHARNKET
+    rpc_server:tcpip = no
+    rpc_daemon:spoolssd = embedded
+    rpc_server:spoolss = embedded
+    rpc_server:winreg = embedded
+    rpc_server:ntsvcs = embedded
+    rpc_server:eventlog = embedded
+    rpc_server:srvsvc = embedded
+    rpc_server:svcctl = embedded
+    rpc_server:default = external
+    winbindd:use external pipes = true
+    idmap_ldb:use rfc2307 = yes
+    idmap config * : backend = tdb
+    map archive = No
+    vfs objects = dfs_samba4 acl_xattr
 
 
 [sysvol]
-	path = /var/lib/samba/sysvol
-	read only = No
+    path = /var/lib/samba/sysvol
+    read only = No
 
 
 [netlogon]
-	path = /var/lib/samba/sysvol/esharknet.edu/scripts
-	read only = No
+    path = /var/lib/samba/sysvol/esharknet.edu/scripts
+    read only = No
 
 
 [ARQUIVOS]
-	comment = Compartilhamentos da Rede
-	path = /srv/samba/Arquivos
-	read only = No
+    comment = Compartilhamentos da Rede
+    path = /srv/samba/Arquivos
+    read only = No
 ```
+
 ```
 smbclient --version
 ```
+
 ```
 Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-
 ```
 
 ```
 smbclient -L localhost -U%
 ```
+
 ```
 Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
 root@srvdc01:~# smbclient -L localhost -U%
 
-	Sharename       Type      Comment
-	---------       ----      -------
-	sysvol          Disk      
-	netlogon        Disk      
-	ARQUIVOS        Disk      Compartilhamentos da Rede
-	IPC$            IPC       IPC Service (Samba 4.22.4-Debian-4.22.4+dfsg-1~deb13u1)
+    Sharename       Type      Comment
+    ---------       ----      -------
+    sysvol          Disk      
+    netlogon        Disk      
+    ARQUIVOS        Disk      Compartilhamentos da Rede
+    IPC$            IPC       IPC Service (Samba 4.22.4-Debian-4.22.4+dfsg-1~deb13u1)
 SMB1 disabled -- no workgroup available
 ```
 
 ```
 samba-tool domain level show
 ```
+
 ```
 srvdc01 and forest function level for srvdc01 'DC=officinas,DC=edu'
 
@@ -468,18 +478,23 @@ Lowest function level of a DC: (Windows) 2008 R2
 ```
 samba-tool domain passwordsettings show
 ```
+
 ```
 samba-tool domain passwordsettings set --complexity=off
 ```
+
 ```
 samba-tool domain passwordsettings set --history-length=0
 ```
+
 ```
 samba-tool domain passwordsettings set --min-pwd-length=0
 ```
+
 ```
 samba-tool domain passwordsettings set --min-pwd-age=0
 ```
+
 ```
 samba-tool user setexpiry Administrator --noexpiry
 ```
@@ -495,16 +510,18 @@ smbcontrol all reload-config
 ```
 kinit Administrator@ESHARKNET.EDU
 ```
+
 ```
 klist
 ```
+
 ```
 Ticket cache: FILE:/tmp/krb5cc_0
 Default principal: Administrator@ESHARKNET.EDU
 
 Valid starting       Expires              Service principal
 23/09/2025 16:35:24  24/09/2025 02:35:24  krbtgt/ESHARKNET.EDU@ESHARKNET.EDU
-	renew until 24/09/2025 16:35:19
+    renew until 24/09/2025 16:35:19
 ```
 
 ## Consultando serviços do `kerberos` e do `ldap`:
@@ -512,6 +529,7 @@ Valid starting       Expires              Service principal
 ```
 host -t A esharknet.edu
 ```
+
 ```
 esharknet.edu has address 192.168.70.250
 ```
@@ -524,21 +542,27 @@ Aliases:
 
 A has no SRV record
 ```
+
 ```
 host -t srv _kerberos._tcp.ESHARKNET.edu
 ```
+
 ```
 _ldap._tcp.esharknet.edu has SRV record 0 100 389 srvdc01.esharknet.edu.
 ```
+
 ```
 host -t srv _ldap._tcp.ESHARKNET.edu
 ```
+
 ```
 _kerberos._udp.esharknet.edu has SRV record 0 100 88 srvdc01.esharknet.edu.
 ```
+
 ```
 dig ESHARKNET.EDU
 ```
+
 ```
 ; <<>> DiG 9.20.11-4-Debian <<>> ESHARKNET.EDU
 ;; global options: +cmd
@@ -547,13 +571,13 @@ dig ESHARKNET.EDU
 ;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 0
 
 ;; QUESTION SECTION:
-;ESHARKNET.EDU.			IN	A
+;ESHARKNET.EDU.            IN    A
 
 ;; ANSWER SECTION:
-ESHARKNET.EDU.		900	IN	A	192.168.70.250
+ESHARKNET.EDU.        900    IN    A    192.168.70.250
 
 ;; AUTHORITY SECTION:
-esharknet.edu.		3600	IN	SOA	srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
+esharknet.edu.        3600    IN    SOA    srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
 
 ;; Query time: 4 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
@@ -561,8 +585,6 @@ esharknet.edu.		3600	IN	SOA	srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 
 ;; MSG SIZE  rcvd: 120
 ```
 
-
 ## Agora é só instalar as ferramentas do `rsat` em uma máquina Windows e gerenciar o Servidor!
-
 
 THAT’S ALL FOLKS!!
