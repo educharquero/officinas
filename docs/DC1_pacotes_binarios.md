@@ -1,13 +1,70 @@
-# 📁 DC01 instalação por pacotes binários
+# 📁 SRVDC01 instalação por pacotes binários
 
 
-## Atualizando o Sistema operacional:
+## Ok, chegou a hora de subir um Servidor com Debian 13, para rodar como Controlador de Domínio primário. Nesse cenário introdutório, de laboratório, usaremos o modelo de pacotes binários dos repositórios da distro. Mãos á obra!
+
+## O primeiro passo é ajustar a sincronização de horários do Servidor, então desative o systemd-timesyncd para não conflitar:
+
+```bash
+sudo systemctl stop systemd-timesyncd
+sudo systemctl disable systemd-timesyncd
+```
+
+## Agora instalamos o pacote do chrony pelo repositório do Debian e habilitamos no boot:
+
+```bash
+sudo apt install chrony -y
+```
+
+```bash
+sudo systemctl enable chrony
+```
+
+## Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
+
+```bash
+# Servidores externos públicos do Brasil
+server 0.br.pool.ntp.org iburst
+server 1.br.pool.ntp.org iburst
+server 2.br.pool.ntp.org iburst
+server 3.br.pool.ntp.org iburst
+
+# Permitir que clientes da rede interna sincronizem com este servidor (ATENÇÃO para a sua faixa de rede)
+allow 192.168.70.0/24
+
+# Log de operações
+logdir /var/log/chrony
+
+# Local drift file
+driftfile /var/lib/chrony/chrony.drift
+
+# Local RTC synchronization
+rtcsync
+```
+
+## Reinicie o serviço e teste:
+
+```bash
+sudo systemctl restart chrony
+```
+
+```bash
+chronyc sources -v
+```
+
+## Sincronize os repositórios:
 
 ```
-sudo apt update && sudo apt full-upgrade
+sudo apt update
 ```
 
-## Setando as Configurações e rede:
+## Atuelize os pacotes e o kernel do Linux:
+
+```bash
+sudo apt full-upgrade
+```
+
+## Setando as Configurações de rede use um ip fixo e aponte o GW será o Firewall da rede:
 
 ```
 vim /etc/network/interfaces
@@ -15,13 +72,13 @@ vim /etc/network/interfaces
 
 ```
 allow-hotplug en7s0
-iface enp7s0 inet static
+iface enp1s0 inet static
 address 192.168.70.250
 netmask 255.255.255.0
 gateway 192.168.70.254
 ```
 
-## Setando as Configurações de DNS:
+## Setando as Configurações de DNS aponte para o Firewall resolver, temporariamente, até esse Controlador estar em pé:
 
 ```
 vim /etc/resolv.conf
@@ -31,11 +88,13 @@ vim /etc/resolv.conf
 nameserver 192.168.70.254
 ```
 
-## Setando as Configurações de hosts:
+## Setando seu hostname:
 
 ```
-hostnamectl set-hostname dc01
+hostnamectl set-hostname srvdc01
 ```
+
+## Ajuste a configuração de hosts para adequar ao cenário:
 
 ```
 vim /etc/hosts
@@ -43,21 +102,23 @@ vim /etc/hosts
 
 ```
 127.0.0.1 localhost 
-127.0.1.1 dc01.esharknet.edu dc01
-192.168.70.250 dc01.esharknet.edu dc01
+127.0.1.1 srvdc01.esharknet.edu srvdc01
+192.168.70.250 srvdc01.esharknet.edu srvdc01
 ```
 
-## Instalação dos pacotes necessários:
+## Sugiro ajustar as configurações de acesso por SSH, bloqueando o usuário root e trocando a porta de acesso
+
+## Instalação dos pacotes necessários á criação do Controlador de Domínio:
 
 ```
-apt install samba smbclient krb5-user krb5-config # VALIDAR: winbind acl attr
+apt install samba smbclient krb5-user krb5-config winbind libnss-winbind ldb-tools python3-cryptography
 ```
 
-Durante a configuração do krb5-user, você será solicitado a inserir as informações:
+Durante a configuração do krb5-user, você será solicitado a inserir as informações do seu domínio
 
     - Default Kerberos version 5 realm: ESHARKNET.EDU
-    - KDCs for your realm: dc01
-    - Administrative server for your Kerberos realm: dc01
+    - KDCs for your realm: srvdc01
+    - Administrative server for your Kerberos realm: srvdc01
 
 SE vc errar nessa parte, pode rodar o reconfigure para o Kerberos, depois:
 
@@ -65,7 +126,7 @@ SE vc errar nessa parte, pode rodar o reconfigure para o Kerberos, depois:
 dpkg-reconfigure krb5.conf
 ```
 
-Siga as instruções interativas para configurar o domínio ESHARKNET.edu. SE precisar siga o modelo abaixo:
+## Siga as instruções interativas para configurar o domínio. SE precisar siga o modelo abaixo:
 
 ```bash
 [libdefaults]
@@ -85,8 +146,8 @@ Siga as instruções interativas para configurar o domínio ESHARKNET.edu. SE pr
 
 [realms]
     esharknet.edu = {
-        kdc = dc01.esharknet.edu
-        admin_server = dc01.esharknet.edu
+        kdc = srvdc01.esharknet.edu
+        admin_server = srvdc01.esharknet.edu
         default_domain = esharknet.edu
     }
 
@@ -95,7 +156,7 @@ Siga as instruções interativas para configurar o domínio ESHARKNET.edu. SE pr
     esharknet.edu = ESHARKNET.EDU
 ```
 
-## Valide o arquivo do nsswitch.conf:
+## Ajuste o arquivo do nsswitch.conf para validar pelo winbind também:
 
 ```bash
 vim /etc/nsswitch.conf
@@ -105,7 +166,7 @@ passwd:       files systemd winbind
 group:        files systemd winbind
 ```
 
-## Parando os serviços `smbd`, `nmbd`, `winbind`, ANTES de provisionar o domínio:
+## Parando e desabilitando os serviços `smbd`, `nmbd`, `winbind`, ANTES de provisionar o domínio:
 
 ```
 systemctl stop smbd nmbd winbind
@@ -113,21 +174,32 @@ systemctl stop smbd nmbd winbind
 systemctl disable smbd nmbd winbind
 ```
 
-## Efetivando o _provisionamento_ do domínio:
+## Efetivando o _provisionamento_ do domínio já com nível funcional do Windows Server 2016:
 
 ```
 mv /etc/samba/smb.conf{,.orig}
 ```
 
 ```
-samba-tool domain provision --use-rfc2307 --interactive
+samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option="ad dc functional level = 2016" --function-level=2016
 ```
 ```bash
 Realm [ESHARKNET.EDU]: (nome de seu domínio completo).
-dc01 [esharknet]: (nome de seu domínio abreviado).
+srvdc01 [esharknet]: (nome de seu domínio abreviado).
 Server Role (dc, member, standalone) [dc]: (tipo de servidor controlador de domínio).
 DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: (tipo de serviço DNS).
-DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.0.1]: (Encaminhador DNS)
+DNS forwarder IP address (write ‘none’ to disable forwarding) [192.168.70.254]: (Encaminhador DNS)
+```
+
+## Ativando os serviços do `samba-ad-dc`:
+```
+systemctl unmask samba-ad-dc.service
+```
+```
+systemctl enable samba-ad-dc.service
+```
+```
+systemctl start samba-ad-dc.service
 ```
 
 ## Validando as portas em escuta:
@@ -140,28 +212,7 @@ apt install net-tools
 netstat -pultan
 ```
 
-## Ativando os serviços do `samba-ad-dc`
-```
-systemctl unmask samba-ad-dc.service
-```
-```
-systemctl enable samba-ad-dc.service
-```
-```
-systemctl start samba-ad-dc.service
-```
-
-## Revalidando as portas em escuta:
-
-```
-apt install net-tools
-```
-
-```
-netstat -pultan
-```
-
-## Reapontando o Servidor de DNS para o próprio DC01:
+## Reapontando o Servidor de DNS para resolver no próprio SRVDC01 á pártir de agora:
 
 ```
 vim /etc/resolv.conf
@@ -182,10 +233,10 @@ chattr +i /etc/resolv.conf
 ```
 vim /etc/samba/smb.conf
 ```
-# Global parameters
+## Global parameters
     [global]
-	    dns forwarder = 192.168.122.1
-	    netbios name = dc01
+	    dns forwarder = 192.168.70.254
+	    netbios name = srvdc01
 	    realm = ESHARKNET.EDU
 	    server role = active directory domain controller
 	    workgroup = ESHARKNET
@@ -199,7 +250,7 @@ vim /etc/samba/smb.conf
 	    path = /var/lib/samba/sysvol/esharknet.edu/scripts
 	    read only = No
 
-# SE for usar o Controlador de Domínio como FileServer (Não recomendado!), adiciona os campos ao smb.conf:
+## No ambiente coorporativo, sempre separamos o Controlador de Domínio do Fileserver, por questões de permissões e segurança. porém, SE for usar o Controlador de Domínio como FileServer, adiciona os campos ao smb.conf:
 
     [ARQUIVOS]
         path = /srv/samba/arquivos
@@ -302,7 +353,7 @@ ESHARKNET\dnsupdateproxy
 wbinfo --ping-dc
 ```
 ```
-checking the NETLOGON for domain[ESHARNKET dc connection to "dc01.esharknet.edu" succeeded
+checking the NETLOGON for domain[ESHARNKET dc connection to "srvdc01.esharknet.edu" succeeded
 ```
 
 ```
@@ -390,7 +441,7 @@ smbclient -L localhost -U%
 ```
 ```
 Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-root@dc01:~# smbclient -L localhost -U%
+root@srvdc01:~# smbclient -L localhost -U%
 
 	Sharename       Type      Comment
 	---------       ----      -------
@@ -405,10 +456,10 @@ SMB1 disabled -- no workgroup available
 samba-tool domain level show
 ```
 ```
-dc01 and forest function level for dc01 'DC=officinas,DC=edu'
+srvdc01 and forest function level for srvdc01 'DC=officinas,DC=edu'
 
 Forest function level: (Windows) 2008 R2
-dc01 function level: (Windows) 2008 R2
+srvdc01 function level: (Windows) 2008 R2
 Lowest function level of a DC: (Windows) 2008 R2
 ```
 
@@ -466,7 +517,7 @@ esharknet.edu has address 192.168.70.250
 ```
 
 ```
-Using dc01 server:
+Using srvdc01 server:
 Name: esharknet.edu
 Address: 192.168.70.1#53
 Aliases: 
@@ -477,13 +528,13 @@ A has no SRV record
 host -t srv _kerberos._tcp.ESHARKNET.edu
 ```
 ```
-_ldap._tcp.esharknet.edu has SRV record 0 100 389 dc01.esharknet.edu.
+_ldap._tcp.esharknet.edu has SRV record 0 100 389 srvdc01.esharknet.edu.
 ```
 ```
 host -t srv _ldap._tcp.ESHARKNET.edu
 ```
 ```
-_kerberos._udp.esharknet.edu has SRV record 0 100 88 dc01.esharknet.edu.
+_kerberos._udp.esharknet.edu has SRV record 0 100 88 srvdc01.esharknet.edu.
 ```
 ```
 dig ESHARKNET.EDU
@@ -502,7 +553,7 @@ dig ESHARKNET.EDU
 ESHARKNET.EDU.		900	IN	A	192.168.70.250
 
 ;; AUTHORITY SECTION:
-esharknet.edu.		3600	IN	SOA	dc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
+esharknet.edu.		3600	IN	SOA	srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
 
 ;; Query time: 4 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
