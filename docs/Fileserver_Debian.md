@@ -1,313 +1,282 @@
-# 📁 FileServer no Debian com pacotes binários
+# 📁 FileServer Debian 13 — Integrado ao Domínio
 
-## Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+## 🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
 
-## Primeiramente vamos ajustar as configurações padrão de rede no Servidor.
-
-- Ip fixo do Servidor = 192.168.70.250
-- Roteador local      = 192.168.70.1
-- Gateway             = o roteador
-- DNS                 = o roteador
-
-## 1 - Setando ip fixo na placa de rede:
-
-```
-vim /etc/network/interfaces
-```
-
-```
-allow-hotplug en7s0
-iface enp7s0 inet static
-address 192.168.70.250
-netmask 255.255.255.0
-gateway 192.168.70.1
-```
-
-## 2 - Setando as Configurações de DNS:
-
-```
-vim /etc/resolv.conf
-```
-
-```
-nameserver 192.168.70.1
-```
-
-## 3 - Setando as Configurações de hosts:
-
-```
-hostnamectl set-hostname smb01
-```
-
-```
-vim /etc/hosts
-```
-
-```
-127.0.0.1 localhost 
-127.0.1.1 smb01.esharknet.edu smb01
-192.168.70.250 smb01.esharknet.edu smb01
-```
-
-## 4 - Sincronizando, atualizando os pacotes e o Sistema operacional:
-
-```
-sudo apt update && sudo apt full-upgrade
-```
-
-## 5 -  Instalando o pacote do SAMBA4:
+## 🌐 1. Configurações de rede - IPs e nomes:
 
 ```bash
-    sudo apt install samba -y
+FileServer: 192.168.70.252
+
+Controlador de Domínio (DC): 192.168.70.253
+
+Gateway/Roteador: 192.168.70.254
+
+Domínio AD: ESHARKNET.EDU
+
+Workgroup: ESHARKNET
+
+Hostname do servidor: srvarquivos
 ```
 
-## 6 - Adicionando ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+## 📘 Editar o arquivo de interfaces:
 
 ```bash
-    sudo useradd -s /bin/false -M kalel
-    sudo useradd -s /bin/false -M diana
-```
-Para liberar um shell em caso de necessidade:
-"sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"
-
-## 7 - Criando os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
-
-```bash
-    sudo groupadd gdiretoria
+sudo vim /etc/network/interfaces
 ```
 ```bash
-    sudo groupadd gfinanceiro
+allow-hotplug enp1s0
+iface enp1s0 inet static
+    address 192.168.70.252/24
+    gateway 192.168.70.254
+    dns-nameservers 192.168.70.253
+    dns-search esharknet.edu
 ```
 
-Adicionando os usuários aos grupos ao qual terão acesso:
+## 📘 Editar o /etc/hosts:
 
 ```bash
-    sudo usermod -aG gdiretoria kalel
-```
-```bash
-    sudo usermod -aG gfinanceiro diana
-```
-
-Adicionando os usuários ao banco de senhas do Samba:
-
-```bash
-    sudo smbpasswd -a kalel
-    sudo smbpasswd -a diana
+127.0.0.1   localhost
+127.0.1.1   srvarquivos
+192.168.70.252 srvarquivos.esharknet.edu srvarquivos
+192.168.70.253 dc.esharknet.edu dc
 ```
 
-## 8 - Criando os diretórios para os compartilhamentos de rede:
+## 📘 Editar o /etc/resolv.conf:
 
 ```bash
-    sudo mkdir -p /srv/samba/arquivos/diretoria
-```
-```bash
-    sudo mkdir -p /srv/samba/arquivos/financeiro
-```
-```bash
-    sudo mkdir -p /srv/samba/arquivos/publica
+nameserver 192.168.70.253
+search esharknet.edu
 ```
 
-## 9 - Definindo as permissões das pastas:
-
-A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.
+## 📘 Definir hostname:
 
 ```bash
-    sudo chmod 2770 -R /srv/samba/arquivos/diretoria
+sudo hostnamectl set-hostname srvarquivos
 ```
+
+## 🔄 2. Atualizando o sistema:
+
 ```bash
-    sudo chmod 2770 -R /srv/samba/arquivos/financeiro
+sudo apt update && sudo apt full-upgrade -y
+sudo reboot
 ```
+
+## 📦 3. Instalando os pacotes necessários
+
 ```bash
-    sudo chmod 2775 -R /srv/samba/arquivos/publica
+sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user -y
 ```
-    
+
+## Durante a instalação, configure o REALM como:
+
 ```bash
-    sudo chown -R root:gdiretoria /srv/samba/arquivos/diretoria
+ESHARKNET.EDU
+```
+
+## 🔐 4. Configurando o Kerberos
+
+```bash
+[libdefaults]
+    default_realm = ESHARKNET.EDU
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
+
+[realms]
+    ESHARKNET.EDU = {
+        kdc = 192.168.70.253
+        admin_server = 192.168.70.253
+    }
+
+[domain_realm]
+    .esharknet.edu = ESHARKNET.EDU
+    esharknet.edu = ESHARKNET.EDU
+```
+
+## Teste o Kerberos:
+
+```bash
+kinit administrador@ESHARKNET.EDU
 ```
 
 ```bash
-   sudo chown -R root:gfinanceiro /srv/samba/arquivos/financeiro
+klist
 ```
+
+## Você deve ver um ticket válido.
+
+
+## 🖥️ 5. Backup da configuração padrão do Samba
 
 ```bash
-sudo chown -R nobody:nogroup /srv/samba/arquivos/publica
+sudo mv /etc/samba/smb.conf{,.orig}
 ```
 
-## 10 - Antes de editar, faça backup do arquivo principal do SAMBA4:
+## ⚙️ 6. Criar nova configuração /etc/samba/smb.conf
 
 ```bash
-    sudo mv /etc/samba/smb.conf{,.orig}
+sudo vim /etc/samba/smb.conf
 ```
-
-## 11 - Criando o arquivo de configuração do SAMBA4:
-
-```bash
-    sudo vim /etc/samba/smb.conf
-```
-
-Insira o seguinte conteúdo:
 
 ```bash
 [global]
    workgroup = ESHARKNET
-   netbios name = Fileserver
-   server string = Servidor de Arquivos
-   security = user
-   map to guest = bad user
+   realm = ESHARKNET.EDU
+   netbios name = SRVARQUIVOS
+   server string = Servidor de Arquivos ESHARKNET
+   security = ADS
+
+   # Autenticação via domínio
+   dedicated keytab file = /etc/krb5.keytab
+   kerberos method = secrets and keytab
+
+   # IDMAP – mapeamento de IDs de domínio
+   idmap config * : backend = tdb
+   idmap config * : range = 3000-7999
+   idmap config ESHARKNET : backend = rid
+   idmap config ESHARKNET : range = 10000-999999
+
+   # Winbind – integração de usuários/grupos
+   winbind use default domain = yes
+   winbind enum users = yes
+   winbind enum groups = yes
+   template shell = /bin/bash
+   template homedir = /home/%D/%U
+
+   # Acesso geral e logs
+   map to guest = Bad User
    dns proxy = no
+   server role = member server
+   log file = /var/log/samba/%m.log
+   max log size = 1000
+
+# Compartilhamentos
 
 [diretoria]
-   comment = Diretório diretoria
+   comment = Diretoria
    path = /srv/samba/arquivos/diretoria
    browseable = yes
    writable = yes
    guest ok = no
-   valid users = @gdiretoria
-   write list = @gdiretoria
+   valid users = @"ESHARKNET\gdiretoria"
+   write list = @"ESHARKNET\gdiretoria"
    create mask = 0660
    directory mask = 2770
 
 [financeiro]
-   comment = Diretório financeiro
+   comment = Financeiro
    path = /srv/samba/arquivos/financeiro
    browseable = no
    writable = yes
    guest ok = no
-   valid users = @gfinanceiro
-   write list = @gfinanceiro
+   valid users = @"ESHARKNET\gfinanceiro"
+   write list = @"ESHARKNET\gfinanceiro"
    create mask = 0660
    directory mask = 2770
 
 [publica]
-   comment = Pasta Publica
+   comment = Pasta Pública
    path = /srv/samba/arquivos/publica
    browseable = yes
    writable = yes
    guest ok = yes
+   force group = "ESHARKNET\Domain Users"
    create mask = 0664
    directory mask = 2775
 ```
 
-## 12 - Ativando e reiniciando os serviços do SAMBA4:
+## 🧱 7. Criar diretórios e permissões
 
 ```bash
-    sudo systemctl enable smbd
-    sudo systemctl restart smbd
+sudo mkdir -p /srv/samba/arquivos/{diretoria,financeiro,publica}
 ```
-
-## 13 - Validando se não há erros no smb.conf:
+```bash
+sudo chmod 2770 -R /srv/samba/arquivos/diretoria
+sudo chmod 2770 -R /srv/samba/arquivos/financeiro
+sudo chmod 2775 -R /srv/samba/arquivos/publica
+```
 
 ```bash
-    testparm
+sudo chown -R root:"ESHARKNET\gdiretoria" /srv/samba/arquivos/diretoria
+sudo chown -R root:"ESHARKNET\gfinanceiro" /srv/samba/arquivos/financeiro
+sudo chown -R root:"ESHARKNET\Domain Users" /srv/samba/arquivos/publica
 ```
 
-## 14 - Acessando os compartilhamentos de rede:
-
-Agora, de outra máquina na mesma rede, você pode acessar:
-
-* No Explorer do Windows:
-```bash
-    \\IP_DO_SERVIDOR\diretoria
-    \\IP_DO_SERVIDOR\financeiro
-    \\IP_DO_SERVIDOR\Publico
-```
-    
-* Na barra do gerenciador de arquivos do Linux: 
-```bash 
-    smb://IP_DO_SERVIDOR
-```
-
-Lembre-se de ajustar as configurações de firewall se necessário para permitir o tráfego SMB na sua rede.
-
---------------------------------------------------------------------------------------------------------------
-
-## SESSÃO DE ANOTAÇÕES:
-
-## Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+## 🔗 8. Ingressando o servidor no domínio
 
 ```bash
-     valid users
+sudo net ads join -U administrador
 ```
 
-- Define quem pode acessar o compartilhamento.
-
-- Se alguém que não está nessa lista tentar montar o compartilhamento, vai levar acesso negado.
-
-Você pode usar:
-
-- Usuários individuais: valid users = kalel diana
-
-- Grupos: valid users = @projetox
+## Teste:
 
 ```bash
-     write list
+net ads testjoin
+wbinfo -u
+wbinfo -g
 ```
 
-- Define quem pode escrever (alterar, criar, excluir arquivos).
+## Se retornar listas de usuários e grupos do domínio → integração OK ✅
 
-- Se não estiver no write list, o usuário só terá permissão de leitura, mesmo que consiga acessar.
-
-Exemplo:
-
-- write list = @projetox → só membros do grupo podem escrever.
-
-- valid users = @todos → todos acessam, mas só o grupo projetox pode gravar.
-
-
------------------------------------------------------------------------------
-
-
-## As flags de SETUID, SETGID e STICKY BIT:
-
-Esses parâmetros, no SAMBA4, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.
-
-Significado dos valores
-
-DIRETÓRIOS:
+## 🔄 9. Ativar e reiniciar os serviços
 
 ```bash
-* directory mask = 0775
+sudo systemctl enable smbd nmbd winbind
+sudo systemctl restart smbd nmbd winbind
 ```
 
-Afeta DIRETÓRIOS novos.
-
-0775 em octal:
-
-0 → bits especiais (setuid/setgid/sticky) desligados
-
-7 → dono: leitura (r), escrita (w), execução (x)
-
-7 → grupo: leitura (r), escrita (w), execução (x)
-
-5 → outros: leitura (r), escrita (x), execução (-)
-
-
-ARQUIVOS:
+## Verificar status:
 
 ```bash
-* create mask = 0664
+sudo systemctl status winbind
 ```
 
-Afeta ARQUIVOS novos (arquivos nunca precisam de "execução").
+## 🧩 10. Validar o arquivo de configuração
 
-0664 em octal:
+```bash
+testparm
+```
 
-0 → bits especiais (setuid/setgid/sticky) desligados
+## 🧱 11. Acessar os compartilhamentos de rede
 
-6 → dono: leitura (r), escrita (w), execução (-)
+## 🪟 No Windows:
 
-6 → grupo: leitura (r), escrita (w), execução (-)
+```bash
+\\SRVARQUIVOS\diretoria
+\\SRVARQUIVOS\financeiro
+\\SRVARQUIVOS\publica
+```
 
-4 → outros: leitura (r), escrita, (-) execução (-)
+## 🐧 No Linux:
+
+```bash
+smb://srvarquivos.esharknet.edu/
+```
+
+## 📖 Dicas e notas
+
+* security = ADS → necessário quando o servidor é membro de domínio AD (Samba4 ou Windows).
+
+* winbind → mapeia usuários e grupos do AD para o sistema Linux.
+
+* kinit e net ads join → testam e integram o Kerberos.
+
+* Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no DC Samba4).
 
 
-## Referências
+## ✅ Conclusão
 
-[1] [Debian Releases](https://www.debian.org/releases/)
-[2] [Securing Samba on debian 10 - smb](https://unix.stackexchange.com/questions/678416/securing-samba-on-debian-10)
-[3] [Samba Server Security](https://www.samba.org/samba/docs/server_security.html)
-[4] [Debian Samba Setup: Complete Configuration Guide for Beginners](https://serverspace.io/support/help/configuring-samba-on-debian/)
-[5] [smb.conf - SambaWiki](https://wiki.samba.org/index.php/Samba_Configuration_File)
+Este servidor agora:
+
+* Autentica usuários diretamente no Controlador de Domínio Samba4 (192.168.70.253);
+
+* Gerencia permissões por grupos de domínio;
+
+* Oferece compartilhamentos com controle centralizado pelo AD.
 
 
 THAT'S ALL FOLKS
+
+

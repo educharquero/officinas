@@ -793,18 +793,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil" class="md-nav__link">
+  <a href="#editamos-o-arquivo-etcchronychronyconf-inserindo-os-servers-do-brasil-e-liberamos-sincronizacao-da-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
+      Editamos o arquivo /etc/chrony/chrony.conf inserindo os servers do Brasil e liberamos sincronização da rede interna:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reinicie-o-servico-e-teste" class="md-nav__link">
+  <a href="#habilite-e-reinicie-o-servico-e-teste" class="md-nav__link">
     <span class="md-ellipsis">
-      Reinicie o serviço e teste:
+      Habilite e reinicie o serviço e teste:
     </span>
   </a>
   
@@ -2064,18 +2064,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil" class="md-nav__link">
+  <a href="#editamos-o-arquivo-etcchronychronyconf-inserindo-os-servers-do-brasil-e-liberamos-sincronizacao-da-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:
+      Editamos o arquivo /etc/chrony/chrony.conf inserindo os servers do Brasil e liberamos sincronização da rede interna:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reinicie-o-servico-e-teste" class="md-nav__link">
+  <a href="#habilite-e-reinicie-o-servico-e-teste" class="md-nav__link">
     <span class="md-ellipsis">
-      Reinicie o serviço e teste:
+      Habilite e reinicie o serviço e teste:
     </span>
   </a>
   
@@ -2376,9 +2376,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class=
 <h2 id="agora-instalamos-o-pacote-do-chrony-pelo-repositorio-do-debian-e-habilitamos-no-boot">Agora instalamos o pacote do chrony pelo repositório do Debian e habilitamos no boot:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>chrony<span class="w"> </span>-y
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>chrony
-</code></pre></div>
-<h2 id="editamos-o-arquivo-etcchronychronyconf-e-inserimos-as-configuracoes-para-time-do-brasil">Editamos o arquivo /etc/chrony/chrony.conf e inserimos as configurações para time do Brasil:</h2>
+<h2 id="editamos-o-arquivo-etcchronychronyconf-inserindo-os-servers-do-brasil-e-liberamos-sincronizacao-da-rede-interna">Editamos o arquivo /etc/chrony/chrony.conf inserindo os servers do Brasil e liberamos sincronização da rede interna:</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Servidores externos públicos do Brasil</span>
 server<span class="w"> </span><span class="m">0</span>.br.pool.ntp.org<span class="w"> </span>iburst
 server<span class="w"> </span><span class="m">1</span>.br.pool.ntp.org<span class="w"> </span>iburst
@@ -2387,17 +2385,10 @@ server<span class="w"> </span><span class="m">3</span>.br.pool.ntp.org<span clas
 
 <span class="c1"># Permitir que clientes da rede interna sincronizem com este servidor (ATENÇÃO para a sua faixa de rede)</span>
 allow<span class="w"> </span><span class="m">192</span>.168.70.0/24
-
-<span class="c1"># Log de operações</span>
-logdir<span class="w"> </span>/var/log/chrony
-
-<span class="c1"># Local drift file</span>
-driftfile<span class="w"> </span>/var/lib/chrony/chrony.drift
-
-<span class="c1"># Local RTC synchronization</span>
-rtcsync
 </code></pre></div>
-<h2 id="reinicie-o-servico-e-teste">Reinicie o serviço e teste:</h2>
+<h2 id="habilite-e-reinicie-o-servico-e-teste">Habilite e reinicie o serviço e teste:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>chrony
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>chrony
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>sources<span class="w"> </span>-v
@@ -2472,11 +2463,11 @@ gateway 192.168.70.254
 <span class="w">    </span>esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
 </code></pre></div>
 <h2 id="ajuste-o-arquivo-do-nsswitchconf-para-validar-pelo-winbind-tambem">Ajuste o arquivo do nsswitch.conf para validar pelo winbind também:</h2>
-<p><div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch.conf
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>passwd:       files systemd winbind
 group:        files systemd winbind
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="parando-e-desabilitando-os-servicos-smbd-nmbd-winbind-antes-de-provisionar-o-dominio">Parando e desabilitando os serviços <code>smbd</code>, <code>nmbd</code>, <code>winbind</code>, ANTES de provisionar o domínio:</h2>
 <div class="highlight"><pre><span></span><code>systemctl stop smbd nmbd winbind
 
@@ -2485,21 +2476,21 @@ systemctl disable smbd nmbd winbind
 <h2 id="efetivando-o-provisionamento-do-dominio-ja-com-nivel-funcional-do-windows-server-2016">Efetivando o <em>provisionamento</em> do domínio já com nível funcional do Windows Server 2016:</h2>
 <div class="highlight"><pre><span></span><code>mv /etc/samba/smb.conf{,.orig}
 </code></pre></div>
-<p><div class="highlight"><pre><span></span><code>samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option=&quot;ad dc functional level = 2016&quot; --function-level=2016
+<div class="highlight"><pre><span></span><code>samba-tool domain provision --realm=officinas.edu --use-rfc2307 --domain=officinas --dns-backend=SAMBA_INTERNAL --adminpass=P@ssw0rd --server-role=dc --option=&quot;ad dc functional level = 2016&quot; --function-level=2016
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Realm<span class="w"> </span><span class="o">[</span>ESHARKNET.EDU<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>nome<span class="w"> </span>de<span class="w"> </span>seu<span class="w"> </span>domínio<span class="w"> </span>completo<span class="o">)</span>.
 srvdc01<span class="w"> </span><span class="o">[</span>esharknet<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>nome<span class="w"> </span>de<span class="w"> </span>seu<span class="w"> </span>domínio<span class="w"> </span>abreviado<span class="o">)</span>.
 Server<span class="w"> </span>Role<span class="w"> </span><span class="o">(</span>dc,<span class="w"> </span>member,<span class="w"> </span>standalone<span class="o">)</span><span class="w"> </span><span class="o">[</span>dc<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>tipo<span class="w"> </span>de<span class="w"> </span>servidor<span class="w"> </span>controlador<span class="w"> </span>de<span class="w"> </span>domínio<span class="o">)</span>.
 DNS<span class="w"> </span>backend<span class="w"> </span><span class="o">(</span>SAMBA_INTERNAL,<span class="w"> </span>BIND9_FLATFILE,<span class="w"> </span>BIND9_DLZ,<span class="w"> </span>NONE<span class="o">)</span><span class="w"> </span><span class="o">[</span>SAMBA_INTERNAL<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>tipo<span class="w"> </span>de<span class="w"> </span>serviço<span class="w"> </span>DNS<span class="o">)</span>.
 DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> </span>address<span class="w"> </span><span class="o">(</span>write<span class="w"> </span>‘none’<span class="w"> </span>to<span class="w"> </span>disable<span class="w"> </span>forwarding<span class="o">)</span><span class="w"> </span><span class="o">[</span><span class="m">192</span>.168.70.254<span class="o">]</span>:<span class="w"> </span><span class="o">(</span>Encaminhador<span class="w"> </span>DNS<span class="o">)</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="ativando-os-servicos-do-samba-ad-dc">Ativando os serviços do <code>samba-ad-dc</code>:</h2>
-<p><div class="highlight"><pre><span></span><code>systemctl unmask samba-ad-dc.service
+<div class="highlight"><pre><span></span><code>systemctl unmask samba-ad-dc.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>systemctl enable samba-ad-dc.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>systemctl start samba-ad-dc.service
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="validando-as-portas-em-escuta">Validando as portas em escuta:</h2>
 <div class="highlight"><pre><span></span><code>apt install net-tools
 </code></pre></div>
@@ -2545,13 +2536,13 @@ DNS<span class="w"> </span>forwarder<span class="w"> </span>IP<span class="w"> <
 <div class="highlight"><pre><span></span><code>mkdir -p /srv/samba/arquivos
 </code></pre></div>
 <h2 id="setando-as-permissoes-de-acesso">Setando as permissões de acesso:</h2>
-<p><div class="highlight"><pre><span></span><code>wbinfo -g
+<div class="highlight"><pre><span></span><code>wbinfo -g
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chmod -R 0770 /srv/samba/arquivos
 chown -R root:&quot;domain users&quot; /srv/samba/arquivos
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="revisando-usuarios-e-grupos">Revisando usuários e grupos:</h2>
-<p><div class="highlight"><pre><span></span><code>cat /etc/passwd # ( usuários locais do Linux gerencia do LDAP )
+<div class="highlight"><pre><span></span><code>cat /etc/passwd # ( usuários locais do Linux gerencia do LDAP )
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -2576,21 +2567,21 @@ systemd-timesync:x:991:991:systemd Time Synchronization:/:/usr/sbin/nologin
 messagebus:x:990:990:System Message Bus:/nonexistent:/usr/sbin/nologin
 sshd:x:989:65534:sshd user:/run/sshd:/usr/sbin/nologin
 suporte:x:1000:1000:Suporte:/home/suporte:/bin/bash
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>samba-tool user list # ( usuários de rede gerenciados pelo SAMBA4 )
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>samba-tool user list # ( usuários de rede gerenciados pelo SAMBA4 )
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Administrator
 Guest
 krbtgt
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="outras-validacoes-no-dominio">Outras validações no domínio:</h2>
-<p><div class="highlight"><pre><span></span><code>wbinfo -u
+<div class="highlight"><pre><span></span><code>wbinfo -u
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ESHARKNET\administrator
 ESHARKNET\guest
 ESHARKNET\krbtgt
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>wbinfo -g
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo -g
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ESHARKNET\cert publishers
 ESHARKNET\ras and ias servers
@@ -2609,25 +2600,25 @@ ESHARKNET\group policy creator owners
 ESHARKNET\read-only domain controllers
 ESHARKNET\protected users
 ESHARKNET\dnsupdateproxy
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>wbinfo --ping-dc
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo --ping-dc
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>checking the NETLOGON for domain[ESHARNKET dc connection to &quot;srvdc01.esharknet.edu&quot; succeeded
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>wbinfo --all-domains
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo --all-domains
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>BUILTIN
 ESHARKNET
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="verificando-servico-ativo">Verificando serviço ativo:</h2>
-<p><div class="highlight"><pre><span></span><code>ps aux | grep samba
+<div class="highlight"><pre><span></span><code>ps aux | grep samba
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ps ax | egrep &quot;samba|smbd|nmbd|winbindd&quot;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>ps axf
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="consultando-o-servidor">Consultando o Servidor:</h2>
-<p><div class="highlight"><pre><span></span><code>testparm
+<div class="highlight"><pre><span></span><code>testparm
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Load smb config files from /etc/samba/smb.conf
 Loaded services file OK.
@@ -2678,8 +2669,8 @@ Press enter to see a dump of your service definitions
 <div class="highlight"><pre><span></span><code>smbclient --version
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>smbclient -L localhost -U%
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>smbclient -L localhost -U%
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Version 4.22.4-Debian-4.22.4+dfsg-1~deb13u1
 root@srvdc01:~# smbclient -L localhost -U%
@@ -2691,17 +2682,17 @@ root@srvdc01:~# smbclient -L localhost -U%
     ARQUIVOS        Disk      Compartilhamentos da Rede
     IPC$            IPC       IPC Service (Samba 4.22.4-Debian-4.22.4+dfsg-1~deb13u1)
 SMB1 disabled -- no workgroup available
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>samba-tool domain level show
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>samba-tool domain level show
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>srvdc01 and forest function level for srvdc01 &#39;DC=officinas,DC=edu&#39;
 
 Forest function level: (Windows) 2008 R2
 srvdc01 function level: (Windows) 2008 R2
 Lowest function level of a DC: (Windows) 2008 R2
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="desabilitando-a-complexidade-de-senhas-inseguro">Desabilitando a complexidade de senhas (INSEGURO!):</h2>
-<p><div class="highlight"><pre><span></span><code>samba-tool domain passwordsettings show
+<div class="highlight"><pre><span></span><code>samba-tool domain passwordsettings show
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>samba-tool domain passwordsettings set --complexity=off
 </code></pre></div>
@@ -2712,12 +2703,12 @@ Lowest function level of a DC: (Windows) 2008 R2
 <div class="highlight"><pre><span></span><code>samba-tool domain passwordsettings set --min-pwd-age=0
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>samba-tool user setexpiry Administrator --noexpiry
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="relendo-as-configuracoes-do-samba4">Relendo as configurações do Samba4:</h2>
 <div class="highlight"><pre><span></span><code>smbcontrol all reload-config
 </code></pre></div>
 <h2 id="validando-a-troca-de-tickets-do-kerberos">Validando a troca de tickets do Kerberos:</h2>
-<p><div class="highlight"><pre><span></span><code>kinit Administrator@ESHARKNET.EDU
+<div class="highlight"><pre><span></span><code>kinit Administrator@ESHARKNET.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
@@ -2727,13 +2718,13 @@ Default principal: Administrator@ESHARKNET.EDU
 Valid starting       Expires              Service principal
 23/09/2025 16:35:24  24/09/2025 02:35:24  krbtgt/ESHARKNET.EDU@ESHARKNET.EDU
     renew until 24/09/2025 16:35:19
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="consultando-servicos-do-kerberos-e-do-ldap">Consultando serviços do <code>kerberos</code> e do <code>ldap</code>:</h2>
-<p><div class="highlight"><pre><span></span><code>host -t A esharknet.edu
+<div class="highlight"><pre><span></span><code>host -t A esharknet.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>esharknet.edu has address 192.168.70.250
-</code></pre></div></p>
-<p><div class="highlight"><pre><span></span><code>Using srvdc01 server:
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Using srvdc01 server:
 Name: esharknet.edu
 Address: 192.168.70.1#53
 Aliases: 
@@ -2757,19 +2748,19 @@ A has no SRV record
 ;; flags: qr aa rd ra ad; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 0
 
 ;; QUESTION SECTION:
-;ESHARKNET.EDU.         IN  A
+;ESHARKNET.EDU.            IN    A
 
 ;; ANSWER SECTION:
-ESHARKNET.EDU.      900 IN  A   192.168.70.250
+ESHARKNET.EDU.        900    IN    A    192.168.70.250
 
 ;; AUTHORITY SECTION:
-esharknet.edu.      3600    IN  SOA srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
+esharknet.edu.        3600    IN    SOA    srvdc01.esharknet.edu. hostmaster.esharknet.edu. 19 900 600 86400 3600
 
 ;; Query time: 4 msec
 ;; SERVER: 127.0.0.1#53(127.0.0.1) (UDP)
 ;; WHEN: Tue Sep 23 16:40:41 -03 2025
 ;; MSG SIZE  rcvd: 120
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="agora-e-so-instalar-as-ferramentas-do-rsat-em-uma-maquina-windows-e-gerenciar-o-servidor">Agora é só instalar as ferramentas do <code>rsat</code> em uma máquina Windows e gerenciar o Servidor!</h2>
 <p>THAT’S ALL FOLKS!!</p>
 
