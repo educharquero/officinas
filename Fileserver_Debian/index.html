@@ -2210,13 +2210,13 @@
 <h2 id="1-configuracoes-de-rede-ips-e-nomes">🌐 1. Configurações de rede - IPs e nomes:</h2>
 <div class="highlight"><pre><span></span><code>FileServer:<span class="w"> </span><span class="m">192</span>.168.70.252
 
-Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span><span class="o">(</span>DC<span class="o">)</span>:<span class="w"> </span><span class="m">192</span>.168.70.253
+Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span><span class="o">(</span>SRVDC01<span class="o">)</span>:<span class="w"> </span><span class="m">192</span>.168.70.253
 
-Gateway/Roteador:<span class="w"> </span><span class="m">192</span>.168.70.254
+Gateway/Firewall:<span class="w"> </span><span class="m">192</span>.168.70.254
 
-Domínio<span class="w"> </span>AD:<span class="w"> </span>ESHARKNET.EDU
+Domínio<span class="w"> </span>AD:<span class="w"> </span>OFFICINAS.EDU
 
-Workgroup:<span class="w"> </span>ESHARKNET
+Workgroup:<span class="w"> </span>OFFICINAS
 
 Hostname<span class="w"> </span><span class="k">do</span><span class="w"> </span>servidor:<span class="w"> </span>srvarquivos
 </code></pre></div>
@@ -2228,17 +2228,17 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 <span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.252/24
 <span class="w">    </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
 <span class="w">    </span>dns-nameservers<span class="w"> </span><span class="m">192</span>.168.70.253
-<span class="w">    </span>dns-search<span class="w"> </span>esharknet.edu
+<span class="w">    </span>dns-search<span class="w"> </span>officinas.edu
 </code></pre></div></p>
 <h2 id="editar-o-etchosts">📘 Editar o /etc/hosts:</h2>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w">   </span>localhost
 <span class="m">127</span>.0.1.1<span class="w">   </span>srvarquivos
-<span class="m">192</span>.168.70.252<span class="w"> </span>srvarquivos.esharknet.edu<span class="w"> </span>srvarquivos
-<span class="m">192</span>.168.70.253<span class="w"> </span>dc.esharknet.edu<span class="w"> </span>dc
+<span class="m">192</span>.168.70.252<span class="w"> </span>srvarquivos.officinas.edu<span class="w"> </span>srvarquivos
+<span class="m">192</span>.168.70.253<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
 </code></pre></div>
 <h2 id="editar-o-etcresolvconf">📘 Editar o /etc/resolv.conf:</h2>
 <div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
-search<span class="w"> </span>esharknet.edu
+search<span class="w"> </span>officinas.edu
 </code></pre></div>
 <h2 id="definir-hostname">📘 Definir hostname:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srvarquivos
@@ -2251,29 +2251,29 @@ sudo<span class="w"> </span>reboot
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common-bin<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>krb5-user<span class="w"> </span>-y
 </code></pre></div>
 <h2 id="durante-a-instalacao-configure-o-realm-como">Durante a instalação, configure o REALM como:</h2>
-<div class="highlight"><pre><span></span><code>ESHARKNET.EDU
+<div class="highlight"><pre><span></span><code>OFFICINAS.EDU
 </code></pre></div>
 <h2 id="4-configurando-o-kerberos">🔐 4. Configurando o Kerberos</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
-<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 <span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
-<span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">dns_lookup_ksrvdc01</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="w">    </span><span class="nv">ticket_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>24h
 <span class="w">    </span><span class="nv">renew_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>7d
 <span class="w">    </span><span class="nv">forwardable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 
 <span class="o">[</span>realms<span class="o">]</span>
-<span class="w">    </span>ESHARKNET.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">    </span>OFFICINAS.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">ksrvdc01</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
 <span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
 <span class="w">    </span><span class="o">}</span>
 
 <span class="o">[</span>domain_realm<span class="o">]</span>
-<span class="w">    </span>.esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
-<span class="w">    </span>esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span>officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 </code></pre></div>
 <h2 id="teste-o-kerberos">Teste o Kerberos:</h2>
-<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@ESHARKNET.EDU
+<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@OFFICINAS.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
@@ -2285,10 +2285,10 @@ sudo<span class="w"> </span>reboot
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
-<span class="w">   </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET
-<span class="w">   </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">   </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS
+<span class="w">   </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 <span class="w">   </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SRVARQUIVOS
-<span class="w">   </span>server<span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos<span class="w"> </span>ESHARKNET
+<span class="w">   </span>server<span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos<span class="w"> </span>OFFICINAS
 <span class="w">   </span><span class="nv">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ADS
 
 <span class="w">   </span><span class="c1"># Autenticação via domínio</span>
@@ -2298,8 +2298,8 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span><span class="c1"># IDMAP – mapeamento de IDs de domínio</span>
 <span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
 <span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000</span>-7999
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>ESHARKNET<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>ESHARKNET<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-999999
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-999999
 
 <span class="w">   </span><span class="c1"># Winbind – integração de usuários/grupos</span>
 <span class="w">   </span>winbind<span class="w"> </span>use<span class="w"> </span>default<span class="w"> </span><span class="nv">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
@@ -2323,8 +2323,8 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span>
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span>
+<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span>
+<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
 
@@ -2334,8 +2334,8 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span>
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span>
+<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span>
+<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
 
@@ -2345,7 +2345,7 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>force<span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ESHARKNET\Domain Users&quot;</span>
+<span class="w">   </span>force<span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;OFFICINAS\Domain Users&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0664</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2775</span>
 </code></pre></div>
@@ -2356,9 +2356,9 @@ sudo<span class="w"> </span>reboot
 sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/financeiro
 sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2775</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div></p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span><span class="w"> </span>/srv/samba/arquivos/diretoria
-sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span><span class="w"> </span>/srv/samba/arquivos/financeiro
-sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\Domain Users&quot;</span><span class="w"> </span>/srv/samba/arquivos/publica
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span><span class="w"> </span>/srv/samba/arquivos/diretoria
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span><span class="w"> </span>/srv/samba/arquivos/financeiro
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\Domain Users&quot;</span><span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div>
 <h2 id="8-ingressando-o-servidor-no-dominio">🔗 8. Ingressando o servidor no domínio</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
@@ -2386,7 +2386,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <span class="se">\\</span>SRVARQUIVOS<span class="se">\p</span>ublica
 </code></pre></div>
 <h2 id="no-linux">🐧 No Linux:</h2>
-<div class="highlight"><pre><span></span><code>smb://srvarquivos.esharknet.edu/
+<div class="highlight"><pre><span></span><code>smb://srvarquivos.officinas.edu/
 </code></pre></div>
 <h2 id="dicas-e-notas">📖 Dicas e notas</h2>
 <ul>
@@ -2400,7 +2400,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <p>kinit e net ads join → testam e integram o Kerberos.</p>
 </li>
 <li>
-<p>Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no DC Samba4).</p>
+<p>Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no SRVDC01 Samba4).</p>
 </li>
 </ul>
 <h2 id="conclusao">✅ Conclusão</h2>
