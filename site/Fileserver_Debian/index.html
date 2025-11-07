@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fileserver-no-debian-com-pacotes-binarios" class="md-skip">
+        <a href="#fileserver-debian-13-integrado-ao-dominio" class="md-skip">
           Skip to content
         </a>
       
@@ -666,180 +666,234 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios" class="md-nav__link">
+  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+      🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#primeiramente-vamos-ajustar-as-configuracoes-padrao-de-rede-no-servidor" class="md-nav__link">
+  <a href="#1-configuracoes-de-rede-ips-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      Primeiramente vamos ajustar as configurações padrão de rede no Servidor.
+      🌐 1. Configurações de rede - IPs e nomes:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-setando-ip-fixo-na-placa-de-rede" class="md-nav__link">
+  <a href="#editar-o-arquivo-de-interfaces" class="md-nav__link">
     <span class="md-ellipsis">
-      1 - Setando ip fixo na placa de rede:
+      📘 Editar o arquivo de interfaces:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-setando-as-configuracoes-de-dns" class="md-nav__link">
+  <a href="#editar-o-etchosts" class="md-nav__link">
     <span class="md-ellipsis">
-      2 - Setando as Configurações de DNS:
+      📘 Editar o /etc/hosts:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-setando-as-configuracoes-de-hosts" class="md-nav__link">
+  <a href="#editar-o-etcresolvconf" class="md-nav__link">
     <span class="md-ellipsis">
-      3 - Setando as Configurações de hosts:
+      📘 Editar o /etc/resolv.conf:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-sincronizando-atualizando-os-pacotes-e-o-sistema-operacional" class="md-nav__link">
+  <a href="#definir-hostname" class="md-nav__link">
     <span class="md-ellipsis">
-      4 - Sincronizando, atualizando os pacotes e o Sistema operacional:
+      📘 Definir hostname:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-instalando-o-pacote-do-samba4" class="md-nav__link">
+  <a href="#2-atualizando-o-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      5 - Instalando o pacote do SAMBA4:
+      🔄 2. Atualizando o sistema:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-adicionando-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home" class="md-nav__link">
+  <a href="#3-instalando-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      6 - Adicionando ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+      📦 3. Instalando os pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-criando-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios" class="md-nav__link">
+  <a href="#durante-a-instalacao-configure-o-realm-como" class="md-nav__link">
     <span class="md-ellipsis">
-      7 - Criando os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+      Durante a instalação, configure o REALM como:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-criando-os-diretorios-para-os-compartilhamentos-de-rede" class="md-nav__link">
+  <a href="#4-configurando-o-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      8 - Criando os diretórios para os compartilhamentos de rede:
+      🔐 4. Configurando o Kerberos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-definindo-as-permissoes-das-pastas" class="md-nav__link">
+  <a href="#teste-o-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      9 - Definindo as permissões das pastas:
+      Teste o Kerberos:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-antes-de-editar-faca-backup-do-arquivo-principal-do-samba4" class="md-nav__link">
+  <a href="#voce-deve-ver-um-ticket-valido" class="md-nav__link">
     <span class="md-ellipsis">
-      10 - Antes de editar, faça backup do arquivo principal do SAMBA4:
+      Você deve ver um ticket válido.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-criando-o-arquivo-de-configuracao-do-samba4" class="md-nav__link">
+  <a href="#5-backup-da-configuracao-padrao-do-samba" class="md-nav__link">
     <span class="md-ellipsis">
-      11 - Criando o arquivo de configuração do SAMBA4:
+      🖥️ 5. Backup da configuração padrão do Samba
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-ativando-e-reiniciando-os-servicos-do-samba4" class="md-nav__link">
+  <a href="#6-criar-nova-configuracao-etcsambasmbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      12 - Ativando e reiniciando os serviços do SAMBA4:
+      ⚙️ 6. Criar nova configuração /etc/samba/smb.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-validando-se-nao-ha-erros-no-smbconf" class="md-nav__link">
+  <a href="#7-criar-diretorios-e-permissoes" class="md-nav__link">
     <span class="md-ellipsis">
-      13 - Validando se não há erros no smb.conf:
+      🧱 7. Criar diretórios e permissões
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-acessando-os-compartilhamentos-de-rede" class="md-nav__link">
+  <a href="#8-ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      14 - Acessando os compartilhamentos de rede:
+      🔗 8. Ingressando o servidor no domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sessao-de-anotacoes" class="md-nav__link">
+  <a href="#teste" class="md-nav__link">
     <span class="md-ellipsis">
-      SESSÃO DE ANOTAÇÕES:
+      Teste:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica" class="md-nav__link">
+  <a href="#se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok" class="md-nav__link">
     <span class="md-ellipsis">
-      Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+      Se retornar listas de usuários e grupos do domínio → integração OK ✅
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#as-flags-de-setuid-setgid-e-sticky-bit" class="md-nav__link">
+  <a href="#9-ativar-e-reiniciar-os-servicos" class="md-nav__link">
     <span class="md-ellipsis">
-      As flags de SETUID, SETGID e STICKY BIT:
+      🔄 9. Ativar e reiniciar os serviços
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
+  <a href="#verificar-status" class="md-nav__link">
     <span class="md-ellipsis">
-      Referências
+      Verificar status:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-validar-o-arquivo-de-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 10. Validar o arquivo de configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-acessar-os-compartilhamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 11. Acessar os compartilhamentos de rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      🪟 No Windows:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      🐧 No Linux:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas-e-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Dicas e notas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Conclusão
     </span>
   </a>
   
@@ -1902,180 +1956,234 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios" class="md-nav__link">
+  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.
+      🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#primeiramente-vamos-ajustar-as-configuracoes-padrao-de-rede-no-servidor" class="md-nav__link">
+  <a href="#1-configuracoes-de-rede-ips-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      Primeiramente vamos ajustar as configurações padrão de rede no Servidor.
+      🌐 1. Configurações de rede - IPs e nomes:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-setando-ip-fixo-na-placa-de-rede" class="md-nav__link">
+  <a href="#editar-o-arquivo-de-interfaces" class="md-nav__link">
     <span class="md-ellipsis">
-      1 - Setando ip fixo na placa de rede:
+      📘 Editar o arquivo de interfaces:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-setando-as-configuracoes-de-dns" class="md-nav__link">
+  <a href="#editar-o-etchosts" class="md-nav__link">
     <span class="md-ellipsis">
-      2 - Setando as Configurações de DNS:
+      📘 Editar o /etc/hosts:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-setando-as-configuracoes-de-hosts" class="md-nav__link">
+  <a href="#editar-o-etcresolvconf" class="md-nav__link">
     <span class="md-ellipsis">
-      3 - Setando as Configurações de hosts:
+      📘 Editar o /etc/resolv.conf:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-sincronizando-atualizando-os-pacotes-e-o-sistema-operacional" class="md-nav__link">
+  <a href="#definir-hostname" class="md-nav__link">
     <span class="md-ellipsis">
-      4 - Sincronizando, atualizando os pacotes e o Sistema operacional:
+      📘 Definir hostname:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-instalando-o-pacote-do-samba4" class="md-nav__link">
+  <a href="#2-atualizando-o-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      5 - Instalando o pacote do SAMBA4:
+      🔄 2. Atualizando o sistema:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-adicionando-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home" class="md-nav__link">
+  <a href="#3-instalando-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      6 - Adicionando ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):
+      📦 3. Instalando os pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-criando-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios" class="md-nav__link">
+  <a href="#durante-a-instalacao-configure-o-realm-como" class="md-nav__link">
     <span class="md-ellipsis">
-      7 - Criando os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:
+      Durante a instalação, configure o REALM como:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-criando-os-diretorios-para-os-compartilhamentos-de-rede" class="md-nav__link">
+  <a href="#4-configurando-o-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      8 - Criando os diretórios para os compartilhamentos de rede:
+      🔐 4. Configurando o Kerberos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-definindo-as-permissoes-das-pastas" class="md-nav__link">
+  <a href="#teste-o-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      9 - Definindo as permissões das pastas:
+      Teste o Kerberos:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-antes-de-editar-faca-backup-do-arquivo-principal-do-samba4" class="md-nav__link">
+  <a href="#voce-deve-ver-um-ticket-valido" class="md-nav__link">
     <span class="md-ellipsis">
-      10 - Antes de editar, faça backup do arquivo principal do SAMBA4:
+      Você deve ver um ticket válido.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-criando-o-arquivo-de-configuracao-do-samba4" class="md-nav__link">
+  <a href="#5-backup-da-configuracao-padrao-do-samba" class="md-nav__link">
     <span class="md-ellipsis">
-      11 - Criando o arquivo de configuração do SAMBA4:
+      🖥️ 5. Backup da configuração padrão do Samba
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-ativando-e-reiniciando-os-servicos-do-samba4" class="md-nav__link">
+  <a href="#6-criar-nova-configuracao-etcsambasmbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      12 - Ativando e reiniciando os serviços do SAMBA4:
+      ⚙️ 6. Criar nova configuração /etc/samba/smb.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-validando-se-nao-ha-erros-no-smbconf" class="md-nav__link">
+  <a href="#7-criar-diretorios-e-permissoes" class="md-nav__link">
     <span class="md-ellipsis">
-      13 - Validando se não há erros no smb.conf:
+      🧱 7. Criar diretórios e permissões
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-acessando-os-compartilhamentos-de-rede" class="md-nav__link">
+  <a href="#8-ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      14 - Acessando os compartilhamentos de rede:
+      🔗 8. Ingressando o servidor no domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sessao-de-anotacoes" class="md-nav__link">
+  <a href="#teste" class="md-nav__link">
     <span class="md-ellipsis">
-      SESSÃO DE ANOTAÇÕES:
+      Teste:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica" class="md-nav__link">
+  <a href="#se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok" class="md-nav__link">
     <span class="md-ellipsis">
-      Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)
+      Se retornar listas de usuários e grupos do domínio → integração OK ✅
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#as-flags-de-setuid-setgid-e-sticky-bit" class="md-nav__link">
+  <a href="#9-ativar-e-reiniciar-os-servicos" class="md-nav__link">
     <span class="md-ellipsis">
-      As flags de SETUID, SETGID e STICKY BIT:
+      🔄 9. Ativar e reiniciar os serviços
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
+  <a href="#verificar-status" class="md-nav__link">
     <span class="md-ellipsis">
-      Referências
+      Verificar status:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-validar-o-arquivo-de-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 10. Validar o arquivo de configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-acessar-os-compartilhamentos-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 11. Acessar os compartilhamentos de rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      🪟 No Windows:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      🐧 No Linux:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas-e-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Dicas e notas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Conclusão
     </span>
   </a>
   
@@ -2097,224 +2205,217 @@
 
 
 
-<h1 id="fileserver-no-debian-com-pacotes-binarios">📁 FileServer no Debian com pacotes binários</h1>
-<h2 id="este-guia-mostra-como-instalar-e-configurar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-com-permissoes-de-usuarios">Este guia mostra como instalar e configurar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede com permissões de usuários.</h2>
-<h2 id="primeiramente-vamos-ajustar-as-configuracoes-padrao-de-rede-no-servidor">Primeiramente vamos ajustar as configurações padrão de rede no Servidor.</h2>
-<ul>
-<li>Ip fixo do Servidor = 192.168.70.250</li>
-<li>Roteador local      = 192.168.70.1</li>
-<li>Gateway             = o roteador</li>
-<li>DNS                 = o roteador</li>
-</ul>
-<h2 id="1-setando-ip-fixo-na-placa-de-rede">1 - Setando ip fixo na placa de rede:</h2>
-<div class="highlight"><pre><span></span><code>vim /etc/network/interfaces
+<h1 id="fileserver-debian-13-integrado-ao-dominio">📁 FileServer Debian 13 — Integrado ao Domínio</h1>
+<h2 id="o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad">🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).</h2>
+<h2 id="1-configuracoes-de-rede-ips-e-nomes">🌐 1. Configurações de rede - IPs e nomes:</h2>
+<div class="highlight"><pre><span></span><code>FileServer:<span class="w"> </span><span class="m">192</span>.168.70.252
+
+Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span><span class="o">(</span>DC<span class="o">)</span>:<span class="w"> </span><span class="m">192</span>.168.70.253
+
+Gateway/Roteador:<span class="w"> </span><span class="m">192</span>.168.70.254
+
+Domínio<span class="w"> </span>AD:<span class="w"> </span>ESHARKNET.EDU
+
+Workgroup:<span class="w"> </span>ESHARKNET
+
+Hostname<span class="w"> </span><span class="k">do</span><span class="w"> </span>servidor:<span class="w"> </span>srvarquivos
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>allow-hotplug en7s0
-iface enp7s0 inet static
-address 192.168.70.250
-netmask 255.255.255.0
-gateway 192.168.70.1
+<h2 id="editar-o-arquivo-de-interfaces">📘 Editar o arquivo de interfaces:</h2>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces
 </code></pre></div>
-<h2 id="2-setando-as-configuracoes-de-dns">2 - Setando as Configurações de DNS:</h2>
-<div class="highlight"><pre><span></span><code>vim /etc/resolv.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>nameserver 192.168.70.1
-</code></pre></div>
-<h2 id="3-setando-as-configuracoes-de-hosts">3 - Setando as Configurações de hosts:</h2>
-<div class="highlight"><pre><span></span><code>hostnamectl set-hostname smb01
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>vim /etc/hosts
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>127.0.0.1 localhost 
-127.0.1.1 smb01.esharknet.edu smb01
-192.168.70.250 smb01.esharknet.edu smb01
-</code></pre></div>
-<h2 id="4-sincronizando-atualizando-os-pacotes-e-o-sistema-operacional">4 - Sincronizando, atualizando os pacotes e o Sistema operacional:</h2>
-<div class="highlight"><pre><span></span><code>sudo apt update &amp;&amp; sudo apt full-upgrade
-</code></pre></div>
-<h2 id="5-instalando-o-pacote-do-samba4">5 -  Instalando o pacote do SAMBA4:</h2>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>-y
-</code></pre></div>
-<h2 id="6-adicionando-ao-sistema-os-usuarios-que-terao-acesso-aos-diretorios-de-rede-sem-shell-e-sem-home">6 - Adicionando ao sistema os usuários que terão acesso aos diretórios DE REDE (sem shell e sem home):</h2>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-M<span class="w"> </span>kalel
-<span class="w">    </span>sudo<span class="w"> </span>useradd<span class="w"> </span>-s<span class="w"> </span>/bin/false<span class="w"> </span>-M<span class="w"> </span>diana
-</code></pre></div>
-Para liberar um shell em caso de necessidade:
-"sudo usermod -s /bin/bash kalel" OU editar o "/etc/passwd"</p>
-<h2 id="7-criando-os-grupos-do-sistema-aos-quais-setaremos-permissao-de-acesso-aos-diretorios">7 - Criando os grupos do sistema aos quais setaremos permissão de acesso aos diretórios:</h2>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>gdiretoria
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>groupadd<span class="w"> </span>gfinanceiro
+<div class="highlight"><pre><span></span><code>allow-hotplug<span class="w"> </span>enp1s0
+iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
+<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.252/24
+<span class="w">    </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
+<span class="w">    </span>dns-nameservers<span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">    </span>dns-search<span class="w"> </span>esharknet.edu
 </code></pre></div></p>
-<p>Adicionando os usuários aos grupos ao qual terão acesso:</p>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>gdiretoria<span class="w"> </span>kalel
+<h2 id="editar-o-etchosts">📘 Editar o /etc/hosts:</h2>
+<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w">   </span>localhost
+<span class="m">127</span>.0.1.1<span class="w">   </span>srvarquivos
+<span class="m">192</span>.168.70.252<span class="w"> </span>srvarquivos.esharknet.edu<span class="w"> </span>srvarquivos
+<span class="m">192</span>.168.70.253<span class="w"> </span>dc.esharknet.edu<span class="w"> </span>dc
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>gfinanceiro<span class="w"> </span>diana
-</code></pre></div></p>
-<p>Adicionando os usuários ao banco de senhas do Samba:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>kalel
-<span class="w">    </span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>diana
+<h2 id="editar-o-etcresolvconf">📘 Editar o /etc/resolv.conf:</h2>
+<div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
+search<span class="w"> </span>esharknet.edu
 </code></pre></div>
-<h2 id="8-criando-os-diretorios-para-os-compartilhamentos-de-rede">8 - Criando os diretórios para os compartilhamentos de rede:</h2>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/diretoria
+<h2 id="definir-hostname">📘 Definir hostname:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srvarquivos
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/financeiro
+<h2 id="2-atualizando-o-sistema">🔄 2. Atualizando o sistema:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>reboot
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/publica
-</code></pre></div></p>
-<h2 id="9-definindo-as-permissoes-das-pastas">9 - Definindo as permissões das pastas:</h2>
-<p>A flag 2 → setgid: faz com que novos arquivos/subdiretórios criados dentro, herdem as permissões do grupo á que pertença o diretório principal.</p>
-<p><div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/diretoria
+<h2 id="3-instalando-os-pacotes-necessarios">📦 3. Instalando os pacotes necessários</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common-bin<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>krb5-user<span class="w"> </span>-y
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/financeiro
+<h2 id="durante-a-instalacao-configure-o-realm-como">Durante a instalação, configure o REALM como:</h2>
+<div class="highlight"><pre><span></span><code>ESHARKNET.EDU
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2775</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/publica
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:gdiretoria<span class="w"> </span>/srv/samba/arquivos/diretoria
+<h2 id="4-configurando-o-kerberos">🔐 4. Configurando o Kerberos</h2>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">ticket_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>24h
+<span class="w">    </span><span class="nv">renew_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>7d
+<span class="w">    </span><span class="nv">forwardable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="o">[</span>realms<span class="o">]</span>
+<span class="w">    </span>ESHARKNET.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">    </span><span class="o">}</span>
+
+<span class="o">[</span>domain_realm<span class="o">]</span>
+<span class="w">    </span>.esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">    </span>esharknet.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="w">   </span>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:gfinanceiro<span class="w"> </span>/srv/samba/arquivos/financeiro
+<h2 id="teste-o-kerberos">Teste o Kerberos:</h2>
+<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@ESHARKNET.EDU
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody:nogroup<span class="w"> </span>/srv/samba/arquivos/publica
+<div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
-<h2 id="10-antes-de-editar-faca-backup-do-arquivo-principal-do-samba4">10 - Antes de editar, faça backup do arquivo principal do SAMBA4:</h2>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/samba/smb.conf<span class="o">{</span>,.orig<span class="o">}</span>
+<h2 id="voce-deve-ver-um-ticket-valido">Você deve ver um ticket válido.</h2>
+<h2 id="5-backup-da-configuracao-padrao-do-samba">🖥️ 5. Backup da configuração padrão do Samba</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/samba/smb.conf<span class="o">{</span>,.orig<span class="o">}</span>
 </code></pre></div>
-<h2 id="11-criando-o-arquivo-de-configuracao-do-samba4">11 - Criando o arquivo de configuração do SAMBA4:</h2>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
+<h2 id="6-criar-nova-configuracao-etcsambasmbconf">⚙️ 6. Criar nova configuração /etc/samba/smb.conf</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
-<p>Insira o seguinte conteúdo:</p>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
 <span class="w">   </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET
-<span class="w">   </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Fileserver
-<span class="w">   </span>server<span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos
-<span class="w">   </span><span class="nv">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>user
-<span class="w">   </span>map<span class="w"> </span>to<span class="w"> </span><span class="nv">guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>bad<span class="w"> </span>user
+<span class="w">   </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ESHARKNET.EDU
+<span class="w">   </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SRVARQUIVOS
+<span class="w">   </span>server<span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos<span class="w"> </span>ESHARKNET
+<span class="w">   </span><span class="nv">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ADS
+
+<span class="w">   </span><span class="c1"># Autenticação via domínio</span>
+<span class="w">   </span>dedicated<span class="w"> </span>keytab<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/etc/krb5.keytab
+<span class="w">   </span>kerberos<span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secrets<span class="w"> </span>and<span class="w"> </span>keytab
+
+<span class="w">   </span><span class="c1"># IDMAP – mapeamento de IDs de domínio</span>
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000</span>-7999
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>ESHARKNET<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>ESHARKNET<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-999999
+
+<span class="w">   </span><span class="c1"># Winbind – integração de usuários/grupos</span>
+<span class="w">   </span>winbind<span class="w"> </span>use<span class="w"> </span>default<span class="w"> </span><span class="nv">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>template<span class="w"> </span><span class="nv">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/bin/bash
+<span class="w">   </span>template<span class="w"> </span><span class="nv">homedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/%D/%U
+
+<span class="w">   </span><span class="c1"># Acesso geral e logs</span>
+<span class="w">   </span>map<span class="w"> </span>to<span class="w"> </span><span class="nv">guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Bad<span class="w"> </span>User
 <span class="w">   </span>dns<span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
+<span class="w">   </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>member<span class="w"> </span>server
+<span class="w">   </span>log<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/samba/%m.log
+<span class="w">   </span>max<span class="w"> </span>log<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span>
+
+<span class="c1"># Compartilhamentos</span>
 
 <span class="o">[</span>diretoria<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Diretório<span class="w"> </span>diretoria
+<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Diretoria
 <span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/diretoria
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@gdiretoria
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@gdiretoria
+<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span>
+<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
 
 <span class="o">[</span>financeiro<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Diretório<span class="w"> </span>financeiro
+<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Financeiro
 <span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/financeiro
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@gfinanceiro
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@gfinanceiro
+<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span>
+<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
 
 <span class="o">[</span>publica<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Pasta<span class="w"> </span>Publica
+<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Pasta<span class="w"> </span>Pública
 <span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/publica
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>force<span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ESHARKNET\Domain Users&quot;</span>
 <span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0664</span>
 <span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2775</span>
 </code></pre></div>
-<h2 id="12-ativando-e-reiniciando-os-servicos-do-samba4">12 - Ativando e reiniciando os serviços do SAMBA4:</h2>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd
-<span class="w">    </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd
+<h2 id="7-criar-diretorios-e-permissoes">🧱 7. Criar diretórios e permissões</h2>
+<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/<span class="o">{</span>diretoria,financeiro,publica<span class="o">}</span>
 </code></pre></div>
-<h2 id="13-validando-se-nao-ha-erros-no-smbconf">13 - Validando se não há erros no smb.conf:</h2>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>testparm
-</code></pre></div>
-<h2 id="14-acessando-os-compartilhamentos-de-rede">14 - Acessando os compartilhamentos de rede:</h2>
-<p>Agora, de outra máquina na mesma rede, você pode acessar:</p>
-<ul>
-<li>
-<p>No Explorer do Windows:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="se">\\</span>IP_DO_SERVIDOR<span class="se">\d</span>iretoria
-<span class="w">    </span><span class="se">\\</span>IP_DO_SERVIDOR<span class="se">\f</span>inanceiro
-<span class="w">    </span><span class="se">\\</span>IP_DO_SERVIDOR<span class="se">\P</span>ublico
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/diretoria
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/financeiro
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2775</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div></p>
-</li>
-<li>
-<p>Na barra do gerenciador de arquivos do Linux: 
-<div class="highlight"><pre><span></span><code><span class="w">    </span>smb://IP_DO_SERVIDOR
-</code></pre></div></p>
-</li>
-</ul>
-<p>Lembre-se de ajustar as configurações de firewall se necessário para permitir o tráfego SMB na sua rede.</p>
-<hr />
-<h2 id="sessao-de-anotacoes">SESSÃO DE ANOTAÇÕES:</h2>
-<h2 id="diferenca-entre-valid-users-e-write-list-quem-acessa-x-quem-modifica">Diferença entre VALID USERS e WRITE LIST (quem acessa x quem modifica)</h2>
-<div class="highlight"><pre><span></span><code><span class="w">     </span>valid<span class="w"> </span>users
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\gdiretoria&quot;</span><span class="w"> </span>/srv/samba/arquivos/diretoria
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\gfinanceiro&quot;</span><span class="w"> </span>/srv/samba/arquivos/financeiro
+sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;ESHARKNET\Domain Users&quot;</span><span class="w"> </span>/srv/samba/arquivos/publica
 </code></pre></div>
+<h2 id="8-ingressando-o-servidor-no-dominio">🔗 8. Ingressando o servidor no domínio</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
+</code></pre></div>
+<h2 id="teste">Teste:</h2>
+<div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>testjoin
+wbinfo<span class="w"> </span>-u
+wbinfo<span class="w"> </span>-g
+</code></pre></div>
+<h2 id="se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok">Se retornar listas de usuários e grupos do domínio → integração OK ✅</h2>
+<h2 id="9-ativar-e-reiniciar-os-servicos">🔄 9. Ativar e reiniciar os serviços</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<h2 id="verificar-status">Verificar status:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
+</code></pre></div>
+<h2 id="10-validar-o-arquivo-de-configuracao">🧩 10. Validar o arquivo de configuração</h2>
+<div class="highlight"><pre><span></span><code>testparm
+</code></pre></div>
+<h2 id="11-acessar-os-compartilhamentos-de-rede">🧱 11. Acessar os compartilhamentos de rede</h2>
+<h2 id="no-windows">🪟 No Windows:</h2>
+<div class="highlight"><pre><span></span><code><span class="se">\\</span>SRVARQUIVOS<span class="se">\d</span>iretoria
+<span class="se">\\</span>SRVARQUIVOS<span class="se">\f</span>inanceiro
+<span class="se">\\</span>SRVARQUIVOS<span class="se">\p</span>ublica
+</code></pre></div>
+<h2 id="no-linux">🐧 No Linux:</h2>
+<div class="highlight"><pre><span></span><code>smb://srvarquivos.esharknet.edu/
+</code></pre></div>
+<h2 id="dicas-e-notas">📖 Dicas e notas</h2>
 <ul>
 <li>
-<p>Define quem pode acessar o compartilhamento.</p>
+<p>security = ADS → necessário quando o servidor é membro de domínio AD (Samba4 ou Windows).</p>
 </li>
 <li>
-<p>Se alguém que não está nessa lista tentar montar o compartilhamento, vai levar acesso negado.</p>
+<p>winbind → mapeia usuários e grupos do AD para o sistema Linux.</p>
+</li>
+<li>
+<p>kinit e net ads join → testam e integram o Kerberos.</p>
+</li>
+<li>
+<p>Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no DC Samba4).</p>
 </li>
 </ul>
-<p>Você pode usar:</p>
+<h2 id="conclusao">✅ Conclusão</h2>
+<p>Este servidor agora:</p>
 <ul>
 <li>
-<p>Usuários individuais: valid users = kalel diana</p>
+<p>Autentica usuários diretamente no Controlador de Domínio Samba4 (192.168.70.253);</p>
 </li>
 <li>
-<p>Grupos: valid users = @projetox</p>
+<p>Gerencia permissões por grupos de domínio;</p>
+</li>
+<li>
+<p>Oferece compartilhamentos com controle centralizado pelo AD.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">     </span>write<span class="w"> </span>list
-</code></pre></div>
-<ul>
-<li>
-<p>Define quem pode escrever (alterar, criar, excluir arquivos).</p>
-</li>
-<li>
-<p>Se não estiver no write list, o usuário só terá permissão de leitura, mesmo que consiga acessar.</p>
-</li>
-</ul>
-<p>Exemplo:</p>
-<ul>
-<li>
-<p>write list = @projetox → só membros do grupo podem escrever.</p>
-</li>
-<li>
-<p>valid users = @todos → todos acessam, mas só o grupo projetox pode gravar.</p>
-</li>
-</ul>
-<hr />
-<h2 id="as-flags-de-setuid-setgid-e-sticky-bit">As flags de SETUID, SETGID e STICKY BIT:</h2>
-<p>Esses parâmetros, no SAMBA4, controlam as permissões de arquivos e pastas DE REDE, recém-criados dentro do compartilhamento, independentemente das permissões LOCAIS do Linux já existentes.</p>
-<p>Significado dos valores</p>
-<p>DIRETÓRIOS:</p>
-<div class="highlight"><pre><span></span><code>*<span class="w"> </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0775</span>
-</code></pre></div>
-<p>Afeta DIRETÓRIOS novos.</p>
-<p>0775 em octal:</p>
-<p>0 → bits especiais (setuid/setgid/sticky) desligados</p>
-<p>7 → dono: leitura (r), escrita (w), execução (x)</p>
-<p>7 → grupo: leitura (r), escrita (w), execução (x)</p>
-<p>5 → outros: leitura (r), escrita (x), execução (-)</p>
-<p>ARQUIVOS:</p>
-<div class="highlight"><pre><span></span><code>*<span class="w"> </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0664</span>
-</code></pre></div>
-<p>Afeta ARQUIVOS novos (arquivos nunca precisam de "execução").</p>
-<p>0664 em octal:</p>
-<p>0 → bits especiais (setuid/setgid/sticky) desligados</p>
-<p>6 → dono: leitura (r), escrita (w), execução (-)</p>
-<p>6 → grupo: leitura (r), escrita (w), execução (-)</p>
-<p>4 → outros: leitura (r), escrita, (-) execução (-)</p>
-<h2 id="referencias">Referências</h2>
-<p>[1] <a href="https://www.debian.org/releases/">Debian Releases</a>
-[2] <a href="https://unix.stackexchange.com/questions/678416/securing-samba-on-debian-10">Securing Samba on debian 10 - smb</a>
-[3] <a href="https://www.samba.org/samba/docs/server_security.html">Samba Server Security</a>
-[4] <a href="https://serverspace.io/support/help/configuring-samba-on-debian/">Debian Samba Setup: Complete Configuration Guide for Beginners</a>
-[5] <a href="https://wiki.samba.org/index.php/Samba_Configuration_File">smb.conf - SambaWiki</a></p>
 <p>THAT'S ALL FOLKS</p>
 
 

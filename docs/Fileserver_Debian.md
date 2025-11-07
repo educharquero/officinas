@@ -7,13 +7,13 @@
 ```bash
 FileServer: 192.168.70.252
 
-Controlador de Domínio (DC): 192.168.70.253
+Controlador de Domínio (SRVDC01): 192.168.70.253
 
-Gateway/Roteador: 192.168.70.254
+Gateway/Firewall: 192.168.70.254
 
-Domínio AD: ESHARKNET.EDU
+Domínio AD: OFFICINAS.EDU
 
-Workgroup: ESHARKNET
+Workgroup: OFFICINAS
 
 Hostname do servidor: srvarquivos
 ```
@@ -29,7 +29,7 @@ iface enp1s0 inet static
     address 192.168.70.252/24
     gateway 192.168.70.254
     dns-nameservers 192.168.70.253
-    dns-search esharknet.edu
+    dns-search officinas.edu
 ```
 
 ## 📘 Editar o /etc/hosts:
@@ -37,15 +37,15 @@ iface enp1s0 inet static
 ```bash
 127.0.0.1   localhost
 127.0.1.1   srvarquivos
-192.168.70.252 srvarquivos.esharknet.edu srvarquivos
-192.168.70.253 dc.esharknet.edu dc
+192.168.70.252 srvarquivos.officinas.edu srvarquivos
+192.168.70.253 srvdc01.officinas.edu srvdc01
 ```
 
 ## 📘 Editar o /etc/resolv.conf:
 
 ```bash
 nameserver 192.168.70.253
-search esharknet.edu
+search officinas.edu
 ```
 
 ## 📘 Definir hostname:
@@ -70,35 +70,35 @@ sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind kr
 ## Durante a instalação, configure o REALM como:
 
 ```bash
-ESHARKNET.EDU
+OFFICINAS.EDU
 ```
 
 ## 🔐 4. Configurando o Kerberos
 
 ```bash
 [libdefaults]
-    default_realm = ESHARKNET.EDU
+    default_realm = OFFICINAS.EDU
     dns_lookup_realm = false
-    dns_lookup_kdc = true
+    dns_lookup_ksrvdc01 = true
     ticket_lifetime = 24h
     renew_lifetime = 7d
     forwardable = true
 
 [realms]
-    ESHARKNET.EDU = {
-        kdc = 192.168.70.253
+    OFFICINAS.EDU = {
+        ksrvdc01 = 192.168.70.253
         admin_server = 192.168.70.253
     }
 
 [domain_realm]
-    .esharknet.edu = ESHARKNET.EDU
-    esharknet.edu = ESHARKNET.EDU
+    .officinas.edu = OFFICINAS.EDU
+    officinas.edu = OFFICINAS.EDU
 ```
 
 ## Teste o Kerberos:
 
 ```bash
-kinit administrador@ESHARKNET.EDU
+kinit administrador@OFFICINAS.EDU
 ```
 
 ```bash
@@ -122,10 +122,10 @@ sudo vim /etc/samba/smb.conf
 
 ```bash
 [global]
-   workgroup = ESHARKNET
-   realm = ESHARKNET.EDU
+   workgroup = OFFICINAS
+   realm = OFFICINAS.EDU
    netbios name = SRVARQUIVOS
-   server string = Servidor de Arquivos ESHARKNET
+   server string = Servidor de Arquivos OFFICINAS
    security = ADS
 
    # Autenticação via domínio
@@ -135,8 +135,8 @@ sudo vim /etc/samba/smb.conf
    # IDMAP – mapeamento de IDs de domínio
    idmap config * : backend = tdb
    idmap config * : range = 3000-7999
-   idmap config ESHARKNET : backend = rid
-   idmap config ESHARKNET : range = 10000-999999
+   idmap config OFFICINAS : backend = rid
+   idmap config OFFICINAS : range = 10000-999999
 
    # Winbind – integração de usuários/grupos
    winbind use default domain = yes
@@ -160,8 +160,8 @@ sudo vim /etc/samba/smb.conf
    browseable = yes
    writable = yes
    guest ok = no
-   valid users = @"ESHARKNET\gdiretoria"
-   write list = @"ESHARKNET\gdiretoria"
+   valid users = @"OFFICINAS\gdiretoria"
+   write list = @"OFFICINAS\gdiretoria"
    create mask = 0660
    directory mask = 2770
 
@@ -171,8 +171,8 @@ sudo vim /etc/samba/smb.conf
    browseable = no
    writable = yes
    guest ok = no
-   valid users = @"ESHARKNET\gfinanceiro"
-   write list = @"ESHARKNET\gfinanceiro"
+   valid users = @"OFFICINAS\gfinanceiro"
+   write list = @"OFFICINAS\gfinanceiro"
    create mask = 0660
    directory mask = 2770
 
@@ -182,7 +182,7 @@ sudo vim /etc/samba/smb.conf
    browseable = yes
    writable = yes
    guest ok = yes
-   force group = "ESHARKNET\Domain Users"
+   force group = "OFFICINAS\Domain Users"
    create mask = 0664
    directory mask = 2775
 ```
@@ -199,9 +199,9 @@ sudo chmod 2775 -R /srv/samba/arquivos/publica
 ```
 
 ```bash
-sudo chown -R root:"ESHARKNET\gdiretoria" /srv/samba/arquivos/diretoria
-sudo chown -R root:"ESHARKNET\gfinanceiro" /srv/samba/arquivos/financeiro
-sudo chown -R root:"ESHARKNET\Domain Users" /srv/samba/arquivos/publica
+sudo chown -R root:"OFFICINAS\gdiretoria" /srv/samba/arquivos/diretoria
+sudo chown -R root:"OFFICINAS\gfinanceiro" /srv/samba/arquivos/financeiro
+sudo chown -R root:"OFFICINAS\Domain Users" /srv/samba/arquivos/publica
 ```
 
 ## 🔗 8. Ingressando o servidor no domínio
@@ -252,7 +252,7 @@ testparm
 ## 🐧 No Linux:
 
 ```bash
-smb://srvarquivos.esharknet.edu/
+smb://srvarquivos.officinas.edu/
 ```
 
 ## 📖 Dicas e notas
@@ -263,7 +263,7 @@ smb://srvarquivos.esharknet.edu/
 
 * kinit e net ads join → testam e integram o Kerberos.
 
-* Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no DC Samba4).
+* Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no SRVDC01 Samba4).
 
 
 ## ✅ Conclusão
