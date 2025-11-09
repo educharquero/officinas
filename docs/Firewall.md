@@ -1,12 +1,13 @@
 # 🔥 Firewall Server - Debian 13 com Iptables
 
-## Objetivo
+## 🎯 Objetivo
 
 ## Criar um servidor de **firewall e roteamento** entre duas redes, utilizando **iptables** no **Debian 13**, com duas interfaces de rede:
 
 - **Roteador** → WEB 192.168.0.1
-- **enp1s0** → WAN 192.168.0.254
-- **enp7s0** → LAN 192.168.70.253
+- **DNS**      → SRVDC01 192.168.70.253
+- **enp1s0**   → WAN 192.168.0.254
+- **enp7s0**   → LAN 192.168.70.254
 
 ---
 
@@ -28,7 +29,7 @@ iface enp1s0 inet static
 # Interface interna (LAN)
 allow-hotplug enp7s0
 iface enp7s0 inet static
-    address 192.168.70.253
+    address 192.168.70.254
     netmask 255.255.255.0
 ```
 
@@ -46,7 +47,7 @@ ip addr show
 
 ## 🧭 Resolvedor de nomes
 
-## Edite o arquivo resolv.conf:
+## Edite o arquivo resolv.conf apontando o resolvedor interno ou externo:
 
 ```bash
 vim /etc/resolv.conf
@@ -55,10 +56,10 @@ vim /etc/resolv.conf
 ```bash
 domain officinas.edu
 search officinas.edu
-nameserver 192.168.0.1  # Roteador ou DNS externo
+nameserver 192.168.0.1
 ```
 
-## 🔄 Habilitar roteamento no kernel
+## 🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
 
 ## Edite o arquivo de configuração do sysctl:
 
@@ -68,6 +69,8 @@ vim /etc/sysctl.d/99-sysctl.conf
 
 ```bash
 net.ipv4.ip_forward = 1
+net.ipv4.conf.all.rp_filter=1
+net.ipv4.conf.default.rp_filter=1
 ```
 
 ## Ative a configuração imediatamente:
@@ -118,6 +121,7 @@ modprobe iptable_mangle
 iptables -F
 iptables -t nat -F
 iptables -t mangle -F
+iptables -X
 
 # Políticas padrão (bloqueio total)
 iptables -P INPUT DROP
@@ -136,40 +140,41 @@ iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 # Habilitar NAT (mascaramento da rede interna)
 iptables -t nat -A POSTROUTING -s 192.168.70.0/24 -o $WAN -j MASQUERADE
 
-# Acesso SSH ao firewall (porta 22254)
-iptables -A INPUT -p tcp -d 192.168.70.253 --dport 22254 -j ACCEPT
+# Acesso SSH ao firewall (porta 22254) somente pela lan
+iptables -A INPUT -p tcp -s 192.168.70.0/24 --dport 22254 -m conntrack --ctstate NEW -j ACCEPT
 
-# Permitir ping
-iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+# Permitir ping com limite de taxa
+iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s --limit-burst 10 -j ACCEPT
 
-# Permitir acesso HTTP/HTTPS/DNS para o firewall
+# Permitir acesso HTTP/HTTPS/DNS/NTP para o firewall
 iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+iptables -A OUTPUT -p udp --dport 123 -j ACCEPT
 
 # Permitir saída da LAN para Internet (HTTP/HTTPS/DNS)
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 80 -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 443 -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 53 -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 80 -m conntrack --ctstate NEW -j ACCEPT
+iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 53 -m conntrack --ctstate NEW -j ACCEPT
+iptables -A FORWARD -s 192.168.70.0/24 -p udp --dport 53 -m conntrack --ctstate NEW -j ACCEPT
 
 # Redirecionar conexões externas para o Firewall
-iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 22253 -j DNAT --to-destination 192.168.70.253:22253
-iptables -A FORWARD -p tcp -d 192.168.70.253 --dport 22253 -j ACCEPT
+iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 22253 -j DNAT --to-destination 192.168.70.254:22253
+iptables -A FORWARD -p tcp -d 192.168.70.254 --dport 22253 -m conntrack --ctstate NEW -j ACCEPT
 
 # Redirecionar conexões externas para o servidor de arquivos
 iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 22252 -j DNAT --to-destination 192.168.70.252:22252
-iptables -A FORWARD -p tcp -d 192.168.70.252 --dport 22252 -j ACCEPT
+iptables -A FORWARD -p tcp -d 192.168.70.252 --dport 22252 -m conntrack --ctstate NEW -j ACCEPT
 
 # Liberar o RDP para estação de trabalho Windows
 iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 3389 -j DNAT --to-destination 192.168.70.171:3389
-iptables -A FORWARD -p tcp -d 192.168.70.171 --dport 3389 -j ACCEPT
+iptables -A FORWARD -p tcp -d 192.168.70.171 --dport 3389 -m conntrack --ctstate NEW -j ACCEPT
 
 # Log básico (opcional)
-iptables -A INPUT -j LOG --log-prefix "FIREWALL_DROP: "
+iptables -A INPUT -m limit --limit 2/s -j LOG --log-prefix "FIREWALL_DROP: "
 
-echo "Firewall carregado com sucesso!"
+echo "......................................Firewall carregado com sucesso!"
 ```
 
 ## ⚙️ Aplicar e salvar o firewall
@@ -214,6 +219,10 @@ systemctl status netfilter-persistent.service
 iptables -L -v -n
 ```
 
+```bash
+iptables -t nat -L -v -n
+```
+
 ## ✅ Testes rápidos
 
 ## Conexão com internet:
@@ -228,7 +237,7 @@ ping -c 3 8.8.8.8
 ping -c 3 192.168.70.253
 ```
 
-## Resolvendo nomes e acesso a sites:
+## Validando NAT e DNS:
 
 ```bash
 curl https://google.com
