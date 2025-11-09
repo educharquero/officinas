@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dhcp-server" class="md-skip">
+        <a href="#estrutura-de-rede-e-dominio" class="md-skip">
           Skip to content
         </a>
       
@@ -459,8 +459,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -493,8 +491,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -503,126 +499,270 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#criando-um-servidor-de-dhcp" class="md-nav__link">
+  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Criando um Servidor de DHCP
+      🌐 Estrutura de rede e domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vamos-a-instalacao-do-pacote-do-dhcp-server" class="md-nav__link">
+  <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
     <span class="md-ellipsis">
-      Vamos a instalação do pacote do DHCP Server:
+      📦 Instalação e habilitação do servidor DHCP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0" class="md-nav__link">
+  <a href="#definir-a-interface-de-escuta-enp2s0" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):
+      ⚙️ Definir a interface de escuta (enp2s0)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#backup-do-arquivo-original" class="md-nav__link">
+  <a href="#fazer-o-backup-do-arquivo-dhcpdconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup do arquivo original:
+      📄 Fazer o backup do arquivo dhcpd.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-do-novo-arquivo" class="md-nav__link">
+  <a href="#criar-o-novo-arquivo-de-configuracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Criação do novo arquivo:
+      🧩 Criar o novo arquivo de configuração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-reiniciar-o-servico" class="md-nav__link">
+  <a href="#5-reiniciar-o-servico-dhcp" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora vamos reiniciar o serviço:
+      🔄 5. Reiniciar o serviço DHCP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server" class="md-nav__link">
+  <a href="#6-multiplas-redes-opcional-servidor-multi-homed" class="md-nav__link">
     <span class="md-ellipsis">
-      EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:
+      🌐 6. Múltiplas Redes (opcional, servidor multi-homed)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac" class="md-nav__link">
+  <a href="#em-ambientes-onde-o-servidor-dhcp-atende-mais-de-uma-sub-rede-por-exemplo-lan-principal-e-rede-de-almoxarifado-e-necessario-configurar" class="md-nav__link">
     <span class="md-ellipsis">
-      Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:
+      Em ambientes onde o servidor DHCP atende mais de uma sub-rede (por exemplo, LAN principal e rede de almoxarifado), é necessário configurar:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crie-os-aliases-dos-arquivos-para-os-diretorios-especifios" class="md-nav__link">
+  <a href="#exemplo-de-topologia" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie os aliases dos arquivos para os diretórios específios:
+      🖧 Exemplo de topologia
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-as-concessoes-dhcp-ativas" class="md-nav__link">
+  <a href="#definir-as-duas-interfaces-de-escuta-uma-para-cada-sub-rede-agora" class="md-nav__link">
     <span class="md-ellipsis">
-      Imprime as concessões DHCP ativas:
+      ⚠️ Definir as duas interfaces de escuta, uma para cada sub-rede agora
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#para-uma-saida-legivel-por-maquina-com-datas-completas" class="md-nav__link">
+  <a href="#configuracao-das-sub-redes" class="md-nav__link">
     <span class="md-ellipsis">
-      Para uma saída legível por máquina com datas completas:
+      📄 Configuração das sub-redes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-o-ultimo-mac" class="md-nav__link">
+  <a href="#no-arquivo-etcdhcpdhcpdconf-adicione-os-blocos-de-subnet-sem-necessidade-de-shared-network-exceto-se-as-redes-estiverem-na-mesma-interface-fisica" class="md-nav__link">
     <span class="md-ellipsis">
-      imprime o último MAC:
+      No arquivo /etc/dhcp/dhcpd.conf, adicione os blocos de subnet (sem necessidade de shared-network, exceto se as redes estiverem na mesma interface física).
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac" class="md-nav__link">
+  <a href="#abra-etcdhcpdhcpdconf-e-adicione" class="md-nav__link">
     <span class="md-ellipsis">
-      imprime todas as entradas, ou seja, mais de um por MAC:
+      Abra /etc/dhcp/dhcpd.conf e adicione:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#validar-as-locacoes-dhcpd" class="md-nav__link">
+  <a href="#habilitar-roteamento-entre-redes-opcional" class="md-nav__link">
     <span class="md-ellipsis">
-      Validar as locações dhcpd:
+      🔀 Habilitar roteamento entre redes (opcional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-o-servidor-dhcp-tambem-faz-a-ponte-entre-redes-por-exemplo-serve-ambas-via-nat-ou-roteamento-habilite-o-encaminhamento-de-pacotes-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      SE o servidor DHCP também faz a ponte entre redes (por exemplo, serve ambas via NAT ou roteamento), habilite o encaminhamento de pacotes IPv4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao-antes-de-reiniciar" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Validação antes de reiniciar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sempre-teste-a-sintaxe-antes-de-reiniciar-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sempre teste a sintaxe antes de reiniciar o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-nao-houver-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se não houver erros:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-verificacao-no-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Exemplo de verificação no cliente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-cliente-da-rede-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      No cliente da rede almoxarifado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-consulta-de-concessoes-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 7. Consulta de concessões DHCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-saida-esperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de saída esperada:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ferramentas-uteis-instalar-base-de-fabricantes-para-identificar-dispositivos-pelo-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 7. Ferramentas úteis. Instalar base de fabricantes (para identificar dispositivos pelo MAC):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-links-simbolicos-para-compatibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie links simbólicos para compatibilidade:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listar-concessoes-dhcp-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listar concessões DHCP ativas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcoes-de-listagem-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções de listagem úteis:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saida-legivel-por-maquina" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saída legível por máquina
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ultima-concessao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Última concessão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou-direto-do-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ou direto do arquivo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas-e-boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Dicas e boas práticas
     </span>
   </a>
   
@@ -1867,8 +2007,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1877,126 +2015,270 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#criando-um-servidor-de-dhcp" class="md-nav__link">
+  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Criando um Servidor de DHCP
+      🌐 Estrutura de rede e domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vamos-a-instalacao-do-pacote-do-dhcp-server" class="md-nav__link">
+  <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
     <span class="md-ellipsis">
-      Vamos a instalação do pacote do DHCP Server:
+      📦 Instalação e habilitação do servidor DHCP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0" class="md-nav__link">
+  <a href="#definir-a-interface-de-escuta-enp2s0" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):
+      ⚙️ Definir a interface de escuta (enp2s0)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#backup-do-arquivo-original" class="md-nav__link">
+  <a href="#fazer-o-backup-do-arquivo-dhcpdconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Backup do arquivo original:
+      📄 Fazer o backup do arquivo dhcpd.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criacao-do-novo-arquivo" class="md-nav__link">
+  <a href="#criar-o-novo-arquivo-de-configuracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Criação do novo arquivo:
+      🧩 Criar o novo arquivo de configuração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-reiniciar-o-servico" class="md-nav__link">
+  <a href="#5-reiniciar-o-servico-dhcp" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora vamos reiniciar o serviço:
+      🔄 5. Reiniciar o serviço DHCP
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server" class="md-nav__link">
+  <a href="#6-multiplas-redes-opcional-servidor-multi-homed" class="md-nav__link">
     <span class="md-ellipsis">
-      EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:
+      🌐 6. Múltiplas Redes (opcional, servidor multi-homed)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac" class="md-nav__link">
+  <a href="#em-ambientes-onde-o-servidor-dhcp-atende-mais-de-uma-sub-rede-por-exemplo-lan-principal-e-rede-de-almoxarifado-e-necessario-configurar" class="md-nav__link">
     <span class="md-ellipsis">
-      Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:
+      Em ambientes onde o servidor DHCP atende mais de uma sub-rede (por exemplo, LAN principal e rede de almoxarifado), é necessário configurar:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crie-os-aliases-dos-arquivos-para-os-diretorios-especifios" class="md-nav__link">
+  <a href="#exemplo-de-topologia" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie os aliases dos arquivos para os diretórios específios:
+      🖧 Exemplo de topologia
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-as-concessoes-dhcp-ativas" class="md-nav__link">
+  <a href="#definir-as-duas-interfaces-de-escuta-uma-para-cada-sub-rede-agora" class="md-nav__link">
     <span class="md-ellipsis">
-      Imprime as concessões DHCP ativas:
+      ⚠️ Definir as duas interfaces de escuta, uma para cada sub-rede agora
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#para-uma-saida-legivel-por-maquina-com-datas-completas" class="md-nav__link">
+  <a href="#configuracao-das-sub-redes" class="md-nav__link">
     <span class="md-ellipsis">
-      Para uma saída legível por máquina com datas completas:
+      📄 Configuração das sub-redes
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-o-ultimo-mac" class="md-nav__link">
+  <a href="#no-arquivo-etcdhcpdhcpdconf-adicione-os-blocos-de-subnet-sem-necessidade-de-shared-network-exceto-se-as-redes-estiverem-na-mesma-interface-fisica" class="md-nav__link">
     <span class="md-ellipsis">
-      imprime o último MAC:
+      No arquivo /etc/dhcp/dhcpd.conf, adicione os blocos de subnet (sem necessidade de shared-network, exceto se as redes estiverem na mesma interface física).
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac" class="md-nav__link">
+  <a href="#abra-etcdhcpdhcpdconf-e-adicione" class="md-nav__link">
     <span class="md-ellipsis">
-      imprime todas as entradas, ou seja, mais de um por MAC:
+      Abra /etc/dhcp/dhcpd.conf e adicione:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#validar-as-locacoes-dhcpd" class="md-nav__link">
+  <a href="#habilitar-roteamento-entre-redes-opcional" class="md-nav__link">
     <span class="md-ellipsis">
-      Validar as locações dhcpd:
+      🔀 Habilitar roteamento entre redes (opcional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-o-servidor-dhcp-tambem-faz-a-ponte-entre-redes-por-exemplo-serve-ambas-via-nat-ou-roteamento-habilite-o-encaminhamento-de-pacotes-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      SE o servidor DHCP também faz a ponte entre redes (por exemplo, serve ambas via NAT ou roteamento), habilite o encaminhamento de pacotes IPv4:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacao-antes-de-reiniciar" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Validação antes de reiniciar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sempre-teste-a-sintaxe-antes-de-reiniciar-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sempre teste a sintaxe antes de reiniciar o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-nao-houver-erros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se não houver erros:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-verificacao-no-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Exemplo de verificação no cliente
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-cliente-da-rede-almoxarifado" class="md-nav__link">
+    <span class="md-ellipsis">
+      No cliente da rede almoxarifado:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-consulta-de-concessoes-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 7. Consulta de concessões DHCP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-de-saida-esperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de saída esperada:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ferramentas-uteis-instalar-base-de-fabricantes-para-identificar-dispositivos-pelo-mac" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 7. Ferramentas úteis. Instalar base de fabricantes (para identificar dispositivos pelo MAC):
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-links-simbolicos-para-compatibilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie links simbólicos para compatibilidade:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listar-concessoes-dhcp-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listar concessões DHCP ativas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opcoes-de-listagem-uteis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opções de listagem úteis:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saida-legivel-por-maquina" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saída legível por máquina
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ultima-concessao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Última concessão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ou-direto-do-arquivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ou direto do arquivo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dicas-e-boas-praticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Dicas e boas práticas
     </span>
   </a>
   
@@ -2018,139 +2300,217 @@
 
 
 
-<h1 id="dhcp-server">📁 DHCP Server</h1>
-<h2 id="criando-um-servidor-de-dhcp">Criando um Servidor de DHCP</h2>
-<p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
-<h2 id="vamos-a-instalacao-do-pacote-do-dhcp-server">Vamos a instalação do pacote do DHCP Server:</h2>
-<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>isc-dhcp-server
+  <h1>DHCP Server</h1>
+
+<p>🔥 DHCP Server</p>
+<p>🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.</p>
+<hr />
+<h2 id="estrutura-de-rede-e-dominio">🌐 Estrutura de rede e domínio</h2>
+<ul>
+<li>Função    Hostname    IP  Observações</li>
+<li>Controlador de Domínio    srvdc01.officinas.edu   192.168.70.253  Samba4 AD</li>
+<li>Servidor de Arquivos  srvarquivos.officinas.edu   192.168.70.252  Debian 13</li>
+<li>Gateway/Firewall  firewall.officinas.edu  192.168.70.254  Linux Firewall</li>
+<li>Domínio   OFFICINAS.EDU       Realm Kerberos</li>
+<li>Workgroup OFFICINAS</li>
+</ul>
+<hr />
+<h2 id="instalacao-e-habilitacao-do-servidor-dhcp">📦 Instalação e habilitação do servidor DHCP</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>isc-dhcp-server
 </code></pre></div>
-<h2 id="agora-vamos-definir-a-interface-que-vai-escutar-o-servidor-de-dhcp-enp7s0">Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>isc-dhcp-server
+</code></pre></div>
+<h2 id="definir-a-interface-de-escuta-enp2s0">⚙️  Definir a interface de escuta (enp2s0)</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/default/isc-dhcp-server
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nv">INTERFACESv4</span><span class="o">=</span>”enp7s0″
+<div class="highlight"><pre><span></span><code><span class="nv">INTERFACESv4</span><span class="o">=</span><span class="s2">&quot;enp1s0&quot;</span>
 </code></pre></div>
-<h2 id="backup-do-arquivo-original">Backup do arquivo original:</h2>
+<h2 id="fazer-o-backup-do-arquivo-dhcpdconf">📄 Fazer o backup do arquivo dhcpd.conf</h2>
 <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/etc/dhcp/dhcpd.conf<span class="o">{</span>,.orig<span class="o">}</span>
 </code></pre></div>
-<h2 id="criacao-do-novo-arquivo">Criação do novo arquivo:</h2>
+<h2 id="criar-o-novo-arquivo-de-configuracao">🧩 Criar o novo arquivo de configuração</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/dhcp/dhcpd.conf
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># NOME DE DOMÍNIO:</span>
-option<span class="w"> </span>domain-name<span class="w"> </span><span class="s2">&quot;officinas.edu.&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Nome de domínio e DNS</span>
+option<span class="w"> </span>domain-name<span class="w"> </span><span class="s2">&quot;officinas.edu&quot;</span><span class="p">;</span>
+option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">192</span>.168.70.253<span class="p">;</span>
 
-<span class="c1"># IP DO SERVIDOR DE DNS DA REDE (Separar por vírgula SEM espaço):</span>
-option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">192</span>.168.70.254,1.1.1.1<span class="p">;</span>
-
-<span class="c1"># GATEWAY PADRÃO:</span>
+<span class="c1"># Gateway padrão</span>
 option<span class="w"> </span>routers<span class="w"> </span><span class="m">192</span>.168.70.254<span class="p">;</span>
 
-<span class="c1"># DEFINIÇÃO DE HORÁRIO DA REDE (18000=BR):</span>
-option<span class="w"> </span>time-offset<span class="w"> </span>-18000<span class="p">;</span>
+<span class="c1"># Fuso horário (BR: -3h)</span>
+option<span class="w"> </span>time-offset<span class="w"> </span>-10800<span class="p">;</span>
 
-<span class="c1"># TEMPO DE RENOVAÇÃO DOS ENDEREÇOS IPS POR INATIVIDADE (600=10MIN):</span>
+<span class="c1"># Tempo de concessão (em segundos)</span>
+<span class="c1"># TEMPO DE RENOVAÇÃO DO LEASE (10 minutos):</span>
 default-lease-time<span class="w"> </span><span class="m">600</span><span class="p">;</span>
 
-<span class="c1"># TEMPO MÁXIMO DE USO DE UM IP EM UMA MÁQUINA DA REDE:</span>
+<span class="c1"># TEMPO MÁXIMO DE LEASE (2 horas):</span>
 max-lease-time<span class="w"> </span><span class="m">7200</span><span class="p">;</span>
 
-<span class="c1"># DEFINE SE O DHCPD INSERE DINÂMICAMENTE UM NOVO REGISTRO DE MÁQUINA NO DNS SERVER AO FORNECER UM IP:</span>
+<span class="c1"># Desativa atualizações dinâmicas no DNS</span>
 ddns-update-style<span class="w"> </span>none<span class="p">;</span>
 
-<span class="c1"># INDICA QUE O SERVIDOR DE DHCP SERÁ AUTORITATIVO SEMPRE:</span>
+<span class="c1"># Define este servidor como autoritativo</span>
 authoritative<span class="p">;</span>
 
-<span class="c1"># GERENCIAMENTO DE LOGS:</span>
+<span class="c1"># Log padrão</span>
 log-facility<span class="w"> </span>local7<span class="p">;</span>
 
-<span class="c1"># RANGE DE GERENCIAMENTO DE IPS:</span>
+<span class="c1"># REDE LOCAL PRINCIPAL</span>
 subnet<span class="w"> </span><span class="m">192</span>.168.70.0<span class="w"> </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>range<span class="w"> </span><span class="m">192</span>.168.70.10<span class="w"> </span><span class="m">192</span>.168.70.20<span class="p">;</span>
 <span class="w">    </span>option<span class="w"> </span>routers<span class="w"> </span><span class="m">192</span>.168.70.254<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name<span class="w"> </span><span class="s2">&quot;officinas.edu&quot;</span><span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">192</span>.168.70.253<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>broadcast-address<span class="w"> </span><span class="m">192</span>.168.70.255<span class="p">;</span>
 <span class="o">}</span>
 
-<span class="c1"># IPS FIXOS POR MAC ADDRESS:</span>
+<span class="c1"># IPs FIXOS POR MAC ADDRESS</span>
 host<span class="w"> </span>vmwin10<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">52</span>:54:00:C7:85:A9<span class="p">;</span>
 <span class="w">    </span>fixed-address<span class="w"> </span><span class="m">192</span>.168.70.171<span class="p">;</span>
 <span class="o">}</span>
 
-host<span class="w"> </span>PC_Gerente<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">52</span>:54:00:bf:17:be<span class="p">;</span>
+host<span class="w"> </span>pc_gerente<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">52</span>:54:00:BF:17:BE<span class="p">;</span>
 <span class="w">    </span>fixed-address<span class="w"> </span><span class="m">192</span>.168.70.111<span class="p">;</span>
 <span class="o">}</span>
 </code></pre></div>
-<h2 id="agora-vamos-reiniciar-o-servico">Agora vamos reiniciar o serviço:</h2>
+<h2 id="5-reiniciar-o-servico-dhcp">🔄 5. Reiniciar o serviço DHCP</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>isc-dhcp-server
 </code></pre></div>
-<h2 id="extra-para-trabalhar-com-multiplas-redes-adicionar-ao-etcdefaultisc-dhcp-server">EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:</h2>
-<div class="highlight"><pre><span></span><code>shared-network<span class="w"> </span>rede-almoxarifado<span class="w"> </span><span class="o">{</span>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>isc-dhcp-server
+</code></pre></div>
+<h2 id="6-multiplas-redes-opcional-servidor-multi-homed">🌐 6. Múltiplas Redes (opcional, servidor multi-homed)</h2>
+<h2 id="em-ambientes-onde-o-servidor-dhcp-atende-mais-de-uma-sub-rede-por-exemplo-lan-principal-e-rede-de-almoxarifado-e-necessario-configurar">Em ambientes onde o servidor DHCP atende mais de uma sub-rede (por exemplo, LAN principal e rede de almoxarifado), é necessário configurar:</h2>
+<ul>
+<li>
+<p>Interfaces distintas, cada uma com IP próprio (enp2s0 e enp3s0);</p>
+</li>
+<li>
+<p>Sub-redes definidas separadamente no arquivo /etc/dhcp/dhcpd.conf;</p>
+</li>
+<li>
+<p>(Opcional) Encaminhamento de pacotes ativado se o DHCP estiver roteando entre redes.</p>
+</li>
+</ul>
+<h2 id="exemplo-de-topologia">🖧 Exemplo de topologia</h2>
+<ul>
+<li>
+<p>Interface IP do Servidor  Rede/Sub-rede   Descrição</p>
+</li>
+<li>
+<p>enp1s0    192.168.70.251  192.168.70.0/24 Rede principal</p>
+</li>
+<li>
+<p>enp2s0    172.16.254.1    172.16.254.0/24 Rede almoxarifado</p>
+</li>
+</ul>
+<h2 id="definir-as-duas-interfaces-de-escuta-uma-para-cada-sub-rede-agora">⚠️  Definir as duas interfaces de escuta, uma para cada sub-rede agora</h2>
+<div class="highlight"><pre><span></span><code><span class="nv">INTERFACESv4</span><span class="o">=</span><span class="s2">&quot;enp1s0 enp2s0&quot;</span>
+</code></pre></div>
+<h2 id="configuracao-das-sub-redes">📄 Configuração das sub-redes</h2>
+<h2 id="no-arquivo-etcdhcpdhcpdconf-adicione-os-blocos-de-subnet-sem-necessidade-de-shared-network-exceto-se-as-redes-estiverem-na-mesma-interface-fisica">No arquivo /etc/dhcp/dhcpd.conf, adicione os blocos de subnet (sem necessidade de shared-network, exceto se as redes estiverem na mesma interface física).</h2>
+<h2 id="abra-etcdhcpdhcpdconf-e-adicione">Abra /etc/dhcp/dhcpd.conf e adicione:</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 🔹 Rede principal</span>
+subnet<span class="w"> </span><span class="m">192</span>.168.70.0<span class="w"> </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>range<span class="w"> </span><span class="m">192</span>.168.70.10<span class="w"> </span><span class="m">192</span>.168.70.50<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>routers<span class="w"> </span><span class="m">192</span>.168.70.254<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name<span class="w"> </span><span class="s2">&quot;officinas.edu&quot;</span><span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">192</span>.168.70.253<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>broadcast-address<span class="w"> </span><span class="m">192</span>.168.70.255<span class="p">;</span>
+<span class="w">    </span>default-lease-time<span class="w"> </span><span class="m">600</span><span class="p">;</span>
+<span class="w">    </span>max-lease-time<span class="w"> </span><span class="m">7200</span><span class="p">;</span>
+<span class="o">}</span>
 
-<span class="w">        </span>subnet<span class="w"> </span><span class="m">172</span>.16.254.0<span class="w"> </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span><span class="o">{</span>
-<span class="w">         </span>range<span class="w"> </span><span class="m">172</span>.16.254.20<span class="w"> </span><span class="m">172</span>.16.254.100<span class="p">;</span>
-<span class="w">         </span>option<span class="w"> </span>routers<span class="w"> </span><span class="m">172</span>.16.254.1<span class="p">;</span>
-<span class="w">         </span>option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">8</span>.8.8.8,<span class="w"> </span><span class="m">8</span>.8.4.4<span class="p">;</span>
-<span class="w">         </span>option<span class="w"> </span>broadcast-address<span class="w"> </span><span class="m">172</span>.16.254.255<span class="p">;</span>
-<span class="w">        </span><span class="o">}</span>
+<span class="c1"># 🔹 Rede do almoxarifado</span>
+subnet<span class="w"> </span><span class="m">172</span>.16.254.0<span class="w"> </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>range<span class="w"> </span><span class="m">172</span>.16.254.20<span class="w"> </span><span class="m">172</span>.16.254.100<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>routers<span class="w"> </span><span class="m">172</span>.16.254.1<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name<span class="w"> </span><span class="s2">&quot;almoxarifado.officinas.edu&quot;</span><span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">8</span>.8.8.8,<span class="w"> </span><span class="m">8</span>.8.4.4<span class="p">;</span>
+<span class="w">    </span>option<span class="w"> </span>broadcast-address<span class="w"> </span><span class="m">172</span>.16.254.255<span class="p">;</span>
+<span class="w">    </span>default-lease-time<span class="w"> </span><span class="m">600</span><span class="p">;</span>
+<span class="w">    </span>max-lease-time<span class="w"> </span><span class="m">3600</span><span class="p">;</span>
+<span class="o">}</span>
 
-<span class="w">        </span><span class="c1"># Sub-Rede adicional qual entrego apenas ips para os mac x e y:</span>
-<span class="w">        </span>subnet<span class="w"> </span><span class="m">10</span>.0.0.240<span class="w"> </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.240<span class="w"> </span><span class="o">{</span>
-<span class="w">         </span>option<span class="w"> </span>routers<span class="w"> </span><span class="m">10</span>.0.0.241<span class="p">;</span>
-<span class="w">         </span>option<span class="w"> </span>domain-name-servers<span class="w"> </span><span class="m">8</span>.8.8.8,<span class="w"> </span><span class="m">8</span>.8.4.4<span class="p">;</span>
-<span class="w">         </span>option<span class="w"> </span>broadcast-address<span class="w"> </span><span class="m">10</span>.0.0.255<span class="p">;</span>
+<span class="c1"># 🔹 Reservas fixas (opcional)</span>
+host<span class="w"> </span>pc1<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">70</span>:71:BC:F1:9F:9E<span class="p">;</span>
+<span class="w">    </span>fixed-address<span class="w"> </span><span class="m">172</span>.16.254.21<span class="p">;</span>
+<span class="o">}</span>
 
-<span class="w">         </span>host<span class="w"> </span>pc1<span class="w"> </span><span class="o">{</span>
-<span class="w">           </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">70</span>:71:BC:F1:9F:9E<span class="p">;</span>
-<span class="w">           </span>fixed-address<span class="w"> </span><span class="m">10</span>.0.0.242<span class="p">;</span>
-<span class="w">         </span><span class="o">}</span>
-<span class="w">         </span>host<span class="w"> </span>pc2<span class="w"> </span><span class="o">{</span>
-<span class="w">           </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">70</span>:71:BC:F1:9F:1D<span class="p">;</span>
-<span class="w">           </span>fixed-address<span class="w"> </span><span class="m">10</span>.0.0.243<span class="p">;</span>
-<span class="w">         </span><span class="o">}</span>
-
-<span class="w">         </span>host<span class="w"> </span>cel1<span class="w"> </span><span class="o">{</span>
-<span class="w">           </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">08</span>:00:27:18:DC:AA<span class="p">;</span>
-<span class="w">           </span>fixed-address<span class="w"> </span><span class="m">10</span>.0.0.244<span class="p">;</span>
-<span class="w">         </span><span class="o">}</span>
-<span class="w">        </span><span class="o">}</span>
+host<span class="w"> </span>pc2<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">08</span>:00:27:18:DC:AA<span class="p">;</span>
+<span class="w">    </span>fixed-address<span class="w"> </span><span class="m">172</span>.16.254.22<span class="p">;</span>
 <span class="o">}</span>
 </code></pre></div>
-<h2 id="instale-o-pacote-ieee-data-para-buscar-o-fabricante-dos-dispositivos-manufacturer-com-base-no-mac">Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:</h2>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>ieee-data
+<h2 id="habilitar-roteamento-entre-redes-opcional">🔀 Habilitar roteamento entre redes (opcional)</h2>
+<h2 id="se-o-servidor-dhcp-tambem-faz-a-ponte-entre-redes-por-exemplo-serve-ambas-via-nat-ou-roteamento-habilite-o-encaminhamento-de-pacotes-ipv4">SE o servidor DHCP também faz a ponte entre redes (por exemplo, serve ambas via NAT ou roteamento), habilite o encaminhamento de pacotes IPv4:</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;net.ipv4.ip_forward=1&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/sysctl.conf
 </code></pre></div>
-<h2 id="crie-os-aliases-dos-arquivos-para-os-diretorios-especifios">Crie os aliases dos arquivos para os diretórios específios:</h2>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/ieee-data/oui.txt<span class="w"> </span>/usr/share/misc/oui.txt
-ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/ieee-data/oui.txt<span class="w"> </span>/usr/local/etc/oui.txt
+<div class="highlight"><pre><span></span><code>sysctl<span class="w"> </span>-p
 </code></pre></div>
-<h2 id="imprime-as-concessoes-dhcp-ativas">Imprime as concessões DHCP ativas:</h2>
+<h2 id="validacao-antes-de-reiniciar">🔍 Validação antes de reiniciar</h2>
+<h2 id="sempre-teste-a-sintaxe-antes-de-reiniciar-o-servico">Sempre teste a sintaxe antes de reiniciar o serviço:</h2>
+<div class="highlight"><pre><span></span><code>dhcpd<span class="w"> </span>-t<span class="w"> </span>-cf<span class="w"> </span>/etc/dhcp/dhcpd.conf
+</code></pre></div>
+<h2 id="se-nao-houver-erros">Se não houver erros:</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>isc-dhcp-server
+</code></pre></div>
+<h2 id="exemplo-de-verificacao-no-cliente">💡 Exemplo de verificação no cliente</h2>
+<h2 id="no-cliente-da-rede-almoxarifado">No cliente da rede almoxarifado:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dhclient<span class="w"> </span>-v<span class="w"> </span>-r<span class="w"> </span>enp2s0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>dhclient<span class="w"> </span>-v<span class="w"> </span>enp2s0
+</code></pre></div>
+<h2 id="7-consulta-de-concessoes-dhcp">🔍 7. Consulta de concessões DHCP</h2>
+<p>Para ver as concessões ativas:</p>
 <div class="highlight"><pre><span></span><code>dhcp-lease-list
 </code></pre></div>
+<h2 id="exemplo-de-saida-esperada">Exemplo de saída esperada:</h2>
 <div class="highlight"><pre><span></span><code>MAC<span class="w">                </span>IP<span class="w">              </span>hostname<span class="w">       </span>valid<span class="w"> </span><span class="k">until</span><span class="w">         </span>manufacturer
-
-<span class="m">00</span>:06:14:74:2a:5d<span class="w">  </span><span class="m">10</span>.0.0.100<span class="w">     </span>-NA-<span class="w">           </span><span class="m">2020</span>-09-16<span class="w"> </span><span class="m">13</span>:44:02<span class="w">       </span>Furukawa
+<span class="m">52</span>:54:00:C7:85:A9<span class="w">  </span><span class="m">192</span>.168.70.171<span class="w">  </span>vmwin10<span class="w">        </span><span class="m">2025</span>-11-07<span class="w"> </span><span class="m">14</span>:00:00<span class="w">  </span>QEMU
 </code></pre></div>
-<h2 id="para-uma-saida-legivel-por-maquina-com-datas-completas">Para uma saída legível por máquina com datas completas:</h2>
+<h2 id="7-ferramentas-uteis-instalar-base-de-fabricantes-para-identificar-dispositivos-pelo-mac">🧰 7. Ferramentas úteis. Instalar base de fabricantes (para identificar dispositivos pelo MAC):</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ieee-data
+</code></pre></div>
+<h2 id="crie-links-simbolicos-para-compatibilidade">Crie links simbólicos para compatibilidade:</h2>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/ieee-data/oui.txt<span class="w"> </span>/usr/share/misc/oui.txt
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-s<span class="w"> </span>/usr/share/ieee-data/oui.txt<span class="w"> </span>/usr/local/etc/oui.txt
+</code></pre></div>
+<h2 id="listar-concessoes-dhcp-ativas">Listar concessões DHCP ativas</h2>
+<div class="highlight"><pre><span></span><code>dhcp-lease-list
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>MAC<span class="w">                </span>IP<span class="w">              </span>Hostname<span class="w">       </span>Válido<span class="w"> </span>até<span class="w">          </span>Fabricante
+<span class="m">00</span>:06:14:74:2a:5d<span class="w">  </span><span class="m">10</span>.0.0.100<span class="w">      </span>-NA-<span class="w">           </span><span class="m">2025</span>-11-07<span class="w"> </span><span class="m">13</span>:44:02<span class="w">   </span>Furukawa
+</code></pre></div>
+<h2 id="opcoes-de-listagem-uteis">Opções de listagem úteis:</h2>
+<h2 id="saida-legivel-por-maquina">Saída legível por máquina</h2>
 <div class="highlight"><pre><span></span><code>dhcp-lease-list<span class="w"> </span>--parsable
 </code></pre></div>
-<h2 id="imprime-o-ultimo-mac">imprime o último MAC:</h2>
+<h2 id="ultima-concessao">Última concessão</h2>
 <div class="highlight"><pre><span></span><code>dhcp-lease-list<span class="w"> </span>--last
 </code></pre></div>
-<h2 id="imprime-todas-as-entradas-ou-seja-mais-de-um-por-mac">imprime todas as entradas, ou seja, mais de um por MAC:</h2>
+<p>```bash Todas as concessões (mesmo as expiradas)</p>
 <div class="highlight"><pre><span></span><code>dhcp-lease-list<span class="w"> </span>--all
 </code></pre></div>
-<h2 id="validar-as-locacoes-dhcpd">Validar as locações dhcpd:</h2>
+<h2 id="ou-direto-do-arquivo">Ou direto do arquivo:</h2>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/var/lib/dhcp/dhcpd.leases
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>lease<span class="w"> </span><span class="m">10</span>.0.0.100<span class="w"> </span><span class="o">{</span>
-<span class="w">  </span>starts<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2020</span>/09/16<span class="w"> </span><span class="m">14</span>:06:33<span class="p">;</span>
-<span class="w">  </span>ends<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2020</span>/09/16<span class="w"> </span><span class="m">14</span>:11:33<span class="p">;</span>
-<span class="w">  </span>cltt<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2020</span>/09/16<span class="w"> </span><span class="m">14</span>:06:33<span class="p">;</span>
-<span class="w">  </span>binding<span class="w"> </span>state<span class="w"> </span>active<span class="p">;</span>
-<span class="w">  </span>next<span class="w"> </span>binding<span class="w"> </span>state<span class="w"> </span>free<span class="p">;</span>
-<span class="w">  </span>rewind<span class="w"> </span>binding<span class="w"> </span>state<span class="w"> </span>free<span class="p">;</span>
-<span class="w">  </span>hardware<span class="w"> </span>ethernet<span class="w"> </span><span class="m">00</span>:06:14:74:2a:5d<span class="p">;</span>
-<span class="o">}</span>
-</code></pre></div>
-<p>that's all folks!</p>
+<h2 id="dicas-e-boas-praticas">🧠 Dicas e boas práticas</h2>
+<ul>
+<li>✅ Use subnets separadas por interface física (não misture pools de VLANs).</li>
+<li>✅ Garanta que o roteamento entre redes esteja ativo (net.ipv4.ip_forward=1).</li>
+<li>✅ Faça testes de DHCPDISCOVER com dhclient -v -r <iface> no cliente.</li>
+<li>✅ Não use shared-network a menos que várias sub-redes compartilhem a mesma interface física.</li>
+<li>✅ Mantenha um gateway válido por sub-rede (o DHCP não roteia pacotes).</li>
+<li>✅ Evite sobreposição de ranges IP.</li>
+<li>✅ Use comentários descritivos por rede (documentação viva).</li>
+<li>✅ Configure o firewall para permitir pacotes UDP 67/68 entre interfaces confiáveis.</li>
+<li>✅ Está pronto para operar em conjunto com servidores DNS, Firewall e AD/Samba.</li>
+</ul>
+<p>THAT'S ALL FOLKS</p>
 
 
 
