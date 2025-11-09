@@ -177,7 +177,24 @@ iptables -A INPUT -m limit --limit 2/s -j LOG --log-prefix "FIREWALL_DROP: "
 echo "......................................Firewall carregado com sucesso!"
 ```
 
-## ⚙️ Aplicar e salvar o firewall
+## ⚙️  A opção -m conntrack
+
+* A flag -m significa “usar módulo de correspondência”, ativando o módulo de rastreamento de conexões no iptables. Isso habilita o uso do parâmetro --ctstate, que filtra pacotes com base no estado da conexão.
+
+## 🔄 O parâmetro --ctstate
+
+* A opção --ctstate permite definir quais estados de conexão a regra deve corresponder.
+
+## Os principais estados são:
+
+- Estado	Significado
+- NEW	Pacote que inicia uma nova conexão (ex: primeiro SYN em TCP).
+- ESTABLISHED	Pacote que faz parte de uma conexão já estabelecida.
+- RELATED	Pacote que pertence a uma conexão relacionada a outra já existente (ex: FTP data após controle).
+- INVALID	Pacote sem estado reconhecível (corrompido ou fora de contexto).
+- UNTRACKED	Pacote que não está sendo rastreado pelo conntrack.
+
+## ⚙️  Aplicar e salvar o firewall
 
 ## Torne o script executável:
 
