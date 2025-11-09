@@ -1,21 +1,21 @@
-# 📁 FileServer Debian 13 — Integrado ao Domínio
+# 📁 FileServer integrado ao Domínio
 
-## 🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
+## 🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.
 
-## 🌐 1. Configurações de rede - IPs e nomes:
+## Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.
+
+## 🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
 
 ```bash
-FileServer: 192.168.70.252
+Firewall:                   SRVFIREWALL       192.168.70.254
 
-Controlador de Domínio (SRVDC01): 192.168.70.253
+Controlador de Domínio:     SRVDC01           192.168.70.253
 
-Gateway/Firewall: 192.168.70.254
+FileServer:                 SRVARQUIVOS       192.168.70.252
 
-Domínio AD: OFFICINAS.EDU
+Domínio AD:                 OFFICINAS.EDU
 
-Workgroup: OFFICINAS
-
-Hostname do servidor: srvarquivos
+Workgroup:                  OFFICINAS
 ```
 
 ## 📘 Editar o arquivo de interfaces:
@@ -28,8 +28,6 @@ allow-hotplug enp1s0
 iface enp1s0 inet static
     address 192.168.70.252/24
     gateway 192.168.70.254
-    dns-nameservers 192.168.70.253
-    dns-search officinas.edu
 ```
 
 ## 📘 Editar o /etc/hosts:
@@ -38,14 +36,13 @@ iface enp1s0 inet static
 127.0.0.1   localhost
 127.0.1.1   srvarquivos
 192.168.70.252 srvarquivos.officinas.edu srvarquivos
-192.168.70.253 srvdc01.officinas.edu srvdc01
 ```
 
 ## 📘 Editar o /etc/resolv.conf:
 
 ```bash
-nameserver 192.168.70.253
 search officinas.edu
+nameserver 192.168.70.253
 ```
 
 ## 📘 Definir hostname:
@@ -58,19 +55,27 @@ sudo hostnamectl set-hostname srvarquivos
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
-sudo reboot
 ```
 
 ## 📦 3. Instalando os pacotes necessários
 
 ```bash
-sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user -y
+sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user acl
 ```
+
+## 🧱 Resumo dos pacotes
+
+* krb5-user	Autenticação Kerberos (tickets, TGT, TGS)	Comunicação segura com o KDC (srvdc01)
+* winbind	Mapeia/traduz usuários/grupos AD → UID/GID locais	Integração com NSS e PAM (NTFS ACLs <--> POSIX GID/UID)
+* samba-common-bin	Ferramentas administrativas (net, smbpasswd, etc.)	Operações SMB e ADS
+* libnss-winbind / libpam-winbind	Integração com login local (NSS e PAM)
 
 ## Durante a instalação, configure o REALM como:
 
 ```bash
-OFFICINAS.EDU
+REALM: OFFICINAS.EDU
+KDC: 192.168.70.253
+Admin server: 192.168.70.253
 ```
 
 ## 🔐 4. Configurando o Kerberos
@@ -95,7 +100,7 @@ OFFICINAS.EDU
     officinas.edu = OFFICINAS.EDU
 ```
 
-## Teste o Kerberos:
+## Teste a troca de tickets do Kerberos:
 
 ```bash
 kinit administrador@OFFICINAS.EDU
@@ -127,16 +132,22 @@ sudo vim /etc/samba/smb.conf
    netbios name = SRVARQUIVOS
    server string = Servidor de Arquivos OFFICINAS
    security = ADS
-
-   # Autenticação via domínio
+   server role = member server
+   map to guest = Bad User
+   dns proxy = no
+   
+   # ACLs e atributos
+   vfs objects = acl_xattr
+   map acl inherit = yes
+   store dos attributes = yes
+   
+   # Permitir nomes longos e compatibilidade com Windows
+   unix charset = UTF-8
+   dos charset = CP850
+   
+   # Integração AD / Kerberos
    dedicated keytab file = /etc/krb5.keytab
    kerberos method = secrets and keytab
-
-   # IDMAP – mapeamento de IDs de domínio
-   idmap config * : backend = tdb
-   idmap config * : range = 3000-7999
-   idmap config OFFICINAS : backend = rid
-   idmap config OFFICINAS : range = 10000-999999
 
    # Winbind – integração de usuários/grupos
    winbind use default domain = yes
@@ -145,63 +156,52 @@ sudo vim /etc/samba/smb.conf
    template shell = /bin/bash
    template homedir = /home/%D/%U
 
-   # Acesso geral e logs
-   map to guest = Bad User
-   dns proxy = no
-   server role = member server
+   # IDMAP – mapeamento de IDs de domínio
+   idmap config * : backend = tdb
+   idmap config * : range = 3000-7999
+   idmap config OFFICINAS : backend = rid
+   idmap config OFFICINAS : range = 10000-999999
+   
+   # Logs
    log file = /var/log/samba/%m.log
    max log size = 1000
 
-# Compartilhamentos
-
-[diretoria]
-   comment = Diretoria
-   path = /srv/samba/arquivos/diretoria
+# Compartilhamentos de rede
+[arquivos]
+   comment = Compartilhamentos da Rede
+   path = /srv/samba/arquivos
    browseable = yes
    writable = yes
    guest ok = no
-   valid users = @"OFFICINAS\gdiretoria"
-   write list = @"OFFICINAS\gdiretoria"
-   create mask = 0660
-   directory mask = 2770
-
-[financeiro]
-   comment = Financeiro
-   path = /srv/samba/arquivos/financeiro
-   browseable = no
-   writable = yes
-   guest ok = no
-   valid users = @"OFFICINAS\gfinanceiro"
-   write list = @"OFFICINAS\gfinanceiro"
-   create mask = 0660
-   directory mask = 2770
-
-[publica]
-   comment = Pasta Pública
-   path = /srv/samba/arquivos/publica
-   browseable = yes
-   writable = yes
-   guest ok = yes
-   force group = "OFFICINAS\Domain Users"
-   create mask = 0664
-   directory mask = 2775
+   create mask = 0770
+   directory mask = 0770
+   inherit permissions = yes
+   inherit acls = yes
+   inherit owner = yes
 ```
 
 ## 🧱 7. Criar diretórios e permissões
 
 ```bash
-sudo mkdir -p /srv/samba/arquivos/{diretoria,financeiro,publica}
-```
-```bash
-sudo chmod 2770 -R /srv/samba/arquivos/diretoria
-sudo chmod 2770 -R /srv/samba/arquivos/financeiro
-sudo chmod 2775 -R /srv/samba/arquivos/publica
+sudo mkdir -p /srv/samba/arquivos
+sudo chown root:"OFFICINAS\Domain Admins" /srv/samba/arquivos
+sudo chmod 0770 /srv/samba/arquivos
 ```
 
+## 👉 Isso significa:
+
+- Apenas Administradores de Domínio terão permissão inicial. Eles poderão, via Windows, criar pastas e definir permissões NTFS granulares (por grupos ou usuários do domínio).
+
+## Valide as permissões do path arquivos com o getfacl 
+
 ```bash
-sudo chown -R root:"OFFICINAS\gdiretoria" /srv/samba/arquivos/diretoria
-sudo chown -R root:"OFFICINAS\gfinanceiro" /srv/samba/arquivos/financeiro
-sudo chown -R root:"OFFICINAS\Domain Users" /srv/samba/arquivos/publica
+getfacl /srv/samba/arquivos
+```
+## Deverá retornar o mapeamento com algo do tipo
+
+```bash
+user::rwx
+group:OFFICINAS\Domain Admins:rwx
 ```
 
 ## 🔗 8. Ingressando o servidor no domínio
@@ -210,11 +210,17 @@ sudo chown -R root:"OFFICINAS\Domain Users" /srv/samba/arquivos/publica
 sudo net ads join -U administrador
 ```
 
-## Teste:
+## Testes da integração:
 
 ```bash
 net ads testjoin
+```
+
+```bash
 wbinfo -u
+```
+
+```bash
 wbinfo -g
 ```
 
@@ -224,6 +230,9 @@ wbinfo -g
 
 ```bash
 sudo systemctl enable smbd nmbd winbind
+```
+
+```bash
 sudo systemctl restart smbd nmbd winbind
 ```
 
@@ -233,7 +242,7 @@ sudo systemctl restart smbd nmbd winbind
 sudo systemctl status winbind
 ```
 
-## 🧩 10. Validar o arquivo de configuração
+## 🧩 10. Validar o arquivo de configuração smb.conf
 
 ```bash
 testparm
@@ -241,13 +250,25 @@ testparm
 
 ## 🧱 11. Acessar os compartilhamentos de rede
 
-## 🪟 No Windows:
+## 🪟 No Windows (usando RSAT) acesse
 
 ```bash
-\\SRVARQUIVOS\diretoria
-\\SRVARQUIVOS\financeiro
-\\SRVARQUIVOS\publica
+\\srvarquivos.officinas.edu\arquivos
 ```
+
+- Crie as pastas (ex: Financeiro, Diretoria, RH, Publica, etc.)
+
+- Clique com o botão direito → Propriedades → Segurança
+
+- Defina permissões por grupos do AD, como:
+
+- OFFICINAS\gfinanceiro
+
+- OFFICINAS\gdiretoria
+
+- OFFICINAS\Domain Users (somente leitura, se desejar)
+
+- O Samba respeitará totalmente essas ACLs (herdadas pelo vfs objects = acl_xattr e inherit acls = yes).
 
 ## 🐧 No Linux:
 
@@ -265,16 +286,18 @@ smb://srvarquivos.officinas.edu/
 
 * Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no SRVDC01 Samba4).
 
+* O módulo acl_xattr permite armazenar as permissões no formato NTFS
+
 
 ## ✅ Conclusão
 
-Este servidor agora:
+* O Linux só define permissões iniciais amplas.
 
-* Autentica usuários diretamente no Controlador de Domínio Samba4 (192.168.70.253);
+* O Windows administra toda a hierarquia de subpastas e ACLs, via GUI (RSAT / Explorer).
 
-* Gerencia permissões por grupos de domínio;
+* A autenticação e controle de acesso continuam centralizados no AD (Samba4).
 
-* Oferece compartilhamentos com controle centralizado pelo AD.
+* Você mantém compatibilidade total com ambientes Windows, incluindo herança de permissões e auditoria.
 
 
 THAT'S ALL FOLKS
