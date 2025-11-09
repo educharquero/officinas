@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estrutura-de-rede-e-dominio" class="md-skip">
+        <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-skip">
           Skip to content
         </a>
       
@@ -497,15 +497,6 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
-    <span class="md-ellipsis">
-      🌐 Estrutura de rede e domínio
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
@@ -2015,15 +2006,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
-    <span class="md-ellipsis">
-      🌐 Estrutura de rede e domínio
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
     <span class="md-ellipsis">
       📦 Instalação e habilitação do servidor DHCP
@@ -2305,15 +2287,12 @@
 <p>🔥 DHCP Server</p>
 <p>🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.</p>
 <hr />
-<h2 id="estrutura-de-rede-e-dominio">🌐 Estrutura de rede e domínio</h2>
-<ul>
-<li>Função    Hostname    IP  Observações</li>
-<li>Controlador de Domínio    srvdc01.officinas.edu   192.168.70.253  Samba4 AD</li>
-<li>Servidor de Arquivos  srvarquivos.officinas.edu   192.168.70.252  Debian 13</li>
-<li>Gateway/Firewall  firewall.officinas.edu  192.168.70.254  Linux Firewall</li>
-<li>Domínio   OFFICINAS.EDU       Realm Kerberos</li>
-<li>Workgroup OFFICINAS</li>
-</ul>
+<p>🌐 Topologia da rede - Função, endereçamento ip e nomes:</p>
+<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+<p>Domínio AD: OFFICINAS.EDU</p>
+<p>Workgroup: OFFICINAS</p>
 <hr />
 <h2 id="instalacao-e-habilitacao-do-servidor-dhcp">📦 Instalação e habilitação do servidor DHCP</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>isc-dhcp-server
