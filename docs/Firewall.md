@@ -2,7 +2,9 @@
 
 ## 🎯 Objetivo
 
-## Criar um servidor de **firewall e roteamento** entre duas redes, utilizando **iptables** no **Debian 13**, com duas interfaces de rede:
+## Criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**
+
+## Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
 
 - **Roteador** → WEB 192.168.0.1
 - **DNS**      → SRVDC01 192.168.70.253
@@ -187,14 +189,25 @@ echo "......................................Firewall carregado com sucesso!"
 
 ## Os principais estados são:
 
-- Estado	Significado
 - NEW	Pacote que inicia uma nova conexão (ex: primeiro SYN em TCP).
 - ESTABLISHED	Pacote que faz parte de uma conexão já estabelecida.
 - RELATED	Pacote que pertence a uma conexão relacionada a outra já existente (ex: FTP data após controle).
 - INVALID	Pacote sem estado reconhecível (corrompido ou fora de contexto).
 - UNTRACKED	Pacote que não está sendo rastreado pelo conntrack.
 
-## ⚙️  Aplicar e salvar o firewall
+## 💡 O que faz --ctstate NEW
+
+* O estado NEW indica que o pacote está tentando iniciar uma nova conexão.
+
+## Por exemplo:
+
+* O primeiro pacote TCP (SYN)
+
+* Um primeiro pacote UDP (sem conexão prévia)
+
+* Uma requisição ICMP de eco (ping) ainda não rastreada
+
+## ⚙️  Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
 
 ## Torne o script executável:
 
