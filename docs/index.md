@@ -31,10 +31,10 @@
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
-- [DC1 Binarios](./DC1_pacotes_binarios.md)
+- [PDC_Server](./PDC_Controlador_de_Dominio_Primario.md)
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
-- [Fileserver Debian binario](./Fileserver_Debian.md)
+- [Fileserver](./Fileserver.md)
 - [Firewall Server](./Firewall_Server.md)
 - [MkDocs Server](./Mkdocs_Server.md)
 - [NFS Server](./NFS_Server.md)

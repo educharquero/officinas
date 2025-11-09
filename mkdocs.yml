@@ -21,11 +21,10 @@ nav:
     - 'Firewall Server': 'Firewall_Server.md'
     - 'MkDocs Server': 'Mkdocs_Server.md'
     - 'NFS Server': 'NFS_Server.md'
-    - 'File Servers':
-      - 'Fileserver Debian': 'Fileserver_Debian.md'
-      - 'Fileserver sem RSAT': 'Fileserver_sem_RSAT.md'
+    - 'Servidor de Arquivos':
+      - 'Fileserver': 'Fileserver.md'
     - 'Controladores de Domínio':
-      - 'DC-1 Pacotes Binários': 'DC1_pacotes_binarios.md'
+      - 'PDC Server': 'PDC_Controlador_de_Dominio_Primario.md'
   - 📂 'Distros Linux':
     - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
     - 'Devuan Linux': 'Devuan_Linux.md'
