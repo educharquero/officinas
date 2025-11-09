@@ -2331,11 +2331,23 @@
 <h2 id="toda-a-criacao-e-gerenciamento-de-usuarios-e-grupos-sera-feita-via-rsat-ferramentas-de-administracao-remota-do-active-directory-em-estacoes-windows-nao-diretamente-pelo-samba-no-linux-de-acordo-com-a-proposta-e-melhor-pratica-do-samba4">Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.</h2>
 <hr />
 <h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
+<ul>
+<li>
 <p>Firewall: SRVFIREWALL 192.168.70.254</p>
+</li>
+<li>
 <p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+</li>
+<li>
 <p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+</li>
+<li>
 <p>Domínio AD: OFFICINAS.EDU</p>
+</li>
+<li>
 <p>Workgroup: OFFICINAS</p>
+</li>
+</ul>
 <hr />
 <h2 id="editar-o-arquivo-de-interfaces">📘 Editar o arquivo de interfaces:</h2>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces

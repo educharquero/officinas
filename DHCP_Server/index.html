@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-skip">
+        <a href="#dhcp-server" class="md-skip">
           Skip to content
         </a>
       
@@ -459,6 +459,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -491,12 +493,32 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-objetivo-nesse-tutorial-e-configurar-um-servidor-dhcp-no-debian-13-com-concessoes-dinamicas-e-reservas-fixas-integrando-se-a-rede-interna-19216870024-apontando-o-gateway-para-o-firewall-e-o-dns-para-o-controlador-de-dominio-bem-como-setando-um-range-de-distribuicao-de-ips-aos-clientes-da-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
@@ -1998,12 +2020,32 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#o-objetivo-nesse-tutorial-e-configurar-um-servidor-dhcp-no-debian-13-com-concessoes-dinamicas-e-reservas-fixas-integrando-se-a-rede-interna-19216870024-apontando-o-gateway-para-o-firewall-e-o-dns-para-o-controlador-de-dominio-bem-como-setando-um-range-de-distribuicao-de-ips-aos-clientes-da-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#instalacao-e-habilitacao-do-servidor-dhcp" class="md-nav__link">
@@ -2282,17 +2324,27 @@
 
 
 
-  <h1>DHCP Server</h1>
-
-<p>🔥 DHCP Server</p>
-<p>🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.</p>
+<h1 id="dhcp-server">🔥 DHCP Server</h1>
+<h2 id="o-objetivo-nesse-tutorial-e-configurar-um-servidor-dhcp-no-debian-13-com-concessoes-dinamicas-e-reservas-fixas-integrando-se-a-rede-interna-19216870024-apontando-o-gateway-para-o-firewall-e-o-dns-para-o-controlador-de-dominio-bem-como-setando-um-range-de-distribuicao-de-ips-aos-clientes-da-rede">🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.</h2>
 <hr />
-<p>🌐 Topologia da rede - Função, endereçamento ip e nomes:</p>
+<h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
+<ul>
+<li>
 <p>Firewall: SRVFIREWALL 192.168.70.254</p>
+</li>
+<li>
 <p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+</li>
+<li>
 <p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+</li>
+<li>
 <p>Domínio AD: OFFICINAS.EDU</p>
+</li>
+<li>
 <p>Workgroup: OFFICINAS</p>
+</li>
+</ul>
 <hr />
 <h2 id="instalacao-e-habilitacao-do-servidor-dhcp">📦 Instalação e habilitação do servidor DHCP</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>isc-dhcp-server
