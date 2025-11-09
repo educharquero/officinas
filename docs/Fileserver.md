@@ -6,7 +6,7 @@
 
 ---
 
-## 🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
+## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
 
 Firewall: SRVFIREWALL 192.168.70.254
 

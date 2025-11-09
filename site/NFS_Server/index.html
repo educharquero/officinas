@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nfs-server-no-debian-linux" class="md-skip">
+        <a href="#nfs-server-no-debian-13-para-disponibilizar-diretorios" class="md-skip">
           Skip to content
         </a>
       
@@ -649,114 +649,225 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-pre-requisitos" class="md-nav__link">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🖥️ 1. Pré-requisitos
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-instalando-o-servidor-nfs" class="md-nav__link">
+  <a href="#instalando-o-pacote-do-nfs-server" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 2. Instalando o Servidor NFS
+      📦 Instalando o pacote do NFS Server
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-criando-diretorio-para-compartilhamento" class="md-nav__link">
+  <a href="#no-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      📂 3. Criando Diretório para Compartilhamento
+      No servidor:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sudo-ls-l-srvnfsminha-pasta" class="md-nav__link">
+  <a href="#criando-o-diretorio-para-compartilhamento" class="md-nav__link">
     <span class="md-ellipsis">
-      sudo ls -l /srv/nfs/&lt;minha-pasta&gt;
+      📂 Criando o Diretório para Compartilhamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta" class="md-nav__link">
+  <a href="#crie-a-pasta-que-sera-compartilhada" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ 4. Configurando o Arquivo de EXPORTAÇÃO para a rede ter acesso á SUA pasta.
+      Crie a pasta que será compartilhada:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-iniciando-e-habilitando-o-servico" class="md-nav__link">
+  <a href="#defina-as-permissoes-exemplo-acesso-leituraescrita-para-todos-os-clientes-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      ▶️ 5. Iniciando e Habilitando o Serviço
+      Defina as permissões (exemplo: acesso leitura/escrita para todos os clientes da rede):
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-configurando-o-cliente-nfs" class="md-nav__link">
+  <a href="#valide-as-permissoes" class="md-nav__link">
     <span class="md-ellipsis">
-      💻 7. Configurando o Cliente NFS
+      Valide as permissões:
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="💻 7. Configurando o Cliente NFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-instale-o-cliente-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.1 Instale o cliente NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-crie-um-ponto-de-montagem" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.2 Crie um ponto de montagem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-monte-manualmente-o-compartilhamento" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.3 Monte manualmente o compartilhamento
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#74-montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4 Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-testando-a-configuracao" class="md-nav__link">
+  <a href="#configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta" class="md-nav__link">
     <span class="md-ellipsis">
-      🛠️ 8. Testando a Configuração
+      ⚙️ Configurando o Arquivo de EXPORTAÇÃO para a rede ter acesso á SUA pasta.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-etcexports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo /etc/exports:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adicione-uma-linha-especificando-o-diretorio-e-as-permissoes-exemplo-compartilhar-para-toda-a-rede-local-1921680024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicione uma linha especificando o diretório e as permissões. Exemplo, compartilhar para toda a rede local 192.168.0.0/24:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parâmetros principais:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-salvar-aplique-as-configuracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após salvar, aplique as configurações:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-e-habilitando-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      ▶️ Iniciando e Habilitando o Serviço
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-o-cliente-nfs-que-podem-ser-maquinas-linux-ou-windows-com-o-pacote-nfs-client-instalado" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Configurando o Cliente NFS, que podem ser máquinas Linux ou Windows com o pacote nfs-client instalado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-pacote-do-cliente-nfs-no-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o pacote do cliente NFS no Debian
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-um-ponto-de-montagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie um ponto de montagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monte-manualmente-o-compartilhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monte manualmente o compartilhamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-com" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide com:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-fstab-e-adicione-o-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo fstab e adicione o path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-a-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Testando a Configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      No cliente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-no-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique no servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-o-arquivo-aparecer-o-compartilhamento-esta-funcionando-corretamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se o arquivo aparecer, o compartilhamento está funcionando corretamente.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-desmontar-use-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para desmontar, use o comando:
     </span>
   </a>
   
@@ -766,6 +877,15 @@
   <a href="#conclusao" class="md-nav__link">
     <span class="md-ellipsis">
       ✅ Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-voce-tem-um-servidor-nfs-configurado-no-debian-linux-com-compartilhamento-acessivel-a-clientes-da-rede-esse-metodo-e-util-para-armazenamento-centralizado-clusters-de-servidores-e-ambientes-de-virtualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora você tem um servidor NFS configurado no Debian Linux, com compartilhamento acessível a clientes da rede. Esse método é útil para armazenamento centralizado, clusters de servidores e ambientes de virtualização.
     </span>
   </a>
   
@@ -1874,114 +1994,225 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-pre-requisitos" class="md-nav__link">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🖥️ 1. Pré-requisitos
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-instalando-o-servidor-nfs" class="md-nav__link">
+  <a href="#instalando-o-pacote-do-nfs-server" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 2. Instalando o Servidor NFS
+      📦 Instalando o pacote do NFS Server
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-criando-diretorio-para-compartilhamento" class="md-nav__link">
+  <a href="#no-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      📂 3. Criando Diretório para Compartilhamento
+      No servidor:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sudo-ls-l-srvnfsminha-pasta" class="md-nav__link">
+  <a href="#criando-o-diretorio-para-compartilhamento" class="md-nav__link">
     <span class="md-ellipsis">
-      sudo ls -l /srv/nfs/&lt;minha-pasta&gt;
+      📂 Criando o Diretório para Compartilhamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta" class="md-nav__link">
+  <a href="#crie-a-pasta-que-sera-compartilhada" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ 4. Configurando o Arquivo de EXPORTAÇÃO para a rede ter acesso á SUA pasta.
+      Crie a pasta que será compartilhada:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-iniciando-e-habilitando-o-servico" class="md-nav__link">
+  <a href="#defina-as-permissoes-exemplo-acesso-leituraescrita-para-todos-os-clientes-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      ▶️ 5. Iniciando e Habilitando o Serviço
+      Defina as permissões (exemplo: acesso leitura/escrita para todos os clientes da rede):
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-configurando-o-cliente-nfs" class="md-nav__link">
+  <a href="#valide-as-permissoes" class="md-nav__link">
     <span class="md-ellipsis">
-      💻 7. Configurando o Cliente NFS
+      Valide as permissões:
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="💻 7. Configurando o Cliente NFS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-instale-o-cliente-nfs" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.1 Instale o cliente NFS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-crie-um-ponto-de-montagem" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.2 Crie um ponto de montagem
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#73-monte-manualmente-o-compartilhamento" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.3 Monte manualmente o compartilhamento
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#74-montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.4 Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-testando-a-configuracao" class="md-nav__link">
+  <a href="#configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta" class="md-nav__link">
     <span class="md-ellipsis">
-      🛠️ 8. Testando a Configuração
+      ⚙️ Configurando o Arquivo de EXPORTAÇÃO para a rede ter acesso á SUA pasta.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-etcexports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo /etc/exports:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adicione-uma-linha-especificando-o-diretorio-e-as-permissoes-exemplo-compartilhar-para-toda-a-rede-local-1921680024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicione uma linha especificando o diretório e as permissões. Exemplo, compartilhar para toda a rede local 192.168.0.0/24:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parâmetros principais:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-salvar-aplique-as-configuracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após salvar, aplique as configurações:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-e-habilitando-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      ▶️ Iniciando e Habilitando o Serviço
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-o-cliente-nfs-que-podem-ser-maquinas-linux-ou-windows-com-o-pacote-nfs-client-instalado" class="md-nav__link">
+    <span class="md-ellipsis">
+      💻 Configurando o Cliente NFS, que podem ser máquinas Linux ou Windows com o pacote nfs-client instalado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instale-o-pacote-do-cliente-nfs-no-debian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instale o pacote do cliente NFS no Debian
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-um-ponto-de-montagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie um ponto de montagem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monte-manualmente-o-compartilhamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monte manualmente o compartilhamento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-com" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide com:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-fstab-e-adicione-o-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo fstab e adicione o path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testando-a-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Testando a Configuração
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#no-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      No cliente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-no-servidor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique no servidor:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#se-o-arquivo-aparecer-o-compartilhamento-esta-funcionando-corretamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Se o arquivo aparecer, o compartilhamento está funcionando corretamente.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#para-desmontar-use-o-comando" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para desmontar, use o comando:
     </span>
   </a>
   
@@ -1991,6 +2222,15 @@
   <a href="#conclusao" class="md-nav__link">
     <span class="md-ellipsis">
       ✅ Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agora-voce-tem-um-servidor-nfs-configurado-no-debian-linux-com-compartilhamento-acessivel-a-clientes-da-rede-esse-metodo-e-util-para-armazenamento-centralizado-clusters-de-servidores-e-ambientes-de-virtualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agora você tem um servidor NFS configurado no Debian Linux, com compartilhamento acessível a clientes da rede. Esse método é útil para armazenamento centralizado, clusters de servidores e ambientes de virtualização.
     </span>
   </a>
   
@@ -2012,94 +2252,103 @@
 
 
 
-<h1 id="nfs-server-no-debian-linux">📁 NFS Server no Debian Linux</h1>
-<p>O <strong>NFS (Network File System)</strong> permite que sistemas Linux compartilhem diretórios e arquivos pela rede, como se estivessem em um mesmo disco local.<br />
-Neste tutorial, você aprenderá a configurar um servidor NFS no <strong>Debian Linux</strong> e montar os compartilhamentos em clientes.</p>
+<h1 id="nfs-server-no-debian-13-para-disponibilizar-diretorios">🔥 NFS Server no Debian 13 para disponibilizar diretórios</h1>
+<p>🎯 O Objetivo nesse tutorial de <strong>NFS (Network File System)</strong> é permitir que sistemas Linux compartilhem diretórios e arquivos pela rede, como se estivessem em um mesmo disco local.  </p>
 <hr />
-<h2 id="1-pre-requisitos">🖥️ 1. Pré-requisitos</h2>
+<h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
 <ul>
-<li>Um servidor rodando <strong>Linux</strong></li>
-<li>Acesso root ou permissões <code>sudo</code></li>
-<li>Um ou mais clientes Linux (também pode ser Debian, Ubuntu, CentOS, etc.)</li>
+<li>
+<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+</li>
+<li>
+<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+</li>
+<li>
+<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+</li>
+<li>
+<p>Domínio AD: OFFICINAS.EDU</p>
+</li>
+<li>
+<p>Workgroup: OFFICINAS</p>
+</li>
 </ul>
 <hr />
-<h2 id="2-instalando-o-servidor-nfs">📦 2. Instalando o Servidor NFS</h2>
-<p>No servidor:</p>
+<h2 id="instalando-o-pacote-do-nfs-server">📦 Instalando o pacote do NFS Server</h2>
+<h2 id="no-servidor">No servidor:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server<span class="w"> </span>-y
 </code></pre></div>
-<hr />
-<h2 id="3-criando-diretorio-para-compartilhamento">📂 3. Criando Diretório para Compartilhamento</h2>
-<p>Crie a pasta que será compartilhada:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/nfs/&lt;minha-pasta&gt;
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nfs-kernel-server
 </code></pre></div>
-<p>Defina as permissões (exemplo: acesso leitura/escrita para todos os clientes da rede):</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody:nogroup<span class="w"> </span>/srv/nfs/&lt;minha-pasta&gt;
-sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>/srv/nfs/&lt;minha-pasta&gt;
+<h2 id="criando-o-diretorio-para-compartilhamento">📂 Criando o Diretório para Compartilhamento</h2>
+<h2 id="crie-a-pasta-que-sera-compartilhada">Crie a pasta que será compartilhada:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/nfs/compartilhado
 </code></pre></div>
-<p>Valide as permissões:</p>
-<h2 id="sudo-ls-l-srvnfsminha-pasta"><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/srv/nfs/&lt;minha-pasta&gt;
-</code></pre></div></h2>
-<h2 id="4-configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta">⚙️ 4. Configurando o Arquivo de <code>EXPORTAÇÃO</code> para a rede ter acesso á SUA pasta.</h2>
-<p>Edite o arquivo <code>/etc/exports</code>:</p>
+<h2 id="defina-as-permissoes-exemplo-acesso-leituraescrita-para-todos-os-clientes-da-rede">Defina as permissões (exemplo: acesso leitura/escrita para todos os clientes da rede):</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>nobody:nogroup<span class="w"> </span>/srv/nfs/compartilhado
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">777</span><span class="w"> </span>/srv/nfs/compartilhado
+</code></pre></div>
+<h2 id="valide-as-permissoes">Valide as permissões:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>/srv/nfs/compartilhado
+</code></pre></div>
+<h2 id="configurando-o-arquivo-de-exportacao-para-a-rede-ter-acesso-a-sua-pasta">⚙️  Configurando o Arquivo de <code>EXPORTAÇÃO</code> para a rede ter acesso á SUA pasta.</h2>
+<h2 id="edite-o-arquivo-etcexports">Edite o arquivo <code>/etc/exports</code>:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/exports
 </code></pre></div>
-<p>Adicione uma linha especificando o diretório e as permissões.<br />
-Exemplo (compartilhar para toda a rede local <code>192.168.0.0/24</code>):</p>
-<div class="highlight"><pre><span></span><code>/srv/nfs/&lt;minha-pasta&gt;<span class="w"> </span><span class="m">192</span>.168.0.0/24<span class="o">(</span>rw,sync,no_subtree_check,no_root_squash<span class="o">)</span>
+<h2 id="adicione-uma-linha-especificando-o-diretorio-e-as-permissoes-exemplo-compartilhar-para-toda-a-rede-local-1921680024">Adicione uma linha especificando o diretório e as permissões. Exemplo, compartilhar para toda a rede local <code>192.168.0.0/24</code>:</h2>
+<div class="highlight"><pre><span></span><code>/srv/nfs/compartilhado<span class="w"> </span><span class="m">192</span>.168.0.0/24<span class="o">(</span>rw,sync,no_subtree_check,no_root_squash<span class="o">)</span>
 </code></pre></div>
-<p>Parâmetros principais:</p>
+<h2 id="parametros-principais">Parâmetros principais:</h2>
 <ul>
 <li><code>rw</code> → leitura e escrita</li>
 <li><code>sync</code> → grava dados imediatamente no disco (mais seguro)</li>
 <li><code>no_subtree_check</code> → melhora desempenho em subdiretórios</li>
 <li><code>no_root_squash</code> → Permite acesso sem o usuário root</li>
 </ul>
-<p>Após salvar, aplique as configurações:</p>
+<h2 id="apos-salvar-aplique-as-configuracoes">Após salvar, aplique as configurações:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>exportfs<span class="w"> </span>-ra
 </code></pre></div>
-<hr />
-<h2 id="5-iniciando-e-habilitando-o-servico">▶️ 5. Iniciando e Habilitando o Serviço</h2>
+<h2 id="iniciando-e-habilitando-o-servico">▶️  Iniciando e Habilitando o Serviço</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nfs-server
-sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nfs-server
-sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nfs-server
 </code></pre></div>
-<hr />
-<h2 id="7-configurando-o-cliente-nfs">💻 7. Configurando o Cliente NFS</h2>
-<p>No cliente (exemplo: outro Debian/Ubuntu):</p>
-<h3 id="71-instale-o-cliente-nfs">7.1 Instale o cliente NFS</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nfs-common<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nfs-server
 </code></pre></div>
-<h3 id="72-crie-um-ponto-de-montagem">7.2 Crie um ponto de montagem</h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nfs-server
+</code></pre></div>
+<h2 id="configurando-o-cliente-nfs-que-podem-ser-maquinas-linux-ou-windows-com-o-pacote-nfs-client-instalado">💻 Configurando o Cliente NFS, que podem ser máquinas Linux ou Windows com o pacote nfs-client instalado</h2>
+<h2 id="instale-o-pacote-do-cliente-nfs-no-debian">Instale o pacote do cliente NFS no Debian</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nfs-common<span class="w"> </span>
+</code></pre></div>
+<h2 id="crie-um-ponto-de-montagem">Crie um ponto de montagem</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/nfs/compartilhado
 </code></pre></div>
-<h3 id="73-monte-manualmente-o-compartilhamento">7.3 Monte manualmente o compartilhamento</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>&lt;ip-do-amigo&gt;:/srv/nfs/&lt;path-do-amigo<span class="w">  </span>/mnt/nfs/compartilhado
+<h2 id="monte-manualmente-o-compartilhamento">Monte manualmente o compartilhamento</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mount<span class="w"> </span>&lt;ip-remoto&gt;:/srv/nfs/&lt;path-remoto&gt;<span class="w">  </span>/mnt/nfs/compartilhado
 </code></pre></div>
-<p><em>(Substitua <code>&lt;ip-do-amigo&gt;</code> pelo ip do Servidor NFS Remoto)</em></p>
-<p>Verifique com:</p>
+<p><em>(Substitua <code>&lt;ip-remoto&gt;</code> pelo ip do Servidor NFS Remoto)</em></p>
+<h2 id="valide-com">Valide com:</h2>
 <div class="highlight"><pre><span></span><code>df<span class="w"> </span>-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nfs
 </code></pre></div>
-<h3 id="74-montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto">7.4 Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)</h3>
-<p>Edite o arquivo <code>/etc/fstab</code> e adicione:</p>
-<div class="highlight"><pre><span></span><code>&lt;ip-do-amigo&gt;:/srv/nfs/&lt;pasta-do-amigo&gt;<span class="w"> </span>/mnt/nfs/compartilhado<span class="w"> </span>nfs<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+<h2 id="montagem-automatica-no-boot-substitua-com-o-ip-do-servidor-nfs-remoto">Montagem automática no boot (substitua com o ip do Servidor NFS Remoto)</h2>
+<h2 id="edite-o-arquivo-fstab-e-adicione-o-path">Edite o arquivo fstab e adicione o path</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/fstab
 </code></pre></div>
-<hr />
-<h2 id="8-testando-a-configuracao">🛠️ 8. Testando a Configuração</h2>
-<p>No cliente:</p>
+<div class="highlight"><pre><span></span><code>&lt;ip-remoto&gt;:/srv/nfs/&lt;pasta-remota&gt;<span class="w"> </span>/mnt/nfs/compartilhado<span class="w"> </span>nfs<span class="w"> </span>defaults<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<h2 id="testando-a-configuracao">🛠️ Testando a Configuração</h2>
+<h2 id="no-cliente">No cliente:</h2>
 <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>/mnt/nfs/compartilhado/teste.txt
 </code></pre></div>
-<p>Verifique no servidor:</p>
+<h2 id="verifique-no-servidor">Verifique no servidor:</h2>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/srv/nfs/compartilhado/
 </code></pre></div>
-<p>Se o arquivo aparecer, o compartilhamento está funcionando corretamente.</p>
-<hr />
-<p>Para desmontar, use o comando:</p>
+<h2 id="se-o-arquivo-aparecer-o-compartilhamento-esta-funcionando-corretamente">Se o arquivo aparecer, o compartilhamento está funcionando corretamente.</h2>
+<h2 id="para-desmontar-use-o-comando">Para desmontar, use o comando:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>umount<span class="w"> </span>/mnt/nfs/compartilhado<span class="w"> </span>
 </code></pre></div>
 <h2 id="conclusao">✅ Conclusão</h2>
-<p>Agora você tem um servidor <strong>NFS configurado no Debian Linux</strong>, com compartilhamento acessível a clientes da rede.<br />
-Esse método é útil para <strong>armazenamento centralizado, clusters de servidores e ambientes de virtualização</strong>.</p>
+<h2 id="agora-voce-tem-um-servidor-nfs-configurado-no-debian-linux-com-compartilhamento-acessivel-a-clientes-da-rede-esse-metodo-e-util-para-armazenamento-centralizado-clusters-de-servidores-e-ambientes-de-virtualizacao">Agora você tem um servidor <strong>NFS configurado no Debian Linux</strong>, com compartilhamento acessível a clientes da rede. Esse método é útil para <strong>armazenamento centralizado, clusters de servidores e ambientes de virtualização</strong>.</h2>
 <p>That's all Folks!</p>
 
 

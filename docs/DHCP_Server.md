@@ -1,183 +1,292 @@
-# 📁 DHCP Server
+🔥 DHCP Server
 
-## Criando um Servidor de DHCP
+🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
 
-A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!
+---
 
-## Vamos a instalação do pacote do DHCP Server:
+## 🌐 Estrutura de rede e domínio
+
+- Função	Hostname	IP	Observações
+- Controlador de Domínio	srvdc01.officinas.edu	192.168.70.253	Samba4 AD
+- Servidor de Arquivos	srvarquivos.officinas.edu	192.168.70.252	Debian 13
+- Gateway/Firewall	firewall.officinas.edu	192.168.70.254	Linux Firewall
+- Domínio	OFFICINAS.EDU		Realm Kerberos
+- Workgroup	OFFICINAS
+
+---
+
+## 📦 Instalação e habilitação do servidor DHCP
 
 ```bash
-apt-get install isc-dhcp-server
+apt install isc-dhcp-server
 ```
 
-## Agora vamos definir a interface que vai escutar o servidor de DHCP (enp7s0):
+```bash
+systemctl enable isc-dhcp-server
+```
+
+## ⚙️  Definir a interface de escuta (enp2s0)
 
 ```bash
 vim /etc/default/isc-dhcp-server
 ```
 
 ```bash
-INTERFACESv4=”enp7s0″
+INTERFACESv4="enp1s0"
 ```
 
-## Backup do arquivo original:
-
+## 📄 Fazer o backup do arquivo dhcpd.conf
 ```bash
 mv /etc/dhcp/dhcpd.conf{,.orig}
 ```
 
-## Criação do novo arquivo:
+## 🧩 Criar o novo arquivo de configuração
 
 ```bash
 vim /etc/dhcp/dhcpd.conf
 ```
 
 ```bash
-# NOME DE DOMÍNIO:
-option domain-name "officinas.edu.";
+# Nome de domínio e DNS
+option domain-name "officinas.edu";
+option domain-name-servers 192.168.70.253;
 
-# IP DO SERVIDOR DE DNS DA REDE (Separar por vírgula SEM espaço):
-option domain-name-servers 192.168.70.254,1.1.1.1;
-
-# GATEWAY PADRÃO:
+# Gateway padrão
 option routers 192.168.70.254;
 
-# DEFINIÇÃO DE HORÁRIO DA REDE (18000=BR):
-option time-offset -18000;
+# Fuso horário (BR: -3h)
+option time-offset -10800;
 
-# TEMPO DE RENOVAÇÃO DOS ENDEREÇOS IPS POR INATIVIDADE (600=10MIN):
+# Tempo de concessão (em segundos)
+# TEMPO DE RENOVAÇÃO DO LEASE (10 minutos):
 default-lease-time 600;
 
-# TEMPO MÁXIMO DE USO DE UM IP EM UMA MÁQUINA DA REDE:
+# TEMPO MÁXIMO DE LEASE (2 horas):
 max-lease-time 7200;
 
-# DEFINE SE O DHCPD INSERE DINÂMICAMENTE UM NOVO REGISTRO DE MÁQUINA NO DNS SERVER AO FORNECER UM IP:
+# Desativa atualizações dinâmicas no DNS
 ddns-update-style none;
 
-# INDICA QUE O SERVIDOR DE DHCP SERÁ AUTORITATIVO SEMPRE:
+# Define este servidor como autoritativo
 authoritative;
 
-# GERENCIAMENTO DE LOGS:
+# Log padrão
 log-facility local7;
 
-# RANGE DE GERENCIAMENTO DE IPS:
+# REDE LOCAL PRINCIPAL
 subnet 192.168.70.0 netmask 255.255.255.0 {
     range 192.168.70.10 192.168.70.20;
     option routers 192.168.70.254;
+    option domain-name "officinas.edu";
+    option domain-name-servers 192.168.70.253;
+    option broadcast-address 192.168.70.255;
 }
 
-# IPS FIXOS POR MAC ADDRESS:
+# IPs FIXOS POR MAC ADDRESS
 host vmwin10 {
     hardware ethernet 52:54:00:C7:85:A9;
     fixed-address 192.168.70.171;
 }
 
-host PC_Gerente {
-    hardware ethernet 52:54:00:bf:17:be;
+host pc_gerente {
+    hardware ethernet 52:54:00:BF:17:BE;
     fixed-address 192.168.70.111;
 }
 ```
 
-## Agora vamos reiniciar o serviço:
+## 🔄 5. Reiniciar o serviço DHCP
 
 ```bash
 systemctl restart isc-dhcp-server
 ```
 
-## EXTRA: Para trabalhar com múltiplas redes, adicionar ao /etc/default/isc-dhcp-server:
+```bash
+systemctl status isc-dhcp-server
+```
+
+## 🌐 6. Múltiplas Redes (opcional, servidor multi-homed)
+
+## Em ambientes onde o servidor DHCP atende mais de uma sub-rede (por exemplo, LAN principal e rede de almoxarifado), é necessário configurar:
+
+* Interfaces distintas, cada uma com IP próprio (enp2s0 e enp3s0);
+
+* Sub-redes definidas separadamente no arquivo /etc/dhcp/dhcpd.conf;
+
+* (Opcional) Encaminhamento de pacotes ativado se o DHCP estiver roteando entre redes.
+
+## 🖧 Exemplo de topologia
+
+- Interface	IP do Servidor	Rede/Sub-rede	Descrição
+
+- enp1s0	192.168.70.251	192.168.70.0/24	Rede principal
+
+- enp2s0	172.16.254.1	172.16.254.0/24	Rede almoxarifado
+
+## ⚠️  Definir as duas interfaces de escuta, uma para cada sub-rede agora
 
 ```bash
-shared-network rede-almoxarifado {
+INTERFACESv4="enp1s0 enp2s0"
+```
 
-        subnet 172.16.254.0 netmask 255.255.255.0 {
-         range 172.16.254.20 172.16.254.100;
-         option routers 172.16.254.1;
-         option domain-name-servers 8.8.8.8, 8.8.4.4;
-         option broadcast-address 172.16.254.255;
-        }
+## 📄 Configuração das sub-redes
 
-        # Sub-Rede adicional qual entrego apenas ips para os mac x e y:
-        subnet 10.0.0.240 netmask 255.255.255.240 {
-         option routers 10.0.0.241;
-         option domain-name-servers 8.8.8.8, 8.8.4.4;
-         option broadcast-address 10.0.0.255;
+## No arquivo /etc/dhcp/dhcpd.conf, adicione os blocos de subnet (sem necessidade de shared-network, exceto se as redes estiverem na mesma interface física).
 
-         host pc1 {
-           hardware ethernet 70:71:BC:F1:9F:9E;
-           fixed-address 10.0.0.242;
-         }
-         host pc2 {
-           hardware ethernet 70:71:BC:F1:9F:1D;
-           fixed-address 10.0.0.243;
-         }
+## Abra /etc/dhcp/dhcpd.conf e adicione:
 
-         host cel1 {
-           hardware ethernet 08:00:27:18:DC:AA;
-           fixed-address 10.0.0.244;
-         }
-        }
+```bash
+# 🔹 Rede principal
+subnet 192.168.70.0 netmask 255.255.255.0 {
+    range 192.168.70.10 192.168.70.50;
+    option routers 192.168.70.254;
+    option domain-name "officinas.edu";
+    option domain-name-servers 192.168.70.253;
+    option broadcast-address 192.168.70.255;
+    default-lease-time 600;
+    max-lease-time 7200;
+}
+
+# 🔹 Rede do almoxarifado
+subnet 172.16.254.0 netmask 255.255.255.0 {
+    range 172.16.254.20 172.16.254.100;
+    option routers 172.16.254.1;
+    option domain-name "almoxarifado.officinas.edu";
+    option domain-name-servers 8.8.8.8, 8.8.4.4;
+    option broadcast-address 172.16.254.255;
+    default-lease-time 600;
+    max-lease-time 3600;
+}
+
+# 🔹 Reservas fixas (opcional)
+host pc1 {
+    hardware ethernet 70:71:BC:F1:9F:9E;
+    fixed-address 172.16.254.21;
+}
+
+host pc2 {
+    hardware ethernet 08:00:27:18:DC:AA;
+    fixed-address 172.16.254.22;
 }
 ```
 
-## Instale o pacote ieee-data para buscar o fabricante dos dispositivos (manufacturer) com base no MAC:
+## 🔀 Habilitar roteamento entre redes (opcional)
+
+## SE o servidor DHCP também faz a ponte entre redes (por exemplo, serve ambas via NAT ou roteamento), habilite o encaminhamento de pacotes IPv4:
 
 ```bash
-apt install ieee-data
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
 
-## Crie os aliases dos arquivos para os diretórios específios:
+```bash
+sysctl -p
+```
+
+## 🔍 Validação antes de reiniciar
+
+## Sempre teste a sintaxe antes de reiniciar o serviço:
+
+```bash
+dhcpd -t -cf /etc/dhcp/dhcpd.conf
+```
+
+## Se não houver erros:
+
+```bash
+systemctl restart isc-dhcp-server
+```
+
+## 💡 Exemplo de verificação no cliente
+
+## No cliente da rede almoxarifado:
+
+```bash
+sudo dhclient -v -r enp2s0 && sudo dhclient -v enp2s0
+```
+
+## 🔍 7. Consulta de concessões DHCP
+
+Para ver as concessões ativas:
+
+```bash
+dhcp-lease-list
+```
+
+## Exemplo de saída esperada:
+
+```bash
+MAC                IP              hostname       valid until         manufacturer
+52:54:00:C7:85:A9  192.168.70.171  vmwin10        2025-11-07 14:00:00  QEMU
+```
+
+## 🧰 7. Ferramentas úteis. Instalar base de fabricantes (para identificar dispositivos pelo MAC):
+
+```bash
+apt install -y ieee-data
+```
+
+## Crie links simbólicos para compatibilidade:
 
 ```bash
 ln -s /usr/share/ieee-data/oui.txt /usr/share/misc/oui.txt
+```
+
+```bash
 ln -s /usr/share/ieee-data/oui.txt /usr/local/etc/oui.txt
 ```
 
-## Imprime as concessões DHCP ativas:
+## Listar concessões DHCP ativas
 
 ```bash
 dhcp-lease-list
 ```
 
 ```bash
-MAC                IP              hostname       valid until         manufacturer
-
-00:06:14:74:2a:5d  10.0.0.100     -NA-           2020-09-16 13:44:02       Furukawa
+MAC                IP              Hostname       Válido até          Fabricante
+00:06:14:74:2a:5d  10.0.0.100      -NA-           2025-11-07 13:44:02   Furukawa
 ```
 
-## Para uma saída legível por máquina com datas completas:
+## Opções de listagem úteis:
+
+## Saída legível por máquina
 
 ```bash
 dhcp-lease-list --parsable
 ```
 
-## imprime o último MAC:
+## Última concessão
 
 ```bash
 dhcp-lease-list --last
 ```
 
-## imprime todas as entradas, ou seja, mais de um por MAC:
+```bash Todas as concessões (mesmo as expiradas)
 
 ```bash
 dhcp-lease-list --all
 ```
 
-## Validar as locações dhcpd:
+## Ou direto do arquivo:
 
 ```bash
 cat /var/lib/dhcp/dhcpd.leases
 ```
 
-```bash
-lease 10.0.0.100 {
-  starts 3 2020/09/16 14:06:33;
-  ends 3 2020/09/16 14:11:33;
-  cltt 3 2020/09/16 14:06:33;
-  binding state active;
-  next binding state free;
-  rewind binding state free;
-  hardware ethernet 00:06:14:74:2a:5d;
-}
-```
+## 🧠 Dicas e boas práticas
 
-that's all folks!
+* ✅ Use subnets separadas por interface física (não misture pools de VLANs).
+* ✅ Garanta que o roteamento entre redes esteja ativo (net.ipv4.ip_forward=1).
+* ✅ Faça testes de DHCPDISCOVER com dhclient -v -r <iface> no cliente.
+* ✅ Não use shared-network a menos que várias sub-redes compartilhem a mesma interface física.
+* ✅ Mantenha um gateway válido por sub-rede (o DHCP não roteia pacotes).
+* ✅ Evite sobreposição de ranges IP.
+* ✅ Use comentários descritivos por rede (documentação viva).
+* ✅ Configure o firewall para permitir pacotes UDP 67/68 entre interfaces confiáveis.
+* ✅ Está pronto para operar em conjunto com servidores DNS, Firewall e AD/Samba.
+
+
+THAT'S ALL FOLKS
+
+
+
+
+
