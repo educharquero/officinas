@@ -1,6 +1,6 @@
-# 📁 Instalação do Controlador de Domínio Primário com Samba4 no Debian 13
+# 🔥 Instalação do Controlador de Domínio Primário com SAMBA4 no Debian 13
 
-## 🧭 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+## 🎯 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
 
 ---
 

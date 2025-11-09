@@ -1,10 +1,6 @@
 # 🔥 Firewall Server - Debian 13 com Iptables
 
-## 🎯 Objetivo
-
-## Criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**
-
-## Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
+## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
 
 ---
 

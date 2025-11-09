@@ -1,22 +1,24 @@
-# 📁 FileServer integrado ao Domínio
+# 🔥 Servidor de Arquivos com Debian 13 integrado ao Domínio
 
 ## 🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.
 
 ## Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.
 
+---
+
 ## 🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
 
-```bash
-Firewall:                   SRVFIREWALL       192.168.70.254
+Firewall: SRVFIREWALL 192.168.70.254
 
-Controlador de Domínio:     SRVDC01           192.168.70.253
+Controlador de Domínio: SRVDC01 192.168.70.253
 
-FileServer:                 SRVARQUIVOS       192.168.70.252
+FileServer: SRVARQUIVOS 192.168.70.252
 
-Domínio AD:                 OFFICINAS.EDU
+Domínio AD: OFFICINAS.EDU
 
-Workgroup:                  OFFICINAS
-```
+Workgroup: OFFICINAS
+
+---
 
 ## 📘 Editar o arquivo de interfaces:
 
