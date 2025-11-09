@@ -6,6 +6,10 @@
 
 ## Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
 
+---
+
+## Diagrama da rede
+ 
 - **Roteador** → WEB 192.168.0.1
 - **DNS**      → SRVDC01 192.168.70.253
 - **enp1s0**   → WAN 192.168.0.254
