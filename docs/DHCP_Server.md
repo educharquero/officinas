@@ -4,14 +4,17 @@
 
 ---
 
-## 🌐 Estrutura de rede e domínio
+🌐 Topologia da rede - Função, endereçamento ip e nomes:
 
-- Função	Hostname	IP	Observações
-- Controlador de Domínio	srvdc01.officinas.edu	192.168.70.253	Samba4 AD
-- Servidor de Arquivos	srvarquivos.officinas.edu	192.168.70.252	Debian 13
-- Gateway/Firewall	firewall.officinas.edu	192.168.70.254	Linux Firewall
-- Domínio	OFFICINAS.EDU		Realm Kerberos
-- Workgroup	OFFICINAS
+Firewall: SRVFIREWALL 192.168.70.254
+
+Controlador de Domínio: SRVDC01 192.168.70.253
+
+FileServer: SRVARQUIVOS 192.168.70.252
+
+Domínio AD: OFFICINAS.EDU
+
+Workgroup: OFFICINAS
 
 ---
 
