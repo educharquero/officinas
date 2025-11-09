@@ -31,7 +31,7 @@
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
-- [PDC_Server](./PDC_Controlador_de_Dominio_Primario.md)
+- [PDC Server](./PDC_Controlador_de_Dominio_Primario.md)
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
 - [Fileserver](./Fileserver.md)
