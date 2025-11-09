@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#firewall-server-debian-13" class="md-skip">
+        <a href="#firewall-server-debian-13-com-iptables" class="md-skip">
           Skip to content
         </a>
       
@@ -606,9 +606,225 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar um servidor de firewall e roteamento entre duas redes, utilizando iptables no Debian 13, com duas interfaces de rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de interfaces:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplique-as-alteracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplique as alterações:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-se-as-interfaces-subiram-corretamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique se as interfaces subiram corretamente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvedor-de-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Resolvedor de nomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-resolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#habilitar-roteamento-no-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Habilitar roteamento no kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-configuracao-do-sysctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de configuração do sysctl:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ative-a-configuracao-imediatamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ative a configuração imediatamente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-o-iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Instalar o iptables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Substitua o nftables (padrão do Debian 13) pelo iptables clássico:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-o-script-do-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Criar o script do firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie o arquivo /usr/local/bin/firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Aplicar e salvar o firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torne-o-script-executavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Torne o script executável:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rode-o-script-para-subir-as-regras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rode o script para subir as regras:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salve-as-regras-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salve as regras ativas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tornar-o-firewall-persistente-no-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Tornar o firewall persistente no boot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#habilite-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Habilite o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique se as regras estão sendo aplicadas após o reboot:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes-rapidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testes rápidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-com-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com internet:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-com-a-rede-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com a rede lan:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvendo-nomes-e-acesso-a-sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolvendo nomes e acesso a sites:
     </span>
   </a>
   
@@ -1780,9 +1996,225 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar um servidor de firewall e roteamento entre duas redes, utilizando iptables no Debian 13, com duas interfaces de rede:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de interfaces:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplique-as-alteracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplique as alterações:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-se-as-interfaces-subiram-corretamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique se as interfaces subiram corretamente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvedor-de-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Resolvedor de nomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-resolvconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo resolv.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#habilitar-roteamento-no-kernel" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Habilitar roteamento no kernel
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edite-o-arquivo-de-configuracao-do-sysctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edite o arquivo de configuração do sysctl:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ative-a-configuracao-imediatamente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ative a configuração imediatamente:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-o-iptables" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Instalar o iptables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Substitua o nftables (padrão do Debian 13) pelo iptables clássico:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criar-o-script-do-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Criar o script do firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crie o arquivo /usr/local/bin/firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Aplicar e salvar o firewall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#torne-o-script-executavel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Torne o script executável:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rode-o-script-para-subir-as-regras" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rode o script para subir as regras:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salve-as-regras-ativas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salve as regras ativas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tornar-o-firewall-persistente-no-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Tornar o firewall persistente no boot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#habilite-o-servico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Habilite o serviço:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifique se as regras estão sendo aplicadas após o reboot:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testes-rapidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testes rápidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-com-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com internet:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-com-a-rede-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conexão com a rede lan:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resolvendo-nomes-e-acesso-a-sites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resolvendo nomes e acesso a sites:
     </span>
   </a>
   
@@ -1804,77 +2236,67 @@
 
 
 
-<h1 id="firewall-server-debian-13">🔥 Firewall Server - Debian 13</h1>
+<h1 id="firewall-server-debian-13-com-iptables">🔥 Firewall Server - Debian 13 com Iptables</h1>
 <h2 id="objetivo">Objetivo</h2>
-<p>Criar um servidor de <strong>firewall e roteamento</strong> entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>, com duas interfaces de rede:</p>
+<h2 id="criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede">Criar um servidor de <strong>firewall e roteamento</strong> entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>, com duas interfaces de rede:</h2>
 <ul>
-<li><strong>enp1s0</strong> → Rede externa (WAN)</li>
-<li><strong>enp7s0</strong> → Rede interna (LAN)</li>
+<li><strong>Roteador</strong> → WEB 192.168.0.1</li>
+<li><strong>enp1s0</strong> → WAN 192.168.0.254</li>
+<li><strong>enp7s0</strong> → LAN 192.168.70.253</li>
 </ul>
 <hr />
 <h2 id="configuracao-das-interfaces-de-rede">🧩 Configuração das interfaces de rede</h2>
-<p>Edite o arquivo de interfaces:</p>
+<h2 id="edite-o-arquivo-de-interfaces">Edite o arquivo de interfaces:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/network/interfaces
 
 <span class="c1"># Interface externa (WAN)</span>
 allow-hotplug<span class="w"> </span>enp1s0
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.122.254
+<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.0.254
 <span class="w">    </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
-<span class="w">    </span>gateway<span class="w"> </span><span class="m">192</span>.168.122.1
-<span class="w">    </span>dns-nameservers<span class="w"> </span><span class="m">192</span>.168.122.1
+<span class="w">    </span>gateway<span class="w"> </span><span class="m">192</span>.168.0.1
+<span class="w">    </span>dns-nameservers<span class="w"> </span><span class="m">192</span>.168.0.1
 
 <span class="c1"># Interface interna (LAN)</span>
 allow-hotplug<span class="w"> </span>enp7s0
 iface<span class="w"> </span>enp7s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.254
+<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.253
 <span class="w">    </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
-
-Aplique<span class="w"> </span>as<span class="w"> </span>alterações:
-
-systemctl<span class="w"> </span>restart<span class="w"> </span>networking
-
-Verifique<span class="w"> </span>se<span class="w"> </span>as<span class="w"> </span>interfaces<span class="w"> </span>subiram<span class="w"> </span>corretamente:
-
-ip<span class="w"> </span>addr<span class="w"> </span>show
-
-🧭<span class="w"> </span>Resolvedor<span class="w"> </span>de<span class="w"> </span>nomes
-
-Edite<span class="w"> </span>o<span class="w"> </span>arquivo<span class="w"> </span>/etc/resolv.conf:
-
-vim<span class="w"> </span>/etc/resolv.conf
-
-domain<span class="w"> </span>officinas.edu
+</code></pre></div>
+<h2 id="aplique-as-alteracoes">Aplique as alterações:</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
+</code></pre></div>
+<h2 id="verifique-se-as-interfaces-subiram-corretamente">Verifique se as interfaces subiram corretamente:</h2>
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr<span class="w"> </span>show
+</code></pre></div>
+<h2 id="resolvedor-de-nomes">🧭 Resolvedor de nomes</h2>
+<h2 id="edite-o-arquivo-resolvconf">Edite o arquivo resolv.conf:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/resolv.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>domain<span class="w"> </span>officinas.edu
 search<span class="w"> </span>officinas.edu
-nameserver<span class="w"> </span><span class="m">192</span>.168.122.1<span class="w">  </span><span class="c1"># Roteador ou DNS externo</span>
-
-🔄<span class="w"> </span>Habilitar<span class="w"> </span>roteamento<span class="w"> </span>no<span class="w"> </span>kernel
-
-Edite<span class="w"> </span>o<span class="w"> </span>arquivo<span class="w"> </span>de<span class="w"> </span>configuração<span class="w"> </span><span class="k">do</span><span class="w"> </span>sysctl:
-
-vim<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
-
-net.ipv4.ip_forward<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
-
-Ative<span class="w"> </span>a<span class="w"> </span>configuração<span class="w"> </span>imediatamente:
-
-sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
-
-🧱<span class="w"> </span>Instalar<span class="w"> </span>o<span class="w"> </span>iptables
-
-Substitua<span class="w"> </span>o<span class="w"> </span>nftables<span class="w"> </span><span class="o">(</span>padrão<span class="w"> </span><span class="k">do</span><span class="w"> </span>Debian<span class="w"> </span><span class="m">13</span><span class="o">)</span><span class="w"> </span>pelo<span class="w"> </span>iptables<span class="w"> </span>clássico:
-
-apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>nftables
-apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>iptables<span class="w"> </span>iptables-persistent
-
-🔧<span class="w"> </span>Criar<span class="w"> </span>o<span class="w"> </span>script<span class="w"> </span><span class="k">do</span><span class="w"> </span>firewall
-
-Crie<span class="w"> </span>o<span class="w"> </span>arquivo<span class="w"> </span>/usr/local/bin/firewall:
-
-vim<span class="w"> </span>/usr/local/bin/firewall
-
-<span class="sb">```</span>bash
-<span class="c1">#!/usr/bin/env bash</span>
+nameserver<span class="w"> </span><span class="m">192</span>.168.0.1<span class="w">  </span><span class="c1"># Roteador ou DNS externo</span>
+</code></pre></div>
+<h2 id="habilitar-roteamento-no-kernel">🔄 Habilitar roteamento no kernel</h2>
+<h2 id="edite-o-arquivo-de-configuracao-do-sysctl">Edite o arquivo de configuração do sysctl:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>net.ipv4.ip_forward<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<h2 id="ative-a-configuracao-imediatamente">Ative a configuração imediatamente:</h2>
+<div class="highlight"><pre><span></span><code>sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
+</code></pre></div>
+<h2 id="instalar-o-iptables">🧱 Instalar o iptables</h2>
+<h2 id="substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico">Substitua o nftables (padrão do Debian 13) pelo iptables clássico:</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>nftables
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>iptables<span class="w"> </span>iptables-persistent
+</code></pre></div>
+<h2 id="criar-o-script-do-firewall">🔧 Criar o script do firewall</h2>
+<h2 id="crie-o-arquivo-usrlocalbinfirewall">Crie o arquivo /usr/local/bin/firewall:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/usr/local/bin/firewall
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1">###########################################</span>
 <span class="c1">##        FIREWALL - Projeto Officinas   ##</span>
 <span class="c1">##        eduardo.charquero@gmail.com    ##</span>
@@ -1914,7 +2336,7 @@ iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
 
 <span class="c1"># Acesso SSH ao firewall (porta 22254)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.254<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Permitir ping</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-j<span class="w"> </span>ACCEPT
@@ -1931,42 +2353,54 @@ iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"
 iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Redirecionar conexões externas específicas</span>
-<span class="c1"># Exemplo: SSH para o servidor DCMASTER</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22250</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.250:22
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.250<span class="w"> </span>--dport<span class="w"> </span><span class="m">22</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Redirecionar conexões externas para o Firewall</span>
+iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.253:22253
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Exemplo: SSH para o servidor de arquivos</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22200</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.200:22
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.200<span class="w"> </span>--dport<span class="w"> </span><span class="m">22</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Redirecionar conexões externas para o servidor de arquivos</span>
+iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.252:22252
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.252<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Exemplo: RDP para estação de trabalho</span>
+<span class="c1"># Liberar o RDP para estação de trabalho Windows</span>
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.171:3389
 iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.171<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Log básico (opcional)</span>
-<span class="c1"># iptables -A INPUT -j LOG --log-prefix &quot;FIREWALL_DROP: &quot;</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-j<span class="w"> </span>LOG<span class="w"> </span>--log-prefix<span class="w"> </span><span class="s2">&quot;FIREWALL_DROP: &quot;</span>
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Firewall carregado com sucesso!&quot;</span>
 </code></pre></div>
-<p>⚙️ Aplicar e salvar o firewall</p>
-<p>Torne o script executável:</p>
-<p>chmod +x /usr/local/bin/firewall</p>
-<p>Execute:</p>
-<p>/usr/local/bin/firewall</p>
-<p>Salve as regras ativas:</p>
-<p>iptables-save &gt; /etc/iptables/rules.v4</p>
-<p>🧠 Tornar o firewall persistente no boot</p>
-<p>Habilite o serviço:</p>
-<p>systemctl enable netfilter-persistent.service
-systemctl restart netfilter-persistent.service
-systemctl status netfilter-persistent.service</p>
-<p>Verifique se as regras estão sendo aplicadas após o reboot:</p>
-<p>iptables -L -v -n</p>
-<p>✅ Testes rápidos</p>
-<p>ping -c 3 8.8.8.8              # Testar acesso à Internet
-ping -c 3 192.168.70.254       # Testar LAN
-curl http://example.com        # Testar saída HTTP</p>
+<h2 id="aplicar-e-salvar-o-firewall">⚙️ Aplicar e salvar o firewall</h2>
+<h2 id="torne-o-script-executavel">Torne o script executável:</h2>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/firewall
+</code></pre></div>
+<h2 id="rode-o-script-para-subir-as-regras">Rode o script para subir as regras:</h2>
+<div class="highlight"><pre><span></span><code>/usr/local/bin/firewall
+</code></pre></div>
+<h2 id="salve-as-regras-ativas">Salve as regras ativas:</h2>
+<div class="highlight"><pre><span></span><code>iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/rules.v4
+</code></pre></div>
+<h2 id="tornar-o-firewall-persistente-no-boot">🧠 Tornar o firewall persistente no boot</h2>
+<h2 id="habilite-o-servico">Habilite o serviço:</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>netfilter-persistent.service
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>netfilter-persistent.service
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>netfilter-persistent.service
+</code></pre></div>
+<h2 id="verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot">Verifique se as regras estão sendo aplicadas após o reboot:</h2>
+<div class="highlight"><pre><span></span><code>iptables<span class="w"> </span>-L<span class="w"> </span>-v<span class="w"> </span>-n
+</code></pre></div>
+<h2 id="testes-rapidos">✅ Testes rápidos</h2>
+<h2 id="conexao-com-internet">Conexão com internet:</h2>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<h2 id="conexao-com-a-rede-lan">Conexão com a rede lan:</h2>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">192</span>.168.70.253
+</code></pre></div>
+<h2 id="resolvendo-nomes-e-acesso-a-sites">Resolvendo nomes e acesso a sites:</h2>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://google.com
+</code></pre></div>
 <p>THAT'S ALL FOLKS!</p>
 
 
