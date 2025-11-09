@@ -606,9 +606,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede" class="md-nav__link">
+  <a href="#criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar um servidor de firewall e roteamento entre duas redes, utilizando iptables no Debian 13, com duas interfaces de rede:
+      Criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
     </span>
   </a>
   
@@ -759,9 +768,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
+  <a href="#o-que-faz-ctstate-new" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Aplicar e salvar o firewall
+      💡 O que faz --ctstate NEW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-esse-rapido-alinhamento-vamos-aplicar-as-configuracoes-e-salvar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
     </span>
   </a>
   
@@ -2023,9 +2050,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede" class="md-nav__link">
+  <a href="#criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar um servidor de firewall e roteamento entre duas redes, utilizando iptables no Debian 13, com duas interfaces de rede:
+      Criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated" class="md-nav__link">
+    <span class="md-ellipsis">
+      Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
     </span>
   </a>
   
@@ -2176,9 +2212,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
+  <a href="#o-que-faz-ctstate-new" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Aplicar e salvar o firewall
+      💡 O que faz --ctstate NEW
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-exemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Por exemplo:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-esse-rapido-alinhamento-vamos-aplicar-as-configuracoes-e-salvar-o-firewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
     </span>
   </a>
   
@@ -2292,7 +2346,8 @@
 
 <h1 id="firewall-server-debian-13-com-iptables">🔥 Firewall Server - Debian 13 com Iptables</h1>
 <h2 id="objetivo">🎯 Objetivo</h2>
-<h2 id="criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede">Criar um servidor de <strong>firewall e roteamento</strong> entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>, com duas interfaces de rede:</h2>
+<h2 id="criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13">Criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong></h2>
+<h2 id="com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated">Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)</h2>
 <ul>
 <li><strong>Roteador</strong> → WEB 192.168.0.1</li>
 <li><strong>DNS</strong>      → SRVDC01 192.168.70.253</li>
@@ -2439,14 +2494,29 @@ iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> 
 </ul>
 <h2 id="os-principais-estados-sao">Os principais estados são:</h2>
 <ul>
-<li>Estado    Significado</li>
 <li>NEW   Pacote que inicia uma nova conexão (ex: primeiro SYN em TCP).</li>
 <li>ESTABLISHED   Pacote que faz parte de uma conexão já estabelecida.</li>
 <li>RELATED   Pacote que pertence a uma conexão relacionada a outra já existente (ex: FTP data após controle).</li>
 <li>INVALID   Pacote sem estado reconhecível (corrompido ou fora de contexto).</li>
 <li>UNTRACKED Pacote que não está sendo rastreado pelo conntrack.</li>
 </ul>
-<h2 id="aplicar-e-salvar-o-firewall">⚙️  Aplicar e salvar o firewall</h2>
+<h2 id="o-que-faz-ctstate-new">💡 O que faz --ctstate NEW</h2>
+<ul>
+<li>O estado NEW indica que o pacote está tentando iniciar uma nova conexão.</li>
+</ul>
+<h2 id="por-exemplo">Por exemplo:</h2>
+<ul>
+<li>
+<p>O primeiro pacote TCP (SYN)</p>
+</li>
+<li>
+<p>Um primeiro pacote UDP (sem conexão prévia)</p>
+</li>
+<li>
+<p>Uma requisição ICMP de eco (ping) ainda não rastreada</p>
+</li>
+</ul>
+<h2 id="apos-esse-rapido-alinhamento-vamos-aplicar-as-configuracoes-e-salvar-o-firewall">⚙️  Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall</h2>
 <h2 id="torne-o-script-executavel">Torne o script executável:</h2>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/firewall
 </code></pre></div>
