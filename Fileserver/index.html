@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fileserver-integrado-ao-dominio" class="md-skip">
+        <a href="#servidor-de-arquivos-com-debian-13-integrado-ao-dominio" class="md-skip">
           Skip to content
         </a>
       
@@ -2326,20 +2326,17 @@
 
 
 
-<h1 id="fileserver-integrado-ao-dominio">📁 FileServer integrado ao Domínio</h1>
+<h1 id="servidor-de-arquivos-com-debian-13-integrado-ao-dominio">🔥 Servidor de Arquivos com Debian 13 integrado ao Domínio</h1>
 <h2 id="o-objetivo-e-instalar-configurar-e-integrar-o-debian-13-como-um-servidor-de-arquivos-usando-pacotes-do-repositorio-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad-previamente-configurado-e-online-na-rede">🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.</h2>
 <h2 id="toda-a-criacao-e-gerenciamento-de-usuarios-e-grupos-sera-feita-via-rsat-ferramentas-de-administracao-remota-do-active-directory-em-estacoes-windows-nao-diretamente-pelo-samba-no-linux-de-acordo-com-a-proposta-e-melhor-pratica-do-samba4">Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.</h2>
+<hr />
 <h2 id="1-topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 1. Topologia da rede - Função, endereçamento ip e nomes:</h2>
-<div class="highlight"><pre><span></span><code>Firewall:<span class="w">                   </span>SRVFIREWALL<span class="w">       </span><span class="m">192</span>.168.70.254
-
-Controlador<span class="w"> </span>de<span class="w"> </span>Domínio:<span class="w">     </span>SRVDC01<span class="w">           </span><span class="m">192</span>.168.70.253
-
-FileServer:<span class="w">                 </span>SRVARQUIVOS<span class="w">       </span><span class="m">192</span>.168.70.252
-
-Domínio<span class="w"> </span>AD:<span class="w">                 </span>OFFICINAS.EDU
-
-Workgroup:<span class="w">                  </span>OFFICINAS
-</code></pre></div>
+<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+<p>Domínio AD: OFFICINAS.EDU</p>
+<p>Workgroup: OFFICINAS</p>
+<hr />
 <h2 id="editar-o-arquivo-de-interfaces">📘 Editar o arquivo de interfaces:</h2>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces
 </code></pre></div>
