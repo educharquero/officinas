@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fileserver-debian-13-integrado-ao-dominio" class="md-skip">
+        <a href="#fileserver-integrado-ao-dominio" class="md-skip">
           Skip to content
         </a>
       
@@ -720,18 +720,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad" class="md-nav__link">
+  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-debian-13-como-um-servidor-de-arquivos-usando-pacotes-do-repositorio-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad-previamente-configurado-e-online-na-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
+      🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-configuracoes-de-rede-ips-e-nomes" class="md-nav__link">
+  <a href="#toda-a-criacao-e-gerenciamento-de-usuarios-e-grupos-sera-feita-via-rsat-ferramentas-de-administracao-remota-do-active-directory-em-estacoes-windows-nao-diretamente-pelo-samba-no-linux-de-acordo-com-a-proposta-e-melhor-pratica-do-samba4" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 1. Configurações de rede - IPs e nomes:
+      Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
@@ -792,6 +801,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resumo-dos-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Resumo dos pacotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#durante-a-instalacao-configure-o-realm-como" class="md-nav__link">
     <span class="md-ellipsis">
       Durante a instalação, configure o REALM como:
@@ -810,9 +828,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-o-kerberos" class="md-nav__link">
+  <a href="#teste-a-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o Kerberos:
+      Teste a troca de tickets do Kerberos:
     </span>
   </a>
   
@@ -855,6 +873,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#isso-significa" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 Isso significa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-as-permissoes-do-path-arquivos-com-o-getfacl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide as permissões do path arquivos com o getfacl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devera-retornar-o-mapeamento-com-algo-do-tipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deverá retornar o mapeamento com algo do tipo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#8-ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
       🔗 8. Ingressando o servidor no domínio
@@ -864,9 +909,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste" class="md-nav__link">
+  <a href="#testes-da-integracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste:
+      Testes da integração:
     </span>
   </a>
   
@@ -900,9 +945,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-validar-o-arquivo-de-configuracao" class="md-nav__link">
+  <a href="#10-validar-o-arquivo-de-configuracao-smbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 10. Validar o arquivo de configuração
+      🧩 10. Validar o arquivo de configuração smb.conf
     </span>
   </a>
   
@@ -918,9 +963,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#no-windows" class="md-nav__link">
+  <a href="#no-windows-usando-rsat-acesse" class="md-nav__link">
     <span class="md-ellipsis">
-      🪟 No Windows:
+      🪟 No Windows (usando RSAT) acesse
     </span>
   </a>
   
@@ -1987,18 +2032,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad" class="md-nav__link">
+  <a href="#o-objetivo-e-instalar-configurar-e-integrar-o-debian-13-como-um-servidor-de-arquivos-usando-pacotes-do-repositorio-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad-previamente-configurado-e-online-na-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).
+      🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-configuracoes-de-rede-ips-e-nomes" class="md-nav__link">
+  <a href="#toda-a-criacao-e-gerenciamento-de-usuarios-e-grupos-sera-feita-via-rsat-ferramentas-de-administracao-remota-do-active-directory-em-estacoes-windows-nao-diretamente-pelo-samba-no-linux-de-acordo-com-a-proposta-e-melhor-pratica-do-samba4" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 1. Configurações de rede - IPs e nomes:
+      Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
@@ -2059,6 +2113,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#resumo-dos-pacotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Resumo dos pacotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#durante-a-instalacao-configure-o-realm-como" class="md-nav__link">
     <span class="md-ellipsis">
       Durante a instalação, configure o REALM como:
@@ -2077,9 +2140,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-o-kerberos" class="md-nav__link">
+  <a href="#teste-a-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o Kerberos:
+      Teste a troca de tickets do Kerberos:
     </span>
   </a>
   
@@ -2122,6 +2185,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#isso-significa" class="md-nav__link">
+    <span class="md-ellipsis">
+      👉 Isso significa:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide-as-permissoes-do-path-arquivos-com-o-getfacl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide as permissões do path arquivos com o getfacl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devera-retornar-o-mapeamento-com-algo-do-tipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deverá retornar o mapeamento com algo do tipo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#8-ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
       🔗 8. Ingressando o servidor no domínio
@@ -2131,9 +2221,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste" class="md-nav__link">
+  <a href="#testes-da-integracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste:
+      Testes da integração:
     </span>
   </a>
   
@@ -2167,9 +2257,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-validar-o-arquivo-de-configuracao" class="md-nav__link">
+  <a href="#10-validar-o-arquivo-de-configuracao-smbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 10. Validar o arquivo de configuração
+      🧩 10. Validar o arquivo de configuração smb.conf
     </span>
   </a>
   
@@ -2185,9 +2275,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#no-windows" class="md-nav__link">
+  <a href="#no-windows-usando-rsat-acesse" class="md-nav__link">
     <span class="md-ellipsis">
-      🪟 No Windows:
+      🪟 No Windows (usando RSAT) acesse
     </span>
   </a>
   
@@ -2236,20 +2326,19 @@
 
 
 
-<h1 id="fileserver-debian-13-integrado-ao-dominio">📁 FileServer Debian 13 — Integrado ao Domínio</h1>
-<h2 id="o-objetivo-e-instalar-configurar-e-integrar-o-samba4-em-um-servidor-debian-13-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad">🎯 O Objetivo é instalar, configurar e integrar o Samba4 em um servidor Debian 13, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD).</h2>
-<h2 id="1-configuracoes-de-rede-ips-e-nomes">🌐 1. Configurações de rede - IPs e nomes:</h2>
-<div class="highlight"><pre><span></span><code>FileServer:<span class="w"> </span><span class="m">192</span>.168.70.252
+<h1 id="fileserver-integrado-ao-dominio">📁 FileServer integrado ao Domínio</h1>
+<h2 id="o-objetivo-e-instalar-configurar-e-integrar-o-debian-13-como-um-servidor-de-arquivos-usando-pacotes-do-repositorio-criando-compartilhamentos-de-rede-autenticados-via-controlador-de-dominio-samba4-ad-previamente-configurado-e-online-na-rede">🎯 O Objetivo é instalar, configurar e integrar o Debian 13 como um Servidor de Arquivos, usando pacotes do repositório, criando compartilhamentos de rede autenticados via Controlador de Domínio Samba4 (AD), previamente configurado e online na rede.</h2>
+<h2 id="toda-a-criacao-e-gerenciamento-de-usuarios-e-grupos-sera-feita-via-rsat-ferramentas-de-administracao-remota-do-active-directory-em-estacoes-windows-nao-diretamente-pelo-samba-no-linux-de-acordo-com-a-proposta-e-melhor-pratica-do-samba4">Toda a criação e gerenciamento de usuários e grupos será feita via RSAT (Ferramentas de Administração Remota do Active Directory) em estações Windows, não diretamente pelo Samba no Linux, de acordo com a proposta e melhor prática do SAMBA4.</h2>
+<h2 id="1-topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 1. Topologia da rede - Função, endereçamento ip e nomes:</h2>
+<div class="highlight"><pre><span></span><code>Firewall:<span class="w">                   </span>SRVFIREWALL<span class="w">       </span><span class="m">192</span>.168.70.254
 
-Controlador<span class="w"> </span>de<span class="w"> </span>Domínio<span class="w"> </span><span class="o">(</span>SRVDC01<span class="o">)</span>:<span class="w"> </span><span class="m">192</span>.168.70.253
+Controlador<span class="w"> </span>de<span class="w"> </span>Domínio:<span class="w">     </span>SRVDC01<span class="w">           </span><span class="m">192</span>.168.70.253
 
-Gateway/Firewall:<span class="w"> </span><span class="m">192</span>.168.70.254
+FileServer:<span class="w">                 </span>SRVARQUIVOS<span class="w">       </span><span class="m">192</span>.168.70.252
 
-Domínio<span class="w"> </span>AD:<span class="w"> </span>OFFICINAS.EDU
+Domínio<span class="w"> </span>AD:<span class="w">                 </span>OFFICINAS.EDU
 
-Workgroup:<span class="w"> </span>OFFICINAS
-
-Hostname<span class="w"> </span><span class="k">do</span><span class="w"> </span>servidor:<span class="w"> </span>srvarquivos
+Workgroup:<span class="w">                  </span>OFFICINAS
 </code></pre></div>
 <h2 id="editar-o-arquivo-de-interfaces">📘 Editar o arquivo de interfaces:</h2>
 <p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces
@@ -2258,31 +2347,36 @@ Hostname<span class="w"> </span><span class="k">do</span><span class="w"> </span
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
 <span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.252/24
 <span class="w">    </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
-<span class="w">    </span>dns-nameservers<span class="w"> </span><span class="m">192</span>.168.70.253
-<span class="w">    </span>dns-search<span class="w"> </span>officinas.edu
 </code></pre></div></p>
 <h2 id="editar-o-etchosts">📘 Editar o /etc/hosts:</h2>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w">   </span>localhost
 <span class="m">127</span>.0.1.1<span class="w">   </span>srvarquivos
 <span class="m">192</span>.168.70.252<span class="w"> </span>srvarquivos.officinas.edu<span class="w"> </span>srvarquivos
-<span class="m">192</span>.168.70.253<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
 </code></pre></div>
 <h2 id="editar-o-etcresolvconf">📘 Editar o /etc/resolv.conf:</h2>
-<div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
-search<span class="w"> </span>officinas.edu
+<div class="highlight"><pre><span></span><code>search<span class="w"> </span>officinas.edu
+nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
 <h2 id="definir-hostname">📘 Definir hostname:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srvarquivos
 </code></pre></div>
 <h2 id="2-atualizando-o-sistema">🔄 2. Atualizando o sistema:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade<span class="w"> </span>-y
-sudo<span class="w"> </span>reboot
 </code></pre></div>
 <h2 id="3-instalando-os-pacotes-necessarios">📦 3. Instalando os pacotes necessários</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common-bin<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>krb5-user<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-common-bin<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>krb5-user<span class="w"> </span>acl
 </code></pre></div>
+<h2 id="resumo-dos-pacotes">🧱 Resumo dos pacotes</h2>
+<ul>
+<li>krb5-user Autenticação Kerberos (tickets, TGT, TGS)   Comunicação segura com o KDC (srvdc01)</li>
+<li>winbind   Mapeia/traduz usuários/grupos AD → UID/GID locais   Integração com NSS e PAM (NTFS ACLs &lt;--&gt; POSIX GID/UID)</li>
+<li>samba-common-bin  Ferramentas administrativas (net, smbpasswd, etc.)  Operações SMB e ADS</li>
+<li>libnss-winbind / libpam-winbind   Integração com login local (NSS e PAM)</li>
+</ul>
 <h2 id="durante-a-instalacao-configure-o-realm-como">Durante a instalação, configure o REALM como:</h2>
-<div class="highlight"><pre><span></span><code>OFFICINAS.EDU
+<div class="highlight"><pre><span></span><code>REALM:<span class="w"> </span>OFFICINAS.EDU
+KDC:<span class="w"> </span><span class="m">192</span>.168.70.253
+Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
 <h2 id="4-configurando-o-kerberos">🔐 4. Configurando o Kerberos</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
@@ -2303,7 +2397,7 @@ sudo<span class="w"> </span>reboot
 <span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 <span class="w">    </span>officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 </code></pre></div>
-<h2 id="teste-o-kerberos">Teste o Kerberos:</h2>
+<h2 id="teste-a-troca-de-tickets-do-kerberos">Teste a troca de tickets do Kerberos:</h2>
 <div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@OFFICINAS.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
@@ -2321,16 +2415,22 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SRVARQUIVOS
 <span class="w">   </span>server<span class="w"> </span><span class="nv">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Servidor<span class="w"> </span>de<span class="w"> </span>Arquivos<span class="w"> </span>OFFICINAS
 <span class="w">   </span><span class="nv">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ADS
+<span class="w">   </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>member<span class="w"> </span>server
+<span class="w">   </span>map<span class="w"> </span>to<span class="w"> </span><span class="nv">guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Bad<span class="w"> </span>User
+<span class="w">   </span>dns<span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
 
-<span class="w">   </span><span class="c1"># Autenticação via domínio</span>
+<span class="w">   </span><span class="c1"># ACLs e atributos</span>
+<span class="w">   </span>vfs<span class="w"> </span><span class="nv">objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>acl_xattr
+<span class="w">   </span>map<span class="w"> </span>acl<span class="w"> </span><span class="nv">inherit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>store<span class="w"> </span>dos<span class="w"> </span><span class="nv">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+
+<span class="w">   </span><span class="c1"># Permitir nomes longos e compatibilidade com Windows</span>
+<span class="w">   </span>unix<span class="w"> </span><span class="nv">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>UTF-8
+<span class="w">   </span>dos<span class="w"> </span><span class="nv">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CP850
+
+<span class="w">   </span><span class="c1"># Integração AD / Kerberos</span>
 <span class="w">   </span>dedicated<span class="w"> </span>keytab<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/etc/krb5.keytab
 <span class="w">   </span>kerberos<span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secrets<span class="w"> </span>and<span class="w"> </span>keytab
-
-<span class="w">   </span><span class="c1"># IDMAP – mapeamento de IDs de domínio</span>
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000</span>-7999
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
-<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-999999
 
 <span class="w">   </span><span class="c1"># Winbind – integração de usuários/grupos</span>
 <span class="w">   </span>winbind<span class="w"> </span>use<span class="w"> </span>default<span class="w"> </span><span class="nv">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
@@ -2339,83 +2439,94 @@ sudo<span class="w"> </span>reboot
 <span class="w">   </span>template<span class="w"> </span><span class="nv">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/bin/bash
 <span class="w">   </span>template<span class="w"> </span><span class="nv">homedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/%D/%U
 
-<span class="w">   </span><span class="c1"># Acesso geral e logs</span>
-<span class="w">   </span>map<span class="w"> </span>to<span class="w"> </span><span class="nv">guest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Bad<span class="w"> </span>User
-<span class="w">   </span>dns<span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>member<span class="w"> </span>server
+<span class="w">   </span><span class="c1"># IDMAP – mapeamento de IDs de domínio</span>
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000</span>-7999
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-999999
+
+<span class="w">   </span><span class="c1"># Logs</span>
 <span class="w">   </span>log<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/samba/%m.log
 <span class="w">   </span>max<span class="w"> </span>log<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span>
 
-<span class="c1"># Compartilhamentos</span>
-
-<span class="o">[</span>diretoria<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Diretoria
-<span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/diretoria
+<span class="c1"># Compartilhamentos de rede</span>
+<span class="o">[</span>arquivos<span class="o">]</span>
+<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Compartilhamentos<span class="w"> </span>da<span class="w"> </span>Rede
+<span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos
 <span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span>
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span>
-<span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
-<span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
-
-<span class="o">[</span>financeiro<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Financeiro
-<span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/financeiro
-<span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span>
-<span class="w">   </span>write<span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span>
-<span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0660</span>
-<span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2770</span>
-
-<span class="o">[</span>publica<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Pasta<span class="w"> </span>Pública
-<span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos/publica
-<span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>force<span class="w"> </span><span class="nv">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;OFFICINAS\Domain Users&quot;</span>
-<span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0664</span>
-<span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2775</span>
+<span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
+<span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
+<span class="w">   </span>inherit<span class="w"> </span><span class="nv">permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>inherit<span class="w"> </span><span class="nv">acls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>inherit<span class="w"> </span><span class="nv">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 </code></pre></div>
 <h2 id="7-criar-diretorios-e-permissoes">🧱 7. Criar diretórios e permissões</h2>
-<p><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos/<span class="o">{</span>diretoria,financeiro,publica<span class="o">}</span>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos
+sudo<span class="w"> </span>chown<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\Domain Admins&quot;</span><span class="w"> </span>/srv/samba/arquivos
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">0770</span><span class="w"> </span>/srv/samba/arquivos
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/diretoria
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2770</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/financeiro
-sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">2775</span><span class="w"> </span>-R<span class="w"> </span>/srv/samba/arquivos/publica
-</code></pre></div></p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\gdiretoria&quot;</span><span class="w"> </span>/srv/samba/arquivos/diretoria
-sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\gfinanceiro&quot;</span><span class="w"> </span>/srv/samba/arquivos/financeiro
-sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;OFFICINAS\Domain Users&quot;</span><span class="w"> </span>/srv/samba/arquivos/publica
+<h2 id="isso-significa">👉 Isso significa:</h2>
+<ul>
+<li>Apenas Administradores de Domínio terão permissão inicial. Eles poderão, via Windows, criar pastas e definir permissões NTFS granulares (por grupos ou usuários do domínio).</li>
+</ul>
+<h2 id="valide-as-permissoes-do-path-arquivos-com-o-getfacl">Valide as permissões do path arquivos com o getfacl</h2>
+<div class="highlight"><pre><span></span><code>getfacl<span class="w"> </span>/srv/samba/arquivos
+</code></pre></div>
+<h2 id="devera-retornar-o-mapeamento-com-algo-do-tipo">Deverá retornar o mapeamento com algo do tipo</h2>
+<div class="highlight"><pre><span></span><code>user::rwx
+group:OFFICINAS<span class="se">\D</span>omain<span class="w"> </span>Admins:rwx
 </code></pre></div>
 <h2 id="8-ingressando-o-servidor-no-dominio">🔗 8. Ingressando o servidor no domínio</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
 </code></pre></div>
-<h2 id="teste">Teste:</h2>
+<h2 id="testes-da-integracao">Testes da integração:</h2>
 <div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>testjoin
-wbinfo<span class="w"> </span>-u
-wbinfo<span class="w"> </span>-g
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-g
 </code></pre></div>
 <h2 id="se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok">Se retornar listas de usuários e grupos do domínio → integração OK ✅</h2>
 <h2 id="9-ativar-e-reiniciar-os-servicos">🔄 9. Ativar e reiniciar os serviços</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
-sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
 </code></pre></div>
 <h2 id="verificar-status">Verificar status:</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
 </code></pre></div>
-<h2 id="10-validar-o-arquivo-de-configuracao">🧩 10. Validar o arquivo de configuração</h2>
+<h2 id="10-validar-o-arquivo-de-configuracao-smbconf">🧩 10. Validar o arquivo de configuração smb.conf</h2>
 <div class="highlight"><pre><span></span><code>testparm
 </code></pre></div>
 <h2 id="11-acessar-os-compartilhamentos-de-rede">🧱 11. Acessar os compartilhamentos de rede</h2>
-<h2 id="no-windows">🪟 No Windows:</h2>
-<div class="highlight"><pre><span></span><code><span class="se">\\</span>SRVARQUIVOS<span class="se">\d</span>iretoria
-<span class="se">\\</span>SRVARQUIVOS<span class="se">\f</span>inanceiro
-<span class="se">\\</span>SRVARQUIVOS<span class="se">\p</span>ublica
+<h2 id="no-windows-usando-rsat-acesse">🪟 No Windows (usando RSAT) acesse</h2>
+<div class="highlight"><pre><span></span><code><span class="se">\\</span>srvarquivos.officinas.edu<span class="se">\a</span>rquivos
 </code></pre></div>
+<ul>
+<li>
+<p>Crie as pastas (ex: Financeiro, Diretoria, RH, Publica, etc.)</p>
+</li>
+<li>
+<p>Clique com o botão direito → Propriedades → Segurança</p>
+</li>
+<li>
+<p>Defina permissões por grupos do AD, como:</p>
+</li>
+<li>
+<p>OFFICINAS\gfinanceiro</p>
+</li>
+<li>
+<p>OFFICINAS\gdiretoria</p>
+</li>
+<li>
+<p>OFFICINAS\Domain Users (somente leitura, se desejar)</p>
+</li>
+<li>
+<p>O Samba respeitará totalmente essas ACLs (herdadas pelo vfs objects = acl_xattr e inherit acls = yes).</p>
+</li>
+</ul>
 <h2 id="no-linux">🐧 No Linux:</h2>
 <div class="highlight"><pre><span></span><code>smb://srvarquivos.officinas.edu/
 </code></pre></div>
@@ -2433,18 +2544,23 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <li>
 <p>Os grupos gdiretoria, gfinanceiro devem existir no domínio (criados no SRVDC01 Samba4).</p>
 </li>
+<li>
+<p>O módulo acl_xattr permite armazenar as permissões no formato NTFS</p>
+</li>
 </ul>
 <h2 id="conclusao">✅ Conclusão</h2>
-<p>Este servidor agora:</p>
 <ul>
 <li>
-<p>Autentica usuários diretamente no Controlador de Domínio Samba4 (192.168.70.253);</p>
+<p>O Linux só define permissões iniciais amplas.</p>
 </li>
 <li>
-<p>Gerencia permissões por grupos de domínio;</p>
+<p>O Windows administra toda a hierarquia de subpastas e ACLs, via GUI (RSAT / Explorer).</p>
 </li>
 <li>
-<p>Oferece compartilhamentos com controle centralizado pelo AD.</p>
+<p>A autenticação e controle de acesso continuam centralizados no AD (Samba4).</p>
+</li>
+<li>
+<p>Você mantém compatibilidade total com ambientes Windows, incluindo herança de permissões e auditoria.</p>
 </li>
 </ul>
 <p>THAT'S ALL FOLKS</p>
