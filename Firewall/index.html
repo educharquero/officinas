@@ -599,7 +599,7 @@
         <li class="md-nav__item">
   <a href="#objetivo" class="md-nav__link">
     <span class="md-ellipsis">
-      Objetivo
+      🎯 Objetivo
     </span>
   </a>
   
@@ -660,18 +660,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-resolvconf" class="md-nav__link">
+  <a href="#edite-o-arquivo-resolvconf-apontando-o-resolvedor-interno-ou-externo" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo resolv.conf:
+      Edite o arquivo resolv.conf apontando o resolvedor interno ou externo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#habilitar-roteamento-no-kernel" class="md-nav__link">
+  <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Habilitar roteamento no kernel
+      🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
     </span>
   </a>
   
@@ -822,9 +822,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resolvendo-nomes-e-acesso-a-sites" class="md-nav__link">
+  <a href="#validando-nat-e-dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolvendo nomes e acesso a sites:
+      Validando NAT e DNS:
     </span>
   </a>
   
@@ -1989,7 +1989,7 @@
         <li class="md-nav__item">
   <a href="#objetivo" class="md-nav__link">
     <span class="md-ellipsis">
-      Objetivo
+      🎯 Objetivo
     </span>
   </a>
   
@@ -2050,18 +2050,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-resolvconf" class="md-nav__link">
+  <a href="#edite-o-arquivo-resolvconf-apontando-o-resolvedor-interno-ou-externo" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo resolv.conf:
+      Edite o arquivo resolv.conf apontando o resolvedor interno ou externo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#habilitar-roteamento-no-kernel" class="md-nav__link">
+  <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Habilitar roteamento no kernel
+      🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
     </span>
   </a>
   
@@ -2212,9 +2212,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#resolvendo-nomes-e-acesso-a-sites" class="md-nav__link">
+  <a href="#validando-nat-e-dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Resolvendo nomes e acesso a sites:
+      Validando NAT e DNS:
     </span>
   </a>
   
@@ -2237,12 +2237,13 @@
 
 
 <h1 id="firewall-server-debian-13-com-iptables">🔥 Firewall Server - Debian 13 com Iptables</h1>
-<h2 id="objetivo">Objetivo</h2>
+<h2 id="objetivo">🎯 Objetivo</h2>
 <h2 id="criar-um-servidor-de-firewall-e-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-duas-interfaces-de-rede">Criar um servidor de <strong>firewall e roteamento</strong> entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>, com duas interfaces de rede:</h2>
 <ul>
 <li><strong>Roteador</strong> → WEB 192.168.0.1</li>
-<li><strong>enp1s0</strong> → WAN 192.168.0.254</li>
-<li><strong>enp7s0</strong> → LAN 192.168.70.253</li>
+<li><strong>DNS</strong>      → SRVDC01 192.168.70.253</li>
+<li><strong>enp1s0</strong>   → WAN 192.168.0.254</li>
+<li><strong>enp7s0</strong>   → LAN 192.168.70.254</li>
 </ul>
 <hr />
 <h2 id="configuracao-das-interfaces-de-rede">🧩 Configuração das interfaces de rede</h2>
@@ -2260,7 +2261,7 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 <span class="c1"># Interface interna (LAN)</span>
 allow-hotplug<span class="w"> </span>enp7s0
 iface<span class="w"> </span>enp7s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">    </span>address<span class="w"> </span><span class="m">192</span>.168.70.254
 <span class="w">    </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
 </code></pre></div>
 <h2 id="aplique-as-alteracoes">Aplique as alterações:</h2>
@@ -2270,18 +2271,20 @@ iface<span class="w"> </span>enp7s0<span class="w"> </span>inet<span class="w"> 
 <div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr<span class="w"> </span>show
 </code></pre></div>
 <h2 id="resolvedor-de-nomes">🧭 Resolvedor de nomes</h2>
-<h2 id="edite-o-arquivo-resolvconf">Edite o arquivo resolv.conf:</h2>
+<h2 id="edite-o-arquivo-resolvconf-apontando-o-resolvedor-interno-ou-externo">Edite o arquivo resolv.conf apontando o resolvedor interno ou externo:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>domain<span class="w"> </span>officinas.edu
 search<span class="w"> </span>officinas.edu
-nameserver<span class="w"> </span><span class="m">192</span>.168.0.1<span class="w">  </span><span class="c1"># Roteador ou DNS externo</span>
+nameserver<span class="w"> </span><span class="m">192</span>.168.0.1
 </code></pre></div>
-<h2 id="habilitar-roteamento-no-kernel">🔄 Habilitar roteamento no kernel</h2>
+<h2 id="habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing">🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing</h2>
 <h2 id="edite-o-arquivo-de-configuracao-do-sysctl">Edite o arquivo de configuração do sysctl:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>net.ipv4.ip_forward<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+net.ipv4.conf.all.rp_filter<span class="o">=</span><span class="m">1</span>
+net.ipv4.conf.default.rp_filter<span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <h2 id="ative-a-configuracao-imediatamente">Ative a configuração imediatamente:</h2>
 <div class="highlight"><pre><span></span><code>sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
@@ -2317,6 +2320,7 @@ modprobe<span class="w"> </span>iptable_mangle
 iptables<span class="w"> </span>-F
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-F
 iptables<span class="w"> </span>-t<span class="w"> </span>mangle<span class="w"> </span>-F
+iptables<span class="w"> </span>-X
 
 <span class="c1"># Políticas padrão (bloqueio total)</span>
 iptables<span class="w"> </span>-P<span class="w"> </span>INPUT<span class="w"> </span>DROP
@@ -2335,40 +2339,41 @@ iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"
 <span class="c1"># Habilitar NAT (mascaramento da rede interna)</span>
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
 
-<span class="c1"># Acesso SSH ao firewall (porta 22254)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Acesso SSH ao firewall (porta 22254) somente pela lan</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Permitir ping</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Permitir ping com limite de taxa</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-m<span class="w"> </span>limit<span class="w"> </span>--limit<span class="w"> </span><span class="m">1</span>/s<span class="w"> </span>--limit-burst<span class="w"> </span><span class="m">10</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Permitir acesso HTTP/HTTPS/DNS para o firewall</span>
+<span class="c1"># Permitir acesso HTTP/HTTPS/DNS/NTP para o firewall</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">123</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Permitir saída da LAN para Internet (HTTP/HTTPS/DNS)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Redirecionar conexões externas para o Firewall</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.253:22253
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.254:22253
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.254<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Redirecionar conexões externas para o servidor de arquivos</span>
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.252:22252
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.252<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.252<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Liberar o RDP para estação de trabalho Windows</span>
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.171:3389
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.171<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.171<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># Log básico (opcional)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-j<span class="w"> </span>LOG<span class="w"> </span>--log-prefix<span class="w"> </span><span class="s2">&quot;FIREWALL_DROP: &quot;</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-m<span class="w"> </span>limit<span class="w"> </span>--limit<span class="w"> </span><span class="m">2</span>/s<span class="w"> </span>-j<span class="w"> </span>LOG<span class="w"> </span>--log-prefix<span class="w"> </span><span class="s2">&quot;FIREWALL_DROP: &quot;</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Firewall carregado com sucesso!&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;......................................Firewall carregado com sucesso!&quot;</span>
 </code></pre></div>
 <h2 id="aplicar-e-salvar-o-firewall">⚙️ Aplicar e salvar o firewall</h2>
 <h2 id="torne-o-script-executavel">Torne o script executável:</h2>
@@ -2391,6 +2396,8 @@ iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> 
 <h2 id="verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot">Verifique se as regras estão sendo aplicadas após o reboot:</h2>
 <div class="highlight"><pre><span></span><code>iptables<span class="w"> </span>-L<span class="w"> </span>-v<span class="w"> </span>-n
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-L<span class="w"> </span>-v<span class="w"> </span>-n
+</code></pre></div>
 <h2 id="testes-rapidos">✅ Testes rápidos</h2>
 <h2 id="conexao-com-internet">Conexão com internet:</h2>
 <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">8</span>.8.8.8
@@ -2398,7 +2405,7 @@ iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> 
 <h2 id="conexao-com-a-rede-lan">Conexão com a rede lan:</h2>
 <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
-<h2 id="resolvendo-nomes-e-acesso-a-sites">Resolvendo nomes e acesso a sites:</h2>
+<h2 id="validando-nat-e-dns">Validando NAT e DNS:</h2>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://google.com
 </code></pre></div>
 <p>THAT'S ALL FOLKS!</p>
