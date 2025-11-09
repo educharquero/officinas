@@ -1,20 +1,20 @@
-🔥 DHCP Server
+# 🔥 DHCP Server
 
-🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
+## 🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
 
 ---
 
-🌐 Topologia da rede - Função, endereçamento ip e nomes:
+## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
 
-Firewall: SRVFIREWALL 192.168.70.254
+- Firewall: SRVFIREWALL 192.168.70.254
 
-Controlador de Domínio: SRVDC01 192.168.70.253
+- Controlador de Domínio: SRVDC01 192.168.70.253
 
-FileServer: SRVARQUIVOS 192.168.70.252
+- FileServer: SRVARQUIVOS 192.168.70.252
 
-Domínio AD: OFFICINAS.EDU
+- Domínio AD: OFFICINAS.EDU
 
-Workgroup: OFFICINAS
+- Workgroup: OFFICINAS
 
 ---
 

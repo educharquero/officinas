@@ -4,17 +4,17 @@
 
 ---
 
-🌐 Topologia da rede - Função, endereçamento ip e nomes:
+## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
 
-Firewall:                   SRVFIREWALL       192.168.70.254
+- Firewall:                   SRVFIREWALL       192.168.70.254
 
-Controlador de Domínio:     SRVDC01           192.168.70.253
+- Controlador de Domínio:     SRVDC01           192.168.70.253
 
-FileServer:                 SRVARQUIVOS       192.168.70.252
+- FileServer:                 SRVARQUIVOS       192.168.70.252
 
-Domínio AD:                 OFFICINAS.EDU
+- Domínio AD:                 OFFICINAS.EDU
 
-Workgroup:                  OFFICINAS
+- Workgroup:                  OFFICINAS
 
 ---
 
