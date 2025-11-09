@@ -18,7 +18,8 @@ nav:
   - 📂 'Servidores':
     - 'DHCP Server': 'DHCP_Server.md'
     - 'DNS Server': 'DNS_Server.md'
-    - 'Firewall Server': 'Firewall_Server.md'
+    - 'Servidor de Firewall':
+      - 'Firewall': 'Firewall.md'
     - 'MkDocs Server': 'Mkdocs_Server.md'
     - 'NFS Server': 'NFS_Server.md'
     - 'Servidor de Arquivos':

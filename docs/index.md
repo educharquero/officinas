@@ -35,7 +35,7 @@
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
 - [Fileserver](./Fileserver.md)
-- [Firewall Server](./Firewall_Server.md)
+- [Firewall](./Firewall.md)
 - [MkDocs Server](./Mkdocs_Server.md)
 - [NFS Server](./NFS_Server.md)
 - [RAID](./Raid.md)
