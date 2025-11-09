@@ -732,6 +732,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-opcao-m-conntrack" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ A opção -m conntrack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-parametro-ctstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 O parâmetro --ctstate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-principais-estados-sao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Os principais estados são:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
     <span class="md-ellipsis">
       ⚙️ Aplicar e salvar o firewall
@@ -2122,6 +2149,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-opcao-m-conntrack" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ A opção -m conntrack
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-parametro-ctstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 O parâmetro --ctstate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-principais-estados-sao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Os principais estados são:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aplicar-e-salvar-o-firewall" class="md-nav__link">
     <span class="md-ellipsis">
       ⚙️ Aplicar e salvar o firewall
@@ -2375,7 +2429,24 @@ iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> 
 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;......................................Firewall carregado com sucesso!&quot;</span>
 </code></pre></div>
-<h2 id="aplicar-e-salvar-o-firewall">⚙️ Aplicar e salvar o firewall</h2>
+<h2 id="a-opcao-m-conntrack">⚙️  A opção -m conntrack</h2>
+<ul>
+<li>A flag -m significa “usar módulo de correspondência”, ativando o módulo de rastreamento de conexões no iptables. Isso habilita o uso do parâmetro --ctstate, que filtra pacotes com base no estado da conexão.</li>
+</ul>
+<h2 id="o-parametro-ctstate">🔄 O parâmetro --ctstate</h2>
+<ul>
+<li>A opção --ctstate permite definir quais estados de conexão a regra deve corresponder.</li>
+</ul>
+<h2 id="os-principais-estados-sao">Os principais estados são:</h2>
+<ul>
+<li>Estado    Significado</li>
+<li>NEW   Pacote que inicia uma nova conexão (ex: primeiro SYN em TCP).</li>
+<li>ESTABLISHED   Pacote que faz parte de uma conexão já estabelecida.</li>
+<li>RELATED   Pacote que pertence a uma conexão relacionada a outra já existente (ex: FTP data após controle).</li>
+<li>INVALID   Pacote sem estado reconhecível (corrompido ou fora de contexto).</li>
+<li>UNTRACKED Pacote que não está sendo rastreado pelo conntrack.</li>
+</ul>
+<h2 id="aplicar-e-salvar-o-firewall">⚙️  Aplicar e salvar o firewall</h2>
 <h2 id="torne-o-script-executavel">Torne o script executável:</h2>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/firewall
 </code></pre></div>
