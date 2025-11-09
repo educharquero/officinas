@@ -1,8 +1,20 @@
 # 📁 SRVDC01 - Instalação do Controlador de Domínio Primário com Samba4 no Debian 13
 
-## 🧭 Introdução
+## 🧭 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
 
-## Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+---
+
+🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
+
+Firewall:                   SRVFIREWALL       192.168.70.254
+
+Controlador de Domínio:     SRVDC01           192.168.70.253
+
+FileServer:                 SRVARQUIVOS       192.168.70.252
+
+Domínio AD:                 OFFICINAS.EDU
+
+Workgroup:                  OFFICINAS
 
 ---
 

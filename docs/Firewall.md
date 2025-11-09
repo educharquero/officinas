@@ -8,12 +8,17 @@
 
 ---
 
-## Diagrama da rede
- 
-- **Roteador** → WEB 192.168.0.1
-- **DNS**      → SRVDC01 192.168.70.253
-- **enp1s0**   → WAN 192.168.0.254
-- **enp7s0**   → LAN 192.168.70.254
+🌐 1. Topologia da rede - Função, endereçamento ip e nomes:
+
+Firewall:                   SRVFIREWALL       192.168.70.254
+
+Controlador de Domínio:     SRVDC01           192.168.70.253
+
+FileServer:                 SRVARQUIVOS       192.168.70.252
+
+Domínio AD:                 OFFICINAS.EDU
+
+Workgroup:                  OFFICINAS
 
 ---
 
