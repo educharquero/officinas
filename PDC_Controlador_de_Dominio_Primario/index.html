@@ -797,18 +797,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introducao" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Introdução
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🧭 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
     </span>
   </a>
   
@@ -2212,18 +2203,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introducao" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Introdução
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🧭 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
     </span>
   </a>
   
@@ -2687,8 +2669,14 @@
 
 
 <h1 id="srvdc01-instalacao-do-controlador-de-dominio-primario-com-samba4-no-debian-13">📁 SRVDC01 - Instalação do Controlador de Domínio Primário com Samba4 no Debian 13</h1>
-<h2 id="introducao">🧭 Introdução</h2>
-<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.22</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.</h2>
+<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">🧭 Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.22</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.</h2>
+<hr />
+<p>🌐 1. Topologia da rede - Função, endereçamento ip e nomes:</p>
+<p>Firewall:                   SRVFIREWALL       192.168.70.254</p>
+<p>Controlador de Domínio:     SRVDC01           192.168.70.253</p>
+<p>FileServer:                 SRVARQUIVOS       192.168.70.252</p>
+<p>Domínio AD:                 OFFICINAS.EDU</p>
+<p>Workgroup:                  OFFICINAS</p>
 <hr />
 <h2 id="1-a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo">🕐 1. A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo</h2>
 <h2 id="entao-comece-desativando-o-gerenciamento-do-systemd-timesyncd-para-evitar-conflitos-com-o-chrony-que-preferiremos-instalar">Então começe desativando o gerenciamento do <code>systemd-timesyncd</code> para evitar conflitos com o Chrony, que preferiremos instalar.</h2>

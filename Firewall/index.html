@@ -624,15 +624,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diagrama-da-rede" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagrama da rede
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
@@ -2077,15 +2068,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#diagrama-da-rede" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagrama da rede
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
@@ -2367,13 +2349,12 @@
 <h2 id="criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13">Criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong></h2>
 <h2 id="com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated">Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)</h2>
 <hr />
-<h2 id="diagrama-da-rede">Diagrama da rede</h2>
-<ul>
-<li><strong>Roteador</strong> → WEB 192.168.0.1</li>
-<li><strong>DNS</strong>      → SRVDC01 192.168.70.253</li>
-<li><strong>enp1s0</strong>   → WAN 192.168.0.254</li>
-<li><strong>enp7s0</strong>   → LAN 192.168.70.254</li>
-</ul>
+<p>🌐 1. Topologia da rede - Função, endereçamento ip e nomes:</p>
+<p>Firewall:                   SRVFIREWALL       192.168.70.254</p>
+<p>Controlador de Domínio:     SRVDC01           192.168.70.253</p>
+<p>FileServer:                 SRVARQUIVOS       192.168.70.252</p>
+<p>Domínio AD:                 OFFICINAS.EDU</p>
+<p>Workgroup:                  OFFICINAS</p>
 <hr />
 <h2 id="configuracao-das-interfaces-de-rede">🧩 Configuração das interfaces de rede</h2>
 <h2 id="edite-o-arquivo-de-interfaces">Edite o arquivo de interfaces:</h2>
