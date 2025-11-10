@@ -36,6 +36,7 @@
 - [DNS Server](./DNS_Server.md)
 - [Fileserver](./Fileserver.md)
 - [Firewall](./Firewall.md)
+- [Proxy Squid](./Squid_Proxy_puro.md)
 - [MkDocs Server](./Mkdocs_Server.md)
 - [NFS Server](./NFS_Server.md)
 - [RAID](./Raid.md)

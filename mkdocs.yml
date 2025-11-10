@@ -20,6 +20,8 @@ nav:
     - 'DNS Server': 'DNS_Server.md'
     - 'Servidor de Firewall':
       - 'Firewall': 'Firewall.md'
+    - 'Servidor Proxy':
+      - 'Proxy Squid': 'Squid_proxy_puro.md'
     - 'MkDocs Server': 'Mkdocs_Server.md'
     - 'NFS Server': 'NFS_Server.md'
     - 'Servidor de Arquivos':
