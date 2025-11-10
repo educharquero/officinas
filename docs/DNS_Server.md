@@ -1,103 +1,104 @@
-# 📁 DNS Server
+# 🔥 Servidor DNS com BIND9 no Debian 13 (Standalone)
 
-## Criando um Servidor de DNS
+## 🎯 O Objetivo desse tutorial é criar e configurar um **Servidor DNS puro (standalone)** com o **BIND9** no **Debian 13**, para fins de **aprendizado e testes de resolução de nomes**, sem interferir no DNS interno do domínio `OFFICINAS.EDU`, que já opera no `SRVDC01`.
 
-A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!
+---
 
-## Instalar os pacotes necessários:
+## 🌐 Estrutura de Rede e Domínio
+
+|---------------------------------------------------------------------------------------------------------------|
+| Função                   | Hostname                    | IP              | Observações                        |
+|--------------------------|-----------------------------|-----------------|------------------------------------|
+| Gateway/Firewall         | firewall.officinas.edu      | 192.168.70.254  | Roteador e gateway padrão          |
+| Controlador de Domínio   | srvdc01.officinas.edu       | 192.168.70.253  | DNS interno (AD)                   |
+| Servidor de Arquivos     | srvarquivos.officinas.edu   | 192.168.70.252  | Servidor de Arquivos da rede       |
+| Servidor DNS             | dnsserver.officinas.edu     | 192.168.70.251  | Servidor DNS independente (BIND9)  |
+| web Server               | webserver.officinas.edu     | 192.168.70.250  | Webserver da rede                  |
+|---------------------------------------------------------------------------------------------------------------|
+
+---
+
+## 🧩 1. Instalar os pacotes necessários
 
 ```bash
-apt-get install bind9 openssh-server dnsutils
+apt install bind9 bind9-utils bind9-doc dnsutils openssh-server
 ```
 
-## Editar o arquivo /etc/default/named e deixa-lo como no exemplo:
+## ⚙️  2. Configuração inicial
+
+## Editar /etc/default/named:
+
+
+```bash
+vim /etc/default/named
+```
 
 ```bash
 # run resolvconf?
 RESOLVCONF=no
 
 # startup options for the server
-OPTIONS="-u bind -4"
+OPTIONS='-u bind -4'
 ```
-## O arquivo /etc/bind/named.conf fica sem alteração:
+
+## 🧱 3. Estrutura de configuração do BIND
+
+## Arquivo principal /etc/bind/named.conf:
 
 ```bash
-// This is the primary configuration file for the BIND DNS server named.
-//
-// Please read /usr/share/doc/bind9/README.Debian.gz for information on the 
-// structure of BIND configuration files in Debian, *BEFORE* you customize 
-// this configuration file.
-//
-// If you are just adding zones, please do that in /etc/bind/named.conf.local
-
+// Configuração principal do BIND
 include "/etc/bind/named.conf.options";
 include "/etc/bind/named.conf.local";
 include "/etc/bind/named.conf.default-zones";
 ```
 
-## O arquivo /etc/bind/named.conf.local tbém fica sem alteração:
+## Arquivo /etc/bind/named.conf.options:
 
 ```bash
-//
-// Do any local configuration here
-//
-
-// Consider adding the 1918 zones here, if they are not used in your
-// organization
-//include "/etc/bind/zones.rfc1918";
-```
-
-## Entrar em /etc/bind:
-
-```bash
-cd /etc/bind
-```
-
-## Fazer um backup do arquivo original:
-
-```bash
-cp named.conf.default-zones{,.orig}
-```
-
-## Editar named.conf.default-zones e deixa-lo como no exemplo:
-
-```bash
-vim named.conf.default-zones
+vim /etc/bind/named.conf.options
 ```
 
 ```bash
-// prime the server with knowledge of the root servers
-zone "." {
-    type hint;
-    file "/usr/share/dns/root.hints";
+// ACLs internas
+acl interna {
+    127.0.0.0/8;
+    192.168.70.0/24;
 };
 
-// be authoritative for the localhost forward and reverse zones, and for
-// broadcast zones as per RFC 1912
+options {
+    directory "/var/cache/bind";
 
-zone "localhost" {
-    type master;
-    file "/etc/bind/db.local";
+    recursion yes;
+    allow-query { interna; };
+    allow-recursion { interna; };
+
+    listen-on port 53 { 127.0.0.1; 192.168.70.251; };
+    listen-on-v6 { none; };
+    allow-transfer { none; };
+    version none;
+
+    // Encaminhadores externos
+    forwarders {
+        1.1.1.1;
+        1.0.0.1;
+        8.8.8.8;
+        8.8.4.4;
+    };
+
+    dnssec-validation auto;
 };
+```
 
-zone "127.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.127";
-};
+## Arquivo /etc/bind/named.conf.local:
 
-zone "0.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.0";
-};
+```bash
+vim /etc/bind/named.conf.local
+```
 
-zone "255.in-addr.arpa" {
-    type master;
-    file "/etc/bind/db.255";
-};
-
+```bash
 zone "officinas.edu" {
-      type master;
-      file "/etc/bind/zones/db.officinas.edu";
+    type master;
+    file "/etc/bind/zones/db.officinas.edu";
 };
 
 zone "70.168.192.in-addr.arpa" {
@@ -106,174 +107,189 @@ zone "70.168.192.in-addr.arpa" {
 };
 ```
 
-## Criar/ editar o Arquivo named.conf.options:
-
-
-```bash
-vim named.conf.options
-```
-
-```bash
-// CRIANDO REGRAS DE LIBERAÇÃO:
-acl interna {
-127.0.0.0/8;
-192.168.70.0/24;
-};
-
-options {
-	directory "/var/cache/bind";
-	
-	// CRIANDO RECURSIVIDADE DA MINHA ACL NA ÁRVORE HIERÁRQUICA:
-	recursion yes;
-	allow-query { interna; };
-	allow-recursion { interna; };
-	listen-on port 53 { interna; };
-	allow-transfer { none; };
-	listen-on-v6 { none; };
-	version none;
-
-	// CRIANDO OS FORWARDERS:
-	forwarders {
-	// Cloudflare Public DNS IPV4
-	1.1.1.1;
-	1.0.0.1;
-	// Google Public DNS IPV4
-	8.8.8.8;
-	8.8.4.4;
-	};	
-
-	dnssec-validation auto;
-
-};
-```
-
-## Criar a pasta zones em /etc/bind:
+## 📁 4. Criar a pasta de zonas
 
 ```bash
 mkdir -p /etc/bind/zones
 ```
 
-## Entrar na pasta zones:
+## 📘 5. Zona direta — /etc/bind/zones/db.officinas.edu
 
 ```bash
-cd /etc/bind/zones
-```
-
-## Criar/ editar o Arquivo de zona "db.officinas.edu":
-
-```bash
-vim db.officinas.edu
+vim /etc/bind/zones/db.officinas.edu
 ```
 
 ```bash
 ;
-; BIND zone file for officinas.edu
+; Zona direta - officinas.edu
 ;
 $TTL 86400
-@ IN SOA                          firewall.officinas.edu.  root.officinas.edu. (
-29032023                                                 ; Serial
-10800                                                    ; Refresh ( 3 hr )
-1800                                                     ; Retry ( 30 min )
-3600000                                                  ; Expire ( 41 dias )
-86400 )                                                  ; Negative Cache TTL (1 dia)
+@ IN SOA dnsserver.officinas.edu. root.officinas.edu. (
+    2025110701  ; Serial (AAAAMMDDnn)
+    10800       ; Refresh
+    1800        ; Retry
+    3600000     ; Expire
+    86400 )     ; Negative Cache TTL
 ;
-@                                 IN              NS      firewall.officinas.edu.
-firewall.officinas.edu.           IN              A       192.168.70.254
-dcmaster.officinas.edu.           IN              A       192.168.70.200
-webserver.officinas.edu.          IN              A       192.168.70.100
-arquivos                          IN              CNAME   dcmaster.officinas.edu.
-www                               IN              CNAME   webserver.officinas.edu.
+@                       IN NS   dnsserver.officinas.edu.
+firewall                IN A    192.168.70.254
+srvdc01                 IN A    192.168.70.253
+srvarquivos             IN A    192.168.70.252
+dnsserver               IN A    192.168.70.251
+webserver               IN A    192.168.70.250
+
+arquivos                IN CNAME srvarquivos.officinas.edu.
+www                     IN CNAME webserver.officinas.edu.
 ```
 
-## ATENÇÃO - Explicação dos Campos zona e zona reversa:
-
-* IN = Internet
-* SOA = Start of Autority
-* @ = Origem do Dominio e/ou Inicio da Configuracao
-* TTL = Tempo de vida
-* NS = Name Server
-* MX = Mail Exchanger (10/20 numero de prioridade quanto maior o numero menor e a prioridade)
-* hostmaster = email do administrador note que e separado por "." e NAO "@"
-* A = Apontamento para IPv4 (Address Mapping)
-* AAAA = Apontamento para IPv6 (Address Mapping)
-* CNAME = Apontamento para Nome Canonico/alias
-* PTR = PoinTeR (aponta dominio reverso a partir de um endereço IP)
-* TXT = TeXT, permite incluir um texto curto em um hostname. Tecnica usada para implementar o SPF.
-* SPF = SenderPolicyFramework.Permite ao administrador de um dominio definir os enderecos das maquinas autorizadas a enviar mensagens neste dominio.
-* SRV = SeRVice, permite definir localizacao de servicos disponiveis em um dominio, inclusive seus protocolos e portas.
-
-## Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:
+## 🔄 6. Zona reversa — /etc/bind/zones/db.70.168.192
 
 ```bash
-cp /etc/bind/db.127 /etc/bind/zones/db.70.168.192
-```
-
-## Criar/ editar o Arquivo de zona reversa:
-
-```bash
-vim /etc/bind/zones/db.200.168.192
+vim /etc/bind/zones/db.70.168.192
 ```
 
 ```bash
 ;
-; BIND reverse data file for 70.168.192
+; Zona reversa - 192.168.70.0/24
 ;
-$TTL    86400
-@       IN      SOA     firewall.officinas.edu. root.officinas.edu. (
-29032023                ; Serial
-10800                   ; Refresh ( 3 hr )
-1800                    ; Retry ( 30 min )
-3600000                 ; Expire ( 41 dias )
-86400 )                 ; Negative Cache TTL (1 dia)
+$TTL 86400
+@ IN SOA dnsserver.officinas.edu. root.officinas.edu. (
+    2025110701  ; Serial (AAAAMMDDnn)
+    10800       ; Refresh
+    1800        ; Retry
+    3600000     ; Expire
+    86400 )     ; Negative Cache TTL
 ;
-@            IN      NS      firewall.officinas.edu.
-firewall     IN      A       192.168.70.254
-254          IN      PTR     firewall.officinas.edu.
-200          IN      PTR     dcmaster.officinas.edu.
-100          IN      PTR     webserver.officinas.edu.
+@       IN NS dnsserver.officinas.edu.
+254     IN PTR firewall.officinas.edu.
+253     IN PTR srvdc01.officinas.edu.
+252     IN PTR srvarquivos.officinas.edu.
+251     IN PTR dnsserver.officinas.edu.
+250     IN PTR webserver.officinas.edu.
 ```
 
-## Restart/ reload no bind9 analisando os logs:
+## 🧠 7. Ajustar o /etc/resolv.conf
 
 ```bash
-/etc/init.d/bind9 restart ; tail -f /var/log/syslog
+nameserver 127.0.0.1
+search officinas.edu
 ```
 
-## Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:
-
-```bash
-vim /etc/resolv.conf
-```
-
-```bash
-127.0.0.1
-```
-
-## Checar se as confs foram aplicadas:
-
-```bash
-named-checkzone  officinas.edu /etc/bind/zones/db.officinas.edu
-named-checkzone  70.168.192 /etc/bind/zones/db.70.168.192
-```
-
-## Testar o DNS utilizando o comando nslookup:
-
-```bash
-nslookup www.terra.com.br
-nslookup www.proot.com.br
-```
-
-## Testar o DNS utilizando o dig:
-
-```bash
-dig -t any www.terra.com.br
-dig -t any www.proot.com.br
-```
-## Bloqueia a edição do arquivo /etc/resolv.conf:
 ```bash
 chattr +i /etc/resolv.conf
 ```
 
+## 🔁 8. Reiniciar e validar o serviço
 
-that's all folks!
+```bash
+systemctl restart bind9
+```
+```bash
+systemctl enable bind9
+```
+```bash
+journalctl -u bind9 -f
+```
+
+## 🧪 9. Verificações de configuração
+
+## Validar sintaxe:
+
+```bash
+named-checkconf
+```
+
+## Validar zonas:
+
+```bash
+named-checkzone officinas.edu /etc/bind/zones/db.officinas.edu
+```
+```bash
+named-checkzone 70.168.192.in-addr.arpa /etc/bind/zones/db.70.168.192
+```
+
+## 🧰 10. Testes de resolução
+
+## Teste local:
+
+```bash
+dig @127.0.0.1 officinas.edu any
+```
+```bash
+dig @127.0.0.1 -x 192.168.70.253
+```
+
+## Teste externo:
+
+```bash
+nslookup www.terra.com.br
+```
+```bash
+nslookup www.proot.com.br
+```
+
+## 📜 11. (Opcional) Logs dedicados
+
+```bash
+vim /etc/bind/named.conf.log
+```
+
+```bash
+logging {
+    channel default_debug {
+        file "/var/log/named/debug.log" versions 3 size 5m;
+        severity dynamic;
+        print-category yes;
+        print-severity yes;
+        print-time yes;
+    };
+};
+```
+
+## E incluir no named.conf:
+
+```bash
+include "/etc/bind/named.conf.log";
+```
+
+## 🔒 12. Segurança e manutenção
+
+- O serviço roda sob o usuário bind (já seguro por padrão);
+
+- AppArmor no Debian 13 protege automaticamente /etc/bind;
+
+- Sempre incremente o Serial ao editar zonas;
+
+- Teste com dig após qualquer reload.
+
+## ✅ Conclusão
+
+## Este tutorial cria um servidor DNS completo com BIND9, totalmente funcional e isolado do AD, capaz de:
+
+* Resolver nomes locais (officinas.edu) e externos (via forwarders);
+
+* Servir respostas autoritativas para sua rede interna;
+
+* Trabalhar em conjunto com o DNS interno do Samba4 sem conflito;
+
+* Fornecer base prática para testes de DNS e zonas reversas.
+
+## Não iremos criar um DNS Secundário com esse Servidor, pois essa função será atrelada ao Controlador de Domínio Secundário. 
+
+
+
+THAT'S ALL FOLKS!
+
+
+
+
+
+
+
+
+
+
+
+
+
 
