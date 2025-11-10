@@ -26,7 +26,7 @@ e aplicar políticas de bloqueio contra **redes sociais, conteúdo adulto e amea
 
 ## 1️⃣ CONFIGURAÇÃO DE REDE
 
-Arquivo: **/etc/network/interfaces**
+## Arquivo: **/etc/network/interfaces**
 
 ```bash
 allow-hotplug enp1s0
@@ -35,33 +35,41 @@ iface enp1s0 inet static
     gateway 192.168.70.254
     dns-nameservers 192.168.70.253
     dns-search officinas.edu
+```
 
-Arquivo: /etc/hosts
+## Arquivo: /etc/hosts
 
+```bash
 127.0.0.1   localhost
 127.0.1.1   srvproxy
 192.168.70.250 srvproxy.officinas.edu srvproxy
+```
 
-Arquivo: /etc/resolv.conf
+## Arquivo: /etc/resolv.conf
 
+```bash
 nameserver 192.168.70.253
 search officinas.edu
+```
 
-2️⃣ ATUALIZAÇÃO E INSTALAÇÃO DE PACOTES
+## 2️⃣ ATUALIZAÇÃO E INSTALAÇÃO DE PACOTES
 
+```bash
 apt update && apt full-upgrade -y
 apt install squid winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind -y
+```
 
-Durante a configuração:
+## Durante a configuração:
 
-REALM = OFFICINAS.EDU
-KDC = 192.168.70.253
-Admin Server = 192.168.70.253
+- REALM = OFFICINAS.EDU
+- KDC = 192.168.70.253
+- Admin Server = 192.168.70.253
 
-3️⃣ CONFIGURAÇÃO DO KERBEROS
+## 3️⃣ CONFIGURAÇÃO DO KERBEROS
 
-Arquivo: /etc/krb5.conf
+## Arquivo: /etc/krb5.conf
 
+```bash
 [libdefaults]
    default_realm = OFFICINAS.EDU
    dns_lookup_realm = false
@@ -79,29 +87,37 @@ Arquivo: /etc/krb5.conf
 [domain_realm]
    .officinas.edu = OFFICINAS.EDU
    officinas.edu = OFFICINAS.EDU
+```
 
-Testar o Kerberos:
+## Testar o Kerberos:
 
+```bash
 kinit administrador@OFFICINAS.EDU
 klist
+```
 
-4️⃣ INGRESSAR O SERVIDOR NO DOMÍNIO
+## 4️⃣ INGRESSAR O SERVIDOR NO DOMÍNIO
 
+```bash
 net ads join -U administrador
 net ads testjoin
 wbinfo -u
 wbinfo -g
+```
 
-Se listar usuários e grupos → OK.
+## Se listar usuários e grupos → OK.
 
-5️⃣ CONFIGURAÇÃO BÁSICA DO SQUID
+## 5️⃣ CONFIGURAÇÃO BÁSICA DO SQUID
 
-Backup do arquivo original:
+## Backup do arquivo original:
 
+```bash
 mv /etc/squid/squid.conf{,.orig}
+```
 
-Criar novo arquivo: /etc/squid/squid.conf
+## Criar novo arquivo: /etc/squid/squid.conf
 
+```bash
 ##############################################
 # SQUID PROXY - OFFICINAS.EDU
 ##############################################
@@ -150,13 +166,16 @@ cache_store_log /var/log/squid/store.log
 dns_nameservers 192.168.70.253
 forwarded_for off
 via off
+```
 
-6️⃣ CRIAÇÃO DAS LISTAS DE BLOQUEIO
+## 6️⃣ CRIAÇÃO DAS LISTAS DE BLOQUEIO
 
+```bash
 mkdir -p /etc/squid/acl
+```
+## Arquivo: /etc/squid/acl/redes_sociais.txt
 
-Arquivo: /etc/squid/acl/redes_sociais.txt
-
+```bash
 .facebook.com
 .twitter.com
 .instagram.com
@@ -164,9 +183,11 @@ Arquivo: /etc/squid/acl/redes_sociais.txt
 .snapchat.com
 .threads.net
 .pinterest.com
+```
 
-Arquivo: /etc/squid/acl/adulto.txt
+## Arquivo: /etc/squid/acl/adulto.txt
 
+```bash
 xxx
 porn
 redtube
@@ -176,74 +197,97 @@ xnxx
 sex
 adult
 onlyfans
+```
 
-Arquivo: /etc/squid/acl/ameacas.txt
+## Arquivo: /etc/squid/acl/ameacas.txt
 
+```
 .crack
 .keygen
 .hack
 phishing
 malware
 virus
+```
 
-7️⃣ PERMISSÕES E CACHE
+## 7️⃣ PERMISSÕES E CACHE
 
+```bash
 chown -R proxy:proxy /var/spool/squid
 chmod -R 750 /var/spool/squid
 squid -z
+```
 
-8️⃣ INICIALIZAR O SERVIÇO
+## 8️⃣ INICIALIZAR O SERVIÇO
 
+```bash
 systemctl enable squid
 systemctl restart squid
 systemctl status squid
+```
 
-9️⃣ TESTES E VALIDAÇÕES
-Testar autenticação
+## 9️⃣ TESTES E VALIDAÇÕES
 
+## Testar autenticação
+
+```bash
 kinit usuario@OFFICINAS.EDU
 klist
+```
 
-Testar proxy (no cliente)
+## Testar proxy (no cliente)
 
-Configurar o navegador:
+## Configurar o navegador:
 
+```bash
 HTTP Proxy: 192.168.70.250
 Porta: 3128
+```
 
-Acessar:
+## Acessar:
 
-http://facebook.com -> BLOQUEADO
-http://terra.com.br -> LIBERADO
+* http://facebook.com -> BLOQUEADO
+* http://terra.com.br -> LIBERADO
 
-Teste via terminal
+## Teste via terminal
 
+```bash
 curl -v -x 192.168.70.250:3128 http://www.facebook.com
+```
 
-🔒 10️⃣ SEGURANÇA ADICIONAL
+## 🔒 10️⃣ SEGURANÇA ADICIONAL
 
-Bloquear edição do resolv.conf:
+## Bloquear edição do resolv.conf:
 
+```bash
 chattr +i /etc/resolv.conf
+```
 
-Limpar logs periodicamente:
+## Limpar logs periodicamente:
 
+```bash
 echo "0 3 * * * root truncate -s 0 /var/log/squid/access.log" >> /etc/crontab
+```
 
-📊 11️⃣ RELATÓRIOS E MONITORAMENTO (SARG + LOGROTATE)
+## 📊 11️⃣ RELATÓRIOS E MONITORAMENTO (SARG + LOGROTATE)
 
-Instalar o SARG (Squid Analysis Report Generator):
+## Instalar o SARG (Squid Analysis Report Generator):
 
+```bash
 apt install sarg apache2 -y
+```
 
-Configurar diretório de relatórios:
+## Configurar diretório de relatórios:
 
+```bash
 mkdir -p /var/www/html/squid-reports
 chown -R www-data:www-data /var/www/html/squid-reports
 chmod -R 755 /var/www/html/squid-reports
+```
 
-Editar o arquivo /etc/sarg/sarg.conf:
+## Editar o arquivo /etc/sarg/sarg.conf:
 
+```bash
 access_log /var/log/squid/access.log
 output_dir /var/www/html/squid-reports
 title "Relatórios de Acesso - OFFICINAS.EDU"
@@ -253,25 +297,33 @@ topuser_sort_field time
 remove_temp_files yes
 date_format e
 charset UTF-8
+```
 
-Gerar relatório manual:
+## Gerar relatório manual:
 
+```bash
 sarg
+```
 
-Acessar relatório via navegador:
+## Acessar relatório via navegador:
 
+```bash
 http://srvproxy.officinas.edu/squid-reports/
+```
 
-🔁 Automação diária de relatórios
+## 🔁 Automação diária de relatórios
 
-Adicionar no crontab:
+## Adicionar no crontab:
 
+```bash
 echo "0 2 * * * root /usr/bin/sarg > /dev/null 2>&1" >> /etc/crontab
+```
 
-🔄 Rotacionar logs do Squid automaticamente
+## 🔄 Rotacionar logs do Squid automaticamente
 
-Arquivo: /etc/logrotate.d/squid
+## Arquivo: /etc/logrotate.d/squid
 
+```bash
 /var/log/squid/*.log {
     daily
     rotate 7
@@ -284,10 +336,11 @@ Arquivo: /etc/logrotate.d/squid
         /usr/sbin/squid -k rotate
     endscript
 }
+```
 
-✅ CONCLUSÃO
+## ✅ CONCLUSÃO
 
-O Squid agora:
+## O Squid agora:
 
 ✔ Está autenticado diretamente no domínio OFFICINAS.EDU
 ✔ Controla acesso com base em usuário, grupo e horário
@@ -297,7 +350,7 @@ O Squid agora:
 ✔ Atua como um proxy corporativo seguro, integrado e gerenciável
 
 
-
+THAT'S ALL FOLKS!
 
 
 
