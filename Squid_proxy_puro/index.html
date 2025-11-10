@@ -633,6 +633,19 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Proxy Squid
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -644,6 +657,76 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#debian-13-bookworm-proxy-autenticado-e-filtrando-conteudo-indesejado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debian 13 Bookworm – Proxy autenticado e filtrando conteúdo indesejado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-objetivo-nesse-tutorial-e-configurar-um-servidor-squid-proxy-no-debian-13-integrado-ao-dominio-officinasedu" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 O objetivo nesse tutorial é Configurar um servidor Squid Proxy no Debian 13, integrado ao domínio OFFICINAS.EDU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-configuracao-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ CONFIGURAÇÃO DE REDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ CONFIGURAÇÃO DE REDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1791,6 +1874,65 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#debian-13-bookworm-proxy-autenticado-e-filtrando-conteudo-indesejado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debian 13 Bookworm – Proxy autenticado e filtrando conteúdo indesejado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-objetivo-nesse-tutorial-e-configurar-um-servidor-squid-proxy-no-debian-13-integrado-ao-dominio-officinasedu" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 O objetivo nesse tutorial é Configurar um servidor Squid Proxy no Debian 13, integrado ao domínio OFFICINAS.EDU
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-configuracao-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ CONFIGURAÇÃO DE REDE
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ CONFIGURAÇÃO DE REDE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1806,28 +1948,35 @@
 
 
 <h1 id="squid-proxy-integrado-ao-dominio-samba4-officinasedu">🧱 SQUID PROXY INTEGRADO AO DOMÍNIO SAMBA4 (OFFICINAS.EDU)</h1>
-<h1 id="debian-13-bookworm-proxy-autenticado-filtrando-conteudo-indesejado">Debian 13 Bookworm – Proxy autenticado, filtrando conteúdo indesejado</h1>
-<p>=========================================================
-🎯 OBJETIVO
-=========================================================</p>
-<p>Configurar um servidor Squid Proxy no Debian 13,
-integrado ao domínio "OFFICINAS.EDU" (Controlador de Domínio: 192.168.70.253),
-para autenticar usuários via Active Directory e aplicar políticas de bloqueio
-contra redes sociais, conteúdo adulto e ameaças conhecidas.</p>
-<p>=========================================================
-🌐 TOPOLOGIA DE REDE
-=========================================================</p>
-<p>Firewall/Gateway:   192.168.70.254
-Controlador de Domínio (SRVDC01): 192.168.70.253
-Servidor de Arquivos (SRVARQUIVOS): 192.168.70.252
-Servidor Proxy (SRVPROXY): 192.168.70.250
-Domínio: OFFICINAS.EDU
-Workgroup: OFFICINAS</p>
-<p>=========================================================
-1️⃣ CONFIGURAÇÃO DE REDE
-=========================================================</p>
-<p>Arquivo: /etc/network/interfaces</p>
-<p>allow-hotplug enp1s0
+<h2 id="debian-13-bookworm-proxy-autenticado-e-filtrando-conteudo-indesejado">Debian 13 Bookworm – Proxy autenticado e filtrando conteúdo indesejado</h2>
+<hr />
+<h2 id="o-objetivo-nesse-tutorial-e-configurar-um-servidor-squid-proxy-no-debian-13-integrado-ao-dominio-officinasedu">🎯 O objetivo nesse tutorial é Configurar um servidor <strong>Squid Proxy</strong> no <strong>Debian 13</strong>, integrado ao domínio <strong>OFFICINAS.EDU</strong></h2>
+<p>(Controlador de Domínio: <strong>192.168.70.253</strong>), para autenticar usuários via <strong>Active Directory</strong>
+e aplicar políticas de bloqueio contra <strong>redes sociais, conteúdo adulto e ameaças conhecidas</strong>.</p>
+<hr />
+<h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
+<ul>
+<li>
+<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+</li>
+<li>
+<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+</li>
+<li>
+<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+</li>
+<li>
+<p>WebServer: WEBSERVER 192.168.70.251</p>
+</li>
+<li>
+<p>Proxy: SRVPROXY 192.168.70.250</p>
+</li>
+</ul>
+<hr />
+<h2 id="1-configuracao-de-rede">1️⃣ CONFIGURAÇÃO DE REDE</h2>
+<p>Arquivo: <strong>/etc/network/interfaces</strong></p>
+<p>```bash
+allow-hotplug enp1s0
 iface enp1s0 inet static
     address 192.168.70.250/24
     gateway 192.168.70.254
@@ -1836,23 +1985,18 @@ iface enp1s0 inet static
 <p>Arquivo: /etc/hosts</p>
 <p>127.0.0.1   localhost
 127.0.1.1   srvproxy
-192.168.70.250 srvproxy.officinas.edu srvproxy
-192.168.70.253 srvdc01.officinas.edu srvdc01</p>
+192.168.70.250 srvproxy.officinas.edu srvproxy</p>
 <p>Arquivo: /etc/resolv.conf</p>
 <p>nameserver 192.168.70.253
 search officinas.edu</p>
-<p>=========================================================
-2️⃣ ATUALIZAÇÃO E INSTALAÇÃO DE PACOTES
-=========================================================</p>
+<p>2️⃣ ATUALIZAÇÃO E INSTALAÇÃO DE PACOTES</p>
 <p>apt update &amp;&amp; apt full-upgrade -y
 apt install squid winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind -y</p>
-<p>Durante a configuração:
-REALM = OFFICINAS.EDU
+<p>Durante a configuração:</p>
+<p>REALM = OFFICINAS.EDU
 KDC = 192.168.70.253
 Admin Server = 192.168.70.253</p>
-<p>=========================================================
-3️⃣ CONFIGURAÇÃO DO KERBEROS
-=========================================================</p>
+<p>3️⃣ CONFIGURAÇÃO DO KERBEROS</p>
 <p>Arquivo: /etc/krb5.conf</p>
 <p>[libdefaults]
    default_realm = OFFICINAS.EDU
@@ -1869,23 +2013,19 @@ Admin Server = 192.168.70.253</p>
 <p>[domain_realm]
    .officinas.edu = OFFICINAS.EDU
    officinas.edu = OFFICINAS.EDU</p>
-<p>Testar o Kerberos:
-kinit administrador@OFFICINAS.EDU
+<p>Testar o Kerberos:</p>
+<p>kinit administrador@OFFICINAS.EDU
 klist</p>
-<p>=========================================================
-4️⃣ INGRESSAR O SERVIDOR NO DOMÍNIO
-=========================================================</p>
+<p>4️⃣ INGRESSAR O SERVIDOR NO DOMÍNIO</p>
 <p>net ads join -U administrador
 net ads testjoin
 wbinfo -u
 wbinfo -g</p>
 <p>Se listar usuários e grupos → OK.</p>
-<p>=========================================================
-5️⃣ CONFIGURAÇÃO BÁSICA DO SQUID
-=========================================================</p>
-<p>Backup do arquivo original:
-mv /etc/squid/squid.conf{,.orig}</p>
-<p>Criar novo /etc/squid/squid.conf:</p>
+<p>5️⃣ CONFIGURAÇÃO BÁSICA DO SQUID</p>
+<p>Backup do arquivo original:</p>
+<p>mv /etc/squid/squid.conf{,.orig}</p>
+<p>Criar novo arquivo: /etc/squid/squid.conf</p>
 <h6 id="_1"></h6>
 <h1 id="squid-proxy-officinasedu">SQUID PROXY - OFFICINAS.EDU</h1>
 <h6 id="_2"></h6>
@@ -1897,13 +2037,13 @@ mv /etc/squid/squid.conf{,.orig}</p>
 <p>auth_param negotiate program /usr/lib/squid/negotiate_kerberos_auth -s HTTP/srvproxy.officinas.edu@OFFICINAS.EDU
 auth_param negotiate children 10
 auth_param negotiate keep_alive on</p>
-<h1 id="mapeamento-do-dominio">Mapeamento do domínio</h1>
+<h1 id="mapeamento-de-dominio-e-usuarios">Mapeamento de domínio e usuários</h1>
 <p>acl AD_USERS proxy_auth REQUIRED</p>
-<h1 id="definir-horario-de-operacao-opcional">Definir horário de operação (opcional)</h1>
-<p>acl HORARIO_TRABALHO time MTWHF 08:00-18:00</p>
 <h1 id="definicoes-de-rede-interna">Definições de rede interna</h1>
 <p>acl rede_local src 192.168.70.0/24</p>
-<h1 id="listas-de-bloqueio-serao-criadas-em-etcsquidacl">Listas de bloqueio (serão criadas em /etc/squid/acl/)</h1>
+<h1 id="horario-de-operacao-opcional">Horário de operação (opcional)</h1>
+<p>acl HORARIO_TRABALHO time MTWHF 08:00-18:00</p>
+<h1 id="listas-de-bloqueio-criadas-em-etcsquidacl">Listas de bloqueio (criadas em /etc/squid/acl/)</h1>
 <p>acl bloqueio_redes_sociais dstdomain "/etc/squid/acl/redes_sociais.txt"
 acl bloqueio_adulto url_regex -i "/etc/squid/acl/adulto.txt"
 acl bloqueio_ameacas url_regex -i "/etc/squid/acl/ameacas.txt"</p>
@@ -1924,12 +2064,7 @@ cache_store_log /var/log/squid/store.log</p>
 <p>dns_nameservers 192.168.70.253
 forwarded_for off
 via off</p>
-<h6 id="_3"></h6>
-<h1 id="fim-do-squidconf">FIM DO SQUID.CONF</h1>
-<h6 id="_4"></h6>
-<p>=========================================================
-6️⃣ CRIAÇÃO DAS LISTAS DE BLOQUEIO
-=========================================================</p>
+<p>6️⃣ CRIAÇÃO DAS LISTAS DE BLOQUEIO</p>
 <p>mkdir -p /etc/squid/acl</p>
 <p>Arquivo: /etc/squid/acl/redes_sociais.txt</p>
 <p>.facebook.com
@@ -1956,59 +2091,78 @@ onlyfans</p>
 phishing
 malware
 virus</p>
-<p>=========================================================
-7️⃣ PERMISSÕES E CACHE
-=========================================================</p>
+<p>7️⃣ PERMISSÕES E CACHE</p>
 <p>chown -R proxy:proxy /var/spool/squid
-chmod -R 750 /var/spool/squid</p>
-<p>squid -z</p>
-<p>=========================================================
-8️⃣ INICIALIZAR O SERVIÇO
-=========================================================</p>
+chmod -R 750 /var/spool/squid
+squid -z</p>
+<p>8️⃣ INICIALIZAR O SERVIÇO</p>
 <p>systemctl enable squid
 systemctl restart squid
 systemctl status squid</p>
-<p>=========================================================
-9️⃣ TESTES E VALIDAÇÕES
-=========================================================</p>
-<h1 id="testar-autenticacao">Testar autenticação</h1>
+<p>9️⃣ TESTES E VALIDAÇÕES
+Testar autenticação</p>
 <p>kinit usuario@OFFICINAS.EDU
 klist</p>
-<h1 id="testar-proxy-no-cliente">Testar proxy (no cliente)</h1>
-<p>Configurar navegador:
-HTTP Proxy: 192.168.70.250
+<p>Testar proxy (no cliente)</p>
+<p>Configurar o navegador:</p>
+<p>HTTP Proxy: 192.168.70.250
 Porta: 3128</p>
-<p>Acessar:
-http://facebook.com → BLOQUEADO
-http://terra.com.br → LIBERADO</p>
-<h1 id="testar-pelo-terminal">Testar pelo terminal</h1>
+<p>Acessar:</p>
+<p>http://facebook.com -&gt; BLOQUEADO
+http://terra.com.br -&gt; LIBERADO</p>
+<p>Teste via terminal</p>
 <p>curl -v -x 192.168.70.250:3128 http://www.facebook.com</p>
-<p>=========================================================
-🔒 10️⃣ SEGURANÇA ADICIONAL
-=========================================================</p>
-<h1 id="bloquear-edicao-do-resolvconf">Bloquear edição do resolv.conf</h1>
+<p>🔒 10️⃣ SEGURANÇA ADICIONAL</p>
+<p>Bloquear edição do resolv.conf:</p>
 <p>chattr +i /etc/resolv.conf</p>
-<h1 id="limpar-logs-periodicamente">Limpar logs periodicamente</h1>
+<p>Limpar logs periodicamente:</p>
 <p>echo "0 3 * * * root truncate -s 0 /var/log/squid/access.log" &gt;&gt; /etc/crontab</p>
-<p>=========================================================
-✅ CONCLUSÃO
-=========================================================</p>
+<p>📊 11️⃣ RELATÓRIOS E MONITORAMENTO (SARG + LOGROTATE)</p>
+<p>Instalar o SARG (Squid Analysis Report Generator):</p>
+<p>apt install sarg apache2 -y</p>
+<p>Configurar diretório de relatórios:</p>
+<p>mkdir -p /var/www/html/squid-reports
+chown -R www-data:www-data /var/www/html/squid-reports
+chmod -R 755 /var/www/html/squid-reports</p>
+<p>Editar o arquivo /etc/sarg/sarg.conf:</p>
+<p>access_log /var/log/squid/access.log
+output_dir /var/www/html/squid-reports
+title "Relatórios de Acesso - OFFICINAS.EDU"
+user_ip no
+resolve_ip yes
+topuser_sort_field time
+remove_temp_files yes
+date_format e
+charset UTF-8</p>
+<p>Gerar relatório manual:</p>
+<p>sarg</p>
+<p>Acessar relatório via navegador:</p>
+<p>http://srvproxy.officinas.edu/squid-reports/</p>
+<p>🔁 Automação diária de relatórios</p>
+<p>Adicionar no crontab:</p>
+<p>echo "0 2 * * * root /usr/bin/sarg &gt; /dev/null 2&gt;&amp;1" &gt;&gt; /etc/crontab</p>
+<p>🔄 Rotacionar logs do Squid automaticamente</p>
+<p>Arquivo: /etc/logrotate.d/squid</p>
+<p>/var/log/squid/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 640 proxy proxy
+    postrotate
+        /usr/sbin/squid -k rotate
+    endscript
+}</p>
+<p>✅ CONCLUSÃO</p>
 <p>O Squid agora:</p>
-<p>✔ Autentica usuários diretamente no AD (OFFICINAS.EDU)
-✔ Bloqueia redes sociais, conteúdo adulto e ameaças
-✔ Registra logs de navegação para auditoria
-✔ Atua como proxy corporativo seguro e gerenciável</p>
-<p>=========================================================
-📘 REFERÊNCIAS
-=========================================================</p>
-<ul>
-<li>https://wiki.samba.org</li>
-<li>https://wiki.debian.org/Squid</li>
-<li>https://wiki.squid-cache.org/ConfigExamples/Authenticate/Ntlm</li>
-<li>https://wiki.squid-cache.org/ConfigExamples/PreventingAccess</li>
-</ul>
-<hr />
-<h2 id="fim-do-documento">FIM DO DOCUMENTO</h2>
+<p>✔ Está autenticado diretamente no domínio OFFICINAS.EDU
+✔ Controla acesso com base em usuário, grupo e horário
+✔ Bloqueia redes sociais, conteúdo adulto e ameaças conhecidas
+✔ Mantém logs rotacionados para auditoria
+✔ Gera relatórios diários (SARG) acessíveis via web
+✔ Atua como um proxy corporativo seguro, integrado e gerenciável</p>
 
 
 
