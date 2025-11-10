@@ -1,8 +1,4 @@
-# 🧱 SQUID PROXY INTEGRADO AO DOMÍNIO SAMBA4 (OFFICINAS.EDU)
-
-## Debian 13 Bookworm – Proxy autenticado e filtrando conteúdo indesejado
-
----
+# 🔥 SQUID PROXY INTEGRADO AO DOMÍNIO SAMBA4 (OFFICINAS.EDU)
 
 ## 🎯 O objetivo nesse tutorial é Configurar um servidor **Squid Proxy** no **Debian 13**, integrado ao domínio **OFFICINAS.EDU**
 (Controlador de Domínio: **192.168.70.253**), para autenticar usuários via **Active Directory**
