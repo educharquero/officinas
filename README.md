@@ -6,7 +6,7 @@
 
 **Bem-vindo ao repositório da Comunidade Officinas! Este é o código-fonte do nosso portal de conhecimento dedicado ao universo do Software Livre, com foco em Linux, servidores e preparação para certificações.**
 
-O site principal está no ar em: **[https://officinas.com.br](https://officinas.com.br )**
+O site principal está no ar em: **[https://educharquero.github.io/officinas/](https://educharquero.github.io/officinas/)**
 
 ---
 
@@ -71,3 +71,4 @@ Para visualizar o site no seu próprio computador:
 O conteúdo deste projeto é distribuído sob a licença **[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ )**, em alinhamento com a filosofia de compartilhamento e colaboração do Software Livre.
 
 
+THAT'S ALL FOLKS!

@@ -1,4 +1,4 @@
-# mkdocs.yml - VERSÃO ATUALIZADA COM MODO CLARO/ESCURO
+# mkdocs.yml - VERSÃO COM MODO CLARO/ESCURO
 
 # Versão para o tema MATERIAL FOR MKDOCS
 site_name: 🐧 Comunidade Officina's
@@ -9,9 +9,9 @@ copyright: >-
   </a>
   - eduardo.charquero@gmail.com
 
-# --- SEÇÃO 'plugins' ADICIONADA ---
+# --- SEÇÃO 'plugins' ---
 
-# --- SEÇÃO 'nav' ATUALIZADA ---
+# --- SEÇÃO 'nav' ---
 nav:
   - 📂 'Início': 'index.md'
   - 📂 'Visão Geral': 'Visao_Geral.md'
@@ -74,7 +74,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
 
-  # --- SEÇÃO ADICIONADA ---
+  # --- SEÇÃO TEMA CLARO/ESCURO ---
   palette:
     - scheme: default # Tema claro
       primary: indigo # <-- COR PRIMÁRIA PARA O MODO CLARO
@@ -86,7 +86,7 @@ theme:
       toggle:
         icon: material/brightness-4 # Ícone de lua
         name: Mudar para o modo claro
-  # --- FIM DA SEÇÃO ADICIONADA ---
+  # --- FIM DA SEÇÃO TEMA CLARO/ESCURO ---
   
   # --- SOCIAIS ---
   extra:

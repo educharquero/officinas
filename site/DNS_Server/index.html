@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dns-server" class="md-skip">
+        <a href="#servidor-dns-com-bind9-no-debian-13-standalone" class="md-skip">
           Skip to content
         </a>
       
@@ -526,189 +526,234 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#criando-um-servidor-de-dns" class="md-nav__link">
+  <a href="#o-objetivo-desse-tutorial-e-criar-e-configurar-um-servidor-dns-puro-standalone-com-o-bind9-no-debian-13-para-fins-de-aprendizado-e-testes-de-resolucao-de-nomes-sem-interferir-no-dns-interno-do-dominio-officinasedu-que-ja-opera-no-srvdc01" class="md-nav__link">
     <span class="md-ellipsis">
-      Criando um Servidor de DNS
+      🎯 O Objetivo desse tutorial é criar e configurar um Servidor DNS puro (standalone) com o BIND9 no Debian 13, para fins de aprendizado e testes de resolução de nomes, sem interferir no DNS interno do domínio OFFICINAS.EDU, que já opera no SRVDC01.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalar-os-pacotes-necessarios" class="md-nav__link">
+  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Instalar os pacotes necessários:
+      🌐 Estrutura de Rede e Domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+  <a href="#1-instalar-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      Editar o arquivo /etc/default/named e deixa-lo como no exemplo:
+      🧩 1. Instalar os pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-arquivo-etcbindnamedconf-fica-sem-alteracao" class="md-nav__link">
+  <a href="#2-configuracao-inicial" class="md-nav__link">
     <span class="md-ellipsis">
-      O arquivo /etc/bind/named.conf fica sem alteração:
+      ⚙️ 2. Configuração inicial
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao" class="md-nav__link">
+  <a href="#editar-etcdefaultnamed" class="md-nav__link">
     <span class="md-ellipsis">
-      O arquivo /etc/bind/named.conf.local tbém fica sem alteração:
+      Editar /etc/default/named:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrar-em-etcbind" class="md-nav__link">
+  <a href="#3-estrutura-de-configuracao-do-bind" class="md-nav__link">
     <span class="md-ellipsis">
-      Entrar em /etc/bind:
+      🧱 3. Estrutura de configuração do BIND
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazer-um-backup-do-arquivo-original" class="md-nav__link">
+  <a href="#arquivo-principal-etcbindnamedconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Fazer um backup do arquivo original:
+      Arquivo principal /etc/bind/named.conf:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+  <a href="#arquivo-etcbindnamedconfoptions" class="md-nav__link">
     <span class="md-ellipsis">
-      Editar named.conf.default-zones e deixa-lo como no exemplo:
+      Arquivo /etc/bind/named.conf.options:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-namedconfoptions" class="md-nav__link">
+  <a href="#arquivo-etcbindnamedconflocal" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo named.conf.options:
+      Arquivo /etc/bind/named.conf.local:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-a-pasta-zones-em-etcbind" class="md-nav__link">
+  <a href="#4-criar-a-pasta-de-zonas" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar a pasta zones em /etc/bind:
+      📁 4. Criar a pasta de zonas
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrar-na-pasta-zones" class="md-nav__link">
+  <a href="#5-zona-direta-etcbindzonesdbofficinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      Entrar na pasta zones:
+      📘 5. Zona direta — /etc/bind/zones/db.officinas.edu
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-de-zona-dbofficinasedu" class="md-nav__link">
+  <a href="#6-zona-reversa-etcbindzonesdb70168192" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo de zona "db.officinas.edu":
+      🔄 6. Zona reversa — /etc/bind/zones/db.70.168.192
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#atencao-explicacao-dos-campos-zona-e-zona-reversa" class="md-nav__link">
+  <a href="#7-ajustar-o-etcresolvconf" class="md-nav__link">
     <span class="md-ellipsis">
-      ATENÇÃO - Explicação dos Campos zona e zona reversa:
+      🧠 7. Ajustar o /etc/resolv.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192" class="md-nav__link">
+  <a href="#8-reiniciar-e-validar-o-servico" class="md-nav__link">
     <span class="md-ellipsis">
-      Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:
+      🔁 8. Reiniciar e validar o serviço
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-de-zona-reversa" class="md-nav__link">
+  <a href="#9-verificacoes-de-configuracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo de zona reversa:
+      🧪 9. Verificações de configuração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#restart-reload-no-bind9-analisando-os-logs" class="md-nav__link">
+  <a href="#validar-sintaxe" class="md-nav__link">
     <span class="md-ellipsis">
-      Restart/ reload no bind9 analisando os logs:
+      Validar sintaxe:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf" class="md-nav__link">
+  <a href="#validar-zonas" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:
+      Validar zonas:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#checar-se-as-confs-foram-aplicadas" class="md-nav__link">
+  <a href="#10-testes-de-resolucao" class="md-nav__link">
     <span class="md-ellipsis">
-      Checar se as confs foram aplicadas:
+      🧰 10. Testes de resolução
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testar-o-dns-utilizando-o-comando-nslookup" class="md-nav__link">
+  <a href="#teste-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Testar o DNS utilizando o comando nslookup:
+      Teste local:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testar-o-dns-utilizando-o-dig" class="md-nav__link">
+  <a href="#teste-externo" class="md-nav__link">
     <span class="md-ellipsis">
-      Testar o DNS utilizando o dig:
+      Teste externo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bloqueia-a-edicao-do-arquivo-etcresolvconf" class="md-nav__link">
+  <a href="#11-opcional-logs-dedicados" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloqueia a edição do arquivo /etc/resolv.conf:
+      📜 11. (Opcional) Logs dedicados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-incluir-no-namedconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      E incluir no named.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-seguranca-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 12. Segurança e manutenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#este-tutorial-cria-um-servidor-dns-completo-com-bind9-totalmente-funcional-e-isolado-do-ad-capaz-de" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este tutorial cria um servidor DNS completo com BIND9, totalmente funcional e isolado do AD, capaz de:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nao-iremos-criar-um-dns-secundario-com-esse-servidor-pois-essa-funcao-sera-atrelada-ao-controlador-de-dominio-secundario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Não iremos criar um DNS Secundário com esse Servidor, pois essa função será atrelada ao Controlador de Domínio Secundário.
     </span>
   </a>
   
@@ -1940,189 +1985,234 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#criando-um-servidor-de-dns" class="md-nav__link">
+  <a href="#o-objetivo-desse-tutorial-e-criar-e-configurar-um-servidor-dns-puro-standalone-com-o-bind9-no-debian-13-para-fins-de-aprendizado-e-testes-de-resolucao-de-nomes-sem-interferir-no-dns-interno-do-dominio-officinasedu-que-ja-opera-no-srvdc01" class="md-nav__link">
     <span class="md-ellipsis">
-      Criando um Servidor de DNS
+      🎯 O Objetivo desse tutorial é criar e configurar um Servidor DNS puro (standalone) com o BIND9 no Debian 13, para fins de aprendizado e testes de resolução de nomes, sem interferir no DNS interno do domínio OFFICINAS.EDU, que já opera no SRVDC01.
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalar-os-pacotes-necessarios" class="md-nav__link">
+  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Instalar os pacotes necessários:
+      🌐 Estrutura de Rede e Domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+  <a href="#1-instalar-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      Editar o arquivo /etc/default/named e deixa-lo como no exemplo:
+      🧩 1. Instalar os pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-arquivo-etcbindnamedconf-fica-sem-alteracao" class="md-nav__link">
+  <a href="#2-configuracao-inicial" class="md-nav__link">
     <span class="md-ellipsis">
-      O arquivo /etc/bind/named.conf fica sem alteração:
+      ⚙️ 2. Configuração inicial
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao" class="md-nav__link">
+  <a href="#editar-etcdefaultnamed" class="md-nav__link">
     <span class="md-ellipsis">
-      O arquivo /etc/bind/named.conf.local tbém fica sem alteração:
+      Editar /etc/default/named:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrar-em-etcbind" class="md-nav__link">
+  <a href="#3-estrutura-de-configuracao-do-bind" class="md-nav__link">
     <span class="md-ellipsis">
-      Entrar em /etc/bind:
+      🧱 3. Estrutura de configuração do BIND
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazer-um-backup-do-arquivo-original" class="md-nav__link">
+  <a href="#arquivo-principal-etcbindnamedconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Fazer um backup do arquivo original:
+      Arquivo principal /etc/bind/named.conf:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo" class="md-nav__link">
+  <a href="#arquivo-etcbindnamedconfoptions" class="md-nav__link">
     <span class="md-ellipsis">
-      Editar named.conf.default-zones e deixa-lo como no exemplo:
+      Arquivo /etc/bind/named.conf.options:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-namedconfoptions" class="md-nav__link">
+  <a href="#arquivo-etcbindnamedconflocal" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo named.conf.options:
+      Arquivo /etc/bind/named.conf.local:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-a-pasta-zones-em-etcbind" class="md-nav__link">
+  <a href="#4-criar-a-pasta-de-zonas" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar a pasta zones em /etc/bind:
+      📁 4. Criar a pasta de zonas
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entrar-na-pasta-zones" class="md-nav__link">
+  <a href="#5-zona-direta-etcbindzonesdbofficinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      Entrar na pasta zones:
+      📘 5. Zona direta — /etc/bind/zones/db.officinas.edu
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-de-zona-dbofficinasedu" class="md-nav__link">
+  <a href="#6-zona-reversa-etcbindzonesdb70168192" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo de zona "db.officinas.edu":
+      🔄 6. Zona reversa — /etc/bind/zones/db.70.168.192
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#atencao-explicacao-dos-campos-zona-e-zona-reversa" class="md-nav__link">
+  <a href="#7-ajustar-o-etcresolvconf" class="md-nav__link">
     <span class="md-ellipsis">
-      ATENÇÃO - Explicação dos Campos zona e zona reversa:
+      🧠 7. Ajustar o /etc/resolv.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192" class="md-nav__link">
+  <a href="#8-reiniciar-e-validar-o-servico" class="md-nav__link">
     <span class="md-ellipsis">
-      Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:
+      🔁 8. Reiniciar e validar o serviço
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#criar-editar-o-arquivo-de-zona-reversa" class="md-nav__link">
+  <a href="#9-verificacoes-de-configuracao" class="md-nav__link">
     <span class="md-ellipsis">
-      Criar/ editar o Arquivo de zona reversa:
+      🧪 9. Verificações de configuração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#restart-reload-no-bind9-analisando-os-logs" class="md-nav__link">
+  <a href="#validar-sintaxe" class="md-nav__link">
     <span class="md-ellipsis">
-      Restart/ reload no bind9 analisando os logs:
+      Validar sintaxe:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf" class="md-nav__link">
+  <a href="#validar-zonas" class="md-nav__link">
     <span class="md-ellipsis">
-      Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:
+      Validar zonas:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#checar-se-as-confs-foram-aplicadas" class="md-nav__link">
+  <a href="#10-testes-de-resolucao" class="md-nav__link">
     <span class="md-ellipsis">
-      Checar se as confs foram aplicadas:
+      🧰 10. Testes de resolução
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testar-o-dns-utilizando-o-comando-nslookup" class="md-nav__link">
+  <a href="#teste-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Testar o DNS utilizando o comando nslookup:
+      Teste local:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#testar-o-dns-utilizando-o-dig" class="md-nav__link">
+  <a href="#teste-externo" class="md-nav__link">
     <span class="md-ellipsis">
-      Testar o DNS utilizando o dig:
+      Teste externo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bloqueia-a-edicao-do-arquivo-etcresolvconf" class="md-nav__link">
+  <a href="#11-opcional-logs-dedicados" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloqueia a edição do arquivo /etc/resolv.conf:
+      📜 11. (Opcional) Logs dedicados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-incluir-no-namedconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      E incluir no named.conf:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-seguranca-e-manutencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 12. Segurança e manutenção
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Conclusão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#este-tutorial-cria-um-servidor-dns-completo-com-bind9-totalmente-funcional-e-isolado-do-ad-capaz-de" class="md-nav__link">
+    <span class="md-ellipsis">
+      Este tutorial cria um servidor DNS completo com BIND9, totalmente funcional e isolado do AD, capaz de:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nao-iremos-criar-um-dns-secundario-com-esse-servidor-pois-essa-funcao-sera-atrelada-ao-controlador-de-dominio-secundario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Não iremos criar um DNS Secundário com esse Servidor, pois essa função será atrelada ao Controlador de Domínio Secundário.
     </span>
   </a>
   
@@ -2144,82 +2234,78 @@
 
 
 
-<h1 id="dns-server">📁 DNS Server</h1>
-<h2 id="criando-um-servidor-de-dns">Criando um Servidor de DNS</h2>
-<p>A INSTALAÇÃO A SEGUIR SE DARÁ NA MÁQUINA DO PRÓPRIO FIREWALL!</p>
-<h2 id="instalar-os-pacotes-necessarios">Instalar os pacotes necessários:</h2>
-<div class="highlight"><pre><span></span><code>apt-get<span class="w"> </span>install<span class="w"> </span>bind9<span class="w"> </span>openssh-server<span class="w"> </span>dnsutils
+<h1 id="servidor-dns-com-bind9-no-debian-13-standalone">🔥 Servidor DNS com BIND9 no Debian 13 (Standalone)</h1>
+<h2 id="o-objetivo-desse-tutorial-e-criar-e-configurar-um-servidor-dns-puro-standalone-com-o-bind9-no-debian-13-para-fins-de-aprendizado-e-testes-de-resolucao-de-nomes-sem-interferir-no-dns-interno-do-dominio-officinasedu-que-ja-opera-no-srvdc01">🎯 O Objetivo desse tutorial é criar e configurar um <strong>Servidor DNS puro (standalone)</strong> com o <strong>BIND9</strong> no <strong>Debian 13</strong>, para fins de <strong>aprendizado e testes de resolução de nomes</strong>, sem interferir no DNS interno do domínio <code>OFFICINAS.EDU</code>, que já opera no <code>SRVDC01</code>.</h2>
+<hr />
+<h2 id="estrutura-de-rede-e-dominio">🌐 Estrutura de Rede e Domínio</h2>
+<p>|---------------------------------------------------------------------------------------------------------------|
+| Função                   | Hostname                    | IP              | Observações                        |
+|--------------------------|-----------------------------|-----------------|------------------------------------|
+| Gateway/Firewall         | firewall.officinas.edu      | 192.168.70.254  | Roteador e gateway padrão          |
+| Controlador de Domínio   | srvdc01.officinas.edu       | 192.168.70.253  | DNS interno (AD)                   |
+| Servidor de Arquivos     | srvarquivos.officinas.edu   | 192.168.70.252  | Servidor de Arquivos da rede       |
+| Servidor DNS             | dnsserver.officinas.edu     | 192.168.70.251  | Servidor DNS independente (BIND9)  |
+| web Server               | webserver.officinas.edu     | 192.168.70.250  | Webserver da rede                  |
+|---------------------------------------------------------------------------------------------------------------|</p>
+<hr />
+<h2 id="1-instalar-os-pacotes-necessarios">🧩 1. Instalar os pacotes necessários</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>bind9<span class="w"> </span>bind9-utils<span class="w"> </span>bind9-doc<span class="w"> </span>dnsutils<span class="w"> </span>openssh-server
 </code></pre></div>
-<h2 id="editar-o-arquivo-etcdefaultnamed-e-deixa-lo-como-no-exemplo">Editar o arquivo /etc/default/named e deixa-lo como no exemplo:</h2>
+<h2 id="2-configuracao-inicial">⚙️  2. Configuração inicial</h2>
+<h2 id="editar-etcdefaultnamed">Editar /etc/default/named:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/default/named
+</code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># run resolvconf?</span>
 <span class="nv">RESOLVCONF</span><span class="o">=</span>no
 
 <span class="c1"># startup options for the server</span>
-<span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&quot;-u bind -4&quot;</span>
+<span class="nv">OPTIONS</span><span class="o">=</span><span class="s1">&#39;-u bind -4&#39;</span>
 </code></pre></div>
-<h2 id="o-arquivo-etcbindnamedconf-fica-sem-alteracao">O arquivo /etc/bind/named.conf fica sem alteração:</h2>
-<div class="highlight"><pre><span></span><code>//<span class="w"> </span>This<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>primary<span class="w"> </span>configuration<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>BIND<span class="w"> </span>DNS<span class="w"> </span>server<span class="w"> </span>named.
-//
-//<span class="w"> </span>Please<span class="w"> </span><span class="nb">read</span><span class="w"> </span>/usr/share/doc/bind9/README.Debian.gz<span class="w"> </span><span class="k">for</span><span class="w"> </span>information<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>
-//<span class="w"> </span>structure<span class="w"> </span>of<span class="w"> </span>BIND<span class="w"> </span>configuration<span class="w"> </span>files<span class="w"> </span><span class="k">in</span><span class="w"> </span>Debian,<span class="w"> </span>*BEFORE*<span class="w"> </span>you<span class="w"> </span>customize<span class="w"> </span>
-//<span class="w"> </span>this<span class="w"> </span>configuration<span class="w"> </span>file.
-//
-//<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>just<span class="w"> </span>adding<span class="w"> </span>zones,<span class="w"> </span>please<span class="w"> </span><span class="k">do</span><span class="w"> </span>that<span class="w"> </span><span class="k">in</span><span class="w"> </span>/etc/bind/named.conf.local
-
+<h2 id="3-estrutura-de-configuracao-do-bind">🧱 3. Estrutura de configuração do BIND</h2>
+<h2 id="arquivo-principal-etcbindnamedconf">Arquivo principal /etc/bind/named.conf:</h2>
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>Configuração<span class="w"> </span>principal<span class="w"> </span><span class="k">do</span><span class="w"> </span>BIND
 include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.options&quot;</span><span class="p">;</span>
 include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.local&quot;</span><span class="p">;</span>
 include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.default-zones&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="o-arquivo-etcbindnamedconflocal-tbem-fica-sem-alteracao">O arquivo /etc/bind/named.conf.local tbém fica sem alteração:</h2>
-<div class="highlight"><pre><span></span><code>//
-//<span class="w"> </span>Do<span class="w"> </span>any<span class="w"> </span><span class="nb">local</span><span class="w"> </span>configuration<span class="w"> </span>here
-//
-
-//<span class="w"> </span>Consider<span class="w"> </span>adding<span class="w"> </span>the<span class="w"> </span><span class="m">1918</span><span class="w"> </span>zones<span class="w"> </span>here,<span class="w"> </span><span class="k">if</span><span class="w"> </span>they<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>used<span class="w"> </span><span class="k">in</span><span class="w"> </span>your
-//<span class="w"> </span>organization
-//include<span class="w"> </span><span class="s2">&quot;/etc/bind/zones.rfc1918&quot;</span><span class="p">;</span>
+<h2 id="arquivo-etcbindnamedconfoptions">Arquivo /etc/bind/named.conf.options:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/named.conf.options
 </code></pre></div>
-<h2 id="entrar-em-etcbind">Entrar em /etc/bind:</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/etc/bind
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>ACLs<span class="w"> </span>internas
+acl<span class="w"> </span>interna<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="m">127</span>.0.0.0/8<span class="p">;</span>
+<span class="w">    </span><span class="m">192</span>.168.70.0/24<span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+
+options<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>directory<span class="w"> </span><span class="s2">&quot;/var/cache/bind&quot;</span><span class="p">;</span>
+
+<span class="w">    </span>recursion<span class="w"> </span>yes<span class="p">;</span>
+<span class="w">    </span>allow-query<span class="w"> </span><span class="o">{</span><span class="w"> </span>interna<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+<span class="w">    </span>allow-recursion<span class="w"> </span><span class="o">{</span><span class="w"> </span>interna<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+
+<span class="w">    </span>listen-on<span class="w"> </span>port<span class="w"> </span><span class="m">53</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="m">127</span>.0.0.1<span class="p">;</span><span class="w"> </span><span class="m">192</span>.168.70.251<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+<span class="w">    </span>listen-on-v6<span class="w"> </span><span class="o">{</span><span class="w"> </span>none<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+<span class="w">    </span>allow-transfer<span class="w"> </span><span class="o">{</span><span class="w"> </span>none<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+<span class="w">    </span>version<span class="w"> </span>none<span class="p">;</span>
+
+<span class="w">    </span>//<span class="w"> </span>Encaminhadores<span class="w"> </span>externos
+<span class="w">    </span>forwarders<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="m">1</span>.1.1.1<span class="p">;</span>
+<span class="w">        </span><span class="m">1</span>.0.0.1<span class="p">;</span>
+<span class="w">        </span><span class="m">8</span>.8.8.8<span class="p">;</span>
+<span class="w">        </span><span class="m">8</span>.8.4.4<span class="p">;</span>
+<span class="w">    </span><span class="o">}</span><span class="p">;</span>
+
+<span class="w">    </span>dnssec-validation<span class="w"> </span>auto<span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="fazer-um-backup-do-arquivo-original">Fazer um backup do arquivo original:</h2>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>named.conf.default-zones<span class="o">{</span>,.orig<span class="o">}</span>
+<h2 id="arquivo-etcbindnamedconflocal">Arquivo /etc/bind/named.conf.local:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/named.conf.local
 </code></pre></div>
-<h2 id="editar-namedconfdefault-zones-e-deixa-lo-como-no-exemplo">Editar named.conf.default-zones e deixa-lo como no exemplo:</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>named.conf.default-zones
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>//<span class="w"> </span>prime<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>with<span class="w"> </span>knowledge<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>root<span class="w"> </span>servers
-zone<span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">type</span><span class="w"> </span>hint<span class="p">;</span>
-<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/usr/share/dns/root.hints&quot;</span><span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-//<span class="w"> </span>be<span class="w"> </span>authoritative<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>localhost<span class="w"> </span>forward<span class="w"> </span>and<span class="w"> </span>reverse<span class="w"> </span>zones,<span class="w"> </span>and<span class="w"> </span><span class="k">for</span>
-//<span class="w"> </span>broadcast<span class="w"> </span>zones<span class="w"> </span>as<span class="w"> </span>per<span class="w"> </span>RFC<span class="w"> </span><span class="m">1912</span>
-
-zone<span class="w"> </span><span class="s2">&quot;localhost&quot;</span><span class="w"> </span><span class="o">{</span>
+<div class="highlight"><pre><span></span><code>zone<span class="w"> </span><span class="s2">&quot;officinas.edu&quot;</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
-<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/db.local&quot;</span><span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-zone<span class="w"> </span><span class="s2">&quot;127.in-addr.arpa&quot;</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
-<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/db.127&quot;</span><span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-zone<span class="w"> </span><span class="s2">&quot;0.in-addr.arpa&quot;</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
-<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/db.0&quot;</span><span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-zone<span class="w"> </span><span class="s2">&quot;255.in-addr.arpa&quot;</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
-<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/db.255&quot;</span><span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-zone<span class="w"> </span><span class="s2">&quot;officinas.edu&quot;</span><span class="w"> </span><span class="o">{</span>
-<span class="w">      </span><span class="nb">type</span><span class="w"> </span>master<span class="p">;</span>
-<span class="w">      </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/zones/db.officinas.edu&quot;</span><span class="p">;</span>
+<span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/zones/db.officinas.edu&quot;</span><span class="p">;</span>
 <span class="o">}</span><span class="p">;</span>
 
 zone<span class="w"> </span><span class="s2">&quot;70.168.192.in-addr.arpa&quot;</span><span class="w"> </span><span class="o">{</span>
@@ -2227,132 +2313,136 @@ zone<span class="w"> </span><span class="s2">&quot;70.168.192.in-addr.arpa&quot;
 <span class="w">    </span>file<span class="w"> </span><span class="s2">&quot;/etc/bind/zones/db.70.168.192&quot;</span><span class="p">;</span>
 <span class="o">}</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="criar-editar-o-arquivo-namedconfoptions">Criar/ editar o Arquivo named.conf.options:</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>named.conf.options
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>//<span class="w"> </span>CRIANDO<span class="w"> </span>REGRAS<span class="w"> </span>DE<span class="w"> </span>LIBERAÇÃO:
-acl<span class="w"> </span>interna<span class="w"> </span><span class="o">{</span>
-<span class="m">127</span>.0.0.0/8<span class="p">;</span>
-<span class="m">192</span>.168.70.0/24<span class="p">;</span>
-<span class="o">}</span><span class="p">;</span>
-
-options<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>directory<span class="w"> </span><span class="s2">&quot;/var/cache/bind&quot;</span><span class="p">;</span>
-
-<span class="w">    </span>//<span class="w"> </span>CRIANDO<span class="w"> </span>RECURSIVIDADE<span class="w"> </span>DA<span class="w"> </span>MINHA<span class="w"> </span>ACL<span class="w"> </span>NA<span class="w"> </span>ÁRVORE<span class="w"> </span>HIERÁRQUICA:
-<span class="w">    </span>recursion<span class="w"> </span>yes<span class="p">;</span>
-<span class="w">    </span>allow-query<span class="w"> </span><span class="o">{</span><span class="w"> </span>interna<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<span class="w">    </span>allow-recursion<span class="w"> </span><span class="o">{</span><span class="w"> </span>interna<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<span class="w">    </span>listen-on<span class="w"> </span>port<span class="w"> </span><span class="m">53</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>interna<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<span class="w">    </span>allow-transfer<span class="w"> </span><span class="o">{</span><span class="w"> </span>none<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<span class="w">    </span>listen-on-v6<span class="w"> </span><span class="o">{</span><span class="w"> </span>none<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
-<span class="w">    </span>version<span class="w"> </span>none<span class="p">;</span>
-
-<span class="w">    </span>//<span class="w"> </span>CRIANDO<span class="w"> </span>OS<span class="w"> </span>FORWARDERS:
-<span class="w">    </span>forwarders<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>//<span class="w"> </span>Cloudflare<span class="w"> </span>Public<span class="w"> </span>DNS<span class="w"> </span>IPV4
-<span class="w">    </span><span class="m">1</span>.1.1.1<span class="p">;</span>
-<span class="w">    </span><span class="m">1</span>.0.0.1<span class="p">;</span>
-<span class="w">    </span>//<span class="w"> </span>Google<span class="w"> </span>Public<span class="w"> </span>DNS<span class="w"> </span>IPV4
-<span class="w">    </span><span class="m">8</span>.8.8.8<span class="p">;</span>
-<span class="w">    </span><span class="m">8</span>.8.4.4<span class="p">;</span>
-<span class="w">    </span><span class="o">}</span><span class="p">;</span><span class="w">  </span>
-
-<span class="w">    </span>dnssec-validation<span class="w"> </span>auto<span class="p">;</span>
-
-<span class="o">}</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="criar-a-pasta-zones-em-etcbind">Criar a pasta zones em /etc/bind:</h2>
+<h2 id="4-criar-a-pasta-de-zonas">📁 4. Criar a pasta de zonas</h2>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/bind/zones
 </code></pre></div>
-<h2 id="entrar-na-pasta-zones">Entrar na pasta zones:</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/etc/bind/zones
-</code></pre></div>
-<h2 id="criar-editar-o-arquivo-de-zona-dbofficinasedu">Criar/ editar o Arquivo de zona "db.officinas.edu":</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>db.officinas.edu
+<h2 id="5-zona-direta-etcbindzonesdbofficinasedu">📘 5. Zona direta — /etc/bind/zones/db.officinas.edu</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/zones/db.officinas.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">;</span>
-<span class="p">;</span><span class="w"> </span>BIND<span class="w"> </span>zone<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span>officinas.edu
+<span class="p">;</span><span class="w"> </span>Zona<span class="w"> </span>direta<span class="w"> </span>-<span class="w"> </span>officinas.edu
 <span class="p">;</span>
 <span class="nv">$TTL</span><span class="w"> </span><span class="m">86400</span>
-@<span class="w"> </span>IN<span class="w"> </span>SOA<span class="w">                          </span>firewall.officinas.edu.<span class="w">  </span>root.officinas.edu.<span class="w"> </span><span class="o">(</span>
-<span class="m">29032023</span><span class="w">                                                 </span><span class="p">;</span><span class="w"> </span>Serial
-<span class="m">10800</span><span class="w">                                                    </span><span class="p">;</span><span class="w"> </span>Refresh<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>hr<span class="w"> </span><span class="o">)</span>
-<span class="m">1800</span><span class="w">                                                     </span><span class="p">;</span><span class="w"> </span>Retry<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">30</span><span class="w"> </span>min<span class="w"> </span><span class="o">)</span>
-<span class="m">3600000</span><span class="w">                                                  </span><span class="p">;</span><span class="w"> </span>Expire<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">41</span><span class="w"> </span>dias<span class="w"> </span><span class="o">)</span>
-<span class="m">86400</span><span class="w"> </span><span class="o">)</span><span class="w">                                                  </span><span class="p">;</span><span class="w"> </span>Negative<span class="w"> </span>Cache<span class="w"> </span>TTL<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>dia<span class="o">)</span>
+@<span class="w"> </span>IN<span class="w"> </span>SOA<span class="w"> </span>dnsserver.officinas.edu.<span class="w"> </span>root.officinas.edu.<span class="w"> </span><span class="o">(</span>
+<span class="w">    </span><span class="m">2025110701</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>Serial<span class="w"> </span><span class="o">(</span>AAAAMMDDnn<span class="o">)</span>
+<span class="w">    </span><span class="m">10800</span><span class="w">       </span><span class="p">;</span><span class="w"> </span>Refresh
+<span class="w">    </span><span class="m">1800</span><span class="w">        </span><span class="p">;</span><span class="w"> </span>Retry
+<span class="w">    </span><span class="m">3600000</span><span class="w">     </span><span class="p">;</span><span class="w"> </span>Expire
+<span class="w">    </span><span class="m">86400</span><span class="w"> </span><span class="o">)</span><span class="w">     </span><span class="p">;</span><span class="w"> </span>Negative<span class="w"> </span>Cache<span class="w"> </span>TTL
 <span class="p">;</span>
-@<span class="w">                                 </span>IN<span class="w">              </span>NS<span class="w">      </span>firewall.officinas.edu.
-firewall.officinas.edu.<span class="w">           </span>IN<span class="w">              </span>A<span class="w">       </span><span class="m">192</span>.168.70.254
-dcmaster.officinas.edu.<span class="w">           </span>IN<span class="w">              </span>A<span class="w">       </span><span class="m">192</span>.168.70.200
-webserver.officinas.edu.<span class="w">          </span>IN<span class="w">              </span>A<span class="w">       </span><span class="m">192</span>.168.70.100
-arquivos<span class="w">                          </span>IN<span class="w">              </span>CNAME<span class="w">   </span>dcmaster.officinas.edu.
-www<span class="w">                               </span>IN<span class="w">              </span>CNAME<span class="w">   </span>webserver.officinas.edu.
+@<span class="w">                       </span>IN<span class="w"> </span>NS<span class="w">   </span>dnsserver.officinas.edu.
+firewall<span class="w">                </span>IN<span class="w"> </span>A<span class="w">    </span><span class="m">192</span>.168.70.254
+srvdc01<span class="w">                 </span>IN<span class="w"> </span>A<span class="w">    </span><span class="m">192</span>.168.70.253
+srvarquivos<span class="w">             </span>IN<span class="w"> </span>A<span class="w">    </span><span class="m">192</span>.168.70.252
+dnsserver<span class="w">               </span>IN<span class="w"> </span>A<span class="w">    </span><span class="m">192</span>.168.70.251
+webserver<span class="w">               </span>IN<span class="w"> </span>A<span class="w">    </span><span class="m">192</span>.168.70.250
+
+arquivos<span class="w">                </span>IN<span class="w"> </span>CNAME<span class="w"> </span>srvarquivos.officinas.edu.
+www<span class="w">                     </span>IN<span class="w"> </span>CNAME<span class="w"> </span>webserver.officinas.edu.
 </code></pre></div>
-<h2 id="atencao-explicacao-dos-campos-zona-e-zona-reversa">ATENÇÃO - Explicação dos Campos zona e zona reversa:</h2>
-<ul>
-<li>IN = Internet</li>
-<li>SOA = Start of Autority</li>
-<li>@ = Origem do Dominio e/ou Inicio da Configuracao</li>
-<li>TTL = Tempo de vida</li>
-<li>NS = Name Server</li>
-<li>MX = Mail Exchanger (10/20 numero de prioridade quanto maior o numero menor e a prioridade)</li>
-<li>hostmaster = email do administrador note que e separado por "." e NAO "@"</li>
-<li>A = Apontamento para IPv4 (Address Mapping)</li>
-<li>AAAA = Apontamento para IPv6 (Address Mapping)</li>
-<li>CNAME = Apontamento para Nome Canonico/alias</li>
-<li>PTR = PoinTeR (aponta dominio reverso a partir de um endereço IP)</li>
-<li>TXT = TeXT, permite incluir um texto curto em um hostname. Tecnica usada para implementar o SPF.</li>
-<li>SPF = SenderPolicyFramework.Permite ao administrador de um dominio definir os enderecos das maquinas autorizadas a enviar mensagens neste dominio.</li>
-<li>SRV = SeRVice, permite definir localizacao de servicos disponiveis em um dominio, inclusive seus protocolos e portas.</li>
-</ul>
-<h2 id="fazer-uma-copia-do-arquivo-db127-em-etcbind-para-etcbindzonesdb70168192">Fazer uma copia do arquivo db.127 em /etc/bind para /etc/bind/zones/db.70.168.192:</h2>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/etc/bind/db.127<span class="w"> </span>/etc/bind/zones/db.70.168.192
-</code></pre></div>
-<h2 id="criar-editar-o-arquivo-de-zona-reversa">Criar/ editar o Arquivo de zona reversa:</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/zones/db.200.168.192
+<h2 id="6-zona-reversa-etcbindzonesdb70168192">🔄 6. Zona reversa — /etc/bind/zones/db.70.168.192</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/zones/db.70.168.192
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">;</span>
-<span class="p">;</span><span class="w"> </span>BIND<span class="w"> </span>reverse<span class="w"> </span>data<span class="w"> </span>file<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="m">70</span>.168.192
+<span class="p">;</span><span class="w"> </span>Zona<span class="w"> </span>reversa<span class="w"> </span>-<span class="w"> </span><span class="m">192</span>.168.70.0/24
 <span class="p">;</span>
-<span class="nv">$TTL</span><span class="w">    </span><span class="m">86400</span>
-@<span class="w">       </span>IN<span class="w">      </span>SOA<span class="w">     </span>firewall.officinas.edu.<span class="w"> </span>root.officinas.edu.<span class="w"> </span><span class="o">(</span>
-<span class="m">29032023</span><span class="w">                </span><span class="p">;</span><span class="w"> </span>Serial
-<span class="m">10800</span><span class="w">                   </span><span class="p">;</span><span class="w"> </span>Refresh<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>hr<span class="w"> </span><span class="o">)</span>
-<span class="m">1800</span><span class="w">                    </span><span class="p">;</span><span class="w"> </span>Retry<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">30</span><span class="w"> </span>min<span class="w"> </span><span class="o">)</span>
-<span class="m">3600000</span><span class="w">                 </span><span class="p">;</span><span class="w"> </span>Expire<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">41</span><span class="w"> </span>dias<span class="w"> </span><span class="o">)</span>
-<span class="m">86400</span><span class="w"> </span><span class="o">)</span><span class="w">                 </span><span class="p">;</span><span class="w"> </span>Negative<span class="w"> </span>Cache<span class="w"> </span>TTL<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>dia<span class="o">)</span>
+<span class="nv">$TTL</span><span class="w"> </span><span class="m">86400</span>
+@<span class="w"> </span>IN<span class="w"> </span>SOA<span class="w"> </span>dnsserver.officinas.edu.<span class="w"> </span>root.officinas.edu.<span class="w"> </span><span class="o">(</span>
+<span class="w">    </span><span class="m">2025110701</span><span class="w">  </span><span class="p">;</span><span class="w"> </span>Serial<span class="w"> </span><span class="o">(</span>AAAAMMDDnn<span class="o">)</span>
+<span class="w">    </span><span class="m">10800</span><span class="w">       </span><span class="p">;</span><span class="w"> </span>Refresh
+<span class="w">    </span><span class="m">1800</span><span class="w">        </span><span class="p">;</span><span class="w"> </span>Retry
+<span class="w">    </span><span class="m">3600000</span><span class="w">     </span><span class="p">;</span><span class="w"> </span>Expire
+<span class="w">    </span><span class="m">86400</span><span class="w"> </span><span class="o">)</span><span class="w">     </span><span class="p">;</span><span class="w"> </span>Negative<span class="w"> </span>Cache<span class="w"> </span>TTL
 <span class="p">;</span>
-@<span class="w">            </span>IN<span class="w">      </span>NS<span class="w">      </span>firewall.officinas.edu.
-firewall<span class="w">     </span>IN<span class="w">      </span>A<span class="w">       </span><span class="m">192</span>.168.70.254
-<span class="m">254</span><span class="w">          </span>IN<span class="w">      </span>PTR<span class="w">     </span>firewall.officinas.edu.
-<span class="m">200</span><span class="w">          </span>IN<span class="w">      </span>PTR<span class="w">     </span>dcmaster.officinas.edu.
-<span class="m">100</span><span class="w">          </span>IN<span class="w">      </span>PTR<span class="w">     </span>webserver.officinas.edu.
+@<span class="w">       </span>IN<span class="w"> </span>NS<span class="w"> </span>dnsserver.officinas.edu.
+<span class="m">254</span><span class="w">     </span>IN<span class="w"> </span>PTR<span class="w"> </span>firewall.officinas.edu.
+<span class="m">253</span><span class="w">     </span>IN<span class="w"> </span>PTR<span class="w"> </span>srvdc01.officinas.edu.
+<span class="m">252</span><span class="w">     </span>IN<span class="w"> </span>PTR<span class="w"> </span>srvarquivos.officinas.edu.
+<span class="m">251</span><span class="w">     </span>IN<span class="w"> </span>PTR<span class="w"> </span>dnsserver.officinas.edu.
+<span class="m">250</span><span class="w">     </span>IN<span class="w"> </span>PTR<span class="w"> </span>webserver.officinas.edu.
 </code></pre></div>
-<h2 id="restart-reload-no-bind9-analisando-os-logs">Restart/ reload no bind9 analisando os logs:</h2>
-<div class="highlight"><pre><span></span><code>/etc/init.d/bind9<span class="w"> </span>restart<span class="w"> </span><span class="p">;</span><span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/syslog
+<h2 id="7-ajustar-o-etcresolvconf">🧠 7. Ajustar o /etc/resolv.conf</h2>
+<div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">127</span>.0.0.1
+search<span class="w"> </span>officinas.edu
 </code></pre></div>
-<h2 id="agora-vamos-entregar-a-resolucao-ao-dns-server-local-editando-o-etcresolvconf">Agora, vamos entregar a resolução ao DNS Server local editando o /etc/resolv.conf:</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/resolv.conf
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1
-</code></pre></div>
-<h2 id="checar-se-as-confs-foram-aplicadas">Checar se as confs foram aplicadas:</h2>
-<div class="highlight"><pre><span></span><code>named-checkzone<span class="w">  </span>officinas.edu<span class="w"> </span>/etc/bind/zones/db.officinas.edu
-named-checkzone<span class="w">  </span><span class="m">70</span>.168.192<span class="w"> </span>/etc/bind/zones/db.70.168.192
-</code></pre></div>
-<h2 id="testar-o-dns-utilizando-o-comando-nslookup">Testar o DNS utilizando o comando nslookup:</h2>
-<div class="highlight"><pre><span></span><code>nslookup<span class="w"> </span>www.terra.com.br
-nslookup<span class="w"> </span>www.proot.com.br
-</code></pre></div>
-<h2 id="testar-o-dns-utilizando-o-dig">Testar o DNS utilizando o dig:</h2>
-<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>-t<span class="w"> </span>any<span class="w"> </span>www.terra.com.br
-dig<span class="w"> </span>-t<span class="w"> </span>any<span class="w"> </span>www.proot.com.br
-</code></pre></div>
-<h2 id="bloqueia-a-edicao-do-arquivo-etcresolvconf">Bloqueia a edição do arquivo /etc/resolv.conf:</h2>
 <div class="highlight"><pre><span></span><code>chattr<span class="w"> </span>+i<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
-<p>that's all folks!</p>
+<h2 id="8-reiniciar-e-validar-o-servico">🔁 8. Reiniciar e validar o serviço</h2>
+<p><div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>bind9
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bind9
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>journalctl<span class="w"> </span>-u<span class="w"> </span>bind9<span class="w"> </span>-f
+</code></pre></div></p>
+<h2 id="9-verificacoes-de-configuracao">🧪 9. Verificações de configuração</h2>
+<h2 id="validar-sintaxe">Validar sintaxe:</h2>
+<div class="highlight"><pre><span></span><code>named-checkconf
+</code></pre></div>
+<h2 id="validar-zonas">Validar zonas:</h2>
+<p><div class="highlight"><pre><span></span><code>named-checkzone<span class="w"> </span>officinas.edu<span class="w"> </span>/etc/bind/zones/db.officinas.edu
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>named-checkzone<span class="w"> </span><span class="m">70</span>.168.192.in-addr.arpa<span class="w"> </span>/etc/bind/zones/db.70.168.192
+</code></pre></div></p>
+<h2 id="10-testes-de-resolucao">🧰 10. Testes de resolução</h2>
+<h2 id="teste-local">Teste local:</h2>
+<p><div class="highlight"><pre><span></span><code>dig<span class="w"> </span>@127.0.0.1<span class="w"> </span>officinas.edu<span class="w"> </span>any
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>@127.0.0.1<span class="w"> </span>-x<span class="w"> </span><span class="m">192</span>.168.70.253
+</code></pre></div></p>
+<h2 id="teste-externo">Teste externo:</h2>
+<p><div class="highlight"><pre><span></span><code>nslookup<span class="w"> </span>www.terra.com.br
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nslookup<span class="w"> </span>www.proot.com.br
+</code></pre></div></p>
+<h2 id="11-opcional-logs-dedicados">📜 11. (Opcional) Logs dedicados</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/bind/named.conf.log
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>logging<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>channel<span class="w"> </span>default_debug<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>file<span class="w"> </span><span class="s2">&quot;/var/log/named/debug.log&quot;</span><span class="w"> </span>versions<span class="w"> </span><span class="m">3</span><span class="w"> </span>size<span class="w"> </span>5m<span class="p">;</span>
+<span class="w">        </span>severity<span class="w"> </span>dynamic<span class="p">;</span>
+<span class="w">        </span>print-category<span class="w"> </span>yes<span class="p">;</span>
+<span class="w">        </span>print-severity<span class="w"> </span>yes<span class="p">;</span>
+<span class="w">        </span>print-time<span class="w"> </span>yes<span class="p">;</span>
+<span class="w">    </span><span class="o">}</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="e-incluir-no-namedconf">E incluir no named.conf:</h2>
+<div class="highlight"><pre><span></span><code>include<span class="w"> </span><span class="s2">&quot;/etc/bind/named.conf.log&quot;</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="12-seguranca-e-manutencao">🔒 12. Segurança e manutenção</h2>
+<ul>
+<li>
+<p>O serviço roda sob o usuário bind (já seguro por padrão);</p>
+</li>
+<li>
+<p>AppArmor no Debian 13 protege automaticamente /etc/bind;</p>
+</li>
+<li>
+<p>Sempre incremente o Serial ao editar zonas;</p>
+</li>
+<li>
+<p>Teste com dig após qualquer reload.</p>
+</li>
+</ul>
+<h2 id="conclusao">✅ Conclusão</h2>
+<h2 id="este-tutorial-cria-um-servidor-dns-completo-com-bind9-totalmente-funcional-e-isolado-do-ad-capaz-de">Este tutorial cria um servidor DNS completo com BIND9, totalmente funcional e isolado do AD, capaz de:</h2>
+<ul>
+<li>
+<p>Resolver nomes locais (officinas.edu) e externos (via forwarders);</p>
+</li>
+<li>
+<p>Servir respostas autoritativas para sua rede interna;</p>
+</li>
+<li>
+<p>Trabalhar em conjunto com o DNS interno do Samba4 sem conflito;</p>
+</li>
+<li>
+<p>Fornecer base prática para testes de DNS e zonas reversas.</p>
+</li>
+</ul>
+<h2 id="nao-iremos-criar-um-dns-secundario-com-esse-servidor-pois-essa-funcao-sera-atrelada-ao-controlador-de-dominio-secundario">Não iremos criar um DNS Secundário com esse Servidor, pois essa função será atrelada ao Controlador de Domínio Secundário.</h2>
+<p>THAT'S ALL FOLKS!</p>
 
 
 

@@ -4,17 +4,17 @@
 
 ---
 
-## 🌐 Estrutura de Rede e Domínio
+## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
 
-|---------------------------------------------------------------------------------------------------------------|
-| Função                   | Hostname                    | IP              | Observações                        |
-|--------------------------|-----------------------------|-----------------|------------------------------------|
-| Gateway/Firewall         | firewall.officinas.edu      | 192.168.70.254  | Roteador e gateway padrão          |
-| Controlador de Domínio   | srvdc01.officinas.edu       | 192.168.70.253  | DNS interno (AD)                   |
-| Servidor de Arquivos     | srvarquivos.officinas.edu   | 192.168.70.252  | Servidor de Arquivos da rede       |
-| Servidor DNS             | dnsserver.officinas.edu     | 192.168.70.251  | Servidor DNS independente (BIND9)  |
-| web Server               | webserver.officinas.edu     | 192.168.70.250  | Webserver da rede                  |
-|---------------------------------------------------------------------------------------------------------------|
+- Firewall: SRVFIREWALL 192.168.70.254
+
+- Controlador de Domínio: SRVDC01 192.168.70.253
+
+- FileServer: SRVARQUIVOS 192.168.70.252
+
+- Domínio AD: OFFICINAS.EDU
+
+- Workgroup: OFFICINAS
 
 ---
 
@@ -255,8 +255,6 @@ include "/etc/bind/named.conf.log";
 ## 🔒 12. Segurança e manutenção
 
 - O serviço roda sob o usuário bind (já seguro por padrão);
-
-- AppArmor no Debian 13 protege automaticamente /etc/bind;
 
 - Sempre incremente o Serial ao editar zonas;
 
