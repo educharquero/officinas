@@ -535,9 +535,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Estrutura de Rede e Domínio
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
@@ -1994,9 +1994,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#estrutura-de-rede-e-dominio" class="md-nav__link">
+  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Estrutura de Rede e Domínio
+      🌐 Topologia da rede - Função, endereçamento ip e nomes:
     </span>
   </a>
   
@@ -2237,16 +2237,24 @@
 <h1 id="servidor-dns-com-bind9-no-debian-13-standalone">🔥 Servidor DNS com BIND9 no Debian 13 (Standalone)</h1>
 <h2 id="o-objetivo-desse-tutorial-e-criar-e-configurar-um-servidor-dns-puro-standalone-com-o-bind9-no-debian-13-para-fins-de-aprendizado-e-testes-de-resolucao-de-nomes-sem-interferir-no-dns-interno-do-dominio-officinasedu-que-ja-opera-no-srvdc01">🎯 O Objetivo desse tutorial é criar e configurar um <strong>Servidor DNS puro (standalone)</strong> com o <strong>BIND9</strong> no <strong>Debian 13</strong>, para fins de <strong>aprendizado e testes de resolução de nomes</strong>, sem interferir no DNS interno do domínio <code>OFFICINAS.EDU</code>, que já opera no <code>SRVDC01</code>.</h2>
 <hr />
-<h2 id="estrutura-de-rede-e-dominio">🌐 Estrutura de Rede e Domínio</h2>
-<p>|---------------------------------------------------------------------------------------------------------------|
-| Função                   | Hostname                    | IP              | Observações                        |
-|--------------------------|-----------------------------|-----------------|------------------------------------|
-| Gateway/Firewall         | firewall.officinas.edu      | 192.168.70.254  | Roteador e gateway padrão          |
-| Controlador de Domínio   | srvdc01.officinas.edu       | 192.168.70.253  | DNS interno (AD)                   |
-| Servidor de Arquivos     | srvarquivos.officinas.edu   | 192.168.70.252  | Servidor de Arquivos da rede       |
-| Servidor DNS             | dnsserver.officinas.edu     | 192.168.70.251  | Servidor DNS independente (BIND9)  |
-| web Server               | webserver.officinas.edu     | 192.168.70.250  | Webserver da rede                  |
-|---------------------------------------------------------------------------------------------------------------|</p>
+<h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
+<ul>
+<li>
+<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+</li>
+<li>
+<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+</li>
+<li>
+<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+</li>
+<li>
+<p>Domínio AD: OFFICINAS.EDU</p>
+</li>
+<li>
+<p>Workgroup: OFFICINAS</p>
+</li>
+</ul>
 <hr />
 <h2 id="1-instalar-os-pacotes-necessarios">🧩 1. Instalar os pacotes necessários</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>bind9<span class="w"> </span>bind9-utils<span class="w"> </span>bind9-doc<span class="w"> </span>dnsutils<span class="w"> </span>openssh-server
@@ -2414,9 +2422,6 @@ search<span class="w"> </span>officinas.edu
 <ul>
 <li>
 <p>O serviço roda sob o usuário bind (já seguro por padrão);</p>
-</li>
-<li>
-<p>AppArmor no Debian 13 protege automaticamente /etc/bind;</p>
 </li>
 <li>
 <p>Sempre incremente o Serial ao editar zonas;</p>
