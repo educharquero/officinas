@@ -112,74 +112,75 @@ vim /usr/local/bin/firewall
 ##        Versão: 11.2025                ##
 ##        Licença: GPLv3                 ##
 ###########################################
+#!/bin/bash
+### FIREWALL + DNS RULES ###
+### Local: /usr/local/bin/firewall.sh
 
 # Interfaces
-WAN="enp1s0"
-LAN="enp7s0"
+LAN="ens19"
+WAN="ens18"
 
-# Carregar módulos do kernel
-modprobe iptable_nat
-modprobe iptable_filter
-modprobe iptable_mangle
+# Rede interna e IP do Firewall
+LAN_NET="192.168.70.0/24"
+FW_IP="192.168.70.254"
 
-# Limpar regras existentes
+echo "[+] Limpando regras antigas..."
 iptables -F
 iptables -t nat -F
-iptables -t mangle -F
 iptables -X
 
-# Políticas padrão (bloqueio total)
+echo "[+] Definindo políticas padrão..."
 iptables -P INPUT DROP
-iptables -P OUTPUT DROP
 iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
 
-# Permitir tráfego de loopback
+echo "[+] Permitindo loopback e conexões já estabelecidas..."
 iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -o lo -j ACCEPT
-
-# Permitir pacotes relacionados e estabelecidos
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-# Habilitar NAT (mascaramento da rede interna)
-iptables -t nat -A POSTROUTING -s 192.168.70.0/24 -o $WAN -j MASQUERADE
+echo "[+] Permitindo acesso SSH interno (porta 22254)"
+iptables -A INPUT -i $LAN -p tcp --dport 22254 -s $LAN_NET -j ACCEPT
 
-# Acesso SSH ao firewall (porta 22254) somente pela lan
-iptables -A INPUT -p tcp -s 192.168.70.0/24 --dport 22254 -m conntrack --ctstate NEW -j ACCEPT
+echo "[+] Permitindo acesso SSH externo (redirecionamento NAT configurado separadamente)"
+iptables -A INPUT -i $WAN -p tcp --dport 22254 -j ACCEPT
 
-# Permitir ping com limite de taxa
-iptables -A INPUT -p icmp --icmp-type echo-request -m limit --limit 1/s --limit-burst 10 -j ACCEPT
+# ================================
+# 🧱 3️⃣ REGRAS DE DNS (BIND9)
+# ================================
 
-# Permitir acesso HTTP/HTTPS/DNS/NTP para o firewall
-iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
-iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
-iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
+echo "[+] Liberando tráfego DNS (UDP/TCP 53) da rede interna e do próprio firewall..."
+
+# Permitir consultas DNS vindas da LAN para o firewall (DNS local)
+iptables -A INPUT -i $LAN -p udp --dport 53 -s $LAN_NET -j ACCEPT
+iptables -A INPUT -i $LAN -p tcp --dport 53 -s $LAN_NET -j ACCEPT
+
+# Permitir que o próprio firewall faça consultas DNS para fora
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
-iptables -A OUTPUT -p udp --dport 123 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
 
-# Permitir saída da LAN para Internet (HTTP/HTTPS/DNS)
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 80 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p tcp --dport 53 -m conntrack --ctstate NEW -j ACCEPT
-iptables -A FORWARD -s 192.168.70.0/24 -p udp --dport 53 -m conntrack --ctstate NEW -j ACCEPT
+# Permitir respostas DNS de volta
+iptables -A INPUT -p udp --sport 53 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+iptables -A INPUT -p tcp --sport 53 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
-# Redirecionar conexões externas para o Firewall
-iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 22253 -j DNAT --to-destination 192.168.70.254:22253
-iptables -A FORWARD -p tcp -d 192.168.70.254 --dport 22253 -m conntrack --ctstate NEW -j ACCEPT
+# ================================
+# 🌐 NAT e roteamento básico
+# ================================
 
-# Redirecionar conexões externas para o servidor de arquivos
-iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 22252 -j DNAT --to-destination 192.168.70.252:22252
-iptables -A FORWARD -p tcp -d 192.168.70.252 --dport 22252 -m conntrack --ctstate NEW -j ACCEPT
+echo "[+] Habilitando NAT para acesso à Internet..."
+iptables -t nat -A POSTROUTING -o $WAN -s $LAN_NET -j MASQUERADE
 
-# Liberar o RDP para estação de trabalho Windows
-iptables -t nat -A PREROUTING -i $WAN -p tcp --dport 3389 -j DNAT --to-destination 192.168.70.171:3389
-iptables -A FORWARD -p tcp -d 192.168.70.171 --dport 3389 -m conntrack --ctstate NEW -j ACCEPT
+# Permitir encaminhamento entre LAN e WAN
+iptables -A FORWARD -i $LAN -o $WAN -j ACCEPT
+iptables -A FORWARD -i $WAN -o $LAN -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-# Log básico (opcional)
-iptables -A INPUT -m limit --limit 2/s -j LOG --log-prefix "FIREWALL_DROP: "
+# ================================
+# 🔒 Finalização
+# ================================
 
-echo "......................................Firewall carregado com sucesso!"
+echo "[+] Aplicando regras..."
+iptables-save > /etc/iptables/rules.v4
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo "[✓] Firewall com DNS ativo e NAT habilitado."
 ```
 
 ## ⚙️  A opção -m conntrack
