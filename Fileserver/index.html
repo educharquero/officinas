@@ -959,24 +959,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ativar-e-reiniciar-os-servicos" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔄 Ativar e reiniciar os serviços
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verificar-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verificar status:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
       🔗 Ingressando o servidor no domínio
@@ -1016,6 +998,24 @@
   <a href="#teste-a-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
       Teste a troca de tickets do Kerberos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ativar-e-reiniciar-os-servicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Ativar e reiniciar os serviços
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar status:
     </span>
   </a>
   
@@ -2307,24 +2307,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ativar-e-reiniciar-os-servicos" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔄 Ativar e reiniciar os serviços
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verificar-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verificar status:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ingressando-o-servidor-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
       🔗 Ingressando o servidor no domínio
@@ -2364,6 +2346,24 @@
   <a href="#teste-a-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
       Teste a troca de tickets do Kerberos:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ativar-e-reiniciar-os-servicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Ativar e reiniciar os serviços
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificar status:
     </span>
   </a>
   
@@ -2651,14 +2651,6 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 group:<span class="w">          </span>compat<span class="w"> </span>winbind
 shadow:<span class="w">         </span>compat
 </code></pre></div>
-<h2 id="ativar-e-reiniciar-os-servicos">🔄 Ativar e reiniciar os serviços</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
-</code></pre></div>
-<h2 id="verificar-status">Verificar status:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
-</code></pre></div>
 <h2 id="ingressando-o-servidor-no-dominio">🔗 Ingressando o servidor no domínio</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
 </code></pre></div>
@@ -2677,6 +2669,14 @@ shadow:<span class="w">         </span>compat
 <div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@OFFICINAS.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
+</code></pre></div>
+<h2 id="ativar-e-reiniciar-os-servicos">🔄 Ativar e reiniciar os serviços</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<h2 id="verificar-status">Verificar status:</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
 </code></pre></div>
 <h2 id="voce-deve-ver-um-ticket-valido">Você deve ver um ticket válido.</h2>
 <h2 id="criar-diretorios-e-permissoes">🧱 Criar diretórios e permissões</h2>
