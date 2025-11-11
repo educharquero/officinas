@@ -135,49 +135,63 @@ sudo vim /etc/samba/smb.conf
    server role = member server
    map to guest = Bad User
    dns proxy = no
-   
+
    # ACLs e atributos
    vfs objects = acl_xattr
    map acl inherit = yes
    store dos attributes = yes
-   
-   # Permitir nomes longos e compatibilidade com Windows
+
+   # Codificação
    unix charset = UTF-8
    dos charset = CP850
-   
+
    # Integração AD / Kerberos
    dedicated keytab file = /etc/krb5.keytab
    kerberos method = secrets and keytab
 
-   # Winbind – integração de usuários/grupos
+   # Winbind
    winbind use default domain = yes
    winbind enum users = yes
    winbind enum groups = yes
    template shell = /bin/bash
    template homedir = /home/%D/%U
 
-   # IDMAP – mapeamento de IDs de domínio
+   # IDMAP
    idmap config * : backend = tdb
    idmap config * : range = 3000-7999
    idmap config OFFICINAS : backend = rid
    idmap config OFFICINAS : range = 10000-999999
-   
+
    # Logs
    log file = /var/log/samba/%m.log
    max log size = 1000
+   logging = syslog@1 file
+   log level = 1
 
-# Compartilhamentos de rede
 [arquivos]
-   comment = Compartilhamentos da Rede
-   path = /srv/samba/arquivos
-   browseable = yes
-   writable = yes
-   guest ok = no
-   create mask = 0770
-   directory mask = 0770
-   inherit permissions = yes
-   inherit acls = yes
-   inherit owner = yes
+    comment = Compartilhamentos da Rede
+    path = /srv/samba/arquivos
+    browseable = yes
+    writable = yes
+    read only = no
+    guest ok = no
+
+    create mask = 0770
+    directory mask = 0770
+
+    inherit permissions = yes
+    inherit acls = yes
+    inherit owner = yes
+
+    vfs objects = acl_xattr full_audit
+
+    valid users = @"OFFICINAS\Domain Users"
+
+    full_audit:prefix = %u|%I|%S
+    full_audit:success = connect disconnect open opendir mkdir rmdir rename unlink write
+    full_audit:failure = none
+    full_audit:facility = LOCAL7
+    full_audit:priority = NOTICE
 ```
 
 ## 🧱 7. Criar diretórios e permissões
