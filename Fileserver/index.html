@@ -2507,7 +2507,7 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 <span class="w">   </span>map<span class="w"> </span>acl<span class="w"> </span><span class="nv">inherit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>store<span class="w"> </span>dos<span class="w"> </span><span class="nv">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 
-<span class="w">   </span><span class="c1"># Permitir nomes longos e compatibilidade com Windows</span>
+<span class="w">   </span><span class="c1"># Codificação</span>
 <span class="w">   </span>unix<span class="w"> </span><span class="nv">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>UTF-8
 <span class="w">   </span>dos<span class="w"> </span><span class="nv">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>CP850
 
@@ -2515,14 +2515,14 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 <span class="w">   </span>dedicated<span class="w"> </span>keytab<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/etc/krb5.keytab
 <span class="w">   </span>kerberos<span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secrets<span class="w"> </span>and<span class="w"> </span>keytab
 
-<span class="w">   </span><span class="c1"># Winbind – integração de usuários/grupos</span>
+<span class="w">   </span><span class="c1"># Winbind</span>
 <span class="w">   </span>winbind<span class="w"> </span>use<span class="w"> </span>default<span class="w"> </span><span class="nv">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">   </span>template<span class="w"> </span><span class="nv">shell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/bin/bash
 <span class="w">   </span>template<span class="w"> </span><span class="nv">homedir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/home/%D/%U
 
-<span class="w">   </span><span class="c1"># IDMAP – mapeamento de IDs de domínio</span>
+<span class="w">   </span><span class="c1"># IDMAP</span>
 <span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
 <span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000</span>-7999
 <span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>OFFICINAS<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>rid
@@ -2531,19 +2531,33 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 <span class="w">   </span><span class="c1"># Logs</span>
 <span class="w">   </span>log<span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/log/samba/%m.log
 <span class="w">   </span>max<span class="w"> </span>log<span class="w"> </span><span class="nv">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span>
+<span class="w">   </span><span class="nv">logging</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>syslog@1<span class="w"> </span>file
+<span class="w">   </span>log<span class="w"> </span><span class="nv">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 
-<span class="c1"># Compartilhamentos de rede</span>
 <span class="o">[</span>arquivos<span class="o">]</span>
-<span class="w">   </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Compartilhamentos<span class="w"> </span>da<span class="w"> </span>Rede
-<span class="w">   </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos
-<span class="w">   </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
-<span class="w">   </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
-<span class="w">   </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
-<span class="w">   </span>inherit<span class="w"> </span><span class="nv">permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>inherit<span class="w"> </span><span class="nv">acls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
-<span class="w">   </span>inherit<span class="w"> </span><span class="nv">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">    </span><span class="nv">comment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Compartilhamentos<span class="w"> </span>da<span class="w"> </span>Rede
+<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/srv/samba/arquivos
+<span class="w">    </span><span class="nv">browseable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">    </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
+<span class="w">    </span>guest<span class="w"> </span><span class="nv">ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
+
+<span class="w">    </span>create<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
+<span class="w">    </span>directory<span class="w"> </span><span class="nv">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0770</span>
+
+<span class="w">    </span>inherit<span class="w"> </span><span class="nv">permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">    </span>inherit<span class="w"> </span><span class="nv">acls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">    </span>inherit<span class="w"> </span><span class="nv">owner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+
+<span class="w">    </span>vfs<span class="w"> </span><span class="nv">objects</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>acl_xattr<span class="w"> </span>full_audit
+
+<span class="w">    </span>valid<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>@<span class="s2">&quot;OFFICINAS\Domain Users&quot;</span>
+
+<span class="w">    </span>full_audit:prefix<span class="w"> </span><span class="o">=</span><span class="w"> </span>%u<span class="p">|</span>%I<span class="p">|</span>%S
+<span class="w">    </span>full_audit:success<span class="w"> </span><span class="o">=</span><span class="w"> </span>connect<span class="w"> </span>disconnect<span class="w"> </span>open<span class="w"> </span>opendir<span class="w"> </span>mkdir<span class="w"> </span>rmdir<span class="w"> </span>rename<span class="w"> </span>unlink<span class="w"> </span>write
+<span class="w">    </span>full_audit:failure<span class="w"> </span><span class="o">=</span><span class="w"> </span>none
+<span class="w">    </span>full_audit:facility<span class="w"> </span><span class="o">=</span><span class="w"> </span>LOCAL7
+<span class="w">    </span>full_audit:priority<span class="w"> </span><span class="o">=</span><span class="w"> </span>NOTICE
 </code></pre></div>
 <h2 id="7-criar-diretorios-e-permissoes">🧱 7. Criar diretórios e permissões</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos
