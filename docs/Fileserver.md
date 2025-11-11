@@ -231,22 +231,6 @@ group:          compat winbind
 shadow:         compat
 ```
 
-## 🔄 Ativar e reiniciar os serviços
-
-```bash
-sudo systemctl enable smbd nmbd winbind
-```
-
-```bash
-sudo systemctl restart smbd nmbd winbind
-```
-
-## Verificar status:
-
-```bash
-sudo systemctl status winbind
-```
-
 ## 🔗 Ingressando o servidor no domínio
 
 ```bash
@@ -283,6 +267,22 @@ kinit administrador@OFFICINAS.EDU
 
 ```bash
 klist
+```
+
+## 🔄 Ativar e reiniciar os serviços
+
+```bash
+sudo systemctl enable smbd nmbd winbind
+```
+
+```bash
+sudo systemctl restart smbd nmbd winbind
+```
+
+## Verificar status:
+
+```bash
+sudo systemctl status winbind
 ```
 
 ## Você deve ver um ticket válido.
