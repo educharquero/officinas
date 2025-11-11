@@ -69,7 +69,13 @@ shadow:         compat
 sudo net ads join -U Administrador
 ```
 
-6. Verificações
+6. Reboot do Sistema
+
+```bash
+sudo reboot
+```
+
+7. Verificações
 
 ```bash
 sudo net ads testjoin
@@ -78,7 +84,7 @@ wbinfo -g
 getent passwd usuario
 ```
 
-7. Criar diretórios HOME automaticamente
+8. Criar diretórios HOME automaticamente
 
 
 Edite /etc/pam.d/common-session e adicione:
@@ -87,14 +93,14 @@ Edite /etc/pam.d/common-session e adicione:
 session required pam_mkhomedir.so skel=/etc/skel umask=0022
 ```
 
-8. Reiniciar serviços
+9. Reiniciar serviços
 
 ```bash
 sudo systemctl restart smbd nmbd winbind
 sudo systemctl enable winbind
 ```
 
-9. Sincronização de Hora
+10. Sincronização de Hora
 
 ```bash
 sudo timedatectl set-ntp true
