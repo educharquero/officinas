@@ -535,15 +535,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      🌐 Topologia da rede - Função, endereçamento ip e nomes:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-instalar-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 1. Instalar os pacotes necessários
@@ -2071,15 +2062,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#topologia-da-rede-funcao-enderecamento-ip-e-nomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      🌐 Topologia da rede - Função, endereçamento ip e nomes:
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-instalar-os-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 1. Instalar os pacotes necessários
@@ -2314,22 +2296,18 @@
 <h1 id="servidor-dns-com-bind9-no-debian-13-standalone">🔥 Servidor DNS com BIND9 no Debian 13 (Standalone)</h1>
 <h2 id="o-objetivo-desse-tutorial-e-criar-e-configurar-um-servidor-dns-puro-standalone-com-o-bind9-no-debian-13-para-fins-de-aprendizado-e-testes-de-resolucao-de-nomes-sem-interferir-no-dns-interno-do-dominio-officinasedu-que-ja-opera-no-srvdc01">🎯 O Objetivo desse tutorial é criar e configurar um <strong>Servidor DNS puro (standalone)</strong> com o <strong>BIND9</strong> no <strong>Debian 13</strong>, para fins de <strong>aprendizado e testes de resolução de nomes</strong>, sem interferir no DNS interno do domínio <code>OFFICINAS.EDU</code>, que já opera no <code>SRVDC01</code>.</h2>
 <hr />
-<h2 id="topologia-da-rede-funcao-enderecamento-ip-e-nomes">🌐 Topologia da rede - Função, endereçamento ip e nomes:</h2>
 <ul>
 <li>
-<p>Firewall: SRVFIREWALL 192.168.70.254</p>
+<p>Domínio: OFFICINAS.EDU</p>
 </li>
 <li>
-<p>Controlador de Domínio: SRVDC01 192.168.70.253</p>
+<p>SRVFIREWALL 192.168.70.254/24</p>
 </li>
 <li>
-<p>FileServer: SRVARQUIVOS 192.168.70.252</p>
+<p>SRVDC01 192.168.70.253/24</p>
 </li>
 <li>
-<p>Domínio AD: OFFICINAS.EDU</p>
-</li>
-<li>
-<p>Workgroup: OFFICINAS</p>
+<p>SRVARQUIVOS 192.168.70.252/24</p>
 </li>
 </ul>
 <hr />
