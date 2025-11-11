@@ -22,7 +22,7 @@
 vim /etc/network/interfaces
 
 # Interface externa (WAN)
-allow-hotplug enp1s0
+allow-hotplug ens18
 iface enp1s0 inet static
     address 192.168.0.254
     netmask 255.255.255.0
@@ -30,19 +30,19 @@ iface enp1s0 inet static
     dns-nameservers 192.168.0.1
 
 # Interface interna (LAN)
-allow-hotplug enp7s0
+allow-hotplug ens19
 iface enp7s0 inet static
     address 192.168.70.254
     netmask 255.255.255.0
 ```
 
-## Aplique as alterações:
+## Aplique as alterações
 
 ```bash
 systemctl restart networking
 ```
 
-## Verifique se as interfaces subiram corretamente:
+## Verifique se as interfaces subiram corretamente
 
 ```bash
 ip addr show
@@ -50,7 +50,7 @@ ip addr show
 
 ## 🧭 Resolvedor de nomes
 
-## Edite o arquivo resolv.conf apontando o resolvedor interno ou externo:
+## Edite o arquivo resolv.conf apontando o resolvedor interno SRVDC01
 
 ```bash
 vim /etc/resolv.conf
@@ -58,17 +58,64 @@ vim /etc/resolv.conf
 
 ```bash
 domain officinas.edu
-search officinas.edu
-nameserver 192.168.0.1
+nameserver 192.168.70.253
 ```
 
-## A **1º Parte** se referirá á integração ao domínio:
+## Bloqueie a edição automática do arquivo
+
+```bash
+chattr +i /etc/resolv.conf
+```
+
+## A **1º Parte** se referirá á integração ao domínio
 
 ## ⚙️ Instalar pacotes de integração AD
 
 ```bash
-apt install samba winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind
+apt install samba winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind curl
 ```
+
+## ✅ Sincronização de hora (crítica para Kerberos):
+
+
+```bash
+apt install chrony
+```
+
+```bash
+vim /etc/chrony/chrony.conf
+```
+
+## Adicione o srvdc01 ao chrony:
+
+```bash
+server 192.168.70.253 prefer iburst
+```
+
+```bash
+systemctl enable --now chronyd
+```
+
+```bash
+sudo systemctl restart chronyd
+```
+
+```bash
+chronyc sources -v
+```
+
+```bash
+chronyc tracking
+```
+
+## Habilite e reinicie o serviço de sincronização de horário.
+
+sudo systemctl enable chrony
+
+sudo systemctl restart chrony
+
+chronyc sources -v
+
 
 ## 🔑 Configurar o Kerberos
 
@@ -96,16 +143,6 @@ vim /etc/krb5.conf:
     officinas.edu = OFFICINAS.EDU
 ```
 
-## Teste o ticket:
-
-```bash
-kinit administrador@OFFICINAS.EDU
-```
-
-```bash
-klist
-```
-
 ## ⚙️ Configurar o Samba
 
 ```bash
@@ -116,22 +153,44 @@ vim /etc/samba/smb.conf:
 [global]
    workgroup = OFFICINAS
    realm = OFFICINAS.EDU
-   security = ads
+   security = ADS
    password server = 192.168.70.253
    kerberos method = secrets and keytab
+
+   # Winbind e IDMAP
    winbind use default domain = yes
    winbind offline logon = yes
    winbind enum users = yes
    winbind enum groups = yes
+   template shell = /bin/bash
+   template homedir = /home/%D/%U
+
    idmap config * : backend = tdb
    idmap config * : range = 10000-20000
+
+   client signing = yes
+   server signing = auto
+   client use spnego = yes
+   dedicated keytab file = /etc/krb5.keytab
+
+   # Performance
+   dns proxy = no
+   restrict anonymous = 2
+```
+
+## 🧠 Configurar apontamento de NSS e PAM
+
+```
+vim /etc/nsswitch
+```
+
+```bash
+passwd:         compat winbind
+group:          compat winbind
+shadow:         compat
 ```
 
 ## 🧩 Ingressar no domínio
-
-```bash
-systemctl restart winbind
-```
 
 ```bash
 net ads join -U administrador
@@ -161,24 +220,15 @@ wbinfo -u | head
 wbinfo -g | head
 ```
 
-## 🧠 Configurar NSS e PAM
+## Teste o ticket:
 
 ```bash
-vim /etc/nsswitch.conf:
+kinit administrador@OFFICINAS.EDU
 ```
 
 ```bash
-passwd:         compat winbind
-group:          compat winbind
-shadow:         compat
+klist
 ```
-## Ative autenticação PAM:
-
-```bash
-pam-auth-update
-```
-
-## Selecione Winbind e confirme.
 
 ## 🔄 Reiniciar serviços
 
@@ -186,17 +236,17 @@ pam-auth-update
 systemctl restart smbd nmbd winbind
 ```
 
-## ✅ Testar autenticação AD:
+## ✅ Testar autenticação AD
 
 ```bash
 wbinfo -u | head
 ```
 
 ```bash
-getent passwd "usuario_do_dominio"
+getent passwd "Administrator"
 ```
 
-## ⚙️ Verificar DNS e NAT:
+## ⚙️ Verificar DNS e NAT
 
 ```bash
 ping -c 3 8.8.8.8
@@ -210,11 +260,11 @@ ping -c 3 srvdc01.officinas.edu
 curl https://google.com
 ```
 
-## A **2º Parte** se referirá ao serviço de Firewall, propriamente dito:
+## A **2º Parte** se referirá ao serviço de Firewall, propriamente dito
 
 ## 🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
 
-## Crie o arquivo de configuração do sysctl.conf:
+## Crie o arquivo de configuração do sysctl.conf
 
 ```bash
 vim /etc/sysctl.conf
@@ -226,7 +276,7 @@ net.ipv4.conf.all.rp_filter=1
 net.ipv4.conf.default.rp_filter=1
 ```
 
-## Ative a configuração imediatamente:
+## Ative a configuração imediatamente
 
 ```bash
 sysctl -p /etc/sysctl.conf
@@ -234,7 +284,7 @@ sysctl -p /etc/sysctl.conf
 
 ## 🧱 Instalar o iptables
 
-## Substitua o nftables (padrão do Debian 13) pelo iptables clássico:
+## Substitua o nftables (padrão do Debian 13) pelo iptables clássico
 
 ```bash
 apt remove nftables
@@ -246,7 +296,7 @@ apt install iptables iptables-persistent
 
 ## 🔧 Criar o script do firewall
 
-## Crie o arquivo /usr/local/bin/firewall:
+## Crie o arquivo /usr/local/bin/firewall
 
 ```bash
 vim /usr/local/bin/firewall
@@ -327,7 +377,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 echo "[✓] Firewall ativo e integrado ao domínio."
 ```
 
-## Algumas explicações importantes:
+## Algumas explicações importantes
 
 ## ⚙️  A opção -m conntrack
 
@@ -337,7 +387,7 @@ echo "[✓] Firewall ativo e integrado ao domínio."
 
 * A opção --ctstate permite definir quais estados de conexão a regra deve corresponder.
 
-## Os principais estados são:
+## Os principais estados são
 
 - NEW	Pacote que inicia uma nova conexão (ex: primeiro SYN em TCP).
 - ESTABLISHED	Pacote que faz parte de uma conexão já estabelecida.
@@ -349,7 +399,7 @@ echo "[✓] Firewall ativo e integrado ao domínio."
 
 * O estado NEW indica que o pacote está tentando iniciar uma nova conexão.
 
-## Por exemplo:
+## Por exemplo
 
 * O primeiro pacote TCP (SYN)
 
@@ -359,19 +409,19 @@ echo "[✓] Firewall ativo e integrado ao domínio."
 
 ## ⚙️  Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
 
-## Torne o script executável:
+## Torne o script executável
 
 ```bash
 chmod +x /usr/local/bin/firewall
 ```
 
-## Rode o script para subir as regras:
+## Rode o script para subir as regras
 
 ```bash
 /usr/local/bin/firewall
 ```
 
-## Salve as regras ativas:
+## Salve as regras ativas
 
 ```bash
 iptables-save > /etc/iptables/rules.v4
@@ -379,7 +429,7 @@ iptables-save > /etc/iptables/rules.v4
 
 ## 🧠 Tornar o firewall persistente no boot
 
-## Habilite o serviço:
+## Habilite o serviço
 
 ```bash
 systemctl enable netfilter-persistent.service
@@ -393,7 +443,7 @@ systemctl restart netfilter-persistent.service
 systemctl status netfilter-persistent.service
 ```
 
-## Verifique se as regras estão sendo aplicadas após o reboot:
+## Verifique se as regras estão sendo aplicadas após o reboot
 
 ```bash
 iptables -L -v -n
@@ -405,19 +455,19 @@ iptables -t nat -L -v -n
 
 ## ✅ Testes rápidos
 
-## Conexão com internet:
+## Conexão com internet
 
 ```bash
 ping -c 3 8.8.8.8
 ```
 
-## Conexão com a rede lan:
+## Conexão com a rede lan
 
 ```bash
 ping -c 3 192.168.70.253
 ```
 
-## Validando NAT e DNS:
+## Validando NAT e DNS
 
 ```bash
 curl https://google.com
@@ -432,3 +482,4 @@ curl https://google.com
 
 
 THAT'S ALL FOLKS!
+
