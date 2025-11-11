@@ -2791,18 +2791,15 @@ nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 <h2 id="adicione-o-srvdc01-ao-chrony">Adicione o srvdc01 ao chrony:</h2>
 <div class="highlight"><pre><span></span><code>server<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>prefer<span class="w"> </span>iburst
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>chronyd
+<h2 id="habilite-e-reinicie-o-servico-de-sincronizacao-de-horario">Habilite e reinicie o serviço de sincronização de horário.</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>chrony
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>chronyd
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>chrony
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>sources<span class="w"> </span>-v
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>tracking
 </code></pre></div>
-<h2 id="habilite-e-reinicie-o-servico-de-sincronizacao-de-horario">Habilite e reinicie o serviço de sincronização de horário.</h2>
-<p>sudo systemctl enable chrony</p>
-<p>sudo systemctl restart chrony</p>
-<p>chronyc sources -v</p>
 <h2 id="configurar-o-kerberos">🔑 Configurar o Kerberos</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/krb5.conf:
 </code></pre></div>
