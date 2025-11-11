@@ -6,17 +6,15 @@ e aplicar políticas de bloqueio contra **redes sociais, conteúdo adulto e amea
 
 ---
 
-## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
+## 🌐 Topologia da rede:
 
-- Firewall: SRVFIREWALL 192.168.70.254
+- Domínio: OFFICINAS.EDU
 
-- Controlador de Domínio: SRVDC01 192.168.70.253
+- SRVFIREWALL 192.168.70.254/24
 
-- FileServer: SRVARQUIVOS 192.168.70.252
+- SRVDC01 192.168.70.253/24
 
-- WebServer: WEBSERVER 192.168.70.251
-
-- Proxy: SRVPROXY 192.168.70.250
+- SRVARQUIVOS 192.168.70.252/24
 
 ---
 

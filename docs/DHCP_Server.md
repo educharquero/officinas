@@ -1,20 +1,18 @@
 # 🔥 DHCP Server
 
-## 🎯 O Objetivo nesse tutorial é Configurar um servidor DHCP no Debian 13, com concessões dinâmicas e reservas fixas, integrando-se à rede interna 192.168.70.0/24, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
+## 🎯 O Objetivo nesse tutorial é integrar um servidor DHCP no Controlador de Domínio, SRVDC01, com concessões dinâmicas e reservas fixas, apontando o Gateway para o Firewall e o DNS para o Controlador de Domínio, bem como setando um range de distribuição de ips aos clientes da rede.
 
 ---
 
-## 🌐 Topologia da rede - Função, endereçamento ip e nomes:
+## 🌐 Topologia da rede:
 
-- Firewall: SRVFIREWALL 192.168.70.254
+- Domínio: OFFICINAS.EDU
 
-- Controlador de Domínio: SRVDC01 192.168.70.253
+- SRVFIREWALL 192.168.70.254/24
 
-- FileServer: SRVARQUIVOS 192.168.70.252
+- SRVDC01 192.168.70.253/24
 
-- Domínio AD: OFFICINAS.EDU
-
-- Workgroup: OFFICINAS
+- SRVARQUIVOS 192.168.70.252/24
 
 ---
 
@@ -237,7 +235,7 @@ ln -s /usr/share/ieee-data/oui.txt /usr/share/misc/oui.txt
 ln -s /usr/share/ieee-data/oui.txt /usr/local/etc/oui.txt
 ```
 
-## Listar concessões DHCP ativas
+## Revalide as concessões DHCP ativas, agora com marcas e fabricantes:
 
 ```bash
 dhcp-lease-list
@@ -262,7 +260,7 @@ dhcp-lease-list --parsable
 dhcp-lease-list --last
 ```
 
-```bash Todas as concessões (mesmo as expiradas)
+## Todas as concessões (mesmo as expiradas)
 
 ```bash
 dhcp-lease-list --all
