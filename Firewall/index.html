@@ -2482,74 +2482,75 @@ net.ipv4.conf.default.rp_filter<span class="o">=</span><span class="m">1</span>
 <span class="c1">##        Versão: 11.2025                ##</span>
 <span class="c1">##        Licença: GPLv3                 ##</span>
 <span class="c1">###########################################</span>
+<span class="c1">#!/bin/bash</span>
+<span class="c1">### FIREWALL + DNS RULES ###</span>
+<span class="c1">### Local: /usr/local/bin/firewall.sh</span>
 
 <span class="c1"># Interfaces</span>
-<span class="nv">WAN</span><span class="o">=</span><span class="s2">&quot;enp1s0&quot;</span>
-<span class="nv">LAN</span><span class="o">=</span><span class="s2">&quot;enp7s0&quot;</span>
+<span class="nv">LAN</span><span class="o">=</span><span class="s2">&quot;ens19&quot;</span>
+<span class="nv">WAN</span><span class="o">=</span><span class="s2">&quot;ens18&quot;</span>
 
-<span class="c1"># Carregar módulos do kernel</span>
-modprobe<span class="w"> </span>iptable_nat
-modprobe<span class="w"> </span>iptable_filter
-modprobe<span class="w"> </span>iptable_mangle
+<span class="c1"># Rede interna e IP do Firewall</span>
+<span class="nv">LAN_NET</span><span class="o">=</span><span class="s2">&quot;192.168.70.0/24&quot;</span>
+<span class="nv">FW_IP</span><span class="o">=</span><span class="s2">&quot;192.168.70.254&quot;</span>
 
-<span class="c1"># Limpar regras existentes</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Limpando regras antigas...&quot;</span>
 iptables<span class="w"> </span>-F
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-F
-iptables<span class="w"> </span>-t<span class="w"> </span>mangle<span class="w"> </span>-F
 iptables<span class="w"> </span>-X
 
-<span class="c1"># Políticas padrão (bloqueio total)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Definindo políticas padrão...&quot;</span>
 iptables<span class="w"> </span>-P<span class="w"> </span>INPUT<span class="w"> </span>DROP
-iptables<span class="w"> </span>-P<span class="w"> </span>OUTPUT<span class="w"> </span>DROP
 iptables<span class="w"> </span>-P<span class="w"> </span>FORWARD<span class="w"> </span>DROP
+iptables<span class="w"> </span>-P<span class="w"> </span>OUTPUT<span class="w"> </span>ACCEPT
 
-<span class="c1"># Permitir tráfego de loopback</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo loopback e conexões já estabelecidas...&quot;</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span>lo<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-o<span class="w"> </span>lo<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-
-<span class="c1"># Permitir pacotes relacionados e estabelecidos</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Habilitar NAT (mascaramento da rede interna)</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo acesso SSH interno (porta 22254)&quot;</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Acesso SSH ao firewall (porta 22254) somente pela lan</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo acesso SSH externo (redirecionamento NAT configurado separadamente)&quot;</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Permitir ping com limite de taxa</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>--icmp-type<span class="w"> </span>echo-request<span class="w"> </span>-m<span class="w"> </span>limit<span class="w"> </span>--limit<span class="w"> </span><span class="m">1</span>/s<span class="w"> </span>--limit-burst<span class="w"> </span><span class="m">10</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># ================================</span>
+<span class="c1"># 🧱 3️⃣ REGRAS DE DNS (BIND9)</span>
+<span class="c1"># ================================</span>
 
-<span class="c1"># Permitir acesso HTTP/HTTPS/DNS/NTP para o firewall</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Liberando tráfego DNS (UDP/TCP 53) da rede interna e do próprio firewall...&quot;</span>
+
+<span class="c1"># Permitir consultas DNS vindas da LAN para o firewall (DNS local)</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># Permitir que o próprio firewall faça consultas DNS para fora</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">123</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Permitir saída da LAN para Internet (HTTP/HTTPS/DNS)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">80</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">443</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.0/24<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Permitir respostas DNS de volta</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--sport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--sport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Redirecionar conexões externas para o Firewall</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.254:22253
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.254<span class="w"> </span>--dport<span class="w"> </span><span class="m">22253</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># ================================</span>
+<span class="c1"># 🌐 NAT e roteamento básico</span>
+<span class="c1"># ================================</span>
 
-<span class="c1"># Redirecionar conexões externas para o servidor de arquivos</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.252:22252
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.252<span class="w"> </span>--dport<span class="w"> </span><span class="m">22252</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Habilitando NAT para acesso à Internet...&quot;</span>
+iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
 
-<span class="c1"># Liberar o RDP para estação de trabalho Windows</span>
-iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>PREROUTING<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-j<span class="w"> </span>DNAT<span class="w"> </span>--to-destination<span class="w"> </span><span class="m">192</span>.168.70.171:3389
-iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.171<span class="w"> </span>--dport<span class="w"> </span><span class="m">3389</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>NEW<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="c1"># Permitir encaminhamento entre LAN e WAN</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="c1"># Log básico (opcional)</span>
-iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-m<span class="w"> </span>limit<span class="w"> </span>--limit<span class="w"> </span><span class="m">2</span>/s<span class="w"> </span>-j<span class="w"> </span>LOG<span class="w"> </span>--log-prefix<span class="w"> </span><span class="s2">&quot;FIREWALL_DROP: &quot;</span>
+<span class="c1"># ================================</span>
+<span class="c1"># 🔒 Finalização</span>
+<span class="c1"># ================================</span>
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;......................................Firewall carregado com sucesso!&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Aplicando regras...&quot;</span>
+iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/rules.v4
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/net/ipv4/ip_forward
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[✓] Firewall com DNS ativo e NAT habilitado.&quot;</span>
 </code></pre></div>
 <h2 id="a-opcao-m-conntrack">⚙️  A opção -m conntrack</h2>
 <ul>
