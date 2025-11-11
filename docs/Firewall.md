@@ -1,6 +1,6 @@
 # 🔥 Firewall Server - Debian 13 com Iptables
 
-## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
+## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
 
 ---
 
@@ -17,8 +17,6 @@
 ---
 
 ## 🧩 Configuração das interfaces de rede
-
-## Edite o arquivo de interfaces:
 
 ```bash
 vim /etc/network/interfaces
@@ -64,12 +62,162 @@ search officinas.edu
 nameserver 192.168.0.1
 ```
 
-## 🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+## A **1º Parte** se referirá á integração ao domínio:
 
-## Edite o arquivo de configuração do sysctl:
+## ⚙️ Instalar pacotes de integração AD
 
 ```bash
-vim /etc/sysctl.d/99-sysctl.conf
+apt install samba winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind
+```
+
+## 🔑 Configurar o Kerberos
+
+```bash
+vim /etc/krb5.conf:
+```
+
+```bash
+[libdefaults]
+    default_realm = OFFICINAS.EDU
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
+
+[realms]
+    OFFICINAS.EDU = {
+        kdc = 192.168.70.253
+        admin_server = 192.168.70.253
+    }
+
+[domain_realm]
+    .officinas.edu = OFFICINAS.EDU
+    officinas.edu = OFFICINAS.EDU
+```
+
+## Teste o ticket:
+
+```bash
+kinit administrador@OFFICINAS.EDU
+```
+
+```bash
+klist
+```
+
+## ⚙️ Configurar o Samba
+
+```bash
+vim /etc/samba/smb.conf:
+```
+
+```bash
+[global]
+   workgroup = OFFICINAS
+   realm = OFFICINAS.EDU
+   security = ads
+   password server = 192.168.70.253
+   kerberos method = secrets and keytab
+   winbind use default domain = yes
+   winbind offline logon = yes
+   winbind enum users = yes
+   winbind enum groups = yes
+   idmap config * : backend = tdb
+   idmap config * : range = 10000-20000
+```
+
+## 🧩 Ingressar no domínio
+
+```bash
+systemctl restart winbind
+```
+
+```bash
+net ads join -U administrador
+```
+
+## Saída esperada:
+
+```bash
+Joined 'SRVFIREWALL' to realm 'OFFICINAS.EDU'
+```
+
+## Valide:
+
+```bash
+net ads testjoin
+```
+
+```bash
+wbinfo -t
+```
+
+```bash
+wbinfo -u | head
+```
+
+```bash
+wbinfo -g | head
+```
+
+## 🧠 Configurar NSS e PAM
+
+```bash
+vim /etc/nsswitch.conf:
+```
+
+```bash
+passwd:         compat winbind
+group:          compat winbind
+shadow:         compat
+```
+## Ative autenticação PAM:
+
+```bash
+pam-auth-update
+```
+
+## Selecione Winbind e confirme.
+
+## 🔄 Reiniciar serviços
+
+```bash
+systemctl restart smbd nmbd winbind
+```
+
+## ✅ Testar autenticação AD:
+
+```bash
+wbinfo -u | head
+```
+
+```bash
+getent passwd "usuario_do_dominio"
+```
+
+## ⚙️ Verificar DNS e NAT:
+
+```bash
+ping -c 3 8.8.8.8
+```
+
+```bash
+ping -c 3 srvdc01.officinas.edu
+```
+
+```bash
+curl https://google.com
+```
+
+## A **2º Parte** se referirá ao serviço de Firewall, propriamente dito:
+
+## 🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+
+## Crie o arquivo de configuração do sysctl.conf:
+
+```bash
+vim /etc/sysctl.conf
 ```
 
 ```bash
@@ -81,7 +229,7 @@ net.ipv4.conf.default.rp_filter=1
 ## Ative a configuração imediatamente:
 
 ```bash
-sysctl -p /etc/sysctl.d/99-sysctl.conf
+sysctl -p /etc/sysctl.conf
 ```
 
 ## 🧱 Instalar o iptables
@@ -89,11 +237,11 @@ sysctl -p /etc/sysctl.d/99-sysctl.conf
 ## Substitua o nftables (padrão do Debian 13) pelo iptables clássico:
 
 ```bash
-apt remove -y nftables
+apt remove nftables
 ```
 
 ```bash
-apt install -y iptables iptables-persistent
+apt install iptables iptables-persistent
 ```
 
 ## 🔧 Criar o script do firewall
@@ -106,19 +254,17 @@ vim /usr/local/bin/firewall
 
 ```bash
 #!/usr/bin/env bash
-###########################################
-##        FIREWALL - Projeto Officinas   ##
-##        eduardo.charquero@gmail.com    ##
-##        Versão: 11.2025                ##
-##        Licença: GPLv3                 ##
-###########################################
+##############################################
+##        FIREWALL - Projeto Officinas      ##
+##        eduardo.charquero@gmail.com       ##
+##        Versão: 11.2025                   ##
+##        Licença: GPLv3                    ##
+##############################################
 #!/bin/bash
-### FIREWALL + DNS RULES ###
-### Local: /usr/local/bin/firewall.sh
 
 # Interfaces
-LAN="ens19"
 WAN="ens18"
+LAN="ens19"
 
 # Rede interna e IP do Firewall
 LAN_NET="192.168.70.0/24"
@@ -141,47 +287,47 @@ iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 echo "[+] Permitindo acesso SSH interno (porta 22254)"
 iptables -A INPUT -i $LAN -p tcp --dport 22254 -s $LAN_NET -j ACCEPT
 
-echo "[+] Permitindo acesso SSH externo (redirecionamento NAT configurado separadamente)"
+echo "[+] Permitindo acesso SSH externo (porta 22254 - redirecionado no NAT externo)"
 iptables -A INPUT -i $WAN -p tcp --dport 22254 -j ACCEPT
 
 # ================================
 # 🧱 3️⃣ REGRAS DE DNS (BIND9)
 # ================================
-
 echo "[+] Liberando tráfego DNS (UDP/TCP 53) da rede interna e do próprio firewall..."
-
-# Permitir consultas DNS vindas da LAN para o firewall (DNS local)
 iptables -A INPUT -i $LAN -p udp --dport 53 -s $LAN_NET -j ACCEPT
 iptables -A INPUT -i $LAN -p tcp --dport 53 -s $LAN_NET -j ACCEPT
-
-# Permitir que o próprio firewall faça consultas DNS para fora
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
 iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
-
-# Permitir respostas DNS de volta
 iptables -A INPUT -p udp --sport 53 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 iptables -A INPUT -p tcp --sport 53 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
 # ================================
+# 🧱 4️⃣ COMUNICAÇÃO COM O CONTROLADOR DE DOMÍNIO
+# ================================
+echo "[+] Permitindo comunicação com o SRVDC01 (AD + Kerberos)..."
+iptables -A OUTPUT -p tcp -m multiport --dports 88,135,137,138,139,389,445,636 -d 192.168.70.253 -j ACCEPT
+iptables -A OUTPUT -p udp -m multiport --dports 88,137,138,389 -d 192.168.70.253 -j ACCEPT
+iptables -A INPUT -p tcp -m multiport --sports 88,135,137,138,139,389,445,636 -s 192.168.70.253 -j ACCEPT
+iptables -A INPUT -p udp -m multiport --sports 88,137,138,389 -s 192.168.70.253 -j ACCEPT
+
+# ================================
 # 🌐 NAT e roteamento básico
 # ================================
-
-echo "[+] Habilitando NAT para acesso à Internet..."
+echo "[+] Habilitando NAT e roteamento..."
 iptables -t nat -A POSTROUTING -o $WAN -s $LAN_NET -j MASQUERADE
-
-# Permitir encaminhamento entre LAN e WAN
 iptables -A FORWARD -i $LAN -o $WAN -j ACCEPT
 iptables -A FORWARD -i $WAN -o $LAN -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
 # ================================
 # 🔒 Finalização
 # ================================
-
 echo "[+] Aplicando regras..."
 iptables-save > /etc/iptables/rules.v4
 echo 1 > /proc/sys/net/ipv4/ip_forward
-echo "[✓] Firewall com DNS ativo e NAT habilitado."
+echo "[✓] Firewall ativo e integrado ao domínio."
 ```
+
+## Algumas explicações importantes:
 
 ## ⚙️  A opção -m conntrack
 
@@ -276,5 +422,13 @@ ping -c 3 192.168.70.253
 ```bash
 curl https://google.com
 ```
+
+## 🏁 Resultado Final
+
+- ✔ Firewall stateful operando com NAT e DNS funcional
+- ✔ Comunicação direta com o SRVDC01 (AD) via Kerberos + Winbind
+- ✔ Servidor autenticado no domínio OFFICINAS.EDU
+- ✔ Pronto para receber o Squid + e2guardian, com controle de usuários centralizado.
+
 
 THAT'S ALL FOLKS!
