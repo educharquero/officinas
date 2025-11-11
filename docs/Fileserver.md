@@ -194,30 +194,6 @@ sudo vim /etc/samba/smb.conf
     full_audit:priority = NOTICE
 ```
 
-## 🧱 7. Criar diretórios e permissões
-
-```bash
-sudo mkdir -p /srv/samba/arquivos
-sudo chown root:"OFFICINAS\Domain Admins" /srv/samba/arquivos
-sudo chmod 0770 /srv/samba/arquivos
-```
-
-## 👉 Isso significa:
-
-- Apenas Administradores de Domínio terão permissão inicial. Eles poderão, via Windows, criar pastas e definir permissões NTFS granulares (por grupos ou usuários do domínio).
-
-## Valide as permissões do path arquivos com o getfacl 
-
-```bash
-getfacl /srv/samba/arquivos
-```
-## Deverá retornar o mapeamento com algo do tipo
-
-```bash
-user::rwx
-group:OFFICINAS\Domain Admins:rwx
-```
-
 ## 🔗 8. Ingressando o servidor no domínio
 
 ```bash
@@ -260,6 +236,30 @@ sudo systemctl status winbind
 
 ```bash
 testparm
+```
+
+## 🧱 7. Criar diretórios e permissões
+
+```bash
+sudo mkdir -p /srv/samba/arquivos
+sudo chown root:"OFFICINAS\Domain Admins" /srv/samba/arquivos
+sudo chmod 0770 /srv/samba/arquivos
+```
+
+## 👉 Isso significa:
+
+- Apenas Administradores de Domínio terão permissão inicial. Eles poderão, via Windows, criar pastas e definir permissões NTFS granulares (por grupos ou usuários do domínio).
+
+## Valide as permissões do path arquivos com o getfacl 
+
+```bash
+getfacl /srv/samba/arquivos
+```
+## Deverá retornar o mapeamento com algo do tipo
+
+```bash
+user::rwx
+group:OFFICINAS\Domain Admins:rwx
 ```
 
 ## 🧱 11. Acessar os compartilhamentos de rede
