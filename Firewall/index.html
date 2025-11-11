@@ -597,9 +597,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated" class="md-nav__link">
+  <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
+      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
     </span>
   </a>
   
@@ -618,15 +618,6 @@
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#edite-o-arquivo-de-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Edite o arquivo de interfaces:
     </span>
   </a>
   
@@ -669,6 +660,141 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-1o-parte-se-referira-a-integracao-ao-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      A 1º Parte se referirá á integração ao domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-pacotes-de-integracao-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Instalar pacotes de integração AD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-o-kerberos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Configurar o Kerberos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-o-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teste o ticket:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-o-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Configurar o Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingressar-no-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Ingressar no domínio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saida-esperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saída esperada:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-nss-e-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Configurar NSS e PAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ative-autenticacao-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ative autenticação PAM:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecione-winbind-e-confirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecione Winbind e confirme.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-servicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Reiniciar serviços
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-autenticacao-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testar autenticação AD:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-dns-e-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Verificar DNS e NAT:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-2o-parte-se-referira-ao-servico-de-firewall-propriamente-dito" class="md-nav__link">
+    <span class="md-ellipsis">
+      A 2º Parte se referirá ao serviço de Firewall, propriamente dito:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
       🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
@@ -678,9 +804,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-de-configuracao-do-sysctl" class="md-nav__link">
+  <a href="#crie-o-arquivo-de-configuracao-do-sysctlconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo de configuração do sysctl:
+      Crie o arquivo de configuração do sysctl.conf:
     </span>
   </a>
   
@@ -726,6 +852,15 @@
   <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
     <span class="md-ellipsis">
       Crie o arquivo /usr/local/bin/firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algumas-explicacoes-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algumas explicações importantes:
     </span>
   </a>
   
@@ -870,6 +1005,15 @@
   <a href="#validando-nat-e-dns" class="md-nav__link">
     <span class="md-ellipsis">
       Validando NAT e DNS:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultado-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏁 Resultado Final
     </span>
   </a>
   
@@ -2109,9 +2253,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated" class="md-nav__link">
+  <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)
+      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
     </span>
   </a>
   
@@ -2130,15 +2274,6 @@
   <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🧩 Configuração das interfaces de rede
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#edite-o-arquivo-de-interfaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      Edite o arquivo de interfaces:
     </span>
   </a>
   
@@ -2181,6 +2316,141 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#a-1o-parte-se-referira-a-integracao-ao-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      A 1º Parte se referirá á integração ao domínio:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instalar-pacotes-de-integracao-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Instalar pacotes de integração AD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-o-kerberos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔑 Configurar o Kerberos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste-o-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Teste o ticket:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-o-samba" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Configurar o Samba
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingressar-no-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Ingressar no domínio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saida-esperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saída esperada:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valide:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurar-nss-e-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Configurar NSS e PAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ative-autenticacao-pam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ative autenticação PAM:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selecione-winbind-e-confirme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecione Winbind e confirme.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reiniciar-servicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Reiniciar serviços
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testar-autenticacao-ad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Testar autenticação AD:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verificar-dns-e-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Verificar DNS e NAT:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-2o-parte-se-referira-ao-servico-de-firewall-propriamente-dito" class="md-nav__link">
+    <span class="md-ellipsis">
+      A 2º Parte se referirá ao serviço de Firewall, propriamente dito:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
       🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
@@ -2190,9 +2460,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-de-configuracao-do-sysctl" class="md-nav__link">
+  <a href="#crie-o-arquivo-de-configuracao-do-sysctlconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo de configuração do sysctl:
+      Crie o arquivo de configuração do sysctl.conf:
     </span>
   </a>
   
@@ -2238,6 +2508,15 @@
   <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
     <span class="md-ellipsis">
       Crie o arquivo /usr/local/bin/firewall:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algumas-explicacoes-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algumas explicações importantes:
     </span>
   </a>
   
@@ -2387,6 +2666,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resultado-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏁 Resultado Final
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2404,7 +2692,7 @@
 
 
 <h1 id="firewall-server-debian-13-com-iptables">🔥 Firewall Server - Debian 13 com Iptables</h1>
-<h2 id="o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated">🎯 O Objetivo nesse tutorial é criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED)</h2>
+<h2 id="o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede">🎯 O Objetivo nesse tutorial é criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.</h2>
 <hr />
 <h2 id="topologia-da-rede">🌐 Topologia da rede:</h2>
 <ul>
@@ -2423,7 +2711,6 @@
 </ul>
 <hr />
 <h2 id="configuracao-das-interfaces-de-rede">🧩 Configuração das interfaces de rede</h2>
-<h2 id="edite-o-arquivo-de-interfaces">Edite o arquivo de interfaces:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/network/interfaces
 
 <span class="c1"># Interface externa (WAN)</span>
@@ -2454,41 +2741,129 @@ iface<span class="w"> </span>enp7s0<span class="w"> </span>inet<span class="w"> 
 search<span class="w"> </span>officinas.edu
 nameserver<span class="w"> </span><span class="m">192</span>.168.0.1
 </code></pre></div>
+<h2 id="a-1o-parte-se-referira-a-integracao-ao-dominio">A <strong>1º Parte</strong> se referirá á integração ao domínio:</h2>
+<h2 id="instalar-pacotes-de-integracao-ad">⚙️ Instalar pacotes de integração AD</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>winbind<span class="w"> </span>krb5-user<span class="w"> </span>samba-common-bin<span class="w"> </span>samba-common<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind
+</code></pre></div>
+<h2 id="configurar-o-kerberos">🔑 Configurar o Kerberos</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/krb5.conf:
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">ticket_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>24h
+<span class="w">    </span><span class="nv">renew_lifetime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>7d
+<span class="w">    </span><span class="nv">forwardable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="o">[</span>realms<span class="o">]</span>
+<span class="w">    </span>OFFICINAS.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">    </span><span class="o">}</span>
+
+<span class="o">[</span>domain_realm<span class="o">]</span>
+<span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span>officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+</code></pre></div>
+<h2 id="teste-o-ticket">Teste o ticket:</h2>
+<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@OFFICINAS.EDU
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>klist
+</code></pre></div>
+<h2 id="configurar-o-samba">⚙️ Configurar o Samba</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/samba/smb.conf:
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
+<span class="w">   </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS
+<span class="w">   </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">   </span><span class="nv">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ads
+<span class="w">   </span>password<span class="w"> </span><span class="nv">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">   </span>kerberos<span class="w"> </span><span class="nv">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>secrets<span class="w"> </span>and<span class="w"> </span>keytab
+<span class="w">   </span>winbind<span class="w"> </span>use<span class="w"> </span>default<span class="w"> </span><span class="nv">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>winbind<span class="w"> </span>offline<span class="w"> </span><span class="nv">logon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>winbind<span class="w"> </span>enum<span class="w"> </span><span class="nv">groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>tdb
+<span class="w">   </span>idmap<span class="w"> </span>config<span class="w"> </span>*<span class="w"> </span>:<span class="w"> </span><span class="nv">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span>-20000
+</code></pre></div>
+<h2 id="ingressar-no-dominio">🧩 Ingressar no domínio</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
+</code></pre></div>
+<h2 id="saida-esperada">Saída esperada:</h2>
+<div class="highlight"><pre><span></span><code>Joined<span class="w"> </span><span class="s1">&#39;SRVFIREWALL&#39;</span><span class="w"> </span>to<span class="w"> </span>realm<span class="w"> </span><span class="s1">&#39;OFFICINAS.EDU&#39;</span>
+</code></pre></div>
+<h2 id="valide">Valide:</h2>
+<div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>testjoin
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-t
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</code></pre></div>
+<h2 id="configurar-nss-e-pam">🧠 Configurar NSS e PAM</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch.conf:
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>passwd:<span class="w">         </span>compat<span class="w"> </span>winbind
+group:<span class="w">          </span>compat<span class="w"> </span>winbind
+shadow:<span class="w">         </span>compat
+</code></pre></div>
+<h2 id="ative-autenticacao-pam">Ative autenticação PAM:</h2>
+<div class="highlight"><pre><span></span><code>pam-auth-update
+</code></pre></div>
+<h2 id="selecione-winbind-e-confirme">Selecione Winbind e confirme.</h2>
+<h2 id="reiniciar-servicos">🔄 Reiniciar serviços</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<h2 id="testar-autenticacao-ad">✅ Testar autenticação AD:</h2>
+<div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>getent<span class="w"> </span>passwd<span class="w"> </span><span class="s2">&quot;usuario_do_dominio&quot;</span>
+</code></pre></div>
+<h2 id="verificar-dns-e-nat">⚙️ Verificar DNS e NAT:</h2>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>srvdc01.officinas.edu
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://google.com
+</code></pre></div>
+<h2 id="a-2o-parte-se-referira-ao-servico-de-firewall-propriamente-dito">A <strong>2º Parte</strong> se referirá ao serviço de Firewall, propriamente dito:</h2>
 <h2 id="habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing">🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing</h2>
-<h2 id="edite-o-arquivo-de-configuracao-do-sysctl">Edite o arquivo de configuração do sysctl:</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
+<h2 id="crie-o-arquivo-de-configuracao-do-sysctlconf">Crie o arquivo de configuração do sysctl.conf:</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/sysctl.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>net.ipv4.ip_forward<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
 net.ipv4.conf.all.rp_filter<span class="o">=</span><span class="m">1</span>
 net.ipv4.conf.default.rp_filter<span class="o">=</span><span class="m">1</span>
 </code></pre></div>
 <h2 id="ative-a-configuracao-imediatamente">Ative a configuração imediatamente:</h2>
-<div class="highlight"><pre><span></span><code>sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/99-sysctl.conf
+<div class="highlight"><pre><span></span><code>sysctl<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.conf
 </code></pre></div>
 <h2 id="instalar-o-iptables">🧱 Instalar o iptables</h2>
 <h2 id="substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico">Substitua o nftables (padrão do Debian 13) pelo iptables clássico:</h2>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>nftables
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>remove<span class="w"> </span>nftables
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>iptables<span class="w"> </span>iptables-persistent
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>iptables<span class="w"> </span>iptables-persistent
 </code></pre></div>
 <h2 id="criar-o-script-do-firewall">🔧 Criar o script do firewall</h2>
 <h2 id="crie-o-arquivo-usrlocalbinfirewall">Crie o arquivo /usr/local/bin/firewall:</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/usr/local/bin/firewall
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
-<span class="c1">###########################################</span>
-<span class="c1">##        FIREWALL - Projeto Officinas   ##</span>
-<span class="c1">##        eduardo.charquero@gmail.com    ##</span>
-<span class="c1">##        Versão: 11.2025                ##</span>
-<span class="c1">##        Licença: GPLv3                 ##</span>
-<span class="c1">###########################################</span>
+<span class="c1">##############################################</span>
+<span class="c1">##        FIREWALL - Projeto Officinas      ##</span>
+<span class="c1">##        eduardo.charquero@gmail.com       ##</span>
+<span class="c1">##        Versão: 11.2025                   ##</span>
+<span class="c1">##        Licença: GPLv3                    ##</span>
+<span class="c1">##############################################</span>
 <span class="c1">#!/bin/bash</span>
-<span class="c1">### FIREWALL + DNS RULES ###</span>
-<span class="c1">### Local: /usr/local/bin/firewall.sh</span>
 
 <span class="c1"># Interfaces</span>
-<span class="nv">LAN</span><span class="o">=</span><span class="s2">&quot;ens19&quot;</span>
 <span class="nv">WAN</span><span class="o">=</span><span class="s2">&quot;ens18&quot;</span>
+<span class="nv">LAN</span><span class="o">=</span><span class="s2">&quot;ens19&quot;</span>
 
 <span class="c1"># Rede interna e IP do Firewall</span>
 <span class="nv">LAN_NET</span><span class="o">=</span><span class="s2">&quot;192.168.70.0/24&quot;</span>
@@ -2511,47 +2886,46 @@ iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> 
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo acesso SSH interno (porta 22254)&quot;</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo acesso SSH externo (redirecionamento NAT configurado separadamente)&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo acesso SSH externo (porta 22254 - redirecionado no NAT externo)&quot;</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">22254</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># ================================</span>
 <span class="c1"># 🧱 3️⃣ REGRAS DE DNS (BIND9)</span>
 <span class="c1"># ================================</span>
-
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Liberando tráfego DNS (UDP/TCP 53) da rede interna e do próprio firewall...&quot;</span>
-
-<span class="c1"># Permitir consultas DNS vindas da LAN para o firewall (DNS local)</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-
-<span class="c1"># Permitir que o próprio firewall faça consultas DNS para fora</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
-
-<span class="c1"># Permitir respostas DNS de volta</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>--sport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--sport<span class="w"> </span><span class="m">53</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># ================================</span>
+<span class="c1"># 🧱 4️⃣ COMUNICAÇÃO COM O CONTROLADOR DE DOMÍNIO</span>
+<span class="c1"># ================================</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Permitindo comunicação com o SRVDC01 (AD + Kerberos)...&quot;</span>
+iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-m<span class="w"> </span>multiport<span class="w"> </span>--dports<span class="w"> </span><span class="m">88</span>,135,137,138,139,389,445,636<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>OUTPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>-m<span class="w"> </span>multiport<span class="w"> </span>--dports<span class="w"> </span><span class="m">88</span>,137,138,389<span class="w"> </span>-d<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>-m<span class="w"> </span>multiport<span class="w"> </span>--sports<span class="w"> </span><span class="m">88</span>,135,137,138,139,389,445,636<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-p<span class="w"> </span>udp<span class="w"> </span>-m<span class="w"> </span>multiport<span class="w"> </span>--sports<span class="w"> </span><span class="m">88</span>,137,138,389<span class="w"> </span>-s<span class="w"> </span><span class="m">192</span>.168.70.253<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># ================================</span>
 <span class="c1"># 🌐 NAT e roteamento básico</span>
 <span class="c1"># ================================</span>
-
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Habilitando NAT para acesso à Internet...&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Habilitando NAT e roteamento...&quot;</span>
 iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-s<span class="w"> </span><span class="nv">$LAN_NET</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
-
-<span class="c1"># Permitir encaminhamento entre LAN e WAN</span>
 iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-j<span class="w"> </span>ACCEPT
 iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span><span class="nv">$WAN</span><span class="w"> </span>-o<span class="w"> </span><span class="nv">$LAN</span><span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
 
 <span class="c1"># ================================</span>
 <span class="c1"># 🔒 Finalização</span>
 <span class="c1"># ================================</span>
-
 <span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[+] Aplicando regras...&quot;</span>
 iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/rules.v4
 <span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>/proc/sys/net/ipv4/ip_forward
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[✓] Firewall com DNS ativo e NAT habilitado.&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[✓] Firewall ativo e integrado ao domínio.&quot;</span>
 </code></pre></div>
+<h2 id="algumas-explicacoes-importantes">Algumas explicações importantes:</h2>
 <h2 id="a-opcao-m-conntrack">⚙️  A opção -m conntrack</h2>
 <ul>
 <li>A flag -m significa “usar módulo de correspondência”, ativando o módulo de rastreamento de conexões no iptables. Isso habilita o uso do parâmetro --ctstate, que filtra pacotes com base no estado da conexão.</li>
@@ -2617,6 +2991,13 @@ iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/r
 <h2 id="validando-nat-e-dns">Validando NAT e DNS:</h2>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://google.com
 </code></pre></div>
+<h2 id="resultado-final">🏁 Resultado Final</h2>
+<ul>
+<li>✔ Firewall stateful operando com NAT e DNS funcional</li>
+<li>✔ Comunicação direta com o SRVDC01 (AD) via Kerberos + Winbind</li>
+<li>✔ Servidor autenticado no domínio OFFICINAS.EDU</li>
+<li>✔ Pronto para receber o Squid + e2guardian, com controle de usuários centralizado.</li>
+</ul>
 <p>THAT'S ALL FOLKS!</p>
 
 
