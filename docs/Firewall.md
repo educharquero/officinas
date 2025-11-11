@@ -92,12 +92,14 @@ vim /etc/chrony/chrony.conf
 server 192.168.70.253 prefer iburst
 ```
 
+## Habilite e reinicie o serviço de sincronização de horário.
+
 ```bash
-systemctl enable --now chronyd
+systemctl enable --now chrony
 ```
 
 ```bash
-sudo systemctl restart chronyd
+sudo systemctl restart chrony
 ```
 
 ```bash
@@ -107,15 +109,6 @@ chronyc sources -v
 ```bash
 chronyc tracking
 ```
-
-## Habilite e reinicie o serviço de sincronização de horário.
-
-sudo systemctl enable chrony
-
-sudo systemctl restart chrony
-
-chronyc sources -v
-
 
 ## 🔑 Configurar o Kerberos
 

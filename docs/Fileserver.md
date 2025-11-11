@@ -51,13 +51,13 @@ nameserver 192.168.70.253
 sudo hostnamectl set-hostname srvarquivos
 ```
 
-## 🔄 2. Atualizando o sistema:
+## 🔄 Atualizando o sistema:
 
 ```bash
 sudo apt update && sudo apt full-upgrade -y
 ```
 
-## 📦 3. Instalando os pacotes necessários
+## 📦 Instalando os pacotes necessários
 
 ```bash
 sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user acl
@@ -78,7 +78,45 @@ KDC: 192.168.70.253
 Admin server: 192.168.70.253
 ```
 
-## 🔐 4. Configurando o Kerberos
+## ✅ Sincronização de hora (crítica para Kerberos):
+
+```bash
+apt install chrony
+```
+
+```bash
+vim /etc/chrony/chrony.conf
+```
+
+## Adicione para o srvdc01 no chrony:
+
+```bash
+server 192.168.70.253 prefer iburst
+```
+
+```bash
+systemctl enable --now chronyd
+```
+
+```bash
+sudo systemctl restart chronyd
+```
+
+```bash
+chronyc sources -v
+```
+
+```bash
+chronyc tracking
+```
+
+## 🖥️ Backup da configuração padrão do kerberos
+
+```bash
+sudo mv /etc/samba/krb5.conf{,.orig}
+```
+
+## 🔐 Configurando o Kerberos
 
 ```bash
 [libdefaults]
@@ -100,26 +138,13 @@ Admin server: 192.168.70.253
     officinas.edu = OFFICINAS.EDU
 ```
 
-## Teste a troca de tickets do Kerberos:
-
-```bash
-kinit administrador@OFFICINAS.EDU
-```
-
-```bash
-klist
-```
-
-## Você deve ver um ticket válido.
-
-
-## 🖥️ 5. Backup da configuração padrão do Samba
+## 🖥️ Backup da configuração padrão do Samba
 
 ```bash
 sudo mv /etc/samba/smb.conf{,.orig}
 ```
 
-## ⚙️ 6. Criar nova configuração /etc/samba/smb.conf
+## ⚙️ Criar nova configuração /etc/samba/smb.conf
 
 ```bash
 sudo vim /etc/samba/smb.conf
@@ -194,7 +219,35 @@ sudo vim /etc/samba/smb.conf
     full_audit:priority = NOTICE
 ```
 
-## 🔗 8. Ingressando o servidor no domínio
+## 🧠 Configurar apontamento de NSS e PAM
+
+```bash
+vim /etc/nsswitch
+```
+
+```bash
+passwd:         compat winbind
+group:          compat winbind
+shadow:         compat
+```
+
+## 🔄 Ativar e reiniciar os serviços
+
+```bash
+sudo systemctl enable smbd nmbd winbind
+```
+
+```bash
+sudo systemctl restart smbd nmbd winbind
+```
+
+## Verificar status:
+
+```bash
+sudo systemctl status winbind
+```
+
+## 🔗 Ingressando o servidor no domínio
 
 ```bash
 sudo net ads join -U administrador
@@ -216,29 +269,25 @@ wbinfo -g
 
 ## Se retornar listas de usuários e grupos do domínio → integração OK ✅
 
-## 🔄 9. Ativar e reiniciar os serviços
-
-```bash
-sudo systemctl enable smbd nmbd winbind
-```
-
-```bash
-sudo systemctl restart smbd nmbd winbind
-```
-
-## Verificar status:
-
-```bash
-sudo systemctl status winbind
-```
-
-## 🧩 10. Validar o arquivo de configuração smb.conf
+## 🧩 Validar o arquivo de configuração smb.conf
 
 ```bash
 testparm
 ```
 
-## 🧱 7. Criar diretórios e permissões
+## Teste a troca de tickets do Kerberos:
+
+```bash
+kinit administrador@OFFICINAS.EDU
+```
+
+```bash
+klist
+```
+
+## Você deve ver um ticket válido.
+
+## 🧱 Criar diretórios e permissões
 
 ```bash
 sudo mkdir -p /srv/samba/arquivos
@@ -262,7 +311,7 @@ user::rwx
 group:OFFICINAS\Domain Admins:rwx
 ```
 
-## 🧱 11. Acessar os compartilhamentos de rede
+## 🧱 Acessar os compartilhamentos de rede
 
 ## 🪟 No Windows (usando RSAT) acesse
 
