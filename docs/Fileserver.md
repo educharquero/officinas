@@ -129,7 +129,7 @@ sudo mv /etc/samba/krb5.conf{,.orig}
 
 [realms]
     OFFICINAS.EDU = {
-        ksrvdc01 = 192.168.70.253
+        kdc = 192.168.70.253
         admin_server = 192.168.70.253
     }
 
