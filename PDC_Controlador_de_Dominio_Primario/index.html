@@ -2847,7 +2847,7 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
 <span class="m">127</span>.0.1.1<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
-<span class="m">192</span>.168.70.250<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
+<span class="m">192</span>.168.70.253<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
 </code></pre></div>
 <h2 id="6-instalacao-dos-pacotes-necessarios">🔐 6. Instalação dos pacotes necessários</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span><span class="se">\</span>
@@ -2857,9 +2857,9 @@ ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span cla
 <h2 id="durante-a-configuracao-do-kerberos-krb5-user-insira">Durante a configuração do Kerberos (krb5-user), insira.</h2>
 <div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span>OFFICINAS.EDU
 
-KDC:<span class="w"> </span>srvdc01.officinas.edu
+KDC:<span class="w"> </span><span class="m">192</span>.168.70.253
 
-Admin<span class="w"> </span>server:<span class="w"> </span>srvdc01.officinas.edu
+Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
 <h2 id="se-errar-podera-refazer">Se errar, poderá refazer.</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>krb5-config
