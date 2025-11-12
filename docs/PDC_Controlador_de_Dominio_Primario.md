@@ -89,7 +89,7 @@ sudo vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-  address 192.168.70.250
+  address 192.168.70.253
   netmask 255.255.255.0
   gateway 192.168.70.254
 ```
