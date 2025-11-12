@@ -1,5 +1,4 @@
 # mkdocs.yml - VERSÃO COM MODO CLARO/ESCURO
-
 site_name: 🐧 Comunidade Officina's
 
 copyright: >-
@@ -10,62 +9,110 @@ copyright: >-
 
 # --- SEÇÃO 'nav' ---
 nav:
-  - 📂 'Início': 'index.md'
-  - 📂 'Visão Geral': 'Visao_Geral.md'
-  - 📂 'Servidores':
-    - 'DHCP Server': 'DHCP_Server.md'
-    - 'DNS Server': 'DNS_Server.md'
-    - 'Servidor de Firewall':
-      - 'Firewall': 'Firewall.md'
-    - 'Servidor Proxy':
-      - 'Proxy Squid': 'Squid_proxy_puro.md'
-    - 'MkDocs Server': 'Mkdocs_Server.md'
-    - 'NFS Server': 'NFS_Server.md'
-    - 'Servidor de Arquivos':
-      - 'Fileserver': 'Fileserver.md'
-    - 'Controladores de Domínio':
-      - 'PDC Server': 'PDC_Controlador_de_Dominio_Primario.md'
+  - 📂 Início: index.md
+  - 📂 Visão Geral: Visao_Geral.md
 
-  - 📂 'Distros Linux':
-    - 'OpenSUSE Linux': 'OpenSUSE_Linux.md'
-    - 'Devuan Linux': 'Devuan_Linux.md'
+  - 📂 Servidores:
+      - DHCP Server: DHCP_Server.md
+      - DNS Server: DNS_Server.md
+      - Servidor de Firewall:
+          - Firewall: Firewall.md
+      - Servidor Proxy:
+          - Proxy Squid: Squid_proxy_puro.md
+      - MkDocs Server: Mkdocs_Server.md
+      - NFS Server: NFS_Server.md
+      - Servidor de Arquivos:
+          - Fileserver: Fileserver.md
+      - Controladores de Domínio:
+          - PDC Server: PDC_Controlador_de_Dominio_Primario.md
 
-  - 📂 'Módulos LPI':
-    - 'LPI Aula de Introdução': 'LPI_Aula_de_introducao.md'
+  - 📂 Distros Linux:
+      - OpenSUSE Linux: OpenSUSE_Linux.md
+      - Devuan Linux: Devuan_Linux.md
 
-    - 'Módulo LPIC-101':
-      - '101.1':
-        - 'LPIC-101.1_Identificacao_e_configuracao_de_hardware.md'
-        - 'LPIC-101.1_Aula_pratica.md'
-      - '101.2':
-        - 'LPIC-101.2_Processo_de_inicializacao_do_linux.md'
-        - 'LPIC-101.2_Aula_pratica.md'
-        - 'LPIC-101.2_UEFI_NVRAM_Aula_pratica.md'
-      - '101.3':
-        - 'LPIC-101.3_Runlevel_shutdown_e_reboot.md'
-        - 'LPIC-101.1_Aula_pratica.md'
+  - 📂 Módulos LPI:
+      - LPI Aula de Introdução: LPI_Aula_de_introducao.md
 
-    - 'Módulo LPIC-102':
-      - '102.1': 'LPIC-102.1_Particionamento_de_discos.md'
-      - '102.2': 'LPIC-102.2_Gerenciamento_do_boot_manager.md'
+      - Módulo LPIC-101:
+          - 101.1:
+              - LPIC-101.1_Identificacao_e_configuracao_de_hardware.md
+              - LPIC-101.1_Aula_pratica.md
+          - 101.2:
+              - LPIC-101.2_Processo_de_inicializacao_do_linux.md
+              - LPIC-101.2_Aula_pratica.md
+              - LPIC-101.2_UEFI_NVRAM_Aula_pratica.md
+          - 101.3:
+              - LPIC-101.3_Runlevel_shutdown_e_reboot.md
+              - LPIC-101.1_Aula_pratica.md
 
-    - 'Módulo LPIC-103':
-      - '103.1': 'LPIC-103.1_Shell_e_linha_de_comandos.md'
-      - 'Aula 02': 'Modulo_103.1-aula02.md'
-      - 'Aula 03': 'Modulo_103.1-aula03.md'
-      - 'Aula 04': 'Modulo_103.1-aula04.md'
-      - 'Aula 05': 'Modulo_103.1-aula05.md'
+      - Módulo LPIC-102:
+          - 102.1: LPIC-102.1_Particionamento_de_discos.md
+          - 102.2: LPIC-102.2_Gerenciamento_do_boot_manager.md
 
-    - 'Módulo 103.2 - Processamento de Texto':
-      - 'Aula 01': 'Modulo_103.2-aula01.md'
+      - Módulo LPIC-103:
+          - 103.1: LPIC-103.1_Shell_e_linha_de_comandos.md
+          - Aula 02: Modulo_103.1-aula02.md
+          - Aula 03: Modulo_103.1-aula03.md
+          - Aula 04: Modulo_103.1-aula04.md
+          - Aula 05: Modulo_103.1-aula05.md
 
-  - 📂 'Outros assuntos':
-    - 'Universo *NIX': 'Universo_NIX.md'
-    - 'Aircrack-NG': 'Aircrack-NG.md'
-    - 'Linux no Domínio': 'Ingressar_Linux_no_dominio.md'
-    - 'O SystemD': 'Systemd.md'
-    - 'FHS': 'FHS.md'
-    - 'RAID': 'Raid.md'
-    - 'Permissões Linux 01': 'Permissoes_Linux-01.md'
-    - 'Permissões Linux 02':
+      - Módulo 103.2 - Processamento de Texto:
+          - Aula 01: Modulo_103.2-aula01.md
+
+  - 📂 Outros assuntos:
+      - Universo *NIX: Universo_NIX.md
+      - Aircrack-NG: Aircrack-NG.md
+      - Linux no Domínio: Ingressar_Linux_no_dominio.md
+      - O SystemD: Systemd.md
+      - FHS: FHS.md
+      - RAID: Raid.md
+      - Permissões Linux 01: Permissoes_Linux-01.md
+      - Permissões Linux 02: Permissoes_Linux-02.md
+      - Usuários e Grupos 01: Usuarios_e_Grupos-1.md
+      - Usuários e Grupos 02: Usuarios_e_Grupos-2.md
+
+# --- FIM DA SEÇÃO 'nav' ---
+
+theme:
+  name: material
+  logo: imagens/logo.png
+  favicon: imagens/tux.ico
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para o modo escuro
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para o modo claro
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/educharquero
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
 
