@@ -129,7 +129,7 @@ sudo vim /etc/hosts
 ```bash
 127.0.0.1 localhost
 127.0.1.1 srvdc01.officinas.edu srvdc01
-192.168.70.250 srvdc01.officinas.edu srvdc01
+192.168.70.253 srvdc01.officinas.edu srvdc01
 ```
 
 ## 🔐 6. Instalação dos pacotes necessários
@@ -145,9 +145,9 @@ ldb-tools dnsutils chrony python3-cryptography net-tools -y
 ```bash
 Default realm: OFFICINAS.EDU
 
-KDC: srvdc01.officinas.edu
+KDC: 192.168.70.253
 
-Admin server: srvdc01.officinas.edu
+Admin server: 192.168.70.253
 ```
 
 ## Se errar, poderá refazer.
