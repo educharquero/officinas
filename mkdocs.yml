@@ -35,8 +35,12 @@ nav:
     - 'LPI Aula de Introdução': 'LPI_Aula_de_introducao.md'
     - 'Módulo LPIC-101':
       - '101.1': 'LPIC-101.1_Identificacao_e_configuracao_de_hardware.md'
+        - 'LPIC-101.1_Aula_pratica.md'
       - '101.2': 'LPIC-101.2_Processo_de_inicializacao_do_linux.md'
+        - 'LPIC-101.2_Aula_pratica.md'
+        - 'LPIC-101.2_UEFI_NVRAM_Aula_pratica.md'
       - '101.3': 'LPIC-101.3_Runlevel_shutdown_e_reboot.md'
+        - 'LPIC-101.1_Aula_pratica.md'
     - 'Módulo LPIC-102':
       - '102.1': 'LPIC-102.1_Particionamento_de_discos.md'
       - '102.2': 'LPIC-102.2_Gerenciamento_do_boot_manager.md'
