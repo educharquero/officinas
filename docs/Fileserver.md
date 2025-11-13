@@ -88,11 +88,13 @@ apt install chrony
 vim /etc/chrony/chrony.conf
 ```
 
-## Adicione para o srvdc01 no chrony:
+## Aponte o timesync para o srvdc01 no chrony:
 
 ```bash
 server 192.168.70.253 prefer iburst
 ```
+
+## 🔄 Ativar e reiniciar os serviços
 
 ```bash
 systemctl enable --now chronyd
@@ -101,6 +103,8 @@ systemctl enable --now chronyd
 ```bash
 sudo systemctl restart chronyd
 ```
+
+## 🔄 Validar a sincronização de horário com o Controlador de domínio
 
 ```bash
 chronyc sources -v
@@ -116,7 +120,7 @@ chronyc tracking
 sudo mv /etc/samba/krb5.conf{,.orig}
 ```
 
-## 🔐 Configurando o Kerberos
+## 🔐 Configurando o Kerberos para trabalhar no domínio
 
 ```bash
 [libdefaults]

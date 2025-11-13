@@ -1,6 +1,6 @@
-# 🔥 Firewall Server - Debian 13 com Iptables
+# 🔥 Firewall Server com Debian 13 rodando Iptables e integrado ao Domínio
 
-## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
+## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
 
 ---
 
@@ -16,7 +16,7 @@
 
 ---
 
-## 🧩 Configuração das interfaces de rede
+## 🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
 
 ```bash
 vim /etc/network/interfaces
@@ -110,10 +110,14 @@ chronyc sources -v
 chronyc tracking
 ```
 
-## 🔑 Configurar o Kerberos
+## 🔑 Configurar o Kerberos após fazer o backup do arquivo original
 
 ```bash
-vim /etc/krb5.conf:
+mv /etc/krb5.conf{,.orig}
+```
+
+```bash
+vim /etc/krb5.conf
 ```
 
 ```bash
@@ -136,10 +140,14 @@ vim /etc/krb5.conf:
     officinas.edu = OFFICINAS.EDU
 ```
 
-## ⚙️ Configurar o Samba
+## ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
 
 ```bash
-vim /etc/samba/smb.conf:
+mv /etc/samba/smb.conf{,.orig}
+```
+
+```bash
+vim /etc/samba/smb.conf
 ```
 
 ```bash
@@ -171,16 +179,16 @@ vim /etc/samba/smb.conf:
    restrict anonymous = 2
 ```
 
-## 🧠 Configurar apontamento de NSS e PAM
+## 🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
 
 ```
 vim /etc/nsswitch
 ```
 
 ```bash
-passwd:         compat winbind
-group:          compat winbind
-shadow:         compat
+passwd: files systemd winbind
+group:  files systemd winbind
+shadow: files
 ```
 
 ## 🧩 Ingressar no domínio

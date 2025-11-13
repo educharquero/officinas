@@ -102,7 +102,7 @@ sudo ifdown enp1s0 && sudo ifup enp1s0
 
 ## 🌍 4. Configuração de DNS temporário
 
-## Antes de o domínio estar ativo, aponte o DNS para o firewall.
+## ANTES de o domínio estar ativo, aponte o DNS para o firewall.
 
 ```bash
 sudo vim /etc/resolv.conf
