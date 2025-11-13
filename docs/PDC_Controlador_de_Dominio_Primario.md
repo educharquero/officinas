@@ -135,7 +135,7 @@ sudo vim /etc/hosts
 ## 🔐 6. Instalação dos pacotes necessários
 
 ```bash
-sudo apt install samba samba-dsdb-modules samba-vfs-modules smbclient \
+apt install samba samba-dsdb-modules samba-vfs-modules smbclient \
 krb5-user krb5-config winbind libnss-winbind libpam-winbind \
 ldb-tools dnsutils chrony python3-cryptography net-tools -y
 ```
@@ -191,6 +191,10 @@ sudo vim /etc/krb5.conf
 ## 🔍 8. Ajuste no NSS (para Winbind)
 
 ## Edite o arquivo nsswitch.conf e adicione winbind na lista de busca por usuários.
+
+```bash
+vim /etc/nsswitch
+```
 
 ```bash
 passwd:       files systemd winbind
