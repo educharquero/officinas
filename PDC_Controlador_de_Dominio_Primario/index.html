@@ -3118,7 +3118,7 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 <span class="m">192</span>.168.70.253<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
 </code></pre></div>
 <h2 id="6-instalacao-dos-pacotes-necessarios">🔐 6. Instalação dos pacotes necessários</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span><span class="se">\</span>
 krb5-user<span class="w"> </span>krb5-config<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span><span class="se">\</span>
 ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span class="w"> </span>python3-cryptography<span class="w"> </span>net-tools<span class="w"> </span>-y
 </code></pre></div>
@@ -3160,6 +3160,8 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 </code></pre></div>
 <h2 id="8-ajuste-no-nss-para-winbind">🔍 8. Ajuste no NSS (para Winbind)</h2>
 <h2 id="edite-o-arquivo-nsswitchconf-e-adicione-winbind-na-lista-de-busca-por-usuarios">Edite o arquivo nsswitch.conf e adicione winbind na lista de busca por usuários.</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>passwd:<span class="w">       </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
 group:<span class="w">        </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
 </code></pre></div>
