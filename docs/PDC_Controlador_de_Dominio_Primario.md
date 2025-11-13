@@ -61,11 +61,11 @@ local stratum 10
 ## Habilite e reinicie o serviço de sincronização de horário.
 
 ```bash
-sudo systemctl enable chronyd
+sudo systemctl enable chrony
 ```
 
 ```bash
-sudo systemctl restart chronyd
+sudo systemctl restart chrony
 ```
 
 ```bash
