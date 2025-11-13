@@ -97,7 +97,7 @@ iface enp1s0 inet static
 ## Reinicie a interface para subir o novo endereço.
 
 ```bash
-sudo ifdown enp1s0 && sudo ifup enp1s0
+systemctl restart networking
 ```
 
 ## 🌍 4. Configuração de DNS temporário
