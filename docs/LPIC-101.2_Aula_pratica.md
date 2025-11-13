@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo Geral
 
-Compreender e visualizar **como o Linux inicializa**, desde o BIOS/UEFI até o `systemd`, entendendo o papel do **bootloader (GRUB)**, do **kernel**, e dos **serviços do sistema**.  
+Compreender e visualizar **como o Linux inicializa**, desde o BIOS/UEFI até o `systemd`, entendendo o papel do **bootloader (GRUB)**, do **kernel**, e dos **serviços do sistema**.
 Ao final, o aluno será capaz de **analisar problemas de boot**, **listar serviços ativos**, e **identificar fases da inicialização**.
 
 ---
@@ -11,20 +11,20 @@ Ao final, o aluno será capaz de **analisar problemas de boot**, **listar servi�
 
 Corresponde ao tópico “**Boot the system**” do exame **LPI 101**, abordando:
 
-- Sequência de inicialização: BIOS/UEFI → Bootloader → Kernel → init/systemd  
-- Gerenciador de boot (GRUB)  
-- Modos de inicialização (runlevels / targets)  
-- Logs de inicialização  
+- Sequência de inicialização: BIOS/UEFI → Bootloader → Kernel → init/systemd
+- Gerenciador de boot (GRUB)
+- Modos de inicialização (runlevels / targets)
+- Logs de inicialização
 - Gerenciamento de serviços com `systemctl`
 
 ---
 
 ## 🧩 Requisitos
 
-- Qualquer sistema Linux com `systemd`  
-- Acesso `sudo`  
-- Terminal com privilégios administrativos  
-- (Opcional) Máquina virtual para simulações de falhas de boot  
+- Qualquer sistema Linux com `systemd`
+- Acesso `sudo`
+- Terminal com privilégios administrativos
+- (Opcional) Máquina virtual para simulações de falhas de boot
 
 ---
 
@@ -75,7 +75,7 @@ sudo cat /boot/grub/grub.cfg | less
 
 - `initrd` é o **ramdisk inicial** (contém drivers e scripts usados antes de montar o root FS).
 
-💡 **Dica:**  
+💡 **Dica:**
 Peça aos alunos para identificar o parâmetro `root=` e explicar o que ele define.
 
 ---
@@ -114,7 +114,7 @@ sudo journalctl -k -b
 - `journalctl -b` mostra todos os logs do último boot.
 - É útil para diagnosticar **falhas de serviços ou drivers** na inicialização.
 
-💡 **Dica:**  
+💡 **Dica:**
 Mostre como filtrar:
 
 ```bash
@@ -204,7 +204,7 @@ Para detalhar os serviços mais lentos:
 systemd-analyze blame
 ```
 
-💡 **Dica:**  
+💡 **Dica:**
 Peça aos alunos para identificar qual serviço mais demorou no sistema deles.
 
 ---
@@ -221,9 +221,9 @@ Peça aos alunos para identificar qual serviço mais demorou no sistema deles.
 
 📚 **Resumo:**
 
-- BIOS/UEFI → GRUB → Kernel → systemd  
-- GRUB carrega o kernel e initrd.  
-- `systemd` organiza a inicialização dos serviços e targets.  
+- BIOS/UEFI → GRUB → Kernel → systemd
+- GRUB carrega o kernel e initrd.
+- `systemd` organiza a inicialização dos serviços e targets.
 - Ferramentas úteis: `journalctl`, `systemctl`, `systemd-analyze`.
 
 ---

@@ -1,4 +1,4 @@
-# LPIC-101.2: O Processo de Inicialização do Linux
+# 🐧 LPIC-101.2: O Processo de Inicialização do Linux
 
 Este documento tem como objetivo apresentar uma revisão detalhada do processo de inicialização em sistemas operacionais Linux. Serão abordadas tanto as arquiteturas tradicionais, baseadas em BIOS e MBR, quanto as mais recentes, que utilizam UEFI e GPT. O conteúdo foi reestruturado e reescrito para oferecer uma perspectiva original, mantendo a precisão técnica e a profundidade necessárias para estudantes e profissionais que se preparam para a certificação LPIC-1, bem como para aqueles interessados em aprofundar seus conhecimentos sobre o funcionamento interno do Linux.
 

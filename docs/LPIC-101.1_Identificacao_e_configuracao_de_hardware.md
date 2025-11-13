@@ -1,4 +1,4 @@
-# LPIC-101.1 - Identificação e Configuração de Hardware
+# 🐧 LPIC-101.1 - Identificação e Configuração de Hardware
 
 ## BIOS - Basic Input/Output System
 

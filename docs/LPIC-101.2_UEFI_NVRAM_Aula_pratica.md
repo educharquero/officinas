@@ -1,4 +1,4 @@
-# 🧠 Entendendo a NVRAM no UEFI
+# 🐧 Entendendo a NVRAM no UEFI
 
 ## 🎯 Objetivo
 Compreender o que é a **NVRAM** (Non-Volatile RAM), sua função no **UEFI**, e como manipulá-la no Linux utilizando ferramentas de linha de comando.

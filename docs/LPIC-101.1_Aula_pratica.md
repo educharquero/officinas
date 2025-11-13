@@ -1,4 +1,4 @@
-# 🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+# 🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
 
 ## 🎯 Objetivo Geral
 
@@ -10,8 +10,8 @@ Proporcionar uma experiência prática para compreender como o **Linux detecta, 
 
 Esta aula cobre diretamente o tópico **“Determinar e configurar componentes de hardware”**, do exame **LPI 101**, abordando:
 
-- O papel do kernel na detecção de hardware  
-- O uso do `dmesg`, `/proc`, `/sys`, `udev` e ferramentas de listagem  
+- O papel do kernel na detecção de hardware
+- O uso do `dmesg`, `/proc`, `/sys`, `udev` e ferramentas de listagem
 - Identificação e gerenciamento de dispositivos (USB, PCI, blocos, etc.)
 
 ---
@@ -19,10 +19,10 @@ Esta aula cobre diretamente o tópico **“Determinar e configurar componentes d
 ## 🧩 Requisitos
 
 - Distribuição Linux (Ubuntu, Debian, Fedora, etc.)
-- Acesso `sudo` ou root  
-- Um pendrive USB (ou outro dispositivo USB removível)  
-- Dois terminais abertos lado a lado  
-- Ideal: projetar o terminal para a turma ver em tempo real  
+- Acesso `sudo` ou root
+- Um pendrive USB (ou outro dispositivo USB removível)
+- Dois terminais abertos lado a lado
+- Ideal: projetar o terminal para a turma ver em tempo real
 
 ---
 
@@ -36,12 +36,12 @@ Esta aula cobre diretamente o tópico **“Determinar e configurar componentes d
 
 📖 **Pontos de fala:**
 
-- O *kernel* detecta hardware e carrega módulos/drivers.  
-- O *udev* é responsável por criar/remover os arquivos em `/dev/`.  
-- `/proc` e `/sys` são interfaces virtuais para consultar o estado do sistema.  
+- O *kernel* detecta hardware e carrega módulos/drivers.
+- O *udev* é responsável por criar/remover os arquivos em `/dev/`.
+- `/proc` e `/sys` são interfaces virtuais para consultar o estado do sistema.
 - Podemos observar o processo de detecção em tempo real.
 
-💡 **Dica para o instrutor:**  
+💡 **Dica para o instrutor:**
 Mostre rapidamente o conteúdo de `/dev` e explique que os “arquivos” ali representam dispositivos reais.
 
 ```bash
@@ -60,13 +60,13 @@ sudo dmesg -w
 
 ### O que explicar:
 
-- `dmesg` mostra mensagens do **kernel ring buffer**.  
-- O `-w` mantém a saída sendo atualizada continuamente.  
+- `dmesg` mostra mensagens do **kernel ring buffer**.
+- O `-w` mantém a saída sendo atualizada continuamente.
 
 👩‍🏫 **Demonstração:**
 
-1. Execute o comando no terminal.  
-2. Peça a um aluno para **plugar o pendrive**.  
+1. Execute o comando no terminal.
+2. Peça a um aluno para **plugar o pendrive**.
 3. Mostre as mensagens aparecendo, como:
 
 ```
@@ -96,13 +96,13 @@ sudo udevadm monitor
 
 ### O que mostrar:
 
-- Eventos **KERNEL** → disparados pelo kernel.  
-- Eventos **UDEV** → processados pelo sistema udev.  
+- Eventos **KERNEL** → disparados pelo kernel.
+- Eventos **UDEV** → processados pelo sistema udev.
 
 👩‍🏫 **Demonstração:**
 
-1. Deixe o comando rodando.  
-2. Conecte o pendrive novamente.  
+1. Deixe o comando rodando.
+2. Conecte o pendrive novamente.
 3. Mostre saídas como:
 
 ```
@@ -112,7 +112,7 @@ UDEV  [1234.789012] add /devices/.../sdb1 (block)
 KERNEL[1238.901234] remove /devices/.../sdb1 (block)
 ```
 
-💡 **Dica:**  
+💡 **Dica:**
 Use a opção `--property` para mostrar atributos:
 
 ```bash
@@ -137,14 +137,14 @@ watch -n1 lsblk -f
 
 ### Explicação:
 
-- O `watch` executa o comando periodicamente (a cada 1 segundo).  
-- O `lsblk` mostra os dispositivos de **bloco** e suas partições.  
+- O `watch` executa o comando periodicamente (a cada 1 segundo).
+- O `lsblk` mostra os dispositivos de **bloco** e suas partições.
 
 👩‍🏫 **Demonstração:**
 
-1. Deixe o comando rodando.  
-2. Conecte o pendrive.  
-3. Veja o novo dispositivo (`/dev/sdb`, `/dev/sdb1`) aparecer.  
+1. Deixe o comando rodando.
+2. Conecte o pendrive.
+3. Veja o novo dispositivo (`/dev/sdb`, `/dev/sdb1`) aparecer.
 4. Desconecte — observe desaparecer.
 
 📌 **Ponto didático:**
@@ -221,13 +221,13 @@ ls /sys/class/block/
 
 Peça aos alunos que:
 
-1. Testem outros dispositivos (mouse, teclado, HD externo).  
-2. Observem como diferentes drivers são carregados.  
+1. Testem outros dispositivos (mouse, teclado, HD externo).
+2. Observem como diferentes drivers são carregados.
 3. Criem uma regra simples do `udev` que registra o evento em um log quando um pendrive é conectado.
 
 ---
 
-✳️ **Tempo total:** ~20 minutos  
+✳️ **Tempo total:** ~20 minutos
 ✳️ **Objetivo didático atingido:** alunos entendem o fluxo **hardware → kernel → udev → /dev** de forma prática e visual.
 
 

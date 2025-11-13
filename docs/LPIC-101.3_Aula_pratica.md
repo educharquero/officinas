@@ -1,4 +1,4 @@
-# ⚙️ Aula Prática – LPI 101.3: Runlevels, Targets e Gerenciamento de Inicialização
+# 🐧 Aula Prática – LPI 101.3: Runlevels, Targets e Gerenciamento de Inicialização
 
 ## 🎯 Objetivo da Aula
 Compreender e praticar o uso de **runlevels (SysVinit)** e **targets (systemd)**, além dos comandos para **inicializar, desligar e reiniciar** o sistema.
