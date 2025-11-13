@@ -25,10 +25,9 @@ e aplicar políticas de bloqueio contra **redes sociais, conteúdo adulto e amea
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-    address 192.168.70.250/24
+    address 192.168.70.251
+    netmask 255.255.255.0
     gateway 192.168.70.254
-    dns-nameservers 192.168.70.253
-    dns-search officinas.edu
 ```
 
 ## Arquivo: /etc/hosts
@@ -46,70 +45,235 @@ nameserver 192.168.70.253
 search officinas.edu
 ```
 
-## 2️⃣ ATUALIZAÇÃO E INSTALAÇÃO DE PACOTES
+## A **1º Parte** se referirá á integração ao domínio
+
+## ⚙️ Instalar pacotes de integração AD
 
 ```bash
-apt update && apt full-upgrade -y
-apt install squid winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind -y
+apt install samba winbind krb5-user samba-common-bin samba-common samba-client libnss-winbind libpam-winbind curl
 ```
 
-## Durante a configuração:
+## ✅ Sincronização de hora (crítica para Kerberos):
 
-- REALM = OFFICINAS.EDU
-- KDC = 192.168.70.253
-- Admin Server = 192.168.70.253
 
-## 3️⃣ CONFIGURAÇÃO DO KERBEROS
+```bash
+apt install chrony
+```
 
-## Arquivo: /etc/krb5.conf
+```bash
+vim /etc/chrony/chrony.conf
+```
+
+## Adicione o srvdc01 ao chrony:
+
+```bash
+server 192.168.70.253 prefer iburst
+```
+
+## Habilite e reinicie o serviço de sincronização de horário.
+
+```bash
+systemctl enable --now chrony
+```
+
+```bash
+sudo systemctl restart chrony
+```
+
+```bash
+chronyc sources -v
+```
+
+```bash
+chronyc tracking
+```
+
+## 🔑 Configurar o Kerberos após fazer o backup do arquivo original
+
+```bash
+mv /etc/krb5.conf{,.orig}
+```
+
+```bash
+vim /etc/krb5.conf
+```
 
 ```bash
 [libdefaults]
-   default_realm = OFFICINAS.EDU
-   dns_lookup_realm = false
-   dns_lookup_kdc = true
-   ticket_lifetime = 24h
-   renew_lifetime = 7d
-   forwardable = true
+    default_realm = OFFICINAS.EDU
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
+    ticket_lifetime = 24h
+    renew_lifetime = 7d
+    forwardable = true
 
 [realms]
-   OFFICINAS.EDU = {
-       kdc = 192.168.70.253
-       admin_server = 192.168.70.253
-   }
+    OFFICINAS.EDU = {
+        kdc = 192.168.70.253
+        admin_server = 192.168.70.253
+    }
 
 [domain_realm]
-   .officinas.edu = OFFICINAS.EDU
-   officinas.edu = OFFICINAS.EDU
+    .officinas.edu = OFFICINAS.EDU
+    officinas.edu = OFFICINAS.EDU
 ```
 
-## Testar o Kerberos:
+## ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
 
 ```bash
-kinit administrador@OFFICINAS.EDU
-klist
+mv /etc/samba/smb.conf{,.orig}
 ```
 
-## 4️⃣ INGRESSAR O SERVIDOR NO DOMÍNIO
+```bash
+vim /etc/samba/smb.conf
+```
+
+```bash
+[global]
+   workgroup = OFFICINAS
+   realm = OFFICINAS.EDU
+   security = ADS
+   password server = 192.168.70.253
+   kerberos method = secrets and keytab
+
+   # Winbind e IDMAP
+   winbind use default domain = yes
+   winbind offline logon = yes
+   winbind enum users = yes
+   winbind enum groups = yes
+   template shell = /bin/bash
+   template homedir = /home/%D/%U
+
+   idmap config * : backend = tdb
+   idmap config * : range = 10000-20000
+
+   client signing = yes
+   server signing = auto
+   client use spnego = yes
+   dedicated keytab file = /etc/krb5.keytab
+
+   # Performance
+   dns proxy = no
+   restrict anonymous = 2
+```
+
+## 🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
+
+```
+vim /etc/nsswitch
+```
+
+```bash
+passwd: files systemd winbind
+group:  files systemd winbind
+shadow: files
+```
+
+## 🧩 Ingressar no domínio
 
 ```bash
 net ads join -U administrador
-net ads testjoin
-wbinfo -u
-wbinfo -g
 ```
 
-## Se listar usuários e grupos → OK.
+## Saída esperada:
 
-## 5️⃣ CONFIGURAÇÃO BÁSICA DO SQUID
+```bash
+Joined 'SRVFIREWALL' to realm 'OFFICINAS.EDU'
+```
 
-## Backup do arquivo original:
+## 🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+
+```bash
+systemctl restart smbd nmbd winbind
+```
+
+```bash
+systemctl enable winbind
+```
+
+```bash
+systemctl status winbind
+```
+
+## Valide:
+
+```bash
+net ads testjoin
+```
+
+```bash
+net ads info
+```
+
+```bash
+wbinfo -t
+```
+
+```bash
+wbinfo -u | head
+```
+
+```bash
+wbinfo -g | head
+```
+
+## Teste o ticket:
+
+```bash
+kinit administrador@OFFICINAS.EDU
+```
+
+```bash
+klist
+```
+
+## 🔄 Reiniciar serviços
+
+```bash
+systemctl restart smbd nmbd winbind
+```
+
+## ✅ Testar autenticação AD
+
+```bash
+wbinfo -u | head
+```
+
+```bash
+getent passwd "Administrator"
+```
+
+## ⚙️ Verificar DNS e NAT
+
+```bash
+ping -c 3 8.8.8.8
+```
+
+```bash
+ping -c 3 srvdc01.officinas.edu
+```
+
+```bash
+curl https://google.com
+```
+
+## 5️⃣ **2º Parte** CONFIGURAÇÃO BÁSICA DO SQUID
+
+## Instalação do pacote do squid para filtro de conteúdo e do sarg para logs de acessos
+
+```bash
+apt install squid sarg
+```
+
+## Após o backup do arquivo original, criamos o definitivo:
 
 ```bash
 mv /etc/squid/squid.conf{,.orig}
 ```
 
-## Criar novo arquivo: /etc/squid/squid.conf
+```bash
+vim /etc/squid.conf
+```
 
 ```bash
 ##############################################
@@ -208,7 +372,11 @@ virus
 
 ```bash
 chown -R proxy:proxy /var/spool/squid
+```
+```bash
 chmod -R 750 /var/spool/squid
+```
+```bash
 squid -z
 ```
 
@@ -216,7 +384,13 @@ squid -z
 
 ```bash
 systemctl enable squid
-systemctl restart squid
+```
+
+```bash
+systemctl start squid
+```
+
+```bash
 systemctl status squid
 ```
 

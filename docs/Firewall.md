@@ -72,7 +72,7 @@ chattr +i /etc/resolv.conf
 ## ⚙️ Instalar pacotes de integração AD
 
 ```bash
-apt install samba winbind krb5-user samba-common-bin samba-common libnss-winbind libpam-winbind curl
+apt install samba winbind krb5-user samba-common-bin samba-common samba-client libnss-winbind libpam-winbind curl
 ```
 
 ## ✅ Sincronização de hora (crítica para Kerberos):
@@ -210,6 +210,24 @@ net ads testjoin
 ```
 
 ```bash
+net ads info
+```
+
+## 🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+
+```bash
+systemctl restart smbd nmbd winbind
+```
+
+```bash
+systemctl enable winbind
+```
+
+```bash
+systemctl status winbind
+```
+
+```bash
 wbinfo -t
 ```
 
@@ -229,12 +247,6 @@ kinit administrador@OFFICINAS.EDU
 
 ```bash
 klist
-```
-
-## 🔄 Reiniciar serviços
-
-```bash
-systemctl restart smbd nmbd winbind
 ```
 
 ## ✅ Testar autenticação AD

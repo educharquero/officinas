@@ -248,6 +248,24 @@ net ads testjoin
 ```
 
 ```bash
+net ads info
+```
+
+## 🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+
+```bash
+systemctl restart smbd nmbd winbind
+```
+
+```bash
+systemctl enable winbind
+```
+
+```bash
+systemctl status winbind
+```
+
+```bash
 wbinfo -u
 ```
 
