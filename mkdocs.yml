@@ -47,7 +47,8 @@ nav:
 
       - Módulo LPIC-102:
           - 102.1: LPIC-102.1_Particionamento_de_discos.md
-          - 102.2: LPIC-102.2_Gerenciamento_do_boot_manager.md
+          - 102.2: LPIC-102.2_Boot_manager.md
+          - 102.3: LPIC-102.3_Bibliotecas_compartilhadas.md
 
       - Módulo LPIC-103:
           - 103.1: LPIC-103.1_Shell_e_linha_de_comandos.md
