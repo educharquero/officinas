@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#firewall-server-debian-13-com-iptables" class="md-skip">
+        <a href="#firewall-server-com-debian-13-rodando-iptables-e-integrado-ao-dominio" class="md-skip">
           Skip to content
         </a>
       
@@ -615,9 +615,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
+  <a href="#configuracao-das-interfaces-de-rede-wan-apontando-pro-roteador-da-operadora-e-lan-apontando-pra-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Configuração das interfaces de rede
+      🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
     </span>
   </a>
   
@@ -714,27 +714,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-o-kerberos" class="md-nav__link">
+  <a href="#configurar-o-kerberos-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      🔑 Configurar o Kerberos
+      🔑 Configurar o Kerberos após fazer o backup do arquivo original
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-o-samba" class="md-nav__link">
+  <a href="#configurar-o-arquivo-do-samba-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Configurar o Samba
+      ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-apontamento-de-nss-e-pam" class="md-nav__link">
+  <a href="#configurar-apontamento-do-winbind-na-validacao-de-nomes-e-contas-do-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Configurar apontamento de NSS e PAM
+      🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
     </span>
   </a>
   
@@ -2557,9 +2557,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuracao-das-interfaces-de-rede" class="md-nav__link">
+  <a href="#configuracao-das-interfaces-de-rede-wan-apontando-pro-roteador-da-operadora-e-lan-apontando-pra-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Configuração das interfaces de rede
+      🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
     </span>
   </a>
   
@@ -2656,27 +2656,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-o-kerberos" class="md-nav__link">
+  <a href="#configurar-o-kerberos-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      🔑 Configurar o Kerberos
+      🔑 Configurar o Kerberos após fazer o backup do arquivo original
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-o-samba" class="md-nav__link">
+  <a href="#configurar-o-arquivo-do-samba-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Configurar o Samba
+      ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurar-apontamento-de-nss-e-pam" class="md-nav__link">
+  <a href="#configurar-apontamento-do-winbind-na-validacao-de-nomes-e-contas-do-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Configurar apontamento de NSS e PAM
+      🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
     </span>
   </a>
   
@@ -2995,8 +2995,8 @@
 
 
 
-<h1 id="firewall-server-debian-13-com-iptables">🔥 Firewall Server - Debian 13 com Iptables</h1>
-<h2 id="o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede">🎯 O Objetivo nesse tutorial é criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões,  com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.</h2>
+<h1 id="firewall-server-com-debian-13-rodando-iptables-e-integrado-ao-dominio">🔥 Firewall Server com Debian 13 rodando Iptables e integrado ao Domínio</h1>
+<h2 id="o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede">🎯 O Objetivo nesse tutorial é criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.</h2>
 <hr />
 <h2 id="topologia-da-rede">🌐 Topologia da rede:</h2>
 <ul>
@@ -3014,7 +3014,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="configuracao-das-interfaces-de-rede">🧩 Configuração das interfaces de rede</h2>
+<h2 id="configuracao-das-interfaces-de-rede-wan-apontando-pro-roteador-da-operadora-e-lan-apontando-pra-rede-interna">🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/network/interfaces
 
 <span class="c1"># Interface externa (WAN)</span>
@@ -3068,8 +3068,10 @@ nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>tracking
 </code></pre></div>
-<h2 id="configurar-o-kerberos">🔑 Configurar o Kerberos</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/krb5.conf:
+<h2 id="configurar-o-kerberos-apos-fazer-o-backup-do-arquivo-original">🔑 Configurar o Kerberos após fazer o backup do arquivo original</h2>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/etc/krb5.conf<span class="o">{</span>,.orig<span class="o">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/krb5.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
 <span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
@@ -3089,8 +3091,10 @@ nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 <span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 <span class="w">    </span>officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
 </code></pre></div>
-<h2 id="configurar-o-samba">⚙️ Configurar o Samba</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/samba/smb.conf:
+<h2 id="configurar-o-arquivo-do-samba-apos-fazer-o-backup-do-arquivo-original">⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original</h2>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>/etc/samba/smb.conf<span class="o">{</span>,.orig<span class="o">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
 <span class="w">   </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS
@@ -3119,12 +3123,12 @@ nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 <span class="w">   </span>dns<span class="w"> </span><span class="nv">proxy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
 <span class="w">   </span>restrict<span class="w"> </span><span class="nv">anonymous</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
 </code></pre></div>
-<h2 id="configurar-apontamento-de-nss-e-pam">🧠 Configurar apontamento de NSS e PAM</h2>
+<h2 id="configurar-apontamento-do-winbind-na-validacao-de-nomes-e-contas-do-sistema">🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema</h2>
 <div class="highlight"><pre><span></span><code>vim /etc/nsswitch
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>passwd:<span class="w">         </span>compat<span class="w"> </span>winbind
-group:<span class="w">          </span>compat<span class="w"> </span>winbind
-shadow:<span class="w">         </span>compat
+<div class="highlight"><pre><span></span><code>passwd:<span class="w"> </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
+group:<span class="w">  </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
+shadow:<span class="w"> </span>files
 </code></pre></div>
 <h2 id="ingressar-no-dominio">🧩 Ingressar no domínio</h2>
 <div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>join<span class="w"> </span>-U<span class="w"> </span>administrador
