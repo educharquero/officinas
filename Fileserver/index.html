@@ -995,6 +995,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok" class="md-nav__link">
     <span class="md-ellipsis">
       Se retornar listas de usuários e grupos do domínio → integração OK ✅
@@ -2629,6 +2638,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#se-retornar-listas-de-usuarios-e-grupos-do-dominio-integracao-ok" class="md-nav__link">
     <span class="md-ellipsis">
       Se retornar listas de usuários e grupos do domínio → integração OK ✅
@@ -2962,6 +2980,15 @@ shadow:<span class="w">         </span>compat
 </code></pre></div>
 <h2 id="testes-da-integracao">Testes da integração:</h2>
 <div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>testjoin
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>info
+</code></pre></div>
+<h2 id="restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot">🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u
 </code></pre></div>

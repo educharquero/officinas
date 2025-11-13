@@ -768,18 +768,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-o-ticket" class="md-nav__link">
+  <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o ticket:
+      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reiniciar-servicos" class="md-nav__link">
+  <a href="#teste-o-ticket" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Reiniciar serviços
+      Teste o ticket:
     </span>
   </a>
   
@@ -2710,18 +2710,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-o-ticket" class="md-nav__link">
+  <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o ticket:
+      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#reiniciar-servicos" class="md-nav__link">
+  <a href="#teste-o-ticket" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Reiniciar serviços
+      Teste o ticket:
     </span>
   </a>
   
@@ -3049,7 +3049,7 @@ nameserver<span class="w"> </span><span class="m">192</span>.168.70.253
 </code></pre></div>
 <h2 id="a-1o-parte-se-referira-a-integracao-ao-dominio">A <strong>1º Parte</strong> se referirá á integração ao domínio</h2>
 <h2 id="instalar-pacotes-de-integracao-ad">⚙️ Instalar pacotes de integração AD</h2>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>winbind<span class="w"> </span>krb5-user<span class="w"> </span>samba-common-bin<span class="w"> </span>samba-common<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>curl
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>winbind<span class="w"> </span>krb5-user<span class="w"> </span>samba-common-bin<span class="w"> </span>samba-common<span class="w"> </span>samba-client<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>curl
 </code></pre></div>
 <h2 id="sincronizacao-de-hora-critica-para-kerberos">✅ Sincronização de hora (crítica para Kerberos):</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>chrony
@@ -3139,6 +3139,15 @@ shadow:<span class="w"> </span>files
 <h2 id="valide">Valide:</h2>
 <div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>testjoin
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>net<span class="w"> </span>ads<span class="w"> </span>info
+</code></pre></div>
+<h2 id="restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot">🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot</h2>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>winbind
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>status<span class="w"> </span>winbind
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-t
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
@@ -3149,9 +3158,6 @@ shadow:<span class="w"> </span>files
 <div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>administrador@OFFICINAS.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
-</code></pre></div>
-<h2 id="reiniciar-servicos">🔄 Reiniciar serviços</h2>
-<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
 </code></pre></div>
 <h2 id="testar-autenticacao-ad">✅ Testar autenticação AD</h2>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u<span class="w"> </span><span class="p">|</span><span class="w"> </span>head
