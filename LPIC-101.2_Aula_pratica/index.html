@@ -1106,7 +1106,7 @@
   
   
   <span class="md-ellipsis">
-    LPIC-101.1 - Identificação e Configuração de Hardware
+    🐧 LPIC-101.1 - Identificação e Configuração de Hardware
     
   </span>
   
@@ -1129,7 +1129,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1205,7 +1205,7 @@
   
   
   <span class="md-ellipsis">
-    LPIC-101.2: O Processo de Inicialização do Linux
+    🐧 LPIC-101.2: O Processo de Inicialização do Linux
     
   </span>
   
@@ -1320,7 +1320,7 @@
   
   
   <span class="md-ellipsis">
-    🧠 Entendendo a NVRAM no UEFI
+    🐧 Entendendo a NVRAM no UEFI
     
   </span>
   
@@ -1417,7 +1417,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1520,7 +1520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LPIC-102.2_Gerenciamento_do_boot_manager/" class="md-nav__link">
+      <a href="../LPIC-102.2_Gerenciamento_do_boot_manager.md" class="md-nav__link">
         
   
   
@@ -2148,25 +2148,25 @@
 
 <h1 id="aula-pratica-lpi-1012-inicializacao-do-sistema-linux">⚙️ Aula Prática – LPI 101.2: Inicialização do Sistema Linux</h1>
 <h2 id="objetivo-geral">🎯 Objetivo Geral</h2>
-<p>Compreender e visualizar <strong>como o Linux inicializa</strong>, desde o BIOS/UEFI até o <code>systemd</code>, entendendo o papel do <strong>bootloader (GRUB)</strong>, do <strong>kernel</strong>, e dos <strong>serviços do sistema</strong>.<br />
+<p>Compreender e visualizar <strong>como o Linux inicializa</strong>, desde o BIOS/UEFI até o <code>systemd</code>, entendendo o papel do <strong>bootloader (GRUB)</strong>, do <strong>kernel</strong>, e dos <strong>serviços do sistema</strong>.
 Ao final, o aluno será capaz de <strong>analisar problemas de boot</strong>, <strong>listar serviços ativos</strong>, e <strong>identificar fases da inicialização</strong>.</p>
 <hr />
 <h2 id="contexto-no-lpi-1012">📚 Contexto no LPI 101.2</h2>
 <p>Corresponde ao tópico “<strong>Boot the system</strong>” do exame <strong>LPI 101</strong>, abordando:</p>
 <ul>
-<li>Sequência de inicialização: BIOS/UEFI → Bootloader → Kernel → init/systemd  </li>
-<li>Gerenciador de boot (GRUB)  </li>
-<li>Modos de inicialização (runlevels / targets)  </li>
-<li>Logs de inicialização  </li>
+<li>Sequência de inicialização: BIOS/UEFI → Bootloader → Kernel → init/systemd</li>
+<li>Gerenciador de boot (GRUB)</li>
+<li>Modos de inicialização (runlevels / targets)</li>
+<li>Logs de inicialização</li>
 <li>Gerenciamento de serviços com <code>systemctl</code></li>
 </ul>
 <hr />
 <h2 id="requisitos">🧩 Requisitos</h2>
 <ul>
-<li>Qualquer sistema Linux com <code>systemd</code>  </li>
-<li>Acesso <code>sudo</code>  </li>
-<li>Terminal com privilégios administrativos  </li>
-<li>(Opcional) Máquina virtual para simulações de falhas de boot  </li>
+<li>Qualquer sistema Linux com <code>systemd</code></li>
+<li>Acesso <code>sudo</code></li>
+<li>Terminal com privilégios administrativos</li>
+<li>(Opcional) Máquina virtual para simulações de falhas de boot</li>
 </ul>
 <hr />
 <h1 id="duracao-total-25-minutos">🕐 Duração Total: ~25 minutos</h1>
@@ -2210,7 +2210,7 @@ Ao final, o aluno será capaz de <strong>analisar problemas de boot</strong>, <s
 <p><code>initrd</code> é o <strong>ramdisk inicial</strong> (contém drivers e scripts usados antes de montar o root FS).</p>
 </li>
 </ul>
-<p>💡 <strong>Dica:</strong><br />
+<p>💡 <strong>Dica:</strong>
 Peça aos alunos para identificar o parâmetro <code>root=</code> e explicar o que ele define.</p>
 <hr />
 <h2 id="3-identificando-o-kernel-em-uso-2-min">🧩 3. Identificando o Kernel em Uso (2 min)</h2>
@@ -2235,7 +2235,7 @@ Peça aos alunos para identificar o parâmetro <code>root=</code> e explicar o q
 <li><code>journalctl -b</code> mostra todos os logs do último boot.</li>
 <li>É útil para diagnosticar <strong>falhas de serviços ou drivers</strong> na inicialização.</li>
 </ul>
-<p>💡 <strong>Dica:</strong><br />
+<p>💡 <strong>Dica:</strong>
 Mostre como filtrar:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span>-b<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>error
 </code></pre></div>
@@ -2290,7 +2290,7 @@ Mostre como filtrar:</p>
 <p>Para detalhar os serviços mais lentos:</p>
 <div class="highlight"><pre><span></span><code>systemd-analyze<span class="w"> </span>blame
 </code></pre></div>
-<p>💡 <strong>Dica:</strong><br />
+<p>💡 <strong>Dica:</strong>
 Peça aos alunos para identificar qual serviço mais demorou no sistema deles.</p>
 <hr />
 <h2 id="8-discussao-e-conclusao-4-min">💬 8. Discussão e Conclusão (4 min)</h2>
@@ -2304,9 +2304,9 @@ Peça aos alunos para identificar qual serviço mais demorou no sistema deles.</
 </ol>
 <p>📚 <strong>Resumo:</strong></p>
 <ul>
-<li>BIOS/UEFI → GRUB → Kernel → systemd  </li>
-<li>GRUB carrega o kernel e initrd.  </li>
-<li><code>systemd</code> organiza a inicialização dos serviços e targets.  </li>
+<li>BIOS/UEFI → GRUB → Kernel → systemd</li>
+<li>GRUB carrega o kernel e initrd.</li>
+<li><code>systemd</code> organiza a inicialização dos serviços e targets.</li>
 <li>Ferramentas úteis: <code>journalctl</code>, <code>systemctl</code>, <code>systemd-analyze</code>.</li>
 </ul>
 <hr />

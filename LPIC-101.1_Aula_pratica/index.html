@@ -20,7 +20,7 @@
     
     
       
-        <title>🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware) - 🐧 Comunidade Officina's</title>
+        <title>🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware) - 🐧 Comunidade Officina's</title>
       
     
     
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+              🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
             
           </span>
         </div>
@@ -1106,7 +1106,7 @@
   
   
   <span class="md-ellipsis">
-    LPIC-101.1 - Identificação e Configuração de Hardware
+    🐧 LPIC-101.1 - Identificação e Configuração de Hardware
     
   </span>
   
@@ -1138,7 +1138,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1151,7 +1151,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1272,7 +1272,7 @@
   
   
   <span class="md-ellipsis">
-    LPIC-101.2: O Processo de Inicialização do Linux
+    🐧 LPIC-101.2: O Processo de Inicialização do Linux
     
   </span>
   
@@ -1318,7 +1318,7 @@
   
   
   <span class="md-ellipsis">
-    🧠 Entendendo a NVRAM no UEFI
+    🐧 Entendendo a NVRAM no UEFI
     
   </span>
   
@@ -1426,7 +1426,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1439,7 +1439,7 @@
   
   
   <span class="md-ellipsis">
-    🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+    🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
     
   </span>
   
@@ -1589,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../LPIC-102.2_Gerenciamento_do_boot_manager/" class="md-nav__link">
+      <a href="../LPIC-102.2_Gerenciamento_do_boot_manager.md" class="md-nav__link">
         
   
   
@@ -2215,25 +2215,25 @@
 
 
 
-<h1 id="aula-pratica-lpi-1011-arquitetura-do-sistema-deteccao-de-hardware">🧑‍💻 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)</h1>
+<h1 id="aula-pratica-lpi-1011-arquitetura-do-sistema-deteccao-de-hardware">🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)</h1>
 <h2 id="objetivo-geral">🎯 Objetivo Geral</h2>
 <p>Proporcionar uma experiência prática para compreender como o <strong>Linux detecta, identifica e gerencia dispositivos de hardware</strong>, conectando os conceitos de <strong>kernel</strong>, <strong>drivers</strong>, <strong>udev</strong> e <strong>device nodes (/dev)</strong> com a prática real em terminal.</p>
 <hr />
 <h2 id="contexto-no-lpi-1011">📚 Contexto no LPI 101.1</h2>
 <p>Esta aula cobre diretamente o tópico <strong>“Determinar e configurar componentes de hardware”</strong>, do exame <strong>LPI 101</strong>, abordando:</p>
 <ul>
-<li>O papel do kernel na detecção de hardware  </li>
-<li>O uso do <code>dmesg</code>, <code>/proc</code>, <code>/sys</code>, <code>udev</code> e ferramentas de listagem  </li>
+<li>O papel do kernel na detecção de hardware</li>
+<li>O uso do <code>dmesg</code>, <code>/proc</code>, <code>/sys</code>, <code>udev</code> e ferramentas de listagem</li>
 <li>Identificação e gerenciamento de dispositivos (USB, PCI, blocos, etc.)</li>
 </ul>
 <hr />
 <h2 id="requisitos">🧩 Requisitos</h2>
 <ul>
 <li>Distribuição Linux (Ubuntu, Debian, Fedora, etc.)</li>
-<li>Acesso <code>sudo</code> ou root  </li>
-<li>Um pendrive USB (ou outro dispositivo USB removível)  </li>
-<li>Dois terminais abertos lado a lado  </li>
-<li>Ideal: projetar o terminal para a turma ver em tempo real  </li>
+<li>Acesso <code>sudo</code> ou root</li>
+<li>Um pendrive USB (ou outro dispositivo USB removível)</li>
+<li>Dois terminais abertos lado a lado</li>
+<li>Ideal: projetar o terminal para a turma ver em tempo real</li>
 </ul>
 <hr />
 <h1 id="duracao-total-20-minutos">🕐 Duração Total: ~20 minutos</h1>
@@ -2242,12 +2242,12 @@
 <p><strong>Objetivo:</strong> contextualizar o papel do kernel e do udev.</p>
 <p>📖 <strong>Pontos de fala:</strong></p>
 <ul>
-<li>O <em>kernel</em> detecta hardware e carrega módulos/drivers.  </li>
-<li>O <em>udev</em> é responsável por criar/remover os arquivos em <code>/dev/</code>.  </li>
-<li><code>/proc</code> e <code>/sys</code> são interfaces virtuais para consultar o estado do sistema.  </li>
+<li>O <em>kernel</em> detecta hardware e carrega módulos/drivers.</li>
+<li>O <em>udev</em> é responsável por criar/remover os arquivos em <code>/dev/</code>.</li>
+<li><code>/proc</code> e <code>/sys</code> são interfaces virtuais para consultar o estado do sistema.</li>
 <li>Podemos observar o processo de detecção em tempo real.</li>
 </ul>
-<p>💡 <strong>Dica para o instrutor:</strong><br />
+<p>💡 <strong>Dica para o instrutor:</strong>
 Mostre rapidamente o conteúdo de <code>/dev</code> e explique que os “arquivos” ali representam dispositivos reais.</p>
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev<span class="w"> </span><span class="p">|</span><span class="w"> </span>less
 </code></pre></div>
@@ -2258,13 +2258,13 @@ Mostre rapidamente o conteúdo de <code>/dev</code> e explique que os “arquivo
 </code></pre></div>
 <h3 id="o-que-explicar">O que explicar:</h3>
 <ul>
-<li><code>dmesg</code> mostra mensagens do <strong>kernel ring buffer</strong>.  </li>
-<li>O <code>-w</code> mantém a saída sendo atualizada continuamente.  </li>
+<li><code>dmesg</code> mostra mensagens do <strong>kernel ring buffer</strong>.</li>
+<li>O <code>-w</code> mantém a saída sendo atualizada continuamente.</li>
 </ul>
 <p>👩‍🏫 <strong>Demonstração:</strong></p>
 <ol>
-<li>Execute o comando no terminal.  </li>
-<li>Peça a um aluno para <strong>plugar o pendrive</strong>.  </li>
+<li>Execute o comando no terminal.</li>
+<li>Peça a um aluno para <strong>plugar o pendrive</strong>.</li>
 <li>Mostre as mensagens aparecendo, como:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>[ 1234.567890] usb 1-1: new high-speed USB device number 7 using xhci_hcd
@@ -2288,13 +2288,13 @@ Mostre rapidamente o conteúdo de <code>/dev</code> e explique que os “arquivo
 </code></pre></div>
 <h3 id="o-que-mostrar">O que mostrar:</h3>
 <ul>
-<li>Eventos <strong>KERNEL</strong> → disparados pelo kernel.  </li>
-<li>Eventos <strong>UDEV</strong> → processados pelo sistema udev.  </li>
+<li>Eventos <strong>KERNEL</strong> → disparados pelo kernel.</li>
+<li>Eventos <strong>UDEV</strong> → processados pelo sistema udev.</li>
 </ul>
 <p>👩‍🏫 <strong>Demonstração:</strong></p>
 <ol>
-<li>Deixe o comando rodando.  </li>
-<li>Conecte o pendrive novamente.  </li>
+<li>Deixe o comando rodando.</li>
+<li>Conecte o pendrive novamente.</li>
 <li>Mostre saídas como:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>KERNEL[1234.567890] add /devices/pci0000:00/.../usb1/1-1 (usb)
@@ -2302,7 +2302,7 @@ UDEV  [1234.678901] add /devices/.../sdb (block)
 UDEV  [1234.789012] add /devices/.../sdb1 (block)
 KERNEL[1238.901234] remove /devices/.../sdb1 (block)
 </code></pre></div>
-<p>💡 <strong>Dica:</strong><br />
+<p>💡 <strong>Dica:</strong>
 Use a opção <code>--property</code> para mostrar atributos:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>udevadm<span class="w"> </span>monitor<span class="w"> </span>--udev<span class="w"> </span>--property
 </code></pre></div>
@@ -2319,14 +2319,14 @@ Use a opção <code>--property</code> para mostrar atributos:</p>
 </code></pre></div>
 <h3 id="explicacao">Explicação:</h3>
 <ul>
-<li>O <code>watch</code> executa o comando periodicamente (a cada 1 segundo).  </li>
-<li>O <code>lsblk</code> mostra os dispositivos de <strong>bloco</strong> e suas partições.  </li>
+<li>O <code>watch</code> executa o comando periodicamente (a cada 1 segundo).</li>
+<li>O <code>lsblk</code> mostra os dispositivos de <strong>bloco</strong> e suas partições.</li>
 </ul>
 <p>👩‍🏫 <strong>Demonstração:</strong></p>
 <ol>
-<li>Deixe o comando rodando.  </li>
-<li>Conecte o pendrive.  </li>
-<li>Veja o novo dispositivo (<code>/dev/sdb</code>, <code>/dev/sdb1</code>) aparecer.  </li>
+<li>Deixe o comando rodando.</li>
+<li>Conecte o pendrive.</li>
+<li>Veja o novo dispositivo (<code>/dev/sdb</code>, <code>/dev/sdb1</code>) aparecer.</li>
 <li>Desconecte — observe desaparecer.</li>
 </ol>
 <p>📌 <strong>Ponto didático:</strong>
@@ -2386,12 +2386,12 @@ cat<span class="w"> </span>/proc/partitions<span class="w"> </span><span class="
 <h2 id="sugestao-extra-para-continuar-em-casa">🧭 Sugestão Extra (para continuar em casa)</h2>
 <p>Peça aos alunos que:</p>
 <ol>
-<li>Testem outros dispositivos (mouse, teclado, HD externo).  </li>
-<li>Observem como diferentes drivers são carregados.  </li>
+<li>Testem outros dispositivos (mouse, teclado, HD externo).</li>
+<li>Observem como diferentes drivers são carregados.</li>
 <li>Criem uma regra simples do <code>udev</code> que registra o evento em um log quando um pendrive é conectado.</li>
 </ol>
 <hr />
-<p>✳️ <strong>Tempo total:</strong> ~20 minutos<br />
+<p>✳️ <strong>Tempo total:</strong> ~20 minutos
 ✳️ <strong>Objetivo didático atingido:</strong> alunos entendem o fluxo <strong>hardware → kernel → udev → /dev</strong> de forma prática e visual.</p>
 <p>THAT'S ALL FOLKS</p>
 
