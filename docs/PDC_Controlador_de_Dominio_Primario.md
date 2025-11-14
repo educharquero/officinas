@@ -402,7 +402,7 @@ smbcontrol all reload-config
 ## 🎟️ Validação de troca de tickets do Kerberos
 
 ```bash
-kinit Administrator@OFFICINAS.EDU
+kinit Administrator@<DOMINIO_LONGO>
 ```
 
 ```bash
@@ -412,19 +412,19 @@ klist
 ## 🔎 Testes de DNS e SRV
 
 ```bash
-host -t A officinas.edu
+host -t A <dominio_longo>
 ```
 
 ```bash
-host -t SRV _kerberos._tcp.OFFICINAS.EDU
+host -t SRV _kerberos._tcp.<DOMINIO_LONGO>
 ```
 
 ```bash
-host -t SRV _ldap._tcp.OFFICINAS.EDU
+host -t SRV _ldap._tcp.<DOMINIO_LONGO>
 ```
 
 ```bash
-dig OFFICINAS.EDU
+dig <DOMINIO_LONGO>
 ```
 
 ## 🧱 Mais validações do SAMBA4
