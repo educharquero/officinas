@@ -3324,18 +3324,18 @@ Admin<span class="w"> </span>password:<span class="w"> </span>&lt;sua_senha&gt;
 <div class="highlight"><pre><span></span><code>smbcontrol<span class="w"> </span>all<span class="w"> </span>reload-config
 </code></pre></div>
 <h2 id="validacao-de-troca-de-tickets-do-kerberos">🎟️ Validação de troca de tickets do Kerberos</h2>
-<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>Administrator@OFFICINAS.EDU
+<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>Administrator@&lt;DOMINIO_LONGO&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
 <h2 id="testes-de-dns-e-srv">🔎 Testes de DNS e SRV</h2>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>A<span class="w"> </span>officinas.edu
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>A<span class="w"> </span>&lt;dominio_longo&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_kerberos._tcp.OFFICINAS.EDU
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_kerberos._tcp.&lt;DOMINIO_LONGO&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_ldap._tcp.OFFICINAS.EDU
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_ldap._tcp.&lt;DOMINIO_LONGO&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>OFFICINAS.EDU
+<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 </code></pre></div>
 <h2 id="mais-validacoes-do-samba4">🧱 Mais validações do SAMBA4</h2>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>ax<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;samba|smbd|nmbd|winbindd&quot;</span>
