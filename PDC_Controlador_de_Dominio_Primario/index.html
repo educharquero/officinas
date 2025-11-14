@@ -876,34 +876,34 @@
         <li class="md-nav__item">
   <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#topologia-da-rede" class="md-nav__link">
+  <a href="#no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Topologia da rede:
+      🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo" class="md-nav__link">
+  <a href="#adaptado-ao-seu-dominio-obviamente" class="md-nav__link">
     <span class="md-ellipsis">
-      🕐 1. A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo
+      Adaptado AO SEU domínio, obviamente!!
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entao-comece-desativando-o-gerenciamento-do-systemd-timesyncd-para-evitar-conflitos-com-o-chrony-que-preferiremos-instalar" class="md-nav__link">
+  <a href="#a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo" class="md-nav__link">
     <span class="md-ellipsis">
-      Então começe desativando o gerenciamento do systemd-timesyncd para evitar conflitos com o Chrony, que preferiremos instalar.
+      🕐 A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo
     </span>
   </a>
   
@@ -912,7 +912,7 @@
         <li class="md-nav__item">
   <a href="#instale-o-pacote-do-chrony" class="md-nav__link">
     <span class="md-ellipsis">
-      Instale o pacote do chrony.
+      Instale o pacote do chrony
     </span>
   </a>
   
@@ -921,16 +921,16 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-do-chronyconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo do chrony.conf.
+      Edite o arquivo do chrony.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adicione-ou-ajuste-as-linhas-para-apontar-para-repositorios-de-horario-no-br-e-liberar-a-consulta-da-rede-interna" class="md-nav__link">
+  <a href="#comente-a-linha-que-aponta-pro-repositorio-da-america-do-norte-e-insira-as-linhas-para-apontar-para-os-repositorios-de-horario-no-brasil-entao-libere-a-consulta-da-rede-interna-para-o-seu-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Adicione ou ajuste as linhas para apontar para repositórios de horário no BR e liberar a consulta da rede interna.
+      Comente a linha que aponta pro repositório da America do Norte e insira as linhas para apontar para os repositórios de horário no Brasil, então libere a consulta da rede interna para o seu Servidor
     </span>
   </a>
   
@@ -939,25 +939,34 @@
         <li class="md-nav__item">
   <a href="#habilite-e-reinicie-o-servico-de-sincronizacao-de-horario" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite e reinicie o serviço de sincronização de horário.
+      Habilite e reinicie o serviço de sincronização de horário
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sincronize-os-repositorios-do-debian-e-atualize-o-sistema" class="md-nav__link">
+  <a href="#valide-o-seu-timeserver-novo-no-brasil" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 2. Sincronize os repositórios do Debian e atualize o sistema.
+      Valide o seu timeserver novo no Brasil
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracao-de-rede-modo-estatico" class="md-nav__link">
+  <a href="#sincronize-os-repositorios-do-debian-e-atualize-o-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 3. Configuração de rede (modo estático)
+      📦 Sincronize os repositórios do Debian e atualize o sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-de-rede-modo-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Configuração de rede (modo estático)
     </span>
   </a>
   
@@ -966,7 +975,7 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-interfaces-e-sete-o-ip-fixo" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo interfaces e sete o ip fixo.
+      Edite o arquivo interfaces e sete o ip fixo
     </span>
   </a>
   
@@ -975,34 +984,34 @@
         <li class="md-nav__item">
   <a href="#reinicie-a-interface-para-subir-o-novo-endereco" class="md-nav__link">
     <span class="md-ellipsis">
-      Reinicie a interface para subir o novo endereço.
+      Reinicie a interface para subir o novo endereço
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-configuracao-de-dns-temporario" class="md-nav__link">
+  <a href="#configuracao-de-dns-temporario" class="md-nav__link">
     <span class="md-ellipsis">
-      🌍 4. Configuração de DNS temporário
+      🌍 Configuração de DNS temporário
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall" class="md-nav__link">
+  <a href="#antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall-depois-o-dns-sera-o-proprio-controlador-de-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      ANTES de o domínio estar ativo, aponte o DNS para o firewall.
+      ANTES de o domínio estar ativo, aponte o DNS para o firewall, DEPOIS o DNS será o próprio Controlador de domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-hostname-e-resolucao-local" class="md-nav__link">
+  <a href="#hostname-e-resolucao-local" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 5. Hostname e resolução local
+      🧩 Hostname e resolução local
     </span>
   </a>
   
@@ -1011,7 +1020,7 @@
         <li class="md-nav__item">
   <a href="#defina-o-hostname-do-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Defina o hostname do Servidor.
+      Defina o hostname do Servidor
     </span>
   </a>
   
@@ -1020,25 +1029,25 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-de-hosts-para-atrelando-ipdominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo de hosts para atrelando ip/domínio.
+      Edite o arquivo de hosts para atrelando ip/domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-instalacao-dos-pacotes-necessarios" class="md-nav__link">
+  <a href="#instalacao-dos-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      🔐 6. Instalação dos pacotes necessários
+      🔐 Instalação dos pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#durante-a-configuracao-do-kerberos-krb5-user-insira" class="md-nav__link">
+  <a href="#durante-a-configuracao-do-kerberos-nas-3-perguntas-do-krb5-user-insira" class="md-nav__link">
     <span class="md-ellipsis">
-      Durante a configuração do Kerberos (krb5-user), insira.
+      Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
     </span>
   </a>
   
@@ -1047,97 +1056,79 @@
         <li class="md-nav__item">
   <a href="#se-errar-podera-refazer" class="md-nav__link">
     <span class="md-ellipsis">
-      Se errar, poderá refazer.
+      Se errar, poderá refazer
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-configuracao-manual-do-etckrb5conf" class="md-nav__link">
+  <a href="#se-precisar-de-referencia-para-configuracao-manual-do-etckrb5conf-faca-um-backup-do-arquivo-e-use-esse-modelo-note-que-tem-caixa-alta-e-caixa-baixa-siga-o-modelo-lembrando-do-ex-dominio-curto-officinas-dominio-longo-officinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ 7. Configuração manual do /etc/krb5.conf
+      ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex: domínio curto = OFFICINAS, domínio longo = OFFICINAS.EDU)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-precisar-de-referencia-use-esse-modelo" class="md-nav__link">
+  <a href="#edite-o-arquivo-nsswitchconf-e-verifique-se-tem-o-winbind-na-lista-de-busca-por-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
-      SE precisar de referência, use esse modelo.
+      🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-ajuste-no-nss-para-winbind" class="md-nav__link">
+  <a href="#parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🔍 8. Ajuste no NSS (para Winbind)
+      🧰 Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-nsswitchconf-e-adicione-winbind-na-lista-de-busca-por-usuarios" class="md-nav__link">
+  <a href="#provisionamento-do-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo nsswitch.conf e adicione winbind na lista de busca por usuários.
+      🏗️ Provisionamento do domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento" class="md-nav__link">
+  <a href="#faca-um-backup-do-arquivo-smbconf-original-pois-o-comando-de-provisionamento-criara-outro-novo-automagicamente" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 9. Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
+      faça um backup do arquivo smb.conf original, pois o comando de provisionamento criará outro novo automagicamente 😉
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-provisionamento-do-dominio" class="md-nav__link">
+  <a href="#execute-o-comando-de-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗️ 10. Provisionamento do domínio
+      Execute o comando de provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faca-um-backup-do-arquivo-smbconf-original-pois-o-provisionamento-criara-outro" class="md-nav__link">
+  <a href="#responda-as-perguntas-do-modo-interativo-ex-dominio_curto-officinas-dominio_longo-officinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      faça um backup do arquivo smb.conf original, pois o provisionamento criará outro.
+      Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#execute-o-provisionamento" class="md-nav__link">
+  <a href="#habilitar-o-servico-principal-samba-ad-dcservice" class="md-nav__link">
     <span class="md-ellipsis">
-      Execute o provisionamento.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#responda-as-perguntas-conforme-necessario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Responda às perguntas conforme necessário.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-habilitar-o-servico-principal-samba-ad-dcservice" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 11. Habilitar o serviço principal, samba-ad-dc.service
+      🚀 Habilitar o serviço principal, samba-ad-dc.service
     </span>
   </a>
   
@@ -1146,61 +1137,70 @@
         <li class="md-nav__item">
   <a href="#valide-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide os logs.
+      Valide os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-reapontar-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento" class="md-nav__link">
+  <a href="#reapontar-a-consulta-de-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 12. Reapontar DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento:
+      🌐 Reapontar a consulta de DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#proteja-o-arquivo-do-resolvconf-contra-edicao-automatica" class="md-nav__link">
+  <a href="#remova-a-protecao-do-arquivo-resolvconf-contra-edicao-automatica-pois-agora-vamos-precisar-edita-lo" class="md-nav__link">
     <span class="md-ellipsis">
-      Proteja o arquivo do resolv.conf contra edição automática:
+      Remova a proteção do arquivo resolv.conf contra edição automática, pois agora vamos precisar editá-lo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-configuracao-do-arquivo-smbconf" class="md-nav__link">
+  <a href="#proteja-o-arquivo-do-resolvconf-novamente-contra-edicao-automatica" class="md-nav__link">
     <span class="md-ellipsis">
-      📄 13. Configuração do arquivo smb.conf
+      Proteja o arquivo do resolv.conf, novamente, contra edição automática
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apos-o-provisionamento-revise-e-valide" class="md-nav__link">
+  <a href="#configuracao-do-arquivo-smbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Após o provisionamento, revise e valide.
+      📄 Configuração do arquivo smb.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado" class="md-nav__link">
+  <a href="#apos-o-provisionamento-revise-e-valide-o-novo-arquivo-smbconf-criado-pelo-comando-de-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      📁 14. Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado).
+      Após o provisionamento, revise e valide o novo arquivo smb.conf criado pelo comando de provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#15-validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio" class="md-nav__link">
+  <a href="#criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado" class="md-nav__link">
     <span class="md-ellipsis">
-      👥 15. Validações básicas de usuários e grupos (locais e de domínio)
+      📁 Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Validações básicas de usuários e grupos (locais e de domínio)
     </span>
   </a>
   
@@ -1209,7 +1209,7 @@
         <li class="md-nav__item">
   <a href="#note-que-usuariosgrupos-locais" class="md-nav__link">
     <span class="md-ellipsis">
-      Note que usuários/grupos locais
+      Note que usuários/grupos locais...
     </span>
   </a>
   
@@ -1218,25 +1218,25 @@
         <li class="md-nav__item">
   <a href="#nao-sao-os-mesmos-que-usuariosgrupos-do-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Não são os mesmos que usuários/grupos do domínio:
+      Não são os mesmos que usuários/grupos do domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-smb" class="md-nav__link">
+  <a href="#teste-o-compartilhamento-do-smb" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste SMB:
+      Teste o compartilhamento do SMB
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16-desativando-complexidade-de-senha-somente-para-laboratorio" class="md-nav__link">
+  <a href="#desative-a-complexidade-de-senha-somente-para-laboratorio" class="md-nav__link">
     <span class="md-ellipsis">
-      🔒 16. Desativando complexidade de senha (somente para laboratório!)
+      🔒 Desative a complexidade de senha (somente para laboratório!)
     </span>
   </a>
   
@@ -1252,81 +1252,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#17-recarga-de-configuracao-no-samba4" class="md-nav__link">
+  <a href="#comando-para-recarregarvalidar-as-configuracoes-do-samba4-apos-qualquer-alteracao" class="md-nav__link">
     <span class="md-ellipsis">
-      🔁 17. Recarga de configuração no SAMBA4.
+      🔁 Comando para recarregar/validar as configurações do SAMBA4 após qualquer alteração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#18-validacao-no-kerberos" class="md-nav__link">
+  <a href="#validacao-de-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎟️ 18. Validação no Kerberos
+      🎟️ Validação de troca de tickets do Kerberos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#19-testes-de-dns-e-srv" class="md-nav__link">
+  <a href="#testes-de-dns-e-srv" class="md-nav__link">
     <span class="md-ellipsis">
-      🔎 19. Testes de DNS e SRV
+      🔎 Testes de DNS e SRV
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#20-validacoes-no-samba4" class="md-nav__link">
+  <a href="#mais-validacoes-do-samba4" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 20. Validações no SAMBA4
+      🧱 Mais validações do SAMBA4
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#21-habilitando-o-logrotate-opcional" class="md-nav__link">
+  <a href="#habilitando-o-logrotate-opcional-para-gerenciar-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 21. Habilitando o Logrotate (opcional)
+      🧰 Habilitando o Logrotate (opcional) para Gerenciar os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crie-etclogrotatedsamba-para-conter-os-logs" class="md-nav__link">
+  <a href="#crie-o-arquivo-etclogrotatedsamba-para-conter-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie /etc/logrotate.d/samba para conter os logs.
+      Crie o arquivo /etc/logrotate.d/samba para conter os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-administracao-via-rsat-windows" class="md-nav__link">
+  <a href="#adicione-o-conteudo" class="md-nav__link">
     <span class="md-ellipsis">
-      🪟 22. Administração via RSAT (Windows)
+      Adicione o conteúdo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apos-o-dominio-estar-funcional-instale-o-rsat-remote-server-administration-tools-em-uma-maquina-windows-e-adicione-a-ao-dominio-officinasedu-para-gerenciar-usuarios-grupos-e-gpos" class="md-nav__link">
+  <a href="#ver-logs-do-proprio-logrotate" class="md-nav__link">
     <span class="md-ellipsis">
-      Após o domínio estar funcional, instale o RSAT (Remote Server Administration Tools) em uma máquina Windows e adicione-a ao domínio OFFICINAS.EDU para gerenciar usuários, grupos e GPOs.
+      ✔️ Ver logs do próprio logrotate
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-conclusao-parabens-seu-controlador-de-dominio-samba4-srvdc01-no-debian-13-esta-configurado-e-operacional" class="md-nav__link">
+  <a href="#administracao-via-rsat-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      🎉 23. Conclusão. Parabéns! 🎊 Seu Controlador de Domínio Samba4 (SRVDC01) no Debian 13 está configurado e operacional.
+      🪟 Administração via RSAT (Windows)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-o-dominio-estar-funcional-ponha-uma-maquina-windows-no-dominio-e-instale-as-ferramentas-do-rsat-remote-server-administration-tools-nela-para-gerenciar-usuarios-grupos-e-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após o domínio estar funcional, ponha uma máquina Windows no Domínio e instale as ferramentas do RSAT (Remote Server Administration Tools) nela para gerenciar usuários, grupos e GPOs.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao-seu-controlador-de-dominio-samba4-no-debian-13-esta-configurado-e-operacional-parabens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎉 Conclusão. 🎊 Seu Controlador de Domínio Samba4 no Debian 13 está configurado e operacional. 👏 Parabéns!
     </span>
   </a>
   
@@ -2559,34 +2577,34 @@
         <li class="md-nav__item">
   <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#topologia-da-rede" class="md-nav__link">
+  <a href="#no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Topologia da rede:
+      🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo" class="md-nav__link">
+  <a href="#adaptado-ao-seu-dominio-obviamente" class="md-nav__link">
     <span class="md-ellipsis">
-      🕐 1. A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo
+      Adaptado AO SEU domínio, obviamente!!
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entao-comece-desativando-o-gerenciamento-do-systemd-timesyncd-para-evitar-conflitos-com-o-chrony-que-preferiremos-instalar" class="md-nav__link">
+  <a href="#a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo" class="md-nav__link">
     <span class="md-ellipsis">
-      Então começe desativando o gerenciamento do systemd-timesyncd para evitar conflitos com o Chrony, que preferiremos instalar.
+      🕐 A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo
     </span>
   </a>
   
@@ -2595,7 +2613,7 @@
         <li class="md-nav__item">
   <a href="#instale-o-pacote-do-chrony" class="md-nav__link">
     <span class="md-ellipsis">
-      Instale o pacote do chrony.
+      Instale o pacote do chrony
     </span>
   </a>
   
@@ -2604,16 +2622,16 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-do-chronyconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo do chrony.conf.
+      Edite o arquivo do chrony.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adicione-ou-ajuste-as-linhas-para-apontar-para-repositorios-de-horario-no-br-e-liberar-a-consulta-da-rede-interna" class="md-nav__link">
+  <a href="#comente-a-linha-que-aponta-pro-repositorio-da-america-do-norte-e-insira-as-linhas-para-apontar-para-os-repositorios-de-horario-no-brasil-entao-libere-a-consulta-da-rede-interna-para-o-seu-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Adicione ou ajuste as linhas para apontar para repositórios de horário no BR e liberar a consulta da rede interna.
+      Comente a linha que aponta pro repositório da America do Norte e insira as linhas para apontar para os repositórios de horário no Brasil, então libere a consulta da rede interna para o seu Servidor
     </span>
   </a>
   
@@ -2622,25 +2640,34 @@
         <li class="md-nav__item">
   <a href="#habilite-e-reinicie-o-servico-de-sincronizacao-de-horario" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite e reinicie o serviço de sincronização de horário.
+      Habilite e reinicie o serviço de sincronização de horário
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sincronize-os-repositorios-do-debian-e-atualize-o-sistema" class="md-nav__link">
+  <a href="#valide-o-seu-timeserver-novo-no-brasil" class="md-nav__link">
     <span class="md-ellipsis">
-      📦 2. Sincronize os repositórios do Debian e atualize o sistema.
+      Valide o seu timeserver novo no Brasil
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracao-de-rede-modo-estatico" class="md-nav__link">
+  <a href="#sincronize-os-repositorios-do-debian-e-atualize-o-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 3. Configuração de rede (modo estático)
+      📦 Sincronize os repositórios do Debian e atualize o sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracao-de-rede-modo-estatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🌐 Configuração de rede (modo estático)
     </span>
   </a>
   
@@ -2649,7 +2676,7 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-interfaces-e-sete-o-ip-fixo" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo interfaces e sete o ip fixo.
+      Edite o arquivo interfaces e sete o ip fixo
     </span>
   </a>
   
@@ -2658,34 +2685,34 @@
         <li class="md-nav__item">
   <a href="#reinicie-a-interface-para-subir-o-novo-endereco" class="md-nav__link">
     <span class="md-ellipsis">
-      Reinicie a interface para subir o novo endereço.
+      Reinicie a interface para subir o novo endereço
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-configuracao-de-dns-temporario" class="md-nav__link">
+  <a href="#configuracao-de-dns-temporario" class="md-nav__link">
     <span class="md-ellipsis">
-      🌍 4. Configuração de DNS temporário
+      🌍 Configuração de DNS temporário
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall" class="md-nav__link">
+  <a href="#antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall-depois-o-dns-sera-o-proprio-controlador-de-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      ANTES de o domínio estar ativo, aponte o DNS para o firewall.
+      ANTES de o domínio estar ativo, aponte o DNS para o firewall, DEPOIS o DNS será o próprio Controlador de domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-hostname-e-resolucao-local" class="md-nav__link">
+  <a href="#hostname-e-resolucao-local" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 5. Hostname e resolução local
+      🧩 Hostname e resolução local
     </span>
   </a>
   
@@ -2694,7 +2721,7 @@
         <li class="md-nav__item">
   <a href="#defina-o-hostname-do-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Defina o hostname do Servidor.
+      Defina o hostname do Servidor
     </span>
   </a>
   
@@ -2703,25 +2730,25 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-de-hosts-para-atrelando-ipdominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo de hosts para atrelando ip/domínio.
+      Edite o arquivo de hosts para atrelando ip/domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-instalacao-dos-pacotes-necessarios" class="md-nav__link">
+  <a href="#instalacao-dos-pacotes-necessarios" class="md-nav__link">
     <span class="md-ellipsis">
-      🔐 6. Instalação dos pacotes necessários
+      🔐 Instalação dos pacotes necessários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#durante-a-configuracao-do-kerberos-krb5-user-insira" class="md-nav__link">
+  <a href="#durante-a-configuracao-do-kerberos-nas-3-perguntas-do-krb5-user-insira" class="md-nav__link">
     <span class="md-ellipsis">
-      Durante a configuração do Kerberos (krb5-user), insira.
+      Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
     </span>
   </a>
   
@@ -2730,97 +2757,79 @@
         <li class="md-nav__item">
   <a href="#se-errar-podera-refazer" class="md-nav__link">
     <span class="md-ellipsis">
-      Se errar, poderá refazer.
+      Se errar, poderá refazer
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-configuracao-manual-do-etckrb5conf" class="md-nav__link">
+  <a href="#se-precisar-de-referencia-para-configuracao-manual-do-etckrb5conf-faca-um-backup-do-arquivo-e-use-esse-modelo-note-que-tem-caixa-alta-e-caixa-baixa-siga-o-modelo-lembrando-do-ex-dominio-curto-officinas-dominio-longo-officinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ 7. Configuração manual do /etc/krb5.conf
+      ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex: domínio curto = OFFICINAS, domínio longo = OFFICINAS.EDU)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#se-precisar-de-referencia-use-esse-modelo" class="md-nav__link">
+  <a href="#edite-o-arquivo-nsswitchconf-e-verifique-se-tem-o-winbind-na-lista-de-busca-por-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
-      SE precisar de referência, use esse modelo.
+      🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-ajuste-no-nss-para-winbind" class="md-nav__link">
+  <a href="#parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🔍 8. Ajuste no NSS (para Winbind)
+      🧰 Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#edite-o-arquivo-nsswitchconf-e-adicione-winbind-na-lista-de-busca-por-usuarios" class="md-nav__link">
+  <a href="#provisionamento-do-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo nsswitch.conf e adicione winbind na lista de busca por usuários.
+      🏗️ Provisionamento do domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento" class="md-nav__link">
+  <a href="#faca-um-backup-do-arquivo-smbconf-original-pois-o-comando-de-provisionamento-criara-outro-novo-automagicamente" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 9. Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
+      faça um backup do arquivo smb.conf original, pois o comando de provisionamento criará outro novo automagicamente 😉
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-provisionamento-do-dominio" class="md-nav__link">
+  <a href="#execute-o-comando-de-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🏗️ 10. Provisionamento do domínio
+      Execute o comando de provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#faca-um-backup-do-arquivo-smbconf-original-pois-o-provisionamento-criara-outro" class="md-nav__link">
+  <a href="#responda-as-perguntas-do-modo-interativo-ex-dominio_curto-officinas-dominio_longo-officinasedu" class="md-nav__link">
     <span class="md-ellipsis">
-      faça um backup do arquivo smb.conf original, pois o provisionamento criará outro.
+      Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#execute-o-provisionamento" class="md-nav__link">
+  <a href="#habilitar-o-servico-principal-samba-ad-dcservice" class="md-nav__link">
     <span class="md-ellipsis">
-      Execute o provisionamento.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#responda-as-perguntas-conforme-necessario" class="md-nav__link">
-    <span class="md-ellipsis">
-      Responda às perguntas conforme necessário.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11-habilitar-o-servico-principal-samba-ad-dcservice" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 11. Habilitar o serviço principal, samba-ad-dc.service
+      🚀 Habilitar o serviço principal, samba-ad-dc.service
     </span>
   </a>
   
@@ -2829,61 +2838,70 @@
         <li class="md-nav__item">
   <a href="#valide-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide os logs.
+      Valide os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-reapontar-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento" class="md-nav__link">
+  <a href="#reapontar-a-consulta-de-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 12. Reapontar DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento:
+      🌐 Reapontar a consulta de DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#proteja-o-arquivo-do-resolvconf-contra-edicao-automatica" class="md-nav__link">
+  <a href="#remova-a-protecao-do-arquivo-resolvconf-contra-edicao-automatica-pois-agora-vamos-precisar-edita-lo" class="md-nav__link">
     <span class="md-ellipsis">
-      Proteja o arquivo do resolv.conf contra edição automática:
+      Remova a proteção do arquivo resolv.conf contra edição automática, pois agora vamos precisar editá-lo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-configuracao-do-arquivo-smbconf" class="md-nav__link">
+  <a href="#proteja-o-arquivo-do-resolvconf-novamente-contra-edicao-automatica" class="md-nav__link">
     <span class="md-ellipsis">
-      📄 13. Configuração do arquivo smb.conf
+      Proteja o arquivo do resolv.conf, novamente, contra edição automática
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apos-o-provisionamento-revise-e-valide" class="md-nav__link">
+  <a href="#configuracao-do-arquivo-smbconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Após o provisionamento, revise e valide.
+      📄 Configuração do arquivo smb.conf
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#14-criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado" class="md-nav__link">
+  <a href="#apos-o-provisionamento-revise-e-valide-o-novo-arquivo-smbconf-criado-pelo-comando-de-provisionamento" class="md-nav__link">
     <span class="md-ellipsis">
-      📁 14. Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado).
+      Após o provisionamento, revise e valide o novo arquivo smb.conf criado pelo comando de provisionamento
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#15-validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio" class="md-nav__link">
+  <a href="#criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado" class="md-nav__link">
     <span class="md-ellipsis">
-      👥 15. Validações básicas de usuários e grupos (locais e de domínio)
+      📁 Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      👥 Validações básicas de usuários e grupos (locais e de domínio)
     </span>
   </a>
   
@@ -2892,7 +2910,7 @@
         <li class="md-nav__item">
   <a href="#note-que-usuariosgrupos-locais" class="md-nav__link">
     <span class="md-ellipsis">
-      Note que usuários/grupos locais
+      Note que usuários/grupos locais...
     </span>
   </a>
   
@@ -2901,25 +2919,25 @@
         <li class="md-nav__item">
   <a href="#nao-sao-os-mesmos-que-usuariosgrupos-do-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Não são os mesmos que usuários/grupos do domínio:
+      Não são os mesmos que usuários/grupos do domínio
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#teste-smb" class="md-nav__link">
+  <a href="#teste-o-compartilhamento-do-smb" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste SMB:
+      Teste o compartilhamento do SMB
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#16-desativando-complexidade-de-senha-somente-para-laboratorio" class="md-nav__link">
+  <a href="#desative-a-complexidade-de-senha-somente-para-laboratorio" class="md-nav__link">
     <span class="md-ellipsis">
-      🔒 16. Desativando complexidade de senha (somente para laboratório!)
+      🔒 Desative a complexidade de senha (somente para laboratório!)
     </span>
   </a>
   
@@ -2935,81 +2953,99 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#17-recarga-de-configuracao-no-samba4" class="md-nav__link">
+  <a href="#comando-para-recarregarvalidar-as-configuracoes-do-samba4-apos-qualquer-alteracao" class="md-nav__link">
     <span class="md-ellipsis">
-      🔁 17. Recarga de configuração no SAMBA4.
+      🔁 Comando para recarregar/validar as configurações do SAMBA4 após qualquer alteração
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#18-validacao-no-kerberos" class="md-nav__link">
+  <a href="#validacao-de-troca-de-tickets-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎟️ 18. Validação no Kerberos
+      🎟️ Validação de troca de tickets do Kerberos
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#19-testes-de-dns-e-srv" class="md-nav__link">
+  <a href="#testes-de-dns-e-srv" class="md-nav__link">
     <span class="md-ellipsis">
-      🔎 19. Testes de DNS e SRV
+      🔎 Testes de DNS e SRV
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#20-validacoes-no-samba4" class="md-nav__link">
+  <a href="#mais-validacoes-do-samba4" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 20. Validações no SAMBA4
+      🧱 Mais validações do SAMBA4
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#21-habilitando-o-logrotate-opcional" class="md-nav__link">
+  <a href="#habilitando-o-logrotate-opcional-para-gerenciar-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      🧰 21. Habilitando o Logrotate (opcional)
+      🧰 Habilitando o Logrotate (opcional) para Gerenciar os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#crie-etclogrotatedsamba-para-conter-os-logs" class="md-nav__link">
+  <a href="#crie-o-arquivo-etclogrotatedsamba-para-conter-os-logs" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie /etc/logrotate.d/samba para conter os logs.
+      Crie o arquivo /etc/logrotate.d/samba para conter os logs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#22-administracao-via-rsat-windows" class="md-nav__link">
+  <a href="#adicione-o-conteudo" class="md-nav__link">
     <span class="md-ellipsis">
-      🪟 22. Administração via RSAT (Windows)
+      Adicione o conteúdo
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#apos-o-dominio-estar-funcional-instale-o-rsat-remote-server-administration-tools-em-uma-maquina-windows-e-adicione-a-ao-dominio-officinasedu-para-gerenciar-usuarios-grupos-e-gpos" class="md-nav__link">
+  <a href="#ver-logs-do-proprio-logrotate" class="md-nav__link">
     <span class="md-ellipsis">
-      Após o domínio estar funcional, instale o RSAT (Remote Server Administration Tools) em uma máquina Windows e adicione-a ao domínio OFFICINAS.EDU para gerenciar usuários, grupos e GPOs.
+      ✔️ Ver logs do próprio logrotate
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#23-conclusao-parabens-seu-controlador-de-dominio-samba4-srvdc01-no-debian-13-esta-configurado-e-operacional" class="md-nav__link">
+  <a href="#administracao-via-rsat-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      🎉 23. Conclusão. Parabéns! 🎊 Seu Controlador de Domínio Samba4 (SRVDC01) no Debian 13 está configurado e operacional.
+      🪟 Administração via RSAT (Windows)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apos-o-dominio-estar-funcional-ponha-uma-maquina-windows-no-dominio-e-instale-as-ferramentas-do-rsat-remote-server-administration-tools-nela-para-gerenciar-usuarios-grupos-e-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Após o domínio estar funcional, ponha uma máquina Windows no Domínio e instale as ferramentas do RSAT (Remote Server Administration Tools) nela para gerenciar usuários, grupos e GPOs.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao-seu-controlador-de-dominio-samba4-no-debian-13-esta-configurado-e-operacional-parabens" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎉 Conclusão. 🎊 Seu Controlador de Domínio Samba4 no Debian 13 está configurado e operacional. 👏 Parabéns!
     </span>
   </a>
   
@@ -3032,37 +3068,43 @@
 
 
 <h1 id="instalacao-do-controlador-de-dominio-primario-com-samba4-no-debian-13">🔥 Instalação do Controlador de Domínio Primário com SAMBA4 no Debian 13</h1>
-<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">🎯 Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.22</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.</h2>
+<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">🎯 Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.22</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos</h2>
 <hr />
-<h2 id="topologia-da-rede">🌐 Topologia da rede:</h2>
+<h2 id="no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo">🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:</h2>
+<ul>
+<li>dominio_curto = OFFICINAS</li>
+<li>dominio_longo = OFFICINAS.EDU</li>
+</ul>
+<h2 id="adaptado-ao-seu-dominio-obviamente">Adaptado AO SEU domínio, obviamente!!</h2>
 <ul>
 <li>
-<p>Domínio: OFFICINAS.EDU</p>
+<p>REALM: <DOMINIO_LONGO></p>
 </li>
 <li>
-<p>SRVFIREWALL 192.168.70.254/24</p>
+<p>DOMAIN: <DOMINIO_CURTO></p>
 </li>
 <li>
-<p>SRVDC01 192.168.70.253/24</p>
+<p>ENDEREÇO IP <SEU_IP></p>
 </li>
 <li>
-<p>SRVARQUIVOS 192.168.70.252/24</p>
+<p>HOSTNAME <seu_hostname></p>
+</li>
+<li>
+<p>GATEWAY 192.168.70.254/24</p>
+</li>
+<li>
+<p>DNS 192.168.70.254/24</p>
 </li>
 </ul>
 <hr />
-<h2 id="1-a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo">🕐 1. A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo</h2>
-<h2 id="entao-comece-desativando-o-gerenciamento-do-systemd-timesyncd-para-evitar-conflitos-com-o-chrony-que-preferiremos-instalar">Então começe desativando o gerenciamento do <code>systemd-timesyncd</code> para evitar conflitos com o Chrony, que preferiremos instalar.</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>systemd-timesyncd
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>systemd-timesyncd
-</code></pre></div>
-<h2 id="instale-o-pacote-do-chrony">Instale o pacote do chrony.</h2>
+<h2 id="a-sincronizacao-de-horario-essencial-para-que-o-pdc-e-as-maquinas-de-rede-conversem-pois-o-kerberos-e-extremamente-sensivel-a-diferencas-de-tempo">🕐 A sincronização de horário essencial para que o PDC e as máquinas de rede conversem, pois o Kerberos é extremamente sensível a diferenças de tempo</h2>
+<h2 id="instale-o-pacote-do-chrony">Instale o pacote do chrony</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>chrony<span class="w"> </span>-y
 </code></pre></div>
-<h2 id="edite-o-arquivo-do-chronyconf">Edite o arquivo do chrony.conf.</h2>
+<h2 id="edite-o-arquivo-do-chronyconf">Edite o arquivo do chrony.conf</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/chrony/chrony.conf
 </code></pre></div>
-<h2 id="adicione-ou-ajuste-as-linhas-para-apontar-para-repositorios-de-horario-no-br-e-liberar-a-consulta-da-rede-interna">Adicione ou ajuste as linhas para apontar para repositórios de horário no BR e liberar a consulta da rede interna.</h2>
+<h2 id="comente-a-linha-que-aponta-pro-repositorio-da-america-do-norte-e-insira-as-linhas-para-apontar-para-os-repositorios-de-horario-no-brasil-entao-libere-a-consulta-da-rede-interna-para-o-seu-servidor">Comente a linha que aponta pro repositório da America do Norte e insira as linhas para apontar para os repositórios de horário no Brasil, então libere a consulta da rede interna para o seu Servidor</h2>
 <div class="highlight"><pre><span></span><code>driftfile<span class="w"> </span>/var/lib/chrony/chrony.drift
 
 <span class="c1"># Servidores externos públicos do Brasil</span>
@@ -3077,67 +3119,67 @@ allow<span class="w"> </span><span class="m">192</span>.168.70.0/24
 <span class="c1"># Define este servidor como stratum local</span>
 <span class="nb">local</span><span class="w"> </span>stratum<span class="w"> </span><span class="m">10</span>
 </code></pre></div>
-<h2 id="habilite-e-reinicie-o-servico-de-sincronizacao-de-horario">Habilite e reinicie o serviço de sincronização de horário.</h2>
+<h2 id="habilite-e-reinicie-o-servico-de-sincronizacao-de-horario">Habilite e reinicie o serviço de sincronização de horário</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>chrony
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>chrony
 </code></pre></div>
+<h2 id="valide-o-seu-timeserver-novo-no-brasil">Valide o seu timeserver novo no Brasil</h2>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>sources<span class="w"> </span>-v
 </code></pre></div>
-<h2 id="2-sincronize-os-repositorios-do-debian-e-atualize-o-sistema">📦 2. Sincronize os repositórios do Debian e atualize o sistema.</h2>
+<h2 id="sincronize-os-repositorios-do-debian-e-atualize-o-sistema">📦 Sincronize os repositórios do Debian e atualize o sistema</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>full-upgrade<span class="w"> </span>-y
 </code></pre></div>
-<h2 id="3-configuracao-de-rede-modo-estatico">🌐 3. Configuração de rede (modo estático)</h2>
-<h2 id="edite-o-arquivo-interfaces-e-sete-o-ip-fixo">Edite o arquivo interfaces e sete o ip fixo.</h2>
+<h2 id="configuracao-de-rede-modo-estatico">🌐 Configuração de rede (modo estático)</h2>
+<h2 id="edite-o-arquivo-interfaces-e-sete-o-ip-fixo">Edite o arquivo interfaces e sete o ip fixo</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/network/interfaces
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>allow-hotplug<span class="w"> </span>enp1s0
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.253
+<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
 <span class="w">  </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
 <span class="w">  </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
 </code></pre></div>
-<h2 id="reinicie-a-interface-para-subir-o-novo-endereco">Reinicie a interface para subir o novo endereço.</h2>
+<h2 id="reinicie-a-interface-para-subir-o-novo-endereco">Reinicie a interface para subir o novo endereço</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
 </code></pre></div>
-<h2 id="4-configuracao-de-dns-temporario">🌍 4. Configuração de DNS temporário</h2>
-<h2 id="antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall">ANTES de o domínio estar ativo, aponte o DNS para o firewall.</h2>
+<h2 id="configuracao-de-dns-temporario">🌍 Configuração de DNS temporário</h2>
+<h2 id="antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall-depois-o-dns-sera-o-proprio-controlador-de-dominio">ANTES de o domínio estar ativo, aponte o DNS para o firewall, DEPOIS o DNS será o próprio Controlador de domínio</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">192</span>.168.70.254
 </code></pre></div>
-<h2 id="5-hostname-e-resolucao-local">🧩 5. Hostname e resolução local</h2>
-<h2 id="defina-o-hostname-do-servidor">Defina o hostname do Servidor.</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>srvdc01
+<h2 id="hostname-e-resolucao-local">🧩 Hostname e resolução local</h2>
+<h2 id="defina-o-hostname-do-servidor">Defina o hostname do Servidor</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>&lt;seu_hostname&gt;
 </code></pre></div>
-<h2 id="edite-o-arquivo-de-hosts-para-atrelando-ipdominio">Edite o arquivo de hosts para atrelando ip/domínio.</h2>
+<h2 id="edite-o-arquivo-de-hosts-para-atrelando-ipdominio">Edite o arquivo de hosts para atrelando ip/domínio</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
-<span class="m">127</span>.0.1.1<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
-<span class="m">192</span>.168.70.253<span class="w"> </span>srvdc01.officinas.edu<span class="w"> </span>srvdc01
+<span class="m">127</span>.0.1.1<span class="w"> </span>&lt;seu_hostname&gt;.&lt;dominio_longo&gt;<span class="w">  </span>&lt;seu_hostname&gt;
+<span class="m">192</span>.168.70.&lt;seu_ip&gt;<span class="w">  </span>&lt;seu_hostname&gt;.&lt;dominio_longo&gt;<span class="w">  </span>&lt;seu_hostname&gt;
 </code></pre></div>
-<h2 id="6-instalacao-dos-pacotes-necessarios">🔐 6. Instalação dos pacotes necessários</h2>
-<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span><span class="se">\</span>
-krb5-user<span class="w"> </span>krb5-config<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span><span class="se">\</span>
-ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span class="w"> </span>python3-cryptography<span class="w"> </span>net-tools<span class="w"> </span>-y
+<h2 id="instalacao-dos-pacotes-necessarios">🔐 Instalação dos pacotes necessários</h2>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span>krb5-user<span class="w"> </span>krb5-config<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span class="w"> </span>python3-cryptography<span class="w"> </span>net-tools
 </code></pre></div>
-<h2 id="durante-a-configuracao-do-kerberos-krb5-user-insira">Durante a configuração do Kerberos (krb5-user), insira.</h2>
-<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span>OFFICINAS.EDU
+<h2 id="durante-a-configuracao-do-kerberos-nas-3-perguntas-do-krb5-user-insira">Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:</h2>
+<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 
-KDC:<span class="w"> </span><span class="m">192</span>.168.70.253
+KDC:<span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
 
-Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.253
+Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
 </code></pre></div>
-<h2 id="se-errar-podera-refazer">Se errar, poderá refazer.</h2>
+<h2 id="se-errar-podera-refazer">Se errar, poderá refazer</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>krb5-config
 </code></pre></div>
-<h2 id="7-configuracao-manual-do-etckrb5conf">⚙️ 7. Configuração manual do /etc/krb5.conf</h2>
-<h2 id="se-precisar-de-referencia-use-esse-modelo">SE precisar de referência, use esse modelo.</h2>
+<h2 id="se-precisar-de-referencia-para-configuracao-manual-do-etckrb5conf-faca-um-backup-do-arquivo-e-use-esse-modelo-note-que-tem-caixa-alta-e-caixa-baixa-siga-o-modelo-lembrando-do-ex-dominio-curto-officinas-dominio-longo-officinasedu">⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex: domínio curto = OFFICINAS, domínio longo = OFFICINAS.EDU)</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/krb5.conf<span class="o">{</span>,.orig<span class="o">}</span>
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/krb5.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
-<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 <span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
 <span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="w">    </span><span class="nv">kdc_timesync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
@@ -3148,54 +3190,50 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 <span class="w">    </span>fcc-mit-ticketflags<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 
 <span class="o">[</span>realms<span class="o">]</span>
-<span class="w">    </span>OFFICINAS.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>srvdc01.officinas.edu
-<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>srvdc01.officinas.edu
-<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>officinas.edu
+<span class="w">    </span>&lt;DOMINIO_LONGO&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;seu_hostname&gt;.&lt;dominio_longo&gt;
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;seu_hostname&gt;.&lt;dominio_longo&gt;
+<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;dominio_longo&gt;
 <span class="w">    </span><span class="o">}</span>
 
 <span class="o">[</span>domain_realm<span class="o">]</span>
-<span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
-<span class="w">    </span>officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span>.&lt;dominio_longo&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<span class="w">    </span>&lt;dominio_longo&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 </code></pre></div>
-<h2 id="8-ajuste-no-nss-para-winbind">🔍 8. Ajuste no NSS (para Winbind)</h2>
-<h2 id="edite-o-arquivo-nsswitchconf-e-adicione-winbind-na-lista-de-busca-por-usuarios">Edite o arquivo nsswitch.conf e adicione winbind na lista de busca por usuários.</h2>
+<h2 id="edite-o-arquivo-nsswitchconf-e-verifique-se-tem-o-winbind-na-lista-de-busca-por-usuarios">🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>passwd:<span class="w">       </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
 group:<span class="w">        </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
 </code></pre></div>
-<h2 id="9-parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento">🧰 9. Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento</h2>
+<h2 id="parar-servicos-concorrentes-ao-samba-ad-dcservice-antes-do-provisionamento">🧰 Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>smbd<span class="w"> </span>nmbd<span class="w"> </span>winbind
 </code></pre></div>
-<h2 id="10-provisionamento-do-dominio">🏗️ 10. Provisionamento do domínio</h2>
-<h2 id="faca-um-backup-do-arquivo-smbconf-original-pois-o-provisionamento-criara-outro">faça um backup do arquivo smb.conf original, pois o provisionamento criará outro.</h2>
+<h2 id="provisionamento-do-dominio">🏗️ Provisionamento do domínio</h2>
+<h2 id="faca-um-backup-do-arquivo-smbconf-original-pois-o-comando-de-provisionamento-criara-outro-novo-automagicamente">faça um backup do arquivo smb.conf original, pois o comando de provisionamento criará outro novo automagicamente 😉</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mv<span class="w"> </span>/etc/samba/smb.conf<span class="o">{</span>,.orig<span class="o">}</span>
 </code></pre></div>
-<h2 id="execute-o-provisionamento">Execute o provisionamento.</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>samba-tool<span class="w"> </span>domain<span class="w"> </span>provision<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--realm<span class="o">=</span>OFFICINAS.EDU<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--use-rfc2307<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--domain<span class="o">=</span>OFFICINAS<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--dns-backend<span class="o">=</span>SAMBA_INTERNAL<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--adminpass<span class="o">=</span><span class="s1">&#39;P@ssw0rd&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--server-role<span class="o">=</span>dc<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--function-level<span class="o">=</span><span class="m">2016</span>
+<h2 id="execute-o-comando-de-provisionamento">Execute o comando de provisionamento</h2>
+<div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>domain<span class="w"> </span>provision<span class="w"> </span>--use-rfc2307<span class="w"> </span>--function-level<span class="o">=</span><span class="m">2016</span><span class="w"> </span>--interactive
 </code></pre></div>
-<h2 id="responda-as-perguntas-conforme-necessario">Responda às perguntas conforme necessário.</h2>
-<div class="highlight"><pre><span></span><code>Realm:<span class="w"> </span>OFFICINAS.EDU
+<h2 id="responda-as-perguntas-do-modo-interativo-ex-dominio_curto-officinas-dominio_longo-officinasedu">Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)</h2>
+<div class="highlight"><pre><span></span><code>Realm:<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 
-Domain:<span class="w"> </span>OFFICINAS
+Domain/NetBios:<span class="w"> </span>&lt;DOMINIO_CURTO&gt;
 
 Server<span class="w"> </span>Role:<span class="w"> </span>dc
 
 DNS<span class="w"> </span>Backend:<span class="w"> </span>SAMBA_INTERNAL
 
+Server<span class="w"> </span>role:<span class="w"> </span>dc
+
 DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192</span>.168.70.254
+
+Admin<span class="w"> </span>password:<span class="w"> </span>&lt;sua_senha&gt;
 </code></pre></div>
-<h2 id="11-habilitar-o-servico-principal-samba-ad-dcservice">🚀 11. Habilitar o serviço principal, samba-ad-dc.service</h2>
+<h2 id="habilitar-o-servico-principal-samba-ad-dcservice">🚀 Habilitar o serviço principal, samba-ad-dc.service</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>unmask<span class="w"> </span>samba-ad-dc.service
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>samba-ad-dc.service
@@ -3204,27 +3242,30 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>samba-ad-dc.service
 </code></pre></div>
-<h2 id="valide-os-logs">Valide os logs.</h2>
+<h2 id="valide-os-logs">Valide os logs</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>samba-ad-dc<span class="w"> </span>-f
 </code></pre></div>
-<h2 id="12-reapontar-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento">🌐 12. Reapontar DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento:</h2>
+<h2 id="reapontar-a-consulta-de-dns-para-o-proprio-servidor-ja-que-agora-comporta-a-funcao-de-dns_internal-definido-no-provisionamento">🌐 Reapontar a consulta de DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento</h2>
+<h2 id="remova-a-protecao-do-arquivo-resolvconf-contra-edicao-automatica-pois-agora-vamos-precisar-edita-lo">Remova a proteção do arquivo resolv.conf contra edição automática, pois agora vamos precisar editá-lo</h2>
+<div class="highlight"><pre><span></span><code>chattr<span class="w"> </span>-i<span class="w"> </span>/etc/resolv.conf
+</code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">127</span>.0.0.1
 </code></pre></div>
-<h2 id="proteja-o-arquivo-do-resolvconf-contra-edicao-automatica">Proteja o arquivo do resolv.conf contra edição automática:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chattr<span class="w"> </span>+i<span class="w"> </span>/etc/resolv.conf
+<h2 id="proteja-o-arquivo-do-resolvconf-novamente-contra-edicao-automatica">Proteja o arquivo do resolv.conf, novamente, contra edição automática</h2>
+<div class="highlight"><pre><span></span><code>chattr<span class="w"> </span>+i<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
-<h2 id="13-configuracao-do-arquivo-smbconf">📄 13. Configuração do arquivo smb.conf</h2>
-<h2 id="apos-o-provisionamento-revise-e-valide">Após o provisionamento, revise e valide.</h2>
+<h2 id="configuracao-do-arquivo-smbconf">📄 Configuração do arquivo smb.conf</h2>
+<h2 id="apos-o-provisionamento-revise-e-valide-o-novo-arquivo-smbconf-criado-pelo-comando-de-provisionamento">Após o provisionamento, revise e valide o novo arquivo smb.conf criado pelo comando de provisionamento</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
 <span class="w">    </span>dns<span class="w"> </span><span class="nv">forwarder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.254
-<span class="w">    </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SRVDC01
-<span class="w">    </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS.EDU
+<span class="w">    </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_CURTO&gt;
+<span class="w">    </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
 <span class="w">    </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>active<span class="w"> </span>directory<span class="w"> </span>domain<span class="w"> </span>controller
-<span class="w">    </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>OFFICINAS
+<span class="w">    </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_CURTO&gt;
 <span class="w">    </span>idmap_ldb:use<span class="w"> </span><span class="nv">rfc2307</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 
 <span class="o">[</span>sysvol<span class="o">]</span>
@@ -3232,7 +3273,7 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>No
 
 <span class="o">[</span>netlogon<span class="o">]</span>
-<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/lib/samba/sysvol/officinas.edu/scripts
+<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/lib/samba/sysvol/&lt;dominio_longo&gt;/scripts
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>No
 
 <span class="c1"># SE for usar compartilhamento no SRVDC01 (NÃO indicado):</span>
@@ -3244,18 +3285,18 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 <span class="w">    </span><span class="nv">writable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>no
 </code></pre></div>
-<h2 id="14-criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado">📁 14. Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado).</h2>
+<h2 id="criacao-do-diretorio-compartilhado-se-optou-por-compartilhar-arquivos-junto-com-o-controlador-de-dominio-nao-indiciado">📁 Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado)</h2>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/srv/samba/arquivos
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">0770</span><span class="w"> </span>/srv/samba/arquivos
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;domain users&quot;</span><span class="w"> </span>/srv/samba/arquivos
 </code></pre></div>
-<h2 id="15-validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio">👥 15. Validações básicas de usuários e grupos (locais e de domínio)</h2>
-<h2 id="note-que-usuariosgrupos-locais">Note que usuários/grupos locais</h2>
+<h2 id="validacoes-basicas-de-usuarios-e-grupos-locais-e-de-dominio">👥 Validações básicas de usuários e grupos (locais e de domínio)</h2>
+<h2 id="note-que-usuariosgrupos-locais">Note que usuários/grupos locais...</h2>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>/etc/passwd
 </code></pre></div>
-<h2 id="nao-sao-os-mesmos-que-usuariosgrupos-do-dominio">Não são os mesmos que usuários/grupos do domínio:</h2>
+<h2 id="nao-sao-os-mesmos-que-usuariosgrupos-do-dominio">Não são os mesmos que usuários/grupos do domínio</h2>
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>user<span class="w"> </span>list
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>-u
@@ -3264,10 +3305,10 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>wbinfo<span class="w"> </span>--ping-dc
 </code></pre></div>
-<h2 id="teste-smb">Teste SMB:</h2>
+<h2 id="teste-o-compartilhamento-do-smb">Teste o compartilhamento do SMB</h2>
 <div class="highlight"><pre><span></span><code>smbclient<span class="w"> </span>-L<span class="w"> </span>localhost<span class="w"> </span>-UAdministrator
 </code></pre></div>
-<h2 id="16-desativando-complexidade-de-senha-somente-para-laboratorio">🔒 16. Desativando complexidade de senha (somente para laboratório!)</h2>
+<h2 id="desative-a-complexidade-de-senha-somente-para-laboratorio">🔒 Desative a complexidade de senha (somente para laboratório!)</h2>
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>domain<span class="w"> </span>passwordsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--complexity<span class="o">=</span>off
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>domain<span class="w"> </span>passwordsettings<span class="w"> </span><span class="nb">set</span><span class="w"> </span>--history-length<span class="o">=</span><span class="m">0</span>
@@ -3279,15 +3320,15 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>user<span class="w"> </span>setexpiry<span class="w"> </span>Administrator<span class="w"> </span>--noexpiry
 </code></pre></div>
 <h2 id="atencao-desabilitar-complexidade-e-inseguro">⚠️ Atenção: Desabilitar complexidade é inseguro!</h2>
-<h2 id="17-recarga-de-configuracao-no-samba4">🔁 17. Recarga de configuração no SAMBA4.</h2>
+<h2 id="comando-para-recarregarvalidar-as-configuracoes-do-samba4-apos-qualquer-alteracao">🔁 Comando para recarregar/validar as configurações do SAMBA4 após qualquer alteração</h2>
 <div class="highlight"><pre><span></span><code>smbcontrol<span class="w"> </span>all<span class="w"> </span>reload-config
 </code></pre></div>
-<h2 id="18-validacao-no-kerberos">🎟️ 18. Validação no Kerberos</h2>
+<h2 id="validacao-de-troca-de-tickets-do-kerberos">🎟️ Validação de troca de tickets do Kerberos</h2>
 <div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>Administrator@OFFICINAS.EDU
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
-<h2 id="19-testes-de-dns-e-srv">🔎 19. Testes de DNS e SRV</h2>
+<h2 id="testes-de-dns-e-srv">🔎 Testes de DNS e SRV</h2>
 <div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>A<span class="w"> </span>officinas.edu
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_kerberos._tcp.OFFICINAS.EDU
@@ -3296,7 +3337,7 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>dig<span class="w"> </span>OFFICINAS.EDU
 </code></pre></div>
-<h2 id="20-validacoes-no-samba4">🧱 20. Validações no SAMBA4</h2>
+<h2 id="mais-validacoes-do-samba4">🧱 Mais validações do SAMBA4</h2>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>ax<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;samba|smbd|nmbd|winbindd&quot;</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>testparm
@@ -3305,20 +3346,32 @@ DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>domain<span class="w"> </span>level<span class="w"> </span>show
 </code></pre></div>
-<h2 id="21-habilitando-o-logrotate-opcional">🧰 21. Habilitando o Logrotate (opcional)</h2>
-<h2 id="crie-etclogrotatedsamba-para-conter-os-logs">Crie /etc/logrotate.d/samba para conter os logs.</h2>
+<h2 id="habilitando-o-logrotate-opcional-para-gerenciar-os-logs">🧰 Habilitando o Logrotate (opcional) para Gerenciar os logs</h2>
+<h2 id="crie-o-arquivo-etclogrotatedsamba-para-conter-os-logs">Crie o arquivo /etc/logrotate.d/samba para conter os logs</h2>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/logrotate.d/samba
+</code></pre></div>
+<h2 id="adicione-o-conteudo">Adicione o conteúdo</h2>
 <div class="highlight"><pre><span></span><code>/var/log/samba/*.log<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>weekly
-<span class="w">    </span>rotate<span class="w"> </span><span class="m">4</span>
+<span class="w">    </span>daily
+<span class="w">    </span>rotate<span class="w"> </span><span class="m">7</span>
 <span class="w">    </span>compress
 <span class="w">    </span>delaycompress
 <span class="w">    </span>missingok
 <span class="w">    </span>notifempty
+<span class="w">    </span>create<span class="w"> </span><span class="m">640</span><span class="w"> </span>root<span class="w"> </span>adm
+<span class="w">    </span>sharedscripts
+<span class="w">    </span>postrotate
+<span class="w">        </span>systemctl<span class="w"> </span>reload<span class="w"> </span>smbd<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">        </span>systemctl<span class="w"> </span>reload<span class="w"> </span>nmbd<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span>endscript
 <span class="o">}</span>
 </code></pre></div>
-<h2 id="22-administracao-via-rsat-windows">🪟 22. Administração via RSAT (Windows)</h2>
-<h2 id="apos-o-dominio-estar-funcional-instale-o-rsat-remote-server-administration-tools-em-uma-maquina-windows-e-adicione-a-ao-dominio-officinasedu-para-gerenciar-usuarios-grupos-e-gpos">Após o domínio estar funcional, instale o RSAT (Remote Server Administration Tools) em uma máquina Windows e adicione-a ao domínio OFFICINAS.EDU para gerenciar usuários, grupos e GPOs.</h2>
-<h2 id="23-conclusao-parabens-seu-controlador-de-dominio-samba4-srvdc01-no-debian-13-esta-configurado-e-operacional">🎉 23. Conclusão. Parabéns! 🎊 Seu Controlador de Domínio Samba4 (SRVDC01) no Debian 13 está configurado e operacional.</h2>
+<h2 id="ver-logs-do-proprio-logrotate">✔️ Ver logs do próprio logrotate</h2>
+<div class="highlight"><pre><span></span><code>journalctl<span class="w"> </span>-u<span class="w"> </span>logrotate
+</code></pre></div>
+<h2 id="administracao-via-rsat-windows">🪟 Administração via RSAT (Windows)</h2>
+<h2 id="apos-o-dominio-estar-funcional-ponha-uma-maquina-windows-no-dominio-e-instale-as-ferramentas-do-rsat-remote-server-administration-tools-nela-para-gerenciar-usuarios-grupos-e-gpos">Após o domínio estar funcional, ponha uma máquina Windows no Domínio e instale as ferramentas do RSAT (Remote Server Administration Tools) nela para gerenciar usuários, grupos e GPOs.</h2>
+<h2 id="conclusao-seu-controlador-de-dominio-samba4-no-debian-13-esta-configurado-e-operacional-parabens">🎉 Conclusão. 🎊 Seu Controlador de Domínio Samba4 no Debian 13 está configurado e operacional. 👏 Parabéns!</h2>
 <p>THAT’S ALL FOLKS!!</p>
 
 
