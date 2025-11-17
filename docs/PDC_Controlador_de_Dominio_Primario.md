@@ -19,9 +19,9 @@
 
 - HOSTNAME SEU_HOSTNAME
 
-- GATEWAY 192.168.70.254/24
+- GATEWAY ip_do_firewall
 
-- DNS 192.168.70.254/24
+- DNS ip_do_firewall
 
 ---
 
@@ -112,7 +112,7 @@ allow-hotplug enp1s0
 iface enp1s0 inet static
   address 192.168.70.seu_ip
   netmask 255.255.255.0
-  gateway 192.168.70.254
+  gateway ip_do_firewall
 ```
 
 ## Reinicie a interface para subir o novo endereço
