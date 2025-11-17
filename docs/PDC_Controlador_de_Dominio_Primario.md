@@ -52,7 +52,7 @@ server 2.br.pool.ntp.org iburst
 server 3.br.pool.ntp.org iburst
 
 # Permitir sincronização da rede interna
-allow 192.168.70.0/24
+allow SUA_REDE/24
 
 # Define este servidor como stratum local
 local stratum 10
