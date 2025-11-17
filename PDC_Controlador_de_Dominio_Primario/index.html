@@ -3054,10 +3054,10 @@
 <p>HOSTNAME: SEU_HOSTNAME</p>
 </li>
 <li>
-<p>GATEWAY: ip_do_firewall</p>
+<p>GATEWAY: IP_FIREWALL</p>
 </li>
 <li>
-<p>DNS: ip_do_firewall</p>
+<p>DNS: IP_FIREWALL</p>
 </li>
 </ul>
 <hr />
@@ -3119,7 +3119,7 @@ MS<span class="w"> </span>Name/IP<span class="w"> </span>address<span class="w">
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
 <span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.seu_ip
 <span class="w">  </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
-<span class="w">  </span>gateway<span class="w"> </span>ip_do_firewall
+<span class="w">  </span>gateway<span class="w"> </span>ip_firewall
 </code></pre></div>
 <h2 id="reinicie-a-interface-para-subir-o-novo-endereco">Reinicie a interface para subir o novo endereço</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
@@ -3128,7 +3128,7 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 <h2 id="antes-de-o-dominio-estar-ativo-aponte-o-dns-para-o-firewall-depois-o-dns-sera-o-proprio-controlador-de-dominio">ANTES de o domínio estar ativo, aponte o DNS para o firewall, DEPOIS o DNS será o próprio Controlador de domínio</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/resolv.conf
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span><span class="m">192</span>.168.70.254
+<div class="highlight"><pre><span></span><code>nameserver<span class="w"> </span>ip_firewall
 </code></pre></div>
 <h2 id="hostname-e-resolucao-local">🧩 Hostname e resolução local</h2>
 <h2 id="defina-o-hostname-do-servidor">Defina o hostname do Servidor</h2>
@@ -3210,9 +3210,9 @@ DNS<span class="w"> </span>Backend:<span class="w"> </span>SAMBA_INTERNAL
 
 Server<span class="w"> </span>role:<span class="w"> </span>dc
 
-DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192</span>.168.70.254
+DNS<span class="w"> </span>Forwarder:<span class="w"> </span>IP_FIREWALL
 
-Admin<span class="w"> </span>password:<span class="w"> </span>sua_senha
+Admin<span class="w"> </span>password:<span class="w"> </span>SUA_SENHA
 </code></pre></div>
 <h2 id="habilitar-o-servico-principal-samba-ad-dcservice">🚀 Habilitar o serviço principal, samba-ad-dc.service</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>unmask<span class="w"> </span>samba-ad-dc.service
@@ -3239,7 +3239,7 @@ Admin<span class="w"> </span>password:<span class="w"> </span>sua_senha
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/samba/smb.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
-<span class="w">    </span>dns<span class="w"> </span><span class="nv">forwarder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.254
+<span class="w">    </span>dns<span class="w"> </span><span class="nv">forwarder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>IP_FIREWALL
 <span class="w">    </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>HOSTNAME
 <span class="w">    </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO.INFO
 <span class="w">    </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>active<span class="w"> </span>directory<span class="w"> </span>domain<span class="w"> </span>controller
