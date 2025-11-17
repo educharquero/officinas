@@ -6,18 +6,18 @@
 
 ## 🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo: 
 
-* dominio_curto = \<DOMINIO>\
-* dominio_longo = \<DOMINIO.INFO>\
+* dominio_curto = \<DOMINIO\>
+* dominio_longo = \<DOMINIO.INFO\>
 
 ## Adaptado AO SEU domínio, obviamente!!
 
-- REALM: \<DOMINIO_LONGO>\
+- REALM: \<DOMINIO_LONGO\>
 
-- DOMAIN: \<DOMINIO_CURTO>\
+- DOMAIN: \<DOMINIO_CURTO\>
 
-- ENDEREÇO IP \<SEU_IP>\
+- ENDEREÇO IP \<SEU_IP\>
 
-- HOSTNAME \<SEU_HOSTNAME>\
+- HOSTNAME \<SEU_HOSTNAME\>
 
 - GATEWAY 192.168.70.254/24
 
@@ -110,7 +110,7 @@ vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-  address 192.168.70.\<seu_ip>\
+  address 192.168.70.\<seu_ip\>
   netmask 255.255.255.0
   gateway 192.168.70.254
 ```
@@ -149,8 +149,8 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1 localhost
-127.0.1.1 \<seu_hostname>\.\<dominio_longo>\  \<seu_hostname>\
-192.168.70.\<seu_ip>\  \<seu_hostname>\.\<dominio_longo>\  \<seu_hostname>\
+127.0.1.1 \<seu_hostname\>.\<dominio_longo\>  \<seu_hostname\>
+192.168.70.\<seu_ip\>  \<seu_hostname\>.\<dominio_longo\>  \<seu_hostname\>
 ```
 
 ## 🔐 Instalação dos pacotes necessários
@@ -162,11 +162,11 @@ apt install samba samba-dsdb-modules samba-vfs-modules smbclient krb5-user krb5-
 ## Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
 
 ```bash
-Default realm: <DOMINIO_LONGO>
+Default realm: \<DOMINIO_LONGO\>
 
-KDC: 192.168.70.<seu_ip>
+KDC: 192.168.70.\<seu_ip\>
 
-Admin server: 192.168.70.<seu_ip>
+Admin server: 192.168.70.\<seu_ip\>
 ```
 
 ## Se errar, poderá refazer
