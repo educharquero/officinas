@@ -6,18 +6,18 @@
 
 ## 🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo: 
 
-* dominio_curto = \<DOMINIO\>
-* dominio_longo = \<DOMINIO.INFO\>
+* dominio_curto = DOMINIO
+* dominio_longo = DOMINIO.INFO
 
 ## Adaptado AO SEU domínio, obviamente!!
 
-- REALM: \<DOMINIO_LONGO\>
+- REALM: DOMINIO_LONGO
 
-- DOMAIN: \<DOMINIO_CURTO\>
+- DOMAIN: DOMINIO_CURTO
 
-- ENDEREÇO IP \<SEU_IP\>
+- ENDEREÇO IP SEU_IP
 
-- HOSTNAME \<SEU_HOSTNAME\>
+- HOSTNAME SEU_HOSTNAME
 
 - GATEWAY 192.168.70.254/24
 
@@ -110,7 +110,7 @@ vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-  address 192.168.70.\<seu_ip\>
+  address 192.168.70.seu_ip
   netmask 255.255.255.0
   gateway 192.168.70.254
 ```
@@ -138,7 +138,7 @@ nameserver 192.168.70.254
 ## Defina o hostname do Servidor
 
 ```bash
-hostnamectl set-hostname <seu_hostname>
+hostnamectl set-hostname seu_hostname
 ```
 
 ## Edite o arquivo de hosts para atrelando ip/domínio
@@ -149,8 +149,8 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1 localhost
-127.0.1.1 \<seu_hostname\>.\<dominio_longo\>  \<seu_hostname\>
-192.168.70.\<seu_ip\>  \<seu_hostname\>.\<dominio_longo\>  \<seu_hostname\>
+127.0.1.1 seu_hostname.dominio_longo  seu_hostname
+192.168.70.seu_ip  seu_hostname.dominio_longo  seu_hostname
 ```
 
 ## 🔐 Instalação dos pacotes necessários
@@ -162,11 +162,11 @@ apt install samba samba-dsdb-modules samba-vfs-modules smbclient krb5-user krb5-
 ## Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
 
 ```bash
-Default realm: \<DOMINIO_LONGO\>
+Default realm: DOMINIO_LONGO
 
-KDC: 192.168.70.\<seu_ip\>
+KDC: 192.168.70.seu_ip
 
-Admin server: 192.168.70.\<seu_ip\>
+Admin server: 192.168.70.seu_ip
 ```
 
 ## Se errar, poderá refazer
@@ -187,7 +187,7 @@ sudo vim /etc/krb5.conf
 
 ```bash
 [libdefaults]
-    default_realm = <DOMINIO_LONGO>
+    default_realm = DOMINIO_LONGO
     dns_lookup_realm = false
     dns_lookup_kdc = true
     kdc_timesync = 1
@@ -199,14 +199,14 @@ sudo vim /etc/krb5.conf
 
 [realms]
     <DOMINIO_LONGO> = {
-        kdc = 192.168.70.<seu_ip>
-        admin_server = 192.168.70.<seu_ip>
-        default_domain = <dominio_longo>
+        kdc = 192.168.70.seu_ip
+        admin_server = 192.168.70.seu_ip
+        default_domain = dominio_longo
     }
 
 [domain_realm]
-    .<dominio_longo> = <DOMINIO_LONGO>
-    <dominio_longo> = <DOMINIO_LONGO>
+    .dominio_longo = DOMINIO_LONGO
+    dominio_longo = DOMINIO_LONGO
 ```
 
 ## 🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
@@ -247,9 +247,9 @@ samba-tool domain provision --use-rfc2307 --interactive
 ## Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
 
 ```bash
-Realm: <DOMINIO_LONGO>
+Realm: DOMINIO_LONGO
 
-Domain/NetBios: <DOMINIO_CURTO>
+Domain/NetBios: DOMINIO_CURTO
 
 Server Role: dc
 
@@ -259,7 +259,7 @@ Server role: dc
 
 DNS Forwarder: 192.168.70.254
 
-Admin password: <sua_senha>
+Admin password: sua_senha
 ```
 
 ## 🚀 Habilitar o serviço principal, samba-ad-dc.service
@@ -319,10 +319,10 @@ sudo vim /etc/samba/smb.conf
 ```bash
 [global]
     dns forwarder = 192.168.70.254
-    netbios name = <HOSTNAME>
-    realm = <DOMINIO_LONGO>
+    netbios name = HOSTNAME
+    realm = DOMINIO_LONGO
     server role = active directory domain controller
-    workgroup = <DOMINIO_CURTO>
+    workgroup = DOMINIO_CURTO
     idmap_ldb:use rfc2307 = yes
 
 [sysvol]
@@ -330,7 +330,7 @@ sudo vim /etc/samba/smb.conf
     read only = No
 
 [netlogon]
-    path = /var/lib/samba/sysvol/<dominio_longo>/scripts
+    path = /var/lib/samba/sysvol/dominio_longo/scripts
     read only = No
 
 # SE for usar compartilhamento no SRVDC01 (NÃO indicado):
@@ -446,7 +446,7 @@ smbcontrol all reload-config
 ## 🎟️ Validação de troca de tickets do Kerberos
 
 ```bash
-kinit Administrator@<DOMINIO_LONGO>
+kinit Administrator@DOMINIO_LONGO
 ```
 
 ```bash
@@ -456,19 +456,19 @@ klist
 ## 🔎 Testes de DNS e SRV
 
 ```bash
-host -t A <dominio_longo>
+host -t A dominio_longo
 ```
 
 ```bash
-host -t SRV _kerberos._tcp.<DOMINIO_LONGO>
+host -t SRV _kerberos._tcp.DOMINIO_LONGO
 ```
 
 ```bash
-host -t SRV _ldap._tcp.<DOMINIO_LONGO>
+host -t SRV _ldap._tcp.DOMINIO_LONGO
 ```
 
 ```bash
-dig <DOMINIO_LONGO>
+dig DOMINIO_LONGO
 ```
 
 ## 🧱 Mais validações do SAMBA4
