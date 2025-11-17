@@ -6,8 +6,8 @@
 
 ## 🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo: 
 
-* dominio_curto = OFFICINAS
-* dominio_longo = OFFICINAS.EDU
+* dominio_curto = <DOMINIO>
+* dominio_longo = <DOMINIO.INFO>
 
 ## Adaptado AO SEU domínio, obviamente!!
 
@@ -17,7 +17,7 @@
 
 - ENDEREÇO IP <SEU_IP>
 
-- HOSTNAME <seu_hostname>
+- HOSTNAME <SEU_HOSTNAME>
 
 - GATEWAY 192.168.70.254/24
 
@@ -30,19 +30,20 @@
 ## Instale o pacote do chrony
 
 ```bash
-sudo apt install chrony -y
+apt install chrony -y
 ```
 
 ## Edite o arquivo do chrony.conf
 
 ```bash
-sudo vim /etc/chrony/chrony.conf
+vim /etc/chrony/chrony.conf
 ```
 
 ## Comente a linha que aponta pro repositório da America do Norte e insira as linhas para apontar para os repositórios de horário no Brasil, então libere a consulta da rede interna para o seu Servidor
 
 ```bash
-driftfile /var/lib/chrony/chrony.drift
+# Comente a linha do repositório externo
+#pool 2.debian.pool.ntp.org iburst
 
 # Servidores externos públicos do Brasil
 server 0.br.pool.ntp.org iburst
@@ -60,11 +61,11 @@ local stratum 10
 ## Habilite e reinicie o serviço de sincronização de horário
 
 ```bash
-sudo systemctl enable chrony
+systemctl enable chrony
 ```
 
 ```bash
-sudo systemctl restart chrony
+systemctl restart chrony
 ```
 
 ## Valide o seu timeserver novo no Brasil
@@ -73,10 +74,29 @@ sudo systemctl restart chrony
 chronyc sources -v
 ```
 
+## Vai mostrar os repositório de hora Brasileira
+
+```bash
+  .-- Source mode  '^' = server, '=' = peer, '#' = local clock.
+ / .- Source state '*' = current best, '+' = combined, '-' = not combined,
+| /             'x' = may be in error, '~' = too variable, '?' = unusable.
+||                                                 .- xxxx [ yyyy ] +/- zzzz
+||      Reachability register (octal) -.           |  xxxx = adjusted offset,
+||      Log2(Polling interval) --.      |          |  yyyy = measured offset,
+||                                \     |          |  zzzz = estimated error.
+||                                 |    |           \
+MS Name/IP address         Stratum Poll Reach LastRx Last sample               
+===============================================================================
+^* sa-north-1.clearnet.pw        2   6     7     2    -89us[-1039us] +/-   26ms
+^- gru.clearnet.pw               3   6    17     0  +3149us[+3149us] +/-   27ms
+^+ gps.nu.ntp.br                 1   6    17     0  +1195us[+1195us] +/- 6544us
+^+ lrtest2.ntp.ifsc.usp.br       2   6     7     2  -1325us[-2275us] +/-   13ms
+```
+
 ## 📦 Sincronize os repositórios do Debian e atualize o sistema
 
 ```bash
-sudo apt update && sudo apt full-upgrade -y
+apt update && apt full-upgrade -y
 ```
 
 ## 🌐 Configuração de rede (modo estático)
@@ -84,7 +104,7 @@ sudo apt update && sudo apt full-upgrade -y
 ## Edite o arquivo interfaces e sete o ip fixo
 
 ```bash
-sudo vim /etc/network/interfaces
+vim /etc/network/interfaces
 ```
 
 ```bash
@@ -106,7 +126,7 @@ systemctl restart networking
 ## ANTES de o domínio estar ativo, aponte o DNS para o firewall, DEPOIS o DNS será o próprio Controlador de domínio
 
 ```bash
-sudo vim /etc/resolv.conf
+vim /etc/resolv.conf
 ```
 
 ```bash
@@ -118,13 +138,13 @@ nameserver 192.168.70.254
 ## Defina o hostname do Servidor
 
 ```bash
-sudo hostnamectl set-hostname <seu_hostname>
+hostnamectl set-hostname <seu_hostname>
 ```
 
 ## Edite o arquivo de hosts para atrelando ip/domínio
 
 ```bash
-sudo vim /etc/hosts
+vim /etc/hosts
 ```
 
 ```bash
@@ -152,7 +172,7 @@ Admin server: 192.168.70.<seu_ip>
 ## Se errar, poderá refazer
 
 ```bash
-sudo dpkg-reconfigure krb5-config
+dpkg-reconfigure krb5-config
 ```
 
 ## ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex: domínio curto = OFFICINAS, domínio longo = OFFICINAS.EDU)
@@ -179,8 +199,8 @@ sudo vim /etc/krb5.conf
 
 [realms]
     <DOMINIO_LONGO> = {
-        kdc = <seu_hostname>.<dominio_longo>
-        admin_server = <seu_hostname>.<dominio_longo>
+        kdc = 192.168.70.<seu_ip>
+        admin_server = 192.168.70.<seu_ip>
         default_domain = <dominio_longo>
     }
 
@@ -203,11 +223,11 @@ group:        files systemd winbind
 ## 🧰 Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
 
 ```bash
-sudo systemctl stop smbd nmbd winbind
+systemctl stop smbd nmbd winbind
 ```
 
 ```bash
-sudo systemctl disable smbd nmbd winbind
+systemctl disable smbd nmbd winbind
 ```
 
 ## 🏗️ Provisionamento do domínio
@@ -215,13 +235,13 @@ sudo systemctl disable smbd nmbd winbind
 ## faça um backup do arquivo smb.conf original, pois o comando de provisionamento criará outro novo automagicamente 😉
 
 ```bash
-sudo mv /etc/samba/smb.conf{,.orig}
+mv /etc/samba/smb.conf{,.orig}
 ```
 
 ## Execute o comando de provisionamento
 
 ```bash
-samba-tool domain provision --use-rfc2307 --function-level=2016 --interactive
+samba-tool domain provision --use-rfc2307 --interactive
 ```
 
 ## Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
@@ -245,25 +265,25 @@ Admin password: <sua_senha>
 ## 🚀 Habilitar o serviço principal, samba-ad-dc.service
 
 ```bash
-sudo systemctl unmask samba-ad-dc.service
+systemctl unmask samba-ad-dc.service
 ```
 
 ```bash
-sudo systemctl enable samba-ad-dc.service
+systemctl enable samba-ad-dc.service
 ```
 
 ```bash
-sudo systemctl start samba-ad-dc.service
+systemctl start samba-ad-dc.service
 ```
 
 ```bash
-sudo systemctl status samba-ad-dc.service
+systemctl status samba-ad-dc.service
 ```
 
 ## Valide os logs
 
 ```bash
-sudo journalctl -u samba-ad-dc -f
+journalctl -u samba-ad-dc -f
 ```
 
 ## 🌐 Reapontar a consulta de DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento
@@ -275,7 +295,7 @@ chattr -i /etc/resolv.conf
 ```
 
 ```bash
-sudo vim /etc/resolv.conf
+vim /etc/resolv.conf
 ```
 
 ```bash
@@ -299,7 +319,7 @@ sudo vim /etc/samba/smb.conf
 ```bash
 [global]
     dns forwarder = 192.168.70.254
-    netbios name = <DOMINIO_CURTO>
+    netbios name = <HOSTNAME>
     realm = <DOMINIO_LONGO>
     server role = active directory domain controller
     workgroup = <DOMINIO_CURTO>
@@ -326,15 +346,25 @@ sudo vim /etc/samba/smb.conf
 ## 📁 Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado)
 
 ```bash
-sudo mkdir -p /srv/samba/arquivos
+mkdir -p /srv/samba/arquivos
 ```
 
 ```bash
-sudo chmod -R 0770 /srv/samba/arquivos
+chmod -R 0770 /srv/samba/arquivos
 ```
 
 ```bash
-sudo chown -R root:"domain users" /srv/samba/arquivos
+chown -R root:"domain users" /srv/samba/arquivos
+```
+
+## Releia e valide as configurações do SAMBA4
+
+```bash
+smbcontrols all relod-config
+```
+
+```bash
+testparm
 ```
 
 ## 👥 Validações básicas de usuários e grupos (locais e de domínio)
@@ -367,6 +397,20 @@ wbinfo --ping-dc
 
 ```bash
 smbclient -L localhost -UAdministrator
+```
+
+## O resultado será
+
+```bash
+Password for [CONECTUX\Administrator]:
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	sysvol          Disk      
+	netlogon        Disk      
+	ARQUIVOS        Disk      Compartilhamentos da Rede
+	IPC$            IPC       IPC Service (Samba 4.22.6-Debian-4.22.6+dfsg-0+deb13u1)
+SMB1 disabled -- no workgroup available
 ```
 
 ## 🔒 Desative a complexidade de senha (somente para laboratório!)
@@ -443,39 +487,6 @@ smbclient --version
 
 ```bash
 samba-tool domain level show
-```
-
-## 🧰 Habilitando o Logrotate (opcional) para Gerenciar os logs
-
-## Crie o arquivo /etc/logrotate.d/samba para conter os logs
-
-```bash
-sudo vim /etc/logrotate.d/samba
-```
-
-## Adicione o conteúdo
-
-```bash
-/var/log/samba/*.log {
-    daily
-    rotate 7
-    compress
-    delaycompress
-    missingok
-    notifempty
-    create 640 root adm
-    sharedscripts
-    postrotate
-        systemctl reload smbd 2>/dev/null || true
-        systemctl reload nmbd 2>/dev/null || true
-    endscript
-}
-```
-
-## ✔️ Ver logs do próprio logrotate
-
-```bash
-journalctl -u logrotate
 ```
 
 ## 🪟 Administração via RSAT (Windows)
