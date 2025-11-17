@@ -19,9 +19,9 @@
 
 - HOSTNAME: SEU_HOSTNAME
 
-- GATEWAY: ip_do_firewall
+- GATEWAY: IP_FIREWALL
 
-- DNS: ip_do_firewall
+- DNS: IP_FIREWALL
 
 ---
 
@@ -112,7 +112,7 @@ allow-hotplug enp1s0
 iface enp1s0 inet static
   address 192.168.70.seu_ip
   netmask 255.255.255.0
-  gateway ip_do_firewall
+  gateway ip_firewall
 ```
 
 ## Reinicie a interface para subir o novo endereço
@@ -130,7 +130,7 @@ vim /etc/resolv.conf
 ```
 
 ```bash
-nameserver 192.168.70.254
+nameserver ip_firewall
 ```
 
 ## 🧩 Hostname e resolução local
@@ -257,9 +257,9 @@ DNS Backend: SAMBA_INTERNAL
 
 Server role: dc
 
-DNS Forwarder: 192.168.70.254
+DNS Forwarder: IP_FIREWALL
 
-Admin password: sua_senha
+Admin password: SUA_SENHA
 ```
 
 ## 🚀 Habilitar o serviço principal, samba-ad-dc.service
@@ -312,7 +312,7 @@ sudo vim /etc/samba/smb.conf
 
 ```bash
 [global]
-    dns forwarder = 192.168.70.254
+    dns forwarder = IP_FIREWALL
     netbios name = HOSTNAME
     realm = DOMINIO.INFO
     server role = active directory domain controller
