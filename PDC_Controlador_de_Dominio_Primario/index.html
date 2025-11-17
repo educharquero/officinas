@@ -3054,10 +3054,10 @@
 <p>HOSTNAME SEU_HOSTNAME</p>
 </li>
 <li>
-<p>GATEWAY 192.168.70.254/24</p>
+<p>GATEWAY ip_do_firewall</p>
 </li>
 <li>
-<p>DNS 192.168.70.254/24</p>
+<p>DNS ip_do_firewall</p>
 </li>
 </ul>
 <hr />
@@ -3119,7 +3119,7 @@ MS<span class="w"> </span>Name/IP<span class="w"> </span>address<span class="w">
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
 <span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.seu_ip
 <span class="w">  </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
-<span class="w">  </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
+<span class="w">  </span>gateway<span class="w"> </span>ip_do_firewall
 </code></pre></div>
 <h2 id="reinicie-a-interface-para-subir-o-novo-endereco">Reinicie a interface para subir o novo endereço</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>networking
