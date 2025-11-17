@@ -11,9 +11,9 @@
 
 ## Adaptado AO SEU domínio, obviamente!!
 
-- REALM: DOMINIO_LONGO
+- REALM: DOMINIO.INFO
 
-- DOMAIN: DOMINIO_CURTO
+- DOMAIN: DOMINIO
 
 - ENDEREÇO IP SEU_IP
 
@@ -149,8 +149,8 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1 localhost
-127.0.1.1 seu_hostname.dominio_longo  seu_hostname
-192.168.70.seu_ip  seu_hostname.dominio_longo  seu_hostname
+127.0.1.1 seu_hostname.dominio.info  seu_hostname
+192.168.70.seu_ip  seu_hostname.dominio.info  seu_hostname
 ```
 
 ## 🔐 Instalação dos pacotes necessários
@@ -162,7 +162,7 @@ apt install samba samba-dsdb-modules samba-vfs-modules smbclient krb5-user krb5-
 ## Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
 
 ```bash
-Default realm: DOMINIO_LONGO
+Default realm: DOMINIO.INFO
 
 KDC: 192.168.70.seu_ip
 
@@ -175,7 +175,7 @@ Admin server: 192.168.70.seu_ip
 dpkg-reconfigure krb5-config
 ```
 
-## ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex: domínio curto = OFFICINAS, domínio longo = OFFICINAS.EDU)
+## ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex:realm = DOMINIO, domínio = DOMINIO.INFO)
 
 ```bash
 sudo mv /etc/krb5.conf{,.orig}
@@ -187,7 +187,7 @@ sudo vim /etc/krb5.conf
 
 ```bash
 [libdefaults]
-    default_realm = DOMINIO_LONGO
+    default_realm = DOMINIO.INFO
     dns_lookup_realm = false
     dns_lookup_kdc = true
     kdc_timesync = 1
@@ -198,15 +198,15 @@ sudo vim /etc/krb5.conf
     fcc-mit-ticketflags = true
 
 [realms]
-    <DOMINIO_LONGO> = {
-        kdc = 192.168.70.seu_ip
-        admin_server = 192.168.70.seu_ip
-        default_domain = dominio_longo
+    DOMINIO.INFO = {
+        kdc = 127.0.0.1
+        admin_server = 127.0.0.1
+        default_domain = dominio.info
     }
 
 [domain_realm]
-    .dominio_longo = DOMINIO_LONGO
-    dominio_longo = DOMINIO_LONGO
+    .dominio.info = DOMINIO.INFO
+    dominio.info = DOMINIO.INFO
 ```
 
 ## 🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
@@ -247,9 +247,9 @@ samba-tool domain provision --use-rfc2307 --interactive
 ## Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
 
 ```bash
-Realm: DOMINIO_LONGO
+Realm: DOMINIO.INFO
 
-Domain/NetBios: DOMINIO_CURTO
+Domain/NetBios: DOMINIO
 
 Server Role: dc
 
@@ -278,12 +278,6 @@ systemctl start samba-ad-dc.service
 
 ```bash
 systemctl status samba-ad-dc.service
-```
-
-## Valide os logs
-
-```bash
-journalctl -u samba-ad-dc -f
 ```
 
 ## 🌐 Reapontar a consulta de DNS para o próprio servidor, já que agora comporta a função de DNS_INTERNAL definido no provisionamento
@@ -320,9 +314,9 @@ sudo vim /etc/samba/smb.conf
 [global]
     dns forwarder = 192.168.70.254
     netbios name = HOSTNAME
-    realm = DOMINIO_LONGO
+    realm = DOMINIO.INFO
     server role = active directory domain controller
-    workgroup = DOMINIO_CURTO
+    workgroup = DOMINIO
     idmap_ldb:use rfc2307 = yes
 
 [sysvol]
@@ -330,7 +324,7 @@ sudo vim /etc/samba/smb.conf
     read only = No
 
 [netlogon]
-    path = /var/lib/samba/sysvol/dominio_longo/scripts
+    path = /var/lib/samba/sysvol/dominio.info/scripts
     read only = No
 
 # SE for usar compartilhamento no SRVDC01 (NÃO indicado):
@@ -402,7 +396,7 @@ smbclient -L localhost -UAdministrator
 ## O resultado será
 
 ```bash
-Password for [CONECTUX\Administrator]:
+Password for [DOMINIO\Administrator]:
 
 	Sharename       Type      Comment
 	---------       ----      -------
@@ -446,7 +440,7 @@ smbcontrol all reload-config
 ## 🎟️ Validação de troca de tickets do Kerberos
 
 ```bash
-kinit Administrator@DOMINIO_LONGO
+kinit Administrator@DOMINIO.INFO
 ```
 
 ```bash
@@ -456,19 +450,19 @@ klist
 ## 🔎 Testes de DNS e SRV
 
 ```bash
-host -t A dominio_longo
+host -t A dominio.info
 ```
 
 ```bash
-host -t SRV _kerberos._tcp.DOMINIO_LONGO
+host -t SRV _kerberos._tcp.DOMINIO.INFO
 ```
 
 ```bash
-host -t SRV _ldap._tcp.DOMINIO_LONGO
+host -t SRV _ldap._tcp.DOMINIO.INFO
 ```
 
 ```bash
-dig DOMINIO_LONGO
+dig DOMINIO.INFO
 ```
 
 ## 🧱 Mais validações do SAMBA4
