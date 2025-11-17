@@ -164,9 +164,9 @@ apt install samba samba-dsdb-modules samba-vfs-modules smbclient krb5-user krb5-
 ```bash
 Default realm: DOMINIO.INFO
 
-KDC: 192.168.70.seu_ip
+KDC: 127.0.0.1
 
-Admin server: 192.168.70.seu_ip
+Admin server: 127.0.0.1
 ```
 
 ## Se errar, poderá refazer
