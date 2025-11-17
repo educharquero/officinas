@@ -6,18 +6,18 @@
 
 ## 🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo: 
 
-* dominio_curto = <DOMINIO>
-* dominio_longo = <DOMINIO.INFO>
+* dominio_curto = \<DOMINIO>
+* dominio_longo = \<DOMINIO.INFO>
 
 ## Adaptado AO SEU domínio, obviamente!!
 
-- REALM: <DOMINIO_LONGO>
+- REALM: \<DOMINIO_LONGO>
 
-- DOMAIN: <DOMINIO_CURTO>
+- DOMAIN: \<DOMINIO_CURTO>
 
-- ENDEREÇO IP <SEU_IP>
+- ENDEREÇO IP \<SEU_IP>
 
-- HOSTNAME <SEU_HOSTNAME>
+- HOSTNAME \<SEU_HOSTNAME>
 
 - GATEWAY 192.168.70.254/24
 
