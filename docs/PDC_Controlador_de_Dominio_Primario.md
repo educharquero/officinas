@@ -15,13 +15,13 @@
 
 - DOMAIN: DOMINIO
 
-- ENDEREÇO IP SEU_IP
+- ENDEREÇO IP: SEU_IP
 
-- HOSTNAME SEU_HOSTNAME
+- HOSTNAME: SEU_HOSTNAME
 
-- GATEWAY ip_do_firewall
+- GATEWAY: ip_do_firewall
 
-- DNS ip_do_firewall
+- DNS: ip_do_firewall
 
 ---
 
