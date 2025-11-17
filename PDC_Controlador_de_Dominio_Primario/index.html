@@ -3054,22 +3054,22 @@
 <hr />
 <h2 id="no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo">🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:</h2>
 <ul>
-<li>dominio_curto = \&lt;DOMINIO&gt;</li>
-<li>dominio_longo = \&lt;DOMINIO.INFO&gt;</li>
+<li>dominio_curto = DOMINIO</li>
+<li>dominio_longo = DOMINIO.INFO</li>
 </ul>
 <h2 id="adaptado-ao-seu-dominio-obviamente">Adaptado AO SEU domínio, obviamente!!</h2>
 <ul>
 <li>
-<p>REALM: \&lt;DOMINIO_LONGO&gt;</p>
+<p>REALM: DOMINIO_LONGO</p>
 </li>
 <li>
-<p>DOMAIN: \&lt;DOMINIO_CURTO&gt;</p>
+<p>DOMAIN: DOMINIO_CURTO</p>
 </li>
 <li>
-<p>ENDEREÇO IP \&lt;SEU_IP&gt;</p>
+<p>ENDEREÇO IP SEU_IP</p>
 </li>
 <li>
-<p>HOSTNAME \&lt;SEU_HOSTNAME&gt;</p>
+<p>HOSTNAME SEU_HOSTNAME</p>
 </li>
 <li>
 <p>GATEWAY 192.168.70.254/24</p>
@@ -3135,7 +3135,7 @@ MS<span class="w"> </span>Name/IP<span class="w"> </span>address<span class="w">
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>allow-hotplug<span class="w"> </span>enp1s0
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
+<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.seu_ip
 <span class="w">  </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
 <span class="w">  </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
 </code></pre></div>
@@ -3150,24 +3150,24 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 </code></pre></div>
 <h2 id="hostname-e-resolucao-local">🧩 Hostname e resolução local</h2>
 <h2 id="defina-o-hostname-do-servidor">Defina o hostname do Servidor</h2>
-<div class="highlight"><pre><span></span><code>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>&lt;seu_hostname&gt;
+<div class="highlight"><pre><span></span><code>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>seu_hostname
 </code></pre></div>
 <h2 id="edite-o-arquivo-de-hosts-para-atrelando-ipdominio">Edite o arquivo de hosts para atrelando ip/domínio</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
-<span class="m">127</span>.0.1.1<span class="w"> </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>.<span class="se">\&lt;</span>dominio_longo<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>
-<span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>.<span class="se">\&lt;</span>dominio_longo<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>
+<span class="m">127</span>.0.1.1<span class="w"> </span>seu_hostname.dominio_longo<span class="w">  </span>seu_hostname
+<span class="m">192</span>.168.70.seu_ip<span class="w">  </span>seu_hostname.dominio_longo<span class="w">  </span>seu_hostname
 </code></pre></div>
 <h2 id="instalacao-dos-pacotes-necessarios">🔐 Instalação dos pacotes necessários</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span>krb5-user<span class="w"> </span>krb5-config<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span class="w"> </span>python3-cryptography<span class="w"> </span>net-tools
 </code></pre></div>
 <h2 id="durante-a-configuracao-do-kerberos-nas-3-perguntas-do-krb5-user-insira">Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:</h2>
-<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span><span class="se">\&lt;</span>DOMINIO_LONGO<span class="se">\&gt;</span>
+<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span>DOMINIO_LONGO
 
-KDC:<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
+KDC:<span class="w"> </span><span class="m">192</span>.168.70.seu_ip
 
-Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
+Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.seu_ip
 </code></pre></div>
 <h2 id="se-errar-podera-refazer">Se errar, poderá refazer</h2>
 <div class="highlight"><pre><span></span><code>dpkg-reconfigure<span class="w"> </span>krb5-config
@@ -3178,7 +3178,7 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/krb5.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
-<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO_LONGO
 <span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
 <span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
 <span class="w">    </span><span class="nv">kdc_timesync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
@@ -3190,14 +3190,14 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192<
 
 <span class="o">[</span>realms<span class="o">]</span>
 <span class="w">    </span>&lt;DOMINIO_LONGO&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
-<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
-<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;dominio_longo&gt;
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.seu_ip
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.seu_ip
+<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dominio_longo
 <span class="w">    </span><span class="o">}</span>
 
 <span class="o">[</span>domain_realm<span class="o">]</span>
-<span class="w">    </span>.&lt;dominio_longo&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
-<span class="w">    </span>&lt;dominio_longo&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<span class="w">    </span>.dominio_longo<span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO_LONGO
+<span class="w">    </span><span class="nv">dominio_longo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO_LONGO
 </code></pre></div>
 <h2 id="edite-o-arquivo-nsswitchconf-e-verifique-se-tem-o-winbind-na-lista-de-busca-por-usuarios">🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários</h2>
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch
@@ -3218,9 +3218,9 @@ group:<span class="w">        </span>files<span class="w"> </span>systemd<span c
 <div class="highlight"><pre><span></span><code>samba-tool<span class="w"> </span>domain<span class="w"> </span>provision<span class="w"> </span>--use-rfc2307<span class="w"> </span>--interactive
 </code></pre></div>
 <h2 id="responda-as-perguntas-do-modo-interativo-ex-dominio_curto-officinas-dominio_longo-officinasedu">Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)</h2>
-<div class="highlight"><pre><span></span><code>Realm:<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>Realm:<span class="w"> </span>DOMINIO_LONGO
 
-Domain/NetBios:<span class="w"> </span>&lt;DOMINIO_CURTO&gt;
+Domain/NetBios:<span class="w"> </span>DOMINIO_CURTO
 
 Server<span class="w"> </span>Role:<span class="w"> </span>dc
 
@@ -3230,7 +3230,7 @@ Server<span class="w"> </span>role:<span class="w"> </span>dc
 
 DNS<span class="w"> </span>Forwarder:<span class="w"> </span><span class="m">192</span>.168.70.254
 
-Admin<span class="w"> </span>password:<span class="w"> </span>&lt;sua_senha&gt;
+Admin<span class="w"> </span>password:<span class="w"> </span>sua_senha
 </code></pre></div>
 <h2 id="habilitar-o-servico-principal-samba-ad-dcservice">🚀 Habilitar o serviço principal, samba-ad-dc.service</h2>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>unmask<span class="w"> </span>samba-ad-dc.service
@@ -3261,10 +3261,10 @@ Admin<span class="w"> </span>password:<span class="w"> </span>&lt;sua_senha&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>global<span class="o">]</span>
 <span class="w">    </span>dns<span class="w"> </span><span class="nv">forwarder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.254
-<span class="w">    </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;HOSTNAME&gt;
-<span class="w">    </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<span class="w">    </span>netbios<span class="w"> </span><span class="nv">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>HOSTNAME
+<span class="w">    </span><span class="nv">realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO_LONGO
 <span class="w">    </span>server<span class="w"> </span><span class="nv">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>active<span class="w"> </span>directory<span class="w"> </span>domain<span class="w"> </span>controller
-<span class="w">    </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;DOMINIO_CURTO&gt;
+<span class="w">    </span><span class="nv">workgroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO_CURTO
 <span class="w">    </span>idmap_ldb:use<span class="w"> </span><span class="nv">rfc2307</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>yes
 
 <span class="o">[</span>sysvol<span class="o">]</span>
@@ -3272,7 +3272,7 @@ Admin<span class="w"> </span>password:<span class="w"> </span>&lt;sua_senha&gt;
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>No
 
 <span class="o">[</span>netlogon<span class="o">]</span>
-<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/lib/samba/sysvol/&lt;dominio_longo&gt;/scripts
+<span class="w">    </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/var/lib/samba/sysvol/dominio_longo/scripts
 <span class="w">    </span><span class="nb">read</span><span class="w"> </span><span class="nv">only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>No
 
 <span class="c1"># SE for usar compartilhamento no SRVDC01 (NÃO indicado):</span>
@@ -3339,18 +3339,18 @@ SMB1<span class="w"> </span>disabled<span class="w"> </span>--<span class="w"> <
 <div class="highlight"><pre><span></span><code>smbcontrol<span class="w"> </span>all<span class="w"> </span>reload-config
 </code></pre></div>
 <h2 id="validacao-de-troca-de-tickets-do-kerberos">🎟️ Validação de troca de tickets do Kerberos</h2>
-<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>Administrator@&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>kinit<span class="w"> </span>Administrator@DOMINIO_LONGO
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>klist
 </code></pre></div>
 <h2 id="testes-de-dns-e-srv">🔎 Testes de DNS e SRV</h2>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>A<span class="w"> </span>&lt;dominio_longo&gt;
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>A<span class="w"> </span>dominio_longo
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_kerberos._tcp.&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_kerberos._tcp.DOMINIO_LONGO
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_ldap._tcp.&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>host<span class="w"> </span>-t<span class="w"> </span>SRV<span class="w"> </span>_ldap._tcp.DOMINIO_LONGO
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>dig<span class="w"> </span>DOMINIO_LONGO
 </code></pre></div>
 <h2 id="mais-validacoes-do-samba4">🧱 Mais validações do SAMBA4</h2>
 <div class="highlight"><pre><span></span><code>ps<span class="w"> </span>ax<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;samba|smbd|nmbd|winbindd&quot;</span>
