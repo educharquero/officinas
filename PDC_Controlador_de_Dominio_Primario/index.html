@@ -3054,22 +3054,22 @@
 <hr />
 <h2 id="no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo">🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:</h2>
 <ul>
-<li>dominio_curto = \<DOMINIO>\</li>
-<li>dominio_longo = \<DOMINIO.INFO>\</li>
+<li>dominio_curto = \&lt;DOMINIO&gt;</li>
+<li>dominio_longo = \&lt;DOMINIO.INFO&gt;</li>
 </ul>
 <h2 id="adaptado-ao-seu-dominio-obviamente">Adaptado AO SEU domínio, obviamente!!</h2>
 <ul>
 <li>
-<p>REALM: \<DOMINIO_LONGO>\</p>
+<p>REALM: \&lt;DOMINIO_LONGO&gt;</p>
 </li>
 <li>
-<p>DOMAIN: \<DOMINIO_CURTO>\</p>
+<p>DOMAIN: \&lt;DOMINIO_CURTO&gt;</p>
 </li>
 <li>
-<p>ENDEREÇO IP \<SEU_IP>\</p>
+<p>ENDEREÇO IP \&lt;SEU_IP&gt;</p>
 </li>
 <li>
-<p>HOSTNAME \<SEU_HOSTNAME>\</p>
+<p>HOSTNAME \&lt;SEU_HOSTNAME&gt;</p>
 </li>
 <li>
 <p>GATEWAY 192.168.70.254/24</p>
@@ -3135,7 +3135,7 @@ MS<span class="w"> </span>Name/IP<span class="w"> </span>address<span class="w">
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>allow-hotplug<span class="w"> </span>enp1s0
 iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> </span>static
-<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip&gt;<span class="se">\</span>
+<span class="w">  </span>address<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
 <span class="w">  </span>netmask<span class="w"> </span><span class="m">255</span>.255.255.0
 <span class="w">  </span>gateway<span class="w"> </span><span class="m">192</span>.168.70.254
 </code></pre></div>
@@ -3156,18 +3156,18 @@ iface<span class="w"> </span>enp1s0<span class="w"> </span>inet<span class="w"> 
 <div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/hosts
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="m">127</span>.0.0.1<span class="w"> </span>localhost
-<span class="m">127</span>.0.1.1<span class="w"> </span><span class="se">\&lt;</span>seu_hostname&gt;<span class="se">\.\&lt;</span>dominio_longo&gt;<span class="se">\ </span><span class="w"> </span><span class="se">\&lt;</span>seu_hostname&gt;<span class="se">\</span>
-<span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip&gt;<span class="se">\ </span><span class="w"> </span><span class="se">\&lt;</span>seu_hostname&gt;<span class="se">\.\&lt;</span>dominio_longo&gt;<span class="se">\ </span><span class="w"> </span><span class="se">\&lt;</span>seu_hostname&gt;<span class="se">\</span>
+<span class="m">127</span>.0.1.1<span class="w"> </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>.<span class="se">\&lt;</span>dominio_longo<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>
+<span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>.<span class="se">\&lt;</span>dominio_longo<span class="se">\&gt;</span><span class="w">  </span><span class="se">\&lt;</span>seu_hostname<span class="se">\&gt;</span>
 </code></pre></div>
 <h2 id="instalacao-dos-pacotes-necessarios">🔐 Instalação dos pacotes necessários</h2>
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>samba<span class="w"> </span>samba-dsdb-modules<span class="w"> </span>samba-vfs-modules<span class="w"> </span>smbclient<span class="w"> </span>krb5-user<span class="w"> </span>krb5-config<span class="w"> </span>winbind<span class="w"> </span>libnss-winbind<span class="w"> </span>libpam-winbind<span class="w"> </span>ldb-tools<span class="w"> </span>dnsutils<span class="w"> </span>chrony<span class="w"> </span>python3-cryptography<span class="w"> </span>net-tools
 </code></pre></div>
 <h2 id="durante-a-configuracao-do-kerberos-nas-3-perguntas-do-krb5-user-insira">Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:</h2>
-<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span>&lt;DOMINIO_LONGO&gt;
+<div class="highlight"><pre><span></span><code>Default<span class="w"> </span>realm:<span class="w"> </span><span class="se">\&lt;</span>DOMINIO_LONGO<span class="se">\&gt;</span>
 
-KDC:<span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
+KDC:<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
 
-Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.&lt;seu_ip&gt;
+Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">192</span>.168.70.<span class="se">\&lt;</span>seu_ip<span class="se">\&gt;</span>
 </code></pre></div>
 <h2 id="se-errar-podera-refazer">Se errar, poderá refazer</h2>
 <div class="highlight"><pre><span></span><code>dpkg-reconfigure<span class="w"> </span>krb5-config
