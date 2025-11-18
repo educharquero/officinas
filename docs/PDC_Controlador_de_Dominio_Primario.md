@@ -51,7 +51,7 @@ server 1.br.pool.ntp.org iburst
 server 2.br.pool.ntp.org iburst
 server 3.br.pool.ntp.org iburst
 
-# Permitir sincronização da rede interna
+# Permitir sincronização da SUA REDE interna
 allow SUA_REDE/24
 
 # Define este servidor como stratum local
@@ -212,7 +212,7 @@ sudo vim /etc/krb5.conf
 ## 🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
 
 ```bash
-vim /etc/nsswitch
+vim /etc/nsswitch.conf
 ```
 
 ```bash
@@ -354,7 +354,7 @@ chown -R root:"domain users" /srv/samba/arquivos
 ## Releia e valide as configurações do SAMBA4
 
 ```bash
-smbcontrols all relod-config
+smbcontrol all reload-config
 ```
 
 ```bash

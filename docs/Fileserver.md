@@ -21,7 +21,7 @@
 ## 📘 Editar o arquivo de interfaces:
 
 ```bash
-sudo vim /etc/network/interfaces
+vim /etc/network/interfaces
 ```
 ```bash
 allow-hotplug enp1s0
@@ -34,13 +34,14 @@ iface enp1s0 inet static
 
 ```bash
 127.0.0.1   localhost
-127.0.1.1   srvarquivos
+127.0.1.1   srvarquivos.officinas.edu srvarquivos
 192.168.70.252 srvarquivos.officinas.edu srvarquivos
 ```
 
 ## 📘 Editar o /etc/resolv.conf:
 
 ```bash
+domain officinas.edu
 search officinas.edu
 nameserver 192.168.70.253
 ```
@@ -48,19 +49,19 @@ nameserver 192.168.70.253
 ## 📘 Definir hostname:
 
 ```bash
-sudo hostnamectl set-hostname srvarquivos
+hostnamectl set-hostname srvarquivos
 ```
 
 ## 🔄 Atualizando o sistema:
 
 ```bash
-sudo apt update && sudo apt full-upgrade -y
+apt update && apt full-upgrade -y
 ```
 
 ## 📦 Instalando os pacotes necessários
 
 ```bash
-sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user acl
+apt install samba samba-common-bin winbind libnss-winbind libpam-winbind krb5-user acl
 ```
 
 ## 🧱 Resumo dos pacotes
@@ -70,12 +71,46 @@ sudo apt install samba samba-common-bin winbind libnss-winbind libpam-winbind kr
 * samba-common-bin	Ferramentas administrativas (net, smbpasswd, etc.)	Operações SMB e ADS
 * libnss-winbind / libpam-winbind	Integração com login local (NSS e PAM)
 
-## Durante a instalação, configure o REALM como:
+## 🔐 Durante a instalação, configure o REALM **APONTANDO PARA O** Controlador de Domínio:
 
 ```bash
 REALM: OFFICINAS.EDU
 KDC: 192.168.70.253
 Admin server: 192.168.70.253
+```
+
+## 🖥️ SE precisar de referência, faça backup do arquivo original e use o modelo:
+
+```bash
+mv /etc/krb5.conf{,.orig}
+```
+
+```bash
+vim /etc/krb5.conf
+```
+
+```bash
+[libdefaults]
+    default_realm = OFFICINAS.EDU
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
+    kdc_timesync = 1
+    ccache_type = 4
+    forwardable = true
+    proxiable = true
+    rdns = false
+    fcc-mit-ticketflags = true
+
+[realms]
+    OFFICINAS.EDU = {
+        kdc = 192.168.70.253
+        admin_server = 192.168.70.253
+        default_domain = officinas.edu
+    }
+
+[domain_realm]
+    .officinas.edu = OFFICINAS.EDU
+    officinas.edu = OFFICINAS.EDU
 ```
 
 ## ✅ Sincronização de hora (crítica para Kerberos):
@@ -88,20 +123,22 @@ apt install chrony
 vim /etc/chrony/chrony.conf
 ```
 
-## Aponte o timesync para o srvdc01 no chrony:
+## Aponte o timesync para o Controlador de Domínio no chrony:
 
 ```bash
+# Comente a linha do repositório externo
+#pool 2.debian.pool.ntp.org iburst
 server 192.168.70.253 prefer iburst
 ```
 
 ## 🔄 Ativar e reiniciar os serviços
 
 ```bash
-systemctl enable --now chronyd
+systemctl enable --now chrony
 ```
 
 ```bash
-sudo systemctl restart chronyd
+systemctl restart chrony
 ```
 
 ## 🔄 Validar a sincronização de horário com o Controlador de domínio
@@ -114,44 +151,16 @@ chronyc sources -v
 chronyc tracking
 ```
 
-## 🖥️ Backup da configuração padrão do kerberos
-
-```bash
-sudo mv /etc/samba/krb5.conf{,.orig}
-```
-
-## 🔐 Configurando o Kerberos para trabalhar no domínio
-
-```bash
-[libdefaults]
-    default_realm = OFFICINAS.EDU
-    dns_lookup_realm = false
-    dns_lookup_ksrvdc01 = true
-    ticket_lifetime = 24h
-    renew_lifetime = 7d
-    forwardable = true
-
-[realms]
-    OFFICINAS.EDU = {
-        kdc = 192.168.70.253
-        admin_server = 192.168.70.253
-    }
-
-[domain_realm]
-    .officinas.edu = OFFICINAS.EDU
-    officinas.edu = OFFICINAS.EDU
-```
-
 ## 🖥️ Backup da configuração padrão do Samba
 
 ```bash
-sudo mv /etc/samba/smb.conf{,.orig}
+mv /etc/samba/smb.conf{,.orig}
 ```
 
 ## ⚙️ Criar nova configuração /etc/samba/smb.conf
 
 ```bash
-sudo vim /etc/samba/smb.conf
+vim /etc/samba/smb.conf
 ```
 
 ```bash
@@ -223,7 +232,7 @@ sudo vim /etc/samba/smb.conf
     full_audit:priority = NOTICE
 ```
 
-## 🧠 Configurar apontamento de NSS e PAM
+## 🧠 Validar liberações de acesso por NSS e PAM
 
 ```bash
 vim /etc/nsswitch
@@ -235,10 +244,16 @@ group:          compat winbind
 shadow:         compat
 ```
 
+## 🧰 Parar serviços concorrentes ao samba-ad-dc.service, antes do provisionamento
+
+```bash
+systemctl stop smbd nmbd winbind
+```
+
 ## 🔗 Ingressando o servidor no domínio
 
 ```bash
-sudo net ads join -U administrador
+net ads join -U administrator
 ```
 
 ## Testes da integração:
@@ -251,18 +266,18 @@ net ads testjoin
 net ads info
 ```
 
-## 🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+## 🔄 APÓS o provisionamento, restarte os serviços de smbd, e winbind e habilite-os no boot novamente
 
 ```bash
-systemctl restart smbd nmbd winbind
+systemctl enable smbd winbind
 ```
 
 ```bash
-systemctl enable winbind
+systemctl start smbd winbind
 ```
 
 ```bash
-systemctl status winbind
+systemctl status smbd winbind
 ```
 
 ```bash
@@ -284,48 +299,39 @@ testparm
 ## Teste a troca de tickets do Kerberos:
 
 ```bash
-kinit administrador@OFFICINAS.EDU
+kinit administrator@OFFICINAS.EDU
 ```
 
 ```bash
 klist
 ```
 
-## 🔄 Ativar e reiniciar os serviços
-
-```bash
-sudo systemctl enable smbd nmbd winbind
-```
-
-```bash
-sudo systemctl restart smbd nmbd winbind
-```
-
-## Verificar status:
-
-```bash
-sudo systemctl status winbind
-```
-
 ## Você deve ver um ticket válido.
 
-## 🧱 Criar diretórios e permissões
+## 📁 Criação do diretório compartilhado SE optou por compartilhar arquivos junto com o Controlador de Domínio (Não indiciado)
 
 ```bash
-sudo mkdir -p /srv/samba/arquivos
-sudo chown root:"OFFICINAS\Domain Admins" /srv/samba/arquivos
-sudo chmod 0770 /srv/samba/arquivos
+mkdir -p /srv/samba/arquivos
+```
+
+```bash
+chmod -R 0770 /srv/samba/arquivos
+```
+
+```bash
+chown -R root:"domain users" /srv/samba/arquivos
 ```
 
 ## 👉 Isso significa:
 
-- Apenas Administradores de Domínio terão permissão inicial. Eles poderão, via Windows, criar pastas e definir permissões NTFS granulares (por grupos ou usuários do domínio).
+- Os usuários de Domínio terão permissão inicial. Usaremos o Administrator, via Windows, para criar pastas e definir permissões NTFS granulares por grupos ou usuários do domínio.
 
 ## Valide as permissões do path arquivos com o getfacl 
 
 ```bash
 getfacl /srv/samba/arquivos
 ```
+
 ## Deverá retornar o mapeamento com algo do tipo
 
 ```bash
