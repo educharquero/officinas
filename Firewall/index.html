@@ -606,6 +606,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#o-iptables-trabalha-a-nivel-de-kernel-utilizando-tres-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      O iptables trabalha a nível de Kernel, utilizando três tabelas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tabela-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      A tabela filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tabela-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      A tabela NAT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#topologia-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🌐 Topologia da rede:
@@ -2548,6 +2575,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#o-iptables-trabalha-a-nivel-de-kernel-utilizando-tres-tabelas" class="md-nav__link">
+    <span class="md-ellipsis">
+      O iptables trabalha a nível de Kernel, utilizando três tabelas:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tabela-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      A tabela filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-tabela-nat" class="md-nav__link">
+    <span class="md-ellipsis">
+      A tabela NAT
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#topologia-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
       🌐 Topologia da rede:
@@ -2997,6 +3051,18 @@
 
 <h1 id="firewall-server-com-debian-13-rodando-iptables-e-integrado-ao-dominio">🔥 Firewall Server com Debian 13 rodando Iptables e integrado ao Domínio</h1>
 <h2 id="o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede">🎯 O Objetivo nesse tutorial é criar um servidor de <strong>firewall stateful</strong>, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando <strong>iptables</strong> no <strong>Debian 13</strong>. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.</h2>
+<h2 id="o-iptables-trabalha-a-nivel-de-kernel-utilizando-tres-tabelas">O iptables trabalha a nível de Kernel, utilizando três tabelas:</h2>
+<h2 id="a-tabela-filter">A tabela filter</h2>
+<ul>
+<li>INPUT: tudo o que entra no firewall;</li>
+<li>FORWARD: tudo que chega no firewall mas deve ser redirecionado a um host secundário;</li>
+<li>OUTPUT: tudo que sai do firewall. </li>
+</ul>
+<h2 id="a-tabela-nat">A tabela NAT</h2>
+<ul>
+<li>PREROUTING: utilizado quando há a necessidade de se fazer alterações em pacotes antes que os mesmos sejam roteados;</li>
+<li>POSTROUTING: utilizado quando há a necessidade de se fazer alterações em pacotes após o tratamento de roteamento. </li>
+</ul>
 <hr />
 <h2 id="topologia-da-rede">🌐 Topologia da rede:</h2>
 <ul>
