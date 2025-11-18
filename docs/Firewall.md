@@ -2,6 +2,20 @@
 
 ## 🎯 O Objetivo nesse tutorial é criar um servidor de **firewall stateful**, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando **iptables** no **Debian 13**. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
 
+## O iptables trabalha a nível de Kernel, utilizando três tabelas:
+
+## A tabela filter
+
+   - INPUT: tudo o que entra no firewall;
+   - FORWARD: tudo que chega no firewall mas deve ser redirecionado a um host secundário;
+   - OUTPUT: tudo que sai do firewall. 
+
+
+## A tabela NAT
+
+   - PREROUTING: utilizado quando há a necessidade de se fazer alterações em pacotes antes que os mesmos sejam roteados;
+   - POSTROUTING: utilizado quando há a necessidade de se fazer alterações em pacotes após o tratamento de roteamento. 
+
 ---
 
 ## 🌐 Topologia da rede:
