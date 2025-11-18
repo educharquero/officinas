@@ -3078,7 +3078,7 @@ server<span class="w"> </span><span class="m">1</span>.br.pool.ntp.org<span clas
 server<span class="w"> </span><span class="m">2</span>.br.pool.ntp.org<span class="w"> </span>iburst
 server<span class="w"> </span><span class="m">3</span>.br.pool.ntp.org<span class="w"> </span>iburst
 
-<span class="c1"># Permitir sincronização da rede interna</span>
+<span class="c1"># Permitir sincronização da SUA REDE interna</span>
 allow<span class="w"> </span>SUA_REDE/24
 
 <span class="c1"># Define este servidor como stratum local</span>
@@ -3182,7 +3182,7 @@ Admin<span class="w"> </span>server:<span class="w"> </span><span class="m">127<
 <span class="w">    </span>dominio.info<span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO.INFO
 </code></pre></div>
 <h2 id="edite-o-arquivo-nsswitchconf-e-verifique-se-tem-o-winbind-na-lista-de-busca-por-usuarios">🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários</h2>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/nsswitch.conf
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>passwd:<span class="w">       </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
 group:<span class="w">        </span>files<span class="w"> </span>systemd<span class="w"> </span>winbind
@@ -3271,7 +3271,7 @@ Admin<span class="w"> </span>password:<span class="w"> </span>SUA_SENHA
 <div class="highlight"><pre><span></span><code>chown<span class="w"> </span>-R<span class="w"> </span>root:<span class="s2">&quot;domain users&quot;</span><span class="w"> </span>/srv/samba/arquivos
 </code></pre></div>
 <h2 id="releia-e-valide-as-configuracoes-do-samba4">Releia e valide as configurações do SAMBA4</h2>
-<div class="highlight"><pre><span></span><code>smbcontrols<span class="w"> </span>all<span class="w"> </span>relod-config
+<div class="highlight"><pre><span></span><code>smbcontrol<span class="w"> </span>all<span class="w"> </span>reload-config
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>testparm
 </code></pre></div>
