@@ -1,6 +1,6 @@
 # 🔥 Instalação do Controlador de Domínio Primário com SAMBA4 no Debian 13
 
-## 🎯 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+## 🎯 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.23** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
 
 ---
 
@@ -402,7 +402,7 @@ Password for [DIGITUX\Administrator]:
 	sysvol          Disk      
 	netlogon        Disk      
 	ARQUIVOS        Disk      Compartilhamentos da Rede
-	IPC$            IPC       IPC Service (Samba 4.22.6-Debian-4.22.6+dfsg-0+deb13u1)
+	IPC$            IPC       IPC Service (Samba 4.23.6-Debian-4.23.6+dfsg-0+deb13u1)
 SMB1 disabled -- no workgroup available
 ```
 
