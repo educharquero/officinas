@@ -874,9 +874,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
+  <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-423-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.23 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
     </span>
   </a>
   
@@ -2557,9 +2557,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
+  <a href="#neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-423-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.22 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
+      🎯 Neste guia, configuraremos um Controlador de Domínio Primário (PDC) utilizando o Debian 13 (Trixie) e o Samba 4.23 como Active Directory. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
     </span>
   </a>
   
@@ -3032,7 +3032,7 @@
 
 
 <h1 id="instalacao-do-controlador-de-dominio-primario-com-samba4-no-debian-13">🔥 Instalação do Controlador de Domínio Primário com SAMBA4 no Debian 13</h1>
-<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-422-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">🎯 Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.22</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.</h2>
+<h2 id="neste-guia-configuraremos-um-controlador-de-dominio-primario-pdc-utilizando-o-debian-13-trixie-e-o-samba-423-como-active-directory-usaremos-pacotes-binarios-oficiais-do-debian-e-uma-configuracao-limpa-ideal-para-laboratorios-de-estudos">🎯 Neste guia, configuraremos um <strong>Controlador de Domínio Primário (PDC)</strong> utilizando o <strong>Debian 13 (Trixie)</strong> e o <strong>Samba 4.23</strong> como <strong>Active Directory</strong>. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.</h2>
 <hr />
 <h2 id="no-decorrer-das-configuracoes-vc-criara-sua-propria-topologia-da-rede-vamos-combinar-que-quando-precisar-setar-realmdominio-usaremos-como-no-modelo">🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo:</h2>
 <h2 id="adaptado-ao-seu-dominio-obviamente">Adaptado AO SEU domínio, obviamente!!</h2>
@@ -3297,7 +3297,7 @@ nameserver<span class="w"> </span><span class="m">127</span>.0.0.1
 <span class="w">    </span>sysvol<span class="w">          </span>Disk<span class="w">      </span>
 <span class="w">    </span>netlogon<span class="w">        </span>Disk<span class="w">      </span>
 <span class="w">    </span>ARQUIVOS<span class="w">        </span>Disk<span class="w">      </span>Compartilhamentos<span class="w"> </span>da<span class="w"> </span>Rede
-<span class="w">    </span>IPC$<span class="w">            </span>IPC<span class="w">       </span>IPC<span class="w"> </span>Service<span class="w"> </span><span class="o">(</span>Samba<span class="w"> </span><span class="m">4</span>.22.6-Debian-4.22.6+dfsg-0+deb13u1<span class="o">)</span>
+<span class="w">    </span>IPC$<span class="w">            </span>IPC<span class="w">       </span>IPC<span class="w"> </span>Service<span class="w"> </span><span class="o">(</span>Samba<span class="w"> </span><span class="m">4</span>.23.6-Debian-4.23.6+dfsg-0+deb13u1<span class="o">)</span>
 SMB1<span class="w"> </span>disabled<span class="w"> </span>--<span class="w"> </span>no<span class="w"> </span>workgroup<span class="w"> </span>available
 </code></pre></div>
 <h2 id="desative-a-complexidade-de-senha-somente-para-laboratorio">🔒 Desative a complexidade de senha (somente para laboratório!)</h2>
