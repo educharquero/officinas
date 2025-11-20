@@ -1,27 +1,24 @@
 # 🔥 Instalação do Controlador de Domínio Primário com SAMBA4 no Debian 13
 
-## 🎯 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos
+## 🎯 Neste guia, configuraremos um **Controlador de Domínio Primário (PDC)** utilizando o **Debian 13 (Trixie)** e o **Samba 4.22** como **Active Directory**. Usaremos pacotes binários oficiais do Debian e uma configuração limpa, ideal para laboratórios de estudos.
 
 ---
 
 ## 🌐 No decorrer das configurações vc criará sua própria topologia da rede, vamos combinar que quando precisar setar realm/domínio, usaremos como no modelo: 
 
-* dominio_curto = DOMINIO
-* dominio_longo = DOMINIO.INFO
-
 ## Adaptado AO SEU domínio, obviamente!!
 
-- REALM: DOMINIO.INFO
+- REALM: DIGITUX.INFO
 
-- DOMAIN: DOMINIO
+- DOMAIN: DIGITUX
 
-- ENDEREÇO IP: SEU_IP
+- ENDEREÇO IP: 192.168.70.250
 
-- HOSTNAME: SEU_HOSTNAME
+- HOSTNAME: SRVDC01
 
-- GATEWAY: IP_FIREWALL
+- GATEWAY: 192.168.70.254
 
-- DNS: IP_FIREWALL
+- DNS: 192.168.70.254
 
 ---
 
@@ -52,7 +49,7 @@ server 2.br.pool.ntp.org iburst
 server 3.br.pool.ntp.org iburst
 
 # Permitir sincronização da SUA REDE interna
-allow SUA_REDE/24
+allow 192.168.70.0/24
 
 # Define este servidor como stratum local
 local stratum 10
@@ -110,9 +107,9 @@ vim /etc/network/interfaces
 ```bash
 allow-hotplug enp1s0
 iface enp1s0 inet static
-  address 192.168.70.seu_ip
+  address 192.168.70.250
   netmask 255.255.255.0
-  gateway ip_firewall
+  gateway 192.168.70.254
 ```
 
 ## Reinicie a interface para subir o novo endereço
@@ -130,7 +127,7 @@ vim /etc/resolv.conf
 ```
 
 ```bash
-nameserver ip_firewall
+nameserver 192.168.70.254
 ```
 
 ## 🧩 Hostname e resolução local
@@ -138,7 +135,7 @@ nameserver ip_firewall
 ## Defina o hostname do Servidor
 
 ```bash
-hostnamectl set-hostname seu_hostname
+hostnamectl set-hostname srvdc01
 ```
 
 ## Edite o arquivo de hosts para atrelando ip/domínio
@@ -149,8 +146,8 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1 localhost
-127.0.1.1 seu_hostname.dominio.info  seu_hostname
-192.168.70.seu_ip  seu_hostname.dominio.info  seu_hostname
+127.0.1.1 srvdc01.digitux.info  srvdc01
+192.168.70.250  srvdc01.digitux.info  srvdc01
 ```
 
 ## 🔐 Instalação dos pacotes necessários
@@ -162,7 +159,7 @@ apt install samba samba-dsdb-modules samba-vfs-modules smbclient krb5-user krb5-
 ## Durante a configuração do Kerberos nas 3 perguntas do krb5-user, insira:
 
 ```bash
-Default realm: DOMINIO.INFO
+Default realm: DIGITUX.INFO
 
 KDC: 127.0.0.1
 
@@ -175,7 +172,7 @@ Admin server: 127.0.0.1
 dpkg-reconfigure krb5-config
 ```
 
-## ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo. Note que tem caixa alta e caixa baixa, siga o modelo lembrando do ex:realm = DOMINIO, domínio = DOMINIO.INFO)
+## ⚙️ SE precisar de referência para Configuração manual do /etc/krb5.conf, faça um backup do arquivo e use esse modelo respeitando a caixa baixa e caixa alta.
 
 ```bash
 sudo mv /etc/krb5.conf{,.orig}
@@ -187,7 +184,7 @@ sudo vim /etc/krb5.conf
 
 ```bash
 [libdefaults]
-    default_realm = DOMINIO.INFO
+    default_realm = DIGITUX.INFO
     dns_lookup_realm = false
     dns_lookup_kdc = true
     kdc_timesync = 1
@@ -198,18 +195,18 @@ sudo vim /etc/krb5.conf
     fcc-mit-ticketflags = true
 
 [realms]
-    DOMINIO.INFO = {
+    DIGITUX.INFO = {
         kdc = 127.0.0.1
         admin_server = 127.0.0.1
-        default_domain = dominio.info
+        default_domain = digitux.info
     }
 
 [domain_realm]
-    .dominio.info = DOMINIO.INFO
-    dominio.info = DOMINIO.INFO
+    .digitux.info = DIGITUX.INFO
+    digitux.info = DIGITUX.INFO
 ```
 
-## 🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários
+## 🔍 Edite o arquivo nsswitch.conf e verifique se tem o winbind na lista de busca por usuários e grupos.
 
 ```bash
 vim /etc/nsswitch.conf
@@ -244,12 +241,12 @@ mv /etc/samba/smb.conf{,.orig}
 samba-tool domain provision --use-rfc2307 --interactive
 ```
 
-## Responda às perguntas do modo interativo (ex: domínio_curto = OFFICINAS, dominio_longo = OFFICINAS.EDU)
+## Responda às perguntas do modo interativo
 
 ```bash
-Realm: DOMINIO.INFO
+Realm: DIGITUX.INFO
 
-Domain/NetBios: DOMINIO
+Domain/NetBios: DIGITUX
 
 Server Role: dc
 
@@ -257,7 +254,7 @@ DNS Backend: SAMBA_INTERNAL
 
 Server role: dc
 
-DNS Forwarder: IP_FIREWALL
+DNS Forwarder: 192.168.70.254
 
 Admin password: SUA_SENHA
 ```
@@ -293,6 +290,8 @@ vim /etc/resolv.conf
 ```
 
 ```bash
+domain digitux.info
+search digitux.info
 nameserver 127.0.0.1
 ```
 
@@ -312,11 +311,11 @@ sudo vim /etc/samba/smb.conf
 
 ```bash
 [global]
-    dns forwarder = IP_FIREWALL
-    netbios name = HOSTNAME
-    realm = DOMINIO.INFO
+    dns forwarder = 192.168.70.254
+    netbios name = SRVDC01
+    realm = DIGITUX.INFO
     server role = active directory domain controller
-    workgroup = DOMINIO
+    workgroup = DIGITUX
     idmap_ldb:use rfc2307 = yes
 
 [sysvol]
@@ -324,7 +323,7 @@ sudo vim /etc/samba/smb.conf
     read only = No
 
 [netlogon]
-    path = /var/lib/samba/sysvol/dominio.info/scripts
+    path = /var/lib/samba/sysvol/digitux.info/scripts
     read only = No
 
 # SE for usar compartilhamento no SRVDC01 (NÃO indicado):
@@ -396,7 +395,7 @@ smbclient -L localhost -UAdministrator
 ## O resultado será
 
 ```bash
-Password for [DOMINIO\Administrator]:
+Password for [DIGITUX\Administrator]:
 
 	Sharename       Type      Comment
 	---------       ----      -------
@@ -440,7 +439,7 @@ smbcontrol all reload-config
 ## 🎟️ Validação de troca de tickets do Kerberos
 
 ```bash
-kinit Administrator@DOMINIO.INFO
+kinit Administrator@DIGITUX.INFO
 ```
 
 ```bash
@@ -450,19 +449,19 @@ klist
 ## 🔎 Testes de DNS e SRV
 
 ```bash
-host -t A dominio.info
+host -t A digitux.info
 ```
 
 ```bash
-host -t SRV _kerberos._tcp.DOMINIO.INFO
+host -t SRV _kerberos._tcp.DIGITUX.INFO
 ```
 
 ```bash
-host -t SRV _ldap._tcp.DOMINIO.INFO
+host -t SRV _ldap._tcp.DIGITUX.INFO
 ```
 
 ```bash
-dig DOMINIO.INFO
+dig DIGITUX.INFO
 ```
 
 ## 🧱 Mais validações do SAMBA4
