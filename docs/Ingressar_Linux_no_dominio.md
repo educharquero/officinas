@@ -52,9 +52,9 @@ sudo apt update && sudo apt install samba winbind libpam-winbind libnss-winbind 
 
 ```bash
 [global]
-   workgroup = DOMINIO
+   workgroup = EDUCATUX
    security = ads
-   realm = DOMINIO.LOCAL
+   realm = EDUCATUX.EDU
 
    winbind use default domain = true
    winbind enum users = yes
@@ -65,8 +65,8 @@ sudo apt update && sudo apt install samba winbind libpam-winbind libnss-winbind 
    idmap config * : backend = tdb
    idmap config * : range = 10000-19999
 
-   idmap config DOMINIO : backend = rid
-   idmap config DOMINIO : range = 20000-999999
+   idmap config EDUCATUX : backend = rid
+   idmap config EDUCATUX : range = 20000-999999
 
    template shell = /bin/bash
    template homedir = /home/%U
