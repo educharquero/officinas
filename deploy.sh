@@ -5,7 +5,7 @@
 
 # --- Configuração ---
 PROJECT_DIR="/home/mevorak/officinas"
-APACHE_DIR="/srv/www/"
+APACHE_DIR="/srv/www/apache/"
 COMMIT_MESSAGE="Docs: Atualiza o conteúdo do site"
 
 # --- Início do Script ---
@@ -37,7 +37,7 @@ echo "✅ Site construído com sucesso na pasta 'site/'."
 
 # 5. DEPLOY PARA O SERVIDOR APACHE (Plataforma 1)
 echo "🚚 Sincronizando arquivos com o diretório do Apache..."
-sudo rsync -avz --delete site/ "$APACHE_DIR/"
+sudo rsync -rvz --delete site/ "$APACHE_DIR/"
 echo "✅ Deploy para o Apache concluído."
 
 # 6. DEPLOY PARA O GITHUB PAGES (Plataforma 2)
