@@ -27,8 +27,8 @@ git push origin main
 echo "✅ Repositório Git (main) atualizado."
 
 # 3. Ativa o ambiente virtual
-source "venv/bin/activate"
-echo "✅ Ambiente virtual 'venv' ativado."
+#source "venv/bin/activate"
+#echo "✅ Ambiente virtual 'venv' ativado."
 
 # 4. Constrói o site (APENAS UMA VEZ)
 echo "🛠️  Construindo o site com MkDocs..."
