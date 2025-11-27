@@ -2561,9 +2561,26 @@
 <li>Configurar /etc/krb5.conf</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
-<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>DOMINIO.LOCAL
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
 <span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
 <span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">kdc_timesync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="nv">ccache_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span>
+<span class="w">    </span><span class="nv">forwardable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">proxiable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">rdns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span>fcc-mit-ticketflags<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="o">[</span>realms<span class="o">]</span>
+<span class="w">    </span>EDUCATUX.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
+<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>officinas.edu
+<span class="w">    </span><span class="o">}</span>
+
+<span class="o">[</span>domain_realm<span class="o">]</span>
+<span class="w">    </span>.officinas.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
+<span class="w">    </span>educatux.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
 </code></pre></div>
 <ol>
 <li>Configurar /etc/samba/smb.conf</li>
