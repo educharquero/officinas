@@ -31,7 +31,8 @@
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
-- [PDC Server](./PDC_Controlador_de_Dominio_Primario.md)
+- [PDC Debian Server](./PDC_Debian_Server.md)
+- [PDC Void Server](./PDC_Void_Server.md)
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
 - [Fileserver](./Fileserver.md)

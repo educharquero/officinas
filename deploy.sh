@@ -4,8 +4,8 @@
 # Uso: ./deploy.sh "Sua mensagem de commit"
 
 # --- Configuração ---
-PROJECT_DIR="/opt/mkdocs"
-APACHE_DIR="/var/www/html"
+PROJECT_DIR="/home/mevorak/officinas"
+APACHE_DIR="/srv/www/"
 COMMIT_MESSAGE="Docs: Atualiza o conteúdo do site"
 
 # --- Início do Script ---
