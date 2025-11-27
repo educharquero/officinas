@@ -26,9 +26,26 @@ sudo apt update && sudo apt install samba winbind libpam-winbind libnss-winbind 
 
 ```bash
 [libdefaults]
-    default_realm = DOMINIO.LOCAL
+    default_realm = EDUCATUX.EDU
     dns_lookup_realm = false
     dns_lookup_kdc = true
+    kdc_timesync = 1
+    ccache_type = 4
+    forwardable = true
+    proxiable = true
+    rdns = false
+    fcc-mit-ticketflags = true
+
+[realms]
+    EDUCATUX.EDU = {
+        kdc = 192.168.70.250
+        admin_server = 192.168.70.250
+        default_domain = officinas.edu
+    }
+
+[domain_realm]
+    .officinas.edu = EDUCATUX.EDU
+    educatux.edu = EDUCATUX.EDU
 ```
 
 3. Configurar /etc/samba/smb.conf
