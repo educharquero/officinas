@@ -15,8 +15,11 @@
         <link rel="next" href="../Squid_proxy_puro/">
       
       
+        
+      
+      
       <link rel="icon" href="../imagens/tux.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -24,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,7 +55,6 @@
     
       
 
-    
     
     
   </head>
@@ -366,9 +368,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Início
+  
+
     
   </span>
+  
   
 
       </a>
@@ -388,9 +395,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Visão Geral
+  
+
     
   </span>
+  
   
 
       </a>
@@ -431,9 +443,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Servidores
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -442,7 +459,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            📂 Servidores
+            
+  
+    📂 Servidores
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -458,9 +479,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DHCP Server
+  
+
     
   </span>
+  
   
 
       </a>
@@ -481,9 +507,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     DNS Server
+  
+
     
   </span>
+  
   
 
       </a>
@@ -525,9 +556,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Servidor de Firewall
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -536,7 +572,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
-            Servidor de Firewall
+            
+  
+    Servidor de Firewall
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -561,9 +601,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Firewall
+  
+
     
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -574,9 +619,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Firewall
+  
+
     
   </span>
+  
   
 
       </a>
@@ -599,7 +649,9 @@
         <li class="md-nav__item">
   <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
+      
+        🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
+      
     </span>
   </a>
   
@@ -608,7 +660,9 @@
         <li class="md-nav__item">
   <a href="#o-iptables-trabalha-a-nivel-de-kernel-utilizando-tres-tabelas" class="md-nav__link">
     <span class="md-ellipsis">
-      O iptables trabalha a nível de Kernel, utilizando três tabelas:
+      
+        O iptables trabalha a nível de Kernel, utilizando três tabelas:
+      
     </span>
   </a>
   
@@ -617,7 +671,9 @@
         <li class="md-nav__item">
   <a href="#a-tabela-filter" class="md-nav__link">
     <span class="md-ellipsis">
-      A tabela filter
+      
+        A tabela filter
+      
     </span>
   </a>
   
@@ -626,7 +682,9 @@
         <li class="md-nav__item">
   <a href="#a-tabela-nat" class="md-nav__link">
     <span class="md-ellipsis">
-      A tabela NAT
+      
+        A tabela NAT
+      
     </span>
   </a>
   
@@ -635,7 +693,9 @@
         <li class="md-nav__item">
   <a href="#topologia-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Topologia da rede:
+      
+        🌐 Topologia da rede:
+      
     </span>
   </a>
   
@@ -644,7 +704,9 @@
         <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede-wan-apontando-pro-roteador-da-operadora-e-lan-apontando-pra-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
+      
+        🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
+      
     </span>
   </a>
   
@@ -653,7 +715,9 @@
         <li class="md-nav__item">
   <a href="#aplique-as-alteracoes" class="md-nav__link">
     <span class="md-ellipsis">
-      Aplique as alterações
+      
+        Aplique as alterações
+      
     </span>
   </a>
   
@@ -662,7 +726,9 @@
         <li class="md-nav__item">
   <a href="#verifique-se-as-interfaces-subiram-corretamente" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifique se as interfaces subiram corretamente
+      
+        Verifique se as interfaces subiram corretamente
+      
     </span>
   </a>
   
@@ -671,7 +737,9 @@
         <li class="md-nav__item">
   <a href="#resolvedor-de-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🧭 Resolvedor de nomes
+      
+        🧭 Resolvedor de nomes
+      
     </span>
   </a>
   
@@ -680,7 +748,9 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-resolvconf-apontando-o-resolvedor-interno-srvdc01" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo resolv.conf apontando o resolvedor interno SRVDC01
+      
+        Edite o arquivo resolv.conf apontando o resolvedor interno SRVDC01
+      
     </span>
   </a>
   
@@ -689,7 +759,9 @@
         <li class="md-nav__item">
   <a href="#bloqueie-a-edicao-automatica-do-arquivo" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloqueie a edição automática do arquivo
+      
+        Bloqueie a edição automática do arquivo
+      
     </span>
   </a>
   
@@ -698,7 +770,9 @@
         <li class="md-nav__item">
   <a href="#a-1o-parte-se-referira-a-integracao-ao-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      A 1º Parte se referirá á integração ao domínio
+      
+        A 1º Parte se referirá á integração ao domínio
+      
     </span>
   </a>
   
@@ -707,7 +781,9 @@
         <li class="md-nav__item">
   <a href="#instalar-pacotes-de-integracao-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Instalar pacotes de integração AD
+      
+        ⚙️ Instalar pacotes de integração AD
+      
     </span>
   </a>
   
@@ -716,7 +792,9 @@
         <li class="md-nav__item">
   <a href="#sincronizacao-de-hora-critica-para-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Sincronização de hora (crítica para Kerberos):
+      
+        ✅ Sincronização de hora (crítica para Kerberos):
+      
     </span>
   </a>
   
@@ -725,7 +803,9 @@
         <li class="md-nav__item">
   <a href="#adicione-o-srvdc01-ao-chrony" class="md-nav__link">
     <span class="md-ellipsis">
-      Adicione o srvdc01 ao chrony:
+      
+        Adicione o srvdc01 ao chrony:
+      
     </span>
   </a>
   
@@ -734,7 +814,9 @@
         <li class="md-nav__item">
   <a href="#habilite-e-reinicie-o-servico-de-sincronizacao-de-horario" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite e reinicie o serviço de sincronização de horário.
+      
+        Habilite e reinicie o serviço de sincronização de horário.
+      
     </span>
   </a>
   
@@ -743,7 +825,9 @@
         <li class="md-nav__item">
   <a href="#configurar-o-kerberos-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      🔑 Configurar o Kerberos após fazer o backup do arquivo original
+      
+        🔑 Configurar o Kerberos após fazer o backup do arquivo original
+      
     </span>
   </a>
   
@@ -752,7 +836,9 @@
         <li class="md-nav__item">
   <a href="#configurar-o-arquivo-do-samba-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
+      
+        ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
+      
     </span>
   </a>
   
@@ -761,7 +847,9 @@
         <li class="md-nav__item">
   <a href="#configurar-apontamento-do-winbind-na-validacao-de-nomes-e-contas-do-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
+      
+        🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
+      
     </span>
   </a>
   
@@ -770,7 +858,9 @@
         <li class="md-nav__item">
   <a href="#ingressar-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Ingressar no domínio
+      
+        🧩 Ingressar no domínio
+      
     </span>
   </a>
   
@@ -779,7 +869,9 @@
         <li class="md-nav__item">
   <a href="#saida-esperada" class="md-nav__link">
     <span class="md-ellipsis">
-      Saída esperada:
+      
+        Saída esperada:
+      
     </span>
   </a>
   
@@ -788,7 +880,9 @@
         <li class="md-nav__item">
   <a href="#valide" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide:
+      
+        Valide:
+      
     </span>
   </a>
   
@@ -797,7 +891,9 @@
         <li class="md-nav__item">
   <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+      
+        🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+      
     </span>
   </a>
   
@@ -806,7 +902,9 @@
         <li class="md-nav__item">
   <a href="#teste-o-ticket" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o ticket:
+      
+        Teste o ticket:
+      
     </span>
   </a>
   
@@ -815,7 +913,9 @@
         <li class="md-nav__item">
   <a href="#testar-autenticacao-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Testar autenticação AD
+      
+        ✅ Testar autenticação AD
+      
     </span>
   </a>
   
@@ -824,7 +924,9 @@
         <li class="md-nav__item">
   <a href="#verificar-dns-e-nat" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Verificar DNS e NAT
+      
+        ⚙️ Verificar DNS e NAT
+      
     </span>
   </a>
   
@@ -833,7 +935,9 @@
         <li class="md-nav__item">
   <a href="#a-2o-parte-se-referira-ao-servico-de-firewall-propriamente-dito" class="md-nav__link">
     <span class="md-ellipsis">
-      A 2º Parte se referirá ao serviço de Firewall, propriamente dito
+      
+        A 2º Parte se referirá ao serviço de Firewall, propriamente dito
+      
     </span>
   </a>
   
@@ -842,7 +946,9 @@
         <li class="md-nav__item">
   <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+      
+        🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+      
     </span>
   </a>
   
@@ -851,7 +957,9 @@
         <li class="md-nav__item">
   <a href="#crie-o-arquivo-de-configuracao-do-sysctlconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie o arquivo de configuração do sysctl.conf
+      
+        Crie o arquivo de configuração do sysctl.conf
+      
     </span>
   </a>
   
@@ -860,7 +968,9 @@
         <li class="md-nav__item">
   <a href="#ative-a-configuracao-imediatamente" class="md-nav__link">
     <span class="md-ellipsis">
-      Ative a configuração imediatamente
+      
+        Ative a configuração imediatamente
+      
     </span>
   </a>
   
@@ -869,7 +979,9 @@
         <li class="md-nav__item">
   <a href="#instalar-o-iptables" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 Instalar o iptables
+      
+        🧱 Instalar o iptables
+      
     </span>
   </a>
   
@@ -878,7 +990,9 @@
         <li class="md-nav__item">
   <a href="#substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico" class="md-nav__link">
     <span class="md-ellipsis">
-      Substitua o nftables (padrão do Debian 13) pelo iptables clássico
+      
+        Substitua o nftables (padrão do Debian 13) pelo iptables clássico
+      
     </span>
   </a>
   
@@ -887,7 +1001,9 @@
         <li class="md-nav__item">
   <a href="#criar-o-script-do-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Criar o script do firewall
+      
+        🔧 Criar o script do firewall
+      
     </span>
   </a>
   
@@ -896,7 +1012,9 @@
         <li class="md-nav__item">
   <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie o arquivo /usr/local/bin/firewall
+      
+        Crie o arquivo /usr/local/bin/firewall
+      
     </span>
   </a>
   
@@ -905,7 +1023,9 @@
         <li class="md-nav__item">
   <a href="#algumas-explicacoes-importantes" class="md-nav__link">
     <span class="md-ellipsis">
-      Algumas explicações importantes
+      
+        Algumas explicações importantes
+      
     </span>
   </a>
   
@@ -914,7 +1034,9 @@
         <li class="md-nav__item">
   <a href="#a-opcao-m-conntrack" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ A opção -m conntrack
+      
+        ⚙️ A opção -m conntrack
+      
     </span>
   </a>
   
@@ -923,7 +1045,9 @@
         <li class="md-nav__item">
   <a href="#o-parametro-ctstate" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 O parâmetro --ctstate
+      
+        🔄 O parâmetro --ctstate
+      
     </span>
   </a>
   
@@ -932,7 +1056,9 @@
         <li class="md-nav__item">
   <a href="#os-principais-estados-sao" class="md-nav__link">
     <span class="md-ellipsis">
-      Os principais estados são
+      
+        Os principais estados são
+      
     </span>
   </a>
   
@@ -941,7 +1067,9 @@
         <li class="md-nav__item">
   <a href="#o-que-faz-ctstate-new" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 O que faz --ctstate NEW
+      
+        💡 O que faz --ctstate NEW
+      
     </span>
   </a>
   
@@ -950,7 +1078,9 @@
         <li class="md-nav__item">
   <a href="#por-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
-      Por exemplo
+      
+        Por exemplo
+      
     </span>
   </a>
   
@@ -959,7 +1089,9 @@
         <li class="md-nav__item">
   <a href="#apos-esse-rapido-alinhamento-vamos-aplicar-as-configuracoes-e-salvar-o-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
+      
+        ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
+      
     </span>
   </a>
   
@@ -968,7 +1100,9 @@
         <li class="md-nav__item">
   <a href="#torne-o-script-executavel" class="md-nav__link">
     <span class="md-ellipsis">
-      Torne o script executável
+      
+        Torne o script executável
+      
     </span>
   </a>
   
@@ -977,7 +1111,9 @@
         <li class="md-nav__item">
   <a href="#rode-o-script-para-subir-as-regras" class="md-nav__link">
     <span class="md-ellipsis">
-      Rode o script para subir as regras
+      
+        Rode o script para subir as regras
+      
     </span>
   </a>
   
@@ -986,7 +1122,9 @@
         <li class="md-nav__item">
   <a href="#salve-as-regras-ativas" class="md-nav__link">
     <span class="md-ellipsis">
-      Salve as regras ativas
+      
+        Salve as regras ativas
+      
     </span>
   </a>
   
@@ -995,7 +1133,9 @@
         <li class="md-nav__item">
   <a href="#tornar-o-firewall-persistente-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Tornar o firewall persistente no boot
+      
+        🧠 Tornar o firewall persistente no boot
+      
     </span>
   </a>
   
@@ -1004,7 +1144,9 @@
         <li class="md-nav__item">
   <a href="#habilite-o-servico" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite o serviço
+      
+        Habilite o serviço
+      
     </span>
   </a>
   
@@ -1013,7 +1155,9 @@
         <li class="md-nav__item">
   <a href="#verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifique se as regras estão sendo aplicadas após o reboot
+      
+        Verifique se as regras estão sendo aplicadas após o reboot
+      
     </span>
   </a>
   
@@ -1022,7 +1166,9 @@
         <li class="md-nav__item">
   <a href="#testes-rapidos" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Testes rápidos
+      
+        ✅ Testes rápidos
+      
     </span>
   </a>
   
@@ -1031,7 +1177,9 @@
         <li class="md-nav__item">
   <a href="#conexao-com-internet" class="md-nav__link">
     <span class="md-ellipsis">
-      Conexão com internet
+      
+        Conexão com internet
+      
     </span>
   </a>
   
@@ -1040,7 +1188,9 @@
         <li class="md-nav__item">
   <a href="#conexao-com-a-rede-lan" class="md-nav__link">
     <span class="md-ellipsis">
-      Conexão com a rede lan
+      
+        Conexão com a rede lan
+      
     </span>
   </a>
   
@@ -1049,7 +1199,9 @@
         <li class="md-nav__item">
   <a href="#validando-nat-e-dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Validando NAT e DNS
+      
+        Validando NAT e DNS
+      
     </span>
   </a>
   
@@ -1058,7 +1210,9 @@
         <li class="md-nav__item">
   <a href="#resultado-final" class="md-nav__link">
     <span class="md-ellipsis">
-      🏁 Resultado Final
+      
+        🏁 Resultado Final
+      
     </span>
   </a>
   
@@ -1112,9 +1266,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Servidor Proxy
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1123,7 +1282,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
-            Servidor Proxy
+            
+  
+    Servidor Proxy
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1139,9 +1302,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Proxy Squid
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1170,9 +1338,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     MkDocs Server
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1193,9 +1366,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     NFS Server
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1235,9 +1413,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Servidor de Arquivos
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1246,7 +1429,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_7">
             <span class="md-nav__icon md-icon"></span>
-            Servidor de Arquivos
+            
+  
+    Servidor de Arquivos
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1262,9 +1449,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Fileserver
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1312,9 +1504,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Controladores de Domínio
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1323,7 +1520,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_8">
             <span class="md-nav__icon md-icon"></span>
-            Controladores de Domínio
+            
+  
+    Controladores de Domínio
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1334,14 +1535,47 @@
   
   
     <li class="md-nav__item">
-      <a href="../PDC_Controlador_de_Dominio_Primario/" class="md-nav__link">
+      <a href="../PDC_Debian_Server/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    PDC Server
+    
+  
+    PDC Debian Server
+  
+
     
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PDC_Void_Server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PDC Void Server
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -1393,9 +1627,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Distros Linux
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1404,7 +1643,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            📂 Distros Linux
+            
+  
+    📂 Distros Linux
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1420,9 +1663,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     OpenSUSE Linux
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1443,9 +1691,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Devuan Linux
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1489,9 +1742,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Módulos LPI
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1500,7 +1758,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            📂 Módulos LPI
+            
+  
+    📂 Módulos LPI
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1516,9 +1778,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     LPI Aula de Introdução
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1555,9 +1822,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Módulo LPIC-101
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1566,7 +1838,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            Módulo LPIC-101
+            
+  
+    Módulo LPIC-101
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1598,9 +1874,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     101.1
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1609,7 +1890,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_1">
             <span class="md-nav__icon md-icon"></span>
-            101.1
+            
+  
+    101.1
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1625,9 +1910,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     🐧 LPIC-101.1 - Identificação e Configuração de Hardware
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1648,9 +1938,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1695,9 +1990,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     101.2
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1706,7 +2006,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_2">
             <span class="md-nav__icon md-icon"></span>
-            101.2
+            
+  
+    101.2
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1722,9 +2026,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     🐧 LPIC-101.2: O Processo de Inicialização do Linux
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1745,9 +2054,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ⚙️ Aula Prática – LPI 101.2: Inicialização do Sistema Linux
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1768,9 +2082,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     🐧 Entendendo a NVRAM no UEFI
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1815,9 +2134,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     101.3
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1826,7 +2150,11 @@
         <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_3">
             <span class="md-nav__icon md-icon"></span>
-            101.3
+            
+  
+    101.3
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1842,9 +2170,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     101.3 Runlevel, Shutdown e Reboot (LPIC-1)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1865,9 +2198,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     🐧 Aula Prática – LPI 101.1: Arquitetura do Sistema (Detecção de Hardware)
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1920,9 +2258,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Módulo LPIC-102
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1931,7 +2274,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            Módulo LPIC-102
+            
+  
+    Módulo LPIC-102
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1947,9 +2294,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     102.1
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1970,9 +2322,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     102.2
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1993,9 +2350,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     102.3
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2040,9 +2402,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Módulo LPIC-103
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2051,7 +2418,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
-            Módulo LPIC-103
+            
+  
+    Módulo LPIC-103
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2067,9 +2438,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     103.1
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2090,9 +2466,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aula 02
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2113,9 +2494,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aula 03
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2136,9 +2522,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aula 04
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2159,9 +2550,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aula 05
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2206,9 +2602,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Módulo 103.2 - Processamento de Texto
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2217,7 +2618,11 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
-            Módulo 103.2 - Processamento de Texto
+            
+  
+    Módulo 103.2 - Processamento de Texto
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2233,9 +2638,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aula 01
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2287,9 +2697,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     📂 Outros assuntos
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2298,7 +2713,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            📂 Outros assuntos
+            
+  
+    📂 Outros assuntos
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2314,9 +2733,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Universo *NIX
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2337,9 +2761,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Aircrack-NG
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2360,9 +2789,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Linux no Domínio
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2383,9 +2817,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     O SystemD
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2406,9 +2845,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     FHS
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2429,9 +2873,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     RAID
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2452,9 +2901,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Permissões Linux 01
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2475,9 +2929,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Permissões Linux 02
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2498,9 +2957,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Usuários e Grupos 01
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2521,9 +2985,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Usuários e Grupos 02
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2568,7 +3037,9 @@
         <li class="md-nav__item">
   <a href="#o-objetivo-nesse-tutorial-e-criar-um-servidor-de-firewall-stateful-que-entende-o-contexto-e-o-estado-das-conexoes-com-roteamento-entre-duas-redes-utilizando-iptables-no-debian-13-com-ele-voce-pode-bloquear-novas-conexoes-vindas-da-internet-new-mas-permitir-o-retorno-das-conexoes-iniciadas-de-dentro-establishedrelated-ele-sera-integrado-ao-dominio-utilizando-winbind-e-kerberos-possibilitando-autenticacao-e-controle-de-usuarios-de-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
+      
+        🎯 O Objetivo nesse tutorial é criar um servidor de firewall stateful, que entende o contexto e o estado das conexões, com roteamento entre duas redes, utilizando iptables no Debian 13. Com ele, você pode bloquear novas conexões vindas da Internet (NEW), mas permitir o retorno das conexões iniciadas de dentro (ESTABLISHED,RELATED). Ele será integrado ao domínio utilizando winbind e kerberos, possibilitando autenticação e controle de usuários de rede.
+      
     </span>
   </a>
   
@@ -2577,7 +3048,9 @@
         <li class="md-nav__item">
   <a href="#o-iptables-trabalha-a-nivel-de-kernel-utilizando-tres-tabelas" class="md-nav__link">
     <span class="md-ellipsis">
-      O iptables trabalha a nível de Kernel, utilizando três tabelas:
+      
+        O iptables trabalha a nível de Kernel, utilizando três tabelas:
+      
     </span>
   </a>
   
@@ -2586,7 +3059,9 @@
         <li class="md-nav__item">
   <a href="#a-tabela-filter" class="md-nav__link">
     <span class="md-ellipsis">
-      A tabela filter
+      
+        A tabela filter
+      
     </span>
   </a>
   
@@ -2595,7 +3070,9 @@
         <li class="md-nav__item">
   <a href="#a-tabela-nat" class="md-nav__link">
     <span class="md-ellipsis">
-      A tabela NAT
+      
+        A tabela NAT
+      
     </span>
   </a>
   
@@ -2604,7 +3081,9 @@
         <li class="md-nav__item">
   <a href="#topologia-da-rede" class="md-nav__link">
     <span class="md-ellipsis">
-      🌐 Topologia da rede:
+      
+        🌐 Topologia da rede:
+      
     </span>
   </a>
   
@@ -2613,7 +3092,9 @@
         <li class="md-nav__item">
   <a href="#configuracao-das-interfaces-de-rede-wan-apontando-pro-roteador-da-operadora-e-lan-apontando-pra-rede-interna" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
+      
+        🧩 Configuração das interfaces de rede (WAN apontando pro Roteador da operadora e LAN apontando pra Rede interna)
+      
     </span>
   </a>
   
@@ -2622,7 +3103,9 @@
         <li class="md-nav__item">
   <a href="#aplique-as-alteracoes" class="md-nav__link">
     <span class="md-ellipsis">
-      Aplique as alterações
+      
+        Aplique as alterações
+      
     </span>
   </a>
   
@@ -2631,7 +3114,9 @@
         <li class="md-nav__item">
   <a href="#verifique-se-as-interfaces-subiram-corretamente" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifique se as interfaces subiram corretamente
+      
+        Verifique se as interfaces subiram corretamente
+      
     </span>
   </a>
   
@@ -2640,7 +3125,9 @@
         <li class="md-nav__item">
   <a href="#resolvedor-de-nomes" class="md-nav__link">
     <span class="md-ellipsis">
-      🧭 Resolvedor de nomes
+      
+        🧭 Resolvedor de nomes
+      
     </span>
   </a>
   
@@ -2649,7 +3136,9 @@
         <li class="md-nav__item">
   <a href="#edite-o-arquivo-resolvconf-apontando-o-resolvedor-interno-srvdc01" class="md-nav__link">
     <span class="md-ellipsis">
-      Edite o arquivo resolv.conf apontando o resolvedor interno SRVDC01
+      
+        Edite o arquivo resolv.conf apontando o resolvedor interno SRVDC01
+      
     </span>
   </a>
   
@@ -2658,7 +3147,9 @@
         <li class="md-nav__item">
   <a href="#bloqueie-a-edicao-automatica-do-arquivo" class="md-nav__link">
     <span class="md-ellipsis">
-      Bloqueie a edição automática do arquivo
+      
+        Bloqueie a edição automática do arquivo
+      
     </span>
   </a>
   
@@ -2667,7 +3158,9 @@
         <li class="md-nav__item">
   <a href="#a-1o-parte-se-referira-a-integracao-ao-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      A 1º Parte se referirá á integração ao domínio
+      
+        A 1º Parte se referirá á integração ao domínio
+      
     </span>
   </a>
   
@@ -2676,7 +3169,9 @@
         <li class="md-nav__item">
   <a href="#instalar-pacotes-de-integracao-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Instalar pacotes de integração AD
+      
+        ⚙️ Instalar pacotes de integração AD
+      
     </span>
   </a>
   
@@ -2685,7 +3180,9 @@
         <li class="md-nav__item">
   <a href="#sincronizacao-de-hora-critica-para-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Sincronização de hora (crítica para Kerberos):
+      
+        ✅ Sincronização de hora (crítica para Kerberos):
+      
     </span>
   </a>
   
@@ -2694,7 +3191,9 @@
         <li class="md-nav__item">
   <a href="#adicione-o-srvdc01-ao-chrony" class="md-nav__link">
     <span class="md-ellipsis">
-      Adicione o srvdc01 ao chrony:
+      
+        Adicione o srvdc01 ao chrony:
+      
     </span>
   </a>
   
@@ -2703,7 +3202,9 @@
         <li class="md-nav__item">
   <a href="#habilite-e-reinicie-o-servico-de-sincronizacao-de-horario" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite e reinicie o serviço de sincronização de horário.
+      
+        Habilite e reinicie o serviço de sincronização de horário.
+      
     </span>
   </a>
   
@@ -2712,7 +3213,9 @@
         <li class="md-nav__item">
   <a href="#configurar-o-kerberos-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      🔑 Configurar o Kerberos após fazer o backup do arquivo original
+      
+        🔑 Configurar o Kerberos após fazer o backup do arquivo original
+      
     </span>
   </a>
   
@@ -2721,7 +3224,9 @@
         <li class="md-nav__item">
   <a href="#configurar-o-arquivo-do-samba-apos-fazer-o-backup-do-arquivo-original" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
+      
+        ⚙️ Configurar o arquivo do Samba após fazer o backup do arquivo original
+      
     </span>
   </a>
   
@@ -2730,7 +3235,9 @@
         <li class="md-nav__item">
   <a href="#configurar-apontamento-do-winbind-na-validacao-de-nomes-e-contas-do-sistema" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
+      
+        🧠 Configurar apontamento do winbind na validação de nomes e contas do Sistema
+      
     </span>
   </a>
   
@@ -2739,7 +3246,9 @@
         <li class="md-nav__item">
   <a href="#ingressar-no-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      🧩 Ingressar no domínio
+      
+        🧩 Ingressar no domínio
+      
     </span>
   </a>
   
@@ -2748,7 +3257,9 @@
         <li class="md-nav__item">
   <a href="#saida-esperada" class="md-nav__link">
     <span class="md-ellipsis">
-      Saída esperada:
+      
+        Saída esperada:
+      
     </span>
   </a>
   
@@ -2757,7 +3268,9 @@
         <li class="md-nav__item">
   <a href="#valide" class="md-nav__link">
     <span class="md-ellipsis">
-      Valide:
+      
+        Valide:
+      
     </span>
   </a>
   
@@ -2766,7 +3279,9 @@
         <li class="md-nav__item">
   <a href="#restarte-os-servicos-de-smbd-nmbd-e-winbind-e-habilite-os-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+      
+        🔄 Restarte os serviços de smbd, nmbd e winbind e habilite-os no boot
+      
     </span>
   </a>
   
@@ -2775,7 +3290,9 @@
         <li class="md-nav__item">
   <a href="#teste-o-ticket" class="md-nav__link">
     <span class="md-ellipsis">
-      Teste o ticket:
+      
+        Teste o ticket:
+      
     </span>
   </a>
   
@@ -2784,7 +3301,9 @@
         <li class="md-nav__item">
   <a href="#testar-autenticacao-ad" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Testar autenticação AD
+      
+        ✅ Testar autenticação AD
+      
     </span>
   </a>
   
@@ -2793,7 +3312,9 @@
         <li class="md-nav__item">
   <a href="#verificar-dns-e-nat" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Verificar DNS e NAT
+      
+        ⚙️ Verificar DNS e NAT
+      
     </span>
   </a>
   
@@ -2802,7 +3323,9 @@
         <li class="md-nav__item">
   <a href="#a-2o-parte-se-referira-ao-servico-de-firewall-propriamente-dito" class="md-nav__link">
     <span class="md-ellipsis">
-      A 2º Parte se referirá ao serviço de Firewall, propriamente dito
+      
+        A 2º Parte se referirá ao serviço de Firewall, propriamente dito
+      
     </span>
   </a>
   
@@ -2811,7 +3334,9 @@
         <li class="md-nav__item">
   <a href="#habilitar-roteamento-no-kernel-bem-como-protecao-anti-spoofing" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+      
+        🔄 Habilitar roteamento no kernel, bem como proteção anti-spoofing
+      
     </span>
   </a>
   
@@ -2820,7 +3345,9 @@
         <li class="md-nav__item">
   <a href="#crie-o-arquivo-de-configuracao-do-sysctlconf" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie o arquivo de configuração do sysctl.conf
+      
+        Crie o arquivo de configuração do sysctl.conf
+      
     </span>
   </a>
   
@@ -2829,7 +3356,9 @@
         <li class="md-nav__item">
   <a href="#ative-a-configuracao-imediatamente" class="md-nav__link">
     <span class="md-ellipsis">
-      Ative a configuração imediatamente
+      
+        Ative a configuração imediatamente
+      
     </span>
   </a>
   
@@ -2838,7 +3367,9 @@
         <li class="md-nav__item">
   <a href="#instalar-o-iptables" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 Instalar o iptables
+      
+        🧱 Instalar o iptables
+      
     </span>
   </a>
   
@@ -2847,7 +3378,9 @@
         <li class="md-nav__item">
   <a href="#substitua-o-nftables-padrao-do-debian-13-pelo-iptables-classico" class="md-nav__link">
     <span class="md-ellipsis">
-      Substitua o nftables (padrão do Debian 13) pelo iptables clássico
+      
+        Substitua o nftables (padrão do Debian 13) pelo iptables clássico
+      
     </span>
   </a>
   
@@ -2856,7 +3389,9 @@
         <li class="md-nav__item">
   <a href="#criar-o-script-do-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Criar o script do firewall
+      
+        🔧 Criar o script do firewall
+      
     </span>
   </a>
   
@@ -2865,7 +3400,9 @@
         <li class="md-nav__item">
   <a href="#crie-o-arquivo-usrlocalbinfirewall" class="md-nav__link">
     <span class="md-ellipsis">
-      Crie o arquivo /usr/local/bin/firewall
+      
+        Crie o arquivo /usr/local/bin/firewall
+      
     </span>
   </a>
   
@@ -2874,7 +3411,9 @@
         <li class="md-nav__item">
   <a href="#algumas-explicacoes-importantes" class="md-nav__link">
     <span class="md-ellipsis">
-      Algumas explicações importantes
+      
+        Algumas explicações importantes
+      
     </span>
   </a>
   
@@ -2883,7 +3422,9 @@
         <li class="md-nav__item">
   <a href="#a-opcao-m-conntrack" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ A opção -m conntrack
+      
+        ⚙️ A opção -m conntrack
+      
     </span>
   </a>
   
@@ -2892,7 +3433,9 @@
         <li class="md-nav__item">
   <a href="#o-parametro-ctstate" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 O parâmetro --ctstate
+      
+        🔄 O parâmetro --ctstate
+      
     </span>
   </a>
   
@@ -2901,7 +3444,9 @@
         <li class="md-nav__item">
   <a href="#os-principais-estados-sao" class="md-nav__link">
     <span class="md-ellipsis">
-      Os principais estados são
+      
+        Os principais estados são
+      
     </span>
   </a>
   
@@ -2910,7 +3455,9 @@
         <li class="md-nav__item">
   <a href="#o-que-faz-ctstate-new" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 O que faz --ctstate NEW
+      
+        💡 O que faz --ctstate NEW
+      
     </span>
   </a>
   
@@ -2919,7 +3466,9 @@
         <li class="md-nav__item">
   <a href="#por-exemplo" class="md-nav__link">
     <span class="md-ellipsis">
-      Por exemplo
+      
+        Por exemplo
+      
     </span>
   </a>
   
@@ -2928,7 +3477,9 @@
         <li class="md-nav__item">
   <a href="#apos-esse-rapido-alinhamento-vamos-aplicar-as-configuracoes-e-salvar-o-firewall" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
+      
+        ⚙️ Após esse rápido alinhamento, vamos aplicar as configurações e salvar o firewall
+      
     </span>
   </a>
   
@@ -2937,7 +3488,9 @@
         <li class="md-nav__item">
   <a href="#torne-o-script-executavel" class="md-nav__link">
     <span class="md-ellipsis">
-      Torne o script executável
+      
+        Torne o script executável
+      
     </span>
   </a>
   
@@ -2946,7 +3499,9 @@
         <li class="md-nav__item">
   <a href="#rode-o-script-para-subir-as-regras" class="md-nav__link">
     <span class="md-ellipsis">
-      Rode o script para subir as regras
+      
+        Rode o script para subir as regras
+      
     </span>
   </a>
   
@@ -2955,7 +3510,9 @@
         <li class="md-nav__item">
   <a href="#salve-as-regras-ativas" class="md-nav__link">
     <span class="md-ellipsis">
-      Salve as regras ativas
+      
+        Salve as regras ativas
+      
     </span>
   </a>
   
@@ -2964,7 +3521,9 @@
         <li class="md-nav__item">
   <a href="#tornar-o-firewall-persistente-no-boot" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Tornar o firewall persistente no boot
+      
+        🧠 Tornar o firewall persistente no boot
+      
     </span>
   </a>
   
@@ -2973,7 +3532,9 @@
         <li class="md-nav__item">
   <a href="#habilite-o-servico" class="md-nav__link">
     <span class="md-ellipsis">
-      Habilite o serviço
+      
+        Habilite o serviço
+      
     </span>
   </a>
   
@@ -2982,7 +3543,9 @@
         <li class="md-nav__item">
   <a href="#verifique-se-as-regras-estao-sendo-aplicadas-apos-o-reboot" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifique se as regras estão sendo aplicadas após o reboot
+      
+        Verifique se as regras estão sendo aplicadas após o reboot
+      
     </span>
   </a>
   
@@ -2991,7 +3554,9 @@
         <li class="md-nav__item">
   <a href="#testes-rapidos" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Testes rápidos
+      
+        ✅ Testes rápidos
+      
     </span>
   </a>
   
@@ -3000,7 +3565,9 @@
         <li class="md-nav__item">
   <a href="#conexao-com-internet" class="md-nav__link">
     <span class="md-ellipsis">
-      Conexão com internet
+      
+        Conexão com internet
+      
     </span>
   </a>
   
@@ -3009,7 +3576,9 @@
         <li class="md-nav__item">
   <a href="#conexao-com-a-rede-lan" class="md-nav__link">
     <span class="md-ellipsis">
-      Conexão com a rede lan
+      
+        Conexão com a rede lan
+      
     </span>
   </a>
   
@@ -3018,7 +3587,9 @@
         <li class="md-nav__item">
   <a href="#validando-nat-e-dns" class="md-nav__link">
     <span class="md-ellipsis">
-      Validando NAT e DNS
+      
+        Validando NAT e DNS
+      
     </span>
   </a>
   
@@ -3027,7 +3598,9 @@
         <li class="md-nav__item">
   <a href="#resultado-final" class="md-nav__link">
     <span class="md-ellipsis">
-      🏁 Resultado Final
+      
+        🏁 Resultado Final
+      
     </span>
   </a>
   
@@ -3043,6 +3616,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -3459,7 +4033,7 @@ iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/r
       
     
     <a href="https://github.com/educharquero" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
     </a>
   
 </div>
@@ -3476,10 +4050,11 @@ iptables-save<span class="w"> </span>&gt;<span class="w"> </span>/etc/iptables/r
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
