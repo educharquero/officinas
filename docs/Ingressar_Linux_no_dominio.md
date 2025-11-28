@@ -55,6 +55,7 @@ sudo apt update && sudo apt install samba winbind libpam-winbind libnss-winbind 
    workgroup = EDUCATUX
    security = ads
    realm = EDUCATUX.EDU
+   server role = member server
 
    winbind use default domain = true
    winbind enum users = yes
@@ -123,4 +124,55 @@ sudo systemctl enable winbind
 sudo timedatectl set-ntp true
 ```
 
-THAT'S ALL FOLKS
+## SE você for usuário de Lightdm, como é o caso do Mint, ajuste pra logar com usuário de rede, ao invés de usuário local apenas.
+
+## 🛠️ Passo a Passo: Configurar LightDM para aceitar usuários do domínio
+
+## 1. Editar ou criar o arquivo de configuração do LightDM
+
+```bash
+sudo nano /etc/lightdm/lightdm.conf
+```
+
+## Adicione (ou edite) as seguintes linhas:
+
+```bash
+[Seat:*]
+greeter-show-manual-login=true
+greeter-hide-users=true
+allow-guest=false
+```
+
+## Explicações:
+
+- greeter-show-manual-login=true: Permite digitar o nome de usuário manualmente.
+- greeter-hide-users=true: Esconde a lista local de usuários (útil para ambientes corporativos).
+- allow-guest=false: Impede login de convidados (por segurança).
+
+## 2. Certifique-se de que PAM está permitindo usuários do domínio
+
+## Se você usou SSSD ou Winbind, o PAM já deve estar integrado corretamente. Mas valide que o módulo home esteja presente:
+
+```bash
+sudo nano /etc/pam.d/common-session
+```
+
+## Confirme que esta linha existe:
+
+```bash
+session required pam_mkhomedir.so skel=/etc/skel umask=0022
+```
+
+## 3. Reiniciar o LightDM
+
+```bash
+sudo timedatectl set-ntp true
+```
+
+---
+
+🎯 THAT'S ALL FOLKS!
+
+👉 Contato: zerolies@disroot.org
+👉 https://t.me/z3r0l135
+

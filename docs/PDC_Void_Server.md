@@ -225,7 +225,7 @@ Registered EDUCATUX<1c> ...
 
 ## 📦 Criar o serviço RUNIT do samba-ad-dc para subir o AD no boot
 
-## ⚠️ Esta parte é muito importante. Apague restos antigos se for reajuste de Server pré-existente!!
+## ⚠️ Esta parte é muito importante. Apague restos antigos SE FOR reajuste de Server pré-existente!!
 
 ```bash
 sv stop samba-ad-dc 2>/dev/null
@@ -420,7 +420,7 @@ vim /opt/samba/etc/user.map
 LIBDIR: /opt/samba/lib
 ```
 
-## Criar links entre as bibliotecas
+## Criar links entre as bibliotecas. Prefira digitar manualmente ao invés de copiar e colar aqui.
 
 ```bash
 ln -s /opt/samba/lib/libnss_winbind.so.2 /usr/lib/
