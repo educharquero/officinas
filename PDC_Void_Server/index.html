@@ -1374,10 +1374,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-path-do-run" class="md-nav__link">
+  <a href="#criar-a-estrutura-do-servico-antes-de-tudo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O path do /run
+        Criar a estrutura do serviço antes de tudo
       
     </span>
   </a>
@@ -1385,10 +1385,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-servico-do-run" class="md-nav__link">
+  <a href="#criar-o-servico-do-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O serviço do run
+        Criar o serviço do run
       
     </span>
   </a>
@@ -1396,10 +1396,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-permissao-do-run" class="md-nav__link">
+  <a href="#setar-a-permissao-do-servico-do-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A permissão do run
+        Setar a permissão do serviço do run
       
     </span>
   </a>
@@ -1407,10 +1407,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-path-do-log" class="md-nav__link">
+  <a href="#criar-o-arquivo-do-log" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O path do /log/
+        Criar o arquivo do log
       
     </span>
   </a>
@@ -1418,21 +1418,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-servico-do-logrun" class="md-nav__link">
+  <a href="#setar-a-permissao-do-logrun" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O serviço do log/run
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-permissao-do-logrun" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A permissão do log/run
+        Setar a permissão do log/run
       
     </span>
   </a>
@@ -3788,10 +3777,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-path-do-run" class="md-nav__link">
+  <a href="#criar-a-estrutura-do-servico-antes-de-tudo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O path do /run
+        Criar a estrutura do serviço antes de tudo
       
     </span>
   </a>
@@ -3799,10 +3788,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-servico-do-run" class="md-nav__link">
+  <a href="#criar-o-servico-do-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O serviço do run
+        Criar o serviço do run
       
     </span>
   </a>
@@ -3810,10 +3799,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-permissao-do-run" class="md-nav__link">
+  <a href="#setar-a-permissao-do-servico-do-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A permissão do run
+        Setar a permissão do serviço do run
       
     </span>
   </a>
@@ -3821,10 +3810,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-path-do-log" class="md-nav__link">
+  <a href="#criar-o-arquivo-do-log" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O path do /log/
+        Criar o arquivo do log
       
     </span>
   </a>
@@ -3832,21 +3821,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-servico-do-logrun" class="md-nav__link">
+  <a href="#setar-a-permissao-do-logrun" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O serviço do log/run
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-permissao-do-logrun" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        A permissão do log/run
+        Setar a permissão do log/run
       
     </span>
   </a>
@@ -4543,29 +4521,27 @@ rm<span class="w"> </span>-rf<span class="w"> </span>/etc/sv/*/supervise
 rm<span class="w"> </span>-rf<span class="w"> </span>/var/service/*/supervise
 </code></pre></div>
 <h2 id="agora-vamos-criar-os-servicos-e-permissoes-do-samba-ad-dc-com-logs-para-o-runit-subir-no-boot-do-sistema">Agora vamos criar os serviços e permissões do samba-ad-dc com logs, para o runit subir no boot do Sistema:</h2>
-<h2 id="o-path-do-run">O path do /run</h2>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/log/samba-ad-dc
+<h2 id="criar-a-estrutura-do-servico-antes-de-tudo">Criar a estrutura do serviço antes de tudo</h2>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/sv/samba-ad-dc/log
+mkdir<span class="w"> </span>-p<span class="w"> </span>/var/log/samba-ad-dc
 </code></pre></div>
-<h2 id="o-servico-do-run">O serviço do run</h2>
+<h2 id="criar-o-servico-do-run">Criar o serviço do run</h2>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/sv/samba-ad-dc/run<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
 <span class="s">#!/bin/sh</span>
 <span class="s">exec 2&gt;&amp;1</span>
 <span class="s">exec /opt/samba/sbin/samba -i -M single --debuglevel=3</span>
 <span class="s">EOF</span>
 </code></pre></div>
-<h2 id="a-permissao-do-run">A permissão do run</h2>
+<h2 id="setar-a-permissao-do-servico-do-run">Setar a permissão do serviço do run</h2>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/etc/sv/samba-ad-dc/run
 </code></pre></div>
-<h2 id="o-path-do-log">O path do /log/</h2>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/sv/samba-ad-dc/log
-</code></pre></div>
-<h2 id="o-servico-do-logrun">O serviço do log/run</h2>
+<h2 id="criar-o-arquivo-do-log">Criar o arquivo do log</h2>
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>&gt;<span class="w"> </span>/etc/sv/samba-ad-dc/log/run<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
 <span class="s">#!/bin/sh</span>
 <span class="s">exec svlogd -tt /var/log/samba-ad-dc</span>
 <span class="s">EOF</span>
 </code></pre></div>
-<h2 id="a-permissao-do-logrun">A permissão do log/run</h2>
+<h2 id="setar-a-permissao-do-logrun">Setar a permissão do log/run</h2>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>/etc/sv/samba-ad-dc/log/run
 </code></pre></div>
 <h2 id="habilitar-o-servico-do-samba-ad-dc-para-subir-no-boot">Habilitar o serviço do samba-ad-dc para subir no boot:</h2>
