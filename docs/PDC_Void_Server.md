@@ -239,13 +239,14 @@ rm -rf /var/service/*/supervise
 
 ## Agora vamos criar os serviços e permissões do samba-ad-dc com logs, para o runit subir no boot do Sistema:
 
-## O path do /run
+## Criar a estrutura do serviço antes de tudo
 
 ```bash
+mkdir -p /etc/sv/samba-ad-dc/log
 mkdir -p /var/log/samba-ad-dc
 ```
 
-## O serviço do run
+## Criar o serviço do run
 
 ```bash
 cat > /etc/sv/samba-ad-dc/run << 'EOF'
@@ -255,19 +256,13 @@ exec /opt/samba/sbin/samba -i -M single --debuglevel=3
 EOF
 ```
 
-## A permissão do run
+## Setar a permissão do serviço do run
 
 ```bash
 chmod +x /etc/sv/samba-ad-dc/run
 ```
 
-## O path do /log/
-
-```bash
-mkdir -p /etc/sv/samba-ad-dc/log
-```
-
-## O serviço do log/run
+## Criar o arquivo do log
 
 ```bash
 cat > /etc/sv/samba-ad-dc/log/run << 'EOF'
@@ -276,7 +271,7 @@ exec svlogd -tt /var/log/samba-ad-dc
 EOF
 ```
 
-## A permissão do log/run
+## Setar a permissão do log/run
 
 ```bash
 chmod +x /etc/sv/samba-ad-dc/log/run
