@@ -84,7 +84,7 @@ shadow:         compat
 5. Ingressar no domínio
 
 ```bash
-sudo net ads join -U Administrador
+sudo net ads join -U Administrator
 ```
 
 6. Reboot do Sistema
