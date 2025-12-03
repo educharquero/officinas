@@ -235,7 +235,7 @@ vim /etc/samba/smb.conf
 ## 🧠 Validar liberações de acesso por NSS e PAM
 
 ```bash
-vim /etc/nsswitch
+vim /etc/nsswitch.conf
 ```
 
 ```bash
