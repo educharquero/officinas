@@ -2773,7 +2773,7 @@
 <span class="w">    </span>EDUCATUX.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
 <span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
 <span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
-<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>officinas.edu
+<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>educatux.edu
 <span class="w">    </span><span class="o">}</span>
 
 <span class="o">[</span>domain_realm<span class="o">]</span>
@@ -2849,7 +2849,7 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">en
 <h2 id="se-voce-for-usuario-de-lightdm-como-e-o-caso-do-mint-ajuste-pra-logar-com-usuario-de-rede-ao-inves-de-usuario-local-apenas">SE você for usuário de Lightdm, como é o caso do Mint, ajuste pra logar com usuário de rede, ao invés de usuário local apenas.</h2>
 <h2 id="passo-a-passo-configurar-lightdm-para-aceitar-usuarios-do-dominio">🛠️ Passo a Passo: Configurar LightDM para aceitar usuários do domínio</h2>
 <h2 id="1-editar-ou-criar-o-arquivo-de-configuracao-do-lightdm">1. Editar ou criar o arquivo de configuração do LightDM</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/lightdm/lightdm.conf
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/lightdm/lightdm.conf
 </code></pre></div>
 <h2 id="adicione-ou-edite-as-seguintes-linhas">Adicione (ou edite) as seguintes linhas:</h2>
 <div class="highlight"><pre><span></span><code><span class="o">[</span>Seat:*<span class="o">]</span>
