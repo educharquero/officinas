@@ -2865,7 +2865,7 @@ allow-guest<span class="o">=</span><span class="nb">false</span>
 </ul>
 <h2 id="2-certifique-se-de-que-pam-esta-permitindo-usuarios-do-dominio">2. Certifique-se de que PAM está permitindo usuários do domínio</h2>
 <h2 id="se-voce-usou-sssd-ou-winbind-o-pam-ja-deve-estar-integrado-corretamente-mas-valide-que-o-modulo-home-esteja-presente">Se você usou SSSD ou Winbind, o PAM já deve estar integrado corretamente. Mas valide que o módulo home esteja presente:</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/pam.d/common-session
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/pam.d/common-session
 </code></pre></div>
 <h2 id="confirme-que-esta-linha-existe">Confirme que esta linha existe:</h2>
 <div class="highlight"><pre><span></span><code>session<span class="w"> </span>required<span class="w"> </span>pam_mkhomedir.so<span class="w"> </span><span class="nv">skel</span><span class="o">=</span>/etc/skel<span class="w"> </span><span class="nv">umask</span><span class="o">=</span><span class="m">0022</span>
