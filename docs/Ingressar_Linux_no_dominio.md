@@ -154,7 +154,7 @@ allow-guest=false
 ## Se você usou SSSD ou Winbind, o PAM já deve estar integrado corretamente. Mas valide que o módulo home esteja presente:
 
 ```bash
-sudo nano /etc/pam.d/common-session
+sudo vim /etc/pam.d/common-session
 ```
 
 ## Confirme que esta linha existe:
