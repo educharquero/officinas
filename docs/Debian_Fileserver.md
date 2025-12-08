@@ -391,6 +391,10 @@ smb://srvarquivos.officinas.edu/
 * Você mantém compatibilidade total com ambientes Windows, incluindo herança de permissões e auditoria.
 
 
-THAT'S ALL FOLKS
+---
 
+🎯 THAT'S ALL FOLKS!
+
+👉 Contato: zerolies@disroot.org
+👉 https://t.me/z3r0l135
 

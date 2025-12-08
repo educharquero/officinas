@@ -22,7 +22,8 @@ nav:
       - MkDocs Server: Mkdocs_Server.md
       - NFS Server: NFS_Server.md
       - Servidor de Arquivos:
-          - Fileserver: Fileserver.md
+          - Debian Fileserver: Debian_Fileserver.md
+          - Void Fileserver: Void_Fileserver.md
       - Controladores de Domínio:
           - PDC Debian Server: PDC_Debian_Server.md
           - PDC Void Server: PDC_Void_Server.md

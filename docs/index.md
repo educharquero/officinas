@@ -1,17 +1,12 @@
-
 # 🐧 Bem-vindo à Comunidade Officina's
-
 
 <p align="center">
   <img src="imagens/officinas.png" alt="text-alt" width="1000">
 </p>
 
-
 📚  Este é o portal de conhecimento técnico e colaborativo da **Comunidade Officina's**, voltado ao aprendizado, prática e documentação de tecnologias voltadas ao uso de **Linux**, **servidores**, **infraestrutura de rede** e muito mais.
 
-
 ⚠️  v0c3 3574 pr0n70 p4r4 p3n54r f0r4 d4 c41x4?
-
 
 ## 👉 Objetivos
 
@@ -23,19 +18,20 @@
 
 * **`TRANSPARÊNCIA`** - Incentivando a adoção de ferramentas com código fonte auditável, para uso na máquina pública ou privada.
 
-
 📘 Abaixo você encontrará conteúdos organizados em módulos, tutoriais práticos, configurações de serviços e materiais de apoio.
 
-
 ## 🌐 Visão Geral
+
 - [Visão Geral](./Visao_Geral.md)
 
 ## 🛠️ Servidores
+
 - [PDC Debian Server](./PDC_Debian_Server.md)
 - [PDC Void Server](./PDC_Void_Server.md)
 - [DHCP Server](./DHCP_Server.md)
 - [DNS Server](./DNS_Server.md)
-- [Fileserver](./Fileserver.md)
+- [Debian Fileserver](./Debian_Fileserver.md)
+- [Void Fileserver](./Void_Fileserver.md)
 - [Firewall](./Firewall.md)
 - [Proxy Squid](./Squid_proxy_puro.md)
 - [MkDocs Server](./Mkdocs_Server.md)
@@ -43,10 +39,12 @@
 - [RAID](./Raid.md)
 
 ## 📟 Distros Linux
+
 - [OpenSUSE Linux](./OpenSUSE_Linux.md)
 - [Devuan Linux](./Devuan_Linux.md)
 
 ## 🔩 Módulos LPI
+
 - [LPI - Aula de Introdução](./LPI_Aula_de_introducao.md)
 - [Módulo 101.1 - Detecção de hardware- Aula teórica](./LPIC-101.1_Identificacao_e_configuracao_de_hardware.md)
 - [Módulo 101.1 - Detecção de hardware - Aula prática](./LPIC-101.1_Aula_pratica.md)
@@ -65,6 +63,7 @@
 - [Módulo 103.2 - Filtros de fluxo de texto](./Modulo_103.2-aula01.md)
 
 ## 🔧 Outros Assuntos
+
 - [Universo \*NIX](./Universo_NIX.md)
 - [Pentester](./Aircrack-NG.md)
 - [Linux no Domínio](./Ingressar_Linux_no_dominio.md)
@@ -77,7 +76,6 @@
 
 ## 🧑‍💻 Propostas
 
-
 * **`LABORATÓRIO`** prático com computadores, Sistema operacional, aplicações e arquivos de configuração, no melhor estilo "mão na massa".
 
 * **`DOCUMENTAÇÃO`** teórica de apoio, atualizada, formatada e disponibilizada para estudos dentro ou fora da sala.
@@ -86,31 +84,24 @@
 
 * **`SOFTWARE LIVRE`** aliando os conceitos de diversão e responsabilidade.
 
-
 ⚠️  QUER AJUDAR?
 
 <a href="https://www.figma.com/deck/NcQvdBkIZrbvmAFwugKAsY/Officina-s---Slides?node-id=1-84&t=h7PQHQIGXRNhqqQB-1" target="_blank">Você pode contribuir para o "Projeto Officina's".</a>
 
-
 <img src="imagens/icones.png" title="" alt="text-alt" width="800">
 
-
 <a href="https://www.lpi.org" target="_blank">Visite a página do Linux Professional Institute aqui.</a>
-
 
 Baixe uma cópia do Debian Linux 🐧
 
 <img src="imagens/debian.jpeg" title="" alt="text-alt" width="240">
 
-
 [Imagem ISO](https://cdimage.debian.org/cdimage/weekly-builds/amd64/iso-dvd/debian-testing-amd64-DVD-1.iso)
-
 
 <p align="center">
   <img src="imagens/graduacao.png" alt="text-alt" width="30">
   O SENHOR é quem dá sabedoria e o entendimento procede dEle! (Prov 2:6) 💡
 </p>
-
 
 <p align="center">
   <img src="imagens/Yeshua.jpg" alt="text-alt" width="600">

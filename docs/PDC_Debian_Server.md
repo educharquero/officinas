@@ -489,4 +489,9 @@ samba-tool domain level show
 ## 🎉 Conclusão. 🎊 Seu Controlador de Domínio Samba4 no Debian 13 está configurado e operacional. 👏 Parabéns! 
 
 
-THAT’S ALL FOLKS!!
+---
+
+🎯 THAT'S ALL FOLKS!
+
+👉 Contato: zerolies@disroot.org
+👉 https://t.me/z3r0l135
