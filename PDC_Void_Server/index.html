@@ -823,14 +823,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../Fileserver/" class="md-nav__link">
+      <a href="../Debian_Fileserver/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Fileserver
+    Debian Fileserver
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Void_Fileserver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Void Fileserver
   
 
     
@@ -1043,10 +1071,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalar-o-void-linux" class="md-nav__link">
+  <a href="#a-instalacao-padrao-do-void-linux-nao-sera-coberta-nesse-tutorial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Instalar o Void Linux
+        A instalação padrão do Void Linux não será coberta nesse tutorial.
       
     </span>
   </a>
@@ -1054,10 +1082,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trocar-o-shell-padrao-do-void" class="md-nav__link">
+  <a href="#trocar-o-shell-padrao-do-void-pos-instalado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trocar o Shell padrão do Void
+        Trocar o Shell padrão do Void, pós instalado
       
     </span>
   </a>
@@ -1069,6 +1097,28 @@
     <span class="md-ellipsis">
       
         🧩 Instalar pacotes de dependências para compilar o Samba4 no Void
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao-o-samba4-compilado-inclui-o-codigo-do-kerberos-heimdal-embutido-kdc-interno-por-default-mas-nao-inclui-clientes-kerberos-nesse-caso-o-repositorio-disponibiliza-pacotes-binarios-do-mit-que-podem-ser-instalados-sem-qualquer-problema-ou-interferencia-no-kerberos-heimdal-default-compilado-no-controlador-de-dominio-os-pacotes-sao-mit-krb5-mit-krb5-client-mit-krb5-devel-porem-voce-nao-deve-em-hipotese-alguma-instalar-por-repositorio-o-pacote-binario-do-krb5-server-o-que-causaria-servico-concorrente-ao-kerberos-heimdal-interno-do-samba4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ ATENÇÃO: O Samba4 compilado inclui o código do kerberos Heimdal, embutido (KDC interno) por default, mas não inclui clientes Kerberos. Nesse caso o repositório disponibiliza pacotes binários do MIT, que podem ser instalados sem qualquer problema ou interferência no kerberos heimdal default, compilado no Controlador de Domínio. Os pacotes são: mit-krb5 mit-krb5-client mit-krb5-devel. PORÉM você NÃO DEVE em hipótese alguma, instalar por repositório o pacote binário do krb5-server, o que causaria serviço concorrente ao kerberos Heimdal, interno do Samba4!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-servicos-fornecidos-pelos-clientes-do-mit-krb5-ficam-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Os serviços fornecidos pelos clientes do MIT-krb5, ficam em:
       
     </span>
   </a>
@@ -1578,10 +1628,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kerberos-vincular-o-arquivo-krb5conf-criado-automagicamente-no-provisionamento-ao-path-do-etc" class="md-nav__link">
+  <a href="#criar-o-arquivo-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔐 Kerberos: vincular o arquivo krb5.conf criado automagicamente no provisionamento ao path do /etc
+        🔐 Criar o arquivo do Kerberos
       
     </span>
   </a>
@@ -3446,10 +3496,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalar-o-void-linux" class="md-nav__link">
+  <a href="#a-instalacao-padrao-do-void-linux-nao-sera-coberta-nesse-tutorial" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Instalar o Void Linux
+        A instalação padrão do Void Linux não será coberta nesse tutorial.
       
     </span>
   </a>
@@ -3457,10 +3507,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#trocar-o-shell-padrao-do-void" class="md-nav__link">
+  <a href="#trocar-o-shell-padrao-do-void-pos-instalado" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trocar o Shell padrão do Void
+        Trocar o Shell padrão do Void, pós instalado
       
     </span>
   </a>
@@ -3472,6 +3522,28 @@
     <span class="md-ellipsis">
       
         🧩 Instalar pacotes de dependências para compilar o Samba4 no Void
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#atencao-o-samba4-compilado-inclui-o-codigo-do-kerberos-heimdal-embutido-kdc-interno-por-default-mas-nao-inclui-clientes-kerberos-nesse-caso-o-repositorio-disponibiliza-pacotes-binarios-do-mit-que-podem-ser-instalados-sem-qualquer-problema-ou-interferencia-no-kerberos-heimdal-default-compilado-no-controlador-de-dominio-os-pacotes-sao-mit-krb5-mit-krb5-client-mit-krb5-devel-porem-voce-nao-deve-em-hipotese-alguma-instalar-por-repositorio-o-pacote-binario-do-krb5-server-o-que-causaria-servico-concorrente-ao-kerberos-heimdal-interno-do-samba4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ ATENÇÃO: O Samba4 compilado inclui o código do kerberos Heimdal, embutido (KDC interno) por default, mas não inclui clientes Kerberos. Nesse caso o repositório disponibiliza pacotes binários do MIT, que podem ser instalados sem qualquer problema ou interferência no kerberos heimdal default, compilado no Controlador de Domínio. Os pacotes são: mit-krb5 mit-krb5-client mit-krb5-devel. PORÉM você NÃO DEVE em hipótese alguma, instalar por repositório o pacote binário do krb5-server, o que causaria serviço concorrente ao kerberos Heimdal, interno do Samba4!
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#os-servicos-fornecidos-pelos-clientes-do-mit-krb5-ficam-em" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Os serviços fornecidos pelos clientes do MIT-krb5, ficam em:
       
     </span>
   </a>
@@ -3981,10 +4053,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kerberos-vincular-o-arquivo-krb5conf-criado-automagicamente-no-provisionamento-ao-path-do-etc" class="md-nav__link">
+  <a href="#criar-o-arquivo-do-kerberos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔐 Kerberos: vincular o arquivo krb5.conf criado automagicamente no provisionamento ao path do /etc
+        🔐 Criar o arquivo do Kerberos
       
     </span>
   </a>
@@ -4378,8 +4450,8 @@
 <li>Ip: 192.168.70.250</li>
 </ul>
 <hr />
-<h2 id="instalar-o-void-linux">Instalar o Void Linux</h2>
-<h2 id="trocar-o-shell-padrao-do-void">Trocar o Shell padrão do Void</h2>
+<h2 id="a-instalacao-padrao-do-void-linux-nao-sera-coberta-nesse-tutorial">A instalação padrão do Void Linux não será coberta nesse tutorial.</h2>
+<h2 id="trocar-o-shell-padrao-do-void-pos-instalado">Trocar o Shell padrão do Void, pós instalado</h2>
 <div class="highlight"><pre><span></span><code>chsh<span class="w"> </span>-s<span class="w"> </span>/bin/bash
 </code></pre></div>
 <h2 id="instalar-pacotes-de-dependencias-para-compilar-o-samba4-no-void">🧩 Instalar pacotes de dependências para compilar o Samba4 no Void</h2>
@@ -4399,6 +4471,13 @@
 <span class="w"> </span>python3-matplotlib<span class="w"> </span>python3-pexpect<span class="w"> </span>python3-pyasn1<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>tree<span class="w"> </span>libuuid-devel<span class="w"> </span>wget<span class="w"> </span>xfsprogs-devel<span class="w"> </span>zlib-devel<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span><span class="nb">bind</span><span class="w"> </span>ldns<span class="w"> </span>pkg-config
+</code></pre></div>
+<h2 id="atencao-o-samba4-compilado-inclui-o-codigo-do-kerberos-heimdal-embutido-kdc-interno-por-default-mas-nao-inclui-clientes-kerberos-nesse-caso-o-repositorio-disponibiliza-pacotes-binarios-do-mit-que-podem-ser-instalados-sem-qualquer-problema-ou-interferencia-no-kerberos-heimdal-default-compilado-no-controlador-de-dominio-os-pacotes-sao-mit-krb5-mit-krb5-client-mit-krb5-devel-porem-voce-nao-deve-em-hipotese-alguma-instalar-por-repositorio-o-pacote-binario-do-krb5-server-o-que-causaria-servico-concorrente-ao-kerberos-heimdal-interno-do-samba4">⚠️ ATENÇÃO:  O Samba4 compilado inclui o código do kerberos Heimdal, embutido (KDC interno) por default, mas não inclui clientes Kerberos. Nesse caso o repositório disponibiliza pacotes binários do MIT, que podem ser instalados sem qualquer problema ou interferência no kerberos heimdal default, compilado no Controlador de Domínio. Os pacotes são: mit-krb5 mit-krb5-client mit-krb5-devel. PORÉM você NÃO DEVE em hipótese alguma, instalar por repositório o pacote binário do krb5-server, o que causaria serviço concorrente ao kerberos Heimdal, interno do Samba4!</h2>
+<h2 id="os-servicos-fornecidos-pelos-clientes-do-mit-krb5-ficam-em">Os serviços fornecidos pelos clientes do MIT-krb5, ficam em:</h2>
+<div class="highlight"><pre><span></span><code>/usr/bin/kinit
+/usr/bin/klist
+/usr/bin/kvno
+/usr/bin/kdestroy
 </code></pre></div>
 <h2 id="setar-hostname">🖥️ Setar hostname</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;voiddc01&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/etc/hostname
@@ -4580,7 +4659,7 @@ mkdir<span class="w"> </span>-p<span class="w"> </span>/var/log/samba-ad-dc
 <div class="highlight"><pre><span></span><code><span class="c1"># Comentar a linha do Servidor externo</span>
 <span class="c1">#pool pool.ntp.org iburst (AQUI)</span>
 
-<span class="c1"># Servidores de tempo BR</span>
+<span class="c1"># Apontar Servidores de tempo BR</span>
 server<span class="w"> </span><span class="m">0</span>.br.pool.ntp.org<span class="w"> </span>iburst
 server<span class="w"> </span><span class="m">1</span>.br.pool.ntp.org<span class="w"> </span>iburst
 server<span class="w"> </span><span class="m">2</span>.br.pool.ntp.org<span class="w"> </span>iburst
@@ -4598,8 +4677,27 @@ allow<span class="w"> </span><span class="m">192</span>.168.70.0/24
 <h2 id="valide-os-servers-sao-ciclicos-e-aleatorios-durante-as-consulta">Valide os Servers, são cíclicos e aleatórios durante as consulta</h2>
 <div class="highlight"><pre><span></span><code>chronyc<span class="w"> </span>sources<span class="w"> </span>-v
 </code></pre></div>
-<h2 id="kerberos-vincular-o-arquivo-krb5conf-criado-automagicamente-no-provisionamento-ao-path-do-etc">🔐 Kerberos: vincular o arquivo krb5.conf criado automagicamente no provisionamento ao path do /etc</h2>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span>/opt/samba/private/krb5.conf<span class="w"> </span>/etc/krb5.conf
+<h2 id="criar-o-arquivo-do-kerberos">🔐 Criar o arquivo do Kerberos</h2>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/krb5.conf
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>libdefaults<span class="o">]</span>
+<span class="w">    </span><span class="nv">default_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
+<span class="w">    </span><span class="nv">dns_lookup_realm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">dns_lookup_kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">rdns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+<span class="w">    </span><span class="nv">forwardable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="w">    </span><span class="nv">proxiable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="o">[</span>realms<span class="o">]</span>
+<span class="w">    </span>EDUCATUX.EDU<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="nv">kdc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
+<span class="w">        </span><span class="nv">admin_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">192</span>.168.70.250
+<span class="w">        </span><span class="nv">default_domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>educatux.edu
+<span class="w">    </span><span class="o">}</span>
+
+<span class="o">[</span>domain_realm<span class="o">]</span>
+<span class="w">    </span>.educatux.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
+<span class="w">    </span>educatux.edu<span class="w"> </span><span class="o">=</span><span class="w"> </span>EDUCATUX.EDU
 </code></pre></div>
 <h2 id="destravar-e-rejustar-o-etcresolvconf-apos-o-provisionamento-e-apontar-para-o-proprio-pdc">🧭 Destravar e rejustar o /etc/resolv.conf APÓS o provisionamento, e apontar para o próprio PDC</h2>
 <div class="highlight"><pre><span></span><code>chattr<span class="w"> </span>-i<span class="w"> </span>/etc/resolv.conf
