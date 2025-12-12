@@ -4,7 +4,7 @@
 # Uso: ./deploy.sh "Sua mensagem de commit"
 
 # --- Configuração ---
-PROJECT_DIR="/home/mevorak/officinas"
+PROJECT_DIR="/home/mevorak/GitHub/officinas/officinas"
 APACHE_DIR="/srv/www/apache/"
 COMMIT_MESSAGE="Docs: Atualiza o conteúdo do site"
 
