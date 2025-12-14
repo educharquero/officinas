@@ -1,10 +1,6 @@
 # mkdocs.yml - VERSÃO COM MODO CLARO/ESCURO
 site_name: 🐧 Comunidade Officina's
 
-copyright: >-
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">
-    CC BY-SA 4.0
-  </a>
   - eduardo.charquero@gmail.com
 
 # --- SEÇÃO 'nav' ---
