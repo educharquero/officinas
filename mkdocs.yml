@@ -115,6 +115,6 @@ markdown_extensions:
   - attr_list
   - md_in_html
 
-copyright: |
-  Conteúdo licenciado sob Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+Licenças: |
+  Conteúdo licenciado sob duas formas: Textos e imagens sob Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) e Códigos-fonte sob GPLv3+
 
