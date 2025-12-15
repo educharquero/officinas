@@ -7,7 +7,7 @@
 ## 📡 Layout de rede local
 
 - Domínio: EDUCATUX.EDU
-- Hostname: VOIDDC01
+- Hostname: voiddc
 - Firewall 192.168.70.254 (DNS/GW)
 - Ip: 192.168.70.250
 
@@ -56,7 +56,7 @@ xbps-install -S \
 ## 🖥️ Setar hostname
 
 ```bash
-echo "voiddc01" > /etc/hostname
+echo "voiddc" > /etc/hostname
 ```
 
 ## 🏠 /etc/hosts
@@ -69,8 +69,8 @@ vim /etc/hosts
 
 ```bash
 127.0.0.1      localhost
-127.0.1.1      voiddc01.educatux.edu voiddc01
-192.168.70.250 voiddc01.educatux.edu voiddc01
+127.0.1.1      voiddc.educatux.edu voiddc
+192.168.70.250 voiddc.educatux.edu voiddc
 ```
 
 ## 🌐 Configurar IP fixo
@@ -81,7 +81,7 @@ vim /etc/hosts
 vim /etc/dhcpcd.conf
 ```
 
-## Adicionar ip, gateway e dns:
+## Adicionar ip, gateway e dns:## 🎯 Objetivo
 
 ```bash
 interface eth0
@@ -96,7 +96,7 @@ static domain_name_servers=192.168.70.254
 sv restart dhcpcd
 ```
 
-## 🌐 Setar o DNS temporário (ANTES de provisionar)
+## 🌐 Setar o DNS temporário (roteador) ANTES de provisionar
 
 ```bash
 echo "nameserver 192.168.70.254" > /etc/resolv.conf
@@ -121,17 +121,17 @@ ip -br link
 ## 📥 Baixar e descompactar o código fonte do Samba4
 
 ```bash
-wget https://download.samba.org/pub/samba/samba-4.23.3.tar.gz
+wget https://download.samba.org/pub/samba/samba-4.23.4.tar.gz
 ```
 
 ```bash
-tar -xvzf samba-4.23.3.tar.gz
+tar -xvzf samba-4.23.4.tar.gz
 ```
 
 ## Compilar e instalar o código fonte
 
 ```bash
-cd samba-4.23.3
+cd samba-4.23.4
 ```
 
 ```bash
@@ -152,7 +152,7 @@ make -j$(nproc) && make install
 ## 📁 Adicionar Samba4 ao PATH do Sistema e reler o ambiente
 
 ```bash
-echo 'export PATH=/opt/samba/bin:/opt/samba/sbin:$PATH' > /etc/profile
+echo 'export PATH=/opt/samba/bin:/opt/samba/sbin:$PATH' >> /etc/profile
 ```
 
 ```bash
@@ -168,7 +168,7 @@ samba-tool -V
 ## Resultado:
 
 ```bash
-4.23.3
+4.23.4
 ```
 
 🏰 Provisionar o domínio SAMBA4 (Criando o PDC propriamente dito)
@@ -316,9 +316,9 @@ tail -f /var/log/samba-ad-dc/current
 
 ```bash
 2025-11-27_04:14:23.73604 Completed DNS update check OK
-2025-11-27_04:14:25.35809 Registered VOIDDC01<00> with 192.168.70.250 on interface 192.168.70.255
-2025-11-27_04:14:25.35814 Registered VOIDDC01<03> with 192.168.70.250 on interface 192.168.70.255
-2025-11-27_04:14:25.35815 Registered VOIDDC01<20> with 192.168.70.250 on interface 192.168.70.255
+2025-11-27_04:14:25.35809 Registered voiddc<00> with 192.168.70.250 on interface 192.168.70.255
+2025-11-27_04:14:25.35814 Registered voiddc<03> with 192.168.70.250 on interface 192.168.70.255
+2025-11-27_04:14:25.35815 Registered voiddc<20> with 192.168.70.250 on interface 192.168.70.255
 2025-11-27_04:14:25.35941 Registered EDUCATUX<1b> with 192.168.70.250 on interface 192.168.70.255
 2025-11-27_04:14:25.35942 Registered EDUCATUX<1c> with 192.168.70.250 on interface 192.168.70.255
 2025-11-27_04:14:25.35944 Registered EDUCATUX<00> with 192.168.70.250 on interface 192.168.70.255
@@ -428,12 +428,6 @@ nameserver 127.0.0.1
 chattr +i /etc/resolv.conf
 ```
 
-## 👑 Dar poderes de root ao Administrator
-
-```bash
-vim /opt/samba/etc/user.map
-```
-
 ```bash
 !root=educatux.edu\Administrator
 ```
@@ -492,11 +486,13 @@ cat /opt/samba/etc/smb.conf
 [global]
         ad dc functional level = 2016
         dns forwarder = 192.168.70.254
-        netbios name = VOIDDC01
+        netbios name = voiddc
         realm = EDUCATUX.EDU
         server role = active directory domain controller
         workgroup = EDUCATUX
         idmap_ldb:use rfc2307 = yes
+         interfaces = lo eth0
+        bind interfaces only = yes
 
 [sysvol]
         path = /opt/samba/var/locks/sysvol
@@ -595,7 +591,7 @@ wbinfo -g
 EDUCATUX\administrator
 EDUCATUX\guest
 EDUCATUX\krbtgt
-[root@voiddc01 samba-4.23.3]# wbinfo -g
+[root@voiddc samba-4.23.4]# wbinfo -g
 EDUCATUX\cert publishers
 EDUCATUX\ras and ias servers
 EDUCATUX\allowed rodc password replication group
@@ -638,7 +634,7 @@ Password for [EDUCATUX\Administrator]:
         ---------       ----      -------
         sysvol          Disk
         netlogon        Disk
-        IPC$            IPC       IPC Service (Samba 4.23.3)
+        IPC$            IPC       IPC Service (Samba 4.23.4)
 SMB1 disabled -- no workgroup available
 ```
 
@@ -652,19 +648,19 @@ samba-tool dns zonelist localhost -U administrator
 Password for [EDUCATUX\administrator]:
   2 zone(s) found
 
-  pszZoneName                 : educatux.edu
-  Flags                       : DNS_RPC_ZONE_DSINTEGRATED DNS_RPC_ZONE_UPDATE_SECURE
-  ZoneType                    : DNS_ZONE_TYPE_PRIMARY
-  Version                     : 50
+  pszZoneName               : educatux.edu
+  Flags                            : DNS_RPC_ZONE_DSINTEGRATED DNS_RPC_ZONE_UPDATE_SECURE
+  ZoneType                     : DNS_ZONE_TYPE_PRIMARY
+  Version                        : 50
   dwDpFlags                   : DNS_DP_AUTOCREATED DNS_DP_DOMAIN_DEFAULT DNS_DP_ENLISTED
   pszDpFqdn                   : DomainDnsZones.educatux.edu
 
-  pszZoneName                 : _msdcs.educatux.edu
-  Flags                       : DNS_RPC_ZONE_DSINTEGRATED DNS_RPC_ZONE_UPDATE_SECURE
+  pszZoneName              : _msdcs.educatux.edu
+  Flags                           : DNS_RPC_ZONE_DSINTEGRATED DNS_RPC_ZONE_UPDATE_SECURE
   ZoneType                    : DNS_ZONE_TYPE_PRIMARY
-  Version                     : 50
-  dwDpFlags                   : DNS_DP_AUTOCREATED DNS_DP_FOREST_DEFAULT DNS_DP_ENLISTED
-  pszDpFqdn                   : ForestDnsZones.educatux.edu
+  Version                       : 50
+  dwDpFlags                  : DNS_DP_AUTOCREATED DNS_DP_FOREST_DEFAULT DNS_DP_ENLISTED
+  pszDpFqdn                  : ForestDnsZones.educatux.edu
 ```
 
 ```bash
@@ -752,7 +748,7 @@ Valid starting       Expires              Service principal
 ```
 
 ```bash
-samba-tool dns query voiddc01 educatux.edu @ A -U Administrator
+samba-tool dns query voiddc educatux.edu @ A -U Administrator
 ```
 
 ## Resultado recebido:
@@ -768,7 +764,7 @@ Password for [EDUCATUX\Administrator]:
   Name=_udp, Records=0, Children=2
   Name=DomainDnsZones, Records=0, Children=2
   Name=ForestDnsZones, Records=0, Children=2
-  Name=voiddc01, Records=1, Children=0
+  Name=voiddc, Records=1, Children=0
     A: 192.168.70.250 (flags=f0, serial=1, ttl=900)
 ```
 
@@ -804,56 +800,56 @@ samba_dnsupdate --verbose
 
 ```bash
 IPs: ['192.168.70.250']
-Looking for DNS entry A voiddc01.educatux.edu 192.168.70.250 as voiddc01.educatux.edu.
-Looking for DNS entry CNAME a9126dd4-c5ad-46b4-b91b-6ae91313e3b8._msdcs.educatux.edu voiddc01.educatux.edu as a9126dd4-c5ad-46b4-b91b-6ae91313e3b8._msdcs.educatux.edu.
-Looking for DNS entry NS educatux.edu voiddc01.educatux.edu as educatux.edu.
-Looking for DNS entry NS _msdcs.educatux.edu voiddc01.educatux.edu as _msdcs.educatux.edu.
+Looking for DNS entry A voiddc.educatux.edu 192.168.70.250 as voiddc.educatux.edu.
+Looking for DNS entry CNAME a9126dd4-c5ad-46b4-b91b-6ae91313e3b8._msdcs.educatux.edu voiddc.educatux.edu as a9126dd4-c5ad-46b4-b91b-6ae91313e3b8._msdcs.educatux.edu.
+Looking for DNS entry NS educatux.edu voiddc.educatux.edu as educatux.edu.
+Looking for DNS entry NS _msdcs.educatux.edu voiddc.educatux.edu as _msdcs.educatux.edu.
 Looking for DNS entry A educatux.edu 192.168.70.250 as educatux.edu.
-Looking for DNS entry SRV _ldap._tcp.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _ldap._tcp.dc._msdcs.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.dc._msdcs.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.dc._msdcs.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _kerberos._tcp.educatux.edu voiddc01.educatux.edu 88 as _kerberos._tcp.educatux.edu.
-Checking 0 100 88 voiddc01.educatux.edu. against SRV _kerberos._tcp.educatux.edu voiddc01.educatux.edu 88
-Looking for DNS entry SRV _kerberos._udp.educatux.edu voiddc01.educatux.edu 88 as _kerberos._udp.educatux.edu.
-Checking 0 100 88 voiddc01.educatux.edu. against SRV _kerberos._udp.educatux.edu voiddc01.educatux.edu 88
-Looking for DNS entry SRV _kerberos._tcp.dc._msdcs.educatux.edu voiddc01.educatux.edu 88 as _kerberos._tcp.dc._msdcs.educatux.edu.
-Checking 0 100 88 voiddc01.educatux.edu. against SRV _kerberos._tcp.dc._msdcs.educatux.edu voiddc01.educatux.edu 88
-Looking for DNS entry SRV _kpasswd._tcp.educatux.edu voiddc01.educatux.edu 464 as _kpasswd._tcp.educatux.edu.
-Checking 0 100 464 voiddc01.educatux.edu. against SRV _kpasswd._tcp.educatux.edu voiddc01.educatux.edu 464
-Looking for DNS entry SRV _kpasswd._udp.educatux.edu voiddc01.educatux.edu 464 as _kpasswd._udp.educatux.edu.
-Checking 0 100 464 voiddc01.educatux.edu. against SRV _kpasswd._udp.educatux.edu voiddc01.educatux.edu 464
-Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 88 as _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu.
-Checking 0 100 88 voiddc01.educatux.edu. against SRV _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 88
-Looking for DNS entry SRV _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc01.educatux.edu 88 as _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu.
-Checking 0 100 88 voiddc01.educatux.edu. against SRV _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc01.educatux.edu 88
-Looking for DNS entry SRV _ldap._tcp.pdc._msdcs.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.pdc._msdcs.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.pdc._msdcs.educatux.edu voiddc01.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.dc._msdcs.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.dc._msdcs.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.dc._msdcs.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.f5cccdab-a9d9-4b1f-9344-d2affb3c9855.domains._msdcs.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _kerberos._tcp.educatux.edu voiddc.educatux.edu 88 as _kerberos._tcp.educatux.edu.
+Checking 0 100 88 voiddc.educatux.edu. against SRV _kerberos._tcp.educatux.edu voiddc.educatux.edu 88
+Looking for DNS entry SRV _kerberos._udp.educatux.edu voiddc.educatux.edu 88 as _kerberos._udp.educatux.edu.
+Checking 0 100 88 voiddc.educatux.edu. against SRV _kerberos._udp.educatux.edu voiddc.educatux.edu 88
+Looking for DNS entry SRV _kerberos._tcp.dc._msdcs.educatux.edu voiddc.educatux.edu 88 as _kerberos._tcp.dc._msdcs.educatux.edu.
+Checking 0 100 88 voiddc.educatux.edu. against SRV _kerberos._tcp.dc._msdcs.educatux.edu voiddc.educatux.edu 88
+Looking for DNS entry SRV _kpasswd._tcp.educatux.edu voiddc.educatux.edu 464 as _kpasswd._tcp.educatux.edu.
+Checking 0 100 464 voiddc.educatux.edu. against SRV _kpasswd._tcp.educatux.edu voiddc.educatux.edu 464
+Looking for DNS entry SRV _kpasswd._udp.educatux.edu voiddc.educatux.edu 464 as _kpasswd._udp.educatux.edu.
+Checking 0 100 464 voiddc.educatux.edu. against SRV _kpasswd._udp.educatux.edu voiddc.educatux.edu 464
+Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 88 as _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu.
+Checking 0 100 88 voiddc.educatux.edu. against SRV _kerberos._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 88
+Looking for DNS entry SRV _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc.educatux.edu 88 as _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu.
+Checking 0 100 88 voiddc.educatux.edu. against SRV _kerberos._tcp.Default-First-Site-Name._sites.dc._msdcs.educatux.edu voiddc.educatux.edu 88
+Looking for DNS entry SRV _ldap._tcp.pdc._msdcs.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.pdc._msdcs.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.pdc._msdcs.educatux.edu voiddc.educatux.edu 389
 Looking for DNS entry A gc._msdcs.educatux.edu 192.168.70.250 as gc._msdcs.educatux.edu.
-Looking for DNS entry SRV _gc._tcp.educatux.edu voiddc01.educatux.edu 3268 as _gc._tcp.educatux.edu.
-Checking 0 100 3268 voiddc01.educatux.edu. against SRV _gc._tcp.educatux.edu voiddc01.educatux.edu 3268
-Looking for DNS entry SRV _ldap._tcp.gc._msdcs.educatux.edu voiddc01.educatux.edu 3268 as _ldap._tcp.gc._msdcs.educatux.edu.
-Checking 0 100 3268 voiddc01.educatux.edu. against SRV _ldap._tcp.gc._msdcs.educatux.edu voiddc01.educatux.edu 3268
-Looking for DNS entry SRV _gc._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 3268 as _gc._tcp.Default-First-Site-Name._sites.educatux.edu.
-Checking 0 100 3268 voiddc01.educatux.edu. against SRV _gc._tcp.Default-First-Site-Name._sites.educatux.edu voiddc01.educatux.edu 3268
-Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu voiddc01.educatux.edu 3268 as _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu.
-Checking 0 100 3268 voiddc01.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu voiddc01.educatux.edu 3268
+Looking for DNS entry SRV _gc._tcp.educatux.edu voiddc.educatux.edu 3268 as _gc._tcp.educatux.edu.
+Checking 0 100 3268 voiddc.educatux.edu. against SRV _gc._tcp.educatux.edu voiddc.educatux.edu 3268
+Looking for DNS entry SRV _ldap._tcp.gc._msdcs.educatux.edu voiddc.educatux.edu 3268 as _ldap._tcp.gc._msdcs.educatux.edu.
+Checking 0 100 3268 voiddc.educatux.edu. against SRV _ldap._tcp.gc._msdcs.educatux.edu voiddc.educatux.edu 3268
+Looking for DNS entry SRV _gc._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 3268 as _gc._tcp.Default-First-Site-Name._sites.educatux.edu.
+Checking 0 100 3268 voiddc.educatux.edu. against SRV _gc._tcp.Default-First-Site-Name._sites.educatux.edu voiddc.educatux.edu 3268
+Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu voiddc.educatux.edu 3268 as _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu.
+Checking 0 100 3268 voiddc.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.gc._msdcs.educatux.edu voiddc.educatux.edu 3268
 Looking for DNS entry A DomainDnsZones.educatux.edu 192.168.70.250 as DomainDnsZones.educatux.edu.
-Looking for DNS entry SRV _ldap._tcp.DomainDnsZones.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.DomainDnsZones.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.DomainDnsZones.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu voiddc01.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.DomainDnsZones.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.DomainDnsZones.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.DomainDnsZones.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.DomainDnsZones.educatux.edu voiddc.educatux.edu 389
 Looking for DNS entry A ForestDnsZones.educatux.edu 192.168.70.250 as ForestDnsZones.educatux.edu.
-Looking for DNS entry SRV _ldap._tcp.ForestDnsZones.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.ForestDnsZones.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.ForestDnsZones.educatux.edu voiddc01.educatux.edu 389
-Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu voiddc01.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu.
-Checking 0 100 389 voiddc01.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu voiddc01.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.ForestDnsZones.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.ForestDnsZones.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.ForestDnsZones.educatux.edu voiddc.educatux.edu 389
+Looking for DNS entry SRV _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu voiddc.educatux.edu 389 as _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu.
+Checking 0 100 389 voiddc.educatux.edu. against SRV _ldap._tcp.Default-First-Site-Name._sites.ForestDnsZones.educatux.edu voiddc.educatux.edu 389
 No DNS updates needed
 ```
 

@@ -1,8 +1,6 @@
 # mkdocs.yml - VERSÃO COM MODO CLARO/ESCURO
 site_name: 🐧 Comunidade Officina's
 
-  - eduardo.charquero@gmail.com
-
 # --- SEÇÃO 'nav' ---
 nav:
   - 📂 Início: index.md
@@ -70,6 +68,8 @@ nav:
       - Usuários e Grupos 01: Usuarios_e_Grupos-1.md
       - Usuários e Grupos 02: Usuarios_e_Grupos-2.md
 
+  - 📜 Licença: Licenca.md
+
 # --- FIM DA SEÇÃO 'nav' ---
 
 theme:
@@ -114,4 +114,7 @@ markdown_extensions:
       alternate_style: true
   - attr_list
   - md_in_html
+
+copyright: |
+  Conteúdo licenciado sob Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
